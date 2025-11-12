@@ -1,59 +1,37 @@
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
+	import tailwindColors from "tailwindcss/colors";
 
-	const colors = [
-		"accent",
-		"gray",
-		"zinc",
-		"neutral",
-		"stone",
-		"red",
-		"orange",
-		"amber",
-		"yellow",
-		"lime",
-		"green",
-		"emerald",
-		"teal",
-		"cyan",
-		"sky",
-		"blue",
-		"indigo",
-		"violet",
-		"purple",
-		"fuchsia",
-		"pink",
-		"rose",
-	] as const;
+	const validColors = Object.keys(tailwindColors).filter(
+		(color) =>
+			typeof tailwindColors[color as keyof typeof tailwindColors] ===
+				"object" &&
+			!["inherit", "current", "transparent", "black", "white"].includes(
+				color,
+			),
+	) as Array<keyof typeof tailwindColors>;
 
-	const generateColorVariants = (
-		variant: string,
-		template: (color: string) => string,
-	) =>
-		colors.map((color) => ({
-			variant: variant as any,
-			colorScheme: color as any,
-			class: template(color),
-		}));
+	type ColorName = (typeof validColors)[number];
 
 	const button = tv({
 		base: [
-			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 gap-y-2 rounded border border-solid border-gray-300/90 bg-gray-50/20 px-3 align-middle text-sm leading-5 font-medium wrap-break-words whitespace-nowrap text-gray-900 shadow-sm outline-0 transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,transform] duration-200 select-none hover:border-gray-300 hover:bg-gray-50 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent] dark:border-zinc-700/90 dark:bg-gray-950/20 dark:text-gray-200dark:hover:border-zinc-700 dark:hover:bg-gray-950 dark:focus-visible:outline-zinc-600 dark:text-gray-200",
+			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 gap-y-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium wrap-break-words whitespace-nowrap text-(--c-900) shadow-sm outline-0 transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,transform] duration-200 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:focus-visible:outline-(--c-600) dark:text-(--c-200)",
 		],
 		variants: {
 			variant: {
-				glass: "overflow-x-clip overflow-y-clip border-0 border-gray-200 dark:border-gray-200 bg-zinc-500 dark:bg-zinc-500 text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-zinc-500 dark:hover:bg-zinc-500",
-				solid: "border-0 border-gray-200 dark:border-gray-200 bg-zinc-500 dark:bg-zinc-500 text-white dark:text-white shadow hover:bg-zinc-500/90 dark:hover:bg-zinc-500/90",
-				subtle: "border-0 border-gray-200 bg-gray-50 hover:bg-gray-100 shadow-none dark:border-gray-800 dark:text-gray-200 dark:bg-gray-950  dark:focus-visible:outline-zinc-600 dark:hover:bg-gray-900",
+				glass: "overflow-x-clip overflow-y-clip border-0 border-(--c-200) dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500)",
+				solid: "border-0 border-(--c-200) dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-(--c-100) dark:text-white shadow hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90",
+				subtle: "border-0 border-(--c-200) bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:text-(--c-200) dark:bg-(--c-950)  dark:focus-visible:outline-(--c-600) dark:hover:bg-(--c-900)",
 				surface: "",
 				outline:
-					"border-[0.5px] border-gray-300 shadow-none dark:border-zinc-700 dark:text-gray-200 dark:hover:bg-gray-950 ",
-				ghost: "shadow-none border-0 border-gray-200  hover:bg-gray-100 dark:border-gray-800 dark:text-gray-200 dark:hover:bg-gray-900 dark:focus-visible:outline-zinc-600",
-				plain: "shadow-none border-0 border-gray-200 text-gray-900 hover:bg-transparent bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:border-gray-800 dark:text-gray-200",
+					"border-[0.5px] border-(--c-300) shadow-none dark:border-(--c-700) dark:text-(--c-200) dark:hover:bg-(--c-950) ",
+				ghost: "shadow-none border-0 border-(--c-200)  hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600)",
+				plain: "shadow-none border-0 border-(--c-200) text-(--c-900) hover:bg-transparent bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
 			},
-
-			colorScheme: Object.fromEntries(colors.map((c) => [c, ""])) as any,
+			colorPalette: Object.fromEntries(
+				validColors.map((c) => [c, ""]),
+			) as any,
 			size: {
 				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-4",
 				sm: "h-7 min-w-7 px-2.5 text-sm leading-5",
@@ -62,65 +40,85 @@
 				xl: "h-12 min-w-12 gap-x-3 gap-y-3 rounded-md px-6 text-base leading-6",
 			},
 		},
-		compoundVariants: [
-			/*	...generateColorVariants(
-				"solid",
-				(c) => `bg-${c}-solid text-${c}-contrast hover:opacity-90`,
-			),
-			...generateColorVariants(
-				"outline",
-				(c) =>
-					`border border-${c}-fg text-${c}-fg hover:bg-${c}-subtle`,
-			),
-			...generateColorVariants(
-				"ghost",
-				(c) => `text-${c}-fg hover:bg-${c}-subtle`,
-			),
-			...generateColorVariants(
-				"subtle",
-				(c) => `bg-${c}-subtle text-${c}-fg hover:bg-${c}-muted`,
-			),*/
-		],
 		defaultVariants: {
 			variant: "surface",
 			size: "md",
-			colorScheme: "accent",
+			colorPalette: "gray",
 		},
 	});
 
 	const glassOverlay =
-		"pointer-events-none absolute inset-0 border-0 border-solid border-gray-200 bg-[linear-gradient(#fff_40%,#0003)] opacity-20 transition-opacity duration-200 hover:bg-zinc-500 group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
+		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 transition-opacity duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
 
 	// Props type definition
 	type ButtonVariants = VariantProps<typeof button>;
-
 	interface Props extends HTMLButtonAttributes {
 		variant?: ButtonVariants["variant"];
 		size?: ButtonVariants["size"];
-		colorScheme?: ButtonVariants["colorScheme"];
+		colorPalette?: ColorName;
 	}
 
 	let {
 		variant,
 		size,
-		colorScheme,
+		colorPalette = "gray",
 		class: className,
 		children,
+		style,
 		...restProps
 	}: Props = $props();
 
-	// Computed class string
-	const buttonClass = $derived(
-		button({ variant, size, colorScheme, class: className as string }),
+	const colorVars = $derived(
+		(() => {
+			const paletteName = colorPalette || "gray";
+
+			if (!paletteName) return "";
+
+			const palette = tailwindColors[paletteName];
+
+			if (typeof palette !== "object" || !palette) {
+				return "";
+			}
+
+			const shades = [
+				"50",
+				"100",
+				"200",
+				"300",
+				"400",
+				"500",
+				"600",
+				"700",
+				"800",
+				"900",
+				"950",
+			] as const;
+
+			return shades
+				.map((shade) => {
+					const color = (palette as any)[shade];
+					return color ? `--c-${shade}: ${color}` : null;
+				})
+				.filter(Boolean)
+				.join("; ");
+		})(),
 	);
 
-	// Add group class for glass variant hover effects
-	const finalButtonClass = $derived(
-		variant === "glass" ? `${buttonClass} group` : buttonClass,
+	// Combine classes
+	const finalClass = $derived(
+		button({
+			variant,
+			size,
+			colorPalette,
+			class: `${className || ""}${variant === "glass" ? " group" : ""}`,
+		}),
 	);
+
+	// Combine styles
+	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
 </script>
 
-<button class={finalButtonClass} {...restProps}>
+<button class={finalClass} style={finalStyle} {...restProps}>
 	{#if variant === "glass"}
 		<span class={glassOverlay} aria-hidden="true"></span>
 	{/if}

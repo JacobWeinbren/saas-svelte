@@ -12,14 +12,27 @@
 	] as const;
 
 	const colors = [
-		"accent",
 		"gray",
+		"zinc",
+		"neutral",
+		"stone",
 		"red",
-		"green",
-		"blue",
+		"orange",
+		"amber",
 		"yellow",
+		"lime",
+		"green",
+		"emerald",
+		"teal",
+		"cyan",
+		"sky",
+		"blue",
+		"indigo",
+		"violet",
 		"purple",
+		"fuchsia",
 		"pink",
+		"rose",
 	] as const;
 
 	const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
@@ -30,7 +43,7 @@
 	let disabled = $state(false);
 
 	const needsColor = $derived(
-		["solid", "outline", "ghost", "subtle"].includes(variant),
+		["solid", "outline", "surface"].includes(variant),
 	);
 </script>
 
@@ -45,11 +58,11 @@
 			<div class="flex items-center justify-center">
 				<Button
 					{variant}
-					colorScheme={needsColor ? color : undefined}
+					colorPalette={needsColor ? color : undefined}
 					{size}
 					{disabled}
 				>
-					Button Text
+					Button
 				</Button>
 			</div>
 		</div>
@@ -105,7 +118,7 @@
 						class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
 					>
 						{#each sizes as s}
-							<option value={s}>{s.toUpperCase()}</option>
+							<option value={s}>{s}</option>
 						{/each}
 					</select>
 				</div>
