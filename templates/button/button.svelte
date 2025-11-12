@@ -46,7 +46,8 @@
 				glass: "overflow-x-clip overflow-y-clip border-0 border-solid border-gray-200 bg-zinc-500 text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] before:border-0 before:border-gray-200 hover:bg-zinc-500",
 				solid: "border-0 border-gray-200 bg-zinc-500 text-white shadow before:border-0 before:border-gray-200 after:border-0 after:border-gray-200 hover:bg-zinc-500/90",
 				subtle: "border-0 border-solid border-gray-200 bg-gray-50 before:border-0 before:border-gray-200 after:border-0 after:border-gray-200 hover:bg-gray-100 shadow-none dark:border-gray-800 dark:before:border-gray-800 dark:after:border-gray-800 dark:text-gray-200 dark:bg-gray-950  dark:focus-visible:outline-zinc-600 dark:hover:bg-gray-900",
-				surface: "",
+				surface:
+					"dark:border-zinc-700/90 dark:bg-gray-950/20 dark:text-gray-200dark:hover:border-zinc-700 dark:hover:bg-gray-950 dark:focus-visible:outline-zinc-600 dark:text-gray-200",
 				outline: "",
 				ghost: "",
 				plain: "",
