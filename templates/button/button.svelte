@@ -50,7 +50,7 @@
 				outline:
 					"border-[0.5px] border-gray-300 shadow-none dark:border-zinc-700 dark:text-gray-200 dark:hover:bg-gray-950 ",
 				ghost: "shadow-none border-0 border-gray-200  hover:bg-gray-100 dark:border-gray-800 dark:text-gray-200 dark:hover:bg-gray-900 dark:focus-visible:outline-zinc-600",
-				plain: "",
+				plain: "shadow-none border-0 border-gray-200 text-gray-900 hover:bg-transparent bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:border-gray-800 dark:text-gray-200",
 			},
 
 			colorScheme: Object.fromEntries(colors.map((c) => [c, ""])) as any,
