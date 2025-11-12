@@ -93,7 +93,7 @@
 						<label
 							class="block mb-2 text-xs font-medium text-black dark:text-white"
 						>
-							Color
+							Colour
 						</label>
 						<select
 							bind:value={color}
