@@ -38,7 +38,7 @@
 	const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
 	let variant = $state<(typeof variants)[number]>("solid");
-	let color = $state<(typeof colors)[number]>("accent");
+	let color = $state<(typeof colors)[number]>("gray");
 	let size = $state<(typeof sizes)[number]>("md");
 	let disabled = $state(false);
 
