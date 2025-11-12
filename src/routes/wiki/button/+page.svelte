@@ -2,12 +2,12 @@
 	import { Button } from "$saas/button";
 
 	const variants = [
+		"glass",
 		"solid",
-		"outline",
-		"ghost",
 		"subtle",
 		"surface",
-		"glass",
+		"outline",
+		"ghost",
 		"plain",
 	] as const;
 
