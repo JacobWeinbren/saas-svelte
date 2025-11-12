@@ -1,7 +1,7 @@
 {
     "name": "saas-svelte",
     "version": "1.0.0",
-    "description": "A Svelte implementation of the open-source SAAS Design System",
+    "description": "A Svelte implementation of the open-source SaaS Design System",
     "keywords": [
         "svelte",
         "saas",
