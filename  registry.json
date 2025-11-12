@@ -1,0 +1,10 @@
+[
+    {
+        "name": "button",
+        "dependencies": []
+    },
+    {
+        "name": "card",
+        "dependencies": []
+    }
+]
