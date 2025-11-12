@@ -39,19 +39,20 @@
 
 	const button = tv({
 		base: [
-			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 gap-y-2 rounded border border-solid border-gray-300/90 bg-gray-50/20 px-3 align-middle text-sm leading-5 font-medium wrap-break-words whitespace-nowrap text-gray-900 shadow-sm outline-0 transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,transform] duration-200 select-none before:border-solid after:border-solid hover:border-gray-300 hover:bg-gray-50 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent]",
+			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 gap-y-2 rounded border border-solid border-gray-300/90 bg-gray-50/20 px-3 align-middle text-sm leading-5 font-medium wrap-break-words whitespace-nowrap text-gray-900 shadow-sm outline-0 transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,transform] duration-200 select-none hover:border-gray-300 hover:bg-gray-50 focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-zinc-600 focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent] dark:border-zinc-700/90 dark:bg-gray-950/20 dark:text-gray-200dark:hover:border-zinc-700 dark:hover:bg-gray-950 dark:focus-visible:outline-zinc-600 dark:text-gray-200",
 		],
 		variants: {
 			variant: {
-				glass: "overflow-x-clip overflow-y-clip border-0 border-solid border-gray-200 bg-zinc-500 text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] before:border-0 before:border-gray-200 hover:bg-zinc-500",
-				solid: "border-0 border-gray-200 bg-zinc-500 text-white shadow before:border-0 before:border-gray-200 after:border-0 after:border-gray-200 hover:bg-zinc-500/90",
-				subtle: "border-0 border-solid border-gray-200 bg-gray-50 before:border-0 before:border-gray-200 after:border-0 after:border-gray-200 hover:bg-gray-100 shadow-none dark:border-gray-800 dark:before:border-gray-800 dark:after:border-gray-800 dark:text-gray-200 dark:bg-gray-950  dark:focus-visible:outline-zinc-600 dark:hover:bg-gray-900",
-				surface:
-					"dark:border-zinc-700/90 dark:bg-gray-950/20 dark:text-gray-200dark:hover:border-zinc-700 dark:hover:bg-gray-950 dark:focus-visible:outline-zinc-600 dark:text-gray-200",
-				outline: "",
-				ghost: "",
+				glass: "overflow-x-clip overflow-y-clip border-0 border-gray-200 dark:border-gray-200 bg-zinc-500 dark:bg-zinc-500 text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-zinc-500 dark:hover:bg-zinc-500",
+				solid: "border-0 border-gray-200 dark:border-gray-200 bg-zinc-500 dark:bg-zinc-500 text-white dark:text-white shadow hover:bg-zinc-500/90 dark:hover:bg-zinc-500/90",
+				subtle: "border-0 border-gray-200 bg-gray-50 hover:bg-gray-100 shadow-none dark:border-gray-800 dark:text-gray-200 dark:bg-gray-950  dark:focus-visible:outline-zinc-600 dark:hover:bg-gray-900",
+				surface: "",
+				outline:
+					"border-[0.5px] border-gray-300 shadow-none dark:border-zinc-700 dark:text-gray-200 dark:hover:bg-gray-950 ",
+				ghost: "shadow-none border-0 border-gray-200  hover:bg-gray-100 dark:border-gray-800 dark:text-gray-200 dark:hover:bg-gray-900 dark:focus-visible:outline-zinc-600",
 				plain: "",
 			},
+
 			colorScheme: Object.fromEntries(colors.map((c) => [c, ""])) as any,
 			size: {
 				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-4",
