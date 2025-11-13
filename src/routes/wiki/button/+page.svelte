@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from "$saas/button";
+	import { Mail, ArrowRight } from "@lucide/svelte";
 
 	const variants = [
 		"glass",
@@ -41,6 +42,8 @@
 	let color = $state<(typeof colors)[number]>("gray");
 	let size = $state<(typeof sizes)[number]>("md");
 	let disabled = $state(false);
+	let loading = $state(false);
+	let withIcons = $state(false);
 
 	const needsColor = $derived(
 		["solid", "outline", "surface"].includes(variant),
@@ -55,21 +58,41 @@
 	<div class="bg-white rounded-2xl dark:bg-black">
 		<!-- Preview Area -->
 		<div class="p-12 border-b dark:border-gray-700">
-			<div class="flex items-center justify-center">
+			<div class="flex items-center justify-center gap-4">
 				<Button
 					{variant}
 					colorPalette={needsColor ? color : undefined}
 					{size}
 					{disabled}
+					{loading}
 				>
-					Button
+					{#if withIcons && !loading}
+						<Mail class="h-3.5 w-3.5 shrink-0" />
+					{/if}
+					Click me!
+					{#if withIcons && !loading}
+						<ArrowRight class="h-3.5 w-3.5 shrink-0" />
+					{/if}
 				</Button>
+
+				{#if loading}
+					<Button
+						{variant}
+						colorPalette={needsColor ? color : undefined}
+						{size}
+						{disabled}
+						loading
+						loadingText="Loading..."
+					>
+						Button
+					</Button>
+				{/if}
 			</div>
 		</div>
 
 		<!-- Controls -->
 		<div class="p-6 space-y-6">
-			<div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+			<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
 				<!-- Variant -->
 				<div>
 					<label
@@ -91,13 +114,13 @@
 				{#if needsColor}
 					<div>
 						<label
-							class="block mb-2 text-xs font-medium text-black dark:text-white"
+							class="block mb-2 text-xs font-medium text-gray-600 dark:text-gray-400"
 						>
 							Colour
 						</label>
 						<select
 							bind:value={color}
-							class="w-full px-3 py-2 text-sm bg-white border border-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+							class="w-full px-3 py-2 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
 						>
 							{#each colors as c}
 								<option value={c}>{c}</option>
@@ -121,6 +144,40 @@
 							<option value={s}>{s}</option>
 						{/each}
 					</select>
+				</div>
+
+				<!-- Loading -->
+				<div>
+					<label
+						class="block mb-2 text-xs font-medium text-gray-600 dark:text-gray-400"
+					>
+						Loading
+					</label>
+					<button
+						onclick={() => (loading = !loading)}
+						class="w-full px-3 py-2 text-sm font-medium transition-colors rounded-lg {loading
+							? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+							: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400'}"
+					>
+						{loading ? "Loading" : "Normal"}
+					</button>
+				</div>
+
+				<!-- Icons -->
+				<div>
+					<label
+						class="block mb-2 text-xs font-medium text-gray-600 dark:text-gray-400"
+					>
+						Icons
+					</label>
+					<button
+						onclick={() => (withIcons = !withIcons)}
+						class="w-full px-3 py-2 text-sm font-medium transition-colors rounded-lg {withIcons
+							? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
+							: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400'}"
+					>
+						{withIcons ? "With Icons" : "No Icons"}
+					</button>
 				</div>
 
 				<!-- Disabled -->

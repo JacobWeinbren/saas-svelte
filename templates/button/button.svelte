@@ -2,6 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import tailwindColors from "tailwindcss/colors";
+	import { LoaderCircle } from "@lucide/svelte";
 
 	const validColors = Object.keys(tailwindColors).filter(
 		(color) =>
@@ -56,6 +57,8 @@
 		variant?: ButtonVariants["variant"];
 		size?: ButtonVariants["size"];
 		colorPalette?: ColorName;
+		loading?: boolean;
+		loadingText?: string;
 	}
 
 	let {
@@ -65,6 +68,9 @@
 		class: className,
 		children,
 		style,
+		loading = false,
+		loadingText,
+		disabled,
 		...restProps
 	}: Props = $props();
 
@@ -104,7 +110,6 @@
 		})(),
 	);
 
-	// Combine classes
 	const finalClass = $derived(
 		button({
 			variant,
@@ -114,13 +119,38 @@
 		}),
 	);
 
-	// Combine styles
 	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
 </script>
 
-<button class={finalClass} style={finalStyle} {...restProps}>
+<button
+	class={finalClass}
+	style={finalStyle}
+	disabled={disabled || loading}
+	{...restProps}
+>
 	{#if variant === "glass"}
 		<span class={glassOverlay} aria-hidden="true"></span>
 	{/if}
-	{@render children?.()}
+
+	{#if loading && !loadingText}
+		<span class="contents">
+			<div class="absolute inset-0 flex items-center justify-center">
+				<LoaderCircle
+					class="h-3.5 w-3.5 animate-spin [animation-duration:0.5s]"
+				/>
+			</div>
+			<span class="invisible contents">
+				{@render children?.()}
+			</span>
+		</span>
+	{:else if loading && loadingText}
+		<span class="contents">
+			<LoaderCircle
+				class="h-3.5 w-3.5 animate-spin [animation-duration:0.5s]"
+			/>
+			{loadingText}
+		</span>
+	{:else}
+		{@render children?.()}
+	{/if}
 </button>
