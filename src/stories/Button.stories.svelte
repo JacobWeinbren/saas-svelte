@@ -124,8 +124,8 @@
 
 {#snippet groupStory()}
 	<ButtonGroup>
-		<Button variant="outline">Button</Button>
-		<Button variant="outline" icon>
+		<Button variant="outline" size="sm">Button</Button>
+		<Button variant="outline" size="sm" icon>
 			<ChevronDown />
 		</Button>
 	</ButtonGroup>
