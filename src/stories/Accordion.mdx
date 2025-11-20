@@ -1,42 +1,59 @@
-import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import { Meta, Story, Canvas, ArgTypes, Controls } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.svelte";
 
 <Meta of={AccordionStories} />
 
-Accordion
+# Accordion
 
-An Accordion component displays a vertically stacked list of headers that can be clicked to reveal or hide content.
-
-Accordions are essential for creating FAQ sections, documentation sidebars, or any area where content density needs to be managed.
-
-Default
-
-This demonstrates the basic functionality where content slides open and only one item can be active at a time (single-open).
+Used to show and hide sections of related content on a page.
 
 <Canvas of={AccordionStories.Default} />
 
-Anatomy & Logic
+## Anatomy
+
+The Accordion component is a composed component that handles accessibility (ARIA attributes), keyboard navigation, and animations automatically.
+
+```tsx
+// Anatomy Example
+import { Accordion } from "$saas/accordion";
+
+const items = [{ value: "item-1", title: "Trigger", text: "Content..." }];
+
+<Accordion items={items} />;
+```
 
 Examples
+Variants
+Use the variant prop to change the visual style of the accordion. Values can be outline, subtle, enclosed, or plain.
 
-Themed
+Subtle <Canvas of={AccordionStories.Subtle} />
 
-You can easily style the Accordion to fit your application's theme using utility classes, as shown in this Indigo-themed example.
+Enclosed <Canvas of={AccordionStories.Enclosed} />
 
-<Canvas of={AccordionStories.Themed} />
+Plain <Canvas of={AccordionStories.Plain} />
+
+Sizes
+Use the size prop to change the size of the accordion.
+
+Small <Canvas of={AccordionStories.Small} />
+
+Large <Canvas of={AccordionStories.Large} />
+
+Expand Multiple Items
+Use the multiple prop to allow multiple items to be expanded at once.
+
+<Canvas of={AccordionStories.Multiple} />
+
+With Icon
+You can pass an icon property (a Svelte component, e.g., Lucide icons) inside your items array to add visual context.
+
+<Canvas of={AccordionStories.WithIcons} />
+
+Disabled
+Pass the disabled prop to disable the entire accordion, or set disabled: true on specific items in your data array.
+
+<Canvas of={AccordionStories.Disabled} />
 
 Props
-
-The provided Accordion structure is typically a composite component. The primary internal logic relies on:
-
-title: The text displayed on the header button.
-
-content: The collapsible text/HTML content.
-
-value: A unique identifier for the item (used for state tracking).
-
-openValue: The value of the currently open item (a string or null).
-
-toggle: The function to update the openValue.
 
 <ArgTypes />
