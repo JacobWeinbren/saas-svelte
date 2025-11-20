@@ -4,16 +4,25 @@
 	import tailwindColors from "tailwindcss/colors";
 	import { LoaderCircle } from "@lucide/svelte";
 
-	const validColors = Object.keys(tailwindColors).filter(
-		(color) =>
-			typeof tailwindColors[color as keyof typeof tailwindColors] ===
-				"object" &&
-			!["inherit", "current", "transparent", "black", "white"].includes(
-				color,
-			),
-	) as Array<keyof typeof tailwindColors>;
+	// 1. Define the keys we want to exclude strictly in TypeScript
+	type RestrictedColors =
+		| "inherit"
+		| "current"
+		| "transparent"
+		| "black"
+		| "white";
 
-	type ColorName = (typeof validColors)[number];
+	// Runtime logic: Still needed for tailwind-variants to recognize the props
+	const validColors = Object.entries(tailwindColors)
+		.filter(([key, value]) => {
+			if (typeof value !== "object") return false;
+			return true;
+		})
+		.map(([key]) => key);
+
+	// 2. Create a Union Type of all valid color names (e.g. "slate" | "red" | "blue"...)
+	// This allows Storybook to automatically generate the Select dropdown.
+	type ColorName = keyof Omit<typeof tailwindColors, RestrictedColors>;
 
 	const button = tv({
 		base: [
@@ -30,21 +39,48 @@
 				ghost: "shadow-none border-0 border-(--c-200)  hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600)",
 				plain: "shadow-none border-0 border-(--c-200) text-(--c-900) hover:bg-transparent bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
 			},
-			colorPalette: Object.fromEntries(
-				validColors.map((c) => [c, ""]),
-			) as any,
+			color: Object.fromEntries(validColors.map((c) => [c, ""])) as any,
 			size: {
-				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-4",
-				sm: "h-7 min-w-7 px-2.5 text-sm leading-5",
-				md: "",
-				lg: "h-10 min-w-10 gap-x-3 gap-y-3 rounded-md px-5",
-				xl: "h-12 min-w-12 gap-x-3 gap-y-3 rounded-md px-6 text-base leading-6",
+				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-4 [&_svg]:size-2",
+				sm: "h-7 min-w-7 px-2.5 text-sm leading-5 [&_svg]:size-3",
+				md: "[&_svg]:size-4",
+				lg: "h-10 min-w-10 gap-x-3 gap-y-3 rounded-md px-5 [&_svg]:size-5",
+				xl: "h-12 min-w-12 gap-x-3 gap-y-3 rounded-md px-6 text-base leading-6 [&_svg]:size-6",
 			},
+			icon: { true: "px-0 shrink-0" },
 		},
+		compoundVariants: [
+			{
+				size: "xs",
+				icon: true,
+				class: "w-6 [&_svg]:size-3",
+			},
+			{
+				size: "sm",
+				icon: true,
+				class: "w-7 [&_svg]:size-3",
+			},
+			{
+				size: "md",
+				icon: true,
+				class: "w-8 [&_svg]:size-4",
+			},
+			{
+				size: "lg",
+				icon: true,
+				class: "w-10 [&_svg]:size-5",
+			},
+			{
+				size: "xl",
+				icon: true,
+				class: "w-12 [&_svg]:size-6",
+			},
+		],
 		defaultVariants: {
 			variant: "surface",
 			size: "md",
-			colorPalette: "gray",
+			icon: false,
+			color: "gray",
 		},
 	});
 
@@ -56,31 +92,34 @@
 	interface Props extends HTMLButtonAttributes {
 		variant?: ButtonVariants["variant"];
 		size?: ButtonVariants["size"];
-		colorPalette?: ColorName;
+		icon?: boolean;
+		color?: ColorName;
 		loading?: boolean;
 		loadingText?: string;
 	}
 
 	let {
-		variant,
-		size,
-		colorPalette = "gray",
+		variant = "surface",
+		size = "md",
+		icon = false,
+		color = "gray",
 		class: className,
 		children,
 		style,
 		loading = false,
-		loadingText,
+		loadingText = "",
 		disabled,
 		...restProps
 	}: Props = $props();
 
 	const colorVars = $derived(
 		(() => {
-			const paletteName = colorPalette || "gray";
+			const paletteName = color || "gray";
 
 			if (!paletteName) return "";
 
-			const palette = tailwindColors[paletteName];
+			const palette =
+				tailwindColors[paletteName as keyof typeof tailwindColors];
 
 			if (typeof palette !== "object" || !palette) {
 				return "";
@@ -102,8 +141,8 @@
 
 			return shades
 				.map((shade) => {
-					const color = (palette as any)[shade];
-					return color ? `--c-${shade}: ${color}` : null;
+					const colorValue = (palette as any)[shade];
+					return colorValue ? `--c-${shade}: ${colorValue}` : null;
 				})
 				.filter(Boolean)
 				.join("; ");
@@ -114,7 +153,8 @@
 		button({
 			variant,
 			size,
-			colorPalette,
+			color,
+			icon,
 			class: `${className || ""}${variant === "glass" ? " group" : ""}`,
 		}),
 	);
