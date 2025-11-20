@@ -96,7 +96,7 @@
 
 	<div class="flex flex-col justify-self-start gap-4">
 		{#each sizes as size}
-			<Button color="rose" variant="outline" {size} icon>
+			<Button color="rose" variant="solid" {size} icon>
 				<Heart />
 			</Button>
 		{/each}
