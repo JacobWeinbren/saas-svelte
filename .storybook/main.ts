@@ -5,7 +5,12 @@ const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx|svelte)"],
     addons: [
         "@storybook/addon-links",
-        "@storybook/addon-essentials",
+        {
+            name: "@storybook/addon-essentials",
+            options: {
+                outline: false,
+            },
+        },
         "@storybook/addon-interactions",
         {
             name: "@storybook/addon-svelte-csf",
@@ -13,7 +18,6 @@ const config: StorybookConfig = {
                 legacyTemplate: true,
             },
         },
-        // Register the dark mode addon
         "storybook-dark-mode",
     ],
     framework: {
