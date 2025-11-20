@@ -7,3 +7,5 @@ build
 .env.local
 .env.*.local
 npm-debug.log*
+*storybook.log
+storybook-static
