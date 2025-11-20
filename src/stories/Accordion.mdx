@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import * as AccordionStories from "./Accordion.stories.svelte";
+
+<Meta of={AccordionStories} />
+
+Accordion
+
+An Accordion component displays a vertically stacked list of headers that can be clicked to reveal or hide content.
+
+Accordions are essential for creating FAQ sections, documentation sidebars, or any area where content density needs to be managed.
+
+Default
+
+This demonstrates the basic functionality where content slides open and only one item can be active at a time (single-open).
+
+<Canvas of={AccordionStories.Default} />
+
+Anatomy & Logic
+
+Examples
+
+Themed
+
+You can easily style the Accordion to fit your application's theme using utility classes, as shown in this Indigo-themed example.
+
+<Canvas of={AccordionStories.Themed} />
+
+Props
+
+The provided Accordion structure is typically a composite component. The primary internal logic relies on:
+
+title: The text displayed on the header button.
+
+content: The collapsible text/HTML content.
+
+value: A unique identifier for the item (used for state tracking).
+
+openValue: The value of the currently open item (a string or null).
+
+toggle: The function to update the openValue.
+
+<ArgTypes />

@@ -70,7 +70,7 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<div class="flex flex-wrap items-center gap-4 p-4">
+	<div class="flex flex-wrap items-center p-4 gap-4">
 		{#each variants as variant}
 			<Button {variant}>{variant}</Button>
 		{/each}
