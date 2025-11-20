@@ -58,7 +58,7 @@
 			{
 				size: "sm",
 				icon: true,
-				class: "w-7 [&_svg]:size-3",
+				class: "w-7 [&_svg]:size-3.5",
 			},
 			{
 				size: "md",
