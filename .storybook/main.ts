@@ -13,6 +13,8 @@ const config: StorybookConfig = {
                 legacyTemplate: true,
             },
         },
+        // Register the dark mode addon
+        "storybook-dark-mode",
     ],
     framework: {
         name: "@storybook/sveltekit",
