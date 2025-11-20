@@ -18,13 +18,13 @@
 </script>
 
 <div
-	class="w-full px-6 pt-4 pb-6 text-sm leading-normal text-black sm:p-10"
+	class="w-full px-6 pt-4 pb-6 text-sm leading-normal text-black sm:p-10 focus-visible:border-zinc-600"
 	dir="ltr"
 	role="tabpanel"
 >
 	<div dir="ltr" class="w-full">
 		{#each items as item (item.value)}
-			<div class="border-b [overflow-anchor:none]">
+			<div class="border-b border-gray-200 [overflow-anchor:none]">
 				<button
 					type="button"
 					dir="ltr"
