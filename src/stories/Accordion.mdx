@@ -30,24 +30,24 @@ const items = [
 **Composition API (for full control):**
 
 ```svelte
-import { AccordionComposition } from '$saas/accordion';
+import { Accordion } from '$saas/accordion';
 
-<AccordionComposition.Root collapsible defaultValue={['b']}>
-  <AccordionComposition.Item value="a">
-    <AccordionComposition.ItemTrigger>First Item</AccordionComposition.ItemTrigger>
-    <AccordionComposition.ItemContent>Some value 1...</AccordionComposition.ItemContent>
-  </AccordionComposition.Item>
+<Accordion.Root collapsible defaultValue={['b']}>
+  <Accordion.Item value="a">
+    <Accordion.ItemTrigger>First Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 1...</Accordion.ItemContent>
+  </Accordion.Item>
 
-  <AccordionComposition.Item value="b">
-    <AccordionComposition.ItemTrigger>Second Item</AccordionComposition.ItemTrigger>
-    <AccordionComposition.ItemContent>Some value 2...</AccordionComposition.ItemContent>
-  </AccordionComposition.Item>
+  <Accordion.Item value="b">
+    <Accordion.ItemTrigger>Second Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 2...</Accordion.ItemContent>
+  </Accordion.Item>
 
-  <AccordionComposition.Item value="c">
-    <AccordionComposition.ItemTrigger>Third Item</AccordionComposition.ItemTrigger>
-    <AccordionComposition.ItemContent>Some value 3...</AccordionComposition.ItemContent>
-  </AccordionComposition.Item>
-</AccordionComposition.Root>
+  <Accordion.Item value="c">
+    <Accordion.ItemTrigger>Third Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 3...</Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>
 ```
 
 ## Examples

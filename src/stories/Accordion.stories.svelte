@@ -31,7 +31,7 @@
 </script>
 
 <Story name="Basic">
-	<AccordionRoot collapsible defaultValue={["b"]}>
+	<AccordionRoot defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -50,7 +50,7 @@
 </Story>
 
 <Story name="Controlled">
-	<AccordionRoot collapsible defaultValue={["b"]}>
+	<AccordionRoot defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -69,7 +69,7 @@
 </Story>
 
 <Story name="WithIcon">
-	<AccordionRoot collapsible defaultValue={["account"]}>
+	<AccordionRoot defaultValue={["account"]}>
 		<AccordionItem value="account">
 			<AccordionItemTrigger icon={User}>
 				Account Details
@@ -119,7 +119,7 @@
 </Story>
 
 <Story name="Small">
-	<AccordionRoot collapsible size="sm" defaultValue={["b"]}>
+	<AccordionRoot size="sm" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -138,7 +138,7 @@
 </Story>
 
 <Story name="Medium">
-	<AccordionRoot collapsible size="md" defaultValue={["b"]}>
+	<AccordionRoot size="md" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -157,7 +157,7 @@
 </Story>
 
 <Story name="Large">
-	<AccordionRoot collapsible size="lg" defaultValue={["b"]}>
+	<AccordionRoot size="lg" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -176,7 +176,7 @@
 </Story>
 
 <Story name="Outline">
-	<AccordionRoot collapsible variant="outline" defaultValue={["b"]}>
+	<AccordionRoot variant="outline" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -195,7 +195,7 @@
 </Story>
 
 <Story name="Subtle">
-	<AccordionRoot collapsible variant="subtle" defaultValue={["b"]}>
+	<AccordionRoot variant="subtle" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -214,7 +214,7 @@
 </Story>
 
 <Story name="Enclosed">
-	<AccordionRoot collapsible variant="enclosed" defaultValue={["b"]}>
+	<AccordionRoot variant="enclosed" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -233,7 +233,7 @@
 </Story>
 
 <Story name="Plain">
-	<AccordionRoot collapsible variant="plain" defaultValue={["b"]}>
+	<AccordionRoot variant="plain" defaultValue={["b"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
@@ -252,7 +252,7 @@
 </Story>
 
 <Story name="DisabledItem">
-	<AccordionRoot collapsible defaultValue={["a"]}>
+	<AccordionRoot defaultValue={["a"]}>
 		<AccordionItem value="a">
 			<AccordionItemTrigger>First Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 1...</AccordionItemContent>
