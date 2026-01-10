@@ -50,6 +50,18 @@
 	type AlertVariants = VariantProps<typeof alert>;
 	type Status = "info" | "success" | "warning" | "error" | "neutral";
 
+	interface Props {
+		class?: string;
+		variant?: AlertVariants["variant"];
+		status?: Status;
+		color?: ColorName;
+		icon?: boolean | Component<any>;
+		title?: string | Snippet;
+		children?: Snippet;
+		style?: string;
+		[key: string]: any;
+	}
+
 	let {
 		class: className,
 		variant = "subtle",
@@ -60,17 +72,7 @@
 		children,
 		style,
 		...restProps
-	}: {
-		class?: string;
-		variant?: AlertVariants["variant"];
-		status?: Status;
-		color?: ColorName;
-		icon?: boolean | Component<any>;
-		title?: string | Snippet;
-		children?: Snippet;
-		style?: string;
-		[key: string]: any;
-	} = $props();
+	}: Props = $props();
 
 	// 3. Color Logic
 	const statusColorMap: Record<Status, ColorName> = {

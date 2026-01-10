@@ -11,7 +11,7 @@ Used to communicate a state that affects a system, feature or page.
 
 ## Anatomy
 
-The Alert component is a single unit that accepts properties for status, variant, and content.
+The Alert component is a single unit.
 
 ```svelte
 import { Alert } from '$saas/alert';
@@ -30,7 +30,7 @@ Use the `children` snippet to provide additional context to the alert. This will
 
 ### Status
 
-Change the status of the alerts by passing the `status` prop. This affects the color scheme and icon used. Alert supports `error`, `success`, `warning`, and `info` statuses.
+Change the status of the alerts by passing the `status` prop. This affects the colour scheme and icon used. Alert supports `error`, `success`, `warning`, and `info` statuses.
 
 <Canvas of={AlertStories.WithStatus} />
 

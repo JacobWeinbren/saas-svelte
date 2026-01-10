@@ -3,20 +3,56 @@
 	import { Alert } from "$saas/alert";
 	import { AlarmClockPlus } from "@lucide/svelte";
 
+	const statuses = [
+		"info",
+		"success",
+		"warning",
+		"error",
+		"neutral",
+	] as const;
+	const variants = ["subtle", "solid", "surface", "outline"] as const;
+	const colors = [
+		"orange",
+		"amber",
+		"yellow",
+		"lime",
+		"green",
+		"emerald",
+		"teal",
+		"cyan",
+		"sky",
+		"blue",
+		"blue",
+		"indigo",
+		"violet",
+		"purple",
+		"fuchsia",
+		"pink",
+		"rose",
+	] as const;
+
 	const { Story } = defineMeta({
-		title: "UI/Alert",
+		title: "components/Alert",
+		component: Alert,
 		argTypes: {
 			status: {
 				control: "select",
-				options: ["info", "success", "warning", "error", "neutral"],
+				options: statuses,
 				description: "The status of the alert.",
 				table: { defaultValue: { summary: "info" } },
 			},
 			variant: {
 				control: "select",
-				options: ["subtle", "solid", "surface", "outline"],
+				options: variants,
 				description: "The visual style of the alert.",
 				table: { defaultValue: { summary: "subtle" } },
+			},
+			color: {
+				control: "select",
+				options: colors,
+				description:
+					"The color theme of the alert (overrides status color).",
+				table: { defaultValue: { summary: "gray" } },
 			},
 			title: {
 				control: "text",
@@ -27,20 +63,21 @@
 				description: "Show/hide icon or pass a custom component.",
 			},
 		},
+		args: {
+			status: "info",
+			variant: "subtle",
+			title: "Alert Title",
+		},
 	});
 </script>
 
-<Story name="Basic">
-	<Alert status="info" title="This is the alert title" />
-</Story>
-
-<Story name="WithDescription">
+{#snippet descriptionStory()}
 	<Alert status="error" title="Invalid Fields">
 		Your form has some errors. Please fix them and try again.
 	</Alert>
-</Story>
+{/snippet}
 
-<Story name="WithStatus">
+{#snippet statusStory()}
 	<div class="flex flex-col w-full gap-2">
 		<Alert
 			status="error"
@@ -56,9 +93,9 @@
 		/>
 		<Alert status="success" title="Data uploaded to the server. Fire on!" />
 	</div>
-</Story>
+{/snippet}
 
-<Story name="WithVariants">
+{#snippet variantsStory()}
 	<div class="flex flex-col w-full gap-3">
 		<Alert
 			status="success"
@@ -81,12 +118,22 @@
 			title="Outline: Data uploaded to the server. Fire on!"
 		/>
 	</div>
-</Story>
+{/snippet}
 
-<Story name="WithCustomIcon">
+{#snippet customIconStory()}
 	<Alert
 		icon={AlarmClockPlus}
 		status="warning"
 		title="Submitting this form will delete your account"
 	/>
-</Story>
+{/snippet}
+
+<Story name="Basic" />
+
+<Story name="WithDescription" template={descriptionStory} />
+
+<Story name="WithStatus" template={statusStory} />
+
+<Story name="WithVariants" template={variantsStory} />
+
+<Story name="WithCustomIcon" template={customIconStory} />

@@ -78,6 +78,37 @@
 
 	type AccordionVariants = VariantProps<typeof accordion>;
 
+	interface Props {
+		children: Snippet;
+		class?: string;
+		/**
+		 * Whether accordion items can be collapsed.
+		 * @default false
+		 */
+		collapsible?: boolean;
+		/**
+		 * Whether multiple accordion items can be open at once.
+		 * @default false
+		 */
+		multiple?: boolean;
+		/**
+		 * The orientation of the accordion.
+		 * @default "vertical"
+		 */
+		orientation?: "horizontal" | "vertical";
+		/**
+		 * The size of the accordion.
+		 * @default "md"
+		 */
+		size?: AccordionVariants["size"];
+		/**
+		 * The visual style of the accordion.
+		 * @default "outline"
+		 */
+		variant?: AccordionVariants["variant"];
+		[key: string]: any;
+	}
+
 	let {
 		children,
 		class: className,
@@ -87,16 +118,7 @@
 		size = "md",
 		variant = "outline",
 		...restProps
-	}: {
-		children: Snippet;
-		class?: string;
-		collapsible?: boolean;
-		multiple?: boolean;
-		orientation?: "horizontal" | "vertical";
-		size?: AccordionVariants["size"];
-		variant?: AccordionVariants["variant"];
-		[key: string]: any;
-	} = $props();
+	}: Props = $props();
 
 	const classes = $derived(accordion({ size, variant }));
 

@@ -3,15 +3,20 @@
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
-	let {
-		children,
-		class: className,
-		...restProps
-	}: {
+	interface Props {
+		/**
+		 * The content of the accordion item.
+		 */
 		children: Snippet;
+		/**
+		 * Additional classes to apply to the content.
+		 */
 		class?: string;
 		[key: string]: any;
-	} = $props();
+	}
+
+	let { children, class: className, ...restProps }: Props = $props();
+
 	const ctx = getContext("accordion-styles") as { current: any };
 	const styles = $derived(ctx.current);
 </script>

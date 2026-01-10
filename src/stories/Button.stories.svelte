@@ -35,23 +35,39 @@
 	] as const;
 
 	const { Story } = defineMeta({
-		title: "UI/Button",
+		title: "components/Button",
 		component: Button,
 		argTypes: {
 			variant: {
 				control: "select",
 				options: variants,
+				description: "The visual style of the button.",
+				table: { defaultValue: { summary: "surface" } },
 			},
 			size: {
 				control: "select",
 				options: sizes,
+				description: "The size of the button.",
+				table: { defaultValue: { summary: "md" } },
 			},
 			color: {
 				control: "select",
 				options: colors,
+				description: "The color scheme of the button.",
+				table: { defaultValue: { summary: "gray" } },
 			},
-			loading: { control: "boolean" },
-			loadingText: { control: "text" },
+			loading: {
+				control: "boolean",
+				description: "Whether the button is in a loading state.",
+			},
+			loadingText: {
+				control: "text",
+				description: "Text to display when the button is loading.",
+			},
+			icon: {
+				control: "boolean",
+				description: "Whether the button is icon-only.",
+			},
 		},
 		args: {
 			variant: "surface",
@@ -70,7 +86,7 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<div class="flex flex-wrap items-center p-4 gap-4">
+	<div class="flex flex-wrap items-center gap-4 p-4">
 		{#each variants as variant}
 			<Button {variant}>{variant}</Button>
 		{/each}
@@ -92,7 +108,7 @@
 
 	<br />
 
-	<div class="flex flex-col justify-self-start gap-4">
+	<div class="flex flex-col gap-4 justify-self-start">
 		{#each sizes as size}
 			<Button color="rose" variant="solid" {size} icon>
 				<Heart />

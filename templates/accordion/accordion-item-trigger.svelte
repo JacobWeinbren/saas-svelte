@@ -4,17 +4,28 @@
 	import { getContext, type Component, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
+	interface Props {
+		/**
+		 * The content of the trigger.
+		 */
+		children: Snippet;
+		/**
+		 * Additional classes to apply to the trigger.
+		 */
+		class?: string;
+		/**
+		 * The icon component to display before the trigger content.
+		 */
+		icon?: Component;
+		[key: string]: any;
+	}
+
 	let {
 		children,
 		class: className,
 		icon: Icon,
 		...restProps
-	}: {
-		children: Snippet;
-		class?: string;
-		icon?: Component;
-		[key: string]: any;
-	} = $props();
+	}: Props = $props();
 
 	const ctx = getContext("accordion-styles") as { current: any };
 	const styles = $derived(ctx.current);

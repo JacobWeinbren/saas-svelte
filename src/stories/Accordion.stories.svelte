@@ -7,16 +7,61 @@
 		AccordionItemContent,
 	} from "$saas/accordion";
 
+	const variants = ["outline", "subtle", "enclosed", "plain"] as const;
+	const sizes = ["sm", "md", "lg"] as const;
+	const orientations = ["vertical", "horizontal"] as const;
+
 	const { Story } = defineMeta({
-		title: "UI/Accordion",
+		title: "components/Accordion",
 		component: AccordionRoot as any,
 		subcomponents: {
 			Item: AccordionItem,
 			ItemTrigger: AccordionItemTrigger,
 			ItemContent: AccordionItemContent,
 		},
+		argTypes: {
+			variant: {
+				control: "select",
+				options: variants,
+				description: "The visual style of the accordion.",
+				table: { defaultValue: { summary: "outline" } },
+			},
+			size: {
+				control: "select",
+				options: sizes,
+				description: "The size of the accordion.",
+				table: { defaultValue: { summary: "md" } },
+			},
+			orientation: {
+				control: "select",
+				options: orientations,
+				description: "The orientation of the accordion.",
+				table: { defaultValue: { summary: "vertical" } },
+			},
+			collapsible: {
+				control: "boolean",
+				description: "Whether accordion items can be collapsed.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			multiple: {
+				control: "boolean",
+				description:
+					"Whether multiple accordion items can be open at once.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			defaultValue: {
+				control: "object",
+				description: "The default open accordion items.",
+			},
+		},
+		args: {
+			variant: "outline",
+			size: "md",
+			orientation: "vertical",
+			collapsible: true,
+			multiple: false,
+		},
 	});
-
 	export {
 		AccordionRoot,
 		AccordionItem,
