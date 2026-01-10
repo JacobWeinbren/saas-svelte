@@ -11,9 +11,9 @@ Used to show and hide sections of related content on a page
 
 ## Anatomy
 
-The Accordion component uses Ark UI primitives for accessibility, state management, and keyboard navigation.
+The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordion) primitives for accessibility, state management, and keyboard navigation.
 
-**Simple API (using items prop):**
+**Simple Usage:**
 
 ```svelte
 import { Accordion } from '$saas/accordion';
@@ -27,7 +27,7 @@ const items = [
 <Accordion {items} collapsible defaultValue={['b']} />
 ```
 
-**Composition API (for full control):**
+**Composition API:**
 
 ```svelte
 import { Accordion } from '$saas/accordion';
@@ -54,13 +54,13 @@ import { Accordion } from '$saas/accordion';
 
 ### Controlled
 
-Set the accordion that shows up by default using the `defaultValue` prop.
+Set the accordion that shows up by default, using the `defaultValue` prop.
 
 <Canvas of={AccordionStories.Controlled} />
 
 ### With Icon
 
-Add icons to accordion items by passing an icon component in your items array.
+Add icons to accordion items by passing an `icon` component in your items array.
 
 <Canvas of={AccordionStories.WithIcon} />
 
@@ -94,7 +94,7 @@ Use the `variant` prop to change the visual style of the accordion. Values can b
 
 ### Disabled Item
 
-Pass `disabled: true` on specific items in your data array to prevent them from being expanded or collapsed.
+Pass `disabled` on specific items in your data array to prevent them from being expanded or collapsed.
 
 <Canvas of={AccordionStories.DisabledItem} />
 

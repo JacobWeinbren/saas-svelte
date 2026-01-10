@@ -8,8 +8,18 @@
 		slots: {
 			root: "w-full",
 			item: "overflow-anchor-none",
-			trigger:
-				"flex items-center gap-3 w-full font-medium outline-none focus-visible:outline-2 focus-visible:outline-zinc-600 dark:focus-visible:outline-zinc-400 disabled:opacity-50 disabled:cursor-not-allowed",
+			trigger: [
+				"flex items-center gap-3 w-full font-medium",
+				// 1. CRITICAL: Add 'rounded-md' so the focus outline curves
+				"rounded-md",
+				// 2. Reset default
+				"outline-none",
+				// 3. Match the snippet's specific focus style (outline-2, solid, zinc-600)
+				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-zinc-600",
+				"dark:focus-visible:outline-zinc-400",
+				// 4. Disabled state
+				"disabled:opacity-50 disabled:cursor-not-allowed",
+			],
 			content: "overflow-hidden text-sm dark:text-zinc-300",
 			contentBody: "",
 			indicator:
@@ -73,6 +83,7 @@
 		class: className,
 		collapsible = false,
 		multiple = false,
+		orientation = "vertical",
 		size = "md",
 		variant = "outline",
 		...restProps
@@ -81,6 +92,7 @@
 		class?: string;
 		collapsible?: boolean;
 		multiple?: boolean;
+		orientation?: "horizontal" | "vertical";
 		size?: AccordionVariants["size"];
 		variant?: AccordionVariants["variant"];
 		[key: string]: any;
@@ -98,8 +110,9 @@
 <Accordion.Root
 	{collapsible}
 	{multiple}
+	{orientation}
 	class={twMerge(
-		"text-black dark:text-white leading-normal font-[Inter,Inter_Fallback] focus-visible:outline-0 focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
+		"text-black dark:text-white leading-normal font-[Inter,Inter_Fallback]",
 		classes.root(),
 		className,
 	)}
