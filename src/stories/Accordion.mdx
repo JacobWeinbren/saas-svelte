@@ -5,55 +5,127 @@ import * as AccordionStories from "./Accordion.stories.svelte";
 
 # Accordion
 
-Used to show and hide sections of related content on a page.
+Used to show and hide sections of related content on a page
 
-<Canvas of={AccordionStories.Default} />
+<Canvas of={AccordionStories.Basic} />
 
 ## Anatomy
 
-The Accordion component is a composed component that handles accessibility (ARIA attributes), keyboard navigation, and animations automatically.
+The Accordion component uses Ark UI primitives for accessibility, state management, and keyboard navigation.
 
-```tsx
-// Anatomy Example
-import { Accordion } from "$saas/accordion";
+**Simple API (using items prop):**
 
-const items = [{ value: "item-1", title: "Trigger", text: "Content..." }];
+```svelte
+import { Accordion } from '$saas/accordion';
 
-<Accordion items={items} />;
+const items = [
+  { value: 'a', title: 'First Item', content: 'Some value 1...' },
+  { value: 'b', title: 'Second Item', content: 'Some value 2...' },
+  { value: 'c', title: 'Third Item', content: 'Some value 3...' },
+];
+
+<Accordion {items} collapsible defaultValue={['b']} />
 ```
 
-Examples
-Variants
-Use the variant prop to change the visual style of the accordion. Values can be outline, subtle, enclosed, or plain.
+**Composition API (for full control):**
 
-Subtle <Canvas of={AccordionStories.Subtle} />
+```svelte
+import { AccordionComposition } from '$saas/accordion';
 
-Enclosed <Canvas of={AccordionStories.Enclosed} />
+<AccordionComposition.Root collapsible defaultValue={['b']}>
+  <AccordionComposition.Item value="a">
+    <AccordionComposition.ItemTrigger>First Item</AccordionComposition.ItemTrigger>
+    <AccordionComposition.ItemContent>Some value 1...</AccordionComposition.ItemContent>
+  </AccordionComposition.Item>
 
-Plain <Canvas of={AccordionStories.Plain} />
+  <AccordionComposition.Item value="b">
+    <AccordionComposition.ItemTrigger>Second Item</AccordionComposition.ItemTrigger>
+    <AccordionComposition.ItemContent>Some value 2...</AccordionComposition.ItemContent>
+  </AccordionComposition.Item>
 
-Sizes
-Use the size prop to change the size of the accordion.
+  <AccordionComposition.Item value="c">
+    <AccordionComposition.ItemTrigger>Third Item</AccordionComposition.ItemTrigger>
+    <AccordionComposition.ItemContent>Some value 3...</AccordionComposition.ItemContent>
+  </AccordionComposition.Item>
+</AccordionComposition.Root>
+```
 
-Small <Canvas of={AccordionStories.Small} />
+## Examples
 
-Large <Canvas of={AccordionStories.Large} />
+### Controlled
 
-Expand Multiple Items
-Use the multiple prop to allow multiple items to be expanded at once.
+Set the accordion that shows up by default using the `defaultValue` prop.
+
+<Canvas of={AccordionStories.Controlled} />
+
+### With Icon
+
+Add icons to accordion items by passing an icon component in your items array.
+
+<Canvas of={AccordionStories.WithIcon} />
+
+### Expand Multiple Items
+
+Use the `multiple` prop to allow multiple items to be expanded at once.
 
 <Canvas of={AccordionStories.Multiple} />
 
-With Icon
-You can pass an icon property (a Svelte component, e.g., Lucide icons) inside your items array to add visual context.
+### Sizes
 
-<Canvas of={AccordionStories.WithIcons} />
+Use the `size` prop to change the size of the accordion.
 
-Disabled
-Pass the disabled prop to disable the entire accordion, or set disabled: true on specific items in your data array.
+**Small**
 
-<Canvas of={AccordionStories.Disabled} />
+<Canvas of={AccordionStories.Small} />
 
-Props
+**Medium**
 
-<ArgTypes />
+<Canvas of={AccordionStories.Medium} />
+
+**Large**
+
+<Canvas of={AccordionStories.Large} />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the accordion. Values can be `outline`, `subtle`, `enclosed`, or `plain`.
+
+**Outline**
+
+<Canvas of={AccordionStories.Outline} />
+
+**Subtle**
+
+<Canvas of={AccordionStories.Subtle} />
+
+**Enclosed**
+
+<Canvas of={AccordionStories.Enclosed} />
+
+**Plain**
+
+<Canvas of={AccordionStories.Plain} />
+
+### Disabled Item
+
+Pass `disabled: true` on specific items in your data array to prevent them from being expanded or collapsed.
+
+<Canvas of={AccordionStories.DisabledItem} />
+
+## Props
+
+### Root
+
+<ArgTypes of={AccordionStories.AccordionRoot} />
+
+### Item
+
+<ArgTypes of={AccordionStories.AccordionItem} />
+
+### ItemTrigger
+
+<ArgTypes of={AccordionStories.AccordionItemTrigger} />
+
+### ItemContent
+
+<ArgTypes of={AccordionStories.AccordionItemContent} />

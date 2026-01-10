@@ -6,9 +6,3 @@
 @theme {
 	--font-sans: "Inter", sans-serif;
 }
-
-.no-transition,
-.no-transition * {
-	transition: none !important;
-	transition-duration: 0ms !important;
-}

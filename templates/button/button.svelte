@@ -4,7 +4,6 @@
 	import tailwindColors from "tailwindcss/colors";
 	import { LoaderCircle } from "@lucide/svelte";
 
-	// 1. Define the keys we want to exclude strictly in TypeScript
 	type RestrictedColors =
 		| "inherit"
 		| "current"
@@ -12,7 +11,6 @@
 		| "black"
 		| "white";
 
-	// Runtime logic: Still needed for tailwind-variants to recognize the props
 	const validColors = Object.entries(tailwindColors)
 		.filter(([key, value]) => {
 			if (typeof value !== "object") return false;
@@ -20,8 +18,6 @@
 		})
 		.map(([key]) => key);
 
-	// 2. Create a Union Type of all valid color names (e.g. "slate" | "red" | "blue"...)
-	// This allows Storybook to automatically generate the Select dropdown.
 	type ColorName = keyof Omit<typeof tailwindColors, RestrictedColors>;
 
 	const button = tv({
@@ -37,7 +33,7 @@
 				outline:
 					"border-[0.5px] border-(--c-300) shadow-none dark:border-(--c-700) dark:text-(--c-200) dark:hover:bg-(--c-950) ",
 				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600)",
-				plain: "shadow-none border-0 text-(--c-900) hover:bg-transparent bg-transparent dark:bg-transparent dark:hover:bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
+				plain: "shadow-none border-0 text-(--c-900) hover:bg-transparent bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
 			},
 			color: Object.fromEntries(validColors.map((c) => [c, ""])) as any,
 			size: {
@@ -87,7 +83,6 @@
 	const glassOverlay =
 		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 transition-opacity duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
 
-	// Props type definition
 	type ButtonVariants = VariantProps<typeof button>;
 	interface Props extends HTMLButtonAttributes {
 		variant?: ButtonVariants["variant"];

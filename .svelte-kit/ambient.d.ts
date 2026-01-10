@@ -41,7 +41,6 @@ declare module '$env/static/private' {
 	export const LOGNAME: string;
 	export const MallocNanoZone: string;
 	export const OLDPWD: string;
-	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const PATH: string;
 	export const PWD: string;
 	export const SHELL: string;
@@ -65,7 +64,6 @@ declare module '$env/static/private' {
 	export const _CONDA_ROOT: string;
 	export const __CFBundleIdentifier: string;
 	export const __CF_USER_TEXT_ENCODING: string;
-	export const APPLICATION_INSIGHTS_NO_STATSBEAT: string;
 	export const ELECTRON_NO_ASAR: string;
 	export const NODE_ENV: string;
 }
@@ -112,7 +110,6 @@ declare module '$env/dynamic/private' {
 		LOGNAME: string;
 		MallocNanoZone: string;
 		OLDPWD: string;
-		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		PATH: string;
 		PWD: string;
 		SHELL: string;
@@ -136,7 +133,6 @@ declare module '$env/dynamic/private' {
 		_CONDA_ROOT: string;
 		__CFBundleIdentifier: string;
 		__CF_USER_TEXT_ENCODING: string;
-		APPLICATION_INSIGHTS_NO_STATSBEAT: string;
 		ELECTRON_NO_ASAR: string;
 		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
