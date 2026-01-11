@@ -1,11 +1,11 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import { LoaderCircle } from "@lucide/svelte";
 
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
 
-	const button = tv({
+	export const button = tv({
 		base: [
 			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap text-(--c-900) shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:disabled:hover:border-(--c-700)/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-600) dark:text-(--c-200)",
 			"antialiased",
@@ -15,7 +15,8 @@
 				glass: "overflow-hidden border-0 dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
 				solid: "border-0 dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-(--c-100) dark:text-white shadow hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
 				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:text-(--c-200) dark:bg-(--c-950)  dark:focus-visible:outline-(--c-600) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
-				surface: "disabled:hover:bg-(--c-50)/20 dark:disabled:hover:bg-(--c-950)/20",
+				surface:
+					"disabled:hover:bg-(--c-50)/20 dark:disabled:hover:bg-(--c-950)/20",
 				outline:
 					"border-[0.5px] border-(--c-300) shadow-none dark:border-(--c-700) dark:text-(--c-200) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
 				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
@@ -46,6 +47,10 @@
 		},
 	});
 
+	export type ButtonVariants = VariantProps<typeof button>;
+</script>
+
+<script lang="ts">
 	const glassOverlay =
 		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
 

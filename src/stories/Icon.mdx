@@ -12,16 +12,20 @@ import { Icon } from "$saas/icon";
 
 ## Anatomy
 
-```svelte
-import { Icon } from '$saas/icon';
-import { Heart } from '@lucide/svelte';
+```html
+<script>
+	import { Icon } from "$saas/icon";
+	import { Heart } from "@lucide/svelte";
+</script>
+```
 
+```html
 <Icon as={Heart} />
 ```
 
 You can also use raw SVG paths by passing them as children:
 
-```svelte
+```html
 <Icon viewBox="0 0 24 24">
 	<path d="..." />
 </Icon>

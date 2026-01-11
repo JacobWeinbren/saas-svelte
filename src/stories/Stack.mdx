@@ -13,12 +13,16 @@ import * as LayoutStories from "./Stack.stories.svelte";
 
 By default, `Stack` applies `flex-direction: column` and `gap: 0.5rem` (8px) to its children.
 
-```svelte
-import { Stack } from '$lib/components';
+```html
+<script>
+	import { Stack } from "$saas/stack";
+</script>
+```
 
+```html
 <Stack>
-  <div />
-  <div />
+	<div />
+	<div />
 </Stack>
 ```
 
