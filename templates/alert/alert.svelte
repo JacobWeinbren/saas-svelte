@@ -47,8 +47,8 @@
 		variant?: AlertVariants["variant"];
 		status?: Status;
 		color?: ColorName;
-		icon?: boolean | Component<any>;
-		title?: string | Snippet;
+		icon?: boolean | Component<any> | Snippet<[]>;
+		title?: string | Snippet<[]>;
 		children?: Snippet;
 		style?: string;
 		[key: string]: any;
@@ -85,11 +85,29 @@
 		neutral: Info,
 	};
 
-	const IconToRender = $derived.by(() => {
+	const iconSnippet = $derived(
+		typeof icon === "function" && !("prototype" in icon)
+			? (icon as Snippet<[]>)
+			: null,
+	);
+
+	const IconComponent = $derived.by(() => {
 		if (icon === false) return null;
-		if (icon && typeof icon !== "boolean") return icon;
-		return statusIconMap[status];
+		if (iconSnippet) return null;
+		if (icon && typeof icon !== "boolean" && typeof icon !== "function")
+			return icon;
+		return null;
 	});
+
+	const IconToRender = $derived(IconComponent || statusIconMap[status]);
+
+	const titleSnippet = $derived(
+		typeof title !== "string" &&
+			typeof title === "function" &&
+			!("prototype" in title)
+			? (title as Snippet<[]>)
+			: null,
+	);
 
 	const {
 		root,
@@ -108,7 +126,11 @@
 	style={finalStyle}
 	{...restProps}
 >
-	{#if IconToRender}
+	{#if iconSnippet}
+		<span class={iconWrapper()}>
+			{@render iconSnippet()}
+		</span>
+	{:else if IconToRender}
 		<span class={iconWrapper()}>
 			<Icon as={IconToRender} size="md" />
 		</span>
@@ -119,8 +141,8 @@
 			<div class={titleClass()}>
 				{#if typeof title === "string"}
 					{title}
-				{:else}
-					{@render title()}
+				{:else if titleSnippet}
+					{@render titleSnippet()}
 				{/if}
 			</div>
 		{/if}

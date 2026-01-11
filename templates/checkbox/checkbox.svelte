@@ -3,16 +3,18 @@
 	import type { HTMLInputAttributes } from "svelte/elements";
 	import { Check, Minus } from "@lucide/svelte";
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import type { Snippet } from "svelte";
 
 	const checkboxControl = tv({
 		base: [
 			"flex items-center justify-center border shrink-0",
-			"rounded p-0.5",
+			"rounded", // Removed p-0.5 to allow precise icon sizing
 			"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid",
 			"dark:focus-visible:outline-(--c-500)",
 			"bg-white border-gray-300 text-white",
 			"dark:bg-zinc-950 dark:border-zinc-700",
 			"antialiased",
+			"transition-colors duration-200",
 		],
 		variants: {
 			variant: {
@@ -31,17 +33,27 @@
 				indeterminate: "",
 			},
 			disabled: {
-				true: "cursor-not-allowed opacity-50 bg-gray-100 border-gray-200 dark:bg-zinc-800 dark:border-zinc-700",
+				true: "cursor-not-allowed opacity-50 bg-gray-100 border-gray-200 dark:bg-zinc-800 dark:border-zinc-700!",
 			},
 			invalid: {
 				true: "border-red-500! focus-visible:outline-red-600! dark:border-red-500!",
 			},
 		},
 		compoundVariants: [
+			// Solid: Default styling
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
 				class: "bg-(--c-600) border-(--c-600) dark:bg-(--c-600) dark:border-(--c-600) text-white",
+			},
+			// Subtle: Background persists even when unchecked
+			{
+				variant: "subtle",
+				checked: false,
+				class: [
+					"bg-(--c-50) border-(--c-200) text-transparent",
+					"dark:bg-(--c-900)/50 dark:border-(--c-800)",
+				],
 			},
 			{
 				variant: "subtle",
@@ -51,6 +63,7 @@
 					"dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
 				],
 			},
+			// Outline: Transparent background
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
@@ -58,6 +71,12 @@
 					"bg-transparent border-(--c-600) text-(--c-700)",
 					"dark:border-(--c-500) dark:text-(--c-300)",
 				],
+			},
+			// Invalid + Checked: Must be Red, not theme color
+			{
+				invalid: true,
+				checked: [true, "indeterminate"],
+				class: "bg-red-600! border-red-600! text-white! dark:bg-red-600! dark:border-red-600!",
 			},
 		],
 		defaultVariants: {
@@ -68,7 +87,7 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-start gap-2.5 cursor-pointer select-none",
+		base: "group inline-flex items-start gap-2.5 cursor-pointer select-none align-top",
 		variants: {
 			disabled: {
 				true: "cursor-not-allowed opacity-60",
@@ -89,6 +108,7 @@
 		label?: string;
 		description?: string;
 		invalid?: boolean;
+		icon?: Snippet;
 	}
 
 	let {
@@ -105,6 +125,7 @@
 		disabled,
 		invalid = false,
 		style,
+		icon,
 		...rest
 	}: Props = $props();
 
@@ -112,6 +133,7 @@
 	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
 
 	let inputRef: HTMLInputElement | undefined = $state();
+
 	$effect(() => {
 		if (inputRef) {
 			inputRef.indeterminate = checked === "indeterminate";
@@ -129,8 +151,8 @@
 		checked === "indeterminate" ? "indeterminate" : isChecked,
 	);
 
-	const iconBaseClass = "w-full h-full pointer-events-none stroke-[4px]";
-
+	// Explicitly size icons to 14px (size-3.5) for md checkboxes to match reference
+	const iconBaseClass = "size-3.5 pointer-events-none stroke-[3px]";
 	const checkIconClass = $derived(
 		`${iconBaseClass} transition-opacity duration-200 ${isChecked ? "opacity-100" : "opacity-0"}`,
 	);
@@ -165,10 +187,11 @@
 		onchange={handleChange}
 		{value}
 		{disabled}
+		aria-invalid={invalid}
 		{...rest}
 	/>
 
-	<div class="flex items-center mt-px shrink-0">
+	<div class="flex items-center mt-0.5 shrink-0">
 		<div
 			class={checkboxControl({
 				size,
@@ -179,7 +202,9 @@
 			})}
 			aria-hidden="true"
 		>
-			{#if checked === "indeterminate"}
+			{#if icon}
+				{@render icon()}
+			{:else if checked === "indeterminate"}
 				<Minus class={iconBaseClass} />
 			{:else}
 				<Check class={checkIconClass} />
@@ -191,20 +216,22 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="font-medium text-[13px] leading-[1.4] text-gray-900 dark:text-gray-50"
+					class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
 				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
 				<div
-					class="text-[13px] leading-[1.4] text-gray-900 dark:text-gray-50"
+					class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50"
 				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
-				<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+				<p
+					class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"
+				>
 					{description}
 				</p>
 			{/if}

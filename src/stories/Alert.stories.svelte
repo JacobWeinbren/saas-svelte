@@ -1,6 +1,8 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Alert } from "$saas/alert";
+	import { Stack } from "$saas/stack";
+	import { Icon } from "$saas/icon";
 	import { AlarmClockPlus } from "@lucide/svelte";
 
 	const statuses = [
@@ -11,25 +13,6 @@
 		"neutral",
 	] as const;
 	const variants = ["subtle", "solid", "surface", "outline"] as const;
-	const colors = [
-		"orange",
-		"amber",
-		"yellow",
-		"lime",
-		"green",
-		"emerald",
-		"teal",
-		"cyan",
-		"sky",
-		"blue",
-		"blue",
-		"indigo",
-		"violet",
-		"purple",
-		"fuchsia",
-		"pink",
-		"rose",
-	] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Alert",
@@ -38,35 +21,37 @@
 			status: {
 				control: "select",
 				options: statuses,
-				description: "The status of the alert.",
+				description: "The status of the component.",
 				table: { defaultValue: { summary: "info" } },
 			},
 			variant: {
 				control: "select",
 				options: variants,
-				description: "The visual style of the alert.",
+				description: "The variant of the component.",
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			color: {
-				control: "select",
-				options: colors,
-				description:
-					"The color theme of the alert (overrides status color).",
+				control: "text",
+				description: "The color palette of the component.",
 				table: { defaultValue: { summary: "gray" } },
 			},
 			title: {
 				control: "text",
-				description: "The title content.",
+				description: "The title of the alert.",
 			},
 			icon: {
 				control: "boolean",
-				description: "Show/hide icon or pass a custom component.",
+				description: "Override the default icon for the alert status.",
+			},
+			children: {
+				control: "text",
+				description: "The description content of the alert.",
 			},
 		},
 		args: {
 			status: "info",
 			variant: "subtle",
-			title: "Alert Title",
+			title: "This is the alert title",
 		},
 	});
 </script>
@@ -78,7 +63,7 @@
 {/snippet}
 
 {#snippet statusStory()}
-	<div class="flex flex-col w-full gap-2">
+	<Stack class="w-full gap-2">
 		<Alert
 			status="error"
 			title="There was an error processing your request"
@@ -92,48 +77,51 @@
 			title="Seems your account is about expire, upgrade now"
 		/>
 		<Alert status="success" title="Data uploaded to the server. Fire on!" />
-	</div>
+	</Stack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<div class="flex flex-col w-full gap-3">
+	<Stack class="w-full gap-3">
 		<Alert
 			status="success"
 			variant="subtle"
-			title="Subtle: Data uploaded to the server. Fire on!"
+			title="Data uploaded to the server. Fire on!"
 		/>
 		<Alert
 			status="success"
 			variant="solid"
-			title="Solid: Data uploaded to the server. Fire on!"
+			title="Data uploaded to the server. Fire on!"
 		/>
 		<Alert
 			status="success"
 			variant="surface"
-			title="Surface: Data uploaded to the server. Fire on!"
+			title="Data uploaded to the server. Fire on!"
 		/>
 		<Alert
 			status="success"
 			variant="outline"
-			title="Outline: Data uploaded to the server. Fire on!"
+			title="Data uploaded to the server. Fire on!"
 		/>
-	</div>
+	</Stack>
 {/snippet}
 
 {#snippet customIconStory()}
 	<Alert
-		icon={AlarmClockPlus}
 		status="warning"
 		title="Submitting this form will delete your account"
-	/>
+	>
+		{#snippet icon()}
+			<Icon as={AlarmClockPlus} />
+		{/snippet}
+	</Alert>
 {/snippet}
 
 <Story name="Basic" />
 
-<Story name="WithDescription" template={descriptionStory} />
+<Story name="Description" template={descriptionStory} />
 
-<Story name="WithStatus" template={statusStory} />
+<Story name="Status" template={statusStory} />
 
-<Story name="WithVariants" template={variantsStory} />
+<Story name="Variants" template={variantsStory} />
 
-<Story name="WithCustomIcon" template={customIconStory} />
+<Story name="CustomIcon" template={customIconStory} />

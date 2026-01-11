@@ -7,7 +7,7 @@
 		variants: {
 			orientation: {
 				horizontal: "flex-row gap-6",
-				vertical: "flex-col gap-1.5", // gap-1.5 is 6px, matches source HTML
+				vertical: "flex-col gap-1.5",
 			},
 		},
 		defaultVariants: {
@@ -18,7 +18,14 @@
 	type Variants = VariantProps<typeof checkboxGroup>;
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
+		/**
+		 * The layout orientation of the group.
+		 * @default "vertical"
+		 */
 		orientation?: Variants["orientation"];
+		/**
+		 * The label displayed above the group.
+		 */
 		label?: string;
 	}
 

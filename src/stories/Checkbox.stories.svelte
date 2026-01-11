@@ -1,7 +1,11 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Checkbox, CheckboxGroup } from "$saas/checkbox";
+	import { Stack, HStack, VStack } from "$saas/stack";
+	import { Icon } from "$saas/icon";
 	import { hideInheritedProps } from "../../.storybook/hide-inherited-props";
+	import { Plus } from "@lucide/svelte";
+	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
 
 	const colors = [
 		"orange",
@@ -25,6 +29,46 @@
 	const sizes = ["sm", "md", "lg"] as const;
 	const variants = ["outline", "subtle", "solid"] as const;
 
+	// List of HTML input attributes to hide from controls
+	const inputPropsToHide = [
+		"accept",
+		"alt",
+		"autocomplete",
+		"autocorrect",
+		"capture",
+		"dirname",
+		"form",
+		"formaction",
+		"formenctype",
+		"formmethod",
+		"formnovalidate",
+		"formtarget",
+		"height",
+		"list",
+		"max",
+		"maxlength",
+		"min",
+		"minlength",
+		"multiple",
+		"name",
+		"pattern",
+		"placeholder",
+		"readonly",
+		"required",
+		"src",
+		"step",
+		"type",
+		"width",
+		"webkitdirectory",
+		"indeterminate",
+		"defaultchecked",
+		"defaultValue",
+		"defaultvalue",
+	].reduce((acc: Record<string, any>, prop) => {
+		acc[prop] = { table: { disable: true } };
+		return acc;
+	}, {});
+
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
 		component: Checkbox as any,
@@ -32,62 +76,67 @@
 		argTypes: {
 			checked: {
 				control: "boolean",
-				description: "Checked state (supports 'indeterminate').",
+				description: "The controlled checked state of the checkbox.",
 				table: { type: { summary: "boolean | 'indeterminate'" } },
-			},
-			group: {
-				control: false,
-				description: "Array of selected values when used in a group.",
-				table: { type: { summary: "string[]" } },
-			},
-			value: {
-				control: "text",
-				description: "The value of the checkbox when used in a group.",
 			},
 			size: {
 				control: "select",
 				options: sizes,
-				description: "The size of the checkbox.",
+				description: "The size of the component.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			variant: {
 				control: "select",
 				options: variants,
-				description: "The visual style of the checkbox.",
+				description: "The variant of the component.",
 				table: { defaultValue: { summary: "solid" } },
 			},
 			color: {
 				control: "select",
 				options: colors,
-				description: "The color scheme of the checkbox.",
+				description: "The color palette of the component.",
 				table: { defaultValue: { summary: "indigo" } },
 			},
 			label: {
 				control: "text",
-				description: "Label text.",
+				description: "The label text displayed next to the checkbox.",
 			},
 			description: {
 				control: "text",
-				description: "Helper description text.",
+				description:
+					"Additional description text displayed below the label.",
 			},
 			disabled: {
 				control: "boolean",
-				description: "Disabled state.",
+				description: "Whether the checkbox is disabled.",
 			},
 			invalid: {
 				control: "boolean",
-				description: "Visual invalid state.",
+				description: "Whether the checkbox is invalid.",
 			},
-			class: {
+			icon: {
+				control: "boolean",
+				description: "Custom icon snippet to render when checked.",
+			},
+			value: {
 				control: "text",
-				description: "Additional CSS classes.",
+				description:
+					"The value of checkbox input. Useful for form submission.",
 			},
-			children: {
+			group: {
 				control: false,
-				description: "The content to render inside the checkbox label.",
-				table: { type: { summary: "Snippet" } },
+				description: "Group context value (internal use).",
+				table: { disable: true },
+			},
+			// Added orientation for CheckboxGroup
+			orientation: {
+				control: "select",
+				options: ["vertical", "horizontal"],
+				description: "The layout orientation of the CheckboxGroup.",
+				table: { defaultValue: { summary: "vertical" } },
 			},
 			...hideInheritedProps(),
+			...inputPropsToHide,
 		},
 		args: {
 			size: "md",
@@ -95,116 +144,118 @@
 			color: "indigo",
 			label: "Accept terms and conditions",
 			checked: false,
-			disabled: false,
-			invalid: false,
 		},
 	});
 </script>
 
-{#snippet sizesStory()}
-	<div class="flex flex-col gap-4">
-		{#each sizes as size}
-			<Checkbox {size} checked label={`Checkbox ${size}`} />
-		{/each}
-	</div>
-{/snippet}
-
-{#snippet colorsStory()}
-	<div class="flex flex-wrap gap-6">
-		{#each colors as color}
-			<div class="flex flex-col gap-2">
-				<span class="font-mono text-xs text-gray-400">{color}</span>
-				<Checkbox {color} checked label="Checkbox" />
-			</div>
-		{/each}
-	</div>
-{/snippet}
-
 {#snippet variantsStory()}
-	<div class="flex gap-10">
-		<div class="flex flex-col gap-3">
-			<span class="text-sm font-semibold text-gray-500">Outline</span>
-			<Checkbox variant="outline" checked label="Checkbox" />
-		</div>
-		<div class="flex flex-col gap-3">
-			<span class="text-sm font-semibold text-gray-500">Subtle</span>
-			<Checkbox variant="subtle" checked label="Checkbox" />
-		</div>
-		<div class="flex flex-col gap-3">
-			<span class="text-sm font-semibold text-gray-500">Solid</span>
-			<Checkbox variant="solid" checked label="Checkbox" />
-		</div>
-	</div>
-{/snippet}
-
-{#snippet statesStory()}
-	<div class="flex flex-col gap-4">
-		<Checkbox label="Default" />
-		<Checkbox checked label="Checked" />
-		<Checkbox checked="indeterminate" label="Indeterminate" />
-		<Checkbox disabled label="Disabled Unchecked" />
-		<Checkbox disabled checked label="Disabled Checked" />
-		<Checkbox invalid label="Invalid State" />
-	</div>
-{/snippet}
-
-{#snippet descriptionStory()}
-	<div class="flex flex-col max-w-sm gap-6">
-		<Checkbox
-			label="Subscribe to newsletter"
-			description="We will send you weekly updates about our product."
-		/>
-		<Checkbox
-			checked
-			size="lg"
-			label="Enable Notifications"
-			description="Receive push notifications on your desktop immediately."
-		/>
-	</div>
-{/snippet}
-
-{#snippet groupStory()}
-	<div class="space-y-10">
-		<CheckboxGroup label="Select Frameworks (Vertical)">
-			<Checkbox value="svelte" label="Svelte" />
-			<Checkbox value="react" label="React" />
-			<Checkbox value="vue" label="Vue" />
-		</CheckboxGroup>
-
-		<div class="w-full h-px bg-gray-200 dark:bg-zinc-800"></div>
-
-		<CheckboxGroup
-			orientation="horizontal"
-			label="Select Tier (Horizontal)"
-		>
-			<Checkbox value="free" label="Free" />
-			<Checkbox value="pro" label="Pro" />
-			<Checkbox value="enterprise" label="Enterprise" />
-		</CheckboxGroup>
-	</div>
+	<HStack align="start" class="gap-10">
+		{#each variants as variant}
+			<VStack align="start" class="flex-1 gap-2">
+				<span class="text-sm font-medium">{variant}</span>
+				<Checkbox checked={false} {variant} label="Unchecked" />
+				<Checkbox checked {variant} label="Checked" />
+			</VStack>
+		{/each}
+	</HStack>
 {/snippet}
 
 {#snippet controlledStory(args: any)}
-	<Checkbox bind:checked={args.checked} label="Bindable State" />
-	<div
-		class="p-2 mt-3 font-mono text-sm text-gray-500 rounded bg-gray-50 dark:bg-zinc-900"
-	>
-		State: {args.checked}
-	</div>
+	<Checkbox bind:checked={args.checked} label="Accept terms and conditions" />
+{/snippet}
+
+{#snippet colorsStory()}
+	<VStack align="start" class="gap-2">
+		{#each colors as color}
+			<HStack align="center" class="w-full gap-10">
+				<span class="min-w-[8ch] text-xs font-mono text-gray-500">
+					{color}
+				</span>
+				{#each variants as variant}
+					<Checkbox {variant} {color} checked label="Checkbox" />
+				{/each}
+			</HStack>
+		{/each}
+	</VStack>
+{/snippet}
+
+{#snippet sizesStory()}
+	<Stack align="start" class="flex-1 gap-4">
+		{#each sizes as size}
+			<Checkbox {size} checked label="Checkbox" />
+		{/each}
+	</Stack>
+{/snippet}
+
+{#snippet statesStory()}
+	<Stack class="gap-2">
+		<Checkbox disabled label="Disabled" />
+		<Checkbox checked disabled label="Disabled Checked" />
+		<Checkbox invalid label="Invalid" />
+	</Stack>
+{/snippet}
+
+{#snippet groupStory()}
+	<CheckboxGroup label="Select framework">
+		<Checkbox value="react" label="React" />
+		<Checkbox value="svelte" label="Svelte" />
+		<Checkbox value="vue" label="Vue" />
+		<Checkbox value="angular" label="Angular" />
+	</CheckboxGroup>
+{/snippet}
+
+{#snippet customIconStory()}
+	<Checkbox checked label="With Custom Icon">
+		{#snippet icon()}
+			<Icon as={Plus} size="xs" />
+		{/snippet}
+	</Checkbox>
+{/snippet}
+
+{#snippet indeterminateStory()}
+	<IndeterminateCheckbox />
+{/snippet}
+
+{#snippet descriptionStory()}
+	<Checkbox class="items-start">
+		<div class="flex flex-col">
+			<span class="text-gray-900 dark:text-gray-100">
+				I agree to the terms and conditions
+			</span>
+			<span class="mt-1 font-normal text-gray-500">
+				By clicking this, you agree to our Terms and Privacy Policy.
+			</span>
+		</div>
+	</Checkbox>
+{/snippet}
+
+{#snippet linkStory()}
+	<Checkbox>
+		I agree to the <a
+			href="https://google.com"
+			class="text-indigo-600 hover:underline">terms and conditions</a
+		>
+	</Checkbox>
 {/snippet}
 
 <Story name="Basic" />
 
-<Story name="Controlled" template={controlledStory as any} />
+<Story name="Variants" template={variantsStory} />
 
-<Story name="Sizes" template={sizesStory} />
+<Story name="Controlled" template={controlledStory as any} />
 
 <Story name="Colors" template={colorsStory} />
 
-<Story name="Variants" template={variantsStory} />
+<Story name="Sizes" template={sizesStory} />
 
 <Story name="States" template={statesStory} />
 
-<Story name="WithDescription" template={descriptionStory} />
-
 <Story name="Group" template={groupStory} />
+
+<Story name="CustomIcon" template={customIconStory} />
+
+<Story name="Indeterminate" template={indeterminateStory} />
+
+<Story name="Description" template={descriptionStory} />
+
+<Story name="Link" template={linkStory} />

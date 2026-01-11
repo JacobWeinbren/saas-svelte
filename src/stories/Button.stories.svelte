@@ -1,6 +1,9 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Button, ButtonGroup } from "$saas/button";
+	import { Icon } from "$saas/icon";
+	import { Text } from "$saas/text";
+	import { HStack, VStack } from "$saas/stack";
 	import { Heart, Mail, ArrowRight, ChevronDown } from "@lucide/svelte";
 
 	const colors = [
@@ -78,71 +81,70 @@
 </script>
 
 {#snippet sizesStory()}
-	<div class="flex flex-wrap items-center gap-4">
+	<HStack class="flex-wrap gap-4">
 		{#each sizes as size}
 			<Button {size}>Button {size}</Button>
 		{/each}
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<div class="flex flex-wrap items-center gap-4 p-4">
+	<HStack class="flex-wrap gap-4 p-4">
 		{#each variants as variant}
 			<Button {variant}>{variant}</Button>
 		{/each}
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet iconsStory()}
-	<div class="flex flex-wrap items-center gap-4">
+	<HStack class="flex-wrap gap-4">
 		<Button color="teal" variant="solid">
-			<Mail class="w-4 h-4" />
+			<Icon as={Mail} class="size-4" />
 			Mail
 		</Button>
 
 		<Button color="teal" variant="outline">
 			Call us
-			<ArrowRight class="w-4 h-4" />
+			<Icon as={ArrowRight} class="size-4" />
 		</Button>
-	</div>
+	</HStack>
 
 	<br />
 
-	<div class="flex flex-col gap-4 justify-self-start">
+	<VStack align="start" class="gap-4">
 		{#each sizes as size}
 			<Button color="rose" variant="solid" {size} icon>
-				<Heart />
+				<Icon as={Heart} />
 			</Button>
 		{/each}
-	</div>
+	</VStack>
 {/snippet}
 
 {#snippet loadingStory()}
-	<div class="flex flex-wrap items-center gap-4">
+	<HStack class="flex-wrap gap-4">
 		<Button loading>Click me</Button>
 		<Button loading loadingText="Saving...">Click me</Button>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet colorsStory()}
-	<div class="flex flex-col gap-4">
+	<VStack class="gap-4">
 		{#each colors as color}
-			<div class="flex items-center gap-4">
-				<span class="w-16 font-mono text-xs text-gray-500">{color}</span
-				>
+			<HStack class="gap-4">
+				<Text size="xs" class="w-16">{color}</Text>
 				<Button variant="solid" {color}>Solid</Button>
 				<Button variant="subtle" {color}>Subtle</Button>
 				<Button variant="outline" {color}>Outline</Button>
-			</div>
+			</HStack>
 		{/each}
-	</div>
+	</VStack>
 {/snippet}
 
 {#snippet groupStory()}
 	<ButtonGroup>
 		<Button variant="outline" size="sm">Button</Button>
 		<Button variant="outline" size="sm" icon>
-			<ChevronDown />
+			<Icon as={ChevronDown} />
 		</Button>
 	</ButtonGroup>
 {/snippet}
