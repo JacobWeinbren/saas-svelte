@@ -1,28 +1,13 @@
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
-	import tailwindColors from "tailwindcss/colors";
 	import { LoaderCircle } from "@lucide/svelte";
 
-	type RestrictedColors =
-		| "inherit"
-		| "current"
-		| "transparent"
-		| "black"
-		| "white";
-
-	const validColors = Object.entries(tailwindColors)
-		.filter(([key, value]) => {
-			if (typeof value !== "object") return false;
-			return true;
-		})
-		.map(([key]) => key);
-
-	type ColorName = keyof Omit<typeof tailwindColors, RestrictedColors>;
+	import { type ColorName, generateColorVars } from "$saas/utils/colours";
 
 	const button = tv({
 		base: [
-			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap text-(--c-900) shadow-sm outline-0 transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,transform] duration-200 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:focus-visible:outline-(--c-600) dark:text-(--c-200)",
+			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap text-(--c-900) shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:focus-visible:outline-(--c-600) dark:text-(--c-200)",
 		],
 		variants: {
 			variant: {
@@ -35,7 +20,7 @@
 				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600)",
 				plain: "shadow-none border-0 text-(--c-900) hover:bg-transparent bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
 			},
-			color: Object.fromEntries(validColors.map((c) => [c, ""])) as any,
+			color: {},
 			size: {
 				xs: "h-6 min-w-6 gap-x-1 px-2 text-xs leading-4 [&_svg]:size-2",
 				sm: "h-7 min-w-7 px-2.5 text-sm leading-5 [&_svg]:size-3",
@@ -46,44 +31,25 @@
 			icon: { true: "px-0" },
 		},
 		compoundVariants: [
-			{
-				size: "xs",
-				icon: true,
-				class: "w-6 [&_svg]:size-3",
-			},
-			{
-				size: "sm",
-				icon: true,
-				class: "w-7 [&_svg]:size-3.5",
-			},
-			{
-				size: "md",
-				icon: true,
-				class: "w-8 [&_svg]:size-4",
-			},
-			{
-				size: "lg",
-				icon: true,
-				class: "w-10 [&_svg]:size-5",
-			},
-			{
-				size: "xl",
-				icon: true,
-				class: "w-12 [&_svg]:size-6",
-			},
+			{ size: "xs", icon: true, class: "w-6 [&_svg]:size-3" },
+			{ size: "sm", icon: true, class: "w-7 [&_svg]:size-3.5" },
+			{ size: "md", icon: true, class: "w-8 [&_svg]:size-4" },
+			{ size: "lg", icon: true, class: "w-10 [&_svg]:size-5" },
+			{ size: "xl", icon: true, class: "w-12 [&_svg]:size-6" },
 		],
 		defaultVariants: {
 			variant: "surface",
 			size: "md",
 			icon: false,
-			color: "gray",
+			color: "gray" as any,
 		},
 	});
 
 	const glassOverlay =
-		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 transition-opacity duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
+		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
 
 	type ButtonVariants = VariantProps<typeof button>;
+
 	interface Props extends HTMLButtonAttributes {
 		variant?: ButtonVariants["variant"];
 		size?: ButtonVariants["size"];
@@ -107,48 +73,12 @@
 		...restProps
 	}: Props = $props();
 
-	const colorVars = $derived(
-		(() => {
-			const paletteName = color || "gray";
-
-			if (!paletteName) return "";
-
-			const palette =
-				tailwindColors[paletteName as keyof typeof tailwindColors];
-
-			if (typeof palette !== "object" || !palette) {
-				return "";
-			}
-
-			const shades = [
-				"50",
-				"100",
-				"200",
-				"300",
-				"400",
-				"500",
-				"600",
-				"700",
-				"800",
-				"900",
-				"950",
-			] as const;
-
-			return shades
-				.map((shade) => {
-					const colorValue = (palette as any)[shade];
-					return colorValue ? `--c-${shade}: ${colorValue}` : null;
-				})
-				.filter(Boolean)
-				.join("; ");
-		})(),
-	);
+	const colorVars = $derived(generateColorVars(color || "gray"));
 
 	const finalClass = $derived(
 		button({
 			variant,
 			size,
-			color,
 			icon,
 			class: `${className || ""}${variant === "glass" ? " group" : ""}`,
 		}),

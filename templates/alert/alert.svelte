@@ -1,19 +1,10 @@
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import tailwindColors from "tailwindcss/colors";
 	import { Info, CircleCheck, TriangleAlert, CircleX } from "@lucide/svelte";
 	import type { Snippet, Component } from "svelte";
 
-	// 1. Color Utility
-	type RestrictedColors =
-		| "inherit"
-		| "current"
-		| "transparent"
-		| "black"
-		| "white";
-	type ColorName = keyof Omit<typeof tailwindColors, RestrictedColors>;
+	import { type ColorName, generateColorVars } from "$saas/utils/colours";
 
-	// 2. Styles
 	const alert = tv({
 		slots: {
 			root: "relative w-full flex items-start p-4 rounded-md text-sm",
@@ -34,7 +25,7 @@
 				},
 				surface: {
 					root: "bg-(--c-50) border border-(--c-200) text-(--c-900) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-200)",
-					iconWrapper: "text-(--c-600) dark:text-(--c-400)",
+					iconWrapper: "text-current",
 				},
 				outline: {
 					root: "bg-transparent border border-(--c-200) text-(--c-700) dark:border-(--c-800) dark:text-(--c-200)",
@@ -74,7 +65,6 @@
 		...restProps
 	}: Props = $props();
 
-	// 3. Color Logic
 	const statusColorMap: Record<Status, ColorName> = {
 		info: "blue",
 		success: "green",
@@ -84,38 +74,8 @@
 	};
 
 	const resolvedColor = $derived(color ?? statusColorMap[status] ?? "gray");
+	const colorVars = $derived(generateColorVars(resolvedColor));
 
-	const colorVars = $derived(
-		(() => {
-			const palette =
-				tailwindColors[resolvedColor as keyof typeof tailwindColors];
-			if (typeof palette !== "object" || !palette) return "";
-
-			const shades = [
-				"50",
-				"100",
-				"200",
-				"300",
-				"400",
-				"500",
-				"600",
-				"700",
-				"800",
-				"900",
-				"950",
-			] as const;
-
-			return shades
-				.map((shade) => {
-					const val = (palette as any)[shade];
-					return val ? `--c-${shade}: ${val}` : null;
-				})
-				.filter(Boolean)
-				.join("; ");
-		})(),
-	);
-
-	// 4. Icon Logic
 	const statusIconMap = {
 		info: Info,
 		success: CircleCheck,

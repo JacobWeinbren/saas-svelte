@@ -10,14 +10,10 @@
 			item: "overflow-anchor-none",
 			trigger: [
 				"flex items-center gap-3 w-full font-medium",
-				// 1. CRITICAL: Add 'rounded-md' so the focus outline curves
 				"rounded-md",
-				// 2. Reset default
 				"outline-none",
-				// 3. Match the snippet's specific focus style (outline-2, solid, zinc-600)
 				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-zinc-600",
 				"dark:focus-visible:outline-zinc-400",
-				// 4. Disabled state
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 			],
 			content: "overflow-hidden text-sm dark:text-zinc-300",

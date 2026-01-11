@@ -4,6 +4,9 @@ import "../src/app.css";
 
 const preview: Preview = {
     parameters: {
+        backgrounds: {
+            disable: true,
+        },
         darkMode: {
             current: 'light',
             classTarget: 'html',
