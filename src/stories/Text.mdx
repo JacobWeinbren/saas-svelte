@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import * as TextStories from "./Text.stories.svelte";
+
+<Meta of={TextStories} />
+
+# Text
+
+## Used to render text and paragraphs within an interface.
+
+<Canvas of={TextStories.Basic} />
+
+## Anatomy
+
+```svelte
+import { Text } from '$saas/text';
+
+<Text>The quick brown fox jumps over the lazy dog.</Text>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the text. You can set the value to `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, or `7xl`.
+
+<Canvas of={TextStories.Sizes} />
+
+### Weights
+
+Use the `weight` (or `fontWeight`) prop to change the font weight. You can set the value to `thin`, `extralight`, `light`, `normal`, `medium`, `semibold`, `bold`, `extrabold`, or `black`.
+
+<Canvas of={TextStories.Weights} />
+
+### Truncation
+
+Use the `truncate` prop to truncate text to a single line with ellipsis.
+
+<Canvas of={TextStories.Truncation} />
+
+### Line Clamp
+
+Use the `lineClamp` prop to clamp text to a specific number of lines. You can set the value to `1`, `2`, `3`, `4`, `5`, `6`, or `none`.
+
+<Canvas of={TextStories.LineClamp} />
+
+### Polymorphism
+
+Change the underlying HTML element using the `as` prop. The component renders a `<p>` tag by default.
+
+```svelte
+<Text as="span">This is a span</Text>
+<Text as="h1" size="4xl" weight="bold">This is an h1</Text>
+<Text as="label">This is a label</Text>
+```
+
+## Props
+
+<ArgTypes />

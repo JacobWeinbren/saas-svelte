@@ -130,7 +130,7 @@
 	{multiple}
 	{orientation}
 	class={twMerge(
-		"text-black dark:text-white leading-normal font-[Inter,Inter_Fallback]",
+		"text-black dark:text-white leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

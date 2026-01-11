@@ -12,7 +12,7 @@
 <div
 	role="group"
 	class={twMerge(
-		"inline-flex items-center *:not-first:rounded-l-none *:not-last:rounded-r-none",
+		"inline-flex items-center *:not-first:rounded-l-none *:not-last:rounded-r-none *:not-first:-ml-px",
 		className as string,
 	)}
 	{...rest}

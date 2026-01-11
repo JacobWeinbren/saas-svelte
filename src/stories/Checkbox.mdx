@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as CheckboxStories from "./Checkbox.stories.svelte";
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Used in forms when a user needs to select multiple values from several options or toggle a single option.
+
+<Canvas of={CheckboxStories.Basic} />
+
+## Anatomy
+
+```svelte
+import { Checkbox, CheckboxGroup } from '$saas/checkbox';
+
+<Checkbox checked label="Accept Terms" />
+
+<CheckboxGroup label="Select Options">
+  <Checkbox value="1" label="Option 1" />
+  <Checkbox value="2" label="Option 2" />
+</CheckboxGroup>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the visual style. Options are `solid` (default), `subtle`, and `outline`.
+
+<Canvas of={CheckboxStories.Variants} />
+
+### Controlled
+
+Use `bind:checked`, with a two-way binding, to control the state of the checkbox.
+
+<Canvas of={CheckboxStories.Controlled} />
+
+### States
+
+The checkbox supports checked, unchecked, and indeterminate states, as well as disabled and invalid.
+
+<Canvas of={CheckboxStories.States} />
+
+### Sizes
+
+Use the `size` prop to change the size of the checkbox. Values can be `sm`, `md`, or `lg`.
+
+<Canvas of={CheckboxStories.Sizes} />
+
+### Colors
+
+Use the `color` prop to change the active color. This matches the button color system.
+
+<Canvas of={CheckboxStories.Colors} />
+
+### With Description
+
+You can add a `description` prop to provide more context. This is useful for settings or complex forms.
+
+<Canvas of={CheckboxStories.WithDescription} />
+
+### Grouping
+
+Use CheckboxGroup to organize multiple checkboxes. You can bind an array to the `group` prop on the Checkbox items, or handle logic manually. The CheckboxGroup component handles layout (vertical or horizontal) and a group label.
+
+<Canvas of={CheckboxStories.Group} />
+
+## Props
+
+<ArgTypes />

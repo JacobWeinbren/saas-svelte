@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import * as IconStories from "./Icon.stories.svelte";
+import { Icon } from "$saas/icon";
+
+<Meta of={IconStories} />
+
+# Icon
+
+## Used to display an SVG icon
+
+<Canvas of={IconStories.Basic} />
+
+## Anatomy
+
+```svelte
+import { Icon } from '$saas/icon';
+import { Heart } from '@lucide/svelte';
+
+<Icon as={Heart} />
+```
+
+You can also use raw SVG paths by passing them as children:
+
+```svelte
+<Icon viewBox="0 0 24 24">
+	<path d="..." />
+</Icon>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the icon dimensions. You can set the value to `xs`, `sm`, `md`, `lg`, `xl`, or `2xl`.
+
+<Canvas of={IconStories.Sizes} />
+
+### Colors
+
+Use the `color` prop to apply theme colors from the palette.
+
+<Canvas of={IconStories.Colored} />
+
+### Stroke Width
+
+Use the `strokeWidth` prop to control the thickness of stroke-based icons.
+
+<Canvas of={IconStories.StrokeWidth} />
+
+### Custom SVG
+
+Wrap raw SVG paths directly by passing them as children.
+
+<Canvas of={IconStories.CustomSVG} />
+
+## Props
+
+<ArgTypes />

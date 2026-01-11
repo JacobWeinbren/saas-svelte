@@ -4,10 +4,11 @@
 	import type { Snippet, Component } from "svelte";
 
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { Icon } from "$saas/icon";
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-md text-sm",
+			root: "relative w-full flex items-start p-4 rounded-md text-sm antialiased",
 			iconWrapper: "shrink-0 flex items-center justify-center w-5 h-5",
 			content: "flex-1 min-w-0 flex flex-col gap-1 ml-3",
 			title: "font-medium leading-5",
@@ -109,7 +110,7 @@
 >
 	{#if IconToRender}
 		<span class={iconWrapper()}>
-			<IconToRender size={20} />
+			<Icon as={IconToRender} size="md" />
 		</span>
 	{/if}
 

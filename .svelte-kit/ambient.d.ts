@@ -79,6 +79,7 @@ declare module '$env/static/private' {
 	export const HOME: string;
 	export const APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL: string;
 	export const VSCODE_NLS_CONFIG: string;
+	export const APPLICATION_INSIGHTS_NO_STATSBEAT: string;
 	export const HOMEBREW_PREFIX: string;
 	export const npm_config_cache: string;
 	export const LOGNAME: string;
@@ -180,6 +181,7 @@ declare module '$env/dynamic/private' {
 		HOME: string;
 		APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL: string;
 		VSCODE_NLS_CONFIG: string;
+		APPLICATION_INSIGHTS_NO_STATSBEAT: string;
 		HOMEBREW_PREFIX: string;
 		npm_config_cache: string;
 		LOGNAME: string;
