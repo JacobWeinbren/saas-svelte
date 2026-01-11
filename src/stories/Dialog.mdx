@@ -23,21 +23,19 @@ The Dialog component uses [Ark UI](https://ark-ui.com/docs/components/dialog) pr
 ```html
 <Dialog.Root>
 	<Dialog.Trigger>
-		<Button>Open</Button>
+		<button>Open</button>
 	</Dialog.Trigger>
 	<Dialog.Content>
 		<Dialog.Header>
 			<Dialog.Title>Title</Dialog.Title>
 			<Dialog.CloseButton />
 		</Dialog.Header>
-		<Dialog.Body>
-			Content goes here...
-		</Dialog.Body>
+		<Dialog.Body> Content goes here... </Dialog.Body>
 		<Dialog.Footer>
 			<Dialog.ActionTrigger>
-				<Button variant="ghost">Cancel</Button>
+				<button variant="ghost">Cancel</button>
 			</Dialog.ActionTrigger>
-			<Button variant="glass">Save</Button>
+			<button variant="glass">Save</button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
@@ -62,6 +60,18 @@ Use the `size="cover"` prop to make the dialog component cover the entire screen
 Use the `scrollBehavior="inside"` prop to change the scroll behavior of the dialog when its content overflows.
 
 <Canvas of={DialogStories.InsideScroll} />
+
+### Outside Scroll
+
+Use the `scrollBehavior="outside"` prop to change the scroll behavior of the dialog when its content overflows.
+
+<Canvas of={DialogStories.OutsideScroll} />
+
+### Motion Preset
+
+Use the `motionPreset` prop to change the animation of the dialog component.
+
+<Canvas of={DialogStories.MotionPreset} />
 
 ### Alert Dialog
 

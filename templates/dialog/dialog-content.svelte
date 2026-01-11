@@ -22,7 +22,7 @@
 	const ctx = getContext(DIALOG_CTX) as DialogContext;
 
 	const positionerStyles = tv({
-		base: "fixed inset-0 z-50 flex w-screen",
+		base: "fixed inset-0 z-50 flex w-screen h-[100dvh] overflow-hidden",
 		variants: {
 			placement: {
 				center: "items-start justify-center",
@@ -32,6 +32,15 @@
 			scrollBehavior: {
 				inside: "overflow-hidden",
 				outside: "overflow-y-auto",
+			},
+			size: {
+				xs: "",
+				sm: "",
+				md: "",
+				lg: "",
+				xl: "",
+				full: "",
+				cover: "p-10 items-center justify-center",
 			},
 		},
 		defaultVariants: {
@@ -43,21 +52,20 @@
 	const contentStyles = tv({
 		base: [
 			"relative flex flex-col",
-			"bg-white dark:bg-gray-900",
+			"bg-white/95 dark:bg-gray-900/95 backdrop-blur-md",
 			"shadow-lg ring-1 ring-gray-950/5 dark:ring-white/10",
 			"mx-auto",
 			"outline-none focus:outline-none",
 		],
 		variants: {
 			size: {
-				// Removed 'sm:' prefix to ensure rounded corners persist on mobile
-				xs: "w-full max-w-xs rounded-lg",
-				sm: "w-full max-w-sm rounded-lg",
+				xs: "w-full max-w-sm rounded-lg",
+				sm: "w-full max-w-md rounded-lg",
 				md: "w-full max-w-lg rounded-lg",
 				lg: "w-full max-w-2xl rounded-lg",
 				xl: "w-full max-w-4xl rounded-lg",
 				full: "w-full h-full",
-				cover: "w-full h-full h-[calc(100%-2rem)] mt-auto rounded-t-xl",
+				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-4rem)] my-auto",
@@ -79,7 +87,9 @@
 	<Dialog.Positioner
 		class={positionerStyles({
 			placement: ctx.placement === "center" ? "top" : ctx.placement,
-			scrollBehavior: ctx.scrollBehavior,
+			scrollBehavior:
+				ctx.size === "cover" ? "inside" : ctx.scrollBehavior,
+			size: ctx.size,
 		})}
 	>
 		<Dialog.Content
@@ -89,6 +99,7 @@
 				scrollBehavior: ctx.scrollBehavior,
 				class: className,
 			})}
+			data-motion-preset={ctx.motionPreset}
 			{...rest}
 		>
 			{@render children()}
@@ -115,12 +126,20 @@
 			scale-out 0.2s ease-in;
 	}
 
+	/* Slide In Bottom Animation */
 	:global(
 		[data-part="content"][data-motion-preset="slide-in-bottom"][data-state="open"]
 	) {
 		animation:
 			fade-in 0.2s ease-out,
 			slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	:global(
+		[data-part="content"][data-motion-preset="slide-in-bottom"][data-state="closed"]
+	) {
+		animation:
+			fade-out 0.2s ease-in,
+			slide-out-bottom 0.2s ease-in;
 	}
 
 	@keyframes fade-in {
@@ -155,12 +174,25 @@
 			transform: scale(0.95);
 		}
 	}
+
+	/* Updated Animations: 
+       Reduced travel distance from 100% (full height) to 2rem (approx 32px).
+       This creates a subtle "float up" effect rather than a "fly in" effect.
+    */
 	@keyframes slide-in-bottom {
 		from {
-			transform: translateY(100%);
+			transform: translateY(2rem);
 		}
 		to {
 			transform: translateY(0);
+		}
+	}
+	@keyframes slide-out-bottom {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(2rem);
 		}
 	}
 </style>

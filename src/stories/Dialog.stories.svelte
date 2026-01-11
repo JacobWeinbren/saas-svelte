@@ -94,10 +94,13 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<div class="flex gap-2">
+	<div class="flex items-center gap-2">
 		{#each ["xs", "sm", "md", "lg"] as size}
 			<Dialog.Root size={size as "xs" | "sm" | "md" | "lg"}>
-				<Dialog.Trigger>
+				<Dialog.Trigger
+					variant="outline"
+					size={size as "xs" | "sm" | "md" | "lg"}
+				>
 					Open ({size})
 				</Dialog.Trigger>
 				<Dialog.Content>
@@ -157,8 +160,51 @@
 					</p>
 				{/each}
 			</Dialog.Body>
+		</Dialog.Content>
+	</Dialog.Root>
+{/snippet}
+
+{#snippet outsideScrollStory()}
+	<Dialog.Root scrollBehavior="outside" size="sm">
+		<Dialog.Trigger>Outside Scroll</Dialog.Trigger>
+		<Dialog.Content>
+			<Dialog.Header>
+				<Dialog.Title>With Outside Scroll</Dialog.Title>
+				<Dialog.CloseButton />
+			</Dialog.Header>
+			<Dialog.Body>
+				{#each Array(20) as _}
+					<p class="mb-4">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Sed do eiusmod tempor incididunt ut labore et dolore
+						magna aliqua.
+					</p>
+				{/each}
+			</Dialog.Body>
+		</Dialog.Content>
+	</Dialog.Root>
+{/snippet}
+
+{#snippet motionPresetStory()}
+	<Dialog.Root motionPreset="slide-in-bottom">
+		<Dialog.Trigger>Slide in Bottom</Dialog.Trigger>
+		<Dialog.Content>
+			<Dialog.Header>
+				<Dialog.Title>Dialog Title</Dialog.Title>
+				<Dialog.CloseButton />
+			</Dialog.Header>
+			<Dialog.Body>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</p>
+			</Dialog.Body>
 			<Dialog.Footer>
-				<Button variant="glass" class={focusClass}>Close</Button>
+				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
+				<Button variant="glass" color="indigo" class={focusClass}
+					>Save</Button
+				>
 			</Dialog.Footer>
 		</Dialog.Content>
 	</Dialog.Root>
@@ -192,4 +238,6 @@
 <Story name="Sizes" template={sizesStory} />
 <Story name="Cover" template={coverStory} />
 <Story name="InsideScroll" template={insideScrollStory} />
+<Story name="OutsideScroll" template={outsideScrollStory} />
+<Story name="MotionPreset" template={motionPresetStory} />
 <Story name="AlertDialog" template={alertDialogStory} />
