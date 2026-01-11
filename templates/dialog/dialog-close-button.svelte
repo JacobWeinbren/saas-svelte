@@ -20,7 +20,7 @@
 		"cursor-pointer text-gray-500 dark:text-gray-400",
 		"rounded-sm",
 		// Focus styles preserved from previous steps
-		"focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100",
+		"focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100",
 		className,
 	)}
 	{...rest}

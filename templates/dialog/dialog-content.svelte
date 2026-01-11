@@ -52,8 +52,10 @@
 	const contentStyles = tv({
 		base: [
 			"relative flex flex-col",
-			"bg-white/95 dark:bg-gray-900/95 backdrop-blur-md",
-			"shadow-lg ring-1 ring-gray-950/5 dark:ring-white/10",
+			// Darkened background to gray-900/85
+			"bg-white/95 dark:bg-gray-900/85 backdrop-blur-md",
+			// Matched dark ring to light mode's subtlety (5% opacity)
+			"shadow-lg ring-1 ring-gray-950/5 dark:ring-white/5",
 			"mx-auto",
 			"outline-none focus:outline-none",
 		],
@@ -126,7 +128,6 @@
 			scale-out 0.2s ease-in;
 	}
 
-	/* Slide In Bottom Animation */
 	:global(
 		[data-part="content"][data-motion-preset="slide-in-bottom"][data-state="open"]
 	) {
@@ -174,11 +175,6 @@
 			transform: scale(0.95);
 		}
 	}
-
-	/* Updated Animations: 
-       Reduced travel distance from 100% (full height) to 2rem (approx 32px).
-       This creates a subtle "float up" effect rather than a "fly in" effect.
-    */
 	@keyframes slide-in-bottom {
 		from {
 			transform: translateY(2rem);

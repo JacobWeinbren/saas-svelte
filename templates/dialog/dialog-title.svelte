@@ -14,11 +14,8 @@
 
 <Dialog.Title
 	class={twMerge(
-		// Updated styles:
-		// 1. text-base (was text-lg) -> Smaller size
-		// 2. font-medium (was font-semibold) -> Matches weight 500 from your dumps
-		// 3. Removed tracking-tight & leading-none -> Matches letter-spacing: normal
-		"text-base font-medium text-gray-900 dark:text-gray-100",
+		// Updated to font-semibold and lighter text color for dark mode
+		"text-base font-semibold text-gray-900 dark:text-gray-50",
 		className,
 	)}
 	{...rest}
