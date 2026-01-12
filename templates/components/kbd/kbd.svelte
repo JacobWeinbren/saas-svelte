@@ -4,22 +4,22 @@
 
 	export const kbd = tv({
 		base: [
-			"inline-flex items-center shrink-0 select-none whitespace-nowrap [word-spacing:-0.5em]",
+			"inline-flex items-center justify-center shrink-0 select-none whitespace-nowrap [word-spacing:-0.5em]",
 			"font-medium rounded px-1",
-			"antialiased",
+			"antialiased font-sans",
 		],
 		variants: {
 			variant: {
 				raised: "border-t border-b-2 border-x border-gray-50 bg-gray-100 text-gray-900 dark:border-gray-950 dark:bg-gray-900 dark:text-gray-200",
 				outline:
-					"border border-gray-200 text-gray-900 dark:border-gray-700 dark:text-gray-200",
+					"border border-gray-200 text-gray-900 dark:border-gray-800 dark:text-gray-200",
 				subtle: "bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200",
 				plain: "text-gray-900 dark:text-gray-200",
 			},
 			size: {
-				sm: "h-5 text-xs leading-4",
+				sm: "h-4 text-[10px] leading-3",
 				md: "h-5 text-xs leading-4",
-				lg: "h-6 text-sm leading-5",
+				lg: "h-6 text-sm leading-5 px-1.5",
 			},
 		},
 		defaultVariants: {
@@ -33,7 +33,6 @@
 
 <script lang="ts">
 	import type { Snippet } from "svelte";
-	type KbdVariants = VariantProps<typeof kbd>;
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		/**
@@ -68,7 +67,7 @@
 		kbd({
 			variant,
 			size,
-			class: `${className || ""}`,
+			class: className,
 		}),
 	);
 </script>
