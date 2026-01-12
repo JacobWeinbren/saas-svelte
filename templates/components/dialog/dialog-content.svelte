@@ -58,6 +58,7 @@
 			"shadow-lg ring-1 ring-gray-950/5 dark:ring-white/5",
 			"mx-auto",
 			"outline-none focus:outline-none",
+			"antialiased",
 		],
 		variants: {
 			size: {

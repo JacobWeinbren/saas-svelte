@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const group = tv({
-		base: "flex",
+		base: "flex antialiased",
 		variants: {
 			attached: {
 				true: [

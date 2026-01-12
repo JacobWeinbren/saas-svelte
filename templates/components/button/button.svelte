@@ -10,7 +10,7 @@
 			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-200) bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:disabled:hover:border-(--c-700)/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-500) dark:shadow-none",
 			// BASE TEXT COLOR (Neutral High Contrast)
 			"text-(--c-900) dark:text-(--c-100)",
-			"antialiased transition-all duration-200",
+			"antialiased",
 		],
 		variants: {
 			variant: {

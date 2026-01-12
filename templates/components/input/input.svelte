@@ -9,7 +9,7 @@
 			"rounded border",
 
 			// Text & Placeholder
-			"text-sm leading-5",
+			"text-sm leading-5 antialiased",
 			"placeholder:text-zinc-500/90 placeholder:select-none",
 
 			// Disabled

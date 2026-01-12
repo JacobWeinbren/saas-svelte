@@ -10,7 +10,7 @@
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 				"bg-white dark:bg-zinc-950",
 				"text-zinc-950 dark:text-neutral-50",
-				"text-xs font-medium leading-4",
+				"text-xs font-medium leading-4 antialiased",
 				"max-w-xs",
 				"select-none",
 				"border border-zinc-200 dark:border-zinc-800",
