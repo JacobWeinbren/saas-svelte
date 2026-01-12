@@ -21,7 +21,7 @@ import { getControls } from "../utils";
 ```
 
 ```html
-<Icon as={Heart} />
+<Icon as="{Heart}" />
 ```
 
 You can also use raw SVG paths by passing them as children:
@@ -44,7 +44,7 @@ Use the `size` prop to change the icon dimensions. You can set the value to `xs`
 
 Use the `color` prop to apply theme colors from the palette.
 
-<Canvas of={IconStories.Colored} />
+<Canvas of={IconStories.Colours} />
 
 ### Stroke Width
 
@@ -60,4 +60,14 @@ Wrap raw SVG paths directly by passing them as children.
 
 ## Props
 
-<ArgTypes {...getControls(["as", "size", "strokeWidth", "viewBox", "color", "class", "children"])} />
+<ArgTypes
+	{...getControls([
+		"as",
+		"size",
+		"strokeWidth",
+		"viewBox",
+		"color",
+		"class",
+		"children",
+	])}
+/>
