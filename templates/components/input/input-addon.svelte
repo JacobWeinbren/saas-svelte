@@ -5,7 +5,7 @@
 
 	const addon = tv({
 		base: [
-			"flex items-center whitespace-nowrap border",
+			"flex items-center whitespace-nowrap border antialiased",
 			// Light Mode
 			"bg-gray-50 border-gray-200 text-gray-600",
 			// Dark Mode
