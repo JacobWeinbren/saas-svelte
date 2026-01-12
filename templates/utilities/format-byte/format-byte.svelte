@@ -33,9 +33,6 @@
 	const formattedValue = $derived.by(() => {
 		const currentLocale = localeProp || localeContext?.locale || "en-US";
 
-		// Convert bytes to bits if needed
-		const numericValue = unit === "bit" ? value * 8 : value;
-
 		// Determine appropriate unit
 		const units =
 			unit === "bit"
@@ -43,7 +40,7 @@
 				: ["byte", "kilobyte", "megabyte", "gigabyte", "terabyte"];
 
 		let unitIndex = 0;
-		let displayValue = numericValue;
+		let displayValue = value;
 
 		// Find the appropriate unit
 		while (displayValue >= 1024 && unitIndex < units.length - 1) {
@@ -63,12 +60,15 @@
 
 		// Get unit abbreviation based on unitDisplay
 		let unitString = "";
+		let separator = " ";
+
 		if (unitDisplay === "narrow") {
 			const abbreviations =
 				unit === "bit"
 					? ["b", "kb", "Mb", "Gb", "Tb"]
 					: ["B", "kB", "MB", "GB", "TB"];
 			unitString = abbreviations[unitIndex];
+			separator = ""; // No space for narrow
 		} else if (unitDisplay === "short") {
 			const abbreviations =
 				unit === "bit"
@@ -83,8 +83,8 @@
 			}
 		}
 
-		return `${formatted} ${unitString}`;
+		return `${formatted}${separator}${unitString}`;
 	});
 </script>
 
-{@html formattedValue}
+{formattedValue}

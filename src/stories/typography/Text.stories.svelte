@@ -1,6 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Text } from "$saas/typography/text";
+	import { Stack } from "$saas/layout/stack";
 	import { commonArgTypes, getControls, textSizes } from "../utils";
 
 	const weights = ["light", "normal", "medium", "semibold", "bold"] as const;
@@ -71,19 +72,19 @@
 </script>
 
 {#snippet sizesStory()}
-	<div class="flex flex-col gap-2">
+	<Stack>
 		{#each textSizes as size}
 			<Text {size}>Chakra ({size})</Text>
 		{/each}
-	</div>
+	</Stack>
 {/snippet}
 
 {#snippet weightsStory()}
-	<div class="flex flex-col gap-2">
+	<Stack>
 		{#each weights as w}
 			<Text weight={w}>Sphinx of black quartz, judge my vow.</Text>
 		{/each}
-	</div>
+	</Stack>
 {/snippet}
 
 {#snippet truncateStory()}

@@ -16,15 +16,15 @@ The Dialog component uses [Ark UI](https://ark-ui.com/docs/components/dialog) pr
 
 ```html
 <script>
-	import { Dialog } from "$saas/dialog";
-	import { Button } from "$saas/button";
+	import { Dialog } from "$saas/components/dialog";
+	import { Button } from "$saas/components/button";
 </script>
 ```
 
 ```html
 <Dialog.Root>
 	<Dialog.Trigger>
-		<button>Open</button>
+		<Button>Open</Button>
 	</Dialog.Trigger>
 	<Dialog.Content>
 		<Dialog.Header>
@@ -34,9 +34,9 @@ The Dialog component uses [Ark UI](https://ark-ui.com/docs/components/dialog) pr
 		<Dialog.Body> Content goes here... </Dialog.Body>
 		<Dialog.Footer>
 			<Dialog.ActionTrigger>
-				<button variant="ghost">Cancel</button>
+				<Button variant="ghost">Cancel</Button>
 			</Dialog.ActionTrigger>
-			<button variant="glass">Save</button>
+			<Button variant="glass">Save</Button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

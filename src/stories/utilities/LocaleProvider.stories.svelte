@@ -6,6 +6,7 @@
 	} from "$saas/utilities/locale-provider";
 	import { FormatNumber } from "$saas/utilities/format-number";
 	import { Text } from "$saas/typography/text";
+	import { Stack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
 		title: "utilities/LocaleProvider",
@@ -34,16 +35,14 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="flex items-center justify-center p-8">
-		<LocaleProvider locale="ar-BH">
-			<LocaleDisplay />
-		</LocaleProvider>
-	</div>
+	<LocaleProvider locale="ar-BH">
+		<LocaleDisplay />
+	</LocaleProvider>
 {/snippet}
 
 {#snippet settingLocaleStory()}
-	<div class="flex flex-col items-center gap-6 p-8">
-		<div class="w-full max-w-md">
+	<Stack class="max-w-md">
+		<div>
 			<Text size="md" weight="medium" class="mb-2">English (US)</Text>
 			<LocaleProvider locale="en-US">
 				<LocaleDisplay>
@@ -56,7 +55,7 @@
 			</LocaleProvider>
 		</div>
 
-		<div class="w-full max-w-md">
+		<div>
 			<Text size="md" weight="medium" class="mb-2">German (Germany)</Text>
 			<LocaleProvider locale="de-DE">
 				<LocaleDisplay>
@@ -69,7 +68,7 @@
 			</LocaleProvider>
 		</div>
 
-		<div class="w-full max-w-md">
+		<div>
 			<Text size="md" weight="medium" class="mb-2">Arabic (Bahrain)</Text>
 			<LocaleProvider locale="ar-BH">
 				<LocaleDisplay>
@@ -81,7 +80,7 @@
 				</LocaleDisplay>
 			</LocaleProvider>
 		</div>
-	</div>
+	</Stack>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

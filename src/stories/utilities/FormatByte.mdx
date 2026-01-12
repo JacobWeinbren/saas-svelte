@@ -15,10 +15,12 @@ import { getControls } from "../utils";
 ```html
 <script>
 	import { FormatByte } from "$saas/utilities/format-byte";
-	import { Text } from "$saas/text";
+	import { Text } from "$saas/typography/text";
 </script>
 
-<Text> File size: <FormatByte value="{1000}" /> </Text>
+<Text>
+	File size: <FormatByte value={1000} />
+</Text>
 ```
 
 ## Examples

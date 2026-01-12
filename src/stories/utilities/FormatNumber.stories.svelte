@@ -3,6 +3,7 @@
 	import { FormatNumber } from "$saas/utilities/format-number";
 	import { LocaleProvider } from "$saas/utilities/locale-provider";
 	import { Text } from "$saas/typography/text";
+	import { Stack, HStack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
 		title: "utilities/FormatNumber",
@@ -57,74 +58,64 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="flex items-center justify-center p-8">
-		<Text size="lg">
-			<FormatNumber value={1450.45} />
-		</Text>
-	</div>
+	<Text size="lg">
+		<FormatNumber value={1450.45} />
+	</Text>
 {/snippet}
 
 {#snippet percentageStory()}
-	<div class="flex items-center justify-center p-8">
-		<Text size="lg">
-			<FormatNumber
-				value={0.145}
-				style="percent"
-				maximumFractionDigits={2}
-				minimumFractionDigits={2}
-			/>
-		</Text>
-	</div>
+	<Text size="lg">
+		<FormatNumber
+			value={0.145}
+			style="percent"
+			maximumFractionDigits={2}
+			minimumFractionDigits={2}
+		/>
+	</Text>
 {/snippet}
 
 {#snippet currencyStory()}
-	<div class="flex items-center justify-center p-8">
-		<Text size="lg">
-			<FormatNumber value={1234.45} style="currency" currency="USD" />
-		</Text>
-	</div>
+	<Text size="lg">
+		<FormatNumber value={1234.45} style="currency" currency="USD" />
+	</Text>
 {/snippet}
 
 {#snippet localeStory()}
-	<div class="flex flex-col items-center gap-3 p-8">
-		<div class="flex items-center gap-4">
+	<Stack>
+		<HStack>
 			<Text size="md" weight="medium" class="w-16">de-DE</Text>
 			<LocaleProvider locale="de-DE">
 				<Text size="lg">
 					<FormatNumber value={1450.45} />
 				</Text>
 			</LocaleProvider>
-		</div>
+		</HStack>
 
-		<div class="flex items-center gap-4">
+		<HStack>
 			<Text size="md" weight="medium" class="w-16">zh-CN</Text>
 			<LocaleProvider locale="zh-CN">
 				<Text size="lg">
 					<FormatNumber value={1450.45} />
 				</Text>
 			</LocaleProvider>
-		</div>
-	</div>
+		</HStack>
+	</Stack>
 {/snippet}
 
 {#snippet unitStory()}
-	<div class="flex items-center justify-center p-8">
-		<Text size="lg">
-			<FormatNumber value={384.4} style="unit" unit="kilometer" />
-		</Text>
-	</div>
+	<Text size="lg">
+		<FormatNumber value={384.4} style="unit" unit="kilometer" />
+	</Text>
 {/snippet}
 
 {#snippet compactStory()}
-	<div class="flex items-center justify-center p-8">
-		<Text size="lg">
-			<FormatNumber
-				value={1500000}
-				notation="compact"
-				compactDisplay="short"
-			/>
-		</Text>
-	</div>
+	<Text size="lg">
+		<FormatNumber
+			value={1500000}
+			notation="compact"
+			compactDisplay="short"
+		/>
+	</Text>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

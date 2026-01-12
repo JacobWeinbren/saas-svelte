@@ -16,7 +16,8 @@
 				"3xl": "text-3xl leading-9 tracking-[-0.4px]",
 				"4xl": "text-4xl leading-10 tracking-[-0.4px]",
 				"5xl": "text-5xl leading-[3.45rem] -tracking-wide",
-				"6xl": "text-6xl leading-16.5 -tracking-wider",
+				"6xl": "text-6xl leading-[4.125rem] -tracking-wider",
+				"7xl": "text-7xl leading-[5rem] -tracking-wider",
 			},
 			weight: {
 				thin: "font-thin",

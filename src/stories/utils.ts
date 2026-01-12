@@ -13,6 +13,7 @@ export const textSizes = [
     "4xl",
     "5xl",
     "6xl",
+    "7xl",
 ] as const;
 export const variants = [
     "solid",

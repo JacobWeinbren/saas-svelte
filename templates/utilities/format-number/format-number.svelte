@@ -25,4 +25,4 @@
 	});
 </script>
 
-{@html formattedValue}
+{formattedValue}
