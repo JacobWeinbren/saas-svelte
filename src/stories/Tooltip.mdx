@@ -25,17 +25,47 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 
 ## Examples
 
+### Arrow
+
+Use the `showArrow` prop to display an arrow pointing to the trigger element.
+
+<Canvas of={TooltipStories.Arrow} />
+
+### Inverted
+
+Use the `variant="inverted"` prop to invert the tooltip colors for better contrast.
+
+<Canvas of={TooltipStories.Inverted} />
+
 ### Placements
 
 Use the `positioning` prop to change the placement of the tooltip relative to the trigger. Supported placements include `top`, `bottom`, `left`, `right`, and their variations (e.g., `top-start`).
 
 <Canvas of={TooltipStories.Placements} />
 
+### Offset
+
+Use the `positioning.offset` prop to adjust the distance between the tooltip and trigger.
+
+<Canvas of={TooltipStories.Offset} />
+
 ### Delays
 
 Control how fast the tooltip appears or disappears using `openDelay` and `closeDelay`.
 
 <Canvas of={TooltipStories.Delays} />
+
+### Interactive
+
+Use the `interactive` prop to keep the tooltip open when hovering over its content.
+
+<Canvas of={TooltipStories.Interactive} />
+
+### Disabled
+
+Use the `disabled` prop to prevent the tooltip from showing. When disabled, the tooltip will not appear on hover.
+
+<Canvas of={TooltipStories.Disabled} />
 
 ### Custom Content
 
@@ -45,4 +75,4 @@ For complex content, you can pass a snippet to the `content` prop instead of a s
 
 ## Props
 
-<ArgTypes {...getControls(['content', 'openDelay', 'closeDelay', 'positioning', 'disabled', 'class', 'children'])} />
+<ArgTypes {...getControls(['content', 'showArrow', 'variant', 'interactive', 'openDelay', 'closeDelay', 'positioning', 'disabled', 'class', 'children'])} />
