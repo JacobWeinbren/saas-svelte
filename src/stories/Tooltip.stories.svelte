@@ -3,7 +3,7 @@
 	import { Tooltip } from "$saas/tooltip";
 	import { Button } from "$saas/button";
 	import { Icon } from "$saas/icon";
-	import { Info, HelpCircle } from "@lucide/svelte";
+	import { Info, BadgeQuestionMark } from "@lucide/svelte";
 	import { commonArgTypes } from "./utils";
 
 	const { Story } = defineMeta({
@@ -16,7 +16,8 @@
 			},
 			showArrow: {
 				control: "boolean",
-				description: "Whether to show an arrow pointing to the trigger element.",
+				description:
+					"Whether to show an arrow pointing to the trigger element.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			variant: {
@@ -45,7 +46,11 @@
 			positioning: {
 				control: "object",
 				description: "Positioning options for the tooltip.",
-				table: { defaultValue: { summary: '{ placement: "bottom", strategy: "fixed" }' } },
+				table: {
+					defaultValue: {
+						summary: '{ placement: "bottom", strategy: "fixed" }',
+					},
+				},
 			},
 			disabled: commonArgTypes.disabled,
 			class: commonArgTypes.class,
@@ -91,7 +96,11 @@
 {#snippet placementsStory()}
 	<div class="flex flex-col items-center gap-4 p-8">
 		<div class="flex gap-4">
-			<Tooltip content="Tooltip top" positioning={{ placement: "top" }} showArrow>
+			<Tooltip
+				content="Tooltip top"
+				positioning={{ placement: "top" }}
+				showArrow
+			>
 				<Button variant="outline" size="sm">Top</Button>
 			</Tooltip>
 			<Tooltip
@@ -101,10 +110,18 @@
 			>
 				<Button variant="outline" size="sm">Bottom</Button>
 			</Tooltip>
-			<Tooltip content="Tooltip left" positioning={{ placement: "left" }} showArrow>
+			<Tooltip
+				content="Tooltip left"
+				positioning={{ placement: "left" }}
+				showArrow
+			>
 				<Button variant="outline" size="sm">Left</Button>
 			</Tooltip>
-			<Tooltip content="Tooltip right" positioning={{ placement: "right" }} showArrow>
+			<Tooltip
+				content="Tooltip right"
+				positioning={{ placement: "right" }}
+				showArrow
+			>
 				<Button variant="outline" size="sm">Right</Button>
 			</Tooltip>
 		</div>
@@ -113,10 +130,7 @@
 
 {#snippet offsetStory()}
 	<div class="flex items-center justify-center gap-4 p-8">
-		<Tooltip
-			content="Default offset"
-			showArrow
-		>
+		<Tooltip content="Default offset" showArrow>
 			<Button variant="outline" size="sm">Default</Button>
 		</Tooltip>
 		<Tooltip
@@ -146,7 +160,9 @@
 			{#snippet content()}
 				<div class="flex flex-col gap-1">
 					<span class="font-semibold">Interactive tooltip</span>
-					<span class="text-xs opacity-80">You can hover over me!</span>
+					<span class="text-xs opacity-80"
+						>You can hover over me!</span
+					>
 				</div>
 			{/snippet}
 			<Button variant="outline">Hover me</Button>
@@ -164,7 +180,7 @@
 				</div>
 			{/snippet}
 			<Button variant="surface" size="sm" icon>
-				<Icon as={HelpCircle} />
+				<Icon as={BadgeQuestionMark} />
 			</Button>
 		</Tooltip>
 	</div>
