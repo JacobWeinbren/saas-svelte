@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as InputStories from "./Input.stories.svelte";
+import { Input, InputGroup, InputElement, InputAddon } from "$saas/components/input";
+import { getControls } from "../utils";
+
+<Meta of={InputStories} />
+
+# Input
+
+## Used to get user input in a text field.
+
+<Canvas of={InputStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Input, InputGroup, InputElement, InputAddon } from "$saas/input";
+</script>
+
+<input placeholder="Basic input" />
+
+<InputGroup>
+	<InputElement placement="left">
+		<Icon />
+	</InputElement>
+	<input class="pl-10" placeholder="With Icon" />
+</InputGroup>
+```
+
+## Examples
+
+### Variants
+
+Use the variant prop to change the visual style of the input. Values can be outline, subtle, or flushed.
+
+<Canvas of={InputStories.Variants} />
+
+### Sizes
+
+Use the size prop to change the size of the input. Available sizes are xs, sm, md (default), lg, and xl.
+
+<Canvas of={InputStories.Sizes} />
+
+### With Addons
+
+Use InputAddon to attach fixed labels to the start or end of an input.
+
+<Canvas of={InputStories.WithAddons} />
+
+### Disabled
+
+Use the `disabled` prop to disable the input.
+
+<Canvas of={InputStories.Disabled} />
+
+### Custom Placeholder
+
+Use the `placeholder` pseudo-element and `text-inherit` to colour the placeholder text.
+
+<Canvas of={InputStories.InputWithPlaceholderStyle} />
+
+## Props
+
+### Input
+
+<ArgTypes of={Input} exclude={inputPattern} />
+
+### InputGroup
+
+<ArgTypes of={InputGroup} exclude={inputGroupPattern} />
+
+### InputElement
+
+<ArgTypes of={InputElement} exclude={inputElementPattern} />
+
+### InputAddon
+
+<ArgTypes of={InputAddon} exclude={/^(?!(size|class|children)$).*$/} />

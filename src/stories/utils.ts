@@ -89,10 +89,31 @@ export const commonArgTypes = {
     },
 } as const;
 
-import { generateExcludePattern } from "../../.storybook/hide-inherited-props";
+// Re-export from hide-inherited-props
+import { generateExcludePattern as genExcludePattern } from "./hide-inherited-props";
+export { generateExcludePattern } from "./hide-inherited-props";
+
+// Re-export all patterns from exclude-patterns
+export {
+    accordionRootPattern,
+    accordionItemPattern,
+    accordionItemTriggerPattern,
+    accordionItemContentPattern,
+    alertPattern,
+    buttonPattern,
+    checkboxPattern,
+    checkboxGroupPattern,
+    dialogRootPattern,
+    iconPattern,
+    inputPattern,
+    inputGroupPattern,
+    inputElementPattern,
+    stackPattern,
+    textPattern,
+} from "./exclude-patterns";
 
 export const getControls = (allowedProps: string[]) => {
     return {
-        exclude: generateExcludePattern(allowedProps),
+        exclude: genExcludePattern(allowedProps),
     };
 };

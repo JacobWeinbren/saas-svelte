@@ -1,0 +1,71 @@
+import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+## Buttons are used to trigger actions or events.
+
+<Canvas of={ButtonStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Button } from "$saas/button";
+	import { ButtonGroup } from "$saas/button";
+</script>
+```
+
+```html
+<button>Click me!</button>
+
+<ButtonGroup>
+	<button>Button 1</button>
+	<button>Button 2</button>
+</ButtonGroup>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the button. You can set the value to `xs`, `sm`, `md`, `lg`, or `xl`.
+
+<Canvas of={ButtonStories.Sizes} />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the Button. You can set the value to `solid`, `subtle`, `outline`, `ghost`, `plain`, `surface`, or `glass`.
+
+<Canvas of={ButtonStories.Variants} />
+
+### Icon
+
+Use icons within a button, by passing them as children. For single icons, using the `icon` prop.
+
+<Canvas of={ButtonStories.WithIcon} />
+
+### Colour
+
+Use the `color` prop to change the colour of the button. It supports all standard Tailwind colours. Sorry British programmers!
+
+<Canvas of={ButtonStories.Colors} />
+
+### Loading
+
+Use the `loading` and `loadingText` props to show a loading spinner.
+
+<Canvas of={ButtonStories.Loading} />
+
+### Button Group
+
+Use the ButtonGroup component to group buttons together.
+
+<Canvas of={ButtonStories.Group} />
+
+## Props
+
+<ArgTypes {...getControls(["variant", "size", "color", "loading", "loadingText", "icon", "disabled", "class", "children"])} />

@@ -1,0 +1,208 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Tooltip } from "$saas/components/tooltip";
+	import { Button } from "$saas/components/button";
+	import { Icon } from "$saas/components/icon";
+	import { Info, BadgeQuestionMark } from "@lucide/svelte";
+	import { commonArgTypes } from "../utils";
+
+	const { Story } = defineMeta({
+		title: "components/Tooltip",
+		component: Tooltip,
+		argTypes: {
+			content: {
+				control: "text",
+				description: "The content to display inside the tooltip.",
+			},
+			showArrow: {
+				control: "boolean",
+				description:
+					"Whether to show an arrow pointing to the trigger element.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			variant: {
+				control: "select",
+				options: ["default", "inverted"],
+				description: "The variant of the tooltip.",
+				table: { defaultValue: { summary: "default" } },
+			},
+			interactive: {
+				control: "boolean",
+				description: "Whether the tooltip content is interactive.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			openDelay: {
+				control: "number",
+				description:
+					"The delay in milliseconds before the tooltip opens.",
+				table: { defaultValue: { summary: "100" } },
+			},
+			closeDelay: {
+				control: "number",
+				description:
+					"The delay in milliseconds before the tooltip closes.",
+				table: { defaultValue: { summary: "100" } },
+			},
+			positioning: {
+				control: "object",
+				description: "Positioning options for the tooltip.",
+				table: {
+					defaultValue: {
+						summary: '{ placement: "bottom", strategy: "fixed" }',
+					},
+				},
+			},
+			disabled: commonArgTypes.disabled,
+			class: commonArgTypes.class,
+			children: commonArgTypes.children,
+		},
+		args: {
+			content: "This is a tooltip",
+			showArrow: false,
+			variant: "default",
+			interactive: false,
+			openDelay: 0,
+			closeDelay: 0,
+			positioning: { placement: "top" },
+			disabled: false,
+		},
+	});
+</script>
+
+{#snippet basicStory()}
+	<div class="flex items-center justify-center p-8">
+		<Tooltip content="Add to library">
+			<Button variant="outline">Hover me</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet arrowStory()}
+	<div class="flex items-center justify-center p-8">
+		<Tooltip content="I have an arrow!" showArrow>
+			<Button variant="outline">Hover me</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet invertedStory()}
+	<div class="flex items-center justify-center p-8">
+		<Tooltip content="Inverted tooltip" variant="inverted" showArrow>
+			<Button variant="outline">Hover me</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet placementsStory()}
+	<div class="flex flex-col items-center gap-4 p-8">
+		<div class="flex gap-4">
+			<Tooltip
+				content="Tooltip top"
+				positioning={{ placement: "top" }}
+				showArrow
+			>
+				<Button variant="outline" size="sm">Top</Button>
+			</Tooltip>
+			<Tooltip
+				content="Tooltip bottom"
+				positioning={{ placement: "bottom" }}
+				showArrow
+			>
+				<Button variant="outline" size="sm">Bottom</Button>
+			</Tooltip>
+			<Tooltip
+				content="Tooltip left"
+				positioning={{ placement: "left" }}
+				showArrow
+			>
+				<Button variant="outline" size="sm">Left</Button>
+			</Tooltip>
+			<Tooltip
+				content="Tooltip right"
+				positioning={{ placement: "right" }}
+				showArrow
+			>
+				<Button variant="outline" size="sm">Right</Button>
+			</Tooltip>
+		</div>
+	</div>
+{/snippet}
+
+{#snippet offsetStory()}
+	<div class="flex items-center justify-center gap-4 p-8">
+		<Tooltip content="Default offset" showArrow>
+			<Button variant="outline" size="sm">Default</Button>
+		</Tooltip>
+		<Tooltip
+			content="Custom offset (16px)"
+			positioning={{ offset: { mainAxis: 16, crossAxis: 4 } }}
+			showArrow
+		>
+			<Button variant="outline" size="sm">Custom offset</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet delaysStory()}
+	<div class="flex items-center justify-center gap-4 p-8">
+		<Tooltip content="Instant tooltip" openDelay={0} showArrow>
+			<Button variant="ghost">Instant</Button>
+		</Tooltip>
+		<Tooltip content="Delayed tooltip (700ms)" openDelay={700} showArrow>
+			<Button variant="ghost">Delayed</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet interactiveStory()}
+	<div class="flex items-center justify-center p-8">
+		<Tooltip interactive showArrow>
+			{#snippet content()}
+				<div class="flex flex-col gap-1">
+					<span class="font-semibold">Interactive tooltip</span>
+					<span class="text-xs opacity-80"
+						>You can hover over me!</span
+					>
+				</div>
+			{/snippet}
+			<Button variant="outline">Hover me</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet contentSlotStory()}
+	<div class="flex items-center justify-center p-8">
+		<Tooltip>
+			{#snippet content()}
+				<div class="flex items-center gap-2">
+					<Icon as={Info} class="size-3.5" />
+					<span>Search query info</span>
+				</div>
+			{/snippet}
+			<Button variant="surface" size="sm" icon>
+				<Icon as={BadgeQuestionMark} />
+			</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+{#snippet disabledStory()}
+	<div class="flex items-center justify-center gap-4 p-8">
+		<Tooltip content="This tooltip is disabled" disabled showArrow>
+			<Button variant="outline">Hover me (disabled)</Button>
+		</Tooltip>
+		<Tooltip content="This tooltip works" showArrow>
+			<Button variant="outline">Hover me (enabled)</Button>
+		</Tooltip>
+	</div>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+<Story name="Arrow" template={arrowStory} />
+<Story name="Inverted" template={invertedStory} />
+<Story name="Placements" template={placementsStory} />
+<Story name="Offset" template={offsetStory} />
+<Story name="Delays" template={delaysStory} />
+<Story name="Interactive" template={interactiveStory} />
+<Story name="Disabled" template={disabledStory} />
+<Story name="Custom Content" template={contentSlotStory} />

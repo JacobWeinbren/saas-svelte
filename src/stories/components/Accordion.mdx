@@ -1,0 +1,114 @@
+import { Meta, Story, Canvas, ArgTypes, Controls } from "@storybook/blocks";
+import * as AccordionStories from "./Accordion.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+## Used to show and hide sections of related content on a page
+
+<Canvas of={AccordionStories.Basic} />
+
+## Anatomy
+
+The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordion) primitives for accessibility, state management, and keyboard navigation.
+
+**Simple Usage:**
+
+```html
+import { Accordion } from '$saas/accordion';
+
+const items = [
+  { value: 'a', title: 'First Item', content: 'Some value 1...' },
+  { value: 'b', title: 'Second Item', content: 'Some value 2...' },
+  { value: 'c', title: 'Third Item', content: 'Some value 3...' },
+];
+
+<Accordion {items} collapsible defaultValue={['b']} />
+```
+
+**Composition API:**
+
+```html
+import { Accordion } from '$saas/accordion';
+
+<Accordion.Root collapsible defaultValue={['b']}>
+  <Accordion.Item value="a">
+    <Accordion.ItemTrigger>First Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 1...</Accordion.ItemContent>
+  </Accordion.Item>
+
+  <Accordion.Item value="b">
+    <Accordion.ItemTrigger>Second Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 2...</Accordion.ItemContent>
+  </Accordion.Item>
+
+  <Accordion.Item value="c">
+    <Accordion.ItemTrigger>Third Item</Accordion.ItemTrigger>
+    <Accordion.ItemContent>Some value 3...</Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>
+```
+
+## Examples
+
+### Controlled
+
+Set the accordion that shows up by default, using the `defaultValue` prop.
+
+<Canvas of={AccordionStories.Controlled} />
+
+### With Icon
+
+Add icons to accordion items by passing an `icon` component in your items array.
+
+<Canvas of={AccordionStories.WithIcon} />
+
+### Expand Multiple Items
+
+Use the `multiple` prop to allow multiple items to be expanded at once.
+
+<Canvas of={AccordionStories.Multiple} />
+
+### Sizes
+
+Use the `size` prop to change the size of the accordion.
+
+<Canvas of={AccordionStories.Sizes} />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the accordion. Values can be `outline`, `subtle`, `enclosed`, or `plain`.
+
+<Canvas of={AccordionStories.Outline} />
+
+<Canvas of={AccordionStories.Subtle} />
+
+<Canvas of={AccordionStories.Enclosed} />
+
+<Canvas of={AccordionStories.Plain} />
+
+### Disabled Item
+
+Pass `disabled` on specific items in your data array to prevent them from being expanded or collapsed.
+
+<Canvas of={AccordionStories.DisabledItem} />
+
+### Props
+
+**AccordionRoot**
+
+<ArgTypes {...getControls(['variant', 'size', 'orientation', 'collapsible', 'multiple', 'defaultValue', 'class', 'children'])} />
+
+**AccordionItem**
+
+<ArgTypes {...getControls(['value', 'disabled', 'class', 'children'])} />
+
+**AccordionItemTrigger**
+
+<ArgTypes {...getControls(['icon', 'class', 'children'])} />
+
+**AccordionItemContent**
+
+<ArgTypes {...getControls(['class', 'children'])} />

@@ -1,0 +1,89 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as CheckboxStories from "./Checkbox.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+## Used in forms when a user needs to select multiple values from several options.
+
+<Canvas of={CheckboxStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Checkbox } from "$saas/checkbox";
+</script>
+```
+
+```html
+<Checkbox>Click me</Checkbox>
+```
+
+## Examples
+
+### Variants
+
+Use the variant prop to change the visual style of the checkbox.
+
+<Canvas of={CheckboxStories.Variants} />
+
+### Controlled
+
+Use bind:checked to control the state of the checkbox.
+
+<Canvas of={CheckboxStories.Controlled} />
+
+### Colors
+
+Use the color prop to change the color of the checkbox.
+
+<Canvas of={CheckboxStories.Colors} />
+
+### Sizes
+
+Use the size prop to change the size of the checkbox.
+
+<Canvas of={CheckboxStories.Sizes} />
+
+### States
+
+Use the disabled or invalid prop to change the visual state of the checkbox.
+
+<Canvas of={CheckboxStories.States} />
+
+### Group
+
+Use the CheckboxGroup component to group multiple checkboxes together.
+
+<Canvas of={CheckboxStories.Group} />
+
+### Custom Icon
+
+Use the icon snippet to change the icon of the checkbox.
+
+<Canvas of={CheckboxStories.CustomIcon} />
+
+### Indeterminate
+
+Set the checked prop to "indeterminate" to show the checkbox in an indeterminate state.
+
+<Canvas of={CheckboxStories.Indeterminate} />
+
+### Description
+
+Add content to the children of the Checkbox component to add a description.
+
+<Canvas of={CheckboxStories.Description} />
+
+### Link
+
+Render an anchor tag as the checkbox label.
+
+<Canvas of={CheckboxStories.Link} />
+
+## Props
+
+<ArgTypes {...getControls(["checked", "size", "variant", "color", "label", "description", "disabled", "invalid", "icon", "value", "class", "children"])} />
