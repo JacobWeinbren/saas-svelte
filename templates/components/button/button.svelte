@@ -7,7 +7,7 @@
 
 	export const button = tv({
 		base: [
-			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:disabled:hover:border-(--c-700)/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-600)",
+			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-200) bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:disabled:hover:border-(--c-700)/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-500) dark:shadow-none",
 			// BASE TEXT COLOR (Neutral High Contrast)
 			"text-(--c-900) dark:text-(--c-100)",
 			"antialiased transition-all duration-200",
@@ -21,7 +21,7 @@
 				solid: "border-0 dark:border-(--c-200) bg-(--c-600) dark:bg-(--c-600) text-white dark:text-white shadow hover:bg-(--c-600)/90 dark:hover:bg-(--c-600)/90 disabled:hover:bg-(--c-600) dark:disabled:hover:bg-(--c-600)",
 
 				// SUBTLE: Neutral Text (Inherits Base)
-				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:bg-(--c-950) dark:focus-visible:outline-(--c-600) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
+				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:bg-(--c-950) dark:focus-visible:outline-(--c-500) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
 
 				// SURFACE: Neutral Text (Inherits Base)
 				surface:
@@ -29,10 +29,10 @@
 
 				// OUTLINE: Colored Text (Brand Color)
 				outline:
-					"border-[0.5px] border-(--c-200) shadow-none hover:bg-(--c-50) dark:border-(--c-800) dark:text-(--c-300) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+					"shadow-none hover:bg-(--c-50) dark:border-(--c-700) dark:text-(--c-300) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
 
 				// GHOST: Colored Text (Brand Color)
-				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-300) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-300) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-500) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
 
 				// PLAIN: Neutral Text (Inherits Base)
 				plain: "shadow-none border-0 bg-transparent hover:bg-transparent dark:border-(--c-800)",

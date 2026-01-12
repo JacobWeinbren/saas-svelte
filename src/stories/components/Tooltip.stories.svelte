@@ -179,7 +179,7 @@
 					<span>Search query info</span>
 				</div>
 			{/snippet}
-			<Button variant="surface" size="sm" icon>
+			<Button variant="outline" size="sm" icon>
 				<Icon as={BadgeQuestionMark} />
 			</Button>
 		</Tooltip>

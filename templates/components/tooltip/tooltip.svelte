@@ -4,9 +4,10 @@
 	export const tooltipObj = tv({
 		slots: {
 			content: [
-				"z-50 overflow-hidden rounded px-2.5 py-1 shadow-sm",
+				"z-50 rounded px-2.5 py-1 shadow-sm",
 				"animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
 				"data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 				"bg-white dark:bg-zinc-950",
 				"text-zinc-950 dark:text-neutral-50",
 				"text-xs font-medium leading-4",
@@ -35,9 +36,7 @@
 					arrow: [
 						"[--arrow-background:rgb(9_9_11)] dark:[--arrow-background:white]",
 					],
-					arrowTip: [
-						"border-zinc-950 dark:border-white",
-					],
+					arrowTip: ["border-zinc-950 dark:border-white"],
 				},
 			},
 			interactive: {
