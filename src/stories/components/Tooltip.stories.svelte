@@ -12,40 +12,30 @@
 		argTypes: {
 			content: {
 				control: "text",
-				description: "The content to display inside the tooltip.",
 			},
 			showArrow: {
 				control: "boolean",
-				description:
-					"Whether to show an arrow pointing to the trigger element.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			variant: {
 				control: "select",
 				options: ["default", "inverted"],
-				description: "The variant of the tooltip.",
 				table: { defaultValue: { summary: "default" } },
 			},
 			interactive: {
 				control: "boolean",
-				description: "Whether the tooltip content is interactive.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			openDelay: {
 				control: "number",
-				description:
-					"The delay in milliseconds before the tooltip opens.",
 				table: { defaultValue: { summary: "0" } },
 			},
 			closeDelay: {
 				control: "number",
-				description:
-					"The delay in milliseconds before the tooltip closes.",
 				table: { defaultValue: { summary: "100" } },
 			},
 			positioning: {
 				control: "object",
-				description: "Positioning options for the tooltip.",
 				table: {
 					defaultValue: {
 						summary: '{ placement: "bottom", strategy: "fixed" }',

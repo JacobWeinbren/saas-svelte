@@ -72,11 +72,35 @@
 	type ButtonVariants = VariantProps<typeof button>;
 
 	interface Props extends HTMLButtonAttributes {
+		/**
+		 * The visual style of the button.
+		 * @default "surface"
+		 */
 		variant?: ButtonVariants["variant"];
+		/**
+		 * The size of the button.
+		 * @default "md"
+		 */
 		size?: ButtonVariants["size"];
+		/**
+		 * Whether the button is an icon-only button.
+		 * @default false
+		 */
 		icon?: boolean;
+		/**
+		 * The color palette of the button.
+		 * @default "gray"
+		 */
 		color?: ColorName;
+		/**
+		 * Whether the button is in a loading state.
+		 * @default false
+		 */
 		loading?: boolean;
+		/**
+		 * Text to display when the button is loading.
+		 * @default ""
+		 */
 		loadingText?: string;
 	}
 

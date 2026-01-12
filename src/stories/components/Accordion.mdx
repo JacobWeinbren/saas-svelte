@@ -1,5 +1,17 @@
 import { Meta, Story, Canvas, ArgTypes, Controls } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.svelte";
+import {
+	AccordionRoot,
+	AccordionItem,
+	AccordionItemTrigger,
+	AccordionItemContent,
+} from "$saas/components/accordion";
+import {
+	accordionRootPattern,
+	accordionItemPattern,
+	accordionItemTriggerPattern,
+	accordionItemContentPattern,
+} from "../utils";
 import { getControls } from "../utils";
 
 <Meta of={AccordionStories} />
@@ -95,20 +107,21 @@ Pass `disabled` on specific items in your data array to prevent them from being 
 
 <Canvas of={AccordionStories.DisabledItem} />
 
+
 ### Props
 
 **AccordionRoot**
 
-<ArgTypes {...getControls(['variant', 'size', 'orientation', 'collapsible', 'multiple', 'defaultValue', 'class', 'children'])} />
+<ArgTypes of={AccordionRoot} exclude={accordionRootPattern} />
 
 **AccordionItem**
 
-<ArgTypes {...getControls(['value', 'disabled', 'class', 'children'])} />
+<ArgTypes of={AccordionItem} exclude={accordionItemPattern} />
 
 **AccordionItemTrigger**
 
-<ArgTypes {...getControls(['icon', 'class', 'children'])} />
+<ArgTypes of={AccordionItemTrigger} exclude={accordionItemTriggerPattern} />
 
 **AccordionItemContent**
 
-<ArgTypes {...getControls(['class', 'children'])} />
+<ArgTypes of={AccordionItemContent} exclude={accordionItemContentPattern} />

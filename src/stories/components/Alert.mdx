@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as AlertStories from "./Alert.stories.svelte";
-import { getControls } from "../utils";
+import { Alert } from "$saas/components/alert";
+import { alertPattern } from "../utils";
 
 <Meta of={AlertStories} />
 
@@ -50,4 +51,4 @@ Use the icon snippet (or prop) to pass a custom icon to the alert. This will ove
 
 ## Props
 
-<ArgTypes {...getControls(["status", "variant", "color", "title", "icon", "class", "children"])} />
+<ArgTypes of={Alert} exclude={alertPattern} />

@@ -14,13 +14,11 @@
 			variant: {
 				control: "select",
 				options: kbdVariants as any,
-				description: "The variant of the component.",
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			size: {
 				control: "select",
 				options: ["sm", "md", "lg"] as any,
-				description: "The size of the component.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			children: commonArgTypes.children,

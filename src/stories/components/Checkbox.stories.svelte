@@ -22,7 +22,6 @@
 		argTypes: {
 			checked: {
 				control: "boolean",
-				description: "The controlled checked state of the checkbox.",
 				table: { type: { summary: "boolean | 'indeterminate'" } },
 			},
 			size: {
@@ -41,33 +40,25 @@
 			},
 			label: {
 				control: "text",
-				description: "The label text displayed next to the checkbox.",
 			},
 			description: {
 				control: "text",
-				description:
-					"Additional description text displayed below the label.",
 			},
 			disabled: commonArgTypes.disabled,
 			invalid: commonArgTypes.invalid,
 			icon: {
 				control: "boolean",
-				description: "Custom icon snippet to render when checked.",
 			},
 			value: {
 				control: "text",
-				description:
-					"The value of checkbox input. Useful for form submission.",
 			},
 			group: {
 				control: false,
-				description: "Group context value (internal use).",
 				table: { disable: true },
 			},
 			orientation: {
 				control: "select",
 				options: orientations,
-				description: "The layout orientation of the CheckboxGroup.",
 				table: { defaultValue: { summary: "vertical" } },
 			},
 			class: commonArgTypes.class,

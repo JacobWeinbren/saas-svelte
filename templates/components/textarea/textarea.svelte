@@ -92,9 +92,21 @@
 		 */
 		invalid?: boolean;
 		/**
+		 * Whether the textarea is disabled.
+		 */
+		disabled?: boolean;
+		/**
+		 * Placeholder text for the textarea.
+		 */
+		placeholder?: string;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: ClassNameValue;
+		/**
+		 * The resize behavior of the textarea.
+		 */
+		resize?: "none" | "vertical" | "horizontal" | "both";
 	}
 
 	let {
@@ -103,12 +115,16 @@
 		class: className,
 		invalid = false,
 		value = $bindable(),
+		resize,
 		...restProps
 	}: Props = $props();
 
 	const classes = $derived(
 		textarea({ variant, size, invalid, class: className }) as string,
 	);
+
+	const resizeClass = $derived(resize ? `resize-${resize}` : "");
 </script>
 
-<textarea class={classes} bind:value {...restProps}></textarea>
+<textarea class={`${classes} ${resizeClass}`} bind:value {...restProps}
+></textarea>

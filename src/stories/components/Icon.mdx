@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as IconStories from "./Icon.stories.svelte";
 import { Icon } from "$saas/components/icon";
-import { getControls } from "../utils";
+import { iconPattern } from "../utils";
 
 <Meta of={IconStories} />
 
@@ -58,16 +58,6 @@ Wrap raw SVG paths directly by passing them as children.
 
 <Canvas of={IconStories.CustomSVG} />
 
-## Props
+### Props
 
-<ArgTypes
-	{...getControls([
-		"as",
-		"size",
-		"strokeWidth",
-		"viewBox",
-		"color",
-		"class",
-		"children",
-	])}
-/>
+<ArgTypes of={Icon} exclude={iconPattern} />

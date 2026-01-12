@@ -43,13 +43,40 @@
 	type Status = "info" | "success" | "warning" | "error" | "neutral";
 
 	interface Props {
+		/**
+		 * Additional CSS classes to apply to the alert.
+		 */
 		class?: string;
+		/**
+		 * The visual style of the alert.
+		 * @default "subtle"
+		 */
 		variant?: AlertVariants["variant"];
+		/**
+		 * The status of the alert, which controls the color and icon.
+		 * @default "info"
+		 */
 		status?: Status;
+		/**
+		 * The color palette of the alert.
+		 * @default "gray"
+		 */
 		color?: ColorName;
+		/**
+		 * Override the default icon. Pass `false` to hide the icon.
+		 */
 		icon?: boolean | Component<any> | Snippet<[]>;
+		/**
+		 * The title of the alert.
+		 */
 		title?: string | Snippet<[]>;
+		/**
+		 * The content to be rendered inside the alert.
+		 */
 		children?: Snippet;
+		/**
+		 * Inline styles to apply to the alert.
+		 */
 		style?: string;
 		[key: string]: any;
 	}

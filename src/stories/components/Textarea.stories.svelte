@@ -5,7 +5,12 @@
 	import { Input } from "$saas/components/input";
 	import { Button } from "$saas/components/button";
 	import { VStack } from "$saas/layout/stack";
-	import { textSizes, inputVariants, commonArgTypes, getControls } from "../utils";
+	import {
+		textSizes,
+		inputVariants,
+		commonArgTypes,
+		getControls,
+	} from "../utils";
 
 	const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 	const resizeOptions = ["none", "vertical", "horizontal", "both"] as const;
@@ -17,13 +22,11 @@
 			variant: {
 				control: "select",
 				options: inputVariants as any,
-				description: "The visual style of the textarea.",
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
 				control: "select",
 				options: textareaSizes as any,
-				description: "The size of the textarea.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			invalid: commonArgTypes.invalid,
@@ -31,7 +34,13 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["variant", "size", "invalid", "disabled", "class"]),
+			controls: getControls([
+				"variant",
+				"size",
+				"invalid",
+				"disabled",
+				"class",
+			]),
 		},
 		args: {
 			variant: "outline",
@@ -103,12 +112,16 @@
 			<Field.Root required>
 				<Field.Label>Username</Field.Label>
 				<Input placeholder="@username" name="username" />
-				<Field.HelperText>This is your public display name.</Field.HelperText>
+				<Field.HelperText
+					>This is your public display name.</Field.HelperText
+				>
 			</Field.Root>
 			<Field.Root required>
 				<Field.Label>Profile bio</Field.Label>
 				<Textarea placeholder="I am ..." name="bio" />
-				<Field.HelperText>A short description of yourself</Field.HelperText>
+				<Field.HelperText
+					>A short description of yourself</Field.HelperText
+				>
 			</Field.Root>
 			<Button type="submit">Submit</Button>
 		</VStack>
@@ -125,7 +138,11 @@
 {/snippet}
 
 {#snippet autoresizeStory()}
-	<TextareaAutoresize placeholder="Start typing..." minRows={1} maxRows={40} />
+	<TextareaAutoresize
+		placeholder="Start typing..."
+		minRows={1}
+		maxRows={40}
+	/>
 {/snippet}
 
 <Story name="Basic">

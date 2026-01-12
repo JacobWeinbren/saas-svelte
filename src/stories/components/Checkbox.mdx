@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as CheckboxStories from "./Checkbox.stories.svelte";
-import { getControls } from "../utils";
+import { Checkbox, CheckboxGroup } from "$saas/components/checkbox";
+import { checkboxPattern, checkboxGroupPattern } from "../utils";
 
 <Meta of={CheckboxStories} />
 
@@ -86,4 +87,12 @@ Render an anchor tag as the checkbox label.
 
 ## Props
 
-<ArgTypes {...getControls(["checked", "size", "variant", "color", "label", "description", "disabled", "invalid", "icon", "value", "class", "children"])} />
+### Props
+
+**Checkbox**
+
+<ArgTypes of={Checkbox} exclude={checkboxPattern} />
+
+**CheckboxGroup**
+
+<ArgTypes of={CheckboxGroup} exclude={checkboxGroupPattern} />

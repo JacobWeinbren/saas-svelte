@@ -2,20 +2,17 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { VisuallyHidden } from "$saas/utilities/visually-hidden";
 	import { Button } from "$saas/components/button";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "utilities/VisuallyHidden",
 		component: VisuallyHidden,
 		argTypes: {
-			children: {
-				control: false,
-				description: "The content to be visually hidden.",
-				table: { type: { summary: "Snippet" } },
-			},
-			class: {
-				control: "text",
-				description: "Additional CSS classes to apply.",
-			},
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls(["children", "class"]),
 		},
 	});
 </script>

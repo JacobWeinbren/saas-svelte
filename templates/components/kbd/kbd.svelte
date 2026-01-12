@@ -10,12 +10,10 @@
 		],
 		variants: {
 			variant: {
-				raised:
-					"border-t border-b-2 border-x border-gray-50 bg-gray-100 text-gray-900 dark:border-gray-950 dark:bg-gray-900 dark:text-gray-200",
+				raised: "border-t border-b-2 border-x border-gray-50 bg-gray-100 text-gray-900 dark:border-gray-950 dark:bg-gray-900 dark:text-gray-200",
 				outline:
 					"border border-gray-200 text-gray-900 dark:border-gray-700 dark:text-gray-200",
-				subtle:
-					"bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200",
+				subtle: "bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200",
 				plain: "text-gray-900 dark:text-gray-200",
 			},
 			size: {
@@ -34,11 +32,28 @@
 </script>
 
 <script lang="ts">
+	import type { Snippet } from "svelte";
 	type KbdVariants = VariantProps<typeof kbd>;
 
 	interface Props extends HTMLAttributes<HTMLElement> {
+		/**
+		 * The visual style of the component.
+		 * @default "subtle"
+		 */
 		variant?: KbdVariants["variant"];
+		/**
+		 * The size of the component.
+		 * @default "md"
+		 */
 		size?: KbdVariants["size"];
+		/**
+		 * Content to render inside the kbd.
+		 */
+		children?: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
+		class?: string;
 	}
 
 	let {

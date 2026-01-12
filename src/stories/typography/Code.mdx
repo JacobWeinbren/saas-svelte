@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as CodeStories from "./Code.stories.svelte";
-import { getControls } from "../utils";
+import { Code } from "$saas/typography/code";
+import { codePattern } from "../utils";
 
 <Meta of={CodeStories} />
 
@@ -42,6 +43,6 @@ Use the `color` prop to change the colour palette of the code element. It suppor
 
 <Canvas of={CodeStories.Colors} />
 
-## Props
+### Props
 
-<ArgTypes {...getControls(["variant", "size", "color", "class", "children"])} />
+<ArgTypes of={Code} exclude={codePattern} />

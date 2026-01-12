@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as NativeSelectStories from "./NativeSelect.stories.svelte";
-import { getControls } from "../utils";
+import { NativeSelect } from "$saas/components/native-select";
+import { inputPattern } from "../utils";
 
 <Meta of={NativeSelectStories} />
 
@@ -59,4 +60,4 @@ Here is an example of how to use the NativeSelect component with form handling.
 
 ## Props
 
-<ArgTypes {...getControls(["variant", "size", "invalid", "disabled", "class"])} />
+<ArgTypes of={NativeSelect} exclude={inputPattern} />

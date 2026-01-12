@@ -15,13 +15,11 @@
 			variant: {
 				control: "select",
 				options: codeVariants as any,
-				description: "The visual style of the code element.",
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			size: {
 				control: "select",
 				options: codeSizes as any,
-				description: "The size of the code element.",
 				table: { defaultValue: { summary: "sm" } },
 			},
 			color: {

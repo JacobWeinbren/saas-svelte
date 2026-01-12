@@ -98,16 +98,55 @@
 
 	interface Props
 		extends Omit<HTMLInputAttributes, "size" | "checked" | "value"> {
+		/**
+		 * The controlled checked state of the checkbox.
+		 * @default false
+		 */
 		checked?: boolean | "indeterminate";
+		/**
+		 * Group context value.
+		 */
 		group?: string[];
+		/**
+		 * The value of the checkbox.
+		 */
 		value?: string;
+		/**
+		 * The size of the checkbox.
+		 * @default "md"
+		 */
 		size?: CheckboxVariants["size"];
+		/**
+		 * The visual style of the checkbox.
+		 * @default "solid"
+		 */
 		variant?: CheckboxVariants["variant"];
+		/**
+		 * The color palette of the checkbox.
+		 * @default "indigo"
+		 */
 		color?: ColorName;
+		/**
+		 * The label text displayed next to the checkbox.
+		 */
 		label?: string;
+		/**
+		 * Additional description text displayed below the label.
+		 */
 		description?: string;
+		/**
+		 * Whether the checkbox is in an invalid state.
+		 * @default false
+		 */
 		invalid?: boolean;
+		/**
+		 * Custom icon snippet to render when checked.
+		 */
 		icon?: Snippet;
+		/**
+		 * Content to render inside the checkbox label area.
+		 */
+		children?: Snippet;
 	}
 
 	let {

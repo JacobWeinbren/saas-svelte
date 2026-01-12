@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories.svelte";
-import { getControls } from "../utils";
+import { Button, ButtonGroup } from "$saas/components/button";
+import { buttonPattern } from "../utils";
 
 <Meta of={ButtonStories} />
 
@@ -15,6 +16,7 @@ import { getControls } from "../utils";
 ```html
 <script>
 	import { Button } from "$saas/components/button";
+import { buttonPattern } from "../utils";
 	import { ButtonGroup } from "$saas/components/button";
 </script>
 ```
@@ -68,4 +70,4 @@ Use the ButtonGroup component to group buttons together.
 
 ## Props
 
-<ArgTypes {...getControls(["variant", "size", "color", "loading", "loadingText", "icon", "disabled", "class", "children"])} />
+<ArgTypes of={Button} exclude={buttonPattern} />

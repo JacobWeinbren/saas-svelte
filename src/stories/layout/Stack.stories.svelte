@@ -1,6 +1,12 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Stack, HStack, VStack, Divider, DecorativeBox } from "$saas/layout/stack";
+	import {
+		Stack,
+		HStack,
+		VStack,
+		Divider,
+		DecorativeBox,
+	} from "$saas/layout/stack";
 	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
@@ -16,22 +22,16 @@
 			direction: {
 				control: "select",
 				options: ["row", "column", "row-reverse", "col-reverse"],
-				description:
-					"The direction to stack the items. Shorthand for `flex-direction`.",
 				table: { defaultValue: { summary: "column" } },
 			},
 			align: {
 				control: "select",
 				options: ["start", "center", "end", "stretch", "baseline"],
-				description:
-					"The alignment of items perpendicular to the direction. Shorthand for `align-items`.",
 				table: { defaultValue: { summary: "stretch" } },
 			},
 			justify: {
 				control: "select",
 				options: ["start", "center", "end", "between", "around"],
-				description:
-					"The distribution of items along the direction. Shorthand for `justify-content`.",
 				table: { defaultValue: { summary: "start" } },
 			},
 			class: commonArgTypes.class,

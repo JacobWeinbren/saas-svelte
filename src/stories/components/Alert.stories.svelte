@@ -18,7 +18,6 @@
 			status: {
 				control: "select",
 				options: alertStatuses,
-				description: "The status of the component.",
 				table: { defaultValue: { summary: "info" } },
 			},
 			variant: {
@@ -30,16 +29,13 @@
 			},
 			color: {
 				control: "text",
-				description: "The colour palette of the component.",
 				table: { defaultValue: { summary: "gray" } },
 			},
 			title: {
 				control: "text",
-				description: "The title of the alert.",
 			},
 			icon: {
 				control: "boolean",
-				description: "Override the default icon for the alert status.",
 			},
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,

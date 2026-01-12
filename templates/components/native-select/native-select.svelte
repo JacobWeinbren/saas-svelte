@@ -72,6 +72,7 @@
 <script lang="ts">
 	import type { HTMLSelectAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
+	import type { Snippet } from "svelte";
 
 	interface Props extends Omit<HTMLSelectAttributes, "size" | "class"> {
 		/**
@@ -89,6 +90,18 @@
 		 * @default false
 		 */
 		invalid?: boolean;
+		/**
+		 * Whether the select is disabled.
+		 */
+		disabled?: boolean;
+		/**
+		 * The selected value.
+		 */
+		value?: any;
+		/**
+		 * Content to render inside the select (options).
+		 */
+		children?: Snippet;
 		/**
 		 * Additional CSS classes to apply.
 		 */

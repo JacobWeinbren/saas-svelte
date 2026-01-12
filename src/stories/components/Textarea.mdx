@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as TextareaStories from "./Textarea.stories.svelte";
-import { getControls } from "../utils";
+import { Textarea } from "$saas/components/textarea";
+import { inputPattern } from "../utils";
 
 <Meta of={TextareaStories} />
 
@@ -84,4 +85,4 @@ The autoresize component uses a hidden `<pre>` element to calculate the correct 
 
 ## Props
 
-<ArgTypes {...getControls(["variant", "size", "invalid", "disabled", "class"])} />
+<ArgTypes of={Textarea} exclude={inputPattern} />

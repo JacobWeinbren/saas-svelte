@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as DialogStories from "./Dialog.stories.svelte";
-import { getControls } from "../utils";
+import { Dialog } from "$saas/components/dialog";
+import { dialogRootPattern } from "../utils";
 
 <Meta of={DialogStories} />
 
@@ -80,6 +81,6 @@ Set the `role="alertdialog"` prop to change the dialog component to an alert dia
 
 <Canvas of={DialogStories.AlertDialog} />
 
-## Props
+### Props
 
-<ArgTypes {...getControls(["open", "size", "placement", "scrollBehavior", "motionPreset", "role", "class", "children"])} />
+<ArgTypes of={Dialog.Root} exclude={dialogRootPattern} />

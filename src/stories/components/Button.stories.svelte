@@ -31,11 +31,9 @@
 			},
 			loading: {
 				control: "boolean",
-				description: "Whether the button is in a loading state.",
 			},
 			loadingText: {
 				control: "text",
-				description: "Text to display when the button is loading.",
 			},
 			icon: commonArgTypes.icon,
 			children: commonArgTypes.children,

@@ -2,18 +2,18 @@
 	/* Dark mode background for preview canvas */
 	.dark body,
 	.dark #storybook-root {
-		background-color: black !important;
+		background-color: #202020 !important;
 	}
 
 	/* Dark mode background for docs story previews */
 	.dark .docs-story {
-		background-color: black !important;
+		background-color: #202020 !important;
 	}
 
 	/* Dark mode background for docs page */
 	.dark .sbdocs-wrapper,
 	.dark .sbdocs-content {
-		background-color: black !important;
+		background-color: #202020 !important;
 		color: white !important;
 	}
 
@@ -37,7 +37,13 @@
 	.sbdocs code:not(pre code):not(.saas-code) {
 		color: rgb(17, 24, 39) !important;
 		background-color: rgb(243, 244, 246) !important;
-		font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+		font-family:
+			SFMono-Regular,
+			Menlo,
+			Monaco,
+			Consolas,
+			Liberation Mono,
+			Courier New,
 			monospace !important;
 		font-size: 0.75rem !important;
 		line-height: 1rem !important;
@@ -60,7 +66,13 @@
 		padding: 1rem !important;
 		border-radius: 0.375rem !important;
 		overflow-x: auto !important;
-		font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+		font-family:
+			SFMono-Regular,
+			Menlo,
+			Monaco,
+			Consolas,
+			Liberation Mono,
+			Courier New,
 			monospace !important;
 		font-size: 0.75rem !important;
 		line-height: 1.5rem !important;
@@ -77,8 +89,6 @@
 	.sbdocs pre code {
 		background-color: transparent !important;
 	}
-
-
 
 	.dark .sbdocs pre code {
 		color: rgb(229, 231, 235) !important;
@@ -203,5 +213,52 @@
 	.dark .sbdocs pre .token.important,
 	.dark .sbdocs pre .token.variable {
 		color: rgb(253, 224, 71) !important;
+	}
+	/* Dark mode for props table */
+	.dark .docblock-argstable {
+		color: rgb(229, 231, 235) !important;
+		background-color: transparent !important;
+		border-color: rgb(55, 65, 81) !important;
+		box-shadow: none !important;
+	}
+
+	.dark .docblock-argstable thead th {
+		color: rgb(229, 231, 235) !important;
+	}
+
+	.dark .docblock-argstable tr:not(:last-child) {
+		border-bottom-color: rgb(55, 65, 81) !important;
+	}
+
+	.dark .docblock-argstable td {
+		color: rgb(209, 213, 219) !important;
+		background-color: transparent !important;
+	}
+
+	/* Dark mode for descriptions in table */
+	.dark .docblock-argstable p {
+		color: rgb(209, 213, 219) !important;
+	}
+
+	/* Controls/Inputs in table */
+	.dark .docblock-argstable select,
+	.dark .docblock-argstable input[type="text"] {
+		background-color: rgb(17, 24, 39) !important;
+		color: white !important;
+		border-color: rgb(75, 85, 99) !important;
+	}
+
+	/* Code badges in props table (e.g. types, default values) */
+	.dark .docblock-argstable code,
+	.dark .docblock-argstable td > div:not(:first-child) span,
+	.dark .docblock-argstable td:nth-child(3) span {
+		background-color: rgb(55, 65, 81) !important; /* Greyish background */
+		color: rgb(229, 231, 235) !important;
+		border: 1px solid rgb(75, 85, 99) !important;
+		padding: 2px 4px !important;
+		border-radius: 4px !important;
+		font-family:
+			ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+			"Liberation Mono", "Courier New", monospace !important;
 	}
 </style>

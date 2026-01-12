@@ -97,6 +97,14 @@
 		 */
 		invalid?: boolean;
 		/**
+		 * Whether the input is disabled.
+		 */
+		disabled?: boolean;
+		/**
+		 * Placeholder text for the input.
+		 */
+		placeholder?: string;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: ClassNameValue;

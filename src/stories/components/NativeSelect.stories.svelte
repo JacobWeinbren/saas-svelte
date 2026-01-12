@@ -16,13 +16,11 @@
 			variant: {
 				control: "select",
 				options: nativeSelectVariants as any,
-				description: "The variant of the component.",
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
 				control: "select",
 				options: nativeSelectSizes as any,
-				description: "The size of the component.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			invalid: commonArgTypes.invalid,
@@ -30,7 +28,13 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["variant", "size", "invalid", "disabled", "class"]),
+			controls: getControls([
+				"variant",
+				"size",
+				"invalid",
+				"disabled",
+				"class",
+			]),
 		},
 		args: {
 			variant: "outline",
@@ -101,7 +105,9 @@
 			hookFormState.submitted = true;
 		}}
 	>
-		<Field.Root invalid={hookFormState.submitted && !hookFormState.framework}>
+		<Field.Root
+			invalid={hookFormState.submitted && !hookFormState.framework}
+		>
 			<Field.Label>Framework</Field.Label>
 			<NativeSelect
 				size="sm"

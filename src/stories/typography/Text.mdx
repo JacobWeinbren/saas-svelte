@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as TextStories from "./Text.stories.svelte";
-import { getControls } from "../utils";
+import { Text } from "$saas/typography/text";
+import { textPattern } from "../utils";
 
 <Meta of={TextStories} />
 
@@ -58,6 +59,6 @@ Change the underlying HTML element using the `as` prop. The component renders a 
 <Text as="label">This is a label</Text>
 ```
 
-## Props
+### Props
 
-<ArgTypes {...getControls(["as", "size", "weight", "variant", "truncate", "lineClamp", "class", "children"])} />
+<ArgTypes of={Text} exclude={textPattern} />

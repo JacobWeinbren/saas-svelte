@@ -10,7 +10,6 @@
 		argTypes: {
 			as: {
 				control: false,
-				description: "The icon component to render.",
 				table: { type: { summary: "Component" } },
 			},
 			size: {
@@ -19,18 +18,14 @@
 			},
 			strokeWidth: {
 				control: "number",
-				description:
-					"The stroke width of the icon (when using stroke-based icons).",
 				table: { type: { summary: "number | string" } },
 			},
 			viewBox: {
 				control: "text",
-				description: "The SVG viewBox attribute for custom icons.",
 				table: { defaultValue: { summary: "0 0 24 24" } },
 			},
 			children: {
 				control: false,
-				description: "SVG path elements for custom icons.",
 				table: { type: { summary: "Snippet" } },
 			},
 			class: commonArgTypes.class,
@@ -38,11 +33,6 @@
 			// Actually commonArgTypes has color. I'll just use it but override default if needed.
 			color: {
 				...commonArgTypes.color,
-				// Icon originally manually enabled it or overrode something?
-				// Original had: description: "Colour from the theme palette", table: { defaultValue: { summary: "currentColor" }, disable: false }
-				// commonArgTypes.color has desc: "The color theme of the component", default: "gray".
-				// Icon uses currentColor usually?
-				description: "Colour from the theme palette.",
 				table: {
 					defaultValue: { summary: "currentColor" },
 				},

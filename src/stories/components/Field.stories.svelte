@@ -14,12 +14,10 @@
 			invalid: commonArgTypes.invalid,
 			required: {
 				control: "boolean",
-				description: "Whether the field is required.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			readOnly: {
 				control: "boolean",
-				description: "Whether the field is read-only.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			children: commonArgTypes.children,

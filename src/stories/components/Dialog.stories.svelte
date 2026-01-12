@@ -20,7 +20,6 @@
 		argTypes: {
 			open: {
 				control: "boolean",
-				description: "The controlled open state of the dialog",
 			},
 			size: {
 				...commonArgTypes.size,
@@ -29,25 +28,21 @@
 			placement: {
 				control: "select",
 				options: ["center", "top", "bottom"],
-				description: "The placement of the component",
 				table: { defaultValue: { summary: "center" } },
 			},
 			scrollBehavior: {
 				control: "select",
 				options: ["outside", "inside"],
-				description: "The scroll behavior of the component",
 				table: { defaultValue: { summary: "outside" } },
 			},
 			motionPreset: {
 				control: "select",
 				options: ["scale", "slide-in-bottom", "none"],
-				description: "The animation preset",
 				table: { defaultValue: { summary: "scale" } },
 			},
 			role: {
 				control: "select",
 				options: ["dialog", "alertdialog"],
-				description: "The ARIA role of the dialog",
 				table: { defaultValue: { summary: "dialog" } },
 			},
 			children: commonArgTypes.children,

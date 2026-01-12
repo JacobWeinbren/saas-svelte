@@ -19,11 +19,11 @@
 
 	const { Story } = defineMeta({
 		title: "components/Accordion",
-		component: AccordionRoot as any,
+		component: AccordionRoot,
 		subcomponents: {
-			Item: AccordionItem,
-			ItemTrigger: AccordionItemTrigger,
-			ItemContent: AccordionItemContent,
+			AccordionItem,
+			AccordionItemTrigger,
+			AccordionItemContent,
 		},
 		argTypes: {
 			variant: {
@@ -34,28 +34,23 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				accordionSizes,
+				options: accordionSizes,
 			},
 			orientation: {
 				control: "select",
 				options: orientations,
-				description: "The orientation of the accordion.",
 				table: { defaultValue: { summary: "vertical" } },
 			},
 			collapsible: {
 				control: "boolean",
-				description: "Whether accordion items can be collapsed.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			multiple: {
 				control: "boolean",
-				description:
-					"Whether multiple accordion items can be open at once.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			defaultValue: {
 				control: "object",
-				description: "The default open accordion items.",
 			},
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
@@ -69,7 +64,6 @@
 				"multiple",
 				"defaultValue",
 				"class",
-				"children",
 			]),
 		},
 		args: {

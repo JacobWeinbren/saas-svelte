@@ -34,23 +34,19 @@
 			variant: {
 				...commonArgTypes.variant,
 				options: inputVariants,
-				description: "The visual style of the input.",
 			},
 			size: {
 				...commonArgTypes.size,
 				options: sizes.filter((s) => s !== "xl"),
-				description: "The size of the input.",
 			},
 			color: {
 				...commonArgTypes.color,
 				options: colors as any,
-				description: "The color theme of the input.",
 			},
 			invalid: commonArgTypes.invalid,
 			disabled: commonArgTypes.disabled,
 			placeholder: {
 				control: "text",
-				description: "Placeholder text for the input.",
 			},
 			class: commonArgTypes.class,
 		},

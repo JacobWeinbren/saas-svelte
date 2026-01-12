@@ -12,35 +12,28 @@
 		argTypes: {
 			as: {
 				control: "text",
-				description: "The HTML element to render.",
 				table: { defaultValue: { summary: "p" } },
 			},
 			size: {
 				...commonArgTypes.size,
 				options: textSizes,
-				description:
-					"The size of the text (supports `textStyle` alias).",
 			},
 			weight: {
 				control: "select",
 				options: weights,
-				description: "The font weight (supports `fontWeight` alias).",
 				table: { defaultValue: { summary: "normal" } },
 			},
 			variant: {
 				control: "select",
 				options: ["primary", "secondary", "tertiary"],
-				description: "The visual style of the text.",
 				table: { defaultValue: { summary: "primary" } },
 			},
 			truncate: {
 				control: "boolean",
-				description: "Truncate text to a single line with ellipsis.",
 			},
 			lineClamp: {
 				control: "select",
 				options: ["1", "2", "3", "4", "5", "6", "none"],
-				description: "Clamp text to a specific number of lines.",
 			},
 			fontWeight: {
 				table: { disable: true },

@@ -30,3 +30,13 @@ export const inputElementPattern = makePattern(['placement', 'class', 'children'
 export const stackPattern = makePattern(['direction', 'align', 'justify', 'class', 'children']);
 
 export const textPattern = makePattern(['as', 'size', 'weight', 'variant', 'truncate', 'lineClamp', 'class', 'children']);
+
+export const tooltipPattern = makePattern(['content', 'showArrow', 'variant', 'interactive', 'openDelay', 'closeDelay', 'positioning', 'disabled', 'class', 'children']);
+
+export const fieldPattern = makePattern(['disabled', 'invalid', 'required', 'readOnly', 'id', 'class', 'children']);
+
+export const kbdPattern = makePattern(['variant', 'size', 'class', 'children']);
+
+export const codePattern = makePattern(['variant', 'size', 'color', 'class', 'children']);
+
+export const visuallyHiddenPattern = makePattern(['class', 'children']);

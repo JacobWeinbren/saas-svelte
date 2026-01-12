@@ -111,6 +111,11 @@ export {
     inputElementPattern,
     stackPattern,
     textPattern,
+    tooltipPattern,
+    fieldPattern,
+    kbdPattern,
+    codePattern,
+    visuallyHiddenPattern,
 } from "./exclude-patterns";
 
 export const getControls = (allowedProps: string[]) => {
