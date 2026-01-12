@@ -80,13 +80,6 @@
 	</VStack>
 {/snippet}
 
-{#snippet inlineStory()}
-	<Text>
-		To install the package, run <Code>npm install @saas-ui/react</Code> in your
-		terminal.
-	</Text>
-{/snippet}
-
 <Story name="Basic">
 	<Code>console.log("Hello, world!")</Code>
 </Story>
@@ -96,5 +89,3 @@
 <Story name="Variants" template={variantsStory} />
 
 <Story name="Colors" template={colorsStory} />
-
-<Story name="Inline" template={inlineStory} />
