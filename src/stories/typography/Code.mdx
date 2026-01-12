@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as CodeStories from "./Code.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={CodeStories} />
+
+# Code
+
+## Used to display inline code snippets with syntax highlighting.
+
+<Canvas of={CodeStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Code } from "$saas/typography/code";
+</script>
+```
+
+```html
+<Code>console.log("Hello, world!")</Code>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the code element. You can set the value to `xs`, `sm`, `md`, or `lg`.
+
+<Canvas of={CodeStories.Sizes} />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the code element. You can set the value to `solid`, `outline`, `subtle`, or `surface`.
+
+<Canvas of={CodeStories.Variants} />
+
+### Colors
+
+Use the `color` prop to change the color palette of the code element. It supports all standard Tailwind colors.
+
+<Canvas of={CodeStories.Colors} />
+
+### Inline Usage
+
+Code elements work seamlessly inline with text content.
+
+<Canvas of={CodeStories.Inline} />
+
+## Props
+
+<ArgTypes {...getControls(["variant", "size", "color", "class", "children"])} />
