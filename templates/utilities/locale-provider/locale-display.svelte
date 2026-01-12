@@ -16,7 +16,7 @@
 </script>
 
 <div class="flex flex-col gap-2">
-	<pre class="rounded bg-zinc-100 p-4 text-sm dark:bg-zinc-900">
+	<pre class="rounded bg-zinc-100 p-4 text-sm">
 {JSON.stringify(displayData, null, 2)}
 	</pre>
 	{#if children}
