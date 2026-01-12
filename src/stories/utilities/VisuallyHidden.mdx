@@ -20,39 +20,12 @@ The `VisuallyHidden` component hides content from the visual UI while keeping it
 	import { Button } from "$saas/components/button";
 </script>
 
-<Button>
+<button>
 	<Bell />
 	3
 	<VisuallyHidden>Notifications</VisuallyHidden>
-</Button>
+</button>
 ```
-
-## Examples
-
-### With Input
-
-Use `VisuallyHidden` to provide accessible labels for form inputs without displaying them visually.
-
-<Canvas of={VisuallyHiddenStories.WithInput} />
-
-### Skip Link
-
-Create accessible skip navigation links that appear on focus.
-
-<Canvas of={VisuallyHiddenStories.SkipLink} />
-
-## Accessibility
-
-The `VisuallyHidden` component uses CSS techniques to hide content from the visual viewport while ensuring it remains:
-
-- Accessible to screen readers
-- Included in the page's tab order (if it contains focusable elements)
-- Available to other assistive technologies
-
-This is achieved using:
-- `position: absolute` to remove from normal flow
-- `clip` and `clip-path` to hide visually
-- Minimal dimensions (`1px x 1px`) to maintain accessibility
 
 ## Props
 
