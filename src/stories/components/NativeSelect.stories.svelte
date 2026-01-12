@@ -42,6 +42,10 @@
 	});
 </script>
 
+<script lang="ts">
+	let hookFormState = $state({ framework: "", submitted: false });
+</script>
+
 {#snippet sizesStory()}
 	<VStack class="w-60">
 		{#each nativeSelectSizes as size}
@@ -91,17 +95,30 @@
 {/snippet}
 
 {#snippet hookFormStory()}
-	<form>
-		<Field.Root invalid>
+	<form
+		onsubmit={(e) => {
+			e.preventDefault();
+			hookFormState.submitted = true;
+		}}
+	>
+		<Field.Root invalid={hookFormState.submitted && !hookFormState.framework}>
 			<Field.Label>Framework</Field.Label>
-			<NativeSelect size="sm" invalid class="w-60" name="framework">
+			<NativeSelect
+				size="sm"
+				invalid={hookFormState.submitted && !hookFormState.framework}
+				class="w-60"
+				name="framework"
+				bind:value={hookFormState.framework}
+			>
 				<option value="">Select framework</option>
 				<option value="react">React</option>
 				<option value="vue">Vue</option>
 				<option value="angular">Angular</option>
 				<option value="svelte">Svelte</option>
 			</NativeSelect>
-			<Field.ErrorText>Framework is required</Field.ErrorText>
+			{#if hookFormState.submitted && !hookFormState.framework}
+				<Field.ErrorText>Framework is required</Field.ErrorText>
+			{/if}
 		</Field.Root>
 
 		<Button size="sm" type="submit" class="mt-4">Submit</Button>
