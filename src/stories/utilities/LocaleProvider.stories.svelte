@@ -2,7 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import {
 		LocaleProvider,
-		getLocaleContext,
+		LocaleDisplay,
 	} from "$saas/utilities/locale-provider";
 	import { FormatNumber } from "$saas/utilities/format-number";
 	import { Text } from "$saas/typography/text";
@@ -29,11 +29,6 @@
 	});
 </script>
 
-<script lang="ts">
-	import type { Snippet } from "svelte";
-	import LocaleDisplay from "./LocaleDisplay.svelte";
-</script>
-
 {#snippet basicStory()}
 	<LocaleProvider locale="ar-BH">
 		<LocaleDisplay />
@@ -45,39 +40,39 @@
 		<div>
 			<Text size="md" weight="medium" class="mb-2">English (US)</Text>
 			<LocaleProvider locale="en-US">
-				<LocaleDisplay>
-					{#snippet children()}
-						<Text size="lg">
-							<FormatNumber value={1234.56} style="currency" currency="USD" />
-						</Text>
-					{/snippet}
-				</LocaleDisplay>
+				<Text size="lg">
+					<FormatNumber
+						value={1234.56}
+						style="currency"
+						currency="USD"
+					/>
+				</Text>
 			</LocaleProvider>
 		</div>
 
 		<div>
 			<Text size="md" weight="medium" class="mb-2">German (Germany)</Text>
 			<LocaleProvider locale="de-DE">
-				<LocaleDisplay>
-					{#snippet children()}
-						<Text size="lg">
-							<FormatNumber value={1234.56} style="currency" currency="EUR" />
-						</Text>
-					{/snippet}
-				</LocaleDisplay>
+				<Text size="lg">
+					<FormatNumber
+						value={1234.56}
+						style="currency"
+						currency="EUR"
+					/>
+				</Text>
 			</LocaleProvider>
 		</div>
 
 		<div>
 			<Text size="md" weight="medium" class="mb-2">Arabic (Bahrain)</Text>
 			<LocaleProvider locale="ar-BH">
-				<LocaleDisplay>
-					{#snippet children()}
-						<Text size="lg">
-							<FormatNumber value={1234.56} style="currency" currency="BHD" />
-						</Text>
-					{/snippet}
-				</LocaleDisplay>
+				<Text size="lg">
+					<FormatNumber
+						value={1234.56}
+						style="currency"
+						currency="BHD"
+					/>
+				</Text>
 			</LocaleProvider>
 		</div>
 	</Stack>
