@@ -25,10 +25,27 @@
 	type IconVariants = VariantProps<typeof iconStyles>;
 
 	interface Props extends SVGAttributes<SVGElement> {
+		/**
+		 * The icon component to render (e.g. from lucide-svelte or custom).
+		 */
 		as?: Component<any>;
+		/**
+		 * The size of the icon.
+		 * @default "md"
+		 */
 		size?: IconVariants["size"];
+		/**
+		 * The color theme of the icon.
+		 * @default "currentColor"
+		 */
 		color?: ColorName;
+		/**
+		 * The stroke width of the icon (when using stroke-based icons).
+		 */
 		strokeWidth?: number | string;
+		/**
+		 * SVG path elements for custom icons (if `as` is not provided).
+		 */
 		children?: Snippet;
 	}
 

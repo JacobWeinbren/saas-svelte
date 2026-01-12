@@ -58,15 +58,46 @@
 	type TextVariants = VariantProps<typeof text>;
 
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
+		/**
+		 * The HTML element to render.
+		 * @default "p"
+		 */
 		as?: string;
+		/**
+		 * The size of the text.
+		 * @default "md"
+		 */
 		size?: TextVariants["size"];
+		/**
+		 * The font weight of the text.
+		 * @default "normal"
+		 */
 		weight?: TextVariants["weight"];
+		/**
+		 * The color variant of the text.
+		 * @default "primary"
+		 */
 		variant?: TextVariants["variant"];
+		/**
+		 * Whether to truncate the text with an ellipsis.
+		 */
 		truncate?: boolean;
+		/**
+		 * The number of lines to clamp the text to.
+		 */
 		lineClamp?: TextVariants["lineClamp"]; // Supports "1" | "2" etc.
 		// Compatibility props from Saas/Chakra patterns
+		/**
+		 * Alias for `weight`.
+		 */
 		fontWeight?: TextVariants["weight"];
+		/**
+		 * Alias for `size`.
+		 */
 		textStyle?: TextVariants["size"];
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: ClassNameValue;
 	}
 

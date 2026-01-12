@@ -38,10 +38,28 @@
 	type StackVariants = VariantProps<typeof stack>;
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
+		/**
+		 * The content to render.
+		 */
 		children: Snippet;
+		/**
+		 * The direction of the stack.
+		 * @default "column"
+		 */
 		direction?: StackVariants["direction"];
+		/**
+		 * The alignment of items within the stack.
+		 * @default "stretch"
+		 */
 		align?: StackVariants["align"];
+		/**
+		 * The distribution of items within the stack.
+		 * @default "start"
+		 */
 		justify?: StackVariants["justify"];
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: string;
 	}
 

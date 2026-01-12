@@ -70,17 +70,48 @@
 		 * If not provided, a unique ID will be auto-generated.
 		 */
 		id?: string;
+		/**
+		 * The text content of the tooltip.
+		 */
 		content?: string | Snippet;
+		/**
+		 * The trigger element.
+		 */
 		children: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: string;
 		/**
 		 * Whether to show an arrow pointing to the trigger element.
+		 * @default false
 		 */
 		showArrow?: boolean;
 		/**
 		 * The variant of the tooltip.
+		 * @default "default"
 		 */
 		variant?: TooltipVariants["variant"];
+		/**
+		 * The delay before the tooltip opens (in ms).
+		 * @default 0
+		 */
+		openDelay?: number;
+		/**
+		 * The delay before the tooltip closes (in ms).
+		 * @default 100
+		 */
+		closeDelay?: number;
+		/**
+		 * The positioning options for the tooltip.
+		 * @default { placement: "bottom", strategy: "fixed" }
+		 */
+		positioning?: TooltipRootProps["positioning"];
+		/**
+		 * Whether the tooltip is interactive.
+		 * @default false
+		 */
+		interactive?: boolean;
 	}
 
 	let {
