@@ -9,12 +9,11 @@
 		base: [
 			"flex items-center justify-center border shrink-0",
 			"rounded", // Removed p-0.5 to allow precise icon sizing
-			"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid",
-			"dark:focus-visible:outline-(--c-500)",
+			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-600) peer-focus-visible:outline-solid",
+			"dark:peer-focus-visible:outline-(--c-500)",
 			"bg-white border-gray-300 text-white",
 			"dark:bg-zinc-950 dark:border-zinc-700",
 			"antialiased",
-			"transition-colors duration-200",
 		],
 		variants: {
 			variant: {
@@ -36,7 +35,7 @@
 				true: "cursor-not-allowed opacity-50 bg-gray-100 border-gray-200 dark:bg-zinc-800 dark:border-zinc-700!",
 			},
 			invalid: {
-				true: "border-red-500! focus-visible:outline-red-600! dark:border-red-500!",
+				true: "border-red-500! peer-focus-visible:outline-red-600! dark:border-red-500!",
 			},
 		},
 		compoundVariants: [
@@ -191,19 +190,18 @@
 	})}
 	style={finalStyle}
 >
-	<input
-		bind:this={inputRef}
-		type="checkbox"
-		class="sr-only"
-		checked={isChecked}
-		onchange={handleChange}
-		{value}
-		{disabled}
-		aria-invalid={invalid}
-		{...rest}
-	/>
-
 	<div class="flex items-center mt-0.5 shrink-0">
+		<input
+			bind:this={inputRef}
+			type="checkbox"
+			class="peer sr-only"
+			checked={isChecked}
+			onchange={handleChange}
+			{value}
+			{disabled}
+			aria-invalid={invalid}
+			{...rest}
+		/>
 		<div
 			class={checkboxControl({
 				size,
