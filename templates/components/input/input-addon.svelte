@@ -14,8 +14,8 @@
 		variants: {
 			size: {
 				xs: "h-6 px-2 text-xs",
-				sm: "h-7 px-2.5 text-sm",
-				md: "h-8 px-3 text-sm",
+				sm: "h-7 px-2.5 text-[13px]",
+				md: "h-8 px-3 text-[13px]",
 				lg: "h-10 px-4 text-base",
 			},
 		},

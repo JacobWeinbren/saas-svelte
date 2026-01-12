@@ -226,21 +226,21 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
+					class="text-[13px] font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
 				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
 				<div
-					class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50"
+					class="text-[13px] leading-5 text-gray-900 select-none dark:text-gray-50"
 				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
 				<p
-					class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"
+					class="mt-1 text-[13px] font-normal text-gray-500 dark:text-gray-400"
 				>
 					{description}
 				</p>

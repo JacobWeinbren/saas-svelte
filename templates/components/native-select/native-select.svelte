@@ -1,22 +1,21 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { generateColorVars, type ColorName } from "$saas/utils/colours";
 
-	export const input = tv({
+	export const nativeSelect = tv({
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded border",
+			"rounded border select-none",
 
 			// Text & Placeholder
 			"text-[13px] leading-5 antialiased",
-			"placeholder:text-zinc-500/90 placeholder:select-none",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 
 			// Focus (Global)
 			"focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
+			"dark:focus-visible:outline-zinc-500 dark:focus-visible:border-zinc-500",
 		],
 		variants: {
 			variant: {
@@ -38,22 +37,21 @@
 					// Dark
 					"dark:bg-gray-950 dark:text-gray-50",
 				],
-				flushed: [
-					"rounded-none border-t-0 border-x-0 border-b",
-					"bg-transparent shadow-none px-0",
+				plain: [
+					"border-0 bg-transparent",
 					// Light
-					"border-gray-200",
+					"text-black",
 					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
-
-					"focus-visible:outline-0 focus-visible:border-zinc-600",
+					"dark:text-gray-50",
+					"focus-visible:outline-2",
 				],
 			},
 			size: {
-				xs: "min-w-6 h-6 px-2 text-xs leading-4",
-				sm: "min-w-7 h-7 px-2.5 text-[13px] leading-5",
-				md: "min-w-8 h-8 px-3 text-[13px] leading-5",
-				lg: "min-w-10 h-10 px-5 text-[13px] leading-5 rounded-md",
+				xs: "h-6 pl-2 pr-6 text-xs leading-4",
+				sm: "h-8 pl-2.5 pr-8 text-[13px] leading-5",
+				md: "h-10 pl-3 pr-8 text-[13px] leading-5",
+				lg: "h-11 pl-4 pr-8 text-[13px] leading-5",
+				xl: "h-12 pl-5 pr-10 text-[13px] leading-5",
 			},
 			invalid: {
 				true: [
@@ -68,31 +66,26 @@
 		},
 	});
 
-	export type InputVariants = VariantProps<typeof input>;
+	export type NativeSelectVariants = VariantProps<typeof nativeSelect>;
 </script>
 
 <script lang="ts">
-	import type { HTMLInputAttributes } from "svelte/elements";
+	import type { HTMLSelectAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
 
-	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
+	interface Props extends Omit<HTMLSelectAttributes, "size" | "class"> {
 		/**
-		 * The visual style of the input.
+		 * The visual style of the select.
 		 * @default "outline"
 		 */
-		variant?: InputVariants["variant"];
+		variant?: NativeSelectVariants["variant"];
 		/**
-		 * The size of the input.
+		 * The size of the select.
 		 * @default "md"
 		 */
-		size?: InputVariants["size"];
+		size?: NativeSelectVariants["size"];
 		/**
-		 * The color theme of the input.
-		 * @default "gray"
-		 */
-		color?: ColorName;
-		/**
-		 * Whether the input is in an invalid state.
+		 * Whether the select is in an invalid state.
 		 * @default false
 		 */
 		invalid?: boolean;
@@ -105,21 +98,24 @@
 	let {
 		variant = "outline",
 		size = "md",
-		color = "gray",
 		class: className,
 		invalid = false,
-		style,
 		value = $bindable(),
+		children,
 		...restProps
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color));
-
 	const classes = $derived(
-		input({ variant, size, invalid, class: className }) as string,
+		nativeSelect({ variant, size, invalid, class: className }) as string,
 	);
-
-	const styles = $derived([colorVars, style].filter(Boolean).join("; "));
 </script>
 
-<input class={classes} style={styles} bind:value {...restProps} />
+<select class={classes} bind:value {...restProps}>
+	{@render children?.()}
+</select>
+
+<style>
+	select option {
+		background: inherit;
+	}
+</style>

@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as NativeSelectStories from "./NativeSelect.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={NativeSelectStories} />
+
+# Select (Native)
+
+## Used to pick a value from predefined options.
+
+<Canvas of={NativeSelectStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { NativeSelect } from "$saas/components/native-select";
+</script>
+```
+
+```html
+<NativeSelect>
+	<option value="1">Option 1</option>
+	<option value="2">Option 2</option>
+</NativeSelect>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the select component.
+
+<Canvas of={NativeSelectStories.Sizes} />
+
+### Variants
+
+Use the `variant` prop to change the appearance of the select component.
+
+<Canvas of={NativeSelectStories.Variants} />
+
+### Items Prop
+
+Pass the items as `<option>` elements to render a list of options.
+
+<Canvas of={NativeSelectStories.ItemsProp} />
+
+### Controlled
+
+Use the `value` and `bind:value` to control the select component.
+
+<Canvas of={NativeSelectStories.Controlled} />
+
+### Hook Form
+
+Here is an example of how to use the NativeSelect component with form handling.
+
+<Canvas of={NativeSelectStories.HookForm} />
+
+## Props
+
+<ArgTypes {...getControls(["variant", "size", "invalid", "disabled", "class"])} />

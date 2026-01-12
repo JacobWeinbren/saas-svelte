@@ -8,7 +8,7 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-md text-sm antialiased",
+			root: "relative w-full flex items-start p-4 rounded-md text-[13px] antialiased",
 			iconWrapper: "shrink-0 flex items-center justify-center w-5 h-5",
 			content: "flex-1 min-w-0 flex flex-col gap-1 ml-3",
 			title: "font-medium leading-5",

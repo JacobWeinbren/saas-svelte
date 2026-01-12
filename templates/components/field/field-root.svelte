@@ -1,0 +1,66 @@
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import { setContext } from "svelte";
+	import { writable } from "svelte/store";
+
+	interface Props extends HTMLAttributes<HTMLDivElement> {
+		/**
+		 * Whether the field is disabled.
+		 * @default false
+		 */
+		disabled?: boolean;
+		/**
+		 * Whether the field is invalid.
+		 * @default false
+		 */
+		invalid?: boolean;
+		/**
+		 * Whether the field is required.
+		 * @default false
+		 */
+		required?: boolean;
+		/**
+		 * Whether the field is read-only.
+		 * @default false
+		 */
+		readOnly?: boolean;
+		/**
+		 * The ID for the field. Auto-generated if not provided.
+		 */
+		id?: string;
+	}
+
+	let {
+		disabled = false,
+		invalid = false,
+		required = false,
+		readOnly = false,
+		id = `field-${Math.random().toString(36).substring(2, 9)}`,
+		class: className,
+		children,
+		...restProps
+	}: Props = $props();
+
+	// Create context for child components
+	const fieldContext = writable({
+		id,
+		disabled,
+		invalid,
+		required,
+		readOnly,
+	});
+
+	$effect(() => {
+		fieldContext.set({ id, disabled, invalid, required, readOnly });
+	});
+
+	setContext("field", fieldContext);
+</script>
+
+<div
+	role="group"
+	class={`flex relative w-full flex-col items-start gap-1.5 ${className || ""}`}
+	{...restProps}
+>
+	{@render children?.()}
+</div>

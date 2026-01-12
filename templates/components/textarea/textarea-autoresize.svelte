@@ -1,8 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { generateColorVars, type ColorName } from "$saas/utils/colours";
 
-	export const input = tv({
+	export const textareaAutoresize = tv({
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
@@ -50,10 +49,11 @@
 				],
 			},
 			size: {
-				xs: "min-w-6 h-6 px-2 text-xs leading-4",
-				sm: "min-w-7 h-7 px-2.5 text-[13px] leading-5",
-				md: "min-w-8 h-8 px-3 text-[13px] leading-5",
-				lg: "min-w-10 h-10 px-5 text-[13px] leading-5 rounded-md",
+				xs: "px-2 py-1 text-xs leading-4",
+				sm: "px-2.5 py-1.5 text-[13px] leading-5",
+				md: "px-3 py-1.5 text-[13px] leading-5",
+				lg: "px-4 py-2 text-[13px] leading-5 rounded-md",
+				xl: "px-5 py-3.5 text-[13px] leading-5 rounded-md",
 			},
 			invalid: {
 				true: [
@@ -68,34 +68,41 @@
 		},
 	});
 
-	export type InputVariants = VariantProps<typeof input>;
+	export type TextareaAutoresizeVariants = VariantProps<
+		typeof textareaAutoresize
+	>;
 </script>
 
 <script lang="ts">
-	import type { HTMLInputAttributes } from "svelte/elements";
+	import type { HTMLTextareaAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
 
-	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
+	interface Props extends Omit<HTMLTextareaAttributes, "class"> {
 		/**
-		 * The visual style of the input.
+		 * The visual style of the textarea.
 		 * @default "outline"
 		 */
-		variant?: InputVariants["variant"];
+		variant?: TextareaAutoresizeVariants["variant"];
 		/**
-		 * The size of the input.
+		 * The size of the textarea.
 		 * @default "md"
 		 */
-		size?: InputVariants["size"];
+		size?: TextareaAutoresizeVariants["size"];
 		/**
-		 * The color theme of the input.
-		 * @default "gray"
-		 */
-		color?: ColorName;
-		/**
-		 * Whether the input is in an invalid state.
+		 * Whether the textarea is in an invalid state.
 		 * @default false
 		 */
 		invalid?: boolean;
+		/**
+		 * Minimum number of rows.
+		 * @default 1
+		 */
+		minRows?: number;
+		/**
+		 * Maximum number of rows.
+		 * @default 40
+		 */
+		maxRows?: number;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -105,21 +112,31 @@
 	let {
 		variant = "outline",
 		size = "md",
-		color = "gray",
 		class: className,
 		invalid = false,
-		style,
-		value = $bindable(),
+		minRows = 1,
+		maxRows = 40,
+		value = $bindable(""),
 		...restProps
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color));
-
 	const classes = $derived(
-		input({ variant, size, invalid, class: className }) as string,
+		textareaAutoresize({ variant, size, invalid, class: className }) as string,
 	);
 
-	const styles = $derived([colorVars, style].filter(Boolean).join("; "));
+	const minHeight = $derived(`${1 + minRows * 1.2}em`);
+	const maxHeight = $derived(maxRows ? `${1 + maxRows * 1.2}em` : `auto`);
 </script>
 
-<input class={classes} style={styles} bind:value {...restProps} />
+<div class="relative grid">
+	<pre
+		aria-hidden="true"
+		class={`${classes} invisible whitespace-pre-wrap break-words overflow-hidden [grid-area:1/1/2/2]`}
+		style="min-height: {minHeight}; max-height: {maxHeight}">{value + "\n"}</pre>
+
+	<textarea
+		bind:value
+		class={`${classes} resize-none overflow-hidden [grid-area:1/1/2/2]`}
+		{...restProps}
+	></textarea>
+</div>

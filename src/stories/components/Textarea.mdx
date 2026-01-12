@@ -1,0 +1,87 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as TextareaStories from "./Textarea.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+## Used to enter multiple lines of text.
+
+<Canvas of={TextareaStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Textarea } from "$saas/components/textarea";
+</script>
+```
+
+```html
+<Textarea placeholder="..." />
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the appearance of the textarea.
+
+<Canvas of={TextareaStories.Variants} />
+
+### Sizes
+
+Use the `size` prop to change the size of the textarea.
+
+<Canvas of={TextareaStories.Sizes} />
+
+### Helper Text
+
+Pair the textarea with the Field component to add helper text.
+
+<Canvas of={TextareaStories.HelperText} />
+
+### Error Text
+
+Pair the textarea with the Field component to add error text.
+
+<Canvas of={TextareaStories.ErrorText} />
+
+### Field
+
+Compose the textarea with the Field component to add a label, helper text, and error text.
+
+<Canvas of={TextareaStories.Field} />
+
+### Hook Form
+
+Here's an example of how to integrate the textarea with form handling.
+
+<Canvas of={TextareaStories.HookForm} />
+
+### Resize
+
+Use the `resize` prop to control the resize behavior of the textarea.
+
+<Canvas of={TextareaStories.Resize} />
+
+### Autoresize
+
+Use the `TextareaAutoresize` component to make the textarea automatically expand as the user types. You can control the minimum and maximum number of rows with the `minRows` and `maxRows` props.
+
+<Canvas of={TextareaStories.Autoresize} />
+
+```html
+<script>
+	import { TextareaAutoresize } from "$saas/components/textarea";
+</script>
+
+<TextareaAutoresize placeholder="Start typing..." minRows={1} maxRows={40} />
+```
+
+The autoresize component uses a hidden `<pre>` element to calculate the correct height based on the content.
+
+## Props
+
+<ArgTypes {...getControls(["variant", "size", "invalid", "disabled", "class"])} />

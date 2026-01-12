@@ -1,0 +1,67 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as FieldStories from "./Field.stories.svelte";
+import { getControls } from "../utils";
+
+<Meta of={FieldStories} />
+
+# Field
+
+## Used to add labels, help text, and error messages to form fields.
+
+<Canvas of={FieldStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import { Field } from "$saas/components/field";
+	import { Input } from "$saas/components/input";
+</script>
+```
+
+```html
+<Field.Root>
+	<Field.Label />
+	<Input />
+	<Field.HelperText />
+	<Field.ErrorText />
+</Field.Root>
+```
+
+## Examples
+
+### Helper Text
+
+Use the helperText prop to add helper text to the field.
+
+<Canvas of={FieldStories.HelperText} />
+
+### Error Text
+
+Use the invalid and errorText to indicate that the field is invalid.
+
+<Canvas of={FieldStories.ErrorText} />
+
+### Disabled
+
+Use the disabled prop to disable the field.
+
+<Canvas of={FieldStories.Disabled} />
+
+### Textarea
+
+Here's how to use the field component with a textarea.
+
+<Canvas of={FieldStories.Textarea} />
+
+### Native Select
+
+Here's how to use the field component with a native select.
+
+<Canvas of={FieldStories.NativeSelect} />
+
+## Props
+
+### Root
+
+<ArgTypes {...getControls(["disabled", "invalid", "required", "readOnly", "id", "class", "children"])} />
