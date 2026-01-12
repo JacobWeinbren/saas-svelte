@@ -119,7 +119,7 @@
 		<Input
 			color="teal"
 			placeholder="custom placeholder"
-			class="text-(--c-700) placeholder:text-inherit dark:text-(--c-400)"
+			class="text-(--c-700) placeholder:text-inherit dark:text-(--c-700)"
 		/>
 	</Stack>
 {/snippet}
