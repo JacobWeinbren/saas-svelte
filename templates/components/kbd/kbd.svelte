@@ -21,7 +21,7 @@
 			size: {
 				sm: "h-5 text-xs leading-4",
 				md: "h-5 text-xs leading-4",
-				lg: "h-6 text-[13px] leading-5",
+				lg: "h-6 text-sm leading-5",
 			},
 		},
 		defaultVariants: {

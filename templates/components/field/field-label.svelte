@@ -33,7 +33,7 @@
 
 <label
 	for={fieldId}
-	class={`flex items-center gap-1 select-none text-[13px] font-medium leading-5 antialiased ${isDisabled ? "opacity-50" : ""} ${className || ""}`}
+	class={`flex items-center gap-1 select-none text-sm font-medium leading-5 antialiased ${isDisabled ? "opacity-50" : ""} ${className || ""}`}
 	{...restProps}
 >
 	{@render children?.()}

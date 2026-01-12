@@ -44,7 +44,7 @@
 	{...rest}
 >
 	{#if label}
-		<span class="mb-2 text-[13px] font-medium text-gray-900 dark:text-gray-100">
+		<span class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
 			{label}
 		</span>
 	{/if}

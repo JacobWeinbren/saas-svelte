@@ -8,7 +8,7 @@
 		variants: {
 			size: {
 				xs: "text-xs leading-4",
-				sm: "text-[13px] leading-5",
+				sm: "text-sm leading-5",
 				md: "text-base leading-6",
 				lg: "text-lg leading-7",
 				xl: "text-xl leading-7",

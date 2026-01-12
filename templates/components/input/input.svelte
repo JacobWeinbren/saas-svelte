@@ -9,7 +9,7 @@
 			"rounded border",
 
 			// Text & Placeholder
-			"text-[13px] leading-5 antialiased",
+			"text-sm leading-5 antialiased",
 			"placeholder:text-zinc-500/90 placeholder:select-none",
 
 			// Disabled
@@ -51,9 +51,9 @@
 			},
 			size: {
 				xs: "min-w-6 h-6 px-2 text-xs leading-4",
-				sm: "min-w-7 h-7 px-2.5 text-[13px] leading-5",
-				md: "min-w-8 h-8 px-3 text-[13px] leading-5",
-				lg: "min-w-10 h-10 px-5 text-[13px] leading-5 rounded-md",
+				sm: "min-w-7 h-7 px-2.5 text-sm leading-5",
+				md: "min-w-8 h-8 px-3 text-sm leading-5",
+				lg: "min-w-10 h-10 px-5 text-sm leading-5 rounded-md",
 			},
 			invalid: {
 				true: [

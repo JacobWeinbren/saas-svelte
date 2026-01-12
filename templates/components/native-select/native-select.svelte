@@ -8,7 +8,7 @@
 			"rounded border select-none",
 
 			// Text & Placeholder
-			"text-[13px] leading-5 antialiased",
+			"text-sm leading-5 antialiased",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-not-allowed",
@@ -48,10 +48,10 @@
 			},
 			size: {
 				xs: "h-6 pl-2 pr-6 text-xs leading-4",
-				sm: "h-8 pl-2.5 pr-8 text-[13px] leading-5",
-				md: "h-10 pl-3 pr-8 text-[13px] leading-5",
-				lg: "h-11 pl-4 pr-8 text-[13px] leading-5",
-				xl: "h-12 pl-5 pr-10 text-[13px] leading-5",
+				sm: "h-8 pl-2.5 pr-8 text-sm leading-5",
+				md: "h-10 pl-3 pr-8 text-sm leading-5",
+				lg: "h-11 pl-4 pr-8 text-sm leading-5",
+				xl: "h-12 pl-5 pr-10 text-sm leading-5",
 			},
 			invalid: {
 				true: [

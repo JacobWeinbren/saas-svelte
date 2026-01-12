@@ -8,7 +8,7 @@
 			"rounded border",
 
 			// Text & Placeholder
-			"text-[13px] leading-5 antialiased",
+			"text-sm leading-5 antialiased",
 			"placeholder:text-zinc-500/90 placeholder:select-none",
 
 			// Disabled
@@ -50,10 +50,10 @@
 			},
 			size: {
 				xs: "px-2 py-1 text-xs leading-4",
-				sm: "px-2.5 py-1.5 text-[13px] leading-5",
-				md: "px-3 py-1.5 text-[13px] leading-5",
-				lg: "px-4 py-2 text-[13px] leading-5 rounded-md",
-				xl: "px-5 py-3.5 text-[13px] leading-5 rounded-md",
+				sm: "px-2.5 py-1.5 text-sm leading-5",
+				md: "px-3 py-1.5 text-sm leading-5",
+				lg: "px-4 py-2 text-sm leading-5 rounded-md",
+				xl: "px-5 py-3.5 text-sm leading-5 rounded-md",
 			},
 			invalid: {
 				true: [

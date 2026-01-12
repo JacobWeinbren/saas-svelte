@@ -16,7 +16,7 @@
 				"dark:focus-visible:outline-zinc-400",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 			],
-			content: "overflow-hidden text-[13px] dark:text-zinc-300",
+			content: "overflow-hidden text-sm dark:text-zinc-300",
 			contentBody: "",
 			indicator:
 				"flex items-center justify-center text-zinc-600 dark:text-zinc-400 shrink-0 transition-transform duration-200",
@@ -25,15 +25,15 @@
 		variants: {
 			size: {
 				sm: {
-					trigger: "text-[13px] py-2",
-					content: "text-[13px]",
+					trigger: "text-sm py-2",
+					content: "text-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
 				},
 				md: {
-					trigger: "text-[13px] py-2",
-					content: "text-[13px]",
+					trigger: "text-sm py-2",
+					content: "text-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
