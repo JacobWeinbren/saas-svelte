@@ -90,8 +90,8 @@
 		class: className,
 		showArrow = false,
 		variant = "default",
-		openDelay = 100,
-		closeDelay = 100,
+		openDelay = 0,
+		closeDelay = 0,
 		positioning = { placement: "bottom", strategy: "fixed" },
 		interactive = false,
 		...rest
