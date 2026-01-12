@@ -41,7 +41,7 @@
 				control: "number",
 				description:
 					"The delay in milliseconds before the tooltip closes.",
-				table: { defaultValue: { summary: "0" } },
+				table: { defaultValue: { summary: "100" } },
 			},
 			positioning: {
 				control: "object",

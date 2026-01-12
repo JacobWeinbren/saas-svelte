@@ -91,7 +91,7 @@
 		showArrow = false,
 		variant = "default",
 		openDelay = 0,
-		closeDelay = 0,
+		closeDelay = 100,
 		positioning = { placement: "bottom", strategy: "fixed" },
 		interactive = false,
 		...rest
