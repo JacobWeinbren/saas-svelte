@@ -1,6 +1,11 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Input, InputAddon, InputGroup, InputElement } from "$saas/components/input";
+	import {
+		Input,
+		InputAddon,
+		InputGroup,
+		InputElement,
+	} from "$saas/components/input";
 	import { Group } from "$saas/components/group";
 	import { Stack } from "$saas/layout/stack";
 	import {
@@ -23,33 +28,30 @@
 				"disabled",
 				"placeholder",
 				"class",
-				"children",
 			]),
 		},
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
 				options: inputVariants,
-				description: "The visual style of the input",
-				table: { defaultValue: { summary: "outline" } },
+				description: "The visual style of the input.",
 			},
 			size: {
 				...commonArgTypes.size,
 				options: sizes.filter((s) => s !== "xl"),
+				description: "The size of the input.",
 			},
 			color: {
 				...commonArgTypes.color,
 				options: colors as any,
-				description:
-					"The colour palette of the component (e.g. 'indigo', 'rose')",
+				description: "The color theme of the input.",
 			},
 			invalid: commonArgTypes.invalid,
 			disabled: commonArgTypes.disabled,
 			placeholder: {
 				control: "text",
-				description: "Placeholder text for the input",
+				description: "Placeholder text for the input.",
 			},
-			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 		},
 		args: {

@@ -76,10 +76,29 @@
 	import type { ClassNameValue } from "tailwind-merge";
 
 	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
+		/**
+		 * The visual style of the input.
+		 * @default "outline"
+		 */
 		variant?: InputVariants["variant"];
+		/**
+		 * The size of the input.
+		 * @default "md"
+		 */
 		size?: InputVariants["size"];
+		/**
+		 * The color theme of the input.
+		 * @default "gray"
+		 */
 		color?: ColorName;
+		/**
+		 * Whether the input is in an invalid state.
+		 * @default false
+		 */
 		invalid?: boolean;
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: ClassNameValue;
 	}
 
