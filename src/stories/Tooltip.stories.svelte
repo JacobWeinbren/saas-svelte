@@ -35,7 +35,7 @@
 				control: "number",
 				description:
 					"The delay in milliseconds before the tooltip opens.",
-				table: { defaultValue: { summary: "200" } },
+				table: { defaultValue: { summary: "100" } },
 			},
 			closeDelay: {
 				control: "number",
