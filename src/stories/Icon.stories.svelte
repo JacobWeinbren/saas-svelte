@@ -2,9 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Icon } from "$saas/icon";
 	import { Heart, User, Settings } from "@lucide/svelte";
-	import { hideInheritedProps } from "../../.storybook/hide-inherited-props";
-
-	const sizes = ["xs", "sm", "md", "lg", "xl", "2xl"] as const;
+	import { commonArgTypes, getControls, sizes } from "./utils";
 
 	const { Story } = defineMeta({
 		title: "components/Icon",
@@ -16,10 +14,8 @@
 				table: { type: { summary: "Component" } },
 			},
 			size: {
-				control: "select",
-				options: sizes,
-				description: "The size of the icon.",
-				table: { defaultValue: { summary: "md" } },
+				...commonArgTypes.size,
+				options: [...sizes, "2xl"],
 			},
 			strokeWidth: {
 				control: "number",
@@ -37,20 +33,31 @@
 				description: "SVG path elements for custom icons.",
 				table: { type: { summary: "Snippet" } },
 			},
-			class: {
-				control: "text",
-				description: "Additional CSS classes.",
-			},
-			...hideInheritedProps(),
-			// Override color to show it (it's hidden by hideInheritedProps)
+			class: commonArgTypes.class,
+			// Override color to show it (it's normally hidden/common but here we want to show it explicitly maybe?)
+			// Actually commonArgTypes has color. I'll just use it but override default if needed.
 			color: {
-				control: "text",
+				...commonArgTypes.color,
+				// Icon originally manually enabled it or overrode something?
+				// Original had: description: "Colour from the theme palette", table: { defaultValue: { summary: "currentColor" }, disable: false }
+				// commonArgTypes.color has desc: "The color theme of the component", default: "gray".
+				// Icon uses currentColor usually?
 				description: "Colour from the theme palette.",
 				table: {
 					defaultValue: { summary: "currentColor" },
-					disable: false,
 				},
 			},
+		},
+		parameters: {
+			controls: getControls([
+				"as",
+				"size",
+				"strokeWidth",
+				"viewBox",
+				"children",
+				"class",
+				"color",
+			]),
 		},
 		args: {
 			size: "md",

@@ -1,6 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Stack, HStack, VStack, Divider, DecorativeBox } from "$saas/stack";
+	import { commonArgTypes, getControls } from "./utils";
 
 	const { Story } = defineMeta({
 		title: "layout/Stack",
@@ -33,13 +34,21 @@
 					"The distribution of items along the direction. Shorthand for `justify-content`.",
 				table: { defaultValue: { summary: "start" } },
 			},
-			class: {
-				control: "text",
-				description:
-					"Additional CSS classes to apply to the container.",
-			},
+			class: commonArgTypes.class,
+			children: commonArgTypes.children,
+		},
+		parameters: {
+			controls: getControls([
+				"direction",
+				"align",
+				"justify",
+				"class",
+				"children",
+			]),
 		},
 	});
+
+	export { Stack, HStack, VStack, Divider, DecorativeBox };
 </script>
 
 {#snippet basicStory()}

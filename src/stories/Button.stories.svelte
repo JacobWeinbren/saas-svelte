@@ -5,59 +5,29 @@
 	import { Text } from "$saas/text";
 	import { HStack, VStack } from "$saas/stack";
 	import { Heart, Mail, ArrowRight, ChevronDown } from "@lucide/svelte";
-
-	const colors = [
-		"orange",
-		"amber",
-		"yellow",
-		"lime",
-		"green",
-		"emerald",
-		"teal",
-		"cyan",
-		"sky",
-		"blue",
-		"blue",
-		"indigo",
-		"violet",
-		"purple",
-		"fuchsia",
-		"pink",
-		"rose",
-	] as const;
-
-	const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
-	const variants = [
-		"glass",
-		"solid",
-		"subtle",
-		"surface",
-		"outline",
-		"ghost",
-		"plain",
-	] as const;
+	import {
+		colors,
+		sizes,
+		buttonVariants,
+		commonArgTypes,
+		getControls,
+	} from "./utils";
 
 	const { Story } = defineMeta({
 		title: "components/Button",
 		component: Button,
 		argTypes: {
 			variant: {
-				control: "select",
-				options: variants,
-				description: "The visual style of the button.",
-				table: { defaultValue: { summary: "surface" } },
+				...(commonArgTypes.variant as any),
+				options: buttonVariants as any,
 			},
 			size: {
-				control: "select",
-				options: sizes,
-				description: "The size of the button.",
-				table: { defaultValue: { summary: "md" } },
+				...commonArgTypes.size,
+				options: sizes as any,
 			},
 			color: {
-				control: "select",
-				options: colors,
-				description: "The color scheme of the button.",
-				table: { defaultValue: { summary: "gray" } },
+				...commonArgTypes.color,
+				options: colors as any,
 			},
 			loading: {
 				control: "boolean",
@@ -67,10 +37,21 @@
 				control: "text",
 				description: "Text to display when the button is loading.",
 			},
-			icon: {
-				control: "boolean",
-				description: "Whether the button is icon-only.",
-			},
+			icon: commonArgTypes.icon,
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls([
+				"variant",
+				"size",
+				"color",
+				"loading",
+				"loadingText",
+				"icon",
+				"children",
+				"class",
+			]),
 		},
 		args: {
 			variant: "surface",
@@ -88,9 +69,9 @@
 	</HStack>
 {/snippet}
 
-{#snippet variantsStory()}
+{#snippet buttonVariantsStory()}
 	<HStack class="flex-wrap gap-4 p-4">
-		{#each variants as variant}
+		{#each buttonVariants as variant}
 			<Button {variant}>{variant}</Button>
 		{/each}
 	</HStack>
@@ -132,9 +113,9 @@
 		{#each colors as color}
 			<HStack class="gap-4">
 				<Text size="xs" class="w-16">{color}</Text>
-				<Button variant="solid" {color}>Solid</Button>
-				<Button variant="subtle" {color}>Subtle</Button>
-				<Button variant="outline" {color}>Outline</Button>
+				<Button variant="solid" color={color as any}>Solid</Button>
+				<Button variant="subtle" color={color as any}>Subtle</Button>
+				<Button variant="outline" color={color as any}>Outline</Button>
 			</HStack>
 		{/each}
 	</VStack>
@@ -157,7 +138,7 @@
 
 <Story name="Sizes" template={sizesStory} />
 
-<Story name="Variants" template={variantsStory} />
+<Story name="Variants" template={buttonVariantsStory} />
 
 <Story name="Colors" template={colorsStory} />
 

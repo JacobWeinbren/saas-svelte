@@ -2,9 +2,8 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Dialog } from "$saas/dialog";
 	import { Button } from "$saas/button";
-	import { hideInheritedProps } from "../../.storybook/hide-inherited-props";
 
-	const sizes = ["xs", "sm", "md", "lg", "xl", "cover", "full"] as const;
+	import { commonArgTypes, getControls, sizes } from "./utils";
 
 	const { Story } = defineMeta({
 		title: "components/Dialog",
@@ -24,10 +23,8 @@
 				description: "The controlled open state of the dialog",
 			},
 			size: {
-				control: "select",
-				options: sizes,
-				description: "The size of the component",
-				table: { defaultValue: { summary: "md" } },
+				...commonArgTypes.size,
+				options: [...sizes, "cover", "full"],
 			},
 			placement: {
 				control: "select",
@@ -53,7 +50,20 @@
 				description: "The ARIA role of the dialog",
 				table: { defaultValue: { summary: "dialog" } },
 			},
-			...hideInheritedProps(),
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls([
+				"open",
+				"size",
+				"placement",
+				"scrollBehavior",
+				"motionPreset",
+				"role",
+				"children",
+				"class",
+			]),
 		},
 		args: {
 			size: "md",
@@ -65,7 +75,7 @@
 	});
 
 	const focusClass =
-		"focus-visible:outline focus-visible:outline-1 focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100 focus-visible:outline-offset-2";
+		"focus-visible:outline focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100 focus-visible:outline-offset-2";
 </script>
 
 {#snippet basicStory()}

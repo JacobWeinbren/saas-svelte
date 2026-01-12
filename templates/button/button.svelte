@@ -8,25 +8,37 @@
 	export const button = tv({
 		base: [
 			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap text-(--c-900) shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-(--c-700)/90 dark:bg-(--c-950)/20 dark:hover:border-(--c-700) dark:hover:bg-(--c-950) dark:disabled:hover:border-(--c-700)/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-600) dark:text-(--c-200)",
-			"antialiased",
+			"antialiased transition-all duration-200",
 		],
 		variants: {
 			variant: {
 				glass: "overflow-hidden border-0 dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
-				solid: "border-0 dark:border-(--c-200) bg-(--c-500) dark:bg-(--c-500) text-(--c-100) dark:text-white shadow hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
-				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:text-(--c-200) dark:bg-(--c-950)  dark:focus-visible:outline-(--c-600) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
+
+				// SOLID (Primary Action)
+				// Light: bg-teal-600 text-white
+				// Dark:  bg-teal-600 text-white (Matches your HTML)
+				solid: "border-0 dark:border-(--c-200) bg-(--c-600) dark:bg-(--c-600) text-white shadow hover:bg-(--c-600)/90 dark:hover:bg-(--c-600)/90 disabled:hover:bg-(--c-600) dark:disabled:hover:bg-(--c-600)",
+
+				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:border-(--c-800) dark:text-(--c-200) dark:bg-(--c-950) dark:focus-visible:outline-(--c-600) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
+
 				surface:
 					"disabled:hover:bg-(--c-50)/20 dark:disabled:hover:bg-(--c-950)/20",
+
+				// OUTLINE (Secondary Action)
+				// Light: text-teal-700 border-teal-200 hover:bg-teal-50
+				// Dark:  text-teal-300 border-teal-800 hover:bg-teal-950 (Matches your HTML)
 				outline:
-					"border-[0.5px] border-(--c-300) shadow-none dark:border-(--c-700) dark:text-(--c-200) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+					"border-[0.5px] border-(--c-200) text-(--c-700) shadow-none hover:bg-(--c-50) dark:border-(--c-800) dark:text-(--c-300) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+
 				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:border-(--c-800) dark:text-(--c-200) dark:hover:bg-(--c-900) dark:focus-visible:outline-(--c-600) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+
 				plain: "shadow-none border-0 text-(--c-900) hover:bg-transparent bg-transparent dark:border-(--c-800) dark:text-(--c-200)",
 			},
 			color: {},
 			size: {
 				xs: "h-6 min-w-6 gap-x-1 px-2 text-xs leading-4 [&_svg]:size-2",
 				sm: "h-7 min-w-7 px-2.5 text-sm leading-5 [&_svg]:size-3",
-				md: "[&_svg]:size-4",
+				md: "[&_svg]:size-3.5",
 				lg: "h-10 min-w-10 gap-x-3 rounded-md px-5 [&_svg]:size-5",
 				xl: "h-12 min-w-12 gap-x-3 rounded-md px-6 text-base leading-6 [&_svg]:size-6",
 			},
@@ -35,7 +47,7 @@
 		compoundVariants: [
 			{ size: "xs", icon: true, class: "w-6 [&_svg]:size-3" },
 			{ size: "sm", icon: true, class: "w-7 [&_svg]:size-3.5" },
-			{ size: "md", icon: true, class: "w-8 [&_svg]:size-4" },
+			{ size: "md", icon: true, class: "w-8 [&_svg]:size-3.5" },
 			{ size: "lg", icon: true, class: "w-10 [&_svg]:size-5" },
 			{ size: "xl", icon: true, class: "w-12 [&_svg]:size-6" },
 		],

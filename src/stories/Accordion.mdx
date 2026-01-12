@@ -1,11 +1,17 @@
 import { Meta, Story, Canvas, ArgTypes, Controls } from "@storybook/blocks";
 import * as AccordionStories from "./Accordion.stories.svelte";
+import {
+	accordionRootPattern,
+	accordionItemPattern,
+	accordionItemTriggerPattern,
+	accordionItemContentPattern,
+} from "../../.storybook/exclude-patterns";
 
 <Meta of={AccordionStories} />
 
 # Accordion
 
-Used to show and hide sections of related content on a page
+## Used to show and hide sections of related content on a page
 
 <Canvas of={AccordionStories.Basic} />
 
@@ -15,7 +21,7 @@ The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordi
 
 **Simple Usage:**
 
-```js
+```html
 import { Accordion } from '$saas/accordion';
 
 const items = [
@@ -74,11 +80,7 @@ Use the `multiple` prop to allow multiple items to be expanded at once.
 
 Use the `size` prop to change the size of the accordion.
 
-<Canvas of={AccordionStories.Small} />
-
-<Canvas of={AccordionStories.Medium} />
-
-<Canvas of={AccordionStories.Large} />
+<Canvas of={AccordionStories.Sizes} />
 
 ### Variants
 
@@ -100,18 +102,24 @@ Pass `disabled` on specific items in your data array to prevent them from being 
 
 ### Props
 
-**AccordionStories.AccordionRoot**
+**AccordionRoot**
 
-<ArgTypes of={AccordionStories.AccordionRoot} />
+<ArgTypes of={AccordionStories.AccordionRoot} exclude={accordionRootPattern} />
 
-**AccordionStories.AccordionItem**
+**AccordionItem**
 
-<ArgTypes of={AccordionStories.AccordionItem} />
+<ArgTypes of={AccordionStories.AccordionItem} exclude={accordionItemPattern} />
 
-**AccordionStories.AccordionItemTrigger**
+**AccordionItemTrigger**
 
-<ArgTypes of={AccordionStories.AccordionItemTrigger} />
+<ArgTypes
+	of={AccordionStories.AccordionItemTrigger}
+	exclude={accordionItemTriggerPattern}
+/>
 
-**AccordionStories.AccordionItemContent**
+**AccordionItemContent**
 
-<ArgTypes of={AccordionStories.AccordionItemContent} />
+<ArgTypes
+	of={AccordionStories.AccordionItemContent}
+	exclude={accordionItemContentPattern}
+/>

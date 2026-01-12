@@ -11,22 +11,20 @@ const restricted = [
     "default",
 ] as const;
 
+// Helper to handle ESM/CJS interop for tailwind colors
+const allColors = (tailwindColors as any).default || tailwindColors;
+
+export const availableColors = Object.keys(allColors).filter(
+    (color) => !restricted.includes(color as any)
+);
+
 export type ColorName = keyof Omit<
     typeof tailwindColors,
     (typeof restricted)[number]
 >;
 
-/**
- * Generates CSS variables for a specific Tailwind color palette.
- * @param colorName - The name of the color (e.g., "blue", "rose")
- * @returns A string of CSS variables: "--c-50: #eff6ff; --c-100: ..."
- */
 export function generateColorVars(colorName: string): string {
     if (!colorName) return "";
-
-    // 3. Safety Check: Handle different import structures (ESM vs CJS interop)
-    // Some bundlers put the colors inside a 'default' property.
-    const allColors = (tailwindColors as any).default || tailwindColors;
 
     const palette = allColors[colorName];
 

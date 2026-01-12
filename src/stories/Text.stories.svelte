@@ -1,20 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Text } from "$saas/text";
-	import { hideInheritedProps } from "../../.storybook/hide-inherited-props";
-
-	const sizes = [
-		"xs",
-		"sm",
-		"md",
-		"lg",
-		"xl",
-		"2xl",
-		"3xl",
-		"4xl",
-		"5xl",
-		"6xl",
-	] as const;
+	import { commonArgTypes, getControls, textSizes } from "./utils";
 
 	const weights = ["light", "normal", "medium", "semibold", "bold"] as const;
 
@@ -28,11 +15,10 @@
 				table: { defaultValue: { summary: "p" } },
 			},
 			size: {
-				control: "select",
-				options: sizes,
+				...commonArgTypes.size,
+				options: textSizes,
 				description:
 					"The size of the text (supports `textStyle` alias).",
-				table: { defaultValue: { summary: "md" } },
 			},
 			weight: {
 				control: "select",
@@ -61,16 +47,20 @@
 			textStyle: {
 				table: { disable: true },
 			},
-			class: {
-				control: "text",
-				description: "Additional CSS classes.",
-			},
-			children: {
-				control: false,
-				description: "The text content.",
-				table: { type: { summary: "Snippet" } },
-			},
-			...hideInheritedProps(),
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls([
+				"as",
+				"size",
+				"weight",
+				"variant",
+				"truncate",
+				"lineClamp",
+				"class",
+				"children",
+			]),
 		},
 		args: {
 			size: "md",
@@ -82,7 +72,7 @@
 
 {#snippet sizesStory()}
 	<div class="flex flex-col gap-2">
-		{#each sizes as size}
+		{#each textSizes as size}
 			<Text {size}>Chakra ({size})</Text>
 		{/each}
 	</div>

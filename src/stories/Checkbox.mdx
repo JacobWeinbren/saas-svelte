@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as CheckboxStories from "./Checkbox.stories.svelte";
+import { checkboxPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={CheckboxStories} />
 
@@ -85,4 +86,4 @@ Render an anchor tag as the checkbox label.
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={checkboxPattern} />

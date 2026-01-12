@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as ButtonStories from "./Button.stories.svelte";
+import { buttonPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={ButtonStories} />
 
@@ -67,4 +68,4 @@ Use the ButtonGroup component to group buttons together.
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={buttonPattern} />

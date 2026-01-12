@@ -4,15 +4,12 @@
 	import { Stack } from "$saas/stack";
 	import { Icon } from "$saas/icon";
 	import { AlarmClockPlus } from "@lucide/svelte";
-
-	const statuses = [
-		"info",
-		"success",
-		"warning",
-		"error",
-		"neutral",
-	] as const;
-	const variants = ["subtle", "solid", "surface", "outline"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		variants,
+		alertStatuses,
+	} from "./utils";
 
 	const { Story } = defineMeta({
 		title: "components/Alert",
@@ -20,19 +17,20 @@
 		argTypes: {
 			status: {
 				control: "select",
-				options: statuses,
+				options: alertStatuses,
 				description: "The status of the component.",
 				table: { defaultValue: { summary: "info" } },
 			},
 			variant: {
-				control: "select",
-				options: variants,
-				description: "The variant of the component.",
+				...commonArgTypes.variant,
+				options: variants.filter((v) =>
+					["subtle", "solid", "surface", "outline"].includes(v),
+				),
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			color: {
 				control: "text",
-				description: "The color palette of the component.",
+				description: "The colour palette of the component.",
 				table: { defaultValue: { summary: "gray" } },
 			},
 			title: {
@@ -43,10 +41,19 @@
 				control: "boolean",
 				description: "Override the default icon for the alert status.",
 			},
-			children: {
-				control: "text",
-				description: "The description content of the alert.",
-			},
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls([
+				"status",
+				"variant",
+				"color",
+				"title",
+				"icon",
+				"children",
+				"class",
+			]),
 		},
 		args: {
 			status: "info",

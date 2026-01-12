@@ -3,71 +3,17 @@
 	import { Checkbox, CheckboxGroup } from "$saas/checkbox";
 	import { Stack, HStack, VStack } from "$saas/stack";
 	import { Icon } from "$saas/icon";
-	import { hideInheritedProps } from "../../.storybook/hide-inherited-props";
+	import { Text } from "$saas/text";
 	import { Plus } from "@lucide/svelte";
 	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
-
-	const colors = [
-		"orange",
-		"amber",
-		"yellow",
-		"lime",
-		"green",
-		"emerald",
-		"teal",
-		"cyan",
-		"sky",
-		"blue",
-		"indigo",
-		"violet",
-		"purple",
-		"fuchsia",
-		"pink",
-		"rose",
-	] as const;
-
-	const sizes = ["sm", "md", "lg"] as const;
-	const variants = ["outline", "subtle", "solid"] as const;
-
-	// List of HTML input attributes to hide from controls
-	const inputPropsToHide = [
-		"accept",
-		"alt",
-		"autocomplete",
-		"autocorrect",
-		"capture",
-		"dirname",
-		"form",
-		"formaction",
-		"formenctype",
-		"formmethod",
-		"formnovalidate",
-		"formtarget",
-		"height",
-		"list",
-		"max",
-		"maxlength",
-		"min",
-		"minlength",
-		"multiple",
-		"name",
-		"pattern",
-		"placeholder",
-		"readonly",
-		"required",
-		"src",
-		"step",
-		"type",
-		"width",
-		"webkitdirectory",
-		"indeterminate",
-		"defaultchecked",
-		"defaultValue",
-		"defaultvalue",
-	].reduce((acc: Record<string, any>, prop) => {
-		acc[prop] = { table: { disable: true } };
-		return acc;
-	}, {});
+	import {
+		colors,
+		sizes,
+		checkboxVariants,
+		commonArgTypes,
+		getControls,
+		orientations,
+	} from "./utils";
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
@@ -80,21 +26,17 @@
 				table: { type: { summary: "boolean | 'indeterminate'" } },
 			},
 			size: {
-				control: "select",
-				options: sizes,
-				description: "The size of the component.",
-				table: { defaultValue: { summary: "md" } },
+				...commonArgTypes.size,
+				options: sizes.filter((s) => ["sm", "md", "lg"].includes(s)),
 			},
 			variant: {
-				control: "select",
-				options: variants,
-				description: "The variant of the component.",
+				...commonArgTypes.variant,
+				options: checkboxVariants,
 				table: { defaultValue: { summary: "solid" } },
 			},
 			color: {
-				control: "select",
-				options: colors,
-				description: "The color palette of the component.",
+				...commonArgTypes.color,
+				options: colors as any,
 				table: { defaultValue: { summary: "indigo" } },
 			},
 			label: {
@@ -106,14 +48,8 @@
 				description:
 					"Additional description text displayed below the label.",
 			},
-			disabled: {
-				control: "boolean",
-				description: "Whether the checkbox is disabled.",
-			},
-			invalid: {
-				control: "boolean",
-				description: "Whether the checkbox is invalid.",
-			},
+			disabled: commonArgTypes.disabled,
+			invalid: commonArgTypes.invalid,
 			icon: {
 				control: "boolean",
 				description: "Custom icon snippet to render when checked.",
@@ -128,15 +64,31 @@
 				description: "Group context value (internal use).",
 				table: { disable: true },
 			},
-			// Added orientation for CheckboxGroup
 			orientation: {
 				control: "select",
-				options: ["vertical", "horizontal"],
+				options: orientations,
 				description: "The layout orientation of the CheckboxGroup.",
 				table: { defaultValue: { summary: "vertical" } },
 			},
-			...hideInheritedProps(),
-			...inputPropsToHide,
+			class: commonArgTypes.class,
+			children: commonArgTypes.children,
+		},
+		parameters: {
+			controls: getControls([
+				"checked",
+				"size",
+				"variant",
+				"color",
+				"label",
+				"description",
+				"disabled",
+				"invalid",
+				"icon",
+				"value",
+				"orientation",
+				"class",
+				"children",
+			]),
 		},
 		args: {
 			size: "md",
@@ -150,11 +102,17 @@
 
 {#snippet variantsStory()}
 	<HStack align="start" class="gap-10">
-		{#each variants as variant}
+		{#each checkboxVariants as variant}
 			<VStack align="start" class="flex-1 gap-2">
-				<span class="text-sm font-medium">{variant}</span>
-				<Checkbox checked={false} {variant} label="Unchecked" />
-				<Checkbox checked {variant} label="Checked" />
+				<Text>
+					{variant}
+				</Text>
+				<Checkbox
+					checked={false}
+					variant={variant as any}
+					label="Unchecked"
+				/>
+				<Checkbox checked variant={variant as any} label="Checked" />
 			</VStack>
 		{/each}
 	</HStack>
@@ -168,11 +126,16 @@
 	<VStack align="start" class="gap-2">
 		{#each colors as color}
 			<HStack align="center" class="w-full gap-10">
-				<span class="min-w-[8ch] text-xs font-mono text-gray-500">
+				<Text class="min-w-[8ch] text-xs">
 					{color}
-				</span>
-				{#each variants as variant}
-					<Checkbox {variant} {color} checked label="Checkbox" />
+				</Text>
+				{#each checkboxVariants as variant}
+					<Checkbox
+						{variant}
+						color={color as any}
+						checked
+						label="Checkbox"
+					/>
 				{/each}
 			</HStack>
 		{/each}
@@ -181,8 +144,8 @@
 
 {#snippet sizesStory()}
 	<Stack align="start" class="flex-1 gap-4">
-		{#each sizes as size}
-			<Checkbox {size} checked label="Checkbox" />
+		{#each sizes.filter((s) => ["sm", "md", "lg"].includes(s)) as size}
+			<Checkbox size={size as any} checked label="Checkbox" />
 		{/each}
 	</Stack>
 {/snippet}

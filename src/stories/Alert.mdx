@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as AlertStories from "./Alert.stories.svelte";
+import { alertPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={AlertStories} />
 
@@ -49,4 +50,4 @@ Use the icon snippet (or prop) to pass a custom icon to the alert. This will ove
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={alertPattern} />

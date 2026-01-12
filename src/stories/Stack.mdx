@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as LayoutStories from "./Stack.stories.svelte";
+import { stackPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={LayoutStories} />
 
@@ -60,4 +61,4 @@ Use Tailwind utility classes (e.g., md:flex-row) to change the direction of the 
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={stackPattern} />

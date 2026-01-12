@@ -151,8 +151,20 @@
 		checked === "indeterminate" ? "indeterminate" : isChecked,
 	);
 
-	// Explicitly size icons to 14px (size-3.5) for md checkboxes to match reference
-	const iconBaseClass = "size-3.5 pointer-events-none stroke-[3px]";
+	// Map icon sizes:
+	// sm: 10px (size-2.5)
+	// md: 12px (size-3) -> This matches 16px container - 2px padding
+	// lg: 16px (size-4)
+	const iconSizes = {
+		sm: "size-2.5 stroke-[3px]",
+		md: "size-3 stroke-[4px]",
+		lg: "size-4 stroke-[4px]",
+	} as const;
+
+	const iconBaseClass = $derived(
+		`${iconSizes[size || "md"]} pointer-events-none`,
+	);
+
 	const checkIconClass = $derived(
 		`${iconBaseClass} transition-opacity duration-200 ${isChecked ? "opacity-100" : "opacity-0"}`,
 	);

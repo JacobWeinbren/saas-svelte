@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as IconStories from "./Icon.stories.svelte";
 import { Icon } from "$saas/icon";
+import { iconPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={IconStories} />
 
@@ -59,4 +60,4 @@ Wrap raw SVG paths directly by passing them as children.
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={iconPattern} />

@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as DialogStories from "./Dialog.stories.svelte";
+import { dialogRootPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={DialogStories} />
 
@@ -81,4 +82,4 @@ Set the `role="alertdialog"` prop to change the dialog component to an alert dia
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={dialogRootPattern} />

@@ -9,3 +9,4 @@ build
 npm-debug.log*
 *storybook.log
 storybook-static
+.svelte-kit/**

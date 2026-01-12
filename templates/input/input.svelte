@@ -1,0 +1,106 @@
+<script module lang="ts">
+	import { tv, type VariantProps } from "tailwind-variants";
+	import { generateColorVars, type ColorName } from "$saas/utils/colours";
+
+	export const input = tv({
+		base: [
+			// Core Layout
+			"appearance-none outline-0 w-full relative",
+			"rounded border",
+
+			// Text & Placeholder
+			"text-sm leading-5",
+			"placeholder:text-zinc-500/90 placeholder:select-none",
+
+			// Disabled
+			"disabled:opacity-50 disabled:cursor-not-allowed",
+
+			// Focus (Global)
+			"focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
+		],
+		variants: {
+			variant: {
+				outline: [
+					"bg-transparent",
+					// Light
+					"border-gray-200",
+					"enabled:hover:border-gray-300",
+					"enabled:hover:focus-visible:border-zinc-600",
+
+					// Dark
+					"dark:border-gray-800 dark:text-gray-50",
+					"dark:enabled:hover:border-zinc-700",
+				],
+				subtle: [
+					"border-transparent",
+					// Light
+					"bg-gray-50",
+					// Dark
+					"dark:bg-gray-950 dark:text-gray-50",
+				],
+				flushed: [
+					"rounded-none border-t-0 border-x-0 border-b",
+					"bg-transparent shadow-none px-0",
+					// Light
+					"border-gray-200",
+					// Dark
+					"dark:border-gray-800 dark:text-gray-50",
+
+					"focus-visible:outline-0 focus-visible:border-zinc-600",
+				],
+			},
+			size: {
+				xs: "min-w-6 h-6 px-2 text-xs leading-4",
+				sm: "min-w-7 h-7 px-2.5 text-sm leading-5",
+				md: "min-w-8 h-8 px-3 text-sm leading-5",
+				lg: "min-w-10 h-10 px-5 text-sm leading-5 rounded-md",
+			},
+			invalid: {
+				true: [
+					"border-red-500 focus-visible:border-red-500 focus-visible:outline-red-500",
+					"dark:border-red-500 dark:focus-visible:border-red-500",
+				],
+			},
+		},
+		defaultVariants: {
+			variant: "outline",
+			size: "md",
+		},
+	});
+
+	export type InputVariants = VariantProps<typeof input>;
+</script>
+
+<script lang="ts">
+	import type { HTMLInputAttributes } from "svelte/elements";
+	import type { ClassNameValue } from "tailwind-merge";
+
+	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
+		variant?: InputVariants["variant"];
+		size?: InputVariants["size"];
+		color?: ColorName;
+		invalid?: boolean;
+		class?: ClassNameValue;
+	}
+
+	let {
+		variant = "outline",
+		size = "md",
+		color = "gray",
+		class: className,
+		invalid = false,
+		style,
+		value = $bindable(),
+		...restProps
+	}: Props = $props();
+
+	const colorVars = $derived(generateColorVars(color));
+
+	const classes = $derived(
+		input({ variant, size, invalid, class: className }) as string,
+	);
+
+	const styles = $derived([colorVars, style].filter(Boolean).join("; "));
+</script>
+
+<input class={classes} style={styles} bind:value {...restProps} />

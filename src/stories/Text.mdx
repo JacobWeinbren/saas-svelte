@@ -1,5 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
 import * as TextStories from "./Text.stories.svelte";
+import { textPattern } from "../../.storybook/exclude-patterns";
 
 <Meta of={TextStories} />
 
@@ -59,4 +60,4 @@ Change the underlying HTML element using the `as` prop. The component renders a 
 
 ## Props
 
-<ArgTypes />
+<ArgTypes exclude={textPattern} />
