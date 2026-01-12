@@ -247,7 +247,7 @@
 <Story name="Basic" template={basicStory} />
 <Story name="Sizes" template={sizesStory} />
 <Story name="Cover" template={coverStory} />
-<Story name="InsideScroll" template={insideScrollStory} />
-<Story name="OutsideScroll" template={outsideScrollStory} />
-<Story name="MotionPreset" template={motionPresetStory} />
-<Story name="AlertDialog" template={alertDialogStory} />
+<Story name="Inside Scroll" template={insideScrollStory} />
+<Story name="Outside Scroll" template={outsideScrollStory} />
+<Story name="Motion Preset" template={motionPresetStory} />
+<Story name="Alert Dialog" template={alertDialogStory} />

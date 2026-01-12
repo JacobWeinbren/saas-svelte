@@ -130,13 +130,13 @@
 
 <Story name="Sizes" template={sizesStory} />
 
-<Story name="WithAddons" template={withAddonsStory} />
+<Story name="With Addons" template={withAddonsStory} />
 
 <Story name="Disabled" template={disabledStory} />
 
 <Story name="Colors" template={colorsStory} />
 
 <Story
-	name="InputWithPlaceholderStyle"
+	name="Input With Placeholder Style"
 	template={inputWithPlaceholderStyleStory}
 />

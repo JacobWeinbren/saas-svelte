@@ -326,4 +326,4 @@
 
 <Story name="Plain" template={plainStory} />
 
-<Story name="DisabledItem" template={disabledItemStory} />
+<Story name="Disabled Item" template={disabledItemStory} />

@@ -72,7 +72,7 @@
 	{/snippet}
 </Story>
 
-<Story name="Colored">
+<Story name="Colours">
 	{#snippet template(args)}
 		<div class="flex gap-4">
 			<Icon as={Heart} color="rose" size={args.size} />
@@ -92,7 +92,7 @@
 	{/snippet}
 </Story>
 
-<Story name="StrokeWidth">
+<Story name="Stroke Width">
 	{#snippet template()}
 		<div class="flex items-center gap-6">
 			<div class="flex flex-col items-center gap-2">
@@ -117,7 +117,7 @@
 	{/snippet}
 </Story>
 
-<Story name="CustomSVG">
+<Story name="Custom SVG">
 	{#snippet template()}
 		<Icon size="xl" color="red" viewBox="0 0 32 32">
 			<path
