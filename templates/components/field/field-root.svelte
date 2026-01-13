@@ -28,6 +28,10 @@
 		 * The ID for the field. Auto-generated if not provided.
 		 */
 		id?: string;
+		/**
+		 * Additional CSS classes to apply to the field container.
+		 */
+		class?: string;
 	}
 
 	let {

@@ -8,6 +8,10 @@
 		 * The ID of the form control this label is for.
 		 */
 		for?: string;
+		/**
+		 * Additional CSS classes to apply to the label.
+		 */
+		class?: string;
 	}
 
 	let {
