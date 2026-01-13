@@ -71,7 +71,7 @@
 	<Stack class="gap-8">
 		{#each dataListSizes as size}
 			<Stack class="gap-2">
-				<Text>{size}</Text>
+				<Text size="xs">{size}</Text>
 
 				<DataListRoot {size}>
 					<DataListItem>

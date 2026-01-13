@@ -176,7 +176,7 @@
 	<Stack class="gap-8">
 		{#each accordionSizes as size}
 			<Stack class="gap-2">
-				<Text>{size}</Text>
+				<Text size="xs">{size}</Text>
 
 				<AccordionRoot {size} collapsible defaultValue={["b"]}>
 					<AccordionItem value="a">
@@ -209,7 +209,7 @@
 	<Stack class="gap-8">
 		{#each ["outline", "subtle", "enclosed", "plain"] as const as variant}
 			<Stack class="gap-2">
-				<Text>{variant}</Text>
+				<Text size="xs">{variant}</Text>
 
 				<AccordionRoot {variant} collapsible defaultValue={["b"]}>
 					<AccordionItem value="a">

@@ -94,7 +94,7 @@
 	<HStack align="start" class="gap-10">
 		{#each checkboxVariants as variant}
 			<VStack align="start" class="flex-1 gap-2">
-				<Text>
+				<Text size="xs">
 					{variant}
 				</Text>
 				<Checkbox
@@ -116,7 +116,7 @@
 	<VStack align="start" class="gap-2">
 		{#each colours as colour}
 			<HStack align="center" class="w-full gap-10">
-				<Text class="min-w-[8ch] text-xs">
+				<Text size="xs" class="min-w-[8ch]">
 					{colour}
 				</Text>
 				{#each checkboxVariants as variant}
@@ -185,7 +185,8 @@
 {#snippet linkStory()}
 	<Checkbox>
 		I agree to the{" "}
-		<Link colour="teal" href="https://google.com">terms and conditions</Link>
+		<Link colour="teal" href="https://google.com">terms and conditions</Link
+		>
 	</Checkbox>
 {/snippet}
 
