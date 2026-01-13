@@ -21,7 +21,7 @@ export const checkboxGroupPattern = makePattern(['orientation', 'class', 'childr
 
 export const dialogRootPattern = makePattern(['open', 'size', 'placement', 'scrollBehavior', 'motionPreset', 'role', 'initialFocusEl', 'finalFocusEl', 'restoreFocus', 'lazyMount', 'unmountOnExit', 'class', 'children']);
 
-export const iconPattern = makePattern(['as', 'size', 'strokeWidth', 'viewBox', 'color', 'class', 'children']);
+export const iconPattern = makePattern(['as', 'size', 'weight', 'mirrored', 'viewBox', 'color', 'style', 'class', 'children']);
 
 export const inputPattern = makePattern(['variant', 'size', 'color', 'invalid', 'disabled', 'placeholder', 'class', 'children']);
 export const inputGroupPattern = makePattern(['placement', 'class', 'children']);

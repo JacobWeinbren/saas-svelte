@@ -1,6 +1,8 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Icon } from "$saas/components/icon";
+	import { Text } from "$saas/typography/text";
+	import Star from "phosphor-svelte/lib/Star";
 	import Heart from "phosphor-svelte/lib/Heart";
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
@@ -12,7 +14,8 @@
 		argTypes: {
 			as: {
 				control: false,
-				description: "The icon component to render (e.g. from phosphor-svelte or custom).",
+				description:
+					"The icon component to render (e.g. from phosphor-svelte or custom).",
 				table: { type: { summary: "Component" } },
 			},
 			size: {
@@ -21,24 +24,36 @@
 				options: [...sizes, "2xl"],
 				table: {
 					type: { summary: "IconSize" },
-					defaultValue: { summary: "md" }
+					defaultValue: { summary: "md" },
 				},
 			},
 			weight: {
 				control: "select",
-				description: "The weight/style of the icon (for Phosphor icons).",
-				options: ["thin", "light", "regular", "bold", "fill", "duotone"],
+				description:
+					"The weight/style of the icon (for Phosphor icons).",
+				options: [
+					"thin",
+					"light",
+					"regular",
+					"bold",
+					"fill",
+					"duotone",
+				],
 				table: {
-					type: { summary: '"thin" | "light" | "regular" | "bold" | "fill" | "duotone"' },
-					defaultValue: { summary: "regular" }
+					type: {
+						summary:
+							'"thin" | "light" | "regular" | "bold" | "fill" | "duotone"',
+					},
+					defaultValue: { summary: "regular" },
 				},
 			},
 			mirrored: {
 				control: "boolean",
-				description: "Whether to flip the icon horizontally (for Phosphor icons).",
+				description:
+					"Whether to flip the icon horizontally (for Phosphor icons).",
 				table: {
 					type: { summary: "boolean" },
-					defaultValue: { summary: "false" }
+					defaultValue: { summary: "false" },
 				},
 			},
 			color: {
@@ -54,7 +69,7 @@
 				description: "The SVG viewBox attribute (for custom icons).",
 				table: {
 					type: { summary: "string" },
-					defaultValue: { summary: "0 0 24 24" }
+					defaultValue: { summary: "0 0 24 24" },
 				},
 			},
 			style: {
@@ -64,7 +79,8 @@
 			},
 			children: {
 				...commonArgTypes.children,
-				description: "SVG path elements for custom icons (if `as` is not provided).",
+				description:
+					"SVG path elements for custom icons (if `as` is not provided).",
 			},
 			class: {
 				...commonArgTypes.class,
@@ -85,7 +101,7 @@
 			]),
 		},
 		args: {
-			size: "sm",
+			size: "lg",
 			weight: "fill",
 			color: "pink",
 		},
@@ -94,7 +110,7 @@
 
 <Story name="Basic">
 	{#snippet template(args)}
-		<Icon as={Heart} {...args} />
+		<Icon as={Heart} color="yellow" {...args} />
 	{/snippet}
 </Story>
 
@@ -112,7 +128,7 @@
 	{#snippet template()}
 		<div class="flex items-end gap-4">
 			{#each sizes as size}
-				<Icon as={Heart} color="rose" {size} />
+				<Icon as={Star} color="yellow" weight="fill" {size} />
 			{/each}
 		</div>
 	{/snippet}
@@ -122,27 +138,27 @@
 	{#snippet template()}
 		<div class="flex items-center gap-6">
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">thin</span>
+				<Text>thin</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="thin" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">light</span>
+				<Text>light</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="light" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">regular (default)</span>
+				<Text>regular (default)</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="regular" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">bold</span>
+				<Text>bold</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="bold" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">fill</span>
+				<Text>fill</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="fill" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-xs text-gray-500">duotone</span>
+				<Text>duotone</Text>
 				<Icon as={Heart} color="rose" size="xl" weight="duotone" />
 			</div>
 		</div>
@@ -151,7 +167,7 @@
 
 <Story name="Custom SVG">
 	{#snippet template()}
-		<Icon size="xl" color="red" viewBox="0 0 32 32">
+		<Icon size="xl" color="blue" viewBox="0 0 32 32">
 			<path
 				fill="currentColor"
 				d="M16,11.5a3,3,0,1,0-3-3A3,3,0,0,0,16,11.5Z"
