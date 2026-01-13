@@ -3,7 +3,16 @@
 	import { Dialog } from "$saas/components/dialog";
 	import { Button } from "$saas/components/button";
 	import { Input } from "$saas/components/input";
-	import { Stack } from "$saas/layout/stack";
+	import { Stack, VStack, HStack } from "$saas/layout/stack";
+	import {
+		DataListRoot,
+		DataListItem,
+		DataListItemLabel,
+		DataListItemValue,
+	} from "$saas/components/data-list";
+	import { Badge } from "$saas/components/badge";
+	import { Avatar } from "$saas/components/avatar";
+	import { Textarea } from "$saas/components/textarea";
 
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
@@ -274,6 +283,51 @@
 	</Dialog.Root>
 {/snippet}
 
+{#snippet withDataListStory()}
+	<VStack align="start">
+		<Dialog.Root>
+			<Dialog.Trigger variant="outline">Open Dialog</Dialog.Trigger>
+			<Dialog.Content>
+				<Dialog.Header>
+					<Dialog.Title>Prepare Chakra V3</Dialog.Title>
+					<Dialog.CloseButton />
+				</Dialog.Header>
+				<Dialog.Body class="pb-8">
+					<DataListRoot orientation="horizontal">
+						<DataListItem>
+							<DataListItemLabel>Status</DataListItemLabel>
+							<DataListItemValue>
+								<Badge color="green">Completed</Badge>
+							</DataListItemValue>
+						</DataListItem>
+						<DataListItem>
+							<DataListItemLabel>Assigned to</DataListItemLabel>
+							<DataListItemValue>
+								<HStack>
+									<Avatar
+										size="xs"
+										src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1720569600&semt=ais_user"
+										name="Eelco Wiersma"
+									/>
+									Eelco Wiersma
+								</HStack>
+							</DataListItemValue>
+						</DataListItem>
+						<DataListItem>
+							<DataListItemLabel>Due date</DataListItemLabel>
+							<DataListItemValue
+								>12th August 2024</DataListItemValue
+							>
+						</DataListItem>
+					</DataListRoot>
+
+					<Textarea placeholder="Add a note" class="mt-8" />
+				</Dialog.Body>
+			</Dialog.Content>
+		</Dialog.Root>
+	</VStack>
+{/snippet}
+
 <Story name="Basic" template={basicStory} />
 <Story name="Sizes" template={sizesStory} />
 <Story name="Cover" template={coverStory} />
@@ -282,3 +336,4 @@
 <Story name="Outside Scroll" template={outsideScrollStory} />
 <Story name="Motion Preset" template={motionPresetStory} />
 <Story name="Alert Dialog" template={alertDialogStory} />
+<Story name="With Data List" template={withDataListStory} />
