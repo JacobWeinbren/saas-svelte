@@ -63,6 +63,36 @@ import { Accordion } from '$saas/accordion';
 </Accordion.Root>
 ```
 
+**With Icons:**
+
+```html
+import { Accordion } from '$saas/accordion';
+import { Icon } from '$saas/components/icon';
+import { User, CreditCard } from '@lucide/svelte';
+
+<Accordion.Root collapsible defaultValue={['info']}>
+  <Accordion.Item value="info">
+    <Accordion.ItemTrigger>
+      <Icon as={User} size="lg" color="gray" />
+      Product Information
+    </Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      View detailed specifications and features of this product.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+
+  <Accordion.Item value="shipping">
+    <Accordion.ItemTrigger>
+      <Icon as={CreditCard} size="lg" color="gray" />
+      Shipping & Delivery
+    </Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      Learn about shipping options, delivery times, and tracking.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>
+```
+
 ## Examples
 
 ### Controlled
@@ -73,7 +103,7 @@ Set the accordion that shows up by default, using the `defaultValue` prop.
 
 ### With Icon
 
-Add icons to accordion items by passing an `icon` component in your items array.
+Add icons to accordion items by including the `Icon` component as a child of `AccordionItemTrigger`.
 
 <Canvas of={AccordionStories.WithIcon} />
 
@@ -93,20 +123,13 @@ Use the `size` prop to change the size of the accordion.
 
 Use the `variant` prop to change the visual style of the accordion. Values can be `outline`, `subtle`, `enclosed`, or `plain`.
 
-<Canvas of={AccordionStories.Outline} />
-
-<Canvas of={AccordionStories.Subtle} />
-
-<Canvas of={AccordionStories.Enclosed} />
-
-<Canvas of={AccordionStories.Plain} />
+<Canvas of={AccordionStories.Variants} />
 
 ### Disabled Item
 
 Pass `disabled` on specific items in your data array to prevent them from being expanded or collapsed.
 
 <Canvas of={AccordionStories.DisabledItem} />
-
 
 ### Props
 

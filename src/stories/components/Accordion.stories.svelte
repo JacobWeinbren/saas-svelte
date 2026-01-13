@@ -84,6 +84,7 @@
 
 <script lang="ts">
 	import { User, Settings, CreditCard } from "@lucide/svelte";
+	import { Icon } from "$saas/components/icon";
 </script>
 
 {#snippet basicStory()}
@@ -127,7 +128,8 @@
 {#snippet withIconStory()}
 	<AccordionRoot collapsible defaultValue={["account"]}>
 		<AccordionItem value="account">
-			<AccordionItemTrigger icon={User}>
+			<AccordionItemTrigger>
+				<Icon as={User} size="sm" color="gray" />
 				Account Details
 			</AccordionItemTrigger>
 			<AccordionItemContent>
@@ -136,7 +138,8 @@
 		</AccordionItem>
 
 		<AccordionItem value="billing">
-			<AccordionItemTrigger icon={CreditCard}>
+			<AccordionItemTrigger>
+				<Icon as={CreditCard} size="sm" color="gray" />
 				Billing & Plan
 			</AccordionItemTrigger>
 			<AccordionItemContent>
@@ -145,7 +148,8 @@
 		</AccordionItem>
 
 		<AccordionItem value="preferences">
-			<AccordionItemTrigger icon={Settings}>
+			<AccordionItemTrigger>
+				<Icon as={Settings} size="sm" color="gray" />
 				Preferences
 			</AccordionItemTrigger>
 			<AccordionItemContent>
@@ -207,80 +211,37 @@
 	</Stack>
 {/snippet}
 
-{#snippet outlineStory()}
-	<AccordionRoot collapsible variant="outline" defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
+{#snippet variantsStory()}
+	<Stack class="gap-8">
+		{#each ["outline", "subtle", "enclosed", "plain"] as const as variant}
+			<Stack class="gap-2">
+				<Text>{variant}</Text>
 
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
+				<AccordionRoot {variant} collapsible defaultValue={["b"]}>
+					<AccordionItem value="a">
+						<AccordionItemTrigger>First Item</AccordionItemTrigger>
+						<AccordionItemContent
+							>Some value 1...</AccordionItemContent
+						>
+					</AccordionItem>
 
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
-{/snippet}
+					<AccordionItem value="b">
+						<AccordionItemTrigger>Second Item</AccordionItemTrigger>
+						<AccordionItemContent
+							>Some value 2...</AccordionItemContent
+						>
+					</AccordionItem>
 
-{#snippet subtleStory()}
-	<AccordionRoot collapsible variant="subtle" defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
-{/snippet}
-
-{#snippet enclosedStory()}
-	<AccordionRoot collapsible variant="enclosed" defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
-{/snippet}
-
-{#snippet plainStory()}
-	<AccordionRoot collapsible variant="plain" defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+					<AccordionItem value="c">
+						<AccordionItemTrigger>Third Item</AccordionItemTrigger>
+						<AccordionItemContent
+							>Some value 3...</AccordionItemContent
+						>
+					</AccordionItem>
+				</AccordionRoot>
+			</Stack>
+		{/each}
+	</Stack>
 {/snippet}
 
 {#snippet disabledItemStory()}
@@ -291,7 +252,7 @@
 		</AccordionItem>
 
 		<AccordionItem value="b" disabled>
-			<AccordionItemTrigger>Second Item (Disabled)</AccordionItemTrigger>
+			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
 			<AccordionItemContent>Some value 2...</AccordionItemContent>
 		</AccordionItem>
 
@@ -312,12 +273,6 @@
 
 <Story name="Sizes" template={sizesStory} />
 
-<Story name="Outline" template={outlineStory} />
-
-<Story name="Subtle" template={subtleStory} />
-
-<Story name="Enclosed" template={enclosedStory} />
-
-<Story name="Plain" template={plainStory} />
+<Story name="Variants" template={variantsStory} />
 
 <Story name="Disabled Item" template={disabledItemStory} />

@@ -83,6 +83,10 @@
 		 */
 		collapsible?: boolean;
 		/**
+		 * The default value(s) of the accordion items to open.
+		 */
+		defaultValue?: string[];
+		/**
 		 * Whether multiple accordion items can be open at once.
 		 * @default false
 		 */
@@ -109,6 +113,7 @@
 		children,
 		class: className,
 		collapsible = false,
+		defaultValue,
 		multiple = false,
 		orientation = "vertical",
 		size = "md",
@@ -127,6 +132,7 @@
 
 <Accordion.Root
 	{collapsible}
+	{defaultValue}
 	{multiple}
 	{orientation}
 	class={twMerge(

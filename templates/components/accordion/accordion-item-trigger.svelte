@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Accordion } from "@ark-ui/svelte";
 	import { ChevronRight } from "@lucide/svelte";
-	import { getContext, type Component, type Snippet } from "svelte";
+	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
 	interface Props {
@@ -13,19 +13,10 @@
 		 * Additional classes to apply to the trigger.
 		 */
 		class?: string;
-		/**
-		 * The icon component to display before the trigger content.
-		 */
-		icon?: Component;
 		[key: string]: any;
 	}
 
-	let {
-		children,
-		class: className,
-		icon: Icon,
-		...restProps
-	}: Props = $props();
+	let { children, class: className, ...restProps }: Props = $props();
 
 	const ctx = getContext("accordion-styles") as { current: any };
 	const styles = $derived(ctx.current);
@@ -35,10 +26,6 @@
 	class={twMerge(styles.trigger(), className)}
 	{...restProps}
 >
-	{#if Icon}
-		<Icon class={styles.icon()} />
-	{/if}
-
 	{@render children()}
 
 	<Accordion.ItemIndicator
