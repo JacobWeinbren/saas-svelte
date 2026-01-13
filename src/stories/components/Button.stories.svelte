@@ -9,7 +9,7 @@
 	import ArrowRight from "phosphor-svelte/lib/ArrowRight";
 	import CaretDown from "phosphor-svelte/lib/CaretDown";
 	import {
-		colors,
+		colours,
 		sizes,
 		buttonVariants,
 		commonArgTypes,
@@ -28,9 +28,9 @@
 				...commonArgTypes.size,
 				options: sizes,
 			},
-			color: {
-				...commonArgTypes.color,
-				options: colors,
+			colour: {
+				...commonArgTypes.colour,
+				options: colours,
 			},
 			loading: {
 				control: "boolean",
@@ -49,7 +49,7 @@
 			controls: getControls([
 				"variant",
 				"size",
-				"color",
+				"colour",
 				"loading",
 				"loadingText",
 				"icon",
@@ -60,7 +60,7 @@
 		args: {
 			variant: "surface",
 			size: "md",
-			color: "gray",
+			colour: "gray",
 		},
 	});
 </script>
@@ -83,12 +83,12 @@
 
 {#snippet iconsStory()}
 	<HStack class="flex-wrap gap-4">
-		<Button color="teal" variant="solid">
+		<Button colour="teal" variant="solid">
 			<Icon as={Envelope} class="size-4" />
 			Mail
 		</Button>
 
-		<Button color="teal" variant="outline">
+		<Button colour="teal" variant="outline">
 			Call us
 			<Icon as={ArrowRight} class="size-4" />
 		</Button>
@@ -98,7 +98,7 @@
 
 	<VStack align="start" class="gap-4">
 		{#each sizes as size}
-			<Button color="rose" variant="solid" {size} icon>
+			<Button colour="rose" variant="solid" {size} icon>
 				<Icon as={Heart} />
 			</Button>
 		{/each}
@@ -112,14 +112,14 @@
 	</HStack>
 {/snippet}
 
-{#snippet colorsStory()}
+{#snippet coloursStory()}
 	<VStack class="gap-4">
-		{#each colors as color}
+		{#each colours as colour}
 			<HStack class="gap-4">
-				<Text size="xs" class="w-16">{color}</Text>
-				<Button variant="solid" color={color as any}>Solid</Button>
-				<Button variant="subtle" color={color as any}>Subtle</Button>
-				<Button variant="outline" color={color as any}>Outline</Button>
+				<Text size="xs" class="w-16">{colour}</Text>
+				<Button variant="solid" colour={colour as any}>Solid</Button>
+				<Button variant="subtle" colour={colour as any}>Subtle</Button>
+				<Button variant="outline" colour={colour as any}>Outline</Button>
 			</HStack>
 		{/each}
 	</VStack>
@@ -144,6 +144,6 @@
 
 <Story name="Variants" template={buttonVariantsStory} />
 
-<Story name="Colors" template={colorsStory} />
+<Story name="Colours" template={coloursStory} />
 
 <Story name="Group" template={groupStory} />

@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { generateColorVars, type ColorName } from "$saas/utils/colours";
+	import { generateColourVars, type ColourName } from "$saas/utils/colours";
 
 	export const input = tv({
 		base: [
@@ -89,10 +89,10 @@
 		 */
 		size?: InputVariants["size"];
 		/**
-		 * The color theme of the input.
+		 * The colour theme of the input.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Whether the input is in an invalid state.
 		 * @default false
@@ -115,7 +115,7 @@
 	let {
 		variant = "outline",
 		size = "md",
-		color = "gray",
+		colour = "gray",
 		class: className,
 		invalid = false,
 		disabled = false,
@@ -146,7 +146,7 @@
 				},
 	);
 
-	const colorVars = $derived(generateColorVars(color));
+	const colourVars = $derived(generateColourVars(colour));
 
 	const isInvalid = $derived(invalid || fieldState.invalid || false);
 	const isDisabled = $derived(disabled || fieldState.disabled || false);
@@ -167,7 +167,7 @@
 		}) as string,
 	);
 
-	const styles = $derived([colorVars, style].filter(Boolean).join("; "));
+	const styles = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <input

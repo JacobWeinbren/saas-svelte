@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const badge = tv({
 		base: [
@@ -32,12 +32,12 @@
 				md: "min-h-6 text-sm leading-5 px-2",
 				lg: "min-h-7 text-sm leading-5 px-2.5",
 			},
-			color: {},
+			colour: {},
 		},
 		defaultVariants: {
 			variant: "subtle",
 			size: "sm",
-			color: "gray" as any,
+			colour: "gray" as any,
 		},
 	});
 
@@ -65,10 +65,10 @@
 		 */
 		size?: BadgeVariants["size"];
 		/**
-		 * The color palette of the badge.
+		 * The colour palette of the badge.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -79,17 +79,17 @@
 		children,
 		variant = "subtle",
 		size = "sm",
-		color = "gray",
+		colour = "gray",
 		class: className,
 		style,
 		...restProps
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color || "gray"));
+	const colourVars = $derived(generateColourVars(colour || "gray"));
 
 	const finalClass = $derived(badge({ variant, size, class: className }));
 
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <span class={finalClass} style={finalStyle} {...restProps}>

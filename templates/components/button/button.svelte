@@ -3,7 +3,7 @@
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const button = tv({
 		base: [
@@ -37,7 +37,7 @@
 				// PLAIN: Neutral Text (Inherits Base)
 				plain: "shadow-none border-0 bg-transparent hover:bg-transparent disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
 			},
-			color: {},
+			colour: {},
 			size: {
 				xs: "h-6 min-w-6 gap-x-1 px-2 text-xs leading-4 [&_svg]:size-2",
 				sm: "h-7 min-w-7 px-2.5 text-sm leading-5 [&_svg]:size-3",
@@ -58,7 +58,7 @@
 			variant: "surface",
 			size: "md",
 			icon: false,
-			color: "gray" as any,
+			colour: "gray" as any,
 		},
 	});
 
@@ -88,10 +88,10 @@
 		 */
 		icon?: boolean;
 		/**
-		 * The color palette of the button.
+		 * The colour palette of the button.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Whether the button is in a loading state.
 		 * @default false
@@ -108,7 +108,7 @@
 		variant = "surface",
 		size = "md",
 		icon = false,
-		color = "gray",
+		colour = "gray",
 		class: className,
 		children,
 		style,
@@ -118,7 +118,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color || "gray"));
+	const colourVars = $derived(generateColourVars(colour || "gray"));
 
 	const finalClass = $derived(
 		button({
@@ -129,7 +129,7 @@
 		}),
 	);
 
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	const loaderSizeMap = {
 		xs: "size-2.5",

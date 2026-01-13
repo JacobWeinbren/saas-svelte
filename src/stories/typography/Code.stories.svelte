@@ -3,7 +3,7 @@
 	import { Code } from "$saas/typography/code";
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { colors, commonArgTypes, getControls } from "../utils";
+	import { colours, commonArgTypes, getControls } from "../utils";
 
 	const codeVariants = ["solid", "outline", "subtle", "surface"] as const;
 	const codeSizes = ["xs", "sm", "md", "lg"] as const;
@@ -22,9 +22,9 @@
 				options: codeSizes as any,
 				table: { defaultValue: { summary: "sm" } },
 			},
-			color: {
-				...commonArgTypes.color,
-				options: colors as any,
+			colour: {
+				...commonArgTypes.colour,
+				options: colours as any,
 			},
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
@@ -33,7 +33,7 @@
 			controls: getControls([
 				"variant",
 				"size",
-				"color",
+				"colour",
 				"children",
 				"class",
 			]),
@@ -41,7 +41,7 @@
 		args: {
 			variant: "subtle",
 			size: "sm",
-			color: "gray",
+			colour: "gray",
 		},
 	});
 </script>
@@ -62,16 +62,16 @@
 	</VStack>
 {/snippet}
 
-{#snippet colorsStory()}
+{#snippet coloursStory()}
 	<VStack class="gap-4">
-		{#each colors as color}
+		{#each colours as colour}
 			<HStack class="gap-4">
-				<Text size="xs" class="w-16">{color}</Text>
-				<Code variant="solid" color={color as any}>console.log()</Code>
-				<Code variant="outline" color={color as any}>console.log()</Code
+				<Text size="xs" class="w-16">{colour}</Text>
+				<Code variant="solid" colour={colour as any}>console.log()</Code>
+				<Code variant="outline" colour={colour as any}>console.log()</Code
 				>
-				<Code variant="subtle" color={color as any}>console.log()</Code>
-				<Code variant="surface" color={color as any}>console.log()</Code
+				<Code variant="subtle" colour={colour as any}>console.log()</Code>
+				<Code variant="surface" colour={colour as any}>console.log()</Code
 				>
 			</HStack>
 		{/each}
@@ -86,4 +86,4 @@
 
 <Story name="Variants" template={variantsStory} />
 
-<Story name="Colors" template={colorsStory} />
+<Story name="Colours" template={coloursStory} />

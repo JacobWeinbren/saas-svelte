@@ -6,7 +6,7 @@
 	import XCircle from "phosphor-svelte/lib/XCircle";
 	import type { Snippet, Component } from "svelte";
 
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 	import { Icon } from "$saas/components/icon";
 
 	const alert = tv({
@@ -61,10 +61,10 @@
 		 */
 		status?: Status;
 		/**
-		 * The color palette of the alert.
+		 * The colour palette of the alert.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Override the default icon. Pass `false` to hide the icon.
 		 */
@@ -88,7 +88,7 @@
 		class: className,
 		variant = "subtle",
 		status = "info",
-		color,
+		colour,
 		icon,
 		title,
 		children,
@@ -96,7 +96,7 @@
 		...restProps
 	}: Props = $props();
 
-	const statusColorMap: Record<Status, ColorName> = {
+	const statusColourMap: Record<Status, ColourName> = {
 		info: "blue",
 		success: "green",
 		warning: "orange",
@@ -104,8 +104,8 @@
 		neutral: "gray",
 	};
 
-	const resolvedColor = $derived(color ?? statusColorMap[status] ?? "gray");
-	const colorVars = $derived(generateColorVars(resolvedColor));
+	const resolvedColour = $derived(colour ?? statusColourMap[status] ?? "gray");
+	const colourVars = $derived(generateColourVars(resolvedColour));
 
 	const statusIconMap = {
 		info: Info,
@@ -129,7 +129,7 @@
 		description,
 	} = $derived(alert({ variant }));
 
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <div

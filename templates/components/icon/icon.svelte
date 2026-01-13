@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { Component, Snippet } from "svelte";
 	import type { SVGAttributes } from "svelte/elements";
-	import { type ColorName } from "$saas/utils/colours";
+	import { type ColourName } from "$saas/utils/colours";
 	import tailwindColors from "tailwindcss/colors";
 
 	const iconStyles = tv({
@@ -35,10 +35,10 @@
 		 */
 		size?: IconVariants["size"];
 		/**
-		 * The color theme of the icon.
+		 * The colour theme of the icon.
 		 * @default "currentColor"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * The weight/style of the icon (for Phosphor icons).
 		 * @default "regular"
@@ -57,7 +57,7 @@
 	let {
 		as: IconComponent,
 		size = "md",
-		color,
+		colour,
 		weight = "regular",
 		mirrored = false,
 		class: className,
@@ -66,9 +66,9 @@
 		...rest
 	}: Props = $props();
 
-	function getColorHex(colorName: string, shade: string = "600"): string {
-		const allColors = (tailwindColors as any).default || tailwindColors;
-		const palette = allColors[colorName];
+	function getColourHex(colourName: string, shade: string = "600"): string {
+		const allColours = (tailwindColors as any).default || tailwindColors;
+		const palette = allColours[colourName];
 		if (!palette || typeof palette !== "object") return "";
 		return palette[shade] || "";
 	}
@@ -84,10 +84,10 @@
 
 	const sizeInPixels = $derived(sizeMap[size]);
 
-	const strokeColor = $derived(color ? getColorHex(color) : undefined);
+	const strokeColour = $derived(colour ? getColourHex(colour) : undefined);
 
 	const finalStyle = $derived(
-		[strokeColor ? `color: ${strokeColor}` : undefined, style]
+		[strokeColour ? `color: ${strokeColour}` : undefined, style]
 			.filter(Boolean)
 			.join("; "),
 	);
@@ -100,7 +100,7 @@
 {#if IconComponent}
 	<IconComponent
 		size={sizeInPixels}
-		color={strokeColor || "currentColor"}
+		color={strokeColour || "currentColor"}
 		{weight}
 		{mirrored}
 		class={computedClasses}

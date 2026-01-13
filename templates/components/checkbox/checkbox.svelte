@@ -3,7 +3,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements";
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 	import type { Snippet } from "svelte";
 
 	const checkboxControl = tv({
@@ -113,10 +113,10 @@
 		 */
 		variant?: CheckboxVariants["variant"];
 		/**
-		 * The color palette of the checkbox.
+		 * The colour palette of the checkbox.
 		 * @default "indigo"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * The label text displayed next to the checkbox.
 		 */
@@ -146,7 +146,7 @@
 		value,
 		size = "md",
 		variant = "solid",
-		color = "indigo",
+		colour = "indigo",
 		label,
 		description,
 		class: className,
@@ -158,8 +158,8 @@
 		...rest
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color || "indigo"));
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const colourVars = $derived(generateColourVars(colour || "indigo"));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	let inputRef: HTMLInputElement | undefined = $state();
 

@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Badge } from "$saas/components/badge";
-	import { commonArgTypes, getControls, colors } from "../utils";
+	import { commonArgTypes, getControls, colours } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Badge",
@@ -16,7 +16,7 @@
 				options: ["xs", "sm", "md", "lg"],
 				table: { defaultValue: { summary: "sm" } },
 			},
-			color: commonArgTypes.color,
+			colour: commonArgTypes.colour,
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 		},
@@ -24,7 +24,7 @@
 			controls: getControls([
 				"variant",
 				"size",
-				"color",
+				"colour",
 				"children",
 				"class",
 			]),
@@ -32,7 +32,7 @@
 		args: {
 			variant: "subtle",
 			size: "sm",
-			color: "gray",
+			colour: "gray",
 		},
 	});
 
@@ -43,15 +43,15 @@
 {#snippet basicStory()}
 	<div class="flex gap-2">
 		<Badge>Default</Badge>
-		<Badge color="green">Success</Badge>
-		<Badge color="red">Removed</Badge>
-		<Badge color="purple">New</Badge>
+		<Badge colour="green">Success</Badge>
+		<Badge colour="red">Removed</Badge>
+		<Badge colour="purple">New</Badge>
 	</div>
 {/snippet}
 
 {#snippet withIconStory()}
 	<div class="flex flex-col items-start gap-2">
-		<Badge variant="solid" color="blue">
+		<Badge variant="solid" colour="blue">
 			<svg
 				stroke-width="0"
 				viewBox="0 0 20 20"
@@ -66,7 +66,7 @@
 			</svg>
 			New
 		</Badge>
-		<Badge variant="solid" color="green">
+		<Badge variant="solid" colour="green">
 			New
 			<svg
 				stroke-width="0"

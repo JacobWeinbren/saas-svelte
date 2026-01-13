@@ -4,7 +4,7 @@
 	import { VStack } from "$saas/layout/stack";
 	import ArrowSquareOut from "phosphor-svelte/lib/ArrowSquareOut";
 	import { Icon } from "$saas/components/icon";
-	import { colors, commonArgTypes, getControls } from "../utils";
+	import { colours, commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Link",
@@ -14,9 +14,9 @@
 				...commonArgTypes.variant,
 				options: ["underline", "plain"] as any,
 			},
-			color: {
-				...commonArgTypes.color,
-				options: colors as any,
+			colour: {
+				...commonArgTypes.colour,
+				options: colours as any,
 			},
 			href: {
 				control: "text",
@@ -25,11 +25,11 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["variant", "color", "href", "children", "class"]),
+			controls: getControls(["variant", "colour", "href", "children", "class"]),
 		},
 		args: {
 			variant: "plain",
-			color: "gray",
+			colour: "gray",
 			href: "#",
 		},
 	});
@@ -44,7 +44,7 @@
 
 {#snippet withinTextStory()}
 	<p>
-		Visit the <Link href="https://chakra-ui.com" color="teal" variant="underline"
+		Visit the <Link href="https://chakra-ui.com" colour="teal" variant="underline"
 			>Chakra UI</Link
 		> website
 	</p>

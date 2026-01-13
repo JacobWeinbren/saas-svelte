@@ -26,12 +26,12 @@
 				options: orientations,
 				table: { defaultValue: { summary: "horizontal" } },
 			},
-			color: commonArgTypes.color,
+			colour: commonArgTypes.colour,
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
 		},
 		parameters: {
-			controls: getControls(["size", "orientation", "color", "class"]),
+			controls: getControls(["size", "orientation", "colour", "class"]),
 		},
 		args: {
 			size: "md",

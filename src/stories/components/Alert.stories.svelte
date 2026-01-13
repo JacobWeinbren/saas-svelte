@@ -27,7 +27,7 @@
 				),
 				table: { defaultValue: { summary: "subtle" } },
 			},
-			color: commonArgTypes.color,
+			colour: commonArgTypes.colour,
 			title: {
 				control: "text",
 				description: "The title of the alert.",
@@ -40,7 +40,7 @@
 			controls: getControls([
 				"status",
 				"variant",
-				"color",
+				"colour",
 				"title",
 				"icon",
 				"children",

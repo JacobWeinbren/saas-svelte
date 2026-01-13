@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Avatar, AvatarGroup } from "$saas/components/avatar";
-	import { commonArgTypes, getControls, colors } from "../utils";
+	import { commonArgTypes, getControls, colours } from "../utils";
 	import { Stack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
@@ -12,7 +12,7 @@
 				...commonArgTypes.variant,
 				options: ["solid", "subtle", "outline"],
 			},
-			color: commonArgTypes.color,
+			colour: commonArgTypes.colour,
 			size: {
 				...commonArgTypes.size,
 				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl", "full"],
@@ -49,7 +49,7 @@
 				"size",
 				"variant",
 				"shape",
-				"color",
+				"colour",
 				"borderless",
 				"children",
 				"class",
@@ -59,7 +59,7 @@
 			size: "md",
 			variant: "solid",
 			shape: "full",
-			color: "gray",
+			colour: "gray",
 			borderless: true,
 			name: "David Wilson",
 			src: "/avatars/1.png",
@@ -101,9 +101,9 @@
 		<Avatar
 			name="Sasuke Uchiha"
 			src="https://bit.ly/broken-link"
-			color="teal"
+			colour="teal"
 		/>
-		<Avatar src="https://bit.ly/broken-link" color="red" />
+		<Avatar src="https://bit.ly/broken-link" colour="red" />
 	</Stack>
 {/snippet}
 
@@ -111,19 +111,19 @@
 	<Stack class="flex-row items-center gap-4">
 		<Avatar
 			name="David Wilson"
-			color="pink"
+			colour="pink"
 			src="/avatars/1.png"
 			class="outline-offset-2 outline-2 outline-solid outline-pink-500"
 		/>
 		<Avatar
 			name="Marcus Chen"
-			color="green"
+			colour="green"
 			src="/avatars/2.png"
 			class="outline-offset-2 outline-2 outline-solid outline-green-500"
 		/>
 		<Avatar
 			name="Sarah Johnson"
-			color="blue"
+			colour="blue"
 			src="/avatars/3.png"
 			class="outline-offset-2 outline-2 outline-solid outline-blue-500"
 		/>

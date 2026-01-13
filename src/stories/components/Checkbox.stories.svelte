@@ -8,7 +8,7 @@
 	import Plus from "phosphor-svelte/lib/Plus";
 	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
 	import {
-		colors,
+		colours,
 		sizes,
 		checkboxVariants,
 		commonArgTypes,
@@ -34,9 +34,9 @@
 				options: checkboxVariants,
 				table: { defaultValue: { summary: "solid" } },
 			},
-			color: {
-				...commonArgTypes.color,
-				options: colors,
+			colour: {
+				...commonArgTypes.colour,
+				options: colours,
 				table: { defaultValue: { summary: "indigo" } },
 			},
 			label: {
@@ -68,7 +68,7 @@
 				"checked",
 				"size",
 				"variant",
-				"color",
+				"colour",
 				"label",
 				"description",
 				"disabled",
@@ -83,7 +83,7 @@
 		args: {
 			size: "md",
 			variant: "solid",
-			color: "indigo",
+			colour: "indigo",
 			label: "Accept terms and conditions",
 			checked: false,
 		},
@@ -112,17 +112,17 @@
 	<Checkbox bind:checked={args.checked} label="Accept terms and conditions" />
 {/snippet}
 
-{#snippet colorsStory()}
+{#snippet coloursStory()}
 	<VStack align="start" class="gap-2">
-		{#each colors as color}
+		{#each colours as colour}
 			<HStack align="center" class="w-full gap-10">
 				<Text class="min-w-[8ch] text-xs">
-					{color}
+					{colour}
 				</Text>
 				{#each checkboxVariants as variant}
 					<Checkbox
 						{variant}
-						color={color as any}
+						colour={colour as any}
 						checked
 						label="Checkbox"
 					/>
@@ -185,7 +185,7 @@
 {#snippet linkStory()}
 	<Checkbox>
 		I agree to the{" "}
-		<Link color="teal" href="https://google.com">terms and conditions</Link>
+		<Link colour="teal" href="https://google.com">terms and conditions</Link>
 	</Checkbox>
 {/snippet}
 
@@ -195,7 +195,7 @@
 
 <Story name="Controlled" template={controlledStory as any} />
 
-<Story name="Colors" template={colorsStory} />
+<Story name="Colours" template={coloursStory} />
 
 <Story name="Sizes" template={sizesStory} />
 

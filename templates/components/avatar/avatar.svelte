@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const avatar = tv({
 		slots: {
@@ -80,14 +80,14 @@
 					root: "border-2 border-white dark:border-zinc-950",
 				},
 			},
-			color: {},
+			colour: {},
 		},
 		defaultVariants: {
 			size: "md",
 			variant: "solid",
 			shape: "full",
 			borderless: true,
-			color: "gray" as any,
+			colour: "gray" as any,
 		},
 	});
 
@@ -125,10 +125,10 @@
 		 */
 		shape?: AvatarVariants["shape"];
 		/**
-		 * The color palette of the avatar.
+		 * The colour palette of the avatar.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Use the provided child snippet as the fallback content.
 		 */
@@ -157,7 +157,7 @@
 		size: propSize,
 		variant: propVariant,
 		shape = "full",
-		color = "gray",
+		colour = "gray",
 		fallback,
 		onStatusChange,
 		class: className,
@@ -197,7 +197,7 @@
 			: "",
 	);
 
-	const colorVars = $derived(generateColorVars(color || "gray"));
+	const colourVars = $derived(generateColourVars(colour || "gray"));
 
 	const {
 		root,
@@ -209,11 +209,11 @@
 			variant,
 			shape,
 			borderless,
-			color: "gray" as any, // Only for type satisfaction if needed, actual color handled by vars
+			colour: "gray" as any, // Only for type satisfaction if needed, actual colour handled by vars
 		}),
 	);
 
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <div

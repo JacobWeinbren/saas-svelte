@@ -14,19 +14,19 @@ const restricted = [
 // Helper to handle ESM/CJS interop for tailwind colors
 const allColors = (tailwindColors as any).default || tailwindColors;
 
-export const availableColors = Object.keys(allColors).filter(
+export const availableColours = Object.keys(allColors).filter(
     (color) => !restricted.includes(color as any)
 );
 
-export type ColorName = keyof Omit<
+export type ColourName = keyof Omit<
     typeof tailwindColors,
     (typeof restricted)[number]
 >;
 
-export function generateColorVars(colorName: string): string {
-    if (!colorName) return "";
+export function generateColourVars(colourName: string): string {
+    if (!colourName) return "";
 
-    const palette = allColors[colorName];
+    const palette = allColors[colourName];
 
     // Guard: If the palette is missing (typo?) or not an object (e.g. "black" is a string), return empty.
     // This prevents the "palette is undefined" crash.

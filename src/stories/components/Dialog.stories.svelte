@@ -105,7 +105,7 @@
 			</Dialog.Body>
 			<Dialog.Footer>
 				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
-				<Button variant="glass" color="indigo" class={focusClass}
+				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
 			</Dialog.Footer>
@@ -138,7 +138,7 @@
 						<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
 						<Button
 							variant="glass"
-							color="indigo"
+							colour="indigo"
 							class={focusClass}>Save</Button
 						>
 					</Dialog.Footer>
@@ -222,7 +222,7 @@
 			</Dialog.Body>
 			<Dialog.Footer>
 				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
-				<Button variant="glass" color="indigo" class={focusClass}
+				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
 			</Dialog.Footer>
@@ -251,7 +251,7 @@
 			</Dialog.Body>
 			<Dialog.Footer>
 				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
-				<Button variant="glass" color="indigo" class={focusClass}
+				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
 			</Dialog.Footer>
@@ -275,7 +275,7 @@
 			</Dialog.Body>
 			<Dialog.Footer>
 				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
-				<Button variant="glass" color="red" class={focusClass}
+				<Button variant="glass" colour="red" class={focusClass}
 					>Delete</Button
 				>
 			</Dialog.Footer>
@@ -297,7 +297,7 @@
 						<DataListItem>
 							<DataListItemLabel>Status</DataListItemLabel>
 							<DataListItemValue>
-								<Badge color="green">Completed</Badge>
+								<Badge colour="green">Completed</Badge>
 							</DataListItemValue>
 						</DataListItem>
 						<DataListItem>

@@ -123,7 +123,7 @@
 	<AccordionRoot collapsible defaultValue={["account"]}>
 		<AccordionItem value="account">
 			<AccordionItemTrigger>
-				<Icon as={User} size="sm" color="gray" />
+				<Icon as={User} size="sm" colour="gray" />
 				Account Details
 			</AccordionItemTrigger>
 			<AccordionItemContent>
@@ -133,7 +133,7 @@
 
 		<AccordionItem value="billing">
 			<AccordionItemTrigger>
-				<Icon as={CreditCard} size="sm" color="gray" />
+				<Icon as={CreditCard} size="sm" colour="gray" />
 				Billing & Plan
 			</AccordionItemTrigger>
 			<AccordionItemContent>
@@ -143,7 +143,7 @@
 
 		<AccordionItem value="preferences">
 			<AccordionItemTrigger>
-				<Icon as={Gear} size="sm" color="gray" />
+				<Icon as={Gear} size="sm" colour="gray" />
 				Preferences
 			</AccordionItemTrigger>
 			<AccordionItemContent>

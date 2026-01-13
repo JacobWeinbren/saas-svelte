@@ -1,12 +1,14 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Icon } from "$saas/components/icon";
-	import { Text } from "$saas/typography/text";
+	import { DataList } from "$saas/components/data-list";
 	import Star from "phosphor-svelte/lib/Star";
 	import Heart from "phosphor-svelte/lib/Heart";
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
 	import { commonArgTypes, getControls, sizes } from "../utils";
+
+	const weights = ["thin", "light", "regular", "bold", "fill", "duotone"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Icon",
@@ -56,11 +58,11 @@
 					defaultValue: { summary: "false" },
 				},
 			},
-			color: {
-				...commonArgTypes.color,
-				description: "The color theme of the icon.",
+			colour: {
+				...commonArgTypes.colour,
+				description: "The colour theme of the icon.",
 				table: {
-					type: { summary: "ColorName" },
+					type: { summary: "ColourName" },
 					defaultValue: { summary: "currentColor" },
 				},
 			},
@@ -93,7 +95,7 @@
 				"size",
 				"weight",
 				"mirrored",
-				"color",
+				"colour",
 				"viewBox",
 				"style",
 				"children",
@@ -103,23 +105,23 @@
 		args: {
 			size: "lg",
 			weight: "fill",
-			color: "pink",
+			colour: "pink",
 		},
 	});
 </script>
 
 <Story name="Basic">
 	{#snippet template(args)}
-		<Icon as={Heart} color="yellow" {...args} />
+		<Icon as={Heart} colour="yellow" {...args} />
 	{/snippet}
 </Story>
 
 <Story name="Colours">
 	{#snippet template(args)}
 		<div class="flex gap-4">
-			<Icon as={Heart} color="rose" size={args.size} />
-			<Icon as={User} color="blue" size={args.size} />
-			<Icon as={Gear} color="gray" size={args.size} />
+			<Icon as={Heart} colour="rose" size={args.size} />
+			<Icon as={User} colour="blue" size={args.size} />
+			<Icon as={Gear} colour="gray" size={args.size} />
 		</div>
 	{/snippet}
 </Story>
@@ -128,7 +130,7 @@
 	{#snippet template()}
 		<div class="flex items-end gap-4">
 			{#each sizes as size}
-				<Icon as={Star} color="yellow" weight="fill" {size} />
+				<Icon as={Star} colour="yellow" weight="fill" {size} />
 			{/each}
 		</div>
 	{/snippet}
@@ -136,38 +138,22 @@
 
 <Story name="Weights">
 	{#snippet template()}
-		<div class="flex items-center gap-6">
-			<div class="flex flex-col items-center gap-2">
-				<Text>thin</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="thin" />
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<Text>light</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="light" />
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<Text>regular (default)</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="regular" />
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<Text>bold</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="bold" />
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<Text>fill</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="fill" />
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<Text>duotone</Text>
-				<Icon as={Heart} color="rose" size="xl" weight="duotone" />
-			</div>
-		</div>
+		<DataList.Root>
+			{#each weights as weight}
+				<DataList.Item>
+					<DataList.ItemLabel>{weight}</DataList.ItemLabel>
+					<DataList.ItemValue>
+						<Icon as={Heart} colour="rose" size="xl" {weight} />
+					</DataList.ItemValue>
+				</DataList.Item>
+			{/each}
+		</DataList.Root>
 	{/snippet}
 </Story>
 
 <Story name="Custom SVG">
 	{#snippet template()}
-		<Icon size="xl" color="blue" viewBox="0 0 32 32">
+		<Icon size="xl" colour="blue" viewBox="0 0 32 32">
 			<path
 				fill="currentColor"
 				d="M16,11.5a3,3,0,1,0-3-3A3,3,0,0,0,16,11.5Z"

@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAnchorAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const link = tv({
 		base: [
@@ -23,11 +23,11 @@
 					"hover:decoration-[color-mix(in_srgb,currentColor_20%,transparent)]",
 				],
 			},
-			color: {},
+			colour: {},
 		},
 		defaultVariants: {
 			variant: "plain",
-			color: "gray" as any,
+			colour: "gray" as any,
 		},
 	});
 
@@ -42,10 +42,10 @@
 		 */
 		variant?: LinkVariants["variant"];
 		/**
-		 * The color palette of the link.
+		 * The colour palette of the link.
 		 * @default "gray"
 		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Content to render inside the link.
 		 */
@@ -54,18 +54,18 @@
 
 	let {
 		variant = "plain",
-		color = "gray",
+		colour = "gray",
 		class: className,
 		children,
 		style,
 		...rest
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color || "gray"));
+	const colourVars = $derived(generateColourVars(colour || "gray"));
 
 	const finalClass = $derived(link({ variant, class: className as string }));
 
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <a class={finalClass} style={finalStyle} {...rest}>

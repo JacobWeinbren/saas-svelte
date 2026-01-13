@@ -13,7 +13,7 @@
 		getControls,
 		sizes,
 		inputVariants,
-		colors,
+		colours,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -23,7 +23,7 @@
 			controls: getControls([
 				"variant",
 				"size",
-				"color",
+				"colour",
 				"invalid",
 				"disabled",
 				"placeholder",
@@ -39,9 +39,9 @@
 				...commonArgTypes.size,
 				options: sizes.filter((s) => s !== "xl"),
 			},
-			color: {
-				...commonArgTypes.color,
-				options: colors,
+			colour: {
+				...commonArgTypes.colour,
+				options: colours,
 			},
 			invalid: commonArgTypes.invalid,
 			disabled: commonArgTypes.disabled,
@@ -54,7 +54,7 @@
 			placeholder: "Enter text...",
 			variant: "outline",
 			size: "md",
-			color: "gray",
+			colour: "gray",
 		},
 		subcomponents: {
 			InputGroup: InputGroup as any,
@@ -102,18 +102,18 @@
 	</Stack>
 {/snippet}
 
-{#snippet colorsStory()}
+{#snippet coloursStory()}
 	<Stack class="max-w-sm">
-		<Input color="indigo" placeholder="Indigo focus ring" />
-		<Input color="rose" placeholder="Rose focus ring" />
-		<Input color="emerald" placeholder="Emerald focus ring" />
+		<Input colour="indigo" placeholder="Indigo focus ring" />
+		<Input colour="rose" placeholder="Rose focus ring" />
+		<Input colour="emerald" placeholder="Emerald focus ring" />
 	</Stack>
 {/snippet}
 
 {#snippet inputWithPlaceholderStyleStory()}
 	<Stack class="max-w-sm">
 		<Input
-			color="teal"
+			colour="teal"
 			placeholder="custom placeholder"
 			class="text-(--c-700) placeholder:text-inherit dark:text-(--c-700)"
 		/>
@@ -132,7 +132,7 @@
 
 <Story name="Disabled" template={disabledStory} />
 
-<Story name="Colors" template={colorsStory} />
+<Story name="Colours" template={coloursStory} />
 
 <Story
 	name="Input With Placeholder Style"

@@ -1,6 +1,6 @@
-import { availableColors } from "../../templates/utils/colours";
+import { availableColours } from "../../templates/utils/colours";
 
-export const colors = availableColors;
+export const colours = availableColours;
 export const sizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export const textSizes = [
     "xs",
@@ -59,10 +59,10 @@ export const commonArgTypes = {
         description: "The size of the component.",
         table: { defaultValue: { summary: "md" } },
     },
-    color: {
+    colour: {
         control: "select",
-        options: colors,
-        description: "The color theme of the component.",
+        options: colours,
+        description: "The colour theme of the component.",
         table: { defaultValue: { summary: "gray" } },
     },
     disabled: {

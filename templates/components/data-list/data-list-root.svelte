@@ -2,7 +2,7 @@
 	import { setContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	const dataList = tv({
 		slots: {
@@ -72,14 +72,10 @@
 		 */
 		orientation?: DataListVariants["orientation"];
 		/**
-		 * The color palette of the data list.
+		 * The colour palette of the data list.
 		 * @default "gray"
 		 */
-		/**
-		 * The color palette of the data list.
-		 * @default "gray"
-		 */
-		color?: ColorName;
+		colour?: ColourName;
 		/**
 		 * Inline styles to apply to the root element.
 		 */
@@ -92,14 +88,14 @@
 		class: className,
 		size = "md",
 		orientation = "horizontal",
-		color = "gray",
+		colour = "gray",
 		style,
 		...restProps
 	}: Props = $props();
 
 	const classes = $derived(dataList({ size, orientation }));
-	const colorVars = $derived(generateColorVars(color));
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const colourVars = $derived(generateColourVars(colour));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	setContext("data-list-styles", {
 		get current() {

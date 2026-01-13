@@ -3,7 +3,7 @@
 	import { button, type ButtonVariants } from "../button/button.svelte";
 	import type { Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
-	import { type ColorName, generateColorVars } from "$saas/utils/colours";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	interface Props {
 		children: Snippet;
@@ -11,7 +11,7 @@
 		asChild?: boolean;
 		variant?: ButtonVariants["variant"];
 		size?: ButtonVariants["size"];
-		color?: ColorName;
+		colour?: ColourName;
 		style?: string;
 		[key: string]: any;
 	}
@@ -22,13 +22,13 @@
 		asChild = false,
 		variant = "surface",
 		size = "md",
-		color = "gray",
+		colour = "gray",
 		style,
 		...rest
 	}: Props = $props();
 
-	const colorVars = $derived(generateColorVars(color));
-	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
+	const colourVars = $derived(generateColourVars(colour));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <Dialog.CloseTrigger
