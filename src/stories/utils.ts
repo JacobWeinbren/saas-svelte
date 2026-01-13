@@ -117,6 +117,8 @@ export {
     codePattern,
     visuallyHiddenPattern,
     badgePattern,
+    avatarPattern,
+    avatarGroupPattern,
 } from "./exclude-patterns";
 
 export const getControls = (allowedProps: string[]) => {

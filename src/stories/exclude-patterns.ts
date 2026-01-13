@@ -41,3 +41,5 @@ export const codePattern = makePattern(['variant', 'size', 'color', 'class', 'ch
 
 export const visuallyHiddenPattern = makePattern(['class', 'children']);
 export const badgePattern = makePattern(['variant', 'size', 'color', 'class', 'children']);
+export const avatarPattern = makePattern(['src', 'name', 'size', 'variant', 'shape', 'color', 'borderless', 'onStatusChange', 'fallback', 'class', 'children']);
+export const avatarGroupPattern = makePattern(['size', 'spaceX', 'stacking', 'borderless', 'class', 'children']);
