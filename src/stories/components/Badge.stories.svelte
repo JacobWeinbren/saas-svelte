@@ -93,7 +93,7 @@
 		{#each variants as variant}
 			<VStack class="gap-2">
 				<Text size="xs">{variant}</Text>
-				<Badge {variant}>{variant}</Badge>
+				<Badge {variant}>Badge</Badge>
 			</VStack>
 		{/each}
 	</HStack>
