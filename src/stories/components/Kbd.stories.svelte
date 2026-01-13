@@ -53,6 +53,7 @@
 	<HStack class="flex-wrap gap-8">
 		{#each kbdVariants as variant}
 			<VStack class="gap-2">
+				<Text size="xs">{variant}</Text>
 				<Kbd {variant}>Shift + Tab</Kbd>
 			</VStack>
 		{/each}

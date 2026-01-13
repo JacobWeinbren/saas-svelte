@@ -1,4 +1,5 @@
 <script module lang="ts">
+	import { Text } from "$saas/typography/text";
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { NativeSelect } from "$saas/components/native-select";
 	import { Field } from "$saas/components/field";
@@ -51,31 +52,37 @@
 </script>
 
 {#snippet sizesStory()}
-	<VStack class="w-60">
+	<HStack align="start" class="gap-4">
 		{#each nativeSelectSizes as size}
-			<NativeSelect {size} value="">
-				<option value="">Select option</option>
-				<option value="react">React</option>
-				<option value="vue">Vue</option>
-				<option value="angular">Angular</option>
-				<option value="svelte">Svelte</option>
-			</NativeSelect>
+			<VStack class="gap-2 w-60">
+				<Text size="xs">{size}</Text>
+				<NativeSelect {size} value="">
+					<option value="">Select option</option>
+					<option value="react">React</option>
+					<option value="vue">Vue</option>
+					<option value="angular">Angular</option>
+					<option value="svelte">Svelte</option>
+				</NativeSelect>
+			</VStack>
 		{/each}
-	</VStack>
+	</HStack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<VStack class="w-60">
+	<HStack align="start" class="gap-4">
 		{#each nativeSelectVariants as variant}
-			<NativeSelect {variant} value="">
-				<option value="">Select option</option>
-				<option value="react">React</option>
-				<option value="vue">Vue</option>
-				<option value="angular">Angular</option>
-				<option value="svelte">Svelte</option>
-			</NativeSelect>
+			<VStack class="gap-2 w-60">
+				<Text size="xs">{variant}</Text>
+				<NativeSelect {variant} value="">
+					<option value="">Select option</option>
+					<option value="react">React</option>
+					<option value="vue">Vue</option>
+					<option value="angular">Angular</option>
+					<option value="svelte">Svelte</option>
+				</NativeSelect>
+			</VStack>
 		{/each}
-	</VStack>
+	</HStack>
 {/snippet}
 
 {#snippet itemsStory()}

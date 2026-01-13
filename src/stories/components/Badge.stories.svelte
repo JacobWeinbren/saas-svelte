@@ -1,7 +1,9 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Text } from "$saas/typography/text";
+	import { VStack, HStack } from "$saas/layout/stack";
 	import { Badge } from "$saas/components/badge";
-	import { commonArgTypes, getControls, colours } from "../utils";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Badge",
@@ -87,19 +89,25 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<div class="flex gap-2">
+	<HStack class="gap-4">
 		{#each variants as variant}
-			<Badge {variant}>{variant}</Badge>
+			<VStack class="gap-2">
+				<Text size="xs">{variant}</Text>
+				<Badge {variant}>{variant}</Badge>
+			</VStack>
 		{/each}
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet sizesStory()}
-	<div class="flex items-center gap-2">
+	<HStack class="gap-4">
 		{#each sizes as size}
-			<Badge {size}>New</Badge>
+			<VStack class="gap-2">
+				<Text size="xs">{size}</Text>
+				<Badge {size}>New</Badge>
+			</VStack>
 		{/each}
-	</div>
+	</HStack>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

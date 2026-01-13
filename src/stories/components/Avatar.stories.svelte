@@ -1,8 +1,9 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Stack, VStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
 	import { Avatar, AvatarGroup } from "$saas/components/avatar";
-	import { commonArgTypes, getControls, colours } from "../utils";
-	import { Stack } from "$saas/layout/stack";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Avatar",
@@ -75,24 +76,34 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="flex-row items-center gap-3">
-		{#each sizes as size}
-			<Avatar {size} name="David Wilson" src="/avatars/1.png" />
-		{/each}
-	</Stack>
+	{#snippet sizesStory()}
+		<Stack class="flex-row gap-6">
+			{#each sizes as size}
+				<VStack class="gap-2">
+					<Text size="xs">{size}</Text>
+					<Avatar {size} name="David Wilson" src="/avatars/1.png" />
+				</VStack>
+			{/each}
+		</Stack>
+	{/snippet}
 {/snippet}
 
 {#snippet shapeStory()}
-	<Stack class="flex-row items-center gap-4">
-		{#each shapes as shape}
-			<Avatar
-				{shape}
-				size="lg"
-				name="David Wilson"
-				src="/avatars/1.png"
-			/>
-		{/each}
-	</Stack>
+	{#snippet shapeStory()}
+		<Stack class="flex-row gap-8">
+			{#each shapes as shape}
+				<VStack class="gap-2">
+					<Text size="xs">{shape}</Text>
+					<Avatar
+						{shape}
+						size="lg"
+						name="David Wilson"
+						src="/avatars/1.png"
+					/>
+				</VStack>
+			{/each}
+		</Stack>
+	{/snippet}
 {/snippet}
 
 {#snippet fallbackStory()}

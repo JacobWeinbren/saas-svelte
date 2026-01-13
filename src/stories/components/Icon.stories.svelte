@@ -1,4 +1,6 @@
 <script module lang="ts">
+	import { Text } from "$saas/typography/text";
+	import { VStack, HStack } from "$saas/layout/stack";
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Icon } from "$saas/components/icon";
 	import { DataList } from "$saas/components/data-list";
@@ -8,7 +10,14 @@
 	import Gear from "phosphor-svelte/lib/Gear";
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
-	const weights = ["thin", "light", "regular", "bold", "fill", "duotone"] as const;
+	const weights = [
+		"thin",
+		"light",
+		"regular",
+		"bold",
+		"fill",
+		"duotone",
+	] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Icon",
@@ -128,11 +137,14 @@
 
 <Story name="Sizes">
 	{#snippet template()}
-		<div class="flex items-end gap-4">
+		<HStack class="items-start gap-4">
 			{#each sizes as size}
-				<Icon as={Star} colour="yellow" weight="fill" {size} />
+				<VStack class="gap-2">
+					<Text size="xs">{size}</Text>
+					<Icon as={Star} colour="yellow" weight="fill" {size} />
+				</VStack>
 			{/each}
-		</div>
+		</HStack>
 	{/snippet}
 </Story>
 

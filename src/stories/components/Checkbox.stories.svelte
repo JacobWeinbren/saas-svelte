@@ -133,9 +133,12 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack align="start" class="flex-1 gap-4">
+	<Stack align="start" class="flex-1 gap-12">
 		{#each sizes.filter((s) => ["sm", "md", "lg"].includes(s)) as size}
-			<Checkbox size={size as any} checked label="Checkbox" />
+			<VStack class="gap-2">
+				<Text size="xs">{size}</Text>
+				<Checkbox size={size as any} checked label="Checkbox" />
+			</VStack>
 		{/each}
 	</Stack>
 {/snippet}
