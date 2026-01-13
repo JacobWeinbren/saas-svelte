@@ -63,36 +63,6 @@ import { Accordion } from '$saas/accordion';
 </Accordion.Root>
 ```
 
-**With Icons:**
-
-```html
-import { Accordion } from '$saas/accordion';
-import { Icon } from '$saas/components/icon';
-import { User, CreditCard } from '@lucide/svelte';
-
-<Accordion.Root collapsible defaultValue={['info']}>
-  <Accordion.Item value="info">
-    <Accordion.ItemTrigger>
-      <Icon as={User} size="lg" color="gray" />
-      Product Information
-    </Accordion.ItemTrigger>
-    <Accordion.ItemContent>
-      View detailed specifications and features of this product.
-    </Accordion.ItemContent>
-  </Accordion.Item>
-
-  <Accordion.Item value="shipping">
-    <Accordion.ItemTrigger>
-      <Icon as={CreditCard} size="lg" color="gray" />
-      Shipping & Delivery
-    </Accordion.ItemTrigger>
-    <Accordion.ItemContent>
-      Learn about shipping options, delivery times, and tracking.
-    </Accordion.ItemContent>
-  </Accordion.Item>
-</Accordion.Root>
-```
-
 ## Examples
 
 ### Controlled
