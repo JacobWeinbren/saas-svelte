@@ -4,6 +4,7 @@
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
+	import { Link } from "$saas/components/link";
 	import { Plus } from "@lucide/svelte";
 	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
 	import {
@@ -185,10 +186,8 @@
 
 {#snippet linkStory()}
 	<Checkbox>
-		I agree to the <a
-			href="https://google.com"
-			class="text-indigo-600 hover:underline">terms and conditions</a
-		>
+		I agree to the{" "}
+		<Link color="teal" href="https://google.com">terms and conditions</Link>
 	</Checkbox>
 {/snippet}
 

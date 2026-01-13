@@ -7,12 +7,11 @@
 
 	const checkboxControl = tv({
 		base: [
-			"flex items-center justify-center border shrink-0",
-			"rounded", // Removed p-0.5 to allow precise icon sizing
+			"flex items-center justify-center border shrink-0 p-0.5",
+			"rounded",
 			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-600) peer-focus-visible:outline-solid",
-			"dark:peer-focus-visible:outline-(--c-500)",
-			"bg-white border-gray-300 text-white",
-			"dark:bg-zinc-950 dark:border-zinc-700",
+			"text-white",
+			"border-gray-300 dark:border-zinc-700",
 			"antialiased",
 		],
 		variants: {
@@ -28,11 +27,11 @@
 			},
 			checked: {
 				true: "",
-				false: "group-hover:border-(--c-500) dark:group-hover:border-(--c-500)",
+				false: "",
 				indeterminate: "",
 			},
 			disabled: {
-				true: "cursor-not-allowed opacity-50 bg-gray-100 border-gray-200 dark:bg-zinc-800 dark:border-zinc-700!",
+				true: "cursor-not-allowed opacity-50",
 			},
 			invalid: {
 				true: "border-red-500! peer-focus-visible:outline-red-600! dark:border-red-500!",
@@ -43,39 +42,30 @@
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-600) border-(--c-600) dark:bg-(--c-600) dark:border-(--c-600) text-white",
+				class: "bg-(--c-600) border-(--c-600) text-white dark:bg-(--c-600) dark:border-(--c-600) dark:text-white",
 			},
 			// Subtle: Background persists even when unchecked
 			{
 				variant: "subtle",
 				checked: false,
-				class: [
-					"bg-(--c-50) border-(--c-200) text-transparent",
-					"dark:bg-(--c-900)/50 dark:border-(--c-800)",
-				],
+				class: "bg-(--c-50) border-(--c-200) text-white dark:bg-(--c-950) dark:border-(--c-800) dark:text-white",
 			},
 			{
 				variant: "subtle",
 				checked: [true, "indeterminate"],
-				class: [
-					"bg-(--c-50) border-(--c-200) text-(--c-700)",
-					"dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
-				],
+				class: "bg-(--c-50) border-(--c-200) text-(--c-700) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
 			},
 			// Outline: Transparent background
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
-				class: [
-					"bg-transparent border-(--c-600) text-(--c-700)",
-					"dark:border-(--c-500) dark:text-(--c-300)",
-				],
+				class: "border-(--c-600) text-(--c-700) dark:border-(--c-600) dark:text-(--c-300)",
 			},
 			// Invalid + Checked: Must be Red, not theme color
 			{
 				invalid: true,
 				checked: [true, "indeterminate"],
-				class: "bg-red-600! border-red-600! text-white! dark:bg-red-600! dark:border-red-600!",
+				class: "bg-red-600! border-red-600! text-white! dark:bg-red-600! dark:border-red-600! dark:text-white!",
 			},
 		],
 		defaultVariants: {
@@ -189,22 +179,19 @@
 		checked === "indeterminate" ? "indeterminate" : isChecked,
 	);
 
-	// Map icon sizes:
-	// sm: 10px (size-2.5)
-	// md: 12px (size-3) -> This matches 16px container - 2px padding
-	// lg: 16px (size-4)
+	// Map icon sizes to match source
 	const iconSizes = {
-		sm: "size-2.5 stroke-[3px]",
-		md: "size-3 stroke-[4px]",
-		lg: "size-4 stroke-[4px]",
+		sm: "stroke-[3px] [stroke-linecap:round] [stroke-linejoin:round]",
+		md: "stroke-[4px] [stroke-linecap:round] [stroke-linejoin:round]",
+		lg: "stroke-[4px] [stroke-linecap:round] [stroke-linejoin:round]",
 	} as const;
 
 	const iconBaseClass = $derived(
-		`${iconSizes[size || "md"]} pointer-events-none`,
+		`fill-none stroke-current ${iconSizes[size || "md"]} pointer-events-none`,
 	);
 
 	const checkIconClass = $derived(
-		`${iconBaseClass} transition-opacity duration-200 ${isChecked ? "opacity-100" : "opacity-0"}`,
+		`${iconBaseClass} ${isChecked ? "opacity-100" : "opacity-0"}`,
 	);
 
 	function handleChange(e: Event) {
