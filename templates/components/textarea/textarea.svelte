@@ -74,6 +74,8 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
+	import { getContext } from "svelte";
+	import type { Writable } from "svelte/store";
 
 	interface Props extends Omit<HTMLTextareaAttributes, "class"> {
 		/**
@@ -114,17 +116,62 @@
 		size = "md",
 		class: className,
 		invalid = false,
+		disabled = false,
 		value = $bindable(),
 		resize,
 		...restProps
 	}: Props = $props();
 
+	const fieldContext = getContext<
+		Writable<{
+			id: string;
+			disabled: boolean;
+			invalid: boolean;
+			required: boolean;
+			readOnly: boolean;
+		}>
+	>("field");
+
+	const fieldState = $derived(
+		fieldContext
+			? $fieldContext
+			: {
+					id: undefined,
+					disabled: false,
+					invalid: false,
+					required: false,
+					readOnly: false,
+				},
+	);
+
+	const isInvalid = $derived(invalid || fieldState.invalid || false);
+	const isDisabled = $derived(disabled || fieldState.disabled || false);
+	const isRequired = $derived(
+		restProps.required || fieldState.required || false,
+	);
+	const isReadOnly = $derived(
+		restProps.readonly || fieldState.readOnly || false,
+	);
+	const id = $derived(restProps.id || fieldState.id);
+
 	const classes = $derived(
-		textarea({ variant, size, invalid, class: className }) as string,
+		textarea({
+			variant,
+			size,
+			invalid: isInvalid,
+			class: className,
+		}) as string,
 	);
 
 	const resizeClass = $derived(resize ? `resize-${resize}` : "");
 </script>
 
-<textarea class={`${classes} ${resizeClass}`} bind:value {...restProps}
+<textarea
+	{id}
+	disabled={isDisabled}
+	required={isRequired}
+	readonly={isReadOnly}
+	class={`${classes} ${resizeClass}`}
+	bind:value
+	{...restProps}
 ></textarea>

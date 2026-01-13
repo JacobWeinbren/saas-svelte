@@ -34,6 +34,9 @@ export const textPattern = makePattern(['as', 'size', 'weight', 'variant', 'trun
 export const tooltipPattern = makePattern(['content', 'showArrow', 'variant', 'interactive', 'openDelay', 'closeDelay', 'positioning', 'disabled', 'class', 'children']);
 
 export const fieldPattern = makePattern(['disabled', 'invalid', 'required', 'readOnly', 'id', 'class', 'children']);
+export const fieldLabelPattern = makePattern(['for', 'class', 'children']);
+export const fieldHelperTextPattern = makePattern(['class', 'children']);
+export const fieldErrorTextPattern = makePattern(['class', 'children']);
 
 export const kbdPattern = makePattern(['variant', 'size', 'class', 'children']);
 

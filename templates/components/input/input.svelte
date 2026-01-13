@@ -74,6 +74,8 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
+	import { getContext } from "svelte";
+	import type { Writable } from "svelte/store";
 
 	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
 		/**
@@ -116,18 +118,65 @@
 		color = "gray",
 		class: className,
 		invalid = false,
+		disabled = false,
 		style,
 		value = $bindable(),
 		...restProps
 	}: Props = $props();
 
+	const fieldContext = getContext<
+		Writable<{
+			id: string;
+			disabled: boolean;
+			invalid: boolean;
+			required: boolean;
+			readOnly: boolean;
+		}>
+	>("field");
+
+	const fieldState = $derived(
+		fieldContext
+			? $fieldContext
+			: {
+					id: undefined,
+					disabled: false,
+					invalid: false,
+					required: false,
+					readOnly: false,
+				},
+	);
+
 	const colorVars = $derived(generateColorVars(color));
 
+	const isInvalid = $derived(invalid || fieldState.invalid || false);
+	const isDisabled = $derived(disabled || fieldState.disabled || false);
+	const isRequired = $derived(
+		restProps.required || fieldState.required || false,
+	);
+	const isReadOnly = $derived(
+		restProps.readonly || fieldState.readOnly || false,
+	);
+	const id = $derived(restProps.id || fieldState.id);
+
 	const classes = $derived(
-		input({ variant, size, invalid, class: className }) as string,
+		input({
+			variant,
+			size,
+			invalid: isInvalid,
+			class: className,
+		}) as string,
 	);
 
 	const styles = $derived([colorVars, style].filter(Boolean).join("; "));
 </script>
 
-<input class={classes} style={styles} bind:value {...restProps} />
+<input
+	{id}
+	disabled={isDisabled}
+	required={isRequired}
+	readonly={isReadOnly}
+	class={classes}
+	style={styles}
+	bind:value
+	{...restProps}
+/>

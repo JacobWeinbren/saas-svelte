@@ -73,6 +73,8 @@
 	import type { HTMLSelectAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
 	import type { Snippet } from "svelte";
+	import { getContext } from "svelte";
+	import type { Writable } from "svelte/store";
 
 	interface Props extends Omit<HTMLSelectAttributes, "size" | "class"> {
 		/**
@@ -113,17 +115,59 @@
 		size = "md",
 		class: className,
 		invalid = false,
+		disabled = false,
 		value = $bindable(),
 		children,
 		...restProps
 	}: Props = $props();
 
+	const fieldContext = getContext<
+		Writable<{
+			id: string;
+			disabled: boolean;
+			invalid: boolean;
+			required: boolean;
+			readOnly: boolean;
+		}>
+	>("field");
+
+	const fieldState = $derived(
+		fieldContext
+			? $fieldContext
+			: {
+					id: undefined,
+					disabled: false,
+					invalid: false,
+					required: false,
+					readOnly: false,
+				},
+	);
+
+	const isInvalid = $derived(invalid || fieldState.invalid || false);
+	const isDisabled = $derived(disabled || fieldState.disabled || false);
+	const isRequired = $derived(
+		restProps.required || fieldState.required || false,
+	);
+	const id = $derived(restProps.id || fieldState.id);
+
 	const classes = $derived(
-		nativeSelect({ variant, size, invalid, class: className }) as string,
+		nativeSelect({
+			variant,
+			size,
+			invalid: isInvalid,
+			class: className,
+		}) as string,
 	);
 </script>
 
-<select class={classes} bind:value {...restProps}>
+<select
+	{id}
+	disabled={isDisabled}
+	required={isRequired}
+	class={classes}
+	bind:value
+	{...restProps}
+>
 	{@render children?.()}
 </select>
 
