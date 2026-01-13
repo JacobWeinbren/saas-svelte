@@ -1,0 +1,65 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as DataListStories from "./DataList.stories.svelte";
+import { DataListRoot } from "$saas/components/data-list";
+
+<Meta of={DataListStories} />
+
+# DataList
+
+Used to display a list of similar data items.
+
+<Canvas of={DataListStories.Basic} />
+
+## Anatomy
+
+```html
+<script>
+	import {
+		DataListRoot,
+		DataListItem,
+		DataListItemLabel,
+		DataListItemValue,
+	} from "$saas/components/data-list";
+</script>
+```
+
+```html
+<DataListRoot>
+	<DataListItem>
+		<DataListItemLabel>Label</DataListItemLabel>
+		<DataListItemValue>Value</DataListItemValue>
+	</DataListItem>
+</DataListRoot>
+```
+
+## Examples
+
+### Sizes
+
+Use the `size` prop to change the size of the data list component.
+
+<Canvas of={DataListStories.Sizes} />
+
+### Orientation
+
+Use the `orientation` prop to control how labels and values are arranged within each item. The default `horizontal` orientation displays the label and value side-by-side.
+
+<Canvas of={DataListStories.Orientation} />
+
+### Vertical Orientation
+
+Set `orientation="vertical"` to stack the label above the value within each item.
+
+<Canvas of={DataListStories.Vertical} />
+
+### Separator
+
+Use Tailwind CSS utility classes like `divide-y` to add separators between items.
+
+<Canvas of={DataListStories.WithSeparator} />
+
+## Props
+
+### DataListRoot
+
+<ArgTypes of={DataListRoot} />
