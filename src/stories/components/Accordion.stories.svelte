@@ -20,11 +20,6 @@
 	const { Story } = defineMeta({
 		title: "components/Accordion",
 		component: AccordionRoot,
-		subcomponents: {
-			AccordionItem,
-			AccordionItemTrigger,
-			AccordionItemContent,
-		},
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
