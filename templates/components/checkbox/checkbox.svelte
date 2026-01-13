@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLInputAttributes } from "svelte/elements";
-	import { Check, Minus } from "@lucide/svelte";
+	import Check from "phosphor-svelte/lib/Check";
+	import Minus from "phosphor-svelte/lib/Minus";
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
 	import type { Snippet } from "svelte";
 
@@ -179,15 +180,15 @@
 		checked === "indeterminate" ? "indeterminate" : isChecked,
 	);
 
-	// Map icon sizes to match source
-	const iconSizes = {
-		sm: "stroke-[3px] [stroke-linecap:round] [stroke-linejoin:round]",
-		md: "stroke-[4px] [stroke-linecap:round] [stroke-linejoin:round]",
-		lg: "stroke-[4px] [stroke-linecap:round] [stroke-linejoin:round]",
+	// Scale up icons slightly to make them more prominent
+	const iconSizeClass = {
+		sm: "scale-110",
+		md: "scale-125",
+		lg: "scale-125",
 	} as const;
 
 	const iconBaseClass = $derived(
-		`fill-none stroke-current ${iconSizes[size || "md"]} pointer-events-none`,
+		`pointer-events-none ${iconSizeClass[size || "md"]}`,
 	);
 
 	const checkIconClass = $derived(
@@ -241,9 +242,9 @@
 			{#if icon}
 				{@render icon()}
 			{:else if checked === "indeterminate"}
-				<Minus class={iconBaseClass} />
+				<Minus class={iconBaseClass} weight="bold" />
 			{:else}
-				<Check class={checkIconClass} />
+				<Check class={checkIconClass} weight="bold" />
 			{/if}
 		</div>
 	</div>

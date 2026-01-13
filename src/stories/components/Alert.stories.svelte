@@ -2,7 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Alert } from "$saas/components/alert";
 	import { Stack } from "$saas/layout/stack";
-	import { AlarmClockPlus } from "@lucide/svelte";
+	import Alarm from "phosphor-svelte/lib/Alarm";
 	import {
 		commonArgTypes,
 		getControls,
@@ -108,7 +108,7 @@
 	<Alert
 		status="warning"
 		title="Submitting this form will delete your account"
-		icon={AlarmClockPlus}
+		icon={Alarm}
 	/>
 {/snippet}
 

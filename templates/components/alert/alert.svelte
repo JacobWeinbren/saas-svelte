@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { Info, CircleCheck, TriangleAlert, CircleX } from "@lucide/svelte";
+	import Info from "phosphor-svelte/lib/Info";
+	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
+	import Warning from "phosphor-svelte/lib/Warning";
+	import XCircle from "phosphor-svelte/lib/XCircle";
 	import type { Snippet, Component } from "svelte";
 
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
@@ -106,9 +109,9 @@
 
 	const statusIconMap = {
 		info: Info,
-		success: CircleCheck,
-		warning: TriangleAlert,
-		error: CircleX,
+		success: CheckCircle,
+		warning: Warning,
+		error: XCircle,
 		neutral: Info,
 	};
 

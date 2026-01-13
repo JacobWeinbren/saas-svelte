@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Accordion } from "@ark-ui/svelte";
-	import { ChevronRight } from "@lucide/svelte";
+	import CaretRight from "phosphor-svelte/lib/CaretRight";
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
@@ -34,8 +34,9 @@
 			"ml-auto data-[state=open]:rotate-90 origin-[50%]",
 		)}
 	>
-		<ChevronRight
-			class="text-current inline-block fill-none stroke-current stroke-[2px] [stroke-linecap:round] [stroke-linejoin:round] w-full h-full"
+		<CaretRight
+			class="text-current inline-block w-full h-full"
+			weight="bold"
 		/>
 	</Accordion.ItemIndicator>
 </Accordion.ItemTrigger>

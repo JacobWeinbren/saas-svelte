@@ -8,6 +8,10 @@
 	} from "$saas/components/accordion";
 	import { Stack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
+	import { Icon } from "$saas/components/icon";
+	import User from "phosphor-svelte/lib/User";
+	import Gear from "phosphor-svelte/lib/Gear";
+	import CreditCard from "phosphor-svelte/lib/CreditCard";
 	import {
 		commonArgTypes,
 		getControls,
@@ -77,11 +81,6 @@
 	};
 </script>
 
-<script lang="ts">
-	import { User, Settings, CreditCard } from "@lucide/svelte";
-	import { Icon } from "$saas/components/icon";
-</script>
-
 {#snippet basicStory()}
 	<AccordionRoot collapsible defaultValue={["b"]}>
 		<AccordionItem value="a">
@@ -144,7 +143,7 @@
 
 		<AccordionItem value="preferences">
 			<AccordionItemTrigger>
-				<Icon as={Settings} size="sm" color="gray" />
+				<Icon as={Gear} size="sm" color="gray" />
 				Preferences
 			</AccordionItemTrigger>
 			<AccordionItemContent>

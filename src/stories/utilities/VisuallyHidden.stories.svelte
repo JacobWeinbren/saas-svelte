@@ -18,7 +18,7 @@
 </script>
 
 <script lang="ts">
-	import { Bell } from "@lucide/svelte";
+	import Bell from "phosphor-svelte/lib/Bell";
 </script>
 
 {#snippet basicStory()}

@@ -3,7 +3,8 @@
 	import { Tooltip } from "$saas/components/tooltip";
 	import { Button } from "$saas/components/button";
 	import { Icon } from "$saas/components/icon";
-	import { Info, BadgeQuestionMark } from "@lucide/svelte";
+	import Info from "phosphor-svelte/lib/Info";
+	import Question from "phosphor-svelte/lib/Question";
 	import { commonArgTypes } from "../utils";
 
 	const { Story } = defineMeta({
@@ -170,7 +171,7 @@
 				</div>
 			{/snippet}
 			<Button variant="outline" size="sm" icon>
-				<Icon as={BadgeQuestionMark} />
+				<Icon as={Question} />
 			</Button>
 		</Tooltip>
 	</div>

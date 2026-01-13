@@ -1,7 +1,9 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Icon } from "$saas/components/icon";
-	import { Heart, User, Settings } from "@lucide/svelte";
+	import Heart from "phosphor-svelte/lib/Heart";
+	import User from "phosphor-svelte/lib/User";
+	import Gear from "phosphor-svelte/lib/Gear";
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
 	const { Story } = defineMeta({
@@ -10,50 +12,89 @@
 		argTypes: {
 			as: {
 				control: false,
+				description: "The icon component to render (e.g. from phosphor-svelte or custom).",
 				table: { type: { summary: "Component" } },
 			},
 			size: {
 				...commonArgTypes.size,
+				description: "The size of the icon.",
 				options: [...sizes, "2xl"],
+				table: {
+					type: { summary: "IconSize" },
+					defaultValue: { summary: "md" }
+				},
 			},
-			strokeWidth: {
-				control: "number",
-				table: { type: { summary: "number | string" } },
+			weight: {
+				control: "select",
+				description: "The weight/style of the icon (for Phosphor icons).",
+				options: ["thin", "light", "regular", "bold", "fill", "duotone"],
+				table: {
+					type: { summary: '"thin" | "light" | "regular" | "bold" | "fill" | "duotone"' },
+					defaultValue: { summary: "regular" }
+				},
+			},
+			mirrored: {
+				control: "boolean",
+				description: "Whether to flip the icon horizontally (for Phosphor icons).",
+				table: {
+					type: { summary: "boolean" },
+					defaultValue: { summary: "false" }
+				},
+			},
+			color: {
+				...commonArgTypes.color,
+				description: "The color theme of the icon.",
+				table: {
+					type: { summary: "ColorName" },
+					defaultValue: { summary: "currentColor" },
+				},
 			},
 			viewBox: {
 				control: "text",
-				table: { defaultValue: { summary: "0 0 24 24" } },
-			},
-			children: commonArgTypes.children,
-			class: commonArgTypes.class,
-			color: {
-				...commonArgTypes.color,
+				description: "The SVG viewBox attribute (for custom icons).",
 				table: {
-					defaultValue: { summary: "currentColor" },
+					type: { summary: "string" },
+					defaultValue: { summary: "0 0 24 24" }
 				},
+			},
+			style: {
+				control: "text",
+				description: "Inline CSS styles to apply to the icon.",
+				table: { type: { summary: "string" } },
+			},
+			children: {
+				...commonArgTypes.children,
+				description: "SVG path elements for custom icons (if `as` is not provided).",
+			},
+			class: {
+				...commonArgTypes.class,
+				description: "Additional CSS classes to apply to the icon.",
 			},
 		},
 		parameters: {
 			controls: getControls([
 				"as",
 				"size",
-				"strokeWidth",
+				"weight",
+				"mirrored",
+				"color",
 				"viewBox",
+				"style",
 				"children",
 				"class",
-				"color",
 			]),
 		},
 		args: {
-			size: "md",
-			color: "rose",
+			size: "sm",
+			weight: "fill",
+			color: "pink",
 		},
 	});
 </script>
 
 <Story name="Basic">
 	{#snippet template(args)}
-		<Icon as={Heart} strokeWidth="4" {...args} />
+		<Icon as={Heart} {...args} />
 	{/snippet}
 </Story>
 
@@ -62,7 +103,7 @@
 		<div class="flex gap-4">
 			<Icon as={Heart} color="rose" size={args.size} />
 			<Icon as={User} color="blue" size={args.size} />
-			<Icon as={Settings} color="gray" size={args.size} />
+			<Icon as={Gear} color="gray" size={args.size} />
 		</div>
 	{/snippet}
 </Story>
@@ -77,26 +118,32 @@
 	{/snippet}
 </Story>
 
-<Story name="Stroke Width">
+<Story name="Weights">
 	{#snippet template()}
 		<div class="flex items-center gap-6">
 			<div class="flex flex-col items-center gap-2">
-				<Icon as={Heart} color="rose" size="xl" strokeWidth={1} />
-				<span class="text-xs text-gray-500">strokeWidth: 1</span>
+				<span class="text-xs text-gray-500">thin</span>
+				<Icon as={Heart} color="rose" size="xl" weight="thin" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon as={Heart} color="rose" size="xl" strokeWidth={2} />
-				<span class="text-xs text-gray-500"
-					>strokeWidth: 2 (default)</span
-				>
+				<span class="text-xs text-gray-500">light</span>
+				<Icon as={Heart} color="rose" size="xl" weight="light" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon as={Heart} color="rose" size="xl" strokeWidth={3} />
-				<span class="text-xs text-gray-500">strokeWidth: 3</span>
+				<span class="text-xs text-gray-500">regular (default)</span>
+				<Icon as={Heart} color="rose" size="xl" weight="regular" />
 			</div>
 			<div class="flex flex-col items-center gap-2">
-				<Icon as={Heart} color="rose" size="xl" strokeWidth={4} />
-				<span class="text-xs text-gray-500">strokeWidth: 4</span>
+				<span class="text-xs text-gray-500">bold</span>
+				<Icon as={Heart} color="rose" size="xl" weight="bold" />
+			</div>
+			<div class="flex flex-col items-center gap-2">
+				<span class="text-xs text-gray-500">fill</span>
+				<Icon as={Heart} color="rose" size="xl" weight="fill" />
+			</div>
+			<div class="flex flex-col items-center gap-2">
+				<span class="text-xs text-gray-500">duotone</span>
+				<Icon as={Heart} color="rose" size="xl" weight="duotone" />
 			</div>
 		</div>
 	{/snippet}

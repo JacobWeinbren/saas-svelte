@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Dialog } from "@ark-ui/svelte";
-	import { X } from "@lucide/svelte";
+	import X from "phosphor-svelte/lib/X";
 	import { twMerge } from "tailwind-merge";
 
 	interface Props {
@@ -25,6 +25,6 @@
 	)}
 	{...rest}
 >
-	<X class="size-4" />
+	<X class="size-4" weight="bold" />
 	<span class="sr-only">Close</span>
 </Dialog.CloseTrigger>

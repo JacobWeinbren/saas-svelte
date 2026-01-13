@@ -4,7 +4,10 @@
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { Heart, Mail, ArrowRight, ChevronDown } from "@lucide/svelte";
+	import Heart from "phosphor-svelte/lib/Heart";
+	import Envelope from "phosphor-svelte/lib/Envelope";
+	import ArrowRight from "phosphor-svelte/lib/ArrowRight";
+	import CaretDown from "phosphor-svelte/lib/CaretDown";
 	import {
 		colors,
 		sizes,
@@ -81,7 +84,7 @@
 {#snippet iconsStory()}
 	<HStack class="flex-wrap gap-4">
 		<Button color="teal" variant="solid">
-			<Icon as={Mail} class="size-4" />
+			<Icon as={Envelope} class="size-4" />
 			Mail
 		</Button>
 
@@ -126,7 +129,7 @@
 	<ButtonGroup>
 		<Button variant="outline" size="sm">Button</Button>
 		<Button variant="outline" size="sm" icon>
-			<Icon as={ChevronDown} />
+			<Icon as={CaretDown} />
 		</Button>
 	</ButtonGroup>
 {/snippet}

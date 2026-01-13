@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
-	import { LoaderCircle } from "@lucide/svelte";
+	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 
 	import { type ColorName, generateColorVars } from "$saas/utils/colours";
 
@@ -157,7 +157,7 @@
 	{#if loading && !loadingText}
 		<span class="contents">
 			<div class="absolute inset-0 flex items-center justify-center">
-				<LoaderCircle class={loaderClass} />
+				<CircleNotch class={loaderClass} />
 			</div>
 			<span class="invisible contents">
 				{@render children?.()}
@@ -165,7 +165,7 @@
 		</span>
 	{:else if loading && loadingText}
 		<span class="contents">
-			<LoaderCircle class={loaderClass} />
+			<CircleNotch class={loaderClass} />
 			{loadingText}
 		</span>
 	{:else}

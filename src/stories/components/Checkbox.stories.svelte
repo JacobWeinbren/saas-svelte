@@ -5,7 +5,7 @@
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
-	import { Plus } from "@lucide/svelte";
+	import Plus from "phosphor-svelte/lib/Plus";
 	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
 	import {
 		colors,

@@ -26,7 +26,7 @@
 
 	interface Props extends SVGAttributes<SVGElement> {
 		/**
-		 * The icon component to render (e.g. from lucide-svelte or custom).
+		 * The icon component to render (e.g. from phosphor-svelte or custom).
 		 */
 		as?: Component<any>;
 		/**
@@ -40,9 +40,14 @@
 		 */
 		color?: ColorName;
 		/**
-		 * The stroke width of the icon (when using stroke-based icons).
+		 * The weight/style of the icon (for Phosphor icons).
+		 * @default "regular"
 		 */
-		strokeWidth?: number | string;
+		weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
+		/**
+		 * Whether to flip the icon horizontally (for Phosphor icons).
+		 */
+		mirrored?: boolean;
 		/**
 		 * SVG path elements for custom icons (if `as` is not provided).
 		 */
@@ -53,6 +58,8 @@
 		as: IconComponent,
 		size = "md",
 		color,
+		weight = "regular",
+		mirrored = false,
 		class: className,
 		style,
 		children,
@@ -94,6 +101,8 @@
 	<IconComponent
 		size={sizeInPixels}
 		color={strokeColor || "currentColor"}
+		{weight}
+		{mirrored}
 		class={computedClasses}
 		{...rest}
 	/>

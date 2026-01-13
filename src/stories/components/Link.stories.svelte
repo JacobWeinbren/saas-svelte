@@ -2,7 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Link } from "$saas/components/link";
 	import { VStack } from "$saas/layout/stack";
-	import { ExternalLink } from "@lucide/svelte";
+	import ArrowSquareOut from "phosphor-svelte/lib/ArrowSquareOut";
 	import { Icon } from "$saas/components/icon";
 	import { colors, commonArgTypes, getControls } from "../utils";
 
@@ -53,7 +53,7 @@
 {#snippet externalStory()}
 	<Link href="#" variant="plain">
 		Visit Chakra UI
-		<Icon as={ExternalLink} class="size-3.5" />
+		<Icon as={ArrowSquareOut} class="size-3.5" />
 	</Link>
 {/snippet}
 
