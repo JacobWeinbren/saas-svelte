@@ -26,10 +26,7 @@
 				options: orientations,
 				table: { defaultValue: { summary: "horizontal" } },
 			},
-			color: {
-				control: "text",
-				table: { defaultValue: { summary: "gray" } },
-			},
+			color: commonArgTypes.color,
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
 		},

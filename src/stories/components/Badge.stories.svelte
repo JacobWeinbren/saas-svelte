@@ -8,23 +8,15 @@
 		component: Badge as any,
 		argTypes: {
 			variant: {
-				control: "select",
+				...commonArgTypes.variant,
 				options: ["subtle", "solid", "outline", "surface"],
-				description: "The visual style of the badge.",
-				table: { defaultValue: { summary: "subtle" } },
 			},
 			size: {
-				control: "select",
+				...commonArgTypes.size,
 				options: ["xs", "sm", "md", "lg"],
-				description: "The size of the badge.",
 				table: { defaultValue: { summary: "sm" } },
 			},
-			color: {
-				control: "select",
-				options: colors,
-				description: "The color palette of the badge.",
-				table: { defaultValue: { summary: "gray" } },
-			},
+			color: commonArgTypes.color,
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 		},

@@ -24,10 +24,7 @@
 				control: "text",
 				table: { defaultValue: { summary: "0 0 24 24" } },
 			},
-			children: {
-				control: false,
-				table: { type: { summary: "Snippet" } },
-			},
+			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 			color: {
 				...commonArgTypes.color,

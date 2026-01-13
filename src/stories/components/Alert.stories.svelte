@@ -17,6 +17,7 @@
 			status: {
 				control: "select",
 				options: alertStatuses,
+				description: "The status of the alert.",
 				table: { defaultValue: { summary: "info" } },
 			},
 			variant: {
@@ -26,16 +27,12 @@
 				),
 				table: { defaultValue: { summary: "subtle" } },
 			},
-			color: {
-				control: "text",
-				table: { defaultValue: { summary: "gray" } },
-			},
+			color: commonArgTypes.color,
 			title: {
 				control: "text",
+				description: "The title of the alert.",
 			},
-			icon: {
-				control: "boolean",
-			},
+			icon: commonArgTypes.icon,
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 		},

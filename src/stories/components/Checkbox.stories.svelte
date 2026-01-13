@@ -36,7 +36,7 @@
 			},
 			color: {
 				...commonArgTypes.color,
-				options: colors as any,
+				options: colors,
 				table: { defaultValue: { summary: "indigo" } },
 			},
 			label: {
@@ -47,9 +47,7 @@
 			},
 			disabled: commonArgTypes.disabled,
 			invalid: commonArgTypes.invalid,
-			icon: {
-				control: "boolean",
-			},
+			icon: commonArgTypes.icon,
 			value: {
 				control: "text",
 			},

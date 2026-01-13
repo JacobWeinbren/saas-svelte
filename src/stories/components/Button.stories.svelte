@@ -18,22 +18,25 @@
 		component: Button,
 		argTypes: {
 			variant: {
-				...(commonArgTypes.variant as any),
-				options: buttonVariants as any,
+				...commonArgTypes.variant,
+				options: buttonVariants,
 			},
 			size: {
 				...commonArgTypes.size,
-				options: sizes as any,
+				options: sizes,
 			},
 			color: {
 				...commonArgTypes.color,
-				options: colors as any,
+				options: colors,
 			},
 			loading: {
 				control: "boolean",
+				description: "Whether the button is in a loading state.",
+				table: { defaultValue: { summary: "false" } },
 			},
 			loadingText: {
 				control: "text",
+				description: "Text to display when localing.",
 			},
 			icon: commonArgTypes.icon,
 			children: commonArgTypes.children,

@@ -8,6 +8,26 @@
 		title: "components/Avatar",
 		component: Avatar as any,
 		argTypes: {
+			variant: {
+				...commonArgTypes.variant,
+				options: ["solid", "subtle", "outline"],
+			},
+			color: commonArgTypes.color,
+			size: {
+				...commonArgTypes.size,
+				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl", "full"],
+			},
+			shape: {
+				control: "select",
+				options: ["full", "square", "rounded"],
+				description: "The shape of the avatar.",
+				table: { defaultValue: { summary: "full" } },
+			},
+			borderless: {
+				control: "boolean",
+				description: "Whether the avatar should have a border.",
+				table: { defaultValue: { summary: "true" } },
+			},
 			src: {
 				control: "text",
 				description: "The source for the avatar image.",
@@ -18,35 +38,6 @@
 				description:
 					"The name to use for alt text and fallback initials.",
 				table: { defaultValue: { summary: "" } },
-			},
-			size: {
-				control: "select",
-				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl", "full"],
-				description: "The size of the avatar.",
-				table: { defaultValue: { summary: "md" } },
-			},
-			variant: {
-				control: "select",
-				options: ["solid", "subtle", "outline"],
-				description: "The visual style of the avatar.",
-				table: { defaultValue: { summary: "solid" } },
-			},
-			shape: {
-				control: "select",
-				options: ["full", "square", "rounded"],
-				description: "The shape of the avatar.",
-				table: { defaultValue: { summary: "full" } },
-			},
-			color: {
-				control: "select",
-				options: colors,
-				description: "The color palette of the avatar.",
-				table: { defaultValue: { summary: "gray" } },
-			},
-			borderless: {
-				control: "boolean",
-				description: "Whether the avatar should have a border.",
-				table: { defaultValue: { summary: "false" } },
 			},
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,

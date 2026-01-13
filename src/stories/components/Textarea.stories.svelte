@@ -20,13 +20,13 @@
 		component: Textarea,
 		argTypes: {
 			variant: {
-				control: "select",
-				options: inputVariants as any,
+				...commonArgTypes.variant,
+				options: inputVariants,
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
-				control: "select",
-				options: textareaSizes as any,
+				...commonArgTypes.size,
+				options: textareaSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			invalid: commonArgTypes.invalid,
@@ -146,7 +146,7 @@
 {/snippet}
 
 <Story name="Basic">
-	{#snippet children(args)}
+	{#snippet template(args)}
 		<Textarea {...args} placeholder="Comment..." />
 	{/snippet}
 </Story>

@@ -14,13 +14,13 @@
 		component: NativeSelect,
 		argTypes: {
 			variant: {
-				control: "select",
-				options: nativeSelectVariants as any,
+				...commonArgTypes.variant,
+				options: nativeSelectVariants,
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
-				control: "select",
-				options: nativeSelectSizes as any,
+				...commonArgTypes.size,
+				options: nativeSelectSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			invalid: commonArgTypes.invalid,

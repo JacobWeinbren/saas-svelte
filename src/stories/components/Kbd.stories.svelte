@@ -12,13 +12,13 @@
 		component: Kbd,
 		argTypes: {
 			variant: {
-				control: "select",
-				options: kbdVariants as any,
+				...commonArgTypes.variant,
+				options: kbdVariants,
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			size: {
-				control: "select",
-				options: ["sm", "md", "lg"] as any,
+				...commonArgTypes.size,
+				options: ["sm", "md", "lg"],
 				table: { defaultValue: { summary: "md" } },
 			},
 			children: commonArgTypes.children,

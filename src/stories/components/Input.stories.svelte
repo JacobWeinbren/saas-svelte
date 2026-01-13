@@ -41,7 +41,7 @@
 			},
 			color: {
 				...commonArgTypes.color,
-				options: colors as any,
+				options: colors,
 			},
 			invalid: commonArgTypes.invalid,
 			disabled: commonArgTypes.disabled,
