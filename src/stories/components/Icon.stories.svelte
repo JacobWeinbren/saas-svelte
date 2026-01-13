@@ -29,8 +29,6 @@
 				table: { type: { summary: "Snippet" } },
 			},
 			class: commonArgTypes.class,
-			// Override color to show it (it's normally hidden/common but here we want to show it explicitly maybe?)
-			// Actually commonArgTypes has color. I'll just use it but override default if needed.
 			color: {
 				...commonArgTypes.color,
 				table: {
