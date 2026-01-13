@@ -27,7 +27,7 @@ Used to communicate a state that affects a system, feature or page.
 
 ### Description
 
-Use the children (default slot) to provide additional context to the alert. This will be displayed below the alert message.
+Use the `children` to provide additional context to the alert. This will be displayed below the alert message.
 
 <Canvas of={AlertStories.Description} />
 
@@ -39,13 +39,13 @@ Change the status of the alerts by passing the status prop. This affects the col
 
 ### Variants
 
-Use the variant prop to change the visual style of the alert. Values can be subtle, solid, surface, or outline.
+Use the `variant` prop to change the visual style of the alert. Values can be `subtle`, `solid`, `surface`, or `outline`.
 
 <Canvas of={AlertStories.Variants} />
 
 ### Custom Icon
 
-Use the icon snippet (or prop) to pass a custom icon to the alert. This will override the default icon for the alert status.
+Use the `icon` prop to pass a custom icon to the alert. This will override the default icon for the alert status.
 
 <Canvas of={AlertStories.CustomIcon} />
 

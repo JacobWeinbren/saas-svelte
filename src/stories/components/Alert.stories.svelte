@@ -2,7 +2,6 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Alert } from "$saas/components/alert";
 	import { Stack } from "$saas/layout/stack";
-	import { Icon } from "$saas/components/icon";
 	import { AlarmClockPlus } from "@lucide/svelte";
 	import {
 		commonArgTypes,
@@ -112,11 +111,8 @@
 	<Alert
 		status="warning"
 		title="Submitting this form will delete your account"
-	>
-		{#snippet icon()}
-			<Icon as={AlarmClockPlus} />
-		{/snippet}
-	</Alert>
+		icon={AlarmClockPlus}
+	/>
 {/snippet}
 
 <Story name="Basic" />

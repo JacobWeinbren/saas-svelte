@@ -17,7 +17,7 @@
 		variants: {
 			variant: {
 				subtle: {
-					root: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900)/50 dark:text-(--c-200)",
+					root: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300)",
 					iconWrapper: "text-current",
 				},
 				solid: {
@@ -65,11 +65,11 @@
 		/**
 		 * Override the default icon. Pass `false` to hide the icon.
 		 */
-		icon?: boolean | Component<any> | Snippet<[]>;
+		icon?: boolean | Component<any>;
 		/**
 		 * The title of the alert.
 		 */
-		title?: string | Snippet<[]>;
+		title?: string;
 		/**
 		 * The content to be rendered inside the alert.
 		 */
@@ -112,29 +112,11 @@
 		neutral: Info,
 	};
 
-	const iconSnippet = $derived(
-		typeof icon === "function" && !("prototype" in icon)
-			? (icon as Snippet<[]>)
-			: null,
-	);
-
-	const IconComponent = $derived.by(() => {
+	const IconToRender = $derived.by(() => {
 		if (icon === false) return null;
-		if (iconSnippet) return null;
-		if (icon && typeof icon !== "boolean" && typeof icon !== "function")
-			return icon;
-		return null;
+		if (icon && typeof icon !== "boolean") return icon;
+		return statusIconMap[status];
 	});
-
-	const IconToRender = $derived(IconComponent || statusIconMap[status]);
-
-	const titleSnippet = $derived(
-		typeof title !== "string" &&
-			typeof title === "function" &&
-			!("prototype" in title)
-			? (title as Snippet<[]>)
-			: null,
-	);
 
 	const {
 		root,
@@ -153,11 +135,7 @@
 	style={finalStyle}
 	{...restProps}
 >
-	{#if iconSnippet}
-		<span class={iconWrapper()}>
-			{@render iconSnippet()}
-		</span>
-	{:else if IconToRender}
+	{#if IconToRender}
 		<span class={iconWrapper()}>
 			<Icon as={IconToRender} size="md" />
 		</span>
@@ -166,11 +144,7 @@
 	<div class={content()}>
 		{#if title}
 			<div class={titleClass()}>
-				{#if typeof title === "string"}
-					{title}
-				{:else if titleSnippet}
-					{@render titleSnippet()}
-				{/if}
+				{title}
 			</div>
 		{/if}
 
