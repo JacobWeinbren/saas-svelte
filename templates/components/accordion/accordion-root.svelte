@@ -136,7 +136,7 @@
 	{multiple}
 	{orientation}
 	class={twMerge(
-		"text-black dark:text-white leading-normal antialiased",
+		"text-zinc-950 dark:text-zinc-50 leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

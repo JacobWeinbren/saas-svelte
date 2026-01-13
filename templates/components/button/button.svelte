@@ -15,10 +15,10 @@
 		variants: {
 			variant: {
 				// GLASS: Always White Text
-				glass: "overflow-hidden border-0 bg-(--c-500) dark:bg-(--c-500) text-white dark:text-white shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) dark:shadow-inner disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
+				glass: "overflow-hidden border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) dark:shadow-inner disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
 
 				// SOLID: Always White Text
-				solid: "border-0 bg-(--c-500) dark:bg-(--c-500) text-white dark:text-white shadow shadow-sm hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
+				solid: "border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow shadow-sm hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
 
 				// SUBTLE: Neutral Text (Inherits Base)
 				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:bg-(--c-950) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",

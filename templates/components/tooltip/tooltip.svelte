@@ -8,8 +8,8 @@
 				"animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
 
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
-				"bg-white dark:bg-zinc-950",
-				"text-zinc-950 dark:text-neutral-50",
+				"bg-zinc-50 dark:bg-zinc-950",
+				"text-zinc-950 dark:text-zinc-50",
 				"text-xs font-medium leading-4 antialiased",
 				"max-w-xs",
 				"select-none",
@@ -17,7 +17,7 @@
 			],
 			arrow: [
 				"[--arrow-size:8px]",
-				"[--arrow-background:white] dark:[--arrow-background:rgb(9_9_11)]",
+				"[--arrow-background:rgb(250_250_250)] dark:[--arrow-background:rgb(9_9_11)]",
 				"drop-shadow-none",
 			],
 			arrowTip: [
@@ -29,14 +29,14 @@
 				default: {},
 				inverted: {
 					content: [
-						"bg-zinc-950 dark:bg-white",
-						"text-white dark:text-zinc-950",
-						"border-zinc-950 dark:border-white",
+						"bg-zinc-950 dark:bg-zinc-50",
+						"text-zinc-50 dark:text-zinc-950",
+						"border-zinc-950 dark:border-zinc-50",
 					],
 					arrow: [
-						"[--arrow-background:rgb(9_9_11)] dark:[--arrow-background:white]",
+						"[--arrow-background:rgb(9_9_11)] dark:[--arrow-background:rgb(250_250_250)]",
 					],
-					arrowTip: ["border-zinc-950 dark:border-white"],
+					arrowTip: ["border-zinc-950 dark:border-zinc-50"],
 				},
 			},
 			interactive: {

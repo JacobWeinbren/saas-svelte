@@ -10,7 +10,7 @@
 			"flex items-center justify-center border shrink-0 p-0.5",
 			"rounded",
 			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-600) peer-focus-visible:outline-solid",
-			"text-white",
+			"text-zinc-50",
 			"border-gray-300 dark:border-zinc-700",
 			"antialiased",
 		],
@@ -42,13 +42,13 @@
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-600) border-(--c-600) text-white dark:bg-(--c-600) dark:border-(--c-600) dark:text-white",
+				class: "bg-(--c-600) border-(--c-600) text-zinc-50 dark:bg-(--c-600) dark:border-(--c-600) dark:text-zinc-50",
 			},
 			// Subtle: Background persists even when unchecked
 			{
 				variant: "subtle",
 				checked: false,
-				class: "bg-(--c-50) border-(--c-200) text-white dark:bg-(--c-950) dark:border-(--c-800) dark:text-white",
+				class: "bg-(--c-50) border-(--c-200) text-zinc-50 dark:bg-(--c-950) dark:border-(--c-800) dark:text-zinc-50",
 			},
 			{
 				variant: "subtle",
@@ -65,7 +65,7 @@
 			{
 				invalid: true,
 				checked: [true, "indeterminate"],
-				class: "bg-red-600! border-red-600! text-white! dark:bg-red-600! dark:border-red-600! dark:text-white!",
+				class: "bg-red-600! border-red-600! text-zinc-50! dark:bg-red-600! dark:border-red-600! dark:text-zinc-50!",
 			},
 		],
 		defaultVariants: {

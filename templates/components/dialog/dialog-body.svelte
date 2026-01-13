@@ -18,7 +18,7 @@
 <div
 	class={twMerge(
 		// Updated dark mode text to be much lighter (gray-50) to match the dump
-		"px-6 py-2 text-sm text-gray-500 dark:text-gray-50",
+		"px-6 py-2 text-sm text-gray-500 dark:text-gray-50 antialiased",
 		ctx.scrollBehavior === "inside" && "overflow-y-auto",
 		className,
 	)}

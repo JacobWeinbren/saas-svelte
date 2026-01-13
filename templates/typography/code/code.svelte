@@ -13,8 +13,8 @@
 		],
 		variants: {
 			variant: {
-				// SOLID: White text on colored background
-				solid: "text-white bg-(--c-600) dark:bg-(--c-500)",
+				// SOLID: Zinc-50 text on colored background
+				solid: "text-zinc-50 bg-(--c-600) dark:bg-(--c-500)",
 
 				// OUTLINE: Colored text with border
 				outline: [

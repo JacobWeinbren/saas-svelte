@@ -21,7 +21,7 @@
 					iconWrapper: "text-current",
 				},
 				solid: {
-					root: "bg-(--c-600) text-white dark:bg-(--c-600)",
+					root: "bg-(--c-600) text-zinc-50 dark:bg-(--c-600)",
 					iconWrapper: "text-current",
 				},
 				surface: {

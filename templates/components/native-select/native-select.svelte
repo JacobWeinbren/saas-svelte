@@ -40,9 +40,9 @@
 				plain: [
 					"border-0 bg-transparent",
 					// Light
-					"text-black",
+					"text-zinc-950",
 					// Dark
-					"dark:text-gray-50",
+					"dark:text-zinc-50",
 					"focus-visible:outline-2",
 				],
 			},
