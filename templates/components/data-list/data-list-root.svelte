@@ -75,7 +75,11 @@
 		 * The color palette of the data list.
 		 * @default "gray"
 		 */
-		colorPalette?: ColorName;
+		/**
+		 * The color palette of the data list.
+		 * @default "gray"
+		 */
+		color?: ColorName;
 		/**
 		 * Inline styles to apply to the root element.
 		 */
@@ -88,13 +92,13 @@
 		class: className,
 		size = "md",
 		orientation = "horizontal",
-		colorPalette = "gray",
+		color = "gray",
 		style,
 		...restProps
 	}: Props = $props();
 
 	const classes = $derived(dataList({ size, orientation }));
-	const colorVars = $derived(generateColorVars(colorPalette));
+	const colorVars = $derived(generateColorVars(color));
 	const finalStyle = $derived([colorVars, style].filter(Boolean).join("; "));
 
 	setContext("data-list-styles", {

@@ -26,7 +26,7 @@
 				options: orientations,
 				table: { defaultValue: { summary: "horizontal" } },
 			},
-			colorPalette: {
+			color: {
 				control: "text",
 				table: { defaultValue: { summary: "gray" } },
 			},
@@ -34,12 +34,7 @@
 			children: commonArgTypes.children,
 		},
 		parameters: {
-			controls: getControls([
-				"size",
-				"orientation",
-				"colorPalette",
-				"class",
-			]),
+			controls: getControls(["size", "orientation", "color", "class"]),
 		},
 		args: {
 			size: "md",
@@ -47,12 +42,7 @@
 		},
 	});
 
-	export {
-		DataListRoot,
-		DataListItem,
-		DataListItemLabel,
-		DataListItemValue,
-	};
+	export { DataListRoot, DataListItem, DataListItemLabel, DataListItemValue };
 
 	const stats = [
 		{ label: "New Users", value: "234" },

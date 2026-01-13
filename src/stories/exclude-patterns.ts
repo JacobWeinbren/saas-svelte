@@ -40,3 +40,4 @@ export const kbdPattern = makePattern(['variant', 'size', 'class', 'children']);
 export const codePattern = makePattern(['variant', 'size', 'color', 'class', 'children']);
 
 export const visuallyHiddenPattern = makePattern(['class', 'children']);
+export const badgePattern = makePattern(['variant', 'size', 'color', 'class', 'children']);
