@@ -46,6 +46,19 @@
 		 */
 		role?: "dialog" | "alertdialog";
 		/**
+		 * Element to receive focus when the dialog is opened.
+		 */
+		initialFocusEl?: () => HTMLElement | null;
+		/**
+		 * Element to receive focus when the dialog is closed.
+		 */
+		finalFocusEl?: () => HTMLElement | null;
+		/**
+		 * Whether to restore focus to the element that had focus before the dialog was opened.
+		 * @default true
+		 */
+		restoreFocus?: boolean;
+		/**
 		 * Whether to lazily mount the dialog content.
 		 */
 		lazyMount?: boolean;
@@ -65,6 +78,9 @@
 		scrollBehavior = "outside",
 		motionPreset = "scale",
 		role = "dialog",
+		initialFocusEl,
+		finalFocusEl,
+		restoreFocus,
 		lazyMount,
 		unmountOnExit,
 		...restProps
@@ -92,6 +108,9 @@
 	bind:open
 	onOpenChange={(e) => onOpenChange?.(e)}
 	{role}
+	{initialFocusEl}
+	{finalFocusEl}
+	{restoreFocus}
 	{lazyMount}
 	{unmountOnExit}
 	{...restProps}

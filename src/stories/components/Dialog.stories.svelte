@@ -2,6 +2,8 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Dialog } from "$saas/components/dialog";
 	import { Button } from "$saas/components/button";
+	import { Input } from "$saas/components/input";
+	import { Stack } from "$saas/layout/stack";
 
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
@@ -71,6 +73,10 @@
 
 	const focusClass =
 		"focus-visible:outline focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100 focus-visible:outline-offset-2";
+</script>
+
+<script lang="ts">
+	let focusInputRef = $state<HTMLInputElement | null>(null);
 </script>
 
 {#snippet basicStory()}
@@ -215,6 +221,35 @@
 	</Dialog.Root>
 {/snippet}
 
+{#snippet initialFocusStory()}
+	<Dialog.Root initialFocusEl={() => focusInputRef}>
+		<Dialog.Trigger>Open Dialog</Dialog.Trigger>
+		<Dialog.Content>
+			<Dialog.Header>
+				<Dialog.Title>User Information</Dialog.Title>
+				<Dialog.CloseButton />
+			</Dialog.Header>
+			<Dialog.Body>
+				<Stack class="gap-4">
+					<Input placeholder="First Name" />
+					<Input placeholder="Last Name" />
+					<input
+						bind:this={focusInputRef}
+						placeholder="Email (Focused First)"
+						class="appearance-none outline-0 w-full relative rounded border bg-transparent border-gray-200 text-sm leading-5 antialiased placeholder:text-zinc-500/90 px-3 h-8 enabled:hover:border-gray-300 focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600 dark:border-gray-800 dark:text-gray-50"
+					/>
+				</Stack>
+			</Dialog.Body>
+			<Dialog.Footer>
+				<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
+				<Button variant="glass" color="indigo" class={focusClass}
+					>Save</Button
+				>
+			</Dialog.Footer>
+		</Dialog.Content>
+	</Dialog.Root>
+{/snippet}
+
 {#snippet alertDialogStory()}
 	<Dialog.Root role="alertdialog">
 		<Dialog.Trigger>Open Dialog</Dialog.Trigger>
@@ -242,6 +277,7 @@
 <Story name="Basic" template={basicStory} />
 <Story name="Sizes" template={sizesStory} />
 <Story name="Cover" template={coverStory} />
+<Story name="Initial Focus" template={initialFocusStory} />
 <Story name="Inside Scroll" template={insideScrollStory} />
 <Story name="Outside Scroll" template={outsideScrollStory} />
 <Story name="Motion Preset" template={motionPresetStory} />
