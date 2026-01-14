@@ -54,8 +54,8 @@
 			"relative flex flex-col",
 			// Darkened background to gray-900/85
 			"bg-zinc-50/95 dark:bg-gray-900/85 backdrop-blur-md",
-			// Matched dark ring to light mode's subtlety (5% opacity)
-			"shadow-lg ring-1 ring-gray-950/5 dark:ring-zinc-50/5",
+			// Adjusted to match HTML: shadow-md, no ring
+			"shadow-md",
 			"mx-auto",
 			"outline-none focus:outline-none",
 			"antialiased",
