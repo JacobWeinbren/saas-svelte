@@ -17,7 +17,13 @@
 
 <div
 	class={twMerge(
-		"flex-1 px-(--spacing-6) py-(--spacing-2) text-sm text-(--color-fg-muted) antialiased",
+		// Flex and padding
+		"flex-1 px-(--spacing-6) py-(--spacing-2)",
+		// Text color - body text uses default color for readability
+		"text-(--color-fg-default)",
+		// Typography
+		"text-sm leading-5 antialiased",
+		// Scroll behavior
 		ctx.scrollBehavior === "inside" && "overflow-y-auto",
 		className,
 	)}

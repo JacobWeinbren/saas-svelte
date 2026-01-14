@@ -14,8 +14,12 @@
 
 <Dialog.Title
 	class={twMerge(
-		// Updated to font-semibold and lighter text color for dark mode
-		"break-words text-base font-semibold leading-6 text-(--color-fg-default) antialiased font-sans",
+		// Typography: text-base font-semibold leading-6
+		"break-words text-base font-semibold leading-6",
+		// Text color using semantic token
+		"text-(--color-fg-default)",
+		// Font and rendering
+		"antialiased font-sans",
 		className,
 	)}
 	{...rest}

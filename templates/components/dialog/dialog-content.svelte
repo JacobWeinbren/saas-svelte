@@ -52,13 +52,17 @@
 	const contentStyles = tv({
 		base: [
 			"relative flex flex-col",
-			// Background using semantic tokens with overlay translucency
-			"bg-(--color-bg-overlay) backdrop-blur-md",
+			// Background with translucency and blur
+			"bg-white/95 dark:bg-gray-900/85 backdrop-blur-md",
+			// Text color
+			"text-(--color-fg-default)",
 			// Shadow
 			"shadow-(--shadow-lg)",
 			"mx-auto",
 			"outline-none focus:outline-none",
 			"antialiased",
+			// Typography
+			"text-sm leading-5",
 		],
 		variants: {
 			size: {

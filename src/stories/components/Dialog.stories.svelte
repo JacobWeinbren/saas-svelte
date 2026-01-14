@@ -13,6 +13,7 @@
 	import { Badge } from "$saas/components/badge";
 	import { Avatar } from "$saas/components/avatar";
 	import { Textarea } from "$saas/components/textarea";
+	import { Text } from "$saas/typography/text";
 
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
@@ -114,38 +115,41 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<div class="flex items-center gap-2">
+	<HStack align="start" class="gap-6">
 		{#each ["xs", "sm", "md", "lg"] as size}
-			<Dialog.Root size={size as "xs" | "sm" | "md" | "lg"}>
-				<Dialog.Trigger
-					variant="outline"
-					size={size as "xs" | "sm" | "md" | "lg"}
-				>
-					Open ({size})
-				</Dialog.Trigger>
-				<Dialog.Content>
-					<Dialog.Header>
-						<Dialog.Title>Dialog Title</Dialog.Title>
-						<Dialog.CloseButton />
-					</Dialog.Header>
-					<Dialog.Body>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit.
-						</p>
-					</Dialog.Body>
-					<Dialog.Footer>
-						<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
-						<Button
-							variant="glass"
-							colour="indigo"
-							class={focusClass}>Save</Button
-						>
-					</Dialog.Footer>
-				</Dialog.Content>
-			</Dialog.Root>
+			<VStack class="gap-2 items-center">
+				<Text size="xs">{size}</Text>
+				<Dialog.Root size={size as "xs" | "sm" | "md" | "lg"}>
+					<Dialog.Trigger
+						variant="outline"
+						size={size as "xs" | "sm" | "md" | "lg"}
+					>
+						Open
+					</Dialog.Trigger>
+					<Dialog.Content>
+						<Dialog.Header>
+							<Dialog.Title>Dialog Title</Dialog.Title>
+							<Dialog.CloseButton />
+						</Dialog.Header>
+						<Dialog.Body>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing
+								elit.
+							</p>
+						</Dialog.Body>
+						<Dialog.Footer>
+							<Dialog.ActionTrigger>Cancel</Dialog.ActionTrigger>
+							<Button
+								variant="glass"
+								colour="indigo"
+								class={focusClass}>Save</Button
+							>
+						</Dialog.Footer>
+					</Dialog.Content>
+				</Dialog.Root>
+			</VStack>
 		{/each}
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet coverStory()}
