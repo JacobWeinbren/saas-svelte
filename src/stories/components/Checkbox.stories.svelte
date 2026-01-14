@@ -92,7 +92,7 @@
 {#snippet variantsStory()}
 	<HStack align="start" class="gap-10">
 		{#each checkboxVariants as variant}
-			<VStack align="start" class="flex-1 gap-2">
+			<VStack class="flex-1 gap-2 items-center">
 				<Text size="xs">
 					{variant}
 				</Text>
@@ -132,14 +132,14 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack align="start" class="flex-1 gap-12">
+	<HStack align="start" class="flex-1 gap-12">
 		{#each sizes.filter((s) => ["sm", "md", "lg"].includes(s)) as size}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
 				<Checkbox size={size as any} checked label="Checkbox" />
 			</VStack>
 		{/each}
-	</Stack>
+	</HStack>
 {/snippet}
 
 {#snippet statesStory()}
@@ -188,10 +188,10 @@
 {#snippet descriptionStory()}
 	<Checkbox class="items-start">
 		<div class="flex flex-col">
-			<span class="text-gray-900 dark:text-gray-100">
+			<span class="text-(--color-fg-default)">
 				I agree to the terms and conditions
 			</span>
-			<span class="mt-1 font-normal text-gray-500">
+			<span class="mt-1 font-normal text-(--color-fg-muted)">
 				By clicking this, you agree to our Terms and Privacy Policy.
 			</span>
 		</div>

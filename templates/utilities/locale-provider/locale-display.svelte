@@ -15,8 +15,8 @@
 	});
 </script>
 
-<div class="flex flex-col gap-2">
-	<pre class="rounded bg-zinc-100 p-4 text-sm">{JSON.stringify(
+<div class="flex flex-col gap-(--spacing-2)">
+	<pre class="rounded bg-(--color-bg-subtle) p-(--spacing-4) text-sm font-mono">{JSON.stringify(
 			displayData,
 			null,
 			2,

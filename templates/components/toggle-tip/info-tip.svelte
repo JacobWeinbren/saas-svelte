@@ -46,7 +46,7 @@
 	{id}
 	{positioning}
 	class={className}
-	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-4 w-4 cursor-pointer"
+	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button)"
 	{...rest}
 >
 	<Icon as={Info} size="sm" />

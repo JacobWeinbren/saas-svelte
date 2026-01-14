@@ -27,14 +27,14 @@
 	}: Props = $props();
 
 	const placementStyles = {
-		left: "left-0 pl-3",
-		right: "right-0 pr-3",
+		left: "left-0 pl-(--spacing-3)",
+		right: "right-0 pr-(--spacing-3)",
 	};
 </script>
 
 <div
 	class={twMerge(
-		"absolute top-0 flex h-full items-center justify-center text-gray-500 dark:text-zinc-400 z-10 pointer-events-none",
+		"absolute top-0 flex h-full items-center justify-center text-(--color-fg-muted) z-10 pointer-events-none",
 		placementStyles[placement],
 		className,
 	)}

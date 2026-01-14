@@ -6,7 +6,7 @@
 
 	export const link = tv({
 		base: [
-			"cursor-pointer outline-0 items-center gap-x-1.5 gap-y-1.5 inline-flex rounded",
+			"cursor-(--cursor-button) outline-0 items-center gap-x-(--spacing-1_5) gap-y-(--spacing-1_5) inline-flex rounded",
 			"focus:outline-offset-2 focus:outline-1 focus:outline-solid focus:outline-(--c-600)",
 			// Base text colors and size
 			"text-md leading-5 text-(--c-700) dark:text-(--c-300)",

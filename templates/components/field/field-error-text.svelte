@@ -28,7 +28,7 @@
 <span
 	id={errorId}
 	aria-live="polite"
-	class={`inline-flex items-center gap-1 text-xs font-medium leading-4 text-red-500 dark:text-red-400 antialiased ${className || ""}`}
+	class={`inline-flex items-center gap-(--spacing-1) text-xs font-medium leading-4 text-(--color-fg-error) antialiased ${className || ""}`}
 	{...restProps}
 >
 	{@render children?.()}

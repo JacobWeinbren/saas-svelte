@@ -104,7 +104,7 @@
 	);
 
 	const sizeClass = $derived(
-		size === "lg" ? "text-sm px-3 py-1.5" : "text-xs px-2 py-1",
+		size === "lg" ? "text-sm px-(--spacing-3) py-(--spacing-1_5)" : "text-xs px-(--spacing-2) py-(--spacing-1)",
 	);
 </script>
 

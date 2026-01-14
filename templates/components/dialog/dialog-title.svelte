@@ -15,7 +15,7 @@
 <Dialog.Title
 	class={twMerge(
 		// Updated to font-semibold and lighter text color for dark mode
-		"break-words text-base font-semibold leading-6 text-gray-900 dark:text-gray-50 antialiased",
+		"break-words text-base font-semibold leading-6 text-(--color-fg-default) antialiased font-sans",
 		className,
 	)}
 	{...rest}

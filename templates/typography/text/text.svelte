@@ -4,20 +4,20 @@
 	import type { ClassNameValue } from "tailwind-merge";
 
 	const text = tv({
-		base: "text-zinc-950 dark:text-zinc-50 font-sans antialiased break-words",
+		base: "text-(--color-fg-default) font-sans antialiased break-words",
 		variants: {
 			size: {
-				xs: "text-xs leading-4",
-				sm: "text-sm leading-5",
-				md: "text-base leading-6",
-				lg: "text-lg leading-7",
-				xl: "text-xl leading-7",
-				"2xl": "text-2xl leading-8",
-				"3xl": "text-3xl leading-9 tracking-[-0.4px]",
-				"4xl": "text-4xl leading-10 tracking-[-0.4px]",
+				xs: "text-xs leading-(--spacing-4)",
+				sm: "text-sm leading-(--spacing-5)",
+				md: "text-base leading-(--spacing-6)",
+				lg: "text-lg leading-(--spacing-7)",
+				xl: "text-xl leading-(--spacing-7)",
+				"2xl": "text-2xl leading-(--spacing-8)",
+				"3xl": "text-3xl leading-(--spacing-9) tracking-[-0.4px]",
+				"4xl": "text-4xl leading-(--spacing-10) tracking-[-0.4px]",
 				"5xl": "text-5xl leading-[3.45rem] -tracking-wide",
 				"6xl": "text-6xl leading-[4.125rem] -tracking-wider",
-				"7xl": "text-7xl leading-20 -tracking-wider",
+				"7xl": "text-7xl leading-(--spacing-20) -tracking-wider",
 			},
 			weight: {
 				thin: "font-thin",
@@ -43,9 +43,9 @@
 				none: "line-clamp-none",
 			},
 			variant: {
-				primary: "text-zinc-950 dark:text-zinc-50",
-				secondary: "text-gray-500 dark:text-gray-400",
-				tertiary: "text-gray-400 dark:text-gray-500",
+				primary: "text-(--color-fg-default)",
+				secondary: "text-(--color-fg-muted)",
+				tertiary: "text-(--color-fg-subtle)",
 			},
 		},
 		defaultVariants: {

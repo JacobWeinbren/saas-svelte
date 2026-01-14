@@ -10,10 +10,10 @@
 
 			// Text & Placeholder
 			"text-sm leading-5 antialiased",
-			"placeholder:text-zinc-500/90 placeholder:select-none",
+			"placeholder:text-(--color-fg-muted) placeholder:select-none",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
+			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
 			// Focus (Global)
 			"focus-visible:outline-solid focus-visible:outline-(--c-600) focus-visible:border-(--c-600)",
@@ -23,42 +23,42 @@
 				outline: [
 					"bg-transparent",
 					// Light
-					"border-gray-200",
-					"enabled:hover:border-gray-300",
+					"border-(--color-border-default)",
+					"enabled:hover:border-(--color-border-emphasized)",
 					"enabled:hover:focus-visible:border-(--c-600)",
 
 					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
-					"dark:enabled:hover:border-zinc-700",
+					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
+					"dark:enabled:hover:border-(--color-border-emphasized)",
 				],
 				subtle: [
 					"border-transparent",
 					// Light
-					"bg-gray-50",
+					"bg-(--color-bg-subtle)",
 					// Dark
-					"dark:bg-gray-950 dark:text-gray-50",
+					"dark:bg-(--color-bg-subtle) dark:text-(--color-fg-default)",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
 					// Light
-					"border-gray-200",
+					"border-(--color-border-default)",
 					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
+					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
 
 					"focus-visible:outline-0 focus-visible:border-(--c-600)",
 				],
 			},
 			size: {
-				xs: "min-w-6 h-6 px-2 text-xs leading-4",
-				sm: "min-w-7 h-7 px-2.5 text-sm leading-5",
-				md: "min-w-8 h-8 px-3 text-sm leading-5",
-				lg: "min-w-10 h-10 px-5 text-sm leading-5 rounded-md",
+				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-xs leading-4",
+				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-sm leading-5",
+				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-sm leading-5",
+				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-sm leading-5 rounded-(--radius-md)",
 			},
 			invalid: {
 				true: [
-					"border-red-500 focus-visible:border-red-500 focus-visible:outline-red-500 hover:border-gray-300",
-					"dark:border-red-400 dark:focus-visible:border-red-400 dark:hover:border-zinc-700",
+					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
+					"dark:border-(--color-border-error) dark:focus-visible:border-(--color-border-error) dark:hover:border-(--color-border-emphasized)",
 				],
 			},
 		},

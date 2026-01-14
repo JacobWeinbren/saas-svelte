@@ -5,60 +5,54 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded border",
+			"rounded border font-sans",
 
 			// Text & Placeholder
 			"text-sm leading-5 antialiased",
-			"placeholder:text-zinc-500/90 placeholder:select-none",
+			"placeholder:text-(--color-fg-muted) placeholder:select-none",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
+			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
 			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
+			"focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring) focus-visible:border-(--color-accent-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"bg-transparent",
-					// Light
-					"border-gray-200",
-					"enabled:hover:border-gray-300",
-					"enabled:hover:focus-visible:border-zinc-600",
-
-					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
-					"dark:enabled:hover:border-zinc-700",
+					// Light/Dark using semantic tokens
+					"border-(--color-border-default)",
+					"enabled:hover:border-(--color-border-emphasized)",
+					"enabled:hover:focus-visible:border-(--color-accent-focus-ring)",
+					"text-(--color-fg-default)",
 				],
 				subtle: [
 					"border-transparent",
-					// Light
-					"bg-gray-50",
-					// Dark
-					"dark:bg-gray-950 dark:text-gray-50",
+					// Light/Dark using semantic tokens
+					"bg-(--color-bg-muted)",
+					"text-(--color-fg-default)",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
-					// Light
-					"border-gray-200",
-					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
+					// Light/Dark using semantic tokens
+					"border-(--color-border-default)",
+					"text-(--color-fg-default)",
 
-					"focus-visible:outline-0 focus-visible:border-zinc-600",
+					"focus-visible:outline-0 focus-visible:border-(--color-accent-focus-ring)",
 				],
 			},
 			size: {
-				xs: "px-2 py-1 text-xs leading-4",
-				sm: "px-2.5 py-1.5 text-sm leading-5",
-				md: "px-3 py-1.5 text-sm leading-5",
-				lg: "px-4 py-2 text-sm leading-5 rounded-md",
-				xl: "px-5 py-3.5 text-sm leading-5 rounded-md",
+				xs: "px-(--spacing-2) py-(--spacing-1) text-xs leading-4",
+				sm: "px-(--spacing-2_5) py-(--spacing-1_5) text-sm leading-5",
+				md: "px-(--spacing-3) py-(--spacing-1_5) text-sm leading-5",
+				lg: "px-(--spacing-4) py-(--spacing-2) text-sm leading-5 rounded-(--radius-md)",
+				xl: "px-(--spacing-5) py-(--spacing-3_5) text-sm leading-5 rounded-(--radius-md)",
 			},
 			invalid: {
 				true: [
-					"border-red-500 focus-visible:border-red-500 focus-visible:outline-red-500 hover:border-gray-300",
-					"dark:border-red-400 dark:focus-visible:border-red-400 dark:hover:border-zinc-700",
+					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
 				],
 			},
 		},
@@ -121,7 +115,12 @@
 	}: Props = $props();
 
 	const classes = $derived(
-		textareaAutoresize({ variant, size, invalid, class: className }) as string,
+		textareaAutoresize({
+			variant,
+			size,
+			invalid,
+			class: className,
+		}) as string,
 	);
 
 	const minHeight = $derived(`${1 + minRows * 1.2}em`);
@@ -132,7 +131,8 @@
 	<pre
 		aria-hidden="true"
 		class={`${classes} invisible whitespace-pre-wrap break-words overflow-hidden [grid-area:1/1/2/2]`}
-		style="min-height: {minHeight}; max-height: {maxHeight}">{value + "\n"}</pre>
+		style="min-height: {minHeight}; max-height: {maxHeight}">{value +
+			"\n"}</pre>
 
 	<textarea
 		bind:value

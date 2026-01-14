@@ -14,17 +14,15 @@
 			"font-medium",
 			"inline-flex",
 			"rounded-full",
-			"antialiased",
-			"border-0",
 		],
 		variants: {
 			variant: {
-				subtle: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300)",
-				solid: "bg-(--c-600) text-white dark:bg-(--c-600) dark:text-white",
+				subtle: "bg-(--c-100) text-(--c-900) dark:bg-(--c-900) dark:text-(--c-200)",
+				solid: "bg-(--c-solid) text-(--c-contrast)",
 				outline:
-					"text-(--c-700) dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
+					"text-(--c-900) dark:text-(--c-200) ring-1 ring-inset ring-(--c-200) dark:ring-(--c-800)",
 				surface:
-					"bg-(--c-50)/20 text-(--c-700) dark:bg-(--c-950)/20 dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
+					"bg-(--c-50)/20 text-(--c-900) dark:bg-(--c-950)/20 dark:text-(--c-200) ring-1 ring-inset ring-(--c-200) dark:ring-(--c-800)",
 			},
 			size: {
 				xs: "min-h-4 text-xs leading-3 px-1",

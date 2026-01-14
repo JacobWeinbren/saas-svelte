@@ -9,57 +9,56 @@
 			root: "w-full",
 			item: "overflow-anchor-none",
 			trigger: [
-				"flex items-center gap-3 w-full font-medium",
-				"rounded-md",
+				"flex items-center gap-(--spacing-3) w-full font-medium font-sans",
+				"rounded-(--radius-md)",
 				"outline-none",
-				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-zinc-600",
-				"dark:focus-visible:outline-zinc-400",
-				"disabled:opacity-50 disabled:cursor-not-allowed",
+				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
+				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 			],
-			content: "overflow-hidden text-sm dark:text-zinc-300",
+			content: "overflow-hidden text-sm text-(--color-fg-muted)",
 			contentBody: "",
 			indicator:
-				"flex items-center justify-center text-zinc-600 dark:text-zinc-400 shrink-0 transition-transform duration-200",
-			icon: "shrink-0 text-zinc-600 dark:text-zinc-400",
+				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--duration-moderate)",
+			icon: "shrink-0 text-(--color-fg-muted)",
 		},
 		variants: {
 			size: {
 				sm: {
-					trigger: "text-sm py-2",
+					trigger: "text-sm py-(--spacing-2)",
 					content: "text-sm",
-					contentBody: "pt-2 pb-4",
-					indicator: "size-3.5",
-					icon: "size-3.5",
+					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
+					indicator: "size-(--spacing-3_5)",
+					icon: "size-(--spacing-3_5)",
 				},
 				md: {
-					trigger: "text-sm py-2",
+					trigger: "text-sm py-(--spacing-2)",
 					content: "text-sm",
-					contentBody: "pt-2 pb-4",
-					indicator: "size-3.5",
-					icon: "size-3.5",
+					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
+					indicator: "size-(--spacing-3_5)",
+					icon: "size-(--spacing-3_5)",
 				},
 				lg: {
-					trigger: "text-base py-2.5",
+					trigger: "text-base py-(--spacing-2_5)",
 					content: "text-base",
-					contentBody: "pt-2.5 pb-5",
-					indicator: "size-4",
-					icon: "size-4",
+					contentBody: "pt-(--spacing-2_5) pb-(--spacing-5)",
+					indicator: "size-(--spacing-4)",
+					icon: "size-(--spacing-4)",
 				},
 			},
 			variant: {
 				outline: {
-					item: "border-b border-zinc-200 dark:border-zinc-800",
+					item: "border-b border-(--color-border-default)",
 				},
 				subtle: {
-					item: "rounded-md data-[state=open]:bg-zinc-100 dark:data-[state=open]:bg-zinc-800",
-					trigger: "px-4",
-					contentBody: "px-4",
+					item: "rounded-(--radius-md) data-[state=open]:bg-(--color-bg-subtle)",
+					trigger: "px-(--spacing-4)",
+					contentBody: "px-(--spacing-4)",
 				},
 				enclosed: {
-					root: "border border-zinc-200 dark:border-zinc-800 rounded-md",
-					item: "border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 data-[state=open]:bg-zinc-100 dark:data-[state=open]:bg-zinc-800",
-					trigger: "px-4",
-					contentBody: "px-4",
+					root: "border border-(--color-border-default) rounded-(--radius-md)",
+					item: "border-b border-(--color-border-default) last:border-b-0 data-[state=open]:bg-(--color-bg-subtle)",
+					trigger: "px-(--spacing-4)",
+					contentBody: "px-(--spacing-4)",
 				},
 				plain: {
 					item: "border-0",
@@ -136,7 +135,7 @@
 	{multiple}
 	{orientation}
 	class={twMerge(
-		"text-zinc-950 dark:text-zinc-50 leading-normal antialiased",
+		"text-(--color-fg-default) leading-normal antialiased font-sans",
 		classes.root(),
 		className,
 	)}

@@ -11,9 +11,10 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-md text-sm antialiased gap-3",
-			iconWrapper: "shrink-0 flex items-center justify-center w-5 h-5",
-			content: "flex-1 min-w-0 flex flex-col gap-1",
+			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radius-md) text-sm leading-5 antialiased gap-y-(--spacing-3) gap-x-(--spacing-3) font-sans",
+			iconWrapper:
+				"shrink-0 inline-flex items-center justify-center w-(--spacing-5) h-(--spacing-5) text-lg leading-7",
+			content: "flex-1 min-w-0 flex flex-col gap-(--spacing-1)",
 			title: "font-medium leading-5",
 			description: "leading-5 opacity-90",
 		},
@@ -24,16 +25,16 @@
 					iconWrapper: "text-current",
 				},
 				solid: {
-					root: "bg-(--c-600) text-zinc-50 dark:bg-(--c-600)",
-					iconWrapper: "text-current",
+					root: "bg-(--c-solid) text-(--c-contrast)",
+					iconWrapper: "text-(--c-contrast)",
 				},
 				surface: {
-					root: "bg-(--c-50) text-(--c-900) dark:bg-(--c-950) dark:text-(--c-200) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
-					iconWrapper: "text-current",
+					root: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-500)]",
+					iconWrapper: "text-(--c-700) dark:text-(--c-300)",
 				},
 				outline: {
-					root: "bg-transparent text-(--c-700) dark:text-(--c-200) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
-					iconWrapper: "text-current",
+					root: "bg-transparent text-(--c-700) dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-100)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
+					iconWrapper: "text-(--c-700) dark:text-(--c-300)",
 				},
 			},
 		},

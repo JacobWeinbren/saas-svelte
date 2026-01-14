@@ -5,13 +5,14 @@
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
 	import { setContext } from "svelte";
+	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	const checkboxGroup = tv({
 		base: "flex antialiased",
 		variants: {
 			orientation: {
-				horizontal: "flex-row gap-6",
-				vertical: "flex-col gap-1.5",
+				horizontal: "flex-row gap-(--spacing-6)",
+				vertical: "flex-col gap-(--spacing-1_5)",
 			},
 		},
 		defaultVariants: {
@@ -66,6 +67,11 @@
 		 */
 		invalid?: boolean;
 		/**
+		 * The colour palette for the select-all checkbox.
+		 * @default "indigo"
+		 */
+		colour?: ColourName;
+		/**
 		 * Callback invoked when the value changes.
 		 */
 		onValueChange?: (value: string[]) => void;
@@ -90,11 +96,14 @@
 		disabled,
 		readOnly,
 		invalid,
+		colour = "indigo",
 		onValueChange,
 		class: className,
 		children,
 		...rest
 	}: Props = $props();
+
+	const colourVars = $derived(generateColourVars(colour || "indigo"));
 
 	// Initialize value with defaultValue if provided
 	if (defaultValue && value.length === 0) {
@@ -147,11 +156,11 @@
 </script>
 
 {#if selectAllLabel && allValues}
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col gap-(--spacing-2)" style={colourVars}>
 		<div
 			role="button"
 			tabindex="0"
-			class="group inline-flex items-center gap-2.5 cursor-pointer select-none"
+			class="group inline-flex items-center gap-(--spacing-2_5) cursor-(--cursor-checkbox) select-none"
 			onclick={handleSelectAll}
 			onkeydown={(e) => {
 				if (e.key === " " || e.key === "Enter") {
@@ -162,31 +171,31 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-0.5 rounded text-zinc-50 border-gray-300 dark:border-zinc-700 size-4 {isIndeterminate ||
+					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded size-(--spacing-4) {isIndeterminate ||
 					allChecked
-						? 'bg-indigo-600 border-indigo-600'
-						: ''}"
+						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
+						: 'border-(--color-border-emphasized) text-(--c-contrast)'}"
 				>
 					{#if isIndeterminate}
-						<Minus class="size-3" weight="bold" />
+						<Minus class="size-(--spacing-3)" weight="bold" />
 					{:else if allChecked}
-						<Check class="size-3" weight="bold" />
+						<Check class="size-(--spacing-3)" weight="bold" />
 					{/if}
 				</div>
 			</div>
 			<span
-				class="text-sm font-medium leading-5 text-gray-900 dark:text-gray-50"
+				class="text-sm font-medium leading-5 text-(--color-fg-default)"
 			>
 				{selectAllLabel}
 			</span>
 		</div>
 		<div
-			class={twMerge(checkboxGroup({ orientation }), "ps-6", className)}
+			class={twMerge(checkboxGroup({ orientation }), "ps-(--spacing-6)", className)}
 			{...rest}
 		>
 			{#if label}
 				<span
-					class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+					class="mb-(--spacing-2) text-sm font-medium text-(--color-fg-default)"
 				>
 					{label}
 				</span>
@@ -198,7 +207,7 @@
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
 			<span
-				class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+				class="mb-(--spacing-2) text-sm font-medium text-(--color-fg-default)"
 			>
 				{label}
 			</span>

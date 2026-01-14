@@ -8,25 +8,25 @@
 		slots: {
 			root: "flex flex-col",
 			item: "inline-flex items-center",
-			label: "flex items-center text-zinc-500 dark:text-zinc-400",
+			label: "flex items-center text-(--color-fg-muted)",
 			value: "flex flex-1",
 		},
 		variants: {
 			size: {
 				sm: {
-					root: "gap-y-3 gap-x-3",
-					item: "gap-y-4 gap-x-4 text-xs leading-4",
-					label: "gap-y-1 gap-x-1 min-w-32",
+					root: "gap-y-(--spacing-3) gap-x-(--spacing-3)",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-xs leading-4",
+					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 				md: {
-					root: "gap-y-4 gap-x-4",
-					item: "gap-y-4 gap-x-4 text-sm leading-5",
-					label: "gap-y-1 gap-x-1 min-w-32",
+					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-sm leading-5",
+					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 				lg: {
-					root: "gap-y-5 gap-x-5",
-					item: "gap-y-4 gap-x-4 text-md leading-5",
-					label: "gap-y-1 gap-x-1 min-w-32",
+					root: "gap-y-(--spacing-5) gap-x-(--spacing-5)",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-md leading-5",
+					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 			},
 			orientation: {
@@ -107,7 +107,7 @@
 <dl
 	data-orientation={orientation}
 	class={twMerge(
-		"text-zinc-950 dark:text-zinc-50 leading-normal antialiased",
+		"text-(--color-fg-default) leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

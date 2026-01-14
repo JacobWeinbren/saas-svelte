@@ -7,52 +7,93 @@
 
 	export const button = tv({
 		base: [
-			"relative isolate inline-flex h-8 min-w-8 shrink-0 cursor-pointer appearance-none items-center justify-center gap-x-2 rounded border border-solid border-(--c-300)/90 bg-(--c-50)/20 px-3 align-middle text-sm leading-5 font-medium whitespace-nowrap shadow-sm outline-0 select-none hover:border-(--c-300) hover:bg-(--c-50) focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-(--c-600) focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-(--c-300)/90 disabled:hover:bg-(--c-50)/20 [-webkit-tap-highlight-color:transparent] dark:border-zinc-700/90 dark:bg-(--c-950)/20 dark:hover:border-zinc-700 dark:hover:bg-(--c-950) dark:disabled:hover:border-zinc-700/90 dark:disabled:hover:bg-(--c-950)/20 dark:focus-visible:outline-(--c-600)",
-			// BASE TEXT COLOR (Neutral High Contrast)
-			"text-(--c-900) dark:text-(--c-200)",
-			"antialiased",
+			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
+			"rounded font-medium",
+			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-600)",
+			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {
 			variant: {
-				// GLASS: Always White Text
-				glass: "overflow-hidden border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) dark:shadow-inner disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500) after:absolute after:inset-0 after:content-[''] after:bg-[linear-gradient(#fff_40%,#0003)] after:opacity-20 after:transition-opacity after:duration-200 hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
+				// GLASS: Contrast text with gradient overlay
+				glass: [
+					"overflow-x-clip overflow-y-clip",
+					"text-(--c-contrast) bg-(--c-solid) shadow-(--shadows-inner)",
+					"after:content-[''] after:absolute after:inset-0 after:opacity-20 after:pointer-events-none after:bg-[linear-gradient(#fff_40%,#0003)] after:transition-opacity after:duration-200",
+					"hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
+				],
 
-				// SOLID: Always White Text
-				solid: "border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow-sm hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
+				// SOLID: Contrast text with solid background
+				solid: [
+					"text-(--c-contrast) bg-(--c-solid) shadow-(--shadows-sm)",
+					"hover:brightness-110",
+				],
 
-				// SUBTLE: Neutral Text (Inherits Base)
-				subtle: "border-0 bg-(--c-50) hover:bg-(--c-100) shadow-none dark:bg-(--c-950) dark:hover:bg-(--c-900) disabled:hover:bg-(--c-50) dark:disabled:hover:bg-(--c-950)",
+				// SUBTLE: Neutral text with subtle background
+				subtle: [
+					"text-(--c-900) bg-(--c-50) dark:text-(--c-200) dark:bg-(--c-950)",
+					"hover:bg-(--c-100) dark:hover:bg-(--c-900)",
+				],
 
-				// SURFACE: Neutral Text (Inherits Base)
-				surface:
-					"disabled:hover:bg-(--c-50)/20 dark:disabled:hover:bg-(--c-950)/20",
+				// SURFACE: Neutral text with border and subtle background
+				surface: [
+					"text-(--c-900) shadow-(--shadows-sm) border bg-(--c-50)/20 border-(--c-300)/90",
+					"dark:text-(--c-200) dark:bg-(--c-950)/20 dark:border-(--c-700)/90",
+					"hover:bg-(--c-50) hover:border-(--c-300)",
+					"dark:hover:bg-(--c-950) dark:hover:border-(--c-700)",
+				],
 
-				// OUTLINE: Neutral Text (Inherits Base in Light, Colored in Dark)
-				outline:
-					"shadow-none border-[0.5px] border-(--c-300) hover:bg-(--c-50) dark:border-zinc-700 dark:text-(--c-200) dark:hover:bg-(--c-950) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+				// OUTLINE: Neutral text with thin border
+				outline: [
+					"text-(--c-900) border-[0.5px] border-(--c-300)",
+					"dark:text-(--c-200) dark:border-(--c-700)",
+					"hover:bg-(--c-50) dark:hover:bg-(--c-950)",
+				],
 
-				// GHOST: Neutral Text (Inherits Base in Light, Colored in Dark)
-				ghost: "shadow-none border-0 hover:bg-(--c-100) dark:hover:bg-(--c-900) dark:text-(--c-200) disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+				// GHOST: Neutral text, background on hover
+				ghost: [
+					"text-(--c-900) dark:text-(--c-200)",
+					"hover:bg-(--c-100) dark:hover:bg-(--c-900)",
+				],
 
-				// PLAIN: Neutral Text (Inherits Base)
-				plain: "shadow-none border-0 bg-transparent hover:bg-transparent disabled:hover:bg-transparent dark:disabled:hover:bg-transparent",
+				// PLAIN: Neutral text only
+				plain: ["text-(--c-900) dark:text-(--c-200)"],
 			},
 			colour: {},
 			size: {
-				xs: "h-6 min-w-6 gap-x-1 px-2 text-xs leading-4 [&_svg]:size-2",
-				sm: "h-7 min-w-7 px-2.5 text-sm leading-5 [&_svg]:size-3",
-				md: "[&_svg]:size-3.5",
-				lg: "h-10 min-w-10 gap-x-3 rounded-md px-5 [&_svg]:size-5",
-				xl: "h-12 min-w-12 gap-x-3 rounded-md px-6 text-base leading-6 [&_svg]:size-6",
+				xs: "h-(--spacing-6) min-w-(--spacing-6) gap-x-(--spacing-1) gap-y-(--spacing-1) px-(--spacing-2) text-xs leading-4 [&_svg]:size-(--spacing-2)",
+				sm: "h-(--spacing-7) min-w-(--spacing-7) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-2_5) text-sm leading-5 [&_svg]:size-(--spacing-3)",
+				md: "h-(--spacing-8) min-w-(--spacing-8) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-3) text-sm leading-5 [&_svg]:size-(--spacing-3_5)",
+				lg: "h-(--spacing-10) min-w-(--spacing-10) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-5) rounded-md text-sm leading-5 [&_svg]:size-(--spacing-5)",
+				xl: "h-(--spacing-12) min-w-(--spacing-12) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-6) rounded-md text-base leading-6 [&_svg]:size-(--spacing-6)",
 			},
 			icon: { true: "px-0" },
 		},
 		compoundVariants: [
-			{ size: "xs", icon: true, class: "w-6 [&_svg]:size-3" },
-			{ size: "sm", icon: true, class: "w-7 [&_svg]:size-3.5" },
-			{ size: "md", icon: true, class: "w-8 [&_svg]:size-3.5" },
-			{ size: "lg", icon: true, class: "w-10 [&_svg]:size-5" },
-			{ size: "xl", icon: true, class: "w-12 [&_svg]:size-6" },
+			{
+				size: "xs",
+				icon: true,
+				class: "w-(--spacing-6) [&_svg]:size-(--spacing-3)",
+			},
+			{
+				size: "sm",
+				icon: true,
+				class: "w-(--spacing-7) [&_svg]:size-(--spacing-3_5)",
+			},
+			{
+				size: "md",
+				icon: true,
+				class: "w-(--spacing-8) [&_svg]:size-(--spacing-3_5)",
+			},
+			{
+				size: "lg",
+				icon: true,
+				class: "w-(--spacing-10) [&_svg]:size-(--spacing-5)",
+			},
+			{
+				size: "xl",
+				icon: true,
+				class: "w-(--spacing-12) [&_svg]:size-(--spacing-6)",
+			},
 		],
 		defaultVariants: {
 			variant: "surface",
@@ -128,16 +169,16 @@
 
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
-	const loaderSizeMap = {
-		xs: "size-2.5",
-		sm: "size-3",
-		md: "size-3.5",
-		lg: "size-4",
-		xl: "size-5",
-	} as const;
+	const loaderSizeMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
+		xs: "size-(--spacing-2_5)",
+		sm: "size-(--spacing-3)",
+		md: "size-(--spacing-3_5)",
+		lg: "size-(--spacing-4)",
+		xl: "size-(--spacing-5)",
+	};
 
 	const loaderClass = $derived(
-		`${loaderSizeMap[size]} animate-spin [animation-duration:0.5s]`,
+		`${loaderSizeMap[size]} animate-spin [animation-duration:var(--durations-slow)]`,
 	);
 </script>
 

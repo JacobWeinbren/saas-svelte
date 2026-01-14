@@ -22,7 +22,7 @@
 	const ctx = getContext(DIALOG_CTX) as DialogContext;
 
 	const positionerStyles = tv({
-		base: "fixed inset-0 z-50 flex w-screen h-dvh overflow-hidden",
+		base: "fixed inset-0 z-(--z-indices-modal) flex w-screen h-dvh overflow-hidden",
 		variants: {
 			placement: {
 				center: "items-start justify-center",
@@ -40,7 +40,7 @@
 				lg: "",
 				xl: "",
 				full: "",
-				cover: "p-10 items-center justify-center",
+				cover: "p-(--spacing-10) items-center justify-center",
 			},
 		},
 		defaultVariants: {
@@ -52,27 +52,27 @@
 	const contentStyles = tv({
 		base: [
 			"relative flex flex-col",
-			// Darkened background to gray-900/85
-			"bg-zinc-50/95 dark:bg-gray-900/85 backdrop-blur-md",
-			// Adjusted to match HTML: shadow-md, no ring
-			"shadow-md",
+			// Background using semantic tokens with overlay translucency
+			"bg-(--color-bg-overlay) backdrop-blur-md",
+			// Shadow
+			"shadow-(--shadow-lg)",
 			"mx-auto",
 			"outline-none focus:outline-none",
 			"antialiased",
 		],
 		variants: {
 			size: {
-				xs: "w-full max-w-sm rounded-lg",
-				sm: "w-full max-w-md rounded-lg",
-				md: "w-full max-w-lg rounded-lg",
-				lg: "w-full max-w-2xl rounded-lg",
-				xl: "w-full max-w-4xl rounded-lg",
+				xs: "w-full max-w-sm rounded-(--radius-lg)",
+				sm: "w-full max-w-md rounded-(--radius-lg)",
+				md: "w-full max-w-lg rounded-(--radius-lg)",
+				lg: "w-full max-w-2xl rounded-(--radius-lg)",
+				xl: "w-full max-w-4xl rounded-(--radius-lg)",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
+				cover: "w-full h-full rounded-(--radius-lg) my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-4rem)] my-auto",
-				outside: "my-16",
+				outside: "my-(--spacing-16)",
 			},
 		},
 		defaultVariants: {
@@ -83,7 +83,7 @@
 
 <Portal>
 	<Dialog.Backdrop
-		class="fixed inset-0 z-40 transition-opacity duration-200 bg-zinc-950/50"
+		class="fixed inset-0 z-(--z-indices-overlay) transition-opacity duration-(--durations-moderate) bg-(--color-bg-backdrop) data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
 		data-state-layer
 	/>
 
@@ -101,7 +101,10 @@
 				size: ctx.size,
 				scrollBehavior: ctx.scrollBehavior,
 				class: className,
-			})}
+			}) +
+				(ctx.motionPreset === "slide-in-bottom"
+					? " data-[state=open]:animate-dialog-slide-in data-[state=closed]:animate-dialog-slide-out"
+					: " data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out")}
 			data-motion-preset={ctx.motionPreset}
 			{...rest}
 		>
@@ -109,87 +112,3 @@
 		</Dialog.Content>
 	</Dialog.Positioner>
 </Portal>
-
-<style>
-	:global([data-state-layer][data-state="open"]) {
-		animation: fade-in 0.2s ease-out forwards;
-	}
-	:global([data-state-layer][data-state="closed"]) {
-		animation: fade-out 0.2s ease-in forwards;
-	}
-
-	:global([data-part="content"][data-state="open"]) {
-		animation:
-			fade-in 0.2s ease-out,
-			scale-in 0.2s ease-out;
-	}
-	:global([data-part="content"][data-state="closed"]) {
-		animation:
-			fade-out 0.2s ease-in,
-			scale-out 0.2s ease-in;
-	}
-
-	:global(
-		[data-part="content"][data-motion-preset="slide-in-bottom"][data-state="open"]
-	) {
-		animation:
-			fade-in 0.2s ease-out,
-			slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-	:global(
-		[data-part="content"][data-motion-preset="slide-in-bottom"][data-state="closed"]
-	) {
-		animation:
-			fade-out 0.2s ease-in,
-			slide-out-bottom 0.2s ease-in;
-	}
-
-	@keyframes fade-in {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-	@keyframes fade-out {
-		from {
-			opacity: 1;
-		}
-		to {
-			opacity: 0;
-		}
-	}
-	@keyframes scale-in {
-		from {
-			transform: scale(0.95);
-		}
-		to {
-			transform: scale(1);
-		}
-	}
-	@keyframes scale-out {
-		from {
-			transform: scale(1);
-		}
-		to {
-			transform: scale(0.95);
-		}
-	}
-	@keyframes slide-in-bottom {
-		from {
-			transform: translateY(2rem);
-		}
-		to {
-			transform: translateY(0);
-		}
-	}
-	@keyframes slide-out-bottom {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(2rem);
-		}
-	}
-</style>

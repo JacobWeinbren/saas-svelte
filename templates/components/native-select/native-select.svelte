@@ -1,62 +1,64 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
+	import { generateColourVars, type ColourName } from "$saas/utils/colours";
 
 	export const nativeSelect = tv({
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
 			"rounded border select-none",
+			"[&_option]:bg-inherit",
 
 			// Text & Placeholder
 			"text-sm leading-5 antialiased",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
+			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
 			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
-			"dark:focus-visible:outline-zinc-500 dark:focus-visible:border-zinc-500",
+			"focus-visible:outline-solid focus-visible:outline-(--c-600) focus-visible:border-(--c-600)",
+			"dark:focus-visible:outline-(--c-500) dark:focus-visible:border-(--c-500)",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"bg-transparent",
 					// Light
-					"border-gray-200",
-					"enabled:hover:border-gray-300",
-					"enabled:hover:focus-visible:border-zinc-600",
+					"border-(--color-border-default)",
+					"enabled:hover:border-(--color-border-emphasized)",
+					"enabled:hover:focus-visible:border-(--c-600)",
 
 					// Dark
-					"dark:border-gray-800 dark:text-gray-50",
-					"dark:enabled:hover:border-zinc-700",
+					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
+					"dark:enabled:hover:border-(--color-border-emphasized)",
 				],
 				subtle: [
 					"border-transparent",
 					// Light
-					"bg-gray-50",
+					"bg-(--color-bg-subtle)",
 					// Dark
-					"dark:bg-gray-950 dark:text-gray-50",
+					"dark:bg-(--color-bg-subtle) dark:text-(--color-fg-default)",
 				],
 				plain: [
 					"border-0 bg-transparent",
 					// Light
-					"text-zinc-950",
+					"text-(--color-fg-default)",
 					// Dark
-					"dark:text-zinc-50",
+					"dark:text-(--color-fg-default)",
 					"focus-visible:outline-2",
 				],
 			},
 			size: {
-				xs: "h-6 pl-2 pr-6 text-xs leading-4",
-				sm: "h-8 pl-2.5 pr-8 text-sm leading-5",
-				md: "h-10 pl-3 pr-8 text-sm leading-5",
-				lg: "h-11 pl-4 pr-8 text-sm leading-5",
-				xl: "h-12 pl-5 pr-10 text-sm leading-5",
+				xs: "h-(--spacing-6) pl-(--spacing-2) pr-(--spacing-6) text-xs leading-4",
+				sm: "h-(--spacing-8) pl-(--spacing-2_5) pr-(--spacing-8) text-sm leading-5",
+				md: "h-(--spacing-10) pl-(--spacing-3) pr-(--spacing-8) text-sm leading-5",
+				lg: "h-(--spacing-11) pl-(--spacing-4) pr-(--spacing-8) text-sm leading-5",
+				xl: "h-(--spacing-12) pl-(--spacing-5) pr-(--spacing-10) text-sm leading-5",
 			},
 			invalid: {
 				true: [
-					"border-red-500 focus-visible:border-red-500 focus-visible:outline-red-500 hover:border-gray-300",
-					"dark:border-red-400 dark:focus-visible:border-red-400 dark:hover:border-zinc-700",
+					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
+					"dark:border-(--color-border-error) dark:focus-visible:border-(--color-border-error) dark:hover:border-(--color-border-emphasized)",
 				],
 			},
 		},
@@ -88,6 +90,11 @@
 		 */
 		size?: NativeSelectVariants["size"];
 		/**
+		 * The colour theme of the select.
+		 * @default "gray"
+		 */
+		colour?: ColourName;
+		/**
 		 * Whether the select is in an invalid state.
 		 * @default false
 		 */
@@ -113,11 +120,13 @@
 	let {
 		variant = "outline",
 		size = "md",
+		colour = "gray",
 		class: className,
 		invalid = false,
 		disabled = false,
 		value = $bindable(),
 		children,
+		style,
 		...restProps
 	}: Props = $props();
 
@@ -132,6 +141,8 @@
 	>("field");
 
 	const fieldState = $derived($fieldContext ?? {});
+
+	const colourVars = $derived(generateColourVars(colour));
 
 	const isInvalid = $derived(invalid || fieldState.invalid || false);
 	const isDisabled = $derived(disabled || fieldState.disabled || false);
@@ -148,6 +159,8 @@
 			class: className,
 		}) as string,
 	);
+
+	const styles = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <select
@@ -155,14 +168,9 @@
 	disabled={isDisabled}
 	required={isRequired}
 	class={classes}
+	style={styles}
 	bind:value
 	{...restProps}
 >
 	{@render children?.()}
 </select>
-
-<style>
-	select option {
-		background: inherit;
-	}
-</style>

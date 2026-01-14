@@ -7,14 +7,14 @@
 			// Core Layout
 			"saas-code",
 			"inline-flex items-center antialiased",
-			"rounded",
+			"rounded-(--radius-sm)",
 			"font-mono",
 			"[word-wrap:break-word]",
 		],
 		variants: {
 			variant: {
 				// SOLID: Zinc-50 text on colored background
-				solid: "text-zinc-50 bg-(--c-600) dark:bg-(--c-500)",
+				solid: "text-(--color-fg-inverted) bg-(--c-600) dark:bg-(--c-500)",
 
 				// OUTLINE: Colored text with border
 				outline: [
@@ -33,10 +33,10 @@
 				],
 			},
 			size: {
-				xs: "text-xs leading-3 px-1 min-h-4",
-				sm: "text-xs leading-4 px-1.5 min-h-5",
-				md: "text-sm leading-5 px-2 min-h-6",
-				lg: "text-sm leading-5 px-2.5 min-h-7",
+				xs: "text-xs leading-3 px-(--spacing-1) min-h-(--spacing-4)",
+				sm: "text-xs leading-4 px-(--spacing-1_5) min-h-(--spacing-5)",
+				md: "text-sm leading-5 px-(--spacing-2) min-h-(--spacing-6)",
+				lg: "text-sm leading-5 px-(--spacing-2_5) min-h-(--spacing-7)",
 			},
 		},
 		defaultVariants: {

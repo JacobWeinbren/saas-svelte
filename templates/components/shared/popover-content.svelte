@@ -12,47 +12,35 @@
 				"rounded",
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 
-				// Light mode
-				"bg-white backdrop-blur-md",
-				"text-zinc-950",
-
-				// Dark mode
-				"dark:bg-[oklch(0.21_0.02_264.665)] dark:backdrop-blur-md",
-				"dark:text-[oklch(0.985_0.002_247.839)]",
+				// Light/Dark mode using semantic tokens
+				"bg-(--color-bg-panel) backdrop-blur-md",
+				"text-(--color-fg-default)",
 
 				"text-xs font-normal leading-4 antialiased",
 				"max-w-xs",
 				"border-0",
 
-				// Light mode shadow
-				"shadow-[0_8px_16px_0_rgba(20,24,34,0.05),0_0_4px_0_rgba(20,24,34,0.05),0_0_1px_0_rgba(109,114,123,0.8)]",
-
-				// Dark mode shadow
-				"dark:shadow-[0_8px_16px_0_rgba(0,0,0,0.2),0_0_3px_0_rgba(20,24,34,0.2),0_0_1px_0_rgba(243,244,246,0.8)]",
+				// Shadow
+				"shadow-(--shadow-overlay)",
 
 				"outline-none",
 			],
 			arrow: [
 				"[--arrow-size:8px]",
-				"[--arrow-background:rgb(255_255_255)] dark:[--arrow-background:oklch(0.21_0.02_264.665)]",
-				],
-			arrowTip: [
-				"border-l border-t",
-			"border-zinc-200/80 dark:border-zinc-700/80",
+				"[--arrow-background:var(--color-bg-panel)]",
 			],
+			arrowTip: ["border-l border-t", "border-(--color-border-subtle)"],
 		},
 		variants: {
 			variant: {
 				default: {},
 				inverted: {
 					content: [
-						"bg-zinc-950 dark:bg-zinc-50",
-						"text-zinc-50 dark:text-zinc-950",
+						"bg-(--color-bg-inverted)",
+						"text-(--color-fg-inverted)",
 					],
-					arrow: [
-						"[--arrow-background:rgb(9_9_11)] dark:[--arrow-background:rgb(250_250_250)]",
-					],
-					arrowTip: ["border-zinc-950 dark:border-zinc-50"],
+					arrow: ["[--arrow-background:var(--color-bg-inverted)]"],
+					arrowTip: ["border-(--color-border-inverted)"],
 				},
 			},
 			interactive: {
@@ -65,20 +53,20 @@
 			},
 			zIndex: {
 				10: {
-					positioner: "z-10",
+					positioner: "z-(--z-indices-popup)",
 				},
 				50: {
-					positioner: "z-50",
+					positioner: "z-(--z-indices-popover)",
 				},
 			},
 			animation: {
 				scale: {
 					content:
-						"transition-opacity duration-200 data-[state=open]:opacity-100 data-[state=closed]:opacity-0",
+						"transition-opacity duration-(--durations-moderate) data-[state=open]:opacity-100 data-[state=closed]:opacity-0",
 				},
 				zoom: {
 					content:
-						"transition-[opacity,transform] duration-200 data-[state=open]:scale-100 data-[state=open]:opacity-100 data-[state=closed]:scale-95 data-[state=closed]:opacity-0",
+						"transition-[opacity,transform] duration-(--durations-moderate) data-[state=open]:scale-100 data-[state=open]:opacity-100 data-[state=closed]:scale-95 data-[state=closed]:opacity-0",
 				},
 			},
 			fontWeight: {
@@ -91,10 +79,10 @@
 			},
 			padding: {
 				sm: {
-					content: "px-2 py-1",
+					content: "px-(--spacing-2) py-(--spacing-1)",
 				},
 				md: {
-					content: "px-2.5 py-1",
+					content: "px-(--spacing-2_5) py-(--spacing-1)",
 				},
 			},
 		},
@@ -108,7 +96,9 @@
 		},
 	});
 
-	export type PopoverContentVariants = VariantProps<typeof popoverContentStyles>;
+	export type PopoverContentVariants = VariantProps<
+		typeof popoverContentStyles
+	>;
 </script>
 
 <script lang="ts">

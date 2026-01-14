@@ -22,43 +22,14 @@
 </script>
 
 <Accordion.ItemContent
-	class={twMerge("rounded-md overflow-hidden", styles.content(), className)}
+	class={twMerge(
+		"rounded-(--radius-md) overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up font-sans",
+		styles.content(),
+		className,
+	)}
 	{...restProps}
 >
 	<div class={styles.contentBody()}>
 		{@render children()}
 	</div>
 </Accordion.ItemContent>
-
-<style>
-	/* ... keep your existing keyframes and animation classes ... */
-	@keyframes slide-down {
-		from {
-			height: 0;
-		}
-		to {
-			height: var(--height);
-		}
-	}
-
-	@keyframes slide-up {
-		from {
-			height: var(--height);
-		}
-		to {
-			height: 0;
-		}
-	}
-
-	:global(
-		[data-scope="accordion"][data-part="item-content"][data-state="open"]
-	) {
-		animation: slide-down 0.2s ease-out;
-	}
-
-	:global(
-		[data-scope="accordion"][data-part="item-content"][data-state="closed"]
-	) {
-		animation: slide-up 0.2s ease-out;
-	}
-</style>

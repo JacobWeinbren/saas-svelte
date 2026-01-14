@@ -18,7 +18,7 @@
 					"*:focus-visible:z-10",
 					"*:focus-within:z-10",
 				],
-				false: "gap-2",
+				false: "gap-(--spacing-2)",
 			},
 			grow: {
 				true: "w-full *:flex-1",

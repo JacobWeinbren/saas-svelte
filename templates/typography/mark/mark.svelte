@@ -7,7 +7,7 @@
 		variants: {
 			variant: {
 				subtle: "bg-(--c-100) dark:bg-(--c-900)",
-				solid: "text-zinc-50 bg-(--c-600) dark:bg-(--c-500)",
+				solid: "text-(--color-fg-inverted) bg-(--c-600) dark:bg-(--c-500)",
 				text: "bg-transparent font-semibold",
 				plain: "bg-transparent",
 			},

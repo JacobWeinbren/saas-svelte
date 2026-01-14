@@ -109,7 +109,7 @@
 {#snippet separatorStory()}
 	<DataListRoot
 		orientation="horizontal"
-		class="gap-0 divide-y divide-gray-200 dark:divide-gray-800 max-w-md"
+		class="gap-0 divide-y divide-(--color-border-default) max-w-md"
 	>
 		{#each items as item (item.label)}
 			<DataListItem class="py-4 first:pt-0 last:pb-0 grow">

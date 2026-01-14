@@ -1,21 +1,73 @@
 @import "@fontsource-variable/inter";
 @import "tailwindcss";
+@import "@saas-ui/tailwind-preset/theme.css";
+
+:root {
+	color-scheme: light dark;
+	--scale-factor: 1;
+}
+
+html.light {
+	color-scheme: light;
+}
+
+html.dark {
+	color-scheme: dark;
+}
+
+body {
+	background-color: var(--color-bg-default);
+	color: var(--color-fg-default);
+}
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
 	--font-sans: "Inter Variable", sans-serif;
 
-	--text-xs: 0.75rem;
-	--text-sm: 0.8125rem;
-	--text-base: 0.875rem;
-	--text-md: 0.875rem;
-	--text-lg: 1rem;
-	--text-xl: 1.125rem;
-	--text-2xl: 1.25rem;
-	--text-3xl: 1.5rem;
-	--text-4xl: 1.875rem;
-	--text-5xl: 2.25rem;
-	--text-6xl: 3rem;
-	--text-7xl: 3.75rem;
+	/* Animations */
+	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
+	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
+	
+	--animate-dialog-in: fade-in var(--durations-moderate) ease-out, scale-in var(--durations-moderate) ease-out;
+	--animate-dialog-out: fade-out var(--durations-moderate) ease-in, scale-out var(--durations-moderate) ease-in;
+	
+	--animate-dialog-slide-in: fade-in var(--durations-moderate) ease-out, slide-in-bottom var(--durations-slow) cubic-bezier(0.16, 1, 0.3, 1);
+	--animate-dialog-slide-out: fade-out var(--durations-moderate) ease-in, slide-out-bottom var(--durations-moderate) ease-in;
+
+	--animate-accordion-down: slide-down var(--durations-moderate) ease-out;
+	--animate-accordion-up: slide-up var(--durations-moderate) ease-out;
+
+	@keyframes fade-in {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+	@keyframes fade-out {
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+	@keyframes scale-in {
+		from { transform: scale(0.95); }
+		to { transform: scale(1); }
+	}
+	@keyframes scale-out {
+		from { transform: scale(1); }
+		to { transform: scale(0.95); }
+	}
+	@keyframes slide-in-bottom {
+		from { transform: translateY(2rem); }
+		to { transform: translateY(0); }
+	}
+	@keyframes slide-out-bottom {
+		from { transform: translateY(0); }
+		to { transform: translateY(2rem); }
+	}
+	@keyframes slide-down {
+		from { height: 0; }
+		to { height: var(--height); }
+	}
+	@keyframes slide-up {
+		from { height: var(--height); }
+		to { height: 0; }
+	}
 }

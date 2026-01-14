@@ -5,7 +5,7 @@
 	import Quotes from "phosphor-svelte/lib/Quotes";
 
 	export const blockquote = tv({
-		base: "relative flex flex-col gap-2 px-5",
+		base: "relative flex flex-col gap-(--spacing-2) px-(--spacing-5)",
 		variants: {
 			variant: {
 				subtle: "border-l-4 border-l-(--c-50) dark:border-l-(--c-950)",
@@ -98,7 +98,7 @@
 			class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]"
 		>
 			<Quotes
-				class="h-5 w-5 fill-current text-(--c-600) scale-[-1]"
+				class="h-(--spacing-5) w-(--spacing-5) fill-current text-(--c-600) scale-[-1]"
 				color="currentColor"
 				weight="fill"
 			/>
@@ -110,7 +110,7 @@
 	</blockquote>
 
 	{#if cite}
-		<figcaption class="text-sm leading-5 text-zinc-500">
+		<figcaption class="text-sm leading-5 text-(--color-fg-muted)">
 			{#if showDash}—<!-- -->
 			{/if}<cite>{cite}</cite>
 		</figcaption>

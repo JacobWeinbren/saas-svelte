@@ -6,17 +6,14 @@
 	const addon = tv({
 		base: [
 			"flex items-center whitespace-nowrap border antialiased",
-			// Light Mode
-			"bg-gray-50 border-gray-200 text-gray-600",
-			// Dark Mode
-			"dark:bg-gray-950 dark:border-gray-800 dark:text-gray-400",
+			"bg-(--color-bg-muted) border-(--color-border-default) text-(--color-fg-subtle)",
 		],
 		variants: {
 			size: {
-				xs: "h-6 px-2 text-xs",
-				sm: "h-7 px-2.5 text-sm",
-				md: "h-8 px-3 text-sm",
-				lg: "h-10 px-4 text-base",
+				xs: "h-(--spacing-6) px-(--spacing-2) text-xs",
+				sm: "h-(--spacing-7) px-(--spacing-2_5) text-sm",
+				md: "h-(--spacing-8) px-(--spacing-3) text-sm",
+				lg: "h-(--spacing-10) px-(--spacing-4) text-base",
 			},
 		},
 		defaultVariants: {

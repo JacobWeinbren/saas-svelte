@@ -68,9 +68,9 @@
 {#snippet sizesStory()}
 	<HStack align="start" class="flex-wrap gap-4">
 		{#each sizes as size}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
-				<Button {size}>Button</Button>
+				<Button {size}>Button ({size})</Button>
 			</VStack>
 		{/each}
 	</HStack>
@@ -79,7 +79,7 @@
 {#snippet buttonVariantsStory()}
 	<HStack align="start" class="flex-wrap gap-4 p-4">
 		{#each buttonVariants as variant}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{variant}</Text>
 				<Button {variant}>{variant}</Button>
 			</VStack>

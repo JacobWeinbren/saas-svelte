@@ -12,7 +12,7 @@
 
 <div
 	class={twMerge(
-		"flex flex-row justify-end items-center px-6 pt-2 pb-4 gap-3",
+		"flex flex-row justify-end items-center px-(--spacing-6) pt-(--spacing-2) pb-(--spacing-4) gap-(--spacing-3)",
 		className,
 	)}
 >

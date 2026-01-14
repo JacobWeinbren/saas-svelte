@@ -14,7 +14,7 @@
 	class={twMerge(
 		// Fixed alignment: Removed responsive "text-center sm:text-left"
 		// Now consistently left-aligned on all screens.
-		"flex flex-col space-y-1.5 px-6 pt-4 pb-2 text-left",
+		"flex flex-col space-y-(--spacing-1_5) px-(--spacing-6) pt-(--spacing-4) pb-(--spacing-2) text-left",
 		className,
 	)}
 >

@@ -81,7 +81,7 @@
 	});
 
 	const focusClass =
-		"focus-visible:outline focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100 focus-visible:outline-offset-2";
+		"focus-visible:outline-2 focus-visible:outline-(--color-fg-default) focus-visible:outline-offset-2";
 
 	class FocusState {
 		inputRef = $state<HTMLInputElement | null>(null);
@@ -246,7 +246,6 @@
 					<input
 						bind:this={state.inputRef}
 						placeholder="Email (Focused First)"
-						class="appearance-none outline-0 w-full relative rounded border bg-transparent border-gray-200 text-sm leading-5 antialiased placeholder:text-zinc-500/90 px-3 h-8 enabled:hover:border-gray-300 focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600 dark:border-gray-800 dark:text-gray-50"
 					/>
 				</Stack>
 			</Dialog.Body>

@@ -78,7 +78,7 @@
 {#snippet sizesStory()}
 	<Stack class="flex-row items-start gap-6">
 		{#each sizes as size}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
 				<Avatar {size} name="David Wilson" src="/avatars/1.png" />
 			</VStack>
@@ -89,7 +89,7 @@
 {#snippet shapeStory()}
 	<Stack class="flex-row items-start gap-8">
 		{#each shapes as shape}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{shape}</Text>
 				<Avatar
 					{shape}

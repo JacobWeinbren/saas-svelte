@@ -5,39 +5,38 @@
 
 	export const avatar = tv({
 		slots: {
-			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased",
+			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-sans font-medium",
 			image: "object-cover w-full h-full border-none",
-			fallback:
-				"w-full h-full flex items-center justify-center uppercase font-medium leading-none",
+			fallback: "uppercase font-medium leading-none rounded-full flex items-center justify-center",
 		},
 		variants: {
 			size: {
 				"2xs": {
-					root: "w-4 h-4 text-[8px]",
-					fallback: "text-[8px]",
+					root: "w-(--spacing-4) h-(--spacing-4) text-2xs",
+					fallback: "text-2xs",
 				},
 				xs: {
-					root: "w-5 h-5 text-[10px]",
-					fallback: "text-[10px]",
-				},
-				sm: {
-					root: "w-6 h-6 text-xs",
+					root: "w-(--spacing-5) h-(--spacing-5) text-xs",
 					fallback: "text-xs",
 				},
+				sm: {
+					root: "w-(--spacing-6) h-(--spacing-6) text-sm",
+					fallback: "text-sm",
+				},
 				md: {
-					root: "w-9 h-9 text-lg",
+					root: "w-(--spacing-9) h-(--spacing-9) text-lg",
 					fallback: "text-lg",
 				},
 				lg: {
-					root: "w-12 h-12 text-2xl",
+					root: "w-(--spacing-12) h-(--spacing-12) text-2xl",
 					fallback: "text-2xl",
 				},
 				xl: {
-					root: "w-16 h-16 text-3xl",
+					root: "w-(--spacing-16) h-(--spacing-16) text-3xl",
 					fallback: "text-3xl",
 				},
 				"2xl": {
-					root: "w-20 h-20 text-4xl",
+					root: "w-(--spacing-20) h-(--spacing-20) text-4xl",
 					fallback: "text-4xl",
 				},
 				full: {
@@ -46,7 +45,7 @@
 			},
 			variant: {
 				solid: {
-					root: "bg-(--c-500) text-white dark:bg-(--c-500) dark:text-white",
+					root: "bg-(--c-solid) text-(--c-contrast)",
 				},
 				subtle: {
 					root: "bg-(--c-100) text-(--c-900) dark:bg-(--c-800) dark:text-(--c-200)",
@@ -77,7 +76,7 @@
 					root: "",
 				},
 				false: {
-					root: "border-2 border-white dark:border-zinc-950",
+					root: "border-2 border-(--color-bg-default) dark:border-(--color-bg-default)",
 				},
 			},
 			colour: {},
@@ -243,10 +242,6 @@
 				{@render children()}
 			</span>
 		{:else}
-			<!-- Default generic fallback icon usually? Or just empty styling? 
-                 The anatomy shows 'DW' or just placeholder. 
-                 If no name and no src, we might show a generic user icon, but 
-                 spec says 'The initials of the name can be used ...' -->
 			<span class={fallbackClass()}>
 				<svg
 					viewBox="0 0 24 24"

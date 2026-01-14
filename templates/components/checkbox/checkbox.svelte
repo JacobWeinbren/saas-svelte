@@ -10,23 +10,24 @@
 
 	const checkboxControl = tv({
 		base: [
-			"flex items-center justify-center border shrink-0 p-0.5",
+			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
 			"rounded",
 			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-600) peer-focus-visible:outline-solid",
-			"text-zinc-50",
-			"border-gray-300 dark:border-zinc-700",
 			"antialiased",
 		],
 		variants: {
 			variant: {
+				// SOLID: Filled background when checked, uses contrast text
 				solid: "",
+				// SUBTLE: Light background with border
 				subtle: "",
+				// OUTLINE: Border only, transparent background
 				outline: "",
 			},
 			size: {
-				sm: "size-3.5",
-				md: "size-4",
-				lg: "size-5",
+				sm: "size-(--spacing-3_5)",
+				md: "size-(--spacing-4)",
+				lg: "size-(--spacing-5)",
 			},
 			checked: {
 				true: "",
@@ -34,37 +35,54 @@
 				indeterminate: "",
 			},
 			disabled: {
-				true: "cursor-not-allowed opacity-50",
+				true: "cursor-(--cursor-disabled) opacity-50",
 			},
 			invalid: {
-				true: "border-red-500! peer-focus-visible:outline-red-600! dark:border-red-500!",
+				true: "border-(--color-border-error)! peer-focus-visible:outline-(--color-border-error)!",
 			},
 		},
 		compoundVariants: [
+			// SOLID - unchecked: gray border, white/transparent icon
+			{
+				variant: "solid",
+				checked: false,
+				class: "border-(--color-border-emphasized) text-(--c-contrast)",
+			},
+			// SOLID - checked: colored background and border, contrast text
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-600) border-(--c-600) text-zinc-50 dark:bg-(--c-600) dark:border-(--c-600) dark:text-zinc-50",
+				class: "bg-(--c-solid) border-(--c-solid) text-(--c-contrast)",
 			},
+			// SUBTLE - unchecked: light bg, light border, hidden icon
 			{
 				variant: "subtle",
 				checked: false,
-				class: "bg-(--c-50) border-(--c-200) text-zinc-50 dark:bg-(--c-950) dark:border-(--c-800) dark:text-zinc-50",
+				class: "bg-(--c-50) border-(--c-300) text-(--c-contrast) dark:bg-(--c-950) dark:border-(--c-800)",
 			},
+			// SUBTLE - checked: light bg, light border, colored icon
 			{
 				variant: "subtle",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-50) border-(--c-200) text-(--c-700) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
+				class: "bg-(--c-50) border-(--c-300) text-(--c-700) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
 			},
+			// OUTLINE - unchecked: gray border, transparent bg
+			{
+				variant: "outline",
+				checked: false,
+				class: "border-(--color-border-emphasized) text-(--c-contrast)",
+			},
+			// OUTLINE - checked: colored border, colored icon
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
-				class: "border-(--c-600) text-(--c-700) dark:border-(--c-600) dark:text-(--c-300)",
+				class: "border-(--c-600) text-(--c-700) dark:text-(--c-300)",
 			},
+			// Invalid state when checked
 			{
 				invalid: true,
 				checked: [true, "indeterminate"],
-				class: "bg-red-600! border-red-600! text-zinc-50! dark:bg-red-600! dark:border-red-600! dark:text-zinc-50!",
+				class: "bg-(--color-border-error)! border-(--color-border-error)! text-(--color-fg-inverted)!",
 			},
 		],
 		defaultVariants: {
@@ -75,10 +93,10 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-center gap-2.5 cursor-pointer select-none",
+		base: "group inline-flex items-center gap-(--spacing-2_5) cursor-(--cursor-checkbox) select-none",
 		variants: {
 			disabled: {
-				true: "cursor-not-allowed opacity-60",
+				true: "cursor-(--cursor-disabled) opacity-60",
 			},
 		},
 	});
@@ -190,9 +208,9 @@
 	);
 
 	const iconSizeClass = {
-		sm: "size-2.5",
-		md: "size-3",
-		lg: "size-3.5",
+		sm: "size-(--spacing-2_5)",
+		md: "size-(--spacing-3)",
+		lg: "size-(--spacing-3_5)",
 	} as const;
 
 	const iconClass = $derived(`${iconSizeClass[size || "md"]}`);
@@ -274,21 +292,21 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
+					class="text-sm font-medium leading-5 text-(--color-fg-default) select-none"
 				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
 				<div
-					class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50"
+					class="text-sm leading-5 text-(--color-fg-default) select-none"
 				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
 				<p
-					class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"
+					class="mt-(--spacing-1) text-sm font-normal text-(--color-fg-muted)"
 				>
 					{description}
 				</p>

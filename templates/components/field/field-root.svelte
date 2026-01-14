@@ -63,7 +63,7 @@
 
 <div
 	role="group"
-	class={`flex relative w-full flex-col items-start gap-1.5 ${className || ""}`}
+	class={`flex relative w-full flex-col items-start gap-(--spacing-1_5) ${className || ""}`}
 	{...restProps}
 >
 	{@render children?.()}

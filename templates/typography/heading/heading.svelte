@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	const heading = tv({
-		base: "text-zinc-950 dark:text-zinc-50 font-sans antialiased break-words",
+		base: "text-(--color-fg-default) font-sans antialiased break-words",
 		variants: {
 			size: {
 				xs: "text-xs leading-4 tracking-[0] font-semibold",

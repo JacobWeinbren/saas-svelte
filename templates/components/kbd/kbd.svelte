@@ -5,21 +5,21 @@
 	export const kbd = tv({
 		base: [
 			"inline-flex items-center justify-center shrink-0 select-none whitespace-nowrap [word-spacing:-0.5em]",
-			"font-medium rounded px-1",
+			"font-medium rounded-(--radius-sm) px-(--spacing-1)",
 			"antialiased font-sans",
 		],
 		variants: {
 			variant: {
-				raised: "border-t border-b-2 border-x border-gray-50 bg-gray-100 text-gray-900 dark:border-gray-950 dark:bg-gray-900 dark:text-gray-200",
+				raised: "border-t border-b-2 border-x border-(--color-border-muted) bg-(--color-bg-subtle) text-(--color-fg-emphasized) dark:border-(--color-border-muted) dark:bg-(--color-bg-subtle) dark:text-(--color-fg-emphasized)",
 				outline:
-					"border border-gray-200 text-gray-900 dark:border-gray-800 dark:text-gray-200",
-				subtle: "bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-200",
-				plain: "text-gray-900 dark:text-gray-200",
+					"border border-(--color-border-default) text-(--color-fg-emphasized) dark:border-(--color-border-default) dark:text-(--color-fg-emphasized)",
+				subtle: "bg-(--color-bg-subtle) text-(--color-fg-emphasized) dark:bg-(--color-bg-subtle) dark:text-(--color-fg-emphasized)",
+				plain: "text-(--color-fg-emphasized) dark:text-(--color-fg-emphasized)",
 			},
 			size: {
-				sm: "h-4 text-[10px] leading-3",
-				md: "h-5 text-xs leading-4",
-				lg: "h-6 text-sm leading-5 px-1.5",
+				sm: "h-(--spacing-4) text-[10px] leading-3",
+				md: "h-(--spacing-5) text-xs leading-4",
+				lg: "h-(--spacing-6) text-sm leading-5 px-(--spacing-1_5)",
 			},
 		},
 		defaultVariants: {
