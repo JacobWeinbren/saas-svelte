@@ -101,54 +101,49 @@
 		value = [...defaultValue];
 	}
 
-	// When using select-all, derive state from value
 	const allChecked = $derived(
-		allValues && value
-			? value.length === allValues.length
-			: false
+		allValues && value && value.length === allValues.length,
 	);
 	const isIndeterminate = $derived(
-		allValues && value
-			? value.length > 0 && value.length < allValues.length
-			: false
+		allValues &&
+			value &&
+			value.length > 0 &&
+			value.length < allValues.length,
 	);
-
-	// Provide context for child checkboxes
-	setContext("checkbox-group", {
-		get value() { return value; },
-		setValue(newValue: string[]) {
-			value = newValue;
-			onValueChange?.(newValue);
-		},
-		name,
-		disabled,
-		readOnly,
-		invalid,
-	});
 
 	function toggleValue(checkboxValue: string) {
 		if (readOnly || disabled) return;
 
 		const newValue = value.includes(checkboxValue)
-			? value.filter(v => v !== checkboxValue)
+			? value.filter((v) => v !== checkboxValue)
 			: [...value, checkboxValue];
 
 		value = newValue;
 		onValueChange?.(newValue);
 	}
 
+	setContext("checkbox-group", {
+		get value() {
+			return value;
+		},
+		get name() {
+			return name;
+		},
+		get disabled() {
+			return disabled;
+		},
+		get invalid() {
+			return invalid;
+		},
+		toggleValue,
+	});
+
 	function handleSelectAll() {
 		if (readOnly || disabled || !allValues) return;
-
-		// If all checked, uncheck all
-		// If indeterminate or none checked, check all
 		const newValue = allChecked ? [] : [...allValues];
 		value = newValue;
 		onValueChange?.(newValue);
 	}
-
-	// Expose toggle function via context
-	setContext("checkbox-group-toggle", toggleValue);
 </script>
 
 {#if selectAllLabel && allValues}
@@ -167,7 +162,8 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-0.5 rounded text-zinc-50 border-gray-300 dark:border-zinc-700 size-4 {isIndeterminate || allChecked
+					class="flex items-center justify-center border shrink-0 p-0.5 rounded text-zinc-50 border-gray-300 dark:border-zinc-700 size-4 {isIndeterminate ||
+					allChecked
 						? 'bg-indigo-600 border-indigo-600'
 						: ''}"
 				>
@@ -178,13 +174,20 @@
 					{/if}
 				</div>
 			</div>
-			<span class="text-sm font-medium leading-5 text-gray-900 dark:text-gray-50">
+			<span
+				class="text-sm font-medium leading-5 text-gray-900 dark:text-gray-50"
+			>
 				{selectAllLabel}
 			</span>
 		</div>
-		<div class={twMerge(checkboxGroup({ orientation }), "ps-6", className)} {...rest}>
+		<div
+			class={twMerge(checkboxGroup({ orientation }), "ps-6", className)}
+			{...rest}
+		>
 			{#if label}
-				<span class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+				<span
+					class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+				>
 					{label}
 				</span>
 			{/if}
@@ -194,7 +197,9 @@
 {:else}
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
-			<span class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+			<span
+				class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+			>
 				{label}
 			</span>
 		{/if}

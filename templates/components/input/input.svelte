@@ -16,7 +16,7 @@
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 
 			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600",
+			"focus-visible:outline-solid focus-visible:outline-(--c-600) focus-visible:border-(--c-600)",
 		],
 		variants: {
 			variant: {
@@ -25,7 +25,7 @@
 					// Light
 					"border-gray-200",
 					"enabled:hover:border-gray-300",
-					"enabled:hover:focus-visible:border-zinc-600",
+					"enabled:hover:focus-visible:border-(--c-600)",
 
 					// Dark
 					"dark:border-gray-800 dark:text-gray-50",
@@ -46,7 +46,7 @@
 					// Dark
 					"dark:border-gray-800 dark:text-gray-50",
 
-					"focus-visible:outline-0 focus-visible:border-zinc-600",
+					"focus-visible:outline-0 focus-visible:border-(--c-600)",
 				],
 			},
 			size: {
@@ -134,17 +134,7 @@
 		}>
 	>("field");
 
-	const fieldState = $derived(
-		fieldContext
-			? $fieldContext
-			: {
-					id: undefined,
-					disabled: false,
-					invalid: false,
-					required: false,
-					readOnly: false,
-				},
-	);
+	const fieldState = $derived($fieldContext ?? {});
 
 	const colourVars = $derived(generateColourVars(colour));
 

@@ -168,9 +168,8 @@
 
 	// Get context from AvatarGroup if available
 	const groupContext = getContext<AvatarGroupContext>("avatar-group");
+
 	const size = $derived(groupContext?.size ?? propSize ?? "md");
-	// const variant = $derived(groupContext?.variant ?? propVariant ?? "solid"); // Group doesn't usually enforce variant? Design doesn't say.
-	// But it might be useful. For now sticking to props.
 	const variant = propVariant ?? "solid";
 	const borderless = groupContext?.borderless ?? true;
 
@@ -188,13 +187,11 @@
 
 	const initials = $derived(
 		name
-			? name
-					.split(" ")
-					.map((part) => part[0])
-					.slice(0, 2)
-					.join("")
-					.toUpperCase()
-			: "",
+			?.split(" ")
+			.map((part) => part[0])
+			.slice(0, 2)
+			.join("")
+			.toUpperCase(),
 	);
 
 	const colourVars = $derived(generateColourVars(colour || "gray"));
@@ -209,7 +206,7 @@
 			variant,
 			shape,
 			borderless,
-			colour: "gray" as any, // Only for type satisfaction if needed, actual colour handled by vars
+			colour: "gray" as any,
 		}),
 	);
 

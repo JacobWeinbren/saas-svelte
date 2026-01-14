@@ -7,7 +7,8 @@
 		InputElement,
 	} from "$saas/components/input";
 	import { Group } from "$saas/layout/group";
-	import { Stack } from "$saas/layout/stack";
+	import { Stack, HStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
 	import {
 		commonArgTypes,
 		getControls,
@@ -103,10 +104,13 @@
 {/snippet}
 
 {#snippet coloursStory()}
-	<Stack class="max-w-sm">
-		<Input colour="indigo" placeholder="Indigo focus ring" />
-		<Input colour="rose" placeholder="Rose focus ring" />
-		<Input colour="emerald" placeholder="Emerald focus ring" />
+	<Stack class="max-w-sm gap-4">
+		{#each colours as colour}
+			<HStack align="center" class="gap-4">
+				<Text size="xs" class="min-w-[8ch] capitalize">{colour}</Text>
+				<Input {colour} placeholder="Focus to see {colour} ring" class="flex-1" />
+			</HStack>
+		{/each}
 	</Stack>
 {/snippet}
 

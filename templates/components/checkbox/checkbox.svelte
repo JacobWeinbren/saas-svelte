@@ -85,7 +85,8 @@
 
 	type CheckboxVariants = VariantProps<typeof checkboxControl>;
 
-	interface Props extends Omit<HTMLInputAttributes, "size" | "checked" | "value"> {
+	interface Props
+		extends Omit<HTMLInputAttributes, "size" | "checked" | "value"> {
 		/**
 		 * The controlled checked state of the checkbox.
 		 * @default false
@@ -138,7 +139,9 @@
 		/**
 		 * Callback invoked when the checked state changes.
 		 */
-		onCheckedChange?: (details: { checked: boolean | "indeterminate" }) => void;
+		onCheckedChange?: (details: {
+			checked: boolean | "indeterminate";
+		}) => void;
 	}
 
 	let {
@@ -160,27 +163,30 @@
 	}: Props = $props();
 
 	// Get checkbox group context if it exists
-	const groupContext = hasContext("checkbox-group") ? getContext<any>("checkbox-group") : null;
-	const toggleValue = hasContext("checkbox-group-toggle") ? getContext<any>("checkbox-group-toggle") : null;
+	const groupContext = getContext<any>("checkbox-group");
 
 	// Use group values if in a group, otherwise use props
-	const effectiveDisabled = $derived(disabled ?? groupContext?.disabled ?? false);
-	const effectiveInvalid = $derived(invalid ?? groupContext?.invalid ?? false);
+	const effectiveDisabled = $derived(disabled || groupContext?.disabled);
+	const effectiveInvalid = $derived(invalid || groupContext?.invalid);
 	const effectiveName = $derived(name ?? groupContext?.name);
 
 	// Derive checked state from group if in a group
 	const isInGroup = $derived(!!groupContext && !!value);
-	const groupChecked = $derived(
-		isInGroup && groupContext?.value ? groupContext.value.includes(value!) : false
-	);
-	const effectiveChecked = $derived(isInGroup ? groupChecked : checked);
+	const checkedState = $derived.by(() => {
+		if (isInGroup) {
+			return groupContext.value.includes(value);
+		}
+		return checked;
+	});
 
 	const colourVars = $derived(generateColourVars(colour || "indigo"));
 
-	const isChecked = $derived(effectiveChecked === true || effectiveChecked === "indeterminate");
+	const isChecked = $derived(
+		checkedState === true || checkedState === "indeterminate",
+	);
 
 	const variantState = $derived(
-		effectiveChecked === "indeterminate" ? "indeterminate" : isChecked,
+		checkedState === "indeterminate" ? "indeterminate" : isChecked,
 	);
 
 	const iconSizeClass = {
@@ -194,9 +200,9 @@
 	function handleChange(e: Event) {
 		const target = e.currentTarget as HTMLInputElement;
 
-		if (isInGroup && value && toggleValue) {
+		if (isInGroup) {
 			// In a group, use the toggle function
-			toggleValue(value);
+			groupContext.toggleValue(value);
 		} else {
 			// Standalone checkbox
 			// If it was indeterminate, clicking makes it checked
@@ -215,13 +221,16 @@
 
 	$effect(() => {
 		if (inputRef) {
-			inputRef.indeterminate = effectiveChecked === "indeterminate";
+			inputRef.indeterminate = checkedState === "indeterminate";
 		}
 	});
 </script>
 
 <label
-	class={twMerge(container({ disabled: effectiveDisabled ? true : undefined }), className)}
+	class={twMerge(
+		container({ disabled: effectiveDisabled ? true : undefined }),
+		className,
+	)}
 	style={colourVars}
 >
 	<div class="flex items-center shrink-0">
@@ -249,10 +258,14 @@
 		>
 			{#if icon}
 				{@render icon()}
-			{:else if effectiveChecked === "indeterminate"}
+			{:else if checkedState === "indeterminate"}
 				<Minus class={iconClass} weight="bold" />
 			{:else}
-				<Check class={iconClass} weight="bold" style="opacity: {isChecked ? 1 : 0}" />
+				<Check
+					class={iconClass}
+					weight="bold"
+					style="opacity: {isChecked ? 1 : 0}"
+				/>
 			{/if}
 		</div>
 	</div>
@@ -260,17 +273,23 @@
 	{#if label || children || description}
 		<div class="flex flex-col">
 			{#if label}
-				<span class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50">
+				<span
+					class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
+				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
-				<div class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50">
+				<div
+					class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50"
+				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
-				<p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+				<p
+					class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"
+				>
 					{description}
 				</p>
 			{/if}

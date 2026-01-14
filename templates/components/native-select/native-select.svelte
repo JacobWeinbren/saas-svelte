@@ -131,17 +131,7 @@
 		}>
 	>("field");
 
-	const fieldState = $derived(
-		fieldContext
-			? $fieldContext
-			: {
-					id: undefined,
-					disabled: false,
-					invalid: false,
-					required: false,
-					readOnly: false,
-				},
-	);
+	const fieldState = $derived($fieldContext ?? {});
 
 	const isInvalid = $derived(invalid || fieldState.invalid || false);
 	const isDisabled = $derived(disabled || fieldState.disabled || false);
