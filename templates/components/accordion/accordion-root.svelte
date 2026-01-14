@@ -48,16 +48,16 @@
 			},
 			variant: {
 				outline: {
-					item: "border-b border-gray-200 dark:border-gray-800",
+					item: "border-b border-zinc-200 dark:border-zinc-800",
 				},
 				subtle: {
-					item: "rounded-md data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-zinc-800",
+					item: "rounded-md data-[state=open]:bg-zinc-100 dark:data-[state=open]:bg-zinc-800",
 					trigger: "px-4",
 					contentBody: "px-4",
 				},
 				enclosed: {
-					root: "border border-gray-200 dark:border-gray-800 rounded-md",
-					item: "border-b border-gray-200 dark:border-gray-800 last:border-b-0 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-zinc-800",
+					root: "border border-zinc-200 dark:border-zinc-800 rounded-md",
+					item: "border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 data-[state=open]:bg-zinc-100 dark:data-[state=open]:bg-zinc-800",
 					trigger: "px-4",
 					contentBody: "px-4",
 				},

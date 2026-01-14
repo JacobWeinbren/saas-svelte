@@ -15,7 +15,7 @@
 		variants: {
 			variant: {
 				// GLASS: Always White Text
-				glass: "overflow-hidden border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) dark:shadow-inner disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
+				glass: "overflow-hidden border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow-inner [text-shadow:0_1px_2px_#0000004d] hover:bg-(--c-500) dark:hover:bg-(--c-500) dark:shadow-inner disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500) after:absolute after:inset-0 after:content-[''] after:bg-[linear-gradient(#fff_40%,#0003)] after:opacity-20 after:transition-opacity after:duration-200 hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
 
 				// SOLID: Always White Text
 				solid: "border-0 bg-(--c-500) dark:bg-(--c-500) text-zinc-50 dark:text-zinc-50 shadow shadow-sm hover:bg-(--c-500)/90 dark:hover:bg-(--c-500)/90 disabled:hover:bg-(--c-500) dark:disabled:hover:bg-(--c-500)",
@@ -66,9 +66,6 @@
 </script>
 
 <script lang="ts">
-	const glassOverlay =
-		"pointer-events-none absolute inset-0 border-0 border-solid border-(--c-200) bg-[linear-gradient(#fff_40%,#0003)] opacity-20 duration-200 hover:bg-(--c-500) group-hover:bg-[linear-gradient(#fffc_40%,#0009)]";
-
 	type ButtonVariants = VariantProps<typeof button>;
 
 	interface Props extends HTMLButtonAttributes {
@@ -150,10 +147,6 @@
 	disabled={disabled || loading}
 	{...restProps}
 >
-	{#if variant === "glass"}
-		<span class={glassOverlay} aria-hidden="true"></span>
-	{/if}
-
 	{#if loading && !loadingText}
 		<span class="contents">
 			<div class="absolute inset-0 flex items-center justify-center">

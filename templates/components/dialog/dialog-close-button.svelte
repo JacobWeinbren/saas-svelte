@@ -12,8 +12,8 @@
 </script>
 
 <Dialog.CloseTrigger
-		// Updated to match HTML output
-		"absolute right-4 top-4 rounded-md transition-colors", // Position & Shape
+	class={twMerge(
+		"absolute right-4 top-4 rounded-md transition-colors cursor-pointer min-w-7 h-7", // Position & Shape
 		"text-gray-900 hover:bg-gray-100", // Colors & Hover
 		"flex items-center justify-center rounded p-1", // Layout
 		"focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100",

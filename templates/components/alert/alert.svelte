@@ -11,9 +11,9 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-md text-sm antialiased",
+			root: "relative w-full flex items-start p-4 rounded-md text-sm antialiased gap-3",
 			iconWrapper: "shrink-0 flex items-center justify-center w-5 h-5",
-			content: "flex-1 min-w-0 flex flex-col gap-1 ml-3",
+			content: "flex-1 min-w-0 flex flex-col gap-1",
 			title: "font-medium leading-5",
 			description: "leading-5 opacity-90",
 		},
@@ -28,11 +28,11 @@
 					iconWrapper: "text-current",
 				},
 				surface: {
-					root: "bg-(--c-50) border border-(--c-200) text-(--c-900) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-200)",
+					root: "bg-(--c-50) text-(--c-900) dark:bg-(--c-950) dark:text-(--c-200) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
 					iconWrapper: "text-current",
 				},
 				outline: {
-					root: "bg-transparent border border-(--c-200) text-(--c-700) dark:border-(--c-800) dark:text-(--c-200)",
+					root: "bg-transparent text-(--c-700) dark:text-(--c-200) shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
 					iconWrapper: "text-current",
 				},
 			},
@@ -104,7 +104,9 @@
 		neutral: "gray",
 	};
 
-	const resolvedColour = $derived(colour ?? statusColourMap[status] ?? "gray");
+	const resolvedColour = $derived(
+		colour ?? statusColourMap[status] ?? "gray",
+	);
 	const colourVars = $derived(generateColourVars(resolvedColour));
 
 	const statusIconMap = {
