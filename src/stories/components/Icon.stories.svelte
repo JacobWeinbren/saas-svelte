@@ -137,9 +137,9 @@
 
 <Story name="Sizes">
 	{#snippet template()}
-		<HStack class="items-start gap-4">
+		<HStack class="items-end gap-4">
 			{#each sizes as size}
-				<VStack class="gap-2">
+				<VStack class="gap-2 items-center">
 					<Text size="xs">{size}</Text>
 					<Icon as={Star} colour="yellow" weight="fill" {size} />
 				</VStack>

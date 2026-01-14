@@ -6,7 +6,14 @@
 	import tailwindColors from "tailwindcss/colors";
 
 	const iconStyles = tv({
-		base: "inline-block shrink-0 leading-none align-middle antialiased",
+		base: [
+			// Display
+			"inline-block shrink-0",
+			// Typography alignment
+			"leading-none align-middle",
+			// Rendering
+			"antialiased",
+		],
 		variants: {
 			size: {
 				xs: "size-(--spacing-3)",
