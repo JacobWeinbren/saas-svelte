@@ -69,7 +69,7 @@
 
 {#snippet basicStory(args: any)}
 	<Blockquote {...args}>
-		<Text size="sm">
+		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
 			himself. Each one should test his own actions. Then he can take
 			pride in himself, without comparing himself to anyone else.
@@ -79,7 +79,7 @@
 
 {#snippet withCiteStory()}
 	<Blockquote cite="Uzumaki Naruto" showDash>
-		<Text size="sm">
+		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
 			himself. Each one should test his own actions. Then he can take
 			pride in himself, without comparing himself to anyone else.
@@ -92,8 +92,12 @@
 		{#each colours as colourName}
 			<HStack class="gap-10 w-full px-4" align="center">
 				<Text class="min-w-[8ch]">{colourName}</Text>
-				<Blockquote colour={colourName as ColourName} cite="Uzumaki Naruto" showDash>
-					<Text size="sm">
+				<Blockquote
+					colour={colourName as ColourName}
+					cite="Uzumaki Naruto"
+					showDash
+				>
+					<Text>
 						If anyone thinks he is something when he is nothing, he
 						deceives himself. Each one should test his own actions.
 						Then he can take pride in himself, without comparing
@@ -108,21 +112,21 @@
 {#snippet variantsStory()}
 	<VStack class="gap-8">
 		<Blockquote variant="subtle">
-			<Text size="sm">
+			<Text>
 				If anyone thinks he is something when he is nothing, he deceives
 				himself. Each one should test his own actions. Then he can take
 				pride in himself, without comparing himself to anyone else.
 			</Text>
 		</Blockquote>
 		<Blockquote variant="solid">
-			<Text size="sm">
+			<Text>
 				If anyone thinks he is something when he is nothing, he deceives
 				himself. Each one should test his own actions. Then he can take
 				pride in himself, without comparing himself to anyone else.
 			</Text>
 		</Blockquote>
 		<Blockquote variant="plain">
-			<Text size="sm">
+			<Text>
 				If anyone thinks he is something when he is nothing, he deceives
 				himself. Each one should test his own actions. Then he can take
 				pride in himself, without comparing himself to anyone else.
@@ -139,7 +143,7 @@
 		showIcon
 		cite="Uzumaki Naruto"
 	>
-		<Text size="sm">
+		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
 			himself. Each one should test his own actions. Then he can take
 			pride in himself, without comparing himself to anyone else.
@@ -154,7 +158,7 @@
 		class="pl-8"
 		icon={customIcon}
 	>
-		<Text size="sm">
+		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
 			himself. Each one should test his own actions. Then he can take
 			pride in himself, without comparing himself to anyone else.
@@ -164,7 +168,7 @@
 
 {#snippet customIcon()}
 	<Float placement="middle-start">
-		<Circle colour="blue" size="sm">
+		<Circle colour="blue">
 			<Quotes
 				class="w-4 h-4 text-white"
 				color="currentColor"

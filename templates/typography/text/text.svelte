@@ -49,7 +49,7 @@
 			},
 		},
 		defaultVariants: {
-			size: "md",
+			size: "sm",
 			weight: "normal",
 			variant: "primary",
 		},

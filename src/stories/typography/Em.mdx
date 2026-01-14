@@ -1,0 +1,21 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as EmStories from "./Em.stories.svelte";
+
+<Meta of={EmStories} />
+
+# Em
+
+Used to mark text for emphasis.
+
+<Canvas of={EmStories.Basic} />
+
+## Usage
+
+```html
+<script>
+	import { Text } from "$saas/typography/text";
+	import { Em } from "$saas/typography/em";
+</script>
+
+<Text> The <em>design system</em> is a collection of UI elements </Text>
+```

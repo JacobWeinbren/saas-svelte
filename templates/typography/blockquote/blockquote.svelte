@@ -9,7 +9,7 @@
 		variants: {
 			variant: {
 				subtle: "border-l-4 border-l-(--c-50) dark:border-l-(--c-950)",
-				solid: "border-l-4 border-l-(--c-500) bg-(--c-50) dark:bg-(--c-950) dark:border-l-(--c-800)",
+				solid: "border-l-4 border-l-(--c-500) dark:border-l-(--c-800)",
 				plain: "",
 			},
 			justify: {
@@ -94,8 +94,14 @@
 	{#if icon}
 		{@render icon()}
 	{:else if showIcon}
-		<div class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]">
-			<Quotes class="h-5 w-5 fill-current text-(--c-600) scale-[-1]" color="currentColor" weight="fill" />
+		<div
+			class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]"
+		>
+			<Quotes
+				class="h-5 w-5 fill-current text-(--c-600) scale-[-1]"
+				color="currentColor"
+				weight="fill"
+			/>
 		</div>
 	{/if}
 
