@@ -22,7 +22,7 @@
 	const ctx = getContext(DIALOG_CTX) as DialogContext;
 
 	const positionerStyles = tv({
-		base: "fixed inset-0 z-50 flex w-screen h-[100dvh] overflow-hidden",
+		base: "fixed inset-0 z-50 flex w-screen h-dvh overflow-hidden",
 		variants: {
 			placement: {
 				center: "items-start justify-center",
