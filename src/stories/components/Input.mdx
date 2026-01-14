@@ -48,13 +48,25 @@ Use the variant prop to change the visual style of the input. Values can be outl
 
 ### Sizes
 
-Use the size prop to change the size of the input. Available sizes are xs, sm, md (default), lg, and xl.
+Use the size prop to change the size of the input. Available sizes are xs, sm, md (default), and lg.
 
 <Canvas of={InputStories.Sizes} />
 
+### Left Element
+
+Pair the input with the `InputElement` component to add an element to the left of the input.
+
+<Canvas of={InputStories.LeftElement} />
+
+### Left and Right Element
+
+Use `InputElement` with `placement="left"` and `placement="right"` to add elements on both sides.
+
+<Canvas of={InputStories.LeftAndRightElement} />
+
 ### With Addons
 
-Use InputAddon to attach fixed labels to the start or end of an input.
+Use `InputAddon` with the `Group` component to attach fixed labels to the start or end of an input.
 
 <Canvas of={InputStories.WithAddons} />
 

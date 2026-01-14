@@ -16,8 +16,8 @@
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
-			// Focus - using accent focus ring
-			"focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring) focus-visible:border-(--color-accent-focus-ring)",
+			// Focus - using colour prop (--c-focus-ring set via generateColourVars)
+			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
@@ -27,7 +27,7 @@
 					"border-(--color-border-default)",
 					// Hover - light: gray-300, dark: zinc-700
 					"enabled:hover:border-(--color-border-emphasized)",
-					"enabled:hover:focus-visible:border-(--color-accent-focus-ring)",
+					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
@@ -40,7 +40,7 @@
 					// Border - light: gray-200, dark: gray-800
 					"border-(--color-border-default)",
 					// Focus - shadow instead of outline
-					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--color-accent-focus-ring)",
+					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--c-focus-ring)",
 				],
 			},
 			size: {

@@ -9,6 +9,9 @@
 	import { Group } from "$saas/layout/group";
 	import { Stack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
+	import { Kbd } from "$saas/components/kbd";
+	import User from "phosphor-svelte/lib/User";
+	import MagnifyingGlass from "phosphor-svelte/lib/MagnifyingGlass";
 	import {
 		commonArgTypes,
 		getControls,
@@ -88,15 +91,50 @@
 	</Stack>
 {/snippet}
 
+{#snippet leftElementStory()}
+	<HStack class="gap-4 w-full">
+		<InputGroup class="flex-1">
+			<InputElement placement="left">
+				<User class="size-3.5" />
+			</InputElement>
+			<Input placeholder="Username" class="pl-(--spacing-8)" />
+		</InputGroup>
+
+		<InputGroup class="flex-1">
+			<InputElement placement="left">https://</InputElement>
+			<Input placeholder="yoursite.com" class="pl-(--spacing-16)" />
+		</InputGroup>
+	</HStack>
+{/snippet}
+
+{#snippet leftAndRightElementStory()}
+	<HStack class="gap-4 w-full">
+		<InputGroup class="flex-1">
+			<InputElement placement="left">
+				<MagnifyingGlass class="size-3.5" />
+			</InputElement>
+			<Input placeholder="Search contacts" class="px-(--spacing-8)" />
+			<InputElement placement="right" class="pointer-events-auto">
+				<Kbd>⌘K</Kbd>
+			</InputElement>
+		</InputGroup>
+
+		<InputGroup class="flex-1">
+			<InputElement placement="left">https://</InputElement>
+			<Input placeholder="yoursite.com" class="pl-(--spacing-16)" />
+		</InputGroup>
+	</HStack>
+{/snippet}
+
 {#snippet withAddonsStory()}
-	<Stack class="max-w-sm">
+	<Stack class="max-w-sm gap-4">
 		<Group attached>
 			<InputAddon>https://</InputAddon>
-			<Input placeholder="website.com" />
+			<Input placeholder="website.com" class="-ml-px focus-visible:z-1" />
 		</Group>
 
 		<Group attached>
-			<Input placeholder="jdoe" />
+			<Input placeholder="jdoe" class="-mr-px focus-visible:z-1" />
 			<InputAddon>@gmail.com</InputAddon>
 		</Group>
 	</Stack>
@@ -136,6 +174,10 @@
 <Story name="Variants" template={variantsStory} />
 
 <Story name="Sizes" template={sizesStory} />
+
+<Story name="Left Element" template={leftElementStory} />
+
+<Story name="Left And Right Element" template={leftAndRightElementStory} />
 
 <Story name="With Addons" template={withAddonsStory} />
 

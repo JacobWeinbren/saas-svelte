@@ -41,8 +41,9 @@ export type ColourName = (typeof availableColours)[number] | (string & {});
  * - Use classes like bg-(--c-500), text-(--c-700), border-(--c-200)
  *
  * Also provides semantic tokens:
- * - --c-contrast: text color for solid backgrounds (from --color-{name}-contrast)
- * - --c-solid: solid background color (from --color-{name}-solid)
+ * - --c-contrast: text color for solid backgrounds (from --colors-{name}-contrast)
+ * - --c-solid: solid background color (from --colors-{name}-solid)
+ * - --c-focus-ring: focus ring color (from --color-{name}-focus-ring)
  */
 export function generateColourVars(colourName: string): string {
     if (!colourName) return "";
@@ -53,11 +54,12 @@ export function generateColourVars(colourName: string): string {
         .map((shade) => `--c-${shade}: var(--color-${colourName}-${shade})`)
         .join("; ");
 
-    // Use the Saas UI preset's semantic tokens for contrast and solid
-    // Note: Semantic tokens use --colors- (plural) prefix, not --color-
+    // Use the Saas UI preset's semantic tokens
+    // --color-{name}-focus-ring references --colors-{name}-focus-ring which uses light-dark()
     const extras = [
         `--c-contrast: var(--colors-${colourName}-contrast)`,
         `--c-solid: var(--colors-${colourName}-solid)`,
+        `--c-focus-ring: var(--colors-${colourName}-focus-ring)`,
     ].join("; ");
 
     return `${shadeVars}; ${extras}`;
