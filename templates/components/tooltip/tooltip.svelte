@@ -1,60 +1,9 @@
 <script module lang="ts">
-	import { tv, type VariantProps } from "tailwind-variants";
+	import { popoverContentStyles } from "$saas/components/shared/popover-content.svelte";
 
-	export const tooltipObj = tv({
-		slots: {
-			content: [
-				"z-50 rounded px-2.5 py-1 shadow-sm",
-				"animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-
-				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
-				"bg-zinc-50 dark:bg-zinc-950",
-				"text-zinc-950 dark:text-zinc-50",
-				"text-xs font-medium leading-4 antialiased",
-				"max-w-xs",
-				"select-none",
-				"border border-zinc-200 dark:border-zinc-800",
-			],
-			arrow: [
-				"[--arrow-size:8px]",
-				"[--arrow-background:rgb(250_250_250)] dark:[--arrow-background:rgb(9_9_11)]",
-				"drop-shadow-none",
-			],
-			arrowTip: [
-				"border-l border-t border-zinc-200 dark:border-zinc-800",
-			],
-		},
-		variants: {
-			variant: {
-				default: {},
-				inverted: {
-					content: [
-						"bg-zinc-950 dark:bg-zinc-50",
-						"text-zinc-50 dark:text-zinc-950",
-						"border-zinc-950 dark:border-zinc-50",
-					],
-					arrow: [
-						"[--arrow-background:rgb(9_9_11)] dark:[--arrow-background:rgb(250_250_250)]",
-					],
-					arrowTip: ["border-zinc-950 dark:border-zinc-50"],
-				},
-			},
-			interactive: {
-				true: {
-					content: "pointer-events-auto",
-				},
-				false: {
-					content: "pointer-events-none",
-				},
-			},
-		},
-		defaultVariants: {
-			variant: "default",
-			interactive: false,
-		},
-	});
-
-	export type TooltipVariants = VariantProps<typeof tooltipObj>;
+	export type TooltipVariants = {
+		variant?: "default" | "inverted";
+	};
 </script>
 
 <script lang="ts">
@@ -134,7 +83,14 @@
 	);
 
 	const styles = $derived(
-		tooltipObj({ variant, interactive, class: className }),
+		popoverContentStyles({
+			variant,
+			interactive,
+			zIndex: 50,
+			animation: "zoom",
+			fontWeight: "medium",
+			padding: "md",
+		}),
 	);
 </script>
 
@@ -153,7 +109,7 @@
 			</div>
 		{/snippet}
 	</ArkTooltip.Trigger>
-	<ArkTooltip.Positioner>
+	<ArkTooltip.Positioner class={styles.positioner()}>
 		<ArkTooltip.Content class={styles.content()}>
 			{#if showArrow}
 				<ArkTooltip.Arrow class={styles.arrow()}>
