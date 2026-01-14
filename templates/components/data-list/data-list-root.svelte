@@ -14,7 +14,7 @@
 		variants: {
 			size: {
 				sm: {
-					root: "gap-y-(--spacing-3) gap-x-(--spacing-3)",
+					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
 					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-xs leading-4",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
@@ -24,8 +24,8 @@
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 				lg: {
-					root: "gap-y-(--spacing-5) gap-x-(--spacing-5)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-sm leading-5",
+					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-base leading-6",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 			},

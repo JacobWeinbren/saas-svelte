@@ -73,20 +73,19 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack align="start" class="gap-12">
+	<VStack align="start" class="gap-4">
 		{#each dataListSizes as size}
-			<VStack class="gap-2 items-center">
-				<Text size="xs">{size}</Text>
-
+			<HStack class="gap-4 items-center">
+				<Text size="xs" class="min-w-[3ch]">{size}</Text>
 				<DataListRoot {size}>
 					<DataListItem>
 						<DataListItemLabel>Name</DataListItemLabel>
 						<DataListItemValue>John Doe</DataListItemValue>
 					</DataListItem>
 				</DataListRoot>
-			</VStack>
+			</HStack>
 		{/each}
-	</HStack>
+	</VStack>
 {/snippet}
 
 {#snippet orientationStory()}
