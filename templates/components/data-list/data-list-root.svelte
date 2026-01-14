@@ -7,9 +7,9 @@
 	const dataList = tv({
 		slots: {
 			root: "flex flex-col",
-			item: "inline-flex items-center",
+			item: "inline-flex items-center grow",
 			label: "flex items-center text-(--color-fg-muted)",
-			value: "flex flex-1",
+			value: "flex flex-1 text-(--color-fg-default)",
 		},
 		variants: {
 			size: {
@@ -25,7 +25,7 @@
 				},
 				lg: {
 					root: "gap-y-(--spacing-5) gap-x-(--spacing-5)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-md leading-5",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-sm leading-5",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 			},
@@ -43,10 +43,16 @@
 					value: "w-full",
 				},
 			},
+			divider: {
+				true: {
+					item: "not-first:border-t not-first:border-(--color-border-default) not-first:pt-(--spacing-4)",
+				},
+			},
 		},
 		defaultVariants: {
 			size: "md",
 			orientation: "horizontal",
+			divider: false,
 		},
 	});
 
@@ -77,6 +83,11 @@
 		 */
 		colour?: ColourName;
 		/**
+		 * Whether to show dividers between items.
+		 * @default false
+		 */
+		divider?: boolean;
+		/**
 		 * Inline styles to apply to the root element.
 		 */
 		style?: string;
@@ -89,11 +100,12 @@
 		size = "md",
 		orientation = "horizontal",
 		colour = "gray",
+		divider = false,
 		style,
 		...restProps
 	}: Props = $props();
 
-	const classes = $derived(dataList({ size, orientation }));
+	const classes = $derived(dataList({ size, orientation, divider }));
 	const colourVars = $derived(generateColourVars(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 

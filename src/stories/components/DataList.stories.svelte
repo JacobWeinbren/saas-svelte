@@ -6,7 +6,7 @@
 		DataListItemLabel,
 		DataListItemValue,
 	} from "$saas/components/data-list";
-	import { Stack } from "$saas/layout/stack";
+	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { commonArgTypes, getControls, orientations } from "../utils";
 
@@ -26,16 +26,21 @@
 				options: orientations,
 				table: { defaultValue: { summary: "horizontal" } },
 			},
+			divider: {
+				control: "boolean",
+				table: { defaultValue: { summary: "false" } },
+			},
 			colour: commonArgTypes.colour,
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
 		},
 		parameters: {
-			controls: getControls(["size", "orientation", "colour", "class"]),
+			controls: getControls(["size", "orientation", "divider", "colour", "class"]),
 		},
 		args: {
 			size: "md",
 			orientation: "horizontal",
+			divider: false,
 		},
 	});
 
@@ -68,9 +73,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="gap-8">
+	<HStack align="start" class="gap-12">
 		{#each dataListSizes as size}
-			<Stack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
 
 				<DataListRoot {size}>
@@ -79,9 +84,9 @@
 						<DataListItemValue>John Doe</DataListItemValue>
 					</DataListItem>
 				</DataListRoot>
-			</Stack>
+			</VStack>
 		{/each}
-	</Stack>
+	</HStack>
 {/snippet}
 
 {#snippet orientationStory()}
@@ -106,13 +111,10 @@
 	</DataListRoot>
 {/snippet}
 
-{#snippet separatorStory()}
-	<DataListRoot
-		orientation="horizontal"
-		class="gap-0 divide-y divide-(--color-border-default) max-w-md"
-	>
+{#snippet dividerStory()}
+	<DataListRoot orientation="horizontal" divider class="max-w-md">
 		{#each items as item (item.label)}
-			<DataListItem class="py-4 first:pt-0 last:pb-0 grow">
+			<DataListItem>
 				<DataListItemLabel>{item.label}</DataListItemLabel>
 				<DataListItemValue>{item.value}</DataListItemValue>
 			</DataListItem>
@@ -128,4 +130,4 @@
 
 <Story name="Vertical" template={verticalStory} />
 
-<Story name="WithSeparator" template={separatorStory} />
+<Story name="WithDivider" template={dividerStory} />
