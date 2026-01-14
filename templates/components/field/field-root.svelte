@@ -63,7 +63,15 @@
 
 <div
 	role="group"
-	class={`flex relative w-full flex-col items-start gap-(--spacing-1_5) ${className || ""}`}
+	class={[
+		// Layout
+		"flex relative w-full flex-col items-start",
+		// Gap between label, input, and helper/error text
+		"gap-(--spacing-1_5)",
+		className,
+	]
+		.filter(Boolean)
+		.join(" ")}
 	{...restProps}
 >
 	{@render children?.()}

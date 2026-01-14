@@ -27,7 +27,17 @@
 
 <span
 	id={helperId}
-	class={`text-(--color-fg-muted) text-xs leading-4 antialiased ${className || ""}`}
+	class={[
+		// Text color - muted for helper text (zinc-500)
+		"text-(--color-fg-muted)",
+		// Typography
+		"text-xs leading-4",
+		// Rendering
+		"antialiased",
+		className,
+	]
+		.filter(Boolean)
+		.join(" ")}
 	{...restProps}
 >
 	{@render children?.()}

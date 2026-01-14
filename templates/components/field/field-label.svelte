@@ -37,7 +37,21 @@
 
 <label
 	for={fieldId}
-	class={`flex items-center gap-(--spacing-1) select-none text-sm font-medium leading-5 antialiased ${isDisabled ? "opacity-50" : ""} ${className || ""}`}
+	class={[
+		// Layout
+		"flex items-center gap-(--spacing-1)",
+		// Text styles
+		"text-sm font-medium leading-5",
+		// Text color - inherits from parent, uses default fg color
+		"text-(--color-fg-default)",
+		// User interaction
+		"select-none antialiased",
+		// Disabled state
+		isDisabled && "opacity-50",
+		className,
+	]
+		.filter(Boolean)
+		.join(" ")}
 	{...restProps}
 >
 	{@render children?.()}
