@@ -4,7 +4,7 @@
 	import { NativeSelect } from "$saas/components/native-select";
 	import { Field } from "$saas/components/field";
 	import { Button } from "$saas/components/button";
-	import { VStack } from "$saas/layout/stack";
+	import { HStack, VStack } from "$saas/layout/stack";
 	import { commonArgTypes, getControls } from "../utils";
 
 	const nativeSelectSizes = ["xs", "sm", "md", "lg", "xl"] as const;

@@ -70,7 +70,7 @@
 		{#each sizes as size}
 			<VStack class="gap-2">
 				<Text size="xs">{size}</Text>
-				<Button {size}>Button {size}</Button>
+				<Button {size}>Button</Button>
 			</VStack>
 		{/each}
 	</HStack>

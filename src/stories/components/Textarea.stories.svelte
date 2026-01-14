@@ -62,7 +62,7 @@
 {#snippet sizesStory()}
 	<VStack>
 		{#each textareaSizes as size}
-			<Textarea {size} placeholder="{size.toUpperCase()} size" />
+			<Textarea {size} placeholder="{size} size" />
 		{/each}
 	</VStack>
 {/snippet}
