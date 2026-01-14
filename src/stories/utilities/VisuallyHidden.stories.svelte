@@ -3,6 +3,7 @@
 	import { VisuallyHidden } from "$saas/utilities/visually-hidden";
 	import { Button } from "$saas/components/button";
 	import { commonArgTypes, getControls } from "../utils";
+	import Bell from "phosphor-svelte/lib/Bell";
 
 	const { Story } = defineMeta({
 		title: "utilities/Visually Hidden",
@@ -15,10 +16,6 @@
 			controls: getControls(["children", "class"]),
 		},
 	});
-</script>
-
-<script lang="ts">
-	import Bell from "phosphor-svelte/lib/Bell";
 </script>
 
 {#snippet basicStory()}

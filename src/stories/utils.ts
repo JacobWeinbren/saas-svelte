@@ -130,6 +130,10 @@ export {
     blockquotePattern,
     floatPattern,
     circlePattern,
+    headingPattern,
+    emPattern,
+    markPattern,
+    highlightPattern,
 } from "./exclude-patterns";
 
 

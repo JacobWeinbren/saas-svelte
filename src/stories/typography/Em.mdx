@@ -1,5 +1,7 @@
-import { Meta, Canvas } from "@storybook/blocks";
+import { Meta, Canvas, ArgTypes } from "@storybook/blocks";
 import * as EmStories from "./Em.stories.svelte";
+import { Em } from "$saas/typography/em";
+import { emPattern } from "../utils";
 
 <Meta of={EmStories} />
 
@@ -17,5 +19,9 @@ Used to mark text for emphasis.
 	import { Em } from "$saas/typography/em";
 </script>
 
-<Text> The <em>design system</em> is a collection of UI elements </Text>
+<Text> The <Em>design system</Em> is a collection of UI elements </Text>
 ```
+
+### Props
+
+<ArgTypes of={Em} exclude={emPattern} />

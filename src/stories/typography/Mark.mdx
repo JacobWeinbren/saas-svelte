@@ -1,0 +1,50 @@
+import { Meta, Canvas, ArgTypes } from "@storybook/blocks";
+import * as MarkStories from "./Mark.stories.svelte";
+import { Mark } from "$saas/typography/mark";
+import { markPattern } from "../utils";
+
+<Meta of={MarkStories} />
+
+# Mark
+
+Used to mark text for emphasis.
+
+<Canvas of={MarkStories.Basic} />
+
+## Usage
+
+```html
+<script>
+	import { Text } from "$saas/typography/text";
+	import { Mark } from "$saas/typography/mark";
+</script>
+
+<Text> The <Mark>design system</Mark> is a collection of UI elements </Text>
+```
+
+## Examples
+
+### Variants
+
+Use the `variant` prop to change the visual style of the mark. Available variants are `subtle`, `solid`, `text`, and `plain`.
+
+<Canvas of={MarkStories.Variants} />
+
+```html
+<Text>
+	The <Mark variant="subtle">design system</Mark> is a collection of UI elements
+</Text>
+<Text>
+	The <Mark variant="solid">design system</Mark> is a collection of UI elements
+</Text>
+<Text>
+	The <Mark variant="text">design system</Mark> is a collection of UI elements
+</Text>
+<Text>
+	The <Mark variant="plain">design system</Mark> is a collection of UI elements
+</Text>
+```
+
+### Props
+
+<ArgTypes of={Mark} exclude={markPattern} />

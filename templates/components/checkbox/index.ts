@@ -1,2 +1,9 @@
-export { default as Checkbox } from './checkbox.svelte';
-export { default as CheckboxGroup } from './checkbox-group.svelte';
+import CheckboxRoot from './checkbox.svelte';
+import CheckboxGroup from './checkbox-group.svelte';
+
+export const Checkbox = Object.assign(CheckboxRoot, {
+	Group: CheckboxGroup,
+});
+
+export { CheckboxGroup };
+export default Checkbox;

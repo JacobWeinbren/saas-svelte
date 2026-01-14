@@ -82,10 +82,10 @@
 
 	const focusClass =
 		"focus-visible:outline focus-visible:outline-gray-950 dark:focus-visible:outline-gray-100 focus-visible:outline-offset-2";
-</script>
 
-<script lang="ts">
-	let focusInputRef = $state<HTMLInputElement | null>(null);
+	class FocusState {
+		inputRef = $state<HTMLInputElement | null>(null);
+	}
 </script>
 
 {#snippet basicStory()}
@@ -231,7 +231,8 @@
 {/snippet}
 
 {#snippet initialFocusStory()}
-	<Dialog.Root initialFocusEl={() => focusInputRef}>
+	{@const state = new FocusState()}
+	<Dialog.Root initialFocusEl={() => state.inputRef}>
 		<Dialog.Trigger>Open Dialog</Dialog.Trigger>
 		<Dialog.Content>
 			<Dialog.Header>
@@ -243,7 +244,7 @@
 					<Input placeholder="First Name" />
 					<Input placeholder="Last Name" />
 					<input
-						bind:this={focusInputRef}
+						bind:this={state.inputRef}
 						placeholder="Email (Focused First)"
 						class="appearance-none outline-0 w-full relative rounded border bg-transparent border-gray-200 text-sm leading-5 antialiased placeholder:text-zinc-500/90 px-3 h-8 enabled:hover:border-gray-300 focus-visible:outline-solid focus-visible:outline-zinc-600 focus-visible:border-zinc-600 dark:border-gray-800 dark:text-gray-50"
 					/>

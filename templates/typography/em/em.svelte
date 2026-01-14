@@ -7,6 +7,9 @@
 	});
 
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: string;
 	}
 

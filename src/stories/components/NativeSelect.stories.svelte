@@ -45,10 +45,11 @@
 			value: "",
 		},
 	});
-</script>
 
-<script lang="ts">
-	let hookFormState = $state({ framework: "", submitted: false });
+	class HookFormState {
+		framework = $state("");
+		submitted = $state(false);
+	}
 </script>
 
 {#snippet sizesStory()}
@@ -106,22 +107,21 @@
 {/snippet}
 
 {#snippet hookFormStory()}
+	{@const state = new HookFormState()}
 	<form
 		onsubmit={(e) => {
 			e.preventDefault();
-			hookFormState.submitted = true;
+			state.submitted = true;
 		}}
 	>
-		<Field.Root
-			invalid={hookFormState.submitted && !hookFormState.framework}
-		>
+		<Field.Root invalid={state.submitted && !state.framework}>
 			<Field.Label>Framework</Field.Label>
 			<NativeSelect
 				size="sm"
-				invalid={hookFormState.submitted && !hookFormState.framework}
+				invalid={state.submitted && !state.framework}
 				class="w-60"
 				name="framework"
-				bind:value={hookFormState.framework}
+				bind:value={state.framework}
 			>
 				<option value="">Select framework</option>
 				<option value="react">React</option>
@@ -129,7 +129,7 @@
 				<option value="angular">Angular</option>
 				<option value="svelte">Svelte</option>
 			</NativeSelect>
-			{#if hookFormState.submitted && !hookFormState.framework}
+			{#if state.submitted && !state.framework}
 				<Field.ErrorText>Framework is required</Field.ErrorText>
 			{/if}
 		</Field.Root>

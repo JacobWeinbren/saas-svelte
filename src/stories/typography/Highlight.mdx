@@ -1,0 +1,79 @@
+import { Meta, Canvas, ArgTypes } from "@storybook/blocks";
+import * as HighlightStories from "./Highlight.stories.svelte";
+import { Highlight } from "$saas/typography/highlight";
+import { highlightPattern } from "../utils";
+
+<Meta of={HighlightStories} />
+
+# Highlight
+
+Used to highlight substrings of a text.
+
+<Canvas of={HighlightStories.Basic} />
+
+## Usage
+
+```html
+<script>
+	import { Highlight } from "$saas/typography/highlight";
+</script>
+
+<Highlight query="Hello" text="Hello World" />
+```
+
+## Examples
+
+### Multiple
+
+Pass an array of strings to the `query` prop to highlight multiple substrings.
+
+<Canvas of={HighlightStories.Multiple} />
+
+```html
+<Highlight
+	query={["spotlight", "emphasise", "accentuate"]}
+	text="With the Highlight component, you can spotlight, emphasise and accentuate words."
+/>
+```
+
+### Custom style
+
+Use the `variant` prop to customise the style of the highlighted text.
+
+<Canvas of={HighlightStories.CustomStyle} />
+
+```html
+<Highlight
+	query="component"
+	variant="text"
+	text="With the Highlight component, you can spotlight words."
+/>
+```
+
+### Search query
+
+Use the highlight component to highlight search query results.
+
+<Canvas of={HighlightStories.SearchQuery} />
+
+```html
+<script>
+	const query = "spot";
+	const results = ["Spotlight bulb", "Spot cleaner", "Spot ceiling"];
+</script>
+
+<Stack>
+	<Text>Search result for: spot</Text>
+	<Stack>
+		{#each results as item}
+			<Text>
+				<Highlight ignoreCase {query} variant="text" text={item} />
+			</Text>
+		{/each}
+	</Stack>
+</Stack>
+```
+
+### Props
+
+<ArgTypes of={Highlight} exclude={highlightPattern} />

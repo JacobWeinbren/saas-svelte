@@ -1,10 +1,12 @@
 <script lang="ts">
-	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLInputAttributes } from "svelte/elements";
+	import type { Snippet } from "svelte";
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
 	import { type ColourName, generateColourVars } from "$saas/utils/colours";
-	import type { Snippet } from "svelte";
+	import { tv, type VariantProps } from "tailwind-variants";
+	import { twMerge } from "tailwind-merge";
+	import { getContext, hasContext } from "svelte";
 
 	const checkboxControl = tv({
 		base: [
@@ -23,7 +25,7 @@
 			},
 			size: {
 				sm: "size-3.5",
-				md: "size-4", // 16px
+				md: "size-4",
 				lg: "size-5",
 			},
 			checked: {
@@ -39,13 +41,11 @@
 			},
 		},
 		compoundVariants: [
-			// Solid: Default styling
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
 				class: "bg-(--c-600) border-(--c-600) text-zinc-50 dark:bg-(--c-600) dark:border-(--c-600) dark:text-zinc-50",
 			},
-			// Subtle: Background persists even when unchecked
 			{
 				variant: "subtle",
 				checked: false,
@@ -56,13 +56,11 @@
 				checked: [true, "indeterminate"],
 				class: "bg-(--c-50) border-(--c-200) text-(--c-700) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
 			},
-			// Outline: Transparent background
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
 				class: "border-(--c-600) text-(--c-700) dark:border-(--c-600) dark:text-(--c-300)",
 			},
-			// Invalid + Checked: Must be Red, not theme color
 			{
 				invalid: true,
 				checked: [true, "indeterminate"],
@@ -77,7 +75,7 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-start gap-2.5 cursor-pointer select-none align-top",
+		base: "group inline-flex items-center gap-2.5 cursor-pointer select-none",
 		variants: {
 			disabled: {
 				true: "cursor-not-allowed opacity-60",
@@ -87,17 +85,12 @@
 
 	type CheckboxVariants = VariantProps<typeof checkboxControl>;
 
-	interface Props
-		extends Omit<HTMLInputAttributes, "size" | "checked" | "value"> {
+	interface Props extends Omit<HTMLInputAttributes, "size" | "checked" | "value"> {
 		/**
 		 * The controlled checked state of the checkbox.
 		 * @default false
 		 */
 		checked?: boolean | "indeterminate";
-		/**
-		 * Group context value.
-		 */
-		group?: string[];
 		/**
 		 * The value of the checkbox.
 		 */
@@ -138,11 +131,18 @@
 		 * Content to render inside the checkbox label area.
 		 */
 		children?: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
+		class?: string;
+		/**
+		 * Callback invoked when the checked state changes.
+		 */
+		onCheckedChange?: (details: { checked: boolean | "indeterminate" }) => void;
 	}
 
 	let {
 		checked = $bindable(false),
-		group = $bindable(),
 		value,
 		size = "md",
 		variant = "solid",
@@ -153,71 +153,78 @@
 		children,
 		disabled,
 		invalid = false,
-		style,
 		icon,
+		onCheckedChange,
+		name,
 		...rest
 	}: Props = $props();
 
+	// Get checkbox group context if it exists
+	const groupContext = hasContext("checkbox-group") ? getContext<any>("checkbox-group") : null;
+	const toggleValue = hasContext("checkbox-group-toggle") ? getContext<any>("checkbox-group-toggle") : null;
+
+	// Use group values if in a group, otherwise use props
+	const effectiveDisabled = $derived(disabled ?? groupContext?.disabled ?? false);
+	const effectiveInvalid = $derived(invalid ?? groupContext?.invalid ?? false);
+	const effectiveName = $derived(name ?? groupContext?.name);
+
+	// Derive checked state from group if in a group
+	const isInGroup = $derived(!!groupContext && !!value);
+	const groupChecked = $derived(
+		isInGroup && groupContext?.value ? groupContext.value.includes(value!) : false
+	);
+	const effectiveChecked = $derived(isInGroup ? groupChecked : checked);
+
 	const colourVars = $derived(generateColourVars(colour || "indigo"));
-	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
+
+	const isChecked = $derived(effectiveChecked === true || effectiveChecked === "indeterminate");
+
+	const variantState = $derived(
+		effectiveChecked === "indeterminate" ? "indeterminate" : isChecked,
+	);
+
+	const iconSizeClass = {
+		sm: "size-2.5",
+		md: "size-3",
+		lg: "size-3.5",
+	} as const;
+
+	const iconClass = $derived(`${iconSizeClass[size || "md"]}`);
+
+	function handleChange(e: Event) {
+		const target = e.currentTarget as HTMLInputElement;
+
+		if (isInGroup && value && toggleValue) {
+			// In a group, use the toggle function
+			toggleValue(value);
+		} else {
+			// Standalone checkbox
+			// If it was indeterminate, clicking makes it checked
+			const wasIndeterminate = checked === "indeterminate";
+			if (wasIndeterminate) {
+				checked = true;
+				onCheckedChange?.({ checked: true });
+			} else {
+				checked = target.checked;
+				onCheckedChange?.({ checked: target.checked });
+			}
+		}
+	}
 
 	let inputRef: HTMLInputElement | undefined = $state();
 
 	$effect(() => {
 		if (inputRef) {
-			inputRef.indeterminate = checked === "indeterminate";
+			inputRef.indeterminate = effectiveChecked === "indeterminate";
 		}
 	});
-
-	let isChecked = $derived.by(() => {
-		if (group && value) {
-			return group.includes(value);
-		}
-		return checked === true || checked === "indeterminate";
-	});
-
-	const variantState = $derived(
-		checked === "indeterminate" ? "indeterminate" : isChecked,
-	);
-
-	// Scale up icons slightly to make them more prominent
-	const iconSizeClass = {
-		sm: "scale-110",
-		md: "scale-125",
-		lg: "scale-125",
-	} as const;
-
-	const iconBaseClass = $derived(
-		`pointer-events-none ${iconSizeClass[size || "md"]}`,
-	);
-
-	const checkIconClass = $derived(
-		`${iconBaseClass} ${isChecked ? "opacity-100" : "opacity-0"}`,
-	);
-
-	function handleChange(e: Event) {
-		const target = e.currentTarget as HTMLInputElement;
-
-		if (group && value) {
-			if (target.checked) {
-				group = [...group, value];
-			} else {
-				group = group.filter((v) => v !== value);
-			}
-		} else {
-			checked = target.checked;
-		}
-	}
 </script>
 
 <label
-	class={container({
-		disabled: disabled ?? undefined,
-		class: className as string,
-	})}
-	style={finalStyle}
+	class={twMerge(container({ disabled: effectiveDisabled ? true : undefined }), className)}
+	style={colourVars}
 >
-	<div class="flex items-center mt-0.5 shrink-0">
+	<div class="flex items-center shrink-0">
 		<input
 			bind:this={inputRef}
 			type="checkbox"
@@ -225,8 +232,9 @@
 			checked={isChecked}
 			onchange={handleChange}
 			{value}
-			{disabled}
-			aria-invalid={invalid}
+			disabled={effectiveDisabled}
+			name={effectiveName}
+			aria-invalid={effectiveInvalid}
 			{...rest}
 		/>
 		<div
@@ -234,17 +242,17 @@
 				size,
 				variant,
 				checked: variantState,
-				disabled: disabled ?? undefined,
-				invalid,
+				disabled: effectiveDisabled ? true : undefined,
+				invalid: effectiveInvalid,
 			})}
 			aria-hidden="true"
 		>
 			{#if icon}
 				{@render icon()}
-			{:else if checked === "indeterminate"}
-				<Minus class={iconBaseClass} weight="bold" />
+			{:else if effectiveChecked === "indeterminate"}
+				<Minus class={iconClass} weight="bold" />
 			{:else}
-				<Check class={checkIconClass} weight="bold" />
+				<Check class={iconClass} weight="bold" style="opacity: {isChecked ? 1 : 0}" />
 			{/if}
 		</div>
 	</div>
@@ -252,23 +260,17 @@
 	{#if label || children || description}
 		<div class="flex flex-col">
 			{#if label}
-				<span
-					class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50"
-				>
+				<span class="text-sm font-medium leading-5 text-gray-900 select-none dark:text-gray-50">
 					{label}
 				</span>
 			{/if}
 			{#if children}
-				<div
-					class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50"
-				>
+				<div class="text-sm leading-5 text-gray-900 select-none dark:text-gray-50">
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
-				<p
-					class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400"
-				>
+				<p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
 					{description}
 				</p>
 			{/if}

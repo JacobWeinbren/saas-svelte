@@ -1,0 +1,105 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Heading } from "$saas/typography/heading";
+	import { Stack } from "$saas/layout/stack";
+	import { commonArgTypes, getControls } from "../utils";
+
+	const headingSizes = [
+		"xs",
+		"sm",
+		"md",
+		"lg",
+		"xl",
+		"2xl",
+		"3xl",
+		"4xl",
+		"5xl",
+		"6xl",
+		"7xl",
+	] as const;
+
+	const weights = ["normal", "medium", "semibold", "bold"] as const;
+
+	const { Story } = defineMeta({
+		title: "typography/Heading",
+		component: Heading,
+		argTypes: {
+			as: {
+				control: "text",
+				table: { defaultValue: { summary: "h2" } },
+			},
+			size: {
+				...commonArgTypes.size,
+				options: headingSizes,
+			},
+			weight: {
+				control: "select",
+				options: weights,
+				table: { defaultValue: { summary: "semibold" } },
+			},
+			fontWeight: {
+				table: { disable: true },
+			},
+			children: commonArgTypes.children,
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls(["as", "size", "weight", "class", "children"]),
+		},
+		args: {
+			size: "xl",
+			weight: "semibold",
+			as: "h2",
+		},
+	});
+</script>
+
+{#snippet sizesStory()}
+	<Stack>
+		{#each headingSizes as size}
+			<Heading {size}>The quick brown fox jumps over the lazy dog</Heading>
+		{/each}
+	</Stack>
+{/snippet}
+
+{#snippet multiLineStory()}
+	<Stack>
+		{#each headingSizes as size}
+			<Heading {size}>
+				The quick brown fox
+				<br />
+				jumps over the lazy dog
+			</Heading>
+		{/each}
+	</Stack>
+{/snippet}
+
+{#snippet weightsStory()}
+	<Stack>
+		{#each weights as w}
+			<Heading weight={w}>{w}</Heading>
+		{/each}
+	</Stack>
+{/snippet}
+
+{#snippet asStory()}
+	<Stack>
+		<Heading as="h1">Level 1</Heading>
+		<Heading as="h2">Level 2</Heading>
+		<Heading as="h3">Level 3</Heading>
+	</Stack>
+{/snippet}
+
+{#snippet basicStory()}
+	<Heading>The quick brown fox jumps over the lazy dog</Heading>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="Sizes" template={sizesStory} />
+
+<Story name="Multiline" template={multiLineStory} />
+
+<Story name="Weights" template={weightsStory} />
+
+<Story name="AsElement" template={asStory} />

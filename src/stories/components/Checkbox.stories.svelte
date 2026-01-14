@@ -1,12 +1,11 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Checkbox, CheckboxGroup } from "$saas/components/checkbox";
+	import { Checkbox } from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
 	import Plus from "phosphor-svelte/lib/Plus";
-	import IndeterminateCheckbox from "./indeterminate-checkbox.svelte";
 	import {
 		colours,
 		sizes,
@@ -19,7 +18,7 @@
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
 		component: Checkbox as any,
-		subcomponents: { CheckboxGroup },
+		subcomponents: { CheckboxGroup: Checkbox.Group },
 		argTypes: {
 			checked: {
 				control: "boolean",
@@ -152,12 +151,12 @@
 {/snippet}
 
 {#snippet groupStory()}
-	<CheckboxGroup label="Select framework">
+	<Checkbox.Group label="Select framework">
 		<Checkbox value="react" label="React" />
 		<Checkbox value="svelte" label="Svelte" />
 		<Checkbox value="vue" label="Vue" />
 		<Checkbox value="angular" label="Angular" />
-	</CheckboxGroup>
+	</Checkbox.Group>
 {/snippet}
 
 {#snippet customIconStory()}
@@ -169,7 +168,21 @@
 {/snippet}
 
 {#snippet indeterminateStory()}
-	<IndeterminateCheckbox />
+	{@const items = [
+		{ label: "Monday", value: "monday" },
+		{ label: "Tuesday", value: "tuesday" },
+		{ label: "Wednesday", value: "wednesday" },
+		{ label: "Thursday", value: "thursday" },
+	]}
+	<Checkbox.Group
+		selectAllLabel="Weekdays"
+		allValues={items.map((i) => i.value)}
+		defaultValue={["monday"]}
+	>
+		{#each items as item}
+			<Checkbox value={item.value} label={item.label} />
+		{/each}
+	</Checkbox.Group>
 {/snippet}
 
 {#snippet descriptionStory()}
