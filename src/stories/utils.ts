@@ -122,6 +122,11 @@ export {
     badgePattern,
     avatarPattern,
     avatarGroupPattern,
+    groupPattern,
+    dataListRootPattern,
+    dataListItemPattern,
+    dataListItemLabelPattern,
+    dataListItemValuePattern,
 } from "./exclude-patterns";
 
 export const getControls = (allowedProps: string[]) => {

@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from '@storybook/blocks';
 import * as GroupStories from './Group.stories.svelte';
 import { Group } from "$saas/layout/group";
+import { groupPattern } from "../../stories/utils";
 
 <Meta of={GroupStories} />
 
@@ -43,4 +44,4 @@ Use the `grow` prop to make the children grow to fill the available space.
 
 ## Props
 
-<ArgTypes of={Group} />
+<ArgTypes of={Group} exclude={groupPattern} />

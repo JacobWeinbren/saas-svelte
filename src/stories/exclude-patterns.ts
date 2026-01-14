@@ -46,3 +46,9 @@ export const visuallyHiddenPattern = makePattern(['class', 'children']);
 export const badgePattern = makePattern(['variant', 'size', 'colour', 'class', 'children']);
 export const avatarPattern = makePattern(['src', 'name', 'size', 'variant', 'shape', 'colour', 'borderless', 'onStatusChange', 'fallback', 'class', 'children']);
 export const avatarGroupPattern = makePattern(['size', 'spaceX', 'stacking', 'borderless', 'class', 'children']);
+
+export const groupPattern = makePattern(['orientation', 'grow', 'attached', 'class', 'children']);
+export const dataListRootPattern = makePattern(['size', 'orientation', 'class', 'children']);
+export const dataListItemPattern = makePattern(['class', 'children']);
+export const dataListItemLabelPattern = makePattern(['class', 'children']);
+export const dataListItemValuePattern = makePattern(['class', 'children']);

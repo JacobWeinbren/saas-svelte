@@ -15,13 +15,13 @@
 					// Middle items styling
 					"[&>*:not(:first-child):not(:last-child)]:rounded-none",
 					// Focus management: bring focused item to front so border sits on top
-					"[&>*]:focus-visible:z-10",
-					"[&>*]:focus-within:z-10",
+					"*:focus-visible:z-10",
+					"*:focus-within:z-10",
 				],
 				false: "gap-2",
 			},
 			grow: {
-				true: "w-full [&>*]:flex-1",
+				true: "w-full *:flex-1",
 				false: "",
 			},
 			orientation: {
@@ -34,7 +34,7 @@
 				attached: true,
 				orientation: "vertical",
 				class: [
-					"-space-x-0 -space-y-px", // Reset x-space, set y-space
+					"space-x-0 -space-y-px", // Reset x-space, set y-space
 					"[&>*:first-child]:rounded-r-md [&>*:first-child]:rounded-bl-none",
 					"[&>*:last-child]:rounded-l-md [&>*:last-child]:rounded-tr-none",
 					"[&>*:not(:first-child):not(:last-child)]:rounded-none",

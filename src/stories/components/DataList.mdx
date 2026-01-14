@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
 import * as DataListStories from "./DataList.stories.svelte";
 import { DataListRoot } from "$saas/components/data-list";
+import { dataListRootPattern } from "../utils";
 
 <Meta of={DataListStories} />
 
@@ -62,4 +63,4 @@ Use Tailwind CSS utility classes like `divide-y` to add separators between items
 
 ### DataListRoot
 
-<ArgTypes of={DataListRoot} />
+<ArgTypes of={DataListRoot} exclude={dataListRootPattern} />
