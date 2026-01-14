@@ -4,22 +4,42 @@
 
 	export const kbd = tv({
 		base: [
-			"inline-flex items-center justify-center shrink-0 select-none whitespace-nowrap [word-spacing:-0.5em]",
-			"font-medium rounded-(--radius-sm) px-(--spacing-1)",
-			"antialiased font-sans",
+			// Layout
+			"inline-flex items-center shrink-0",
+			// Typography
+			"font-medium font-sans antialiased",
+			// Selection & spacing
+			"select-none whitespace-nowrap [word-spacing:-0.5em]",
+			// Border radius & padding
+			"rounded px-(--spacing-1)",
 		],
 		variants: {
 			variant: {
-				raised: "border-t border-b-2 border-x border-(--color-border-muted) bg-(--color-bg-subtle) text-(--color-fg-emphasized) dark:border-(--color-border-muted) dark:bg-(--color-bg-subtle) dark:text-(--color-fg-emphasized)",
-				outline:
-					"border border-(--color-border-default) text-(--color-fg-emphasized) dark:border-(--color-border-default) dark:text-(--color-fg-emphasized)",
-				subtle: "bg-(--color-bg-subtle) text-(--color-fg-emphasized) dark:bg-(--color-bg-subtle) dark:text-(--color-fg-emphasized)",
-				plain: "text-(--color-fg-emphasized) dark:text-(--color-fg-emphasized)",
+				// Raised: 3D effect with border-t, border-b-2, border-x
+				raised: [
+					"border-t border-b-2 border-x",
+					"border-(--color-border-default)",
+					"bg-(--color-bg-muted)",
+					"text-(--color-fg-emphasized)",
+				],
+				// Outline: simple border
+				outline: [
+					"border",
+					"border-(--color-border-default)",
+					"text-(--color-fg-emphasized)",
+				],
+				// Subtle: background only
+				subtle: [
+					"bg-(--color-bg-subtle)",
+					"text-(--color-fg-emphasized)",
+				],
+				// Plain: text only
+				plain: ["text-(--color-fg-emphasized)"],
 			},
 			size: {
-				sm: "h-(--spacing-4) text-[10px] leading-3",
-				md: "h-(--spacing-5) text-xs leading-4",
-				lg: "h-(--spacing-6) text-sm leading-5 px-(--spacing-1_5)",
+				sm: "h-(--spacing-5) text-xs font-medium leading-4",
+				md: "h-(--spacing-5) text-xs font-medium leading-4",
+				lg: "h-(--spacing-6) text-sm font-medium leading-5",
 			},
 		},
 		defaultVariants: {

@@ -54,8 +54,7 @@ export function generateColourVars(colourName: string): string {
         .map((shade) => `--c-${shade}: var(--color-${colourName}-${shade})`)
         .join("; ");
 
-    // Use the Saas UI preset's semantic tokens
-    // --color-{name}-focus-ring references --colors-{name}-focus-ring which uses light-dark()
+    // Use the Saas UI preset's semantic tokens (--colors- has light-dark() values)
     const extras = [
         `--c-contrast: var(--colors-${colourName}-contrast)`,
         `--c-solid: var(--colors-${colourName}-solid)`,

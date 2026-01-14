@@ -52,7 +52,7 @@
 {#snippet variantsStory()}
 	<HStack class="flex-wrap gap-8">
 		{#each kbdVariants as variant}
-			<VStack class="gap-2">
+			<VStack class="items-center gap-2">
 				<Text size="xs">{variant}</Text>
 				<Kbd {variant}>Shift + Tab</Kbd>
 			</VStack>
@@ -63,7 +63,7 @@
 {#snippet sizesStory()}
 	<HStack class="flex-wrap gap-8">
 		{#each ["sm", "md", "lg"] as size}
-			<VStack class="gap-2">
+			<VStack class="items-center gap-2">
 				<Text size="xs">{size}</Text>
 				<Kbd size={size as "sm" | "md" | "lg"} variant="outline"
 					>Shift + Tab</Kbd
