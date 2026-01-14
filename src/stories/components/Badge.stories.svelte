@@ -89,7 +89,7 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<HStack class="gap-4">
+	<HStack align="start" class="gap-4">
 		{#each variants as variant}
 			<VStack class="gap-2">
 				<Text size="xs">{variant}</Text>
@@ -100,7 +100,7 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack class="gap-4">
+	<HStack align="start" class="gap-4">
 		{#each sizes as size}
 			<VStack class="gap-2">
 				<Text size="xs">{size}</Text>

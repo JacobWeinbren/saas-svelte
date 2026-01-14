@@ -66,29 +66,25 @@
 </script>
 
 {#snippet sizesStory()}
-	{#snippet sizesStory()}
-		<HStack class="flex-wrap gap-4">
-			{#each sizes as size}
-				<VStack class="gap-2">
-					<Text size="xs">{size}</Text>
-					<Button {size}>Button {size}</Button>
-				</VStack>
-			{/each}
-		</HStack>
-	{/snippet}
+	<HStack align="start" class="flex-wrap gap-4">
+		{#each sizes as size}
+			<VStack class="gap-2">
+				<Text size="xs">{size}</Text>
+				<Button {size}>Button {size}</Button>
+			</VStack>
+		{/each}
+	</HStack>
 {/snippet}
 
 {#snippet buttonVariantsStory()}
-	{#snippet buttonVariantsStory()}
-		<HStack class="flex-wrap gap-4 p-4">
-			{#each buttonVariants as variant}
-				<VStack class="gap-2">
-					<Text size="xs">{variant}</Text>
-					<Button {variant}>{variant}</Button>
-				</VStack>
-			{/each}
-		</HStack>
-	{/snippet}
+	<HStack align="start" class="flex-wrap gap-4 p-4">
+		{#each buttonVariants as variant}
+			<VStack class="gap-2">
+				<Text size="xs">{variant}</Text>
+				<Button {variant}>{variant}</Button>
+			</VStack>
+		{/each}
+	</HStack>
 {/snippet}
 
 {#snippet iconsStory()}

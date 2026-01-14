@@ -76,34 +76,30 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	{#snippet sizesStory()}
-		<Stack class="flex-row gap-6">
-			{#each sizes as size}
-				<VStack class="gap-2">
-					<Text size="xs">{size}</Text>
-					<Avatar {size} name="David Wilson" src="/avatars/1.png" />
-				</VStack>
-			{/each}
-		</Stack>
-	{/snippet}
+	<Stack class="flex-row items-start gap-6">
+		{#each sizes as size}
+			<VStack class="gap-2">
+				<Text size="xs">{size}</Text>
+				<Avatar {size} name="David Wilson" src="/avatars/1.png" />
+			</VStack>
+		{/each}
+	</Stack>
 {/snippet}
 
 {#snippet shapeStory()}
-	{#snippet shapeStory()}
-		<Stack class="flex-row gap-8">
-			{#each shapes as shape}
-				<VStack class="gap-2">
-					<Text size="xs">{shape}</Text>
-					<Avatar
-						{shape}
-						size="lg"
-						name="David Wilson"
-						src="/avatars/1.png"
-					/>
-				</VStack>
-			{/each}
-		</Stack>
-	{/snippet}
+	<Stack class="flex-row items-start gap-8">
+		{#each shapes as shape}
+			<VStack class="gap-2">
+				<Text size="xs">{shape}</Text>
+				<Avatar
+					{shape}
+					size="lg"
+					name="David Wilson"
+					src="/avatars/1.png"
+				/>
+			</VStack>
+		{/each}
+	</Stack>
 {/snippet}
 
 {#snippet fallbackStory()}
