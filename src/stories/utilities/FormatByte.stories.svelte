@@ -3,10 +3,10 @@
 	import { FormatByte } from "$saas/utilities/format-byte";
 	import { LocaleProvider } from "$saas/utilities/locale-provider";
 	import { Text } from "$saas/typography/text";
-	import { Stack, HStack, VStack } from "$saas/layout/stack";
+	import { Stack, HStack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
-		title: "utilities/FormatByte",
+		title: "utilities/Format Byte",
 		component: FormatByte,
 		argTypes: {
 			value: {

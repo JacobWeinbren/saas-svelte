@@ -52,3 +52,9 @@ export const dataListRootPattern = makePattern(['size', 'orientation', 'class', 
 export const dataListItemPattern = makePattern(['class', 'children']);
 export const dataListItemLabelPattern = makePattern(['class', 'children']);
 export const dataListItemValuePattern = makePattern(['class', 'children']);
+
+export const blockquotePattern = makePattern(['colour', 'justify', 'variant', 'cite', 'showDash', 'showIcon', 'icon', 'class', 'children']);
+
+export const floatPattern = makePattern(['placement', 'offsetX', 'offsetY', 'offset', 'class', 'children']);
+export const circlePattern = makePattern(['size', 'variant', 'colour', 'class', 'children']);
+

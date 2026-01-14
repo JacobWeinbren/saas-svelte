@@ -6,7 +6,7 @@
 		InputGroup,
 		InputElement,
 	} from "$saas/components/input";
-	import { Group } from "$saas/components/group";
+	import { Group } from "$saas/layout/group";
 	import { Stack } from "$saas/layout/stack";
 	import {
 		commonArgTypes,

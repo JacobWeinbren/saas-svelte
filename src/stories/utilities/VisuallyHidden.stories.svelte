@@ -5,7 +5,7 @@
 	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
-		title: "utilities/VisuallyHidden",
+		title: "utilities/Visually Hidden",
 		component: VisuallyHidden,
 		argTypes: {
 			children: commonArgTypes.children,

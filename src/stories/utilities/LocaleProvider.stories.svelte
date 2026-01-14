@@ -9,7 +9,7 @@
 	import { Stack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
-		title: "utilities/LocaleProvider",
+		title: "utilities/Locale Provider",
 		component: LocaleProvider,
 		argTypes: {
 			locale: {

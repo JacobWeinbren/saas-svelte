@@ -127,7 +127,12 @@ export {
     dataListItemPattern,
     dataListItemLabelPattern,
     dataListItemValuePattern,
+    blockquotePattern,
+    floatPattern,
+    circlePattern,
 } from "./exclude-patterns";
+
+
 
 export const getControls = (allowedProps: string[]) => {
     return {

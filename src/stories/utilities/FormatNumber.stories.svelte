@@ -6,7 +6,7 @@
 	import { Stack, HStack } from "$saas/layout/stack";
 
 	const { Story } = defineMeta({
-		title: "utilities/FormatNumber",
+		title: "utilities/Format Number",
 		component: FormatNumber,
 		argTypes: {
 			value: {
