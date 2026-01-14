@@ -10,55 +10,51 @@
 
 			// Text & Placeholder
 			"text-sm leading-5 antialiased",
+			"text-(--color-fg-default)",
 			"placeholder:text-(--color-fg-muted) placeholder:select-none",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
-			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-(--c-600) focus-visible:border-(--c-600)",
+			// Focus - using accent focus ring
+			"focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring) focus-visible:border-(--color-accent-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"bg-transparent",
-					// Light
+					// Border - light: gray-200, dark: gray-800
 					"border-(--color-border-default)",
+					// Hover - light: gray-300, dark: zinc-700
 					"enabled:hover:border-(--color-border-emphasized)",
-					"enabled:hover:focus-visible:border-(--c-600)",
-
-					// Dark
-					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
-					"dark:enabled:hover:border-(--color-border-emphasized)",
+					"enabled:hover:focus-visible:border-(--color-accent-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
-					// Light
+					// Background - light: gray-50, dark: gray-950
 					"bg-(--color-bg-subtle)",
-					// Dark
-					"dark:bg-(--color-bg-subtle) dark:text-(--color-fg-default)",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
-					// Light
+					// Border - light: gray-200, dark: gray-800
 					"border-(--color-border-default)",
-					// Dark
-					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
-
-					"focus-visible:outline-0 focus-visible:border-(--c-600)",
+					// Focus - shadow instead of outline
+					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--color-accent-focus-ring)",
 				],
 			},
 			size: {
 				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-xs leading-4",
 				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-sm leading-5",
 				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-sm leading-5",
-				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-sm leading-5 rounded-(--radius-md)",
+				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-sm leading-5 rounded-md",
 			},
 			invalid: {
 				true: [
-					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
-					"dark:border-(--color-border-error) dark:focus-visible:border-(--color-border-error) dark:hover:border-(--color-border-emphasized)",
+					// Invalid border and focus ring - red-500 light, red-400 dark
+					"border-(--color-border-error)!",
+					"focus-visible:border-(--color-border-error)! focus-visible:outline-(--color-border-error)!",
+					"enabled:hover:border-(--color-border-emphasized)",
 				],
 			},
 		},

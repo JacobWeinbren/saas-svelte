@@ -17,6 +17,17 @@
 	let { children, class: className, ...restProps }: Props = $props();
 </script>
 
-<div class={twMerge("relative flex w-full isolate", className)} {...restProps}>
+<div
+	class={twMerge(
+		// Layout
+		"relative inline-flex w-full",
+		// Isolation for z-index stacking
+		"isolate",
+		// Gap and alignment
+		"gap-(--spacing-2) items-center justify-start",
+		className,
+	)}
+	{...restProps}
+>
 	{@render children?.()}
 </div>

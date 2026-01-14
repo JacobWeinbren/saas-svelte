@@ -67,19 +67,24 @@
 </script>
 
 {#snippet variantsStory()}
-	<Stack class="max-w-sm">
-		<Input variant="outline" placeholder="Outline (Default)" />
-		<Input variant="subtle" placeholder="Subtle" />
-		<Input variant="flushed" placeholder="Flushed" />
+	<Stack class="max-w-md gap-4">
+		{#each ["outline", "subtle", "flushed"] as variant}
+			<HStack align="center" class="gap-4">
+				<Text size="xs" class="min-w-[8ch]">{variant}</Text>
+				<Input {variant} placeholder="Placeholder" class="flex-1" />
+			</HStack>
+		{/each}
 	</Stack>
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="max-w-sm">
-		<Input size="xs" placeholder="Size xs" />
-		<Input size="sm" placeholder="Size sm" />
-		<Input size="md" placeholder="Size md" />
-		<Input size="lg" placeholder="Size lg" />
+	<Stack class="max-w-md gap-4">
+		{#each ["xs", "sm", "md", "lg"] as size}
+			<HStack align="center" class="gap-4">
+				<Text size="xs" class="min-w-[3ch]">{size}</Text>
+				<Input {size} placeholder="Placeholder" class="flex-1" />
+			</HStack>
+		{/each}
 	</Stack>
 {/snippet}
 
