@@ -75,10 +75,13 @@
 					? ["bit", "kbit", "Mbit", "Gbit", "Tbit"]
 					: ["byte", "kB", "MB", "GB", "TB"];
 			unitString = abbreviations[unitIndex];
+			if (displayValue !== 1 && unitIndex === 0) {
+				unitString += "s";
+			}
 		} else {
 			// long
 			unitString = units[unitIndex];
-			if (displayValue !== 1 && unitString !== "byte") {
+			if (displayValue !== 1) {
 				unitString += "s";
 			}
 		}
