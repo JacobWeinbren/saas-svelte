@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const group = tv({
-		base: "flex antialiased",
+		base: "inline-flex relative isolate items-center justify-start antialiased",
 		variants: {
 			attached: {
 				true: [
@@ -55,9 +55,24 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "class"> {
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: string;
+		/**
+		 * If `true`, the elements will be attached together.
+		 * @default false
+		 */
 		attached?: boolean;
+		/**
+		 * If `true`, the elements will grow to fill the available space.
+		 * @default false
+		 */
 		grow?: boolean;
+		/**
+		 * The orientation of the group.
+		 * @default "horizontal"
+		 */
 		orientation?: GroupVariants["orientation"];
 	}
 

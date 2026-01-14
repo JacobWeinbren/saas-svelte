@@ -6,21 +6,22 @@
 		class?: string;
 	}
 
-	let { class: className, ...restProps }: Props = $props();
+	let { class: className, children, ...restProps }: Props = $props();
 </script>
 
 <div
 	class={twMerge(
 		"flex items-center justify-center rounded-md border",
 		// Light Mode
-		"bg-gray-100 border-gray-200 text-gray-400",
+		"bg-gray-200 border-gray-200 text-gray-900",
 		// Dark Mode
-		"dark:bg-zinc-800/50 dark:border-zinc-700 dark:text-zinc-500",
-		// Striped Pattern Effect
-		"bg-[linear-gradient(45deg,rgba(0,0,0,0.02)_25%,transparent_25%,transparent_50%,rgba(0,0,0,0.02)_50%,rgba(0,0,0,0.02)_75%,transparent_75%,transparent)] bg-size-[8px_8px]",
-		"dark:bg-[linear-gradient(45deg,rgba(255,255,255,0.02)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.02)_50%,rgba(255,255,255,0.02)_75%,transparent_75%,transparent)]",
+		"dark:bg-gray-800 dark:border-gray-800 dark:text-gray-50",
+		// Dot Pattern Effect
+		"bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNicgaGVpZ2h0PSc2JyB2aWV3Qm94PScwIDAgNiA2JyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxnIGZpbGw9JyM5QzkyQUMnIGZpbGwtb3BhY2l0eT0nMC4yJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnPjxwYXRoIGQ9J001IDBoMUwwIDZWNXpNNiA1djFINXonLz48L2c+PC9zdmc+)] bg-clip-padding",
 		"min-h-12 w-full",
 		className,
 	)}
 	{...restProps}
-></div>
+>
+	{@render children?.()}
+</div>
