@@ -184,7 +184,7 @@
 				</div>
 			</div>
 			<span
-				class="text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm) text-(--color-fg-default)"
+				class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
 			>
 				{selectAllLabel}
 			</span>
@@ -195,7 +195,7 @@
 		>
 			{#if label}
 				<span
-					class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm) text-(--color-fg-default)"
+					class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
 				>
 					{label}
 				</span>
@@ -207,7 +207,7 @@
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
 			<span
-				class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm) text-(--color-fg-default)"
+				class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
 			>
 				{label}
 			</span>

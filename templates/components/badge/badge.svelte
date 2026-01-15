@@ -11,7 +11,7 @@
 			"items-center",
 			"gap-y-1",
 			"gap-x-1",
-			"font-medium",
+			"font-(--font-weights-medium)",
 			"inline-flex",
 			"rounded-full",
 		],

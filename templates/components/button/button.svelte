@@ -8,7 +8,7 @@
 	export const button = tv({
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"rounded font-medium",
+			"rounded font-(--font-weights-medium)",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-600)",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],

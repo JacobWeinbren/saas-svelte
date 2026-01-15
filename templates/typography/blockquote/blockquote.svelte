@@ -105,7 +105,7 @@
 		</div>
 	{/if}
 
-	<blockquote class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-normal">
+	<blockquote class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-(--font-weights-normal)">
 		{@render children?.()}
 	</blockquote>
 

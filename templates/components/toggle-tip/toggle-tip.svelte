@@ -103,9 +103,14 @@
 		}),
 	);
 
-	const sizeClass = $derived(
-		size === "lg" ? "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-3) py-(--spacing-1_5)" : "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-(--spacing-2) py-(--spacing-1)",
-	);
+	const sizeClasses = {
+		xs: "text-(length:--font-sizes-2xs) leading-(--line-heights-2xs) px-(--spacing-1_5) py-(--spacing-0_5)",
+		sm: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-(--spacing-2) py-(--spacing-1)",
+		md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2_5) py-(--spacing-1)",
+		lg: "text-(length:--font-sizes-md) leading-(--line-heights-md) px-(--spacing-3) py-(--spacing-1_5)",
+	} as const;
+
+	const sizeClass = $derived(sizeClasses[size || "md"]);
 </script>
 
 <ArkPopover.Root

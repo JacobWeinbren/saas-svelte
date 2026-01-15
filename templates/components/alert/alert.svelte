@@ -15,7 +15,7 @@
 			iconWrapper:
 				"shrink-0 inline-flex items-center justify-center w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
 			content: "flex-1 min-w-0 flex flex-col gap-(--spacing-1)",
-			title: "font-medium leading-(--line-heights-sm)",
+			title: "font-(--font-weights-medium) leading-(--line-heights-sm)",
 			description: "leading-(--line-heights-sm) opacity-90",
 		},
 		variants: {

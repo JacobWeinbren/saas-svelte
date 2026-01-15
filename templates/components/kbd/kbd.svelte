@@ -7,7 +7,7 @@
 			// Layout
 			"inline-flex items-center shrink-0",
 			// Typography
-			"font-medium font-sans antialiased",
+			"font-(--font-weights-medium) font-sans antialiased",
 			// Selection & spacing
 			"select-none whitespace-nowrap [word-spacing:-0.5em]",
 			// Border radius & padding
@@ -37,9 +37,9 @@
 				plain: ["text-(--color-fg-emphasized)"],
 			},
 			size: {
-				sm: "h-(--spacing-4) text-(length:--font-sizes-2xs) font-medium leading-(--line-heights-2xs)",
-				md: "h-(--spacing-5) text-(length:--font-sizes-xs) font-medium leading-(--line-heights-xs)",
-				lg: "h-(--spacing-6) text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm)",
+				sm: "h-(--spacing-4) text-(length:--font-sizes-2xs) font-(--font-weights-medium) leading-(--line-heights-2xs)",
+				md: "h-(--spacing-5) text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
+				lg: "h-(--spacing-6) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 			},
 		},
 		defaultVariants: {

@@ -17,9 +17,7 @@ import { inputPattern } from "../utils";
 <script>
 	import { Textarea } from "$saas/components/textarea";
 </script>
-```
 
-```html
 <Textarea placeholder="..." />
 ```
 
@@ -78,7 +76,11 @@ Use the `TextareaAutoresize` component to make the textarea automatically expand
 	import { TextareaAutoresize } from "$saas/components/textarea";
 </script>
 
-<TextareaAutoresize placeholder="Start typing..." minRows={1} maxRows={40} />
+<TextareaAutoresize
+	placeholder="Start typing..."
+	minRows="{1}"
+	maxRows="{40}"
+/>
 ```
 
 The autoresize component uses a hidden `<pre>` element to calculate the correct height based on the content.

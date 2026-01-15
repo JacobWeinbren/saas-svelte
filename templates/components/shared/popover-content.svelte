@@ -16,7 +16,7 @@
 				"bg-(--color-bg-panel) backdrop-blur-md",
 				"text-(--color-fg-default)",
 
-				"text-(length:--font-sizes-xs) font-normal leading-(--line-heights-xs) antialiased",
+				"text-(length:--font-sizes-xs) font-(--font-weights-normal) leading-(--line-heights-xs) antialiased",
 				"max-w-xs",
 				"border-0",
 
@@ -71,10 +71,10 @@
 			},
 			fontWeight: {
 				normal: {
-					content: "font-normal",
+					content: "font-(--font-weights-normal)",
 				},
 				medium: {
-					content: "font-medium",
+					content: "font-(--font-weights-medium)",
 				},
 			},
 			padding: {

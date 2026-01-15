@@ -9,7 +9,7 @@
 			root: "w-full",
 			item: "overflow-anchor-none",
 			trigger: [
-				"flex items-center gap-(--spacing-3) w-full font-medium font-sans",
+				"flex items-center gap-(--spacing-3) w-full font-(--font-weights-medium) font-sans",
 				"rounded-(--radius-md)",
 				"outline-none",
 				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
@@ -18,7 +18,7 @@
 			content: "overflow-hidden text-(length:--font-sizes-sm) text-(--color-fg-muted)",
 			contentBody: "",
 			indicator:
-				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--duration-moderate)",
+				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--durations-moderate)",
 			icon: "shrink-0 text-(--color-fg-muted)",
 		},
 		variants: {

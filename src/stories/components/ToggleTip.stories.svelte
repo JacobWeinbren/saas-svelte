@@ -13,62 +13,70 @@
 </script>
 
 {#snippet basicStory()}
-	<ToggleTip content="This is some additional information.">
-		<Button size="sm" variant="ghost">
-			<Icon as={Info} />
-		</Button>
-	</ToggleTip>
+	<div class="flex items-center justify-center p-8">
+		<ToggleTip content="This is some additional information.">
+			<Button size="sm" variant="ghost">
+				<Icon as={Info} />
+			</Button>
+		</ToggleTip>
+	</div>
 {/snippet}
 
 {#snippet infoTipStory()}
-	<HStack justify="center">
-		<Text size="lg">File size: 1.45kb</Text>
-		<InfoTip>The file size for content.tsx is 1.45kb</InfoTip>
-	</HStack>
+	<div class="flex items-center justify-center p-8">
+		<HStack justify="center">
+			<Text size="lg">File size: 1.45kb</Text>
+			<InfoTip>The file size for content.tsx is 1.45kb</InfoTip>
+		</HStack>
+	</div>
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack class="gap-4">
-		<ToggleTip content="Extra small toggle tip" size="xs">
-			<Button size="xs" variant="ghost">XS</Button>
-		</ToggleTip>
-		<ToggleTip content="Small toggle tip" size="sm">
-			<Button size="sm" variant="ghost">SM</Button>
-		</ToggleTip>
-		<ToggleTip content="Medium toggle tip" size="md">
-			<Button size="md" variant="ghost">MD</Button>
-		</ToggleTip>
-		<ToggleTip content="Large toggle tip" size="lg">
-			<Button size="lg" variant="ghost">LG</Button>
-		</ToggleTip>
-	</HStack>
+	<div class="flex items-center justify-center p-8">
+		<HStack class="gap-4">
+			<ToggleTip content="Extra small toggle tip" size="xs">
+				<Button size="xs" variant="ghost">XS</Button>
+			</ToggleTip>
+			<ToggleTip content="Small toggle tip" size="sm">
+				<Button size="sm" variant="ghost">SM</Button>
+			</ToggleTip>
+			<ToggleTip content="Medium toggle tip" size="md">
+				<Button size="md" variant="ghost">MD</Button>
+			</ToggleTip>
+			<ToggleTip content="Large toggle tip" size="lg">
+				<Button size="lg" variant="ghost">LG</Button>
+			</ToggleTip>
+		</HStack>
+	</div>
 {/snippet}
 
 {#snippet positioningStory()}
-	<HStack class="gap-4">
-		<ToggleTip content="Top placement" positioning={{ placement: "top" }}>
-			<Button variant="outline">Top</Button>
-		</ToggleTip>
-		<ToggleTip
-			content="Right placement"
-			positioning={{ placement: "right" }}
-		>
-			<Button variant="outline">Right</Button>
-		</ToggleTip>
-		<ToggleTip
-			content="Bottom placement"
-			positioning={{ placement: "bottom" }}
-		>
-			<Button variant="outline">Bottom</Button>
-		</ToggleTip>
-		<ToggleTip content="Left placement" positioning={{ placement: "left" }}>
-			<Button variant="outline">Left</Button>
-		</ToggleTip>
-	</HStack>
+	<div class="flex items-center justify-center p-8">
+		<HStack class="gap-4">
+			<ToggleTip content="Top placement" positioning={{ placement: "top" }}>
+				<Button variant="outline">Top</Button>
+			</ToggleTip>
+			<ToggleTip
+				content="Right placement"
+				positioning={{ placement: "right" }}
+			>
+				<Button variant="outline">Right</Button>
+			</ToggleTip>
+			<ToggleTip
+				content="Bottom placement"
+				positioning={{ placement: "bottom" }}
+			>
+				<Button variant="outline">Bottom</Button>
+			</ToggleTip>
+			<ToggleTip content="Left placement" positioning={{ placement: "left" }}>
+				<Button variant="outline">Left</Button>
+			</ToggleTip>
+		</HStack>
+	</div>
 {/snippet}
 
 {#snippet customContentStory()}
-	<div class="h-30">
+	<div class="flex items-center justify-center p-8">
 		<ToggleTip>
 			{#snippet content()}
 				<div class="flex flex-col gap-1">

@@ -8,7 +8,7 @@
 			variant: {
 				subtle: "bg-(--c-100) dark:bg-(--c-900)",
 				solid: "text-(--color-fg-inverted) bg-(--c-600) dark:bg-(--c-500)",
-				text: "bg-transparent font-semibold",
+				text: "bg-transparent font-(--font-weights-semibold)",
 				plain: "bg-transparent",
 			},
 		},

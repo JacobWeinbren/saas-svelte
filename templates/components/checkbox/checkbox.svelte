@@ -282,7 +282,7 @@
 				<Check
 					class={iconClass}
 					weight="bold"
-					style="opacity: {isChecked ? 1 : 0}"
+					style="opacity: {isChecked ? 1 : 0};"
 				/>
 			{/if}
 		</div>
@@ -292,7 +292,7 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm) text-(--color-fg-default) select-none"
+					class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default) select-none"
 				>
 					{label}
 				</span>
@@ -306,7 +306,7 @@
 			{/if}
 			{#if description}
 				<p
-					class="mt-(--spacing-1) text-(length:--font-sizes-sm) font-normal leading-(--line-heights-sm) text-(--color-fg-muted)"
+					class="mt-(--spacing-1) text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-(--color-fg-muted)"
 				>
 					{description}
 				</p>

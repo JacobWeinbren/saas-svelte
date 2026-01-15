@@ -22,7 +22,7 @@
 		// Hover - light: gray-100 bg, dark: gray-900 bg
 		"hover:bg-(--color-bg-subtle)",
 		// Typography
-		"text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm)",
+		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 		// Focus ring
 		"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
 		// Disabled state
