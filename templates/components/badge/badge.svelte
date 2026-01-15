@@ -22,7 +22,7 @@
 				outline:
 					"text-(--c-900) dark:text-(--c-200) ring-1 ring-inset ring-(--c-200) dark:ring-(--c-800)",
 				surface:
-					"bg-(--c-50)/20 text-(--c-900) dark:bg-(--c-950)/20 dark:text-(--c-200) ring-1 ring-inset ring-(--c-200) dark:ring-(--c-800)",
+					"bg-(--c-100)/50 text-(--c-900) dark:bg-(--c-900)/50 dark:text-(--c-200) ring-1 ring-inset ring-(--c-200) dark:ring-(--c-800)",
 			},
 			size: {
 				xs: "min-h-4 text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-1",
