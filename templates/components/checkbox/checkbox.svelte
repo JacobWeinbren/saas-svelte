@@ -12,7 +12,7 @@
 		base: [
 			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
 			"rounded",
-			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-600) peer-focus-visible:outline-solid",
+			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
 		],
 		variants: {
@@ -58,13 +58,13 @@
 			{
 				variant: "subtle",
 				checked: false,
-				class: "bg-(--c-50) border-(--c-300) text-(--c-contrast) dark:bg-(--c-950) dark:border-(--c-800)",
+				class: "bg-(--c-muted) border-(--c-subtle) text-(--c-contrast)",
 			},
 			// SUBTLE - checked: light bg, light border, colored icon
 			{
 				variant: "subtle",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-50) border-(--c-300) text-(--c-700) dark:bg-(--c-950) dark:border-(--c-800) dark:text-(--c-300)",
+				class: "bg-(--c-muted) border-(--c-subtle) text-(--c-fg)",
 			},
 			// OUTLINE - unchecked: gray border, transparent bg
 			{
@@ -76,7 +76,7 @@
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
-				class: "border-(--c-600) text-(--c-700) dark:text-(--c-300)",
+				class: "border-(--c-solid) text-(--c-fg)",
 			},
 			// Invalid state when checked
 			{

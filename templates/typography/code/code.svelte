@@ -13,23 +13,23 @@
 		],
 		variants: {
 			variant: {
-				// SOLID: Zinc-50 text on colored background
-				solid: "text-(--color-fg-inverted) bg-(--c-600) dark:bg-(--c-500)",
+				// SOLID: Contrast text on colored background
+				solid: "text-(--c-contrast) bg-(--c-solid)",
 
 				// OUTLINE: Colored text with border
 				outline: [
-					"text-(--c-700) dark:text-(--c-300)",
-					"shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-700)]",
+					"text-(--c-fg)",
+					"shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 				],
 
 				// SUBTLE: Colored text with subtle background
-				subtle: "text-(--c-700) dark:text-(--c-300) bg-(--c-100) dark:bg-(--c-900)",
+				subtle: "text-(--c-fg) bg-(--c-muted)",
 
 				// SURFACE: Colored text with very subtle background + border
 				surface: [
-					"text-(--c-700) dark:text-(--c-300)",
-					"shadow-[inset_0_0_0_1px_var(--c-200)] dark:shadow-[inset_0_0_0_1px_var(--c-700)]",
-					"bg-(--c-50)/20 dark:bg-(--c-950)/20",
+					"text-(--c-fg)",
+					"shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					"bg-(--c-muted)/20",
 				],
 			},
 			size: {

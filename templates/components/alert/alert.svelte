@@ -21,7 +21,7 @@
 		variants: {
 			variant: {
 				subtle: {
-					root: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300)",
+					root: "bg-(--c-muted) text-(--c-fg)",
 					iconWrapper: "text-current",
 				},
 				solid: {
@@ -29,12 +29,12 @@
 					iconWrapper: "text-(--c-contrast)",
 				},
 				surface: {
-					root: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-500)]",
-					iconWrapper: "text-(--c-700) dark:text-(--c-300)",
+					root: "bg-(--c-muted) text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-solid)]",
+					iconWrapper: "text-(--c-fg)",
 				},
 				outline: {
-					root: "bg-transparent text-(--c-700) dark:text-(--c-300) shadow-[inset_0_0_0_1px_var(--c-100)] dark:shadow-[inset_0_0_0_1px_var(--c-800)]",
-					iconWrapper: "text-(--c-700) dark:text-(--c-300)",
+					root: "bg-transparent text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					iconWrapper: "text-(--c-fg)",
 				},
 			},
 		},

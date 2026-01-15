@@ -26,7 +26,7 @@
 		...rest
 	}: Props = $props();
 
-	// Generate CSS variables for the chosen colour (fixes undefined --c-300)
+	// Generate CSS variables for the chosen colour (provides semantic tokens like --c-solid, --c-fg, etc.)
 	const colourVars = $derived(generateColourVars(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>

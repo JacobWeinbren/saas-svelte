@@ -50,10 +50,10 @@
 					root: "bg-(--c-solid) text-(--c-contrast)",
 				},
 				subtle: {
-					root: "bg-(--c-100) text-(--c-900) dark:bg-(--c-800) dark:text-(--c-200)",
+					root: "bg-(--c-muted) text-(--c-fg)",
 				},
 				outline: {
-					root: "bg-transparent border border-(--c-200) text-(--c-700) dark:border-(--c-800) dark:text-(--c-200)",
+					root: "bg-transparent border border-(--c-subtle) text-(--c-fg)",
 				},
 			},
 			shape: {

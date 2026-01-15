@@ -5,11 +5,11 @@
 	import Quotes from "phosphor-svelte/lib/Quotes";
 
 	export const blockquote = tv({
-		base: "relative flex flex-col gap-(--spacing-2) px-(--spacing-5)",
+		base: "relative flex flex-col items-start gap-y-(--spacing-2) gap-x-(--spacing-2) px-(--spacing-5)",
 		variants: {
 			variant: {
-				subtle: "border-l-4 border-l-(--c-50) dark:border-l-(--c-950)",
-				solid: "border-l-4 border-l-(--c-500) dark:border-l-(--c-800)",
+				subtle: "border-l-4 border-l-(--c-muted)",
+				solid: "border-l-4 border-l-(--c-solid)",
 				plain: "",
 			},
 			justify: {
@@ -30,7 +30,7 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 
-	type Props = HTMLAttributes<HTMLElement> & {
+	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
 		 * The colour palette of the component.
 		 * @default "gray"
@@ -66,8 +66,12 @@
 		 * @default undefined
 		 */
 		icon?: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
+		class?: string;
 		children?: Snippet;
-	};
+	}
 
 	let {
 		colour = "gray",
@@ -95,24 +99,23 @@
 		{@render icon()}
 	{:else if showIcon}
 		<div
-			class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]"
+			class="justify-center items-center inline-flex absolute [inset-block:0.5rem_auto] [inset-inline:0_auto] [translate:-50%_-50%]"
 		>
 			<Quotes
-				class="h-(--spacing-5) w-(--spacing-5) fill-current text-(--c-600) scale-[-1]"
+				class="size-(--sizes-5) fill-current text-(--c-solid) scale-[-1]"
 				color="currentColor"
 				weight="fill"
 			/>
 		</div>
 	{/if}
 
-	<blockquote class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-(--font-weights-normal)">
+	<blockquote>
 		{@render children?.()}
 	</blockquote>
 
 	{#if cite}
 		<figcaption class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-(--color-fg-muted)">
-			{#if showDash}—<!-- -->
-			{/if}<cite>{cite}</cite>
+			{#if showDash}— {/if}<cite>{cite}</cite>
 		</figcaption>
 	{/if}
 </figure>

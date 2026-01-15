@@ -9,7 +9,7 @@
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
 			"rounded font-(--font-weights-medium)",
-			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-600)",
+			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {
@@ -30,33 +30,30 @@
 
 				// SUBTLE: Neutral text with subtle background
 				subtle: [
-					"text-(--c-900) bg-(--c-50) dark:text-(--c-200) dark:bg-(--c-950)",
-					"hover:bg-(--c-100) dark:hover:bg-(--c-900)",
+					"text-(--c-fg) bg-(--c-muted)",
+					"hover:bg-(--c-emphasized)",
 				],
 
 				// SURFACE: Neutral text with border and subtle background
 				surface: [
-					"text-(--c-900) shadow-(--shadows-sm) border bg-(--c-50)/20 border-(--c-300)/90",
-					"dark:text-(--c-200) dark:bg-(--c-950)/20 dark:border-(--c-700)/90",
-					"hover:bg-(--c-50) hover:border-(--c-300)",
-					"dark:hover:bg-(--c-950) dark:hover:border-(--c-700)",
+					"text-(--c-fg) shadow-(--shadows-sm) border bg-(--c-muted)/20 border-(--c-subtle)/90",
+					"hover:bg-(--c-muted) hover:border-(--c-subtle)",
 				],
 
 				// OUTLINE: Neutral text with thin border
 				outline: [
-					"text-(--c-900) border-[0.5px] border-(--c-300)",
-					"dark:text-(--c-200) dark:border-(--c-700)",
-					"hover:bg-(--c-50) dark:hover:bg-(--c-950)",
+					"text-(--c-fg) border-[0.5px] border-(--c-subtle)",
+					"hover:bg-(--c-muted)",
 				],
 
 				// GHOST: Neutral text, background on hover
 				ghost: [
-					"text-(--c-900) dark:text-(--c-200)",
-					"hover:bg-(--c-100) dark:hover:bg-(--c-900)",
+					"text-(--c-fg)",
+					"hover:bg-(--c-emphasized)",
 				],
 
 				// PLAIN: Neutral text only
-				plain: ["text-(--c-900) dark:text-(--c-200)"],
+				plain: ["text-(--c-fg)"],
 			},
 			colour: {},
 			size: {

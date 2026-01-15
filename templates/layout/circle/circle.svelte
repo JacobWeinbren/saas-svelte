@@ -4,7 +4,7 @@
 	import { type ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const circle = tv({
-		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-500) text-(--color-fg-inverted)",
+		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-solid) text-(--c-contrast)",
 		variants: {
 			size: {
 				xs: "size-(--sizes-5) text-(length:--font-sizes-xs)",
@@ -14,10 +14,10 @@
 				xl: "size-(--sizes-16) text-(length:--font-sizes-xl)",
 			},
 			variant: {
-				solid: "bg-(--c-600) text-(--color-fg-inverted)",
-				subtle: "bg-(--c-100) text-(--c-700) dark:bg-(--c-900) dark:text-(--c-300)",
-				outline: "border border-(--c-200) text-(--c-700) dark:border-(--c-800) dark:text-(--c-300)",
-				plain: "text-(--c-700) bg-transparent dark:text-(--c-300)",
+				solid: "bg-(--c-solid) text-(--c-contrast)",
+				subtle: "bg-(--c-muted) text-(--c-fg)",
+				outline: "border border-(--c-subtle) text-(--c-fg)",
+				plain: "text-(--c-fg) bg-transparent",
 			},
 		},
 		defaultVariants: {

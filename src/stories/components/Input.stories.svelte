@@ -162,7 +162,7 @@
 		<Input
 			colour="teal"
 			placeholder="custom placeholder"
-			class="text-(--c-700) placeholder:text-inherit dark:text-(--c-700)"
+			class="text-(--c-fg) placeholder:text-inherit"
 		/>
 	</Stack>
 {/snippet}

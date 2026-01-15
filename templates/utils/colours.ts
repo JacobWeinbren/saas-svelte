@@ -34,32 +34,30 @@ export type ColourName = (typeof availableColours)[number] | (string & {});
 
 /**
  * Generates CSS custom properties for dynamic color theming.
- * Maps --c-{shade} to Tailwind/Saas UI color CSS variables.
+ * Uses only semantic tokens from the Saas UI preset since raw shade
+ * variables (--color-{name}-{shade}) are not exposed as CSS custom properties
+ * in Tailwind v4's @theme block.
  *
  * Usage in components:
  * - Set style={generateColourVars(colour)} on the element
- * - Use classes like bg-(--c-500), text-(--c-700), border-(--c-200)
+ * - Use semantic classes like bg-(--c-muted), bg-(--c-solid), text-(--c-fg)
  *
- * Also provides semantic tokens (from --colors-{name}-*):
+ * Available semantic tokens:
  * - --c-contrast: text color for solid backgrounds
  * - --c-fg: foreground/text color
- * - --c-muted: muted background
+ * - --c-muted: muted background (light: 50, dark: 950)
  * - --c-subtle: subtle background
  * - --c-emphasized: emphasized background
- * - --c-solid: solid background color
+ * - --c-solid: solid background color (500)
  * - --c-focus-ring: focus ring color
  */
 export function generateColourVars(colourName: string): string {
     if (!colourName) return "";
 
-    const shades = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"] as const;
-
-    const shadeVars = shades
-        .map((shade) => `--c-${shade}: var(--color-${colourName}-${shade})`)
-        .join("; ");
-
     // Use the Saas UI preset's semantic tokens (--colors- has light-dark() values)
-    const extras = [
+    // Raw shade variables like --color-neutral-50 are defined in @theme but NOT
+    // exposed as CSS custom properties - only these semantic tokens are available
+    const semanticVars = [
         `--c-contrast: var(--colors-${colourName}-contrast)`,
         `--c-fg: var(--colors-${colourName}-fg)`,
         `--c-muted: var(--colors-${colourName}-muted)`,
@@ -69,7 +67,7 @@ export function generateColourVars(colourName: string): string {
         `--c-focus-ring: var(--colors-${colourName}-focus-ring)`,
     ].join("; ");
 
-    return `${shadeVars}; ${extras}`;
+    return semanticVars;
 }
 
 /**
