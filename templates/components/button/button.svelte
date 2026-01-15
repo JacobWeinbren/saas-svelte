@@ -9,6 +9,7 @@
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
 			"rounded font-(--font-weights-medium)",
+			"hover:transition-colors hover:duration-200",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
@@ -31,7 +32,7 @@
 				// SUBTLE: Neutral text with subtle background
 				subtle: [
 					"text-(--c-fg) bg-(--c-muted)",
-					"hover:bg-(--c-emphasized)",
+					"hover:bg-(--c-subtle)",
 				],
 
 				// SURFACE: Neutral text with border and subtle background
@@ -47,10 +48,7 @@
 				],
 
 				// GHOST: Neutral text, background on hover
-				ghost: [
-					"text-(--c-fg)",
-					"hover:bg-(--c-emphasized)",
-				],
+				ghost: ["text-(--c-fg)", "hover:bg-(--c-subtle)"],
 
 				// PLAIN: Neutral text only
 				plain: ["text-(--c-fg)"],
