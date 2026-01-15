@@ -9,56 +9,45 @@
 			"rounded border select-none",
 			"[&_option]:bg-inherit",
 
-			// Text & Placeholder
-			"text-sm leading-5 antialiased",
+			// Text
+			"antialiased",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
-			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-(--c-600) focus-visible:border-(--c-600)",
-			"dark:focus-visible:outline-(--c-500) dark:focus-visible:border-(--c-500)",
+			// Focus - uses colour focus ring
+			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"bg-transparent",
-					// Light
 					"border-(--color-border-default)",
 					"enabled:hover:border-(--color-border-emphasized)",
-					"enabled:hover:focus-visible:border-(--c-600)",
-
-					// Dark
-					"dark:border-(--color-border-default) dark:text-(--color-fg-default)",
-					"dark:enabled:hover:border-(--color-border-emphasized)",
+					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
-					// Light
 					"bg-(--color-bg-subtle)",
-					// Dark
-					"dark:bg-(--color-bg-subtle) dark:text-(--color-fg-default)",
 				],
 				plain: [
 					"border-0 bg-transparent",
-					// Light
 					"text-(--color-fg-default)",
-					// Dark
-					"dark:text-(--color-fg-default)",
 					"focus-visible:outline-2",
 				],
 			},
 			size: {
-				xs: "h-(--spacing-6) pl-(--spacing-2) pr-(--spacing-6) text-xs leading-4",
-				sm: "h-(--spacing-8) pl-(--spacing-2_5) pr-(--spacing-8) text-sm leading-5",
-				md: "h-(--spacing-10) pl-(--spacing-3) pr-(--spacing-8) text-sm leading-5",
-				lg: "h-(--spacing-11) pl-(--spacing-4) pr-(--spacing-8) text-sm leading-5",
-				xl: "h-(--spacing-12) pl-(--spacing-5) pr-(--spacing-10) text-sm leading-5",
+				xs: "h-(--spacing-6) pl-(--spacing-2) pr-(--spacing-6) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "h-(--spacing-8) pl-(--spacing-2_5) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "h-(--spacing-10) pl-(--spacing-3) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "h-(--spacing-11) pl-(--spacing-4) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				xl: "h-(--spacing-12) pl-(--spacing-5) pr-(--spacing-10) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 			},
 			invalid: {
 				true: [
-					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
-					"dark:border-(--color-border-error) dark:focus-visible:border-(--color-border-error) dark:hover:border-(--color-border-emphasized)",
+					"border-(--color-border-error)!",
+					"focus-visible:border-(--color-border-error)! focus-visible:outline-(--color-border-error)!",
+					"enabled:hover:border-(--color-border-emphasized)",
 				],
 			},
 		},

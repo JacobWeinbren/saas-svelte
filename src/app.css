@@ -5,6 +5,7 @@
 :root {
 	color-scheme: light dark;
 	--scale-factor: 1;
+	--spacing-11: calc(2.75rem * var(--scale-factor));
 }
 
 html.light {
