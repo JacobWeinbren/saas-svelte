@@ -3,11 +3,11 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	const divider = tv({
-		base: "shrink-0 border-(--color-border-default)",
+		base: "shrink-0 self-stretch border-(--color-border-default)",
 		variants: {
 			orientation: {
-				horizontal: "h-px w-full border-b",
-				vertical: "h-full w-px border-l min-h-[1em]",
+				horizontal: "my-(--spacing-2) border-t",
+				vertical: "mx-(--spacing-2) border-l",
 			},
 		},
 		defaultVariants: {
