@@ -9,7 +9,7 @@
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
 			"rounded font-(--font-weights-medium)",
-			"hover:transition-colors hover:duration-200",
+			"transition-colors duration-200",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],

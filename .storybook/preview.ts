@@ -40,11 +40,11 @@ if (typeof window !== "undefined") {
         if (currentlyDark !== isDark) {
             isDark = currentlyDark;
 
-            docHtml.classList.add("no-transition");
+            docHtml.classList.add("no-transitions");
 
             window.requestAnimationFrame(() => {
                 window.requestAnimationFrame(() => {
-                    docHtml.classList.remove("no-transition");
+                    docHtml.classList.remove("no-transitions");
                 });
             });
         }
