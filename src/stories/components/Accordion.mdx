@@ -28,22 +28,26 @@ The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordi
 
 **Simple Usage:**
 
-```html
-import { Accordion } from '$saas/accordion';
+```tsx
+<script>
+  import { Accordion } from '$saas/accordion';
 
-const items = [
-  { value: 'a', title: 'First Item', content: 'Some value 1...' },
-  { value: 'b', title: 'Second Item', content: 'Some value 2...' },
-  { value: 'c', title: 'Third Item', content: 'Some value 3...' },
-];
+  const items = [
+    { value: 'a', title: 'First Item', content: 'Some value 1...' },
+    { value: 'b', title: 'Second Item', content: 'Some value 2...' },
+    { value: 'c', title: 'Third Item', content: 'Some value 3...' },
+  ];
+</script>
 
 <Accordion {items} collapsible defaultValue={['b']} />
 ```
 
 **Composition API:**
 
-```html
-import { Accordion } from '$saas/accordion';
+```tsx
+<script>
+  import { Accordion } from '$saas/accordion';
+</script>
 
 <Accordion.Root collapsible defaultValue={['b']}>
   <Accordion.Item value="a">

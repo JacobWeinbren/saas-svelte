@@ -13,7 +13,7 @@ Used to highlight substrings of a text.
 
 ## Usage
 
-```html
+```tsx
 <script>
 	import { Highlight } from "$saas/typography/highlight";
 </script>
@@ -29,7 +29,7 @@ Pass an array of strings to the `query` prop to highlight multiple substrings.
 
 <Canvas of={HighlightStories.Multiple} />
 
-```html
+```tsx
 <Highlight
 	query={["spotlight", "emphasise", "accentuate"]}
 	text="With the Highlight component, you can spotlight, emphasise and accentuate words."
@@ -42,7 +42,7 @@ Use the `variant` prop to customise the style of the highlighted text.
 
 <Canvas of={HighlightStories.CustomStyle} />
 
-```html
+```tsx
 <Highlight
 	query="component"
 	variant="text"
@@ -56,7 +56,7 @@ Use the highlight component to highlight search query results.
 
 <Canvas of={HighlightStories.SearchQuery} />
 
-```html
+```tsx
 <script>
 	const query = "spot";
 	const results = ["Spotlight bulb", "Spot cleaner", "Spot ceiling"];

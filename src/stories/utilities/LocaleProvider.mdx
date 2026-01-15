@@ -16,7 +16,7 @@ The `LocaleProvider` component sets the locale for your app, formatting dates, n
 
 Most components that read the locale will automatically use the locale set by the `LocaleProvider`.
 
-```html
+```tsx
 <script>
 	import { LocaleProvider } from "$saas/utilities/locale-provider";
 </script>
@@ -38,7 +38,7 @@ Set the `locale` prop to the locale you want to use. The provider will automatic
 
 Use the `getLocaleContext` function to access the current locale and text direction in your components.
 
-```html
+```tsx
 <script>
 	import { getLocaleContext } from "$saas/utilities/locale-provider";
 
