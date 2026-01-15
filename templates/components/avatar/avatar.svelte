@@ -81,6 +81,11 @@
 					root: "border-2 border-(--color-bg-default) dark:border-(--color-bg-default)",
 				},
 			},
+			ring: {
+				true: {
+					root: "outline-2 outline-offset-2 outline-solid outline-(--c-solid)",
+				},
+			},
 			colour: {},
 		},
 		defaultVariants: {
@@ -131,6 +136,11 @@
 		 */
 		colour?: ColourName;
 		/**
+		 * Whether to show a ring around the avatar using the colour palette.
+		 * @default false
+		 */
+		ring?: boolean;
+		/**
 		 * Use the provided child snippet as the fallback content.
 		 */
 		fallback?: Snippet;
@@ -159,6 +169,7 @@
 		variant: propVariant,
 		shape = "full",
 		colour = "gray",
+		ring = false,
 		fallback,
 		onStatusChange,
 		class: className,
@@ -207,6 +218,7 @@
 			variant,
 			shape,
 			borderless,
+			ring,
 			colour: "gray" as any,
 		}),
 	);

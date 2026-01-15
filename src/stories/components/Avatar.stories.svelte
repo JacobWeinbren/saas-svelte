@@ -29,6 +29,11 @@
 				description: "Whether the avatar should have a border.",
 				table: { defaultValue: { summary: "true" } },
 			},
+			ring: {
+				control: "boolean",
+				description: "Whether to show a ring around the avatar.",
+				table: { defaultValue: { summary: "false" } },
+			},
 			src: {
 				control: "text",
 				description: "The source for the avatar image.",
@@ -52,6 +57,7 @@
 				"shape",
 				"colour",
 				"borderless",
+				"ring",
 				"children",
 				"class",
 			]),
@@ -120,19 +126,19 @@
 			name="David Wilson"
 			colour="pink"
 			src="/avatars/1.png"
-			class="outline-offset-2 outline-2 outline-solid outline-pink-500"
+			ring
 		/>
 		<Avatar
 			name="Marcus Chen"
 			colour="green"
 			src="/avatars/2.png"
-			class="outline-offset-2 outline-2 outline-solid outline-green-500"
+			ring
 		/>
 		<Avatar
 			name="Sarah Johnson"
 			colour="blue"
 			src="/avatars/3.png"
-			class="outline-offset-2 outline-2 outline-solid outline-blue-500"
+			ring
 		/>
 	</Stack>
 {/snippet}
