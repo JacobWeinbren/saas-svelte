@@ -87,7 +87,7 @@
 			variant,
 			interactive,
 			zIndex: 50,
-			animation: "zoom",
+			animation: "scale",
 			fontWeight: "medium",
 			padding: "md",
 		}),

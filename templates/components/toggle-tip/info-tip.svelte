@@ -46,7 +46,7 @@
 	{id}
 	{positioning}
 	class={className}
-	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button)"
+	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button) rounded outline-0 focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-zinc-focus-ring"
 	{...rest}
 >
 	<Icon as={Info} size="sm" />

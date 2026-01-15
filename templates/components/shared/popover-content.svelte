@@ -62,11 +62,11 @@
 			animation: {
 				scale: {
 					content:
-						"transition-opacity duration-(--durations-moderate) data-[state=open]:opacity-100 data-[state=closed]:opacity-0",
+						"data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out",
 				},
 				zoom: {
 					content:
-						"transition-[opacity,transform] duration-(--durations-moderate) data-[state=open]:scale-100 data-[state=open]:opacity-100 data-[state=closed]:scale-95 data-[state=closed]:opacity-0",
+						"data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out",
 				},
 			},
 			fontWeight: {

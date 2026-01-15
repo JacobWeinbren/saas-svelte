@@ -117,17 +117,29 @@
 	id={uniqueId}
 	{autoFocus}
 	{closeOnEscape}
-	closeOnInteractOutside={closeOnInteractOutside}
+	{closeOnInteractOutside}
 	{modal}
 	{portalled}
 	{positioning}
 	{...rest}
 >
-	<ArkPopover.Trigger class={triggerClass}>
-		{@render children()}
+	<ArkPopover.Trigger>
+		{#snippet asChild(props)}
+			{#if triggerClass}
+				<button type="button" {...props()} class={triggerClass}>
+					{@render children()}
+				</button>
+			{:else}
+				<span {...props()}>
+					{@render children()}
+				</span>
+			{/if}
+		{/snippet}
 	</ArkPopover.Trigger>
 	<ArkPopover.Positioner class={styles.positioner()} style="z-index: 50;">
-		<ArkPopover.Content class={styles.content({ class: `${sizeClass} ${className || ""}` })}>
+		<ArkPopover.Content
+			class={styles.content({ class: `${sizeClass} ${className || ""}` })}
+		>
 			{#if typeof content === "string"}
 				{content}
 			{:else if content}
@@ -136,4 +148,3 @@
 		</ArkPopover.Content>
 	</ArkPopover.Positioner>
 </ArkPopover.Root>
-
