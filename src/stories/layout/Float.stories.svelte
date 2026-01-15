@@ -89,9 +89,9 @@
 {/snippet}
 
 {#snippet placementsStory()}
-	<HStack class="flex-wrap gap-x-8 gap-y-6">
+	<HStack class="flex-wrap gap-x-8 gap-y-6 items-center">
 		{#each floatPlacements as placement}
-			<VStack class="gap-2">
+			<VStack class="gap-2 items-center">
 				<Text size="xs">{placement}</Text>
 				<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
 					<Float {placement}>

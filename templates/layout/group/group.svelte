@@ -35,8 +35,8 @@
 				orientation: "vertical",
 				class: [
 					"space-x-0 -space-y-px", // Reset x-space, set y-space
-					"[&>*:first-child]:rounded-r-md [&>*:first-child]:rounded-bl-none",
-					"[&>*:last-child]:rounded-l-md [&>*:last-child]:rounded-tr-none",
+					"[&>*:first-child]:rounded-r-(--radius-l2) [&>*:first-child]:rounded-bl-none",
+					"[&>*:last-child]:rounded-l-(--radius-l2) [&>*:last-child]:rounded-tr-none",
 					"[&>*:not(:first-child):not(:last-child)]:rounded-none",
 				],
 			},
