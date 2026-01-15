@@ -6,10 +6,10 @@
 		base: "whitespace-nowrap",
 		variants: {
 			variant: {
-				subtle: "bg-(--c-muted) text-(--c-fg)",
+				subtle: "bg-(--c-muted)",
 				solid: "text-(--c-contrast) bg-(--c-solid)",
-				text: "bg-transparent text-(--c-fg) font-(--font-weights-semibold)",
-				plain: "bg-transparent text-fg-default font-(--font-weights-semibold)",
+				text: "bg-transparent text-(--c-fg) font-(--font-weights-medium)",
+				plain: "bg-transparent",
 			},
 		},
 		defaultVariants: {

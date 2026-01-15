@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgTypes, Source } from "@storybook/blocks";
+import { Meta, Canvas, ArgTypes } from "@storybook/blocks";
 import * as TextStories from "./Text.stories.svelte";
 import { Text } from "$saas/typography/text";
 import { textPattern } from "../utils";
@@ -7,55 +7,45 @@ import { textPattern } from "../utils";
 
 # Text
 
-## Used to render text and paragraphs within an interface.
+Used to render text and paragraphs within an interface.
 
 <Canvas of={TextStories.Basic} />
 
-## Anatomy
+## Usage
 
 ```tsx
 <script>
 	import { Text } from "$saas/typography/text";
 </script>
 
-<Text>The quick brown fox jumps over the lazy dog.</Text>
+<Text>This is the text component</Text>
 ```
 
 ## Examples
 
 ### Sizes
 
-Use the `size` prop to change the size of the text. You can set the value to `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl`, or `7xl`.
+Use the `size` or `textStyle` prop to change the size of the text.
 
 <Canvas of={TextStories.Sizes} />
 
 ### Weights
 
-Use the `weight` (or `fontWeight`) prop to change the font weight. You can set the value to `thin`, `extralight`, `light`, `normal`, `medium`, `semibold`, `bold`, `extrabold`, or `black`.
+Use the `weight` or `fontWeight` prop to change the weight of the text.
 
 <Canvas of={TextStories.Weights} />
 
 ### Truncation
 
-Use the `truncate` prop to truncate text to a single line with ellipsis.
+Use the `truncate` prop to truncate the text after a single line.
 
 <Canvas of={TextStories.Truncation} />
 
 ### Line Clamp
 
-Use the `lineClamp` prop to clamp text to a specific number of lines. You can set the value to `1`, `2`, `3`, `4`, `5`, `6`, or `none`.
+Use the `lineClamp` prop to truncate the text after a certain number of lines.
 
 <Canvas of={TextStories.LineClamp} />
-
-### Polymorphism
-
-Change the underlying HTML element using the `as` prop. The component renders a `<p>` tag by default.
-
-```tsx
-<Text as="span">This is a span</Text>
-<Text as="h1" size="4xl" weight="bold">This is an h1</Text>
-<Text as="label">This is a label</Text>
-```
 
 ### Props
 

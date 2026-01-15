@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Text } from "$saas/typography/text";
-	import { Stack } from "$saas/layout/stack";
+	import { DataList } from "$saas/components/data-list";
 	import { commonArgTypes, getControls, textSizes } from "../utils";
 
 	const weights = ["light", "normal", "medium", "semibold", "bold"] as const;
@@ -65,35 +65,48 @@
 </script>
 
 {#snippet sizesStory()}
-	<Stack>
+	<DataList.Root orientation="vertical">
 		{#each textSizes as size}
-			<Text {size}>Chakra ({size})</Text>
+			<DataList.Item>
+				<DataList.ItemLabel>{size}</DataList.ItemLabel>
+				<DataList.ItemValue>
+					<Text {size}>Chakra</Text>
+				</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</Stack>
+	</DataList.Root>
 {/snippet}
 
 {#snippet weightsStory()}
-	<Stack>
+	<DataList.Root orientation="vertical">
 		{#each weights as w}
-			<Text weight={w}>Sphinx of black quartz, judge my vow.</Text>
+			<DataList.Item>
+				<DataList.ItemLabel>{w}</DataList.ItemLabel>
+				<DataList.ItemValue>
+					<Text weight={w}>Sphinx of black quartz, judge my vow.</Text>
+				</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</Stack>
+	</DataList.Root>
 {/snippet}
 
 {#snippet truncateStory()}
-	<Text truncate>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua.
-	</Text>
+	<div class="flex max-w-[300px]">
+		<Text truncate>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		</Text>
+	</div>
 {/snippet}
 
 {#snippet lineClampStory()}
-	<Text lineClamp="2">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-		veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-		commodo consequat.
-	</Text>
+	<div class="flex max-w-[300px]">
+		<Text lineClamp="2">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat.
+		</Text>
+	</div>
 {/snippet}
 
 <Story name="Basic">Sphinx of black quartz, judge my vow.</Story>

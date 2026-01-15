@@ -2,7 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Mark } from "$saas/typography/mark";
 	import { Text } from "$saas/typography/text";
-	import { Stack } from "$saas/layout/stack";
+	import { DataList } from "$saas/components/data-list";
 	import { commonArgTypes, getControls } from "../utils";
 
 	const variants = ["subtle", "solid", "text", "plain"] as const;
@@ -37,14 +37,19 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<Stack>
+	<DataList.Root orientation="vertical">
 		{#each variants as variant}
-			<Text>
-				The <Mark {variant} colour="blue">design system</Mark> is a collection of UI
-				elements
-			</Text>
+			<DataList.Item>
+				<DataList.ItemLabel>{variant}</DataList.ItemLabel>
+				<DataList.ItemValue>
+					<Text>
+						The <Mark {variant} colour="indigo">design system</Mark> is a collection of UI
+						elements
+					</Text>
+				</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</Stack>
+	</DataList.Root>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
