@@ -7,7 +7,7 @@
 			// Layout
 			"inline-flex items-center shrink-0",
 			// Typography
-			"font-sans antialiased",
+			"antialiased",
 			// Selection & spacing
 			"select-none whitespace-nowrap [word-spacing:-0.5em]",
 			// Border radius & padding

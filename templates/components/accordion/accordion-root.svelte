@@ -9,7 +9,7 @@
 			root: "w-full",
 			item: "overflow-anchor-none",
 			trigger: [
-				"flex items-center gap-(--spacing-3) w-full font-sans",
+				"flex items-center gap-(--spacing-3) w-full",
 				"rounded-(--radius-md)",
 				"outline-none",
 				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
@@ -25,7 +25,7 @@
 			size: {
 				sm: {
 					trigger:
-						"text-(length:--font-sizes-sm) font-(--font-weights-medium) py-(--spacing-2)",
+						"text-(length:--font-sizes-sm) py-(--spacing-2) font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-sm)",
 					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
 					indicator: "size-(--spacing-3_5)",
@@ -33,7 +33,7 @@
 				},
 				md: {
 					trigger:
-						"text-(length:--font-sizes-sm) font-(--font-weights-medium) py-(--spacing-2)",
+						"text-(length:--font-sizes-sm) py-(--spacing-2) font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-sm)",
 					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
 					indicator: "size-(--spacing-3_5)",
@@ -41,7 +41,7 @@
 				},
 				lg: {
 					trigger:
-						"text-(length:--font-sizes-md) font-(--font-weights-medium) py-(--spacing-2_5)",
+						"text-(length:--font-sizes-md) py-(--spacing-2_5) font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-md)",
 					contentBody: "pt-(--spacing-2_5) pb-(--spacing-5)",
 					indicator: "size-(--spacing-4)",
@@ -138,7 +138,7 @@
 	{multiple}
 	{orientation}
 	class={twMerge(
-		"text-(--color-fg-default) leading-normal antialiased font-sans",
+		"text-(--color-fg-default) leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

@@ -6,44 +6,43 @@
 
 	export const avatar = tv({
 		slots: {
-			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-sans",
+			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase leading-none rounded-full flex items-center justify-center",
+				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center",
 		},
 		variants: {
 			size: {
 				"2xs": {
-					root: "w-(--spacing-4) h-(--spacing-4) text-(length:--font-sizes-2xs) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-2xs) font-(--font-weights-medium)",
+					root: "w-(--spacing-4) h-(--spacing-4) text-(length:--font-sizes-2xs)",
+					fallback: "text-(length:--font-sizes-2xs)",
 				},
 				xs: {
-					root: "w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-xs) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-xs) font-(--font-weights-medium)",
+					root: "w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-xs)",
+					fallback: "text-(length:--font-sizes-xs)",
 				},
 				sm: {
-					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-sm) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-sm) font-(--font-weights-medium)",
+					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-sm)",
+					fallback: "text-(length:--font-sizes-sm)",
 				},
 				md: {
-					root: "w-(--spacing-9) h-(--spacing-9) text-(length:--font-sizes-lg) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-lg) font-(--font-weights-medium)",
+					root: "w-(--spacing-9) h-(--spacing-9) text-(length:--font-sizes-lg)",
+					fallback: "text-(length:--font-sizes-lg)",
 				},
 				lg: {
-					root: "w-(--spacing-12) h-(--spacing-12) text-(length:--font-sizes-2xl) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-2xl) font-(--font-weights-medium)",
+					root: "w-(--spacing-12) h-(--spacing-12) text-(length:--font-sizes-2xl)",
+					fallback: "text-(length:--font-sizes-2xl)",
 				},
 				xl: {
-					root: "w-(--spacing-16) h-(--spacing-16) text-(length:--font-sizes-3xl) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-3xl) font-(--font-weights-medium)",
+					root: "w-(--spacing-16) h-(--spacing-16) text-(length:--font-sizes-3xl)",
+					fallback: "text-(length:--font-sizes-3xl)",
 				},
 				"2xl": {
-					root: "w-(--spacing-20) h-(--spacing-20) text-(length:--font-sizes-4xl) font-(--font-weights-medium)",
-					fallback: "text-(length:--font-sizes-4xl) font-(--font-weights-medium)",
+					root: "w-(--spacing-20) h-(--spacing-20) text-(length:--font-sizes-4xl)",
+					fallback: "text-(length:--font-sizes-4xl)",
 				},
 				full: {
-					root: "w-full h-full font-(--font-weights-medium)",
-					fallback: "font-(--font-weights-medium)",
+					root: "w-full h-full",
 				},
 			},
 			variant: {

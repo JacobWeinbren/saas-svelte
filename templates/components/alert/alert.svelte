@@ -11,7 +11,7 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radius-md) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-y-(--spacing-3) gap-x-(--spacing-3) font-sans",
+			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radius-md) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-y-(--spacing-3) gap-x-(--spacing-3)",
 			iconWrapper:
 				"shrink-0 inline-flex items-center justify-center w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
 			content: "flex-1 min-w-0 flex flex-col gap-(--spacing-1)",

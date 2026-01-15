@@ -82,7 +82,7 @@
 	});
 
 	const focusClass =
-		"focus-visible:outline-2 focus-visible:outline-(--color-fg-default) focus-visible:outline-offset-2";
+		"focus-visible:outline-1 focus-visible:outline-fg-default focus-visible:outline-offset-2";
 
 	class FocusState {
 		inputRef = $state<HTMLInputElement | null>(null);

@@ -5,7 +5,7 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded border font-sans",
+			"rounded border",
 
 			// Text & Placeholder
 			"antialiased",

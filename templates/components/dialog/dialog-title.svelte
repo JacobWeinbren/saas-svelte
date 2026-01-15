@@ -6,20 +6,12 @@
 	const dialogTitle = tv({
 		base: [
 			// Typography
-			"wrap-break-word text-(length:--font-sizes-md) leading-(--line-heights-md)",
+			"wrap-break-word text-(length:--font-sizes-md) leading-(--line-heights-md) font-(--font-weights-semibold)",
 			// Text color using semantic token
 			"text-fg-default",
 			// Font rendering
-			"antialiased font-sans",
+			"antialiased",
 		],
-		variants: {
-			weight: {
-				semibold: "font-(--font-weights-semibold)",
-			},
-		},
-		defaultVariants: {
-			weight: "semibold",
-		},
 	});
 
 	interface Props {

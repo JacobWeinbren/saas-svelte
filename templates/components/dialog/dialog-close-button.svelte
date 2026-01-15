@@ -24,7 +24,7 @@
 		// Typography
 		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 		// Focus ring
-		"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
+		"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-fg-default",
 		// Disabled state
 		"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 		className,
