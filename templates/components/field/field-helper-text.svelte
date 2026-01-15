@@ -31,7 +31,7 @@
 		// Text color - muted for helper text (zinc-500)
 		"text-(--color-fg-muted)",
 		// Typography
-		"text-xs leading-4",
+		"text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
 		// Rendering
 		"antialiased",
 		className,

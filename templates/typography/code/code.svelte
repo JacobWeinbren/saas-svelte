@@ -33,10 +33,10 @@
 				],
 			},
 			size: {
-				xs: "text-xs leading-3 px-(--spacing-1) min-h-(--spacing-4)",
-				sm: "text-xs leading-4 px-(--spacing-1_5) min-h-(--spacing-5)",
-				md: "text-sm leading-5 px-(--spacing-2) min-h-(--spacing-6)",
-				lg: "text-sm leading-5 px-(--spacing-2_5) min-h-(--spacing-7)",
+				xs: "text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-(--spacing-1) min-h-(--spacing-4)",
+				sm: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-(--spacing-1_5) min-h-(--spacing-5)",
+				md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2) min-h-(--spacing-6)",
+				lg: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2_5) min-h-(--spacing-7)",
 			},
 		},
 		defaultVariants: {

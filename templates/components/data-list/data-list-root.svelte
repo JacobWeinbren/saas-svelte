@@ -15,17 +15,17 @@
 			size: {
 				sm: {
 					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-xs leading-4",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 				md: {
 					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-sm leading-5",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 				lg: {
 					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-base leading-6",
+					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-md) leading-(--line-heights-md)",
 					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
 				},
 			},

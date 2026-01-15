@@ -14,8 +14,8 @@
 
 <Dialog.Title
 	class={twMerge(
-		// Typography: text-base font-semibold leading-6
-		"break-words text-base font-semibold leading-6",
+		// Typography
+		"break-words text-(length:--font-sizes-md) font-semibold leading-(--line-heights-md)",
 		// Text color using semantic token
 		"text-(--color-fg-default)",
 		// Font and rendering

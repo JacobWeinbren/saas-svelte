@@ -12,32 +12,32 @@
 		variants: {
 			size: {
 				"2xs": {
-					root: "w-(--spacing-4) h-(--spacing-4) text-2xs",
-					fallback: "text-2xs",
+					root: "w-(--spacing-4) h-(--spacing-4) text-(length:--font-sizes-2xs)",
+					fallback: "text-(length:--font-sizes-2xs)",
 				},
 				xs: {
-					root: "w-(--spacing-5) h-(--spacing-5) text-xs",
-					fallback: "text-xs",
+					root: "w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-xs)",
+					fallback: "text-(length:--font-sizes-xs)",
 				},
 				sm: {
-					root: "w-(--spacing-6) h-(--spacing-6) text-sm",
-					fallback: "text-sm",
+					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-sm)",
+					fallback: "text-(length:--font-sizes-sm)",
 				},
 				md: {
-					root: "w-(--spacing-9) h-(--spacing-9) text-lg",
-					fallback: "text-lg",
+					root: "w-(--spacing-9) h-(--spacing-9) text-(length:--font-sizes-lg)",
+					fallback: "text-(length:--font-sizes-lg)",
 				},
 				lg: {
-					root: "w-(--spacing-12) h-(--spacing-12) text-2xl",
-					fallback: "text-2xl",
+					root: "w-(--spacing-12) h-(--spacing-12) text-(length:--font-sizes-2xl)",
+					fallback: "text-(length:--font-sizes-2xl)",
 				},
 				xl: {
-					root: "w-(--spacing-16) h-(--spacing-16) text-3xl",
-					fallback: "text-3xl",
+					root: "w-(--spacing-16) h-(--spacing-16) text-(length:--font-sizes-3xl)",
+					fallback: "text-(length:--font-sizes-3xl)",
 				},
 				"2xl": {
-					root: "w-(--spacing-20) h-(--spacing-20) text-4xl",
-					fallback: "text-4xl",
+					root: "w-(--spacing-20) h-(--spacing-20) text-(length:--font-sizes-4xl)",
+					fallback: "text-(length:--font-sizes-4xl)",
 				},
 				full: {
 					root: "w-full h-full",

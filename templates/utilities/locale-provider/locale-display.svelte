@@ -16,7 +16,7 @@
 </script>
 
 <div class="flex flex-col gap-(--spacing-2)">
-	<pre class="rounded bg-(--color-bg-subtle) p-(--spacing-4) text-sm font-mono">{JSON.stringify(
+	<pre class="rounded bg-(--color-bg-subtle) p-(--spacing-4) text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-mono">{JSON.stringify(
 			displayData,
 			null,
 			2,

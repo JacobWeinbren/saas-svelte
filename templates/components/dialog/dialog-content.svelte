@@ -62,7 +62,7 @@
 			"outline-none focus:outline-none",
 			"antialiased",
 			// Typography
-			"text-sm leading-5",
+			"text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 		],
 		variants: {
 			size: {

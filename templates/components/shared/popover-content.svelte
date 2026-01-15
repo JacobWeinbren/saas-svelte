@@ -16,7 +16,7 @@
 				"bg-(--color-bg-panel) backdrop-blur-md",
 				"text-(--color-fg-default)",
 
-				"text-xs font-normal leading-4 antialiased",
+				"text-(length:--font-sizes-xs) font-normal leading-(--line-heights-xs) antialiased",
 				"max-w-xs",
 				"border-0",
 

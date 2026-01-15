@@ -16,16 +16,16 @@
 			// Text color
 			"text-(--color-fg-default)",
 			// Typography
-			"leading-5 antialiased",
+			"antialiased",
 			// Focus
 			"focus-visible:z-1",
 		],
 		variants: {
 			size: {
-				xs: "h-(--spacing-6) px-(--spacing-2) text-xs leading-4",
-				sm: "h-(--spacing-7) px-(--spacing-2_5) text-sm leading-5",
-				md: "h-(--spacing-8) px-(--spacing-3) text-sm leading-5",
-				lg: "h-(--spacing-10) px-(--spacing-4) text-sm leading-5",
+				xs: "h-(--spacing-6) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "h-(--spacing-7) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "h-(--spacing-8) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "h-(--spacing-10) px-(--spacing-4) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 			},
 		},
 		defaultVariants: {

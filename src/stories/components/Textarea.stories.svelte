@@ -5,6 +5,7 @@
 	import { Input } from "$saas/components/input";
 	import { Button } from "$saas/components/button";
 	import { VStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
 	import {
 		textSizes,
 		inputVariants,
@@ -52,17 +53,23 @@
 </script>
 
 {#snippet variantsStory()}
-	<VStack>
+	<VStack class="gap-4 w-80">
 		{#each inputVariants as variant}
-			<Textarea {variant} placeholder={variant} />
+			<VStack class="items-center gap-2">
+				<Text size="xs">{variant}</Text>
+				<Textarea {variant} placeholder={variant} />
+			</VStack>
 		{/each}
 	</VStack>
 {/snippet}
 
 {#snippet sizesStory()}
-	<VStack>
+	<VStack class="gap-4 w-80">
 		{#each textareaSizes as size}
-			<Textarea {size} placeholder="{size} size" />
+			<VStack class="items-center gap-2">
+				<Text size="xs">{size}</Text>
+				<Textarea {size} placeholder="{size} size" />
+			</VStack>
 		{/each}
 	</VStack>
 {/snippet}
@@ -129,11 +136,13 @@
 {/snippet}
 
 {#snippet resizeStory()}
-	<VStack class="max-w-64">
-		<Textarea resize="none" placeholder="Search the docs…" />
-		<Textarea resize="vertical" placeholder="Search the docs…" />
-		<Textarea resize="horizontal" placeholder="Search the docs…" />
-		<Textarea resize="both" placeholder="Search the docs…" />
+	<VStack class="gap-4 w-64">
+		{#each resizeOptions as resize}
+			<VStack class="items-center gap-2">
+				<Text size="xs">{resize}</Text>
+				<Textarea {resize} placeholder="Search the docs…" />
+			</VStack>
+		{/each}
 	</VStack>
 {/snippet}
 

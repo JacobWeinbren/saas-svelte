@@ -15,7 +15,7 @@
 				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
 				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 			],
-			content: "overflow-hidden text-sm text-(--color-fg-muted)",
+			content: "overflow-hidden text-(length:--font-sizes-sm) text-(--color-fg-muted)",
 			contentBody: "",
 			indicator:
 				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--duration-moderate)",
@@ -24,22 +24,22 @@
 		variants: {
 			size: {
 				sm: {
-					trigger: "text-sm py-(--spacing-2)",
-					content: "text-sm",
+					trigger: "text-(length:--font-sizes-sm) py-(--spacing-2)",
+					content: "text-(length:--font-sizes-sm)",
 					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
 					indicator: "size-(--spacing-3_5)",
 					icon: "size-(--spacing-3_5)",
 				},
 				md: {
-					trigger: "text-sm py-(--spacing-2)",
-					content: "text-sm",
+					trigger: "text-(length:--font-sizes-sm) py-(--spacing-2)",
+					content: "text-(length:--font-sizes-sm)",
 					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
 					indicator: "size-(--spacing-3_5)",
 					icon: "size-(--spacing-3_5)",
 				},
 				lg: {
-					trigger: "text-base py-(--spacing-2_5)",
-					content: "text-base",
+					trigger: "text-(length:--font-sizes-md) py-(--spacing-2_5)",
+					content: "text-(length:--font-sizes-md)",
 					contentBody: "pt-(--spacing-2_5) pb-(--spacing-5)",
 					indicator: "size-(--spacing-4)",
 					icon: "size-(--spacing-4)",

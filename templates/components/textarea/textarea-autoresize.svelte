@@ -8,7 +8,7 @@
 			"rounded border font-sans",
 
 			// Text & Placeholder
-			"text-sm leading-5 antialiased",
+			"antialiased",
 			"placeholder:text-(--color-fg-muted) placeholder:select-none",
 
 			// Disabled
@@ -44,11 +44,11 @@
 				],
 			},
 			size: {
-				xs: "px-(--spacing-2) py-(--spacing-1) text-xs leading-4",
-				sm: "px-(--spacing-2_5) py-(--spacing-1_5) text-sm leading-5",
-				md: "px-(--spacing-3) py-(--spacing-1_5) text-sm leading-5",
-				lg: "px-(--spacing-4) py-(--spacing-2) text-sm leading-5 rounded-(--radius-md)",
-				xl: "px-(--spacing-5) py-(--spacing-3_5) text-sm leading-5 rounded-(--radius-md)",
+				xs: "px-(--spacing-2) py-(--spacing-1) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "px-(--spacing-2_5) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "px-(--spacing-3) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "px-(--spacing-4) py-(--spacing-2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
+				xl: "px-(--spacing-5) py-(--spacing-3_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
 			},
 			invalid: {
 				true: [

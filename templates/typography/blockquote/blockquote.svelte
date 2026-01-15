@@ -105,12 +105,12 @@
 		</div>
 	{/if}
 
-	<blockquote class="text-sm font-normal">
+	<blockquote class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-normal">
 		{@render children?.()}
 	</blockquote>
 
 	{#if cite}
-		<figcaption class="text-sm leading-5 text-(--color-fg-muted)">
+		<figcaption class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-(--color-fg-muted)">
 			{#if showDash}—<!-- -->
 			{/if}<cite>{cite}</cite>
 		</figcaption>

@@ -9,7 +9,7 @@
 			"rounded border",
 
 			// Text & Placeholder
-			"text-sm leading-5 antialiased",
+			"antialiased",
 			"text-(--color-fg-default)",
 			"placeholder:text-(--color-fg-muted) placeholder:select-none",
 
@@ -44,10 +44,10 @@
 				],
 			},
 			size: {
-				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-xs leading-4",
-				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-sm leading-5",
-				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-sm leading-5",
-				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-sm leading-5 rounded-md",
+				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
 			},
 			invalid: {
 				true: [

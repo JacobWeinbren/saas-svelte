@@ -41,7 +41,7 @@
 		// Text color - muted (zinc-500)
 		"text-(--color-fg-muted)",
 		// Typography
-		"text-sm",
+		"text-(length:--font-sizes-sm)",
 		// Pointer events
 		"pointer-events-none",
 		placementStyles[placement],

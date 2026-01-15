@@ -37,9 +37,9 @@
 				plain: ["text-(--color-fg-emphasized)"],
 			},
 			size: {
-				sm: "h-(--spacing-5) text-xs font-medium leading-4",
-				md: "h-(--spacing-5) text-xs font-medium leading-4",
-				lg: "h-(--spacing-6) text-sm font-medium leading-5",
+				sm: "h-(--spacing-4) text-(length:--font-sizes-2xs) font-medium leading-(--line-heights-2xs)",
+				md: "h-(--spacing-5) text-(length:--font-sizes-xs) font-medium leading-(--line-heights-xs)",
+				lg: "h-(--spacing-6) text-(length:--font-sizes-sm) font-medium leading-(--line-heights-sm)",
 			},
 		},
 		defaultVariants: {

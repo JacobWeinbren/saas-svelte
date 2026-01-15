@@ -7,11 +7,11 @@
 		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-500) text-(--color-fg-inverted)",
 		variants: {
 			size: {
-				xs: "size-(--spacing-5) text-xs",
-				sm: "size-(--spacing-8) text-sm",
-				md: "size-(--spacing-10) text-base",
-				lg: "size-(--spacing-12) text-lg",
-				xl: "size-(--spacing-16) text-xl",
+				xs: "size-(--spacing-5) text-(length:--font-sizes-xs)",
+				sm: "size-(--spacing-8) text-(length:--font-sizes-sm)",
+				md: "size-(--spacing-10) text-(length:--font-sizes-md)",
+				lg: "size-(--spacing-12) text-(length:--font-sizes-lg)",
+				xl: "size-(--spacing-16) text-(length:--font-sizes-xl)",
 			},
 			variant: {
 				solid: "bg-(--c-600) text-(--color-fg-inverted)",

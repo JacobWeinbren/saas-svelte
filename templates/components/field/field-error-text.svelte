@@ -34,7 +34,7 @@
 		// Text color - error color (red-500 light, red-400 dark)
 		"text-(--color-fg-error)",
 		// Typography
-		"text-xs font-medium leading-4",
+		"text-(length:--font-sizes-xs) font-medium leading-(--line-heights-xs)",
 		// Rendering
 		"antialiased",
 		className,
