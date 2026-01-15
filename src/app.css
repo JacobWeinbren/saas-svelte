@@ -18,6 +18,8 @@ html.dark {
 body {
 	background-color: var(--color-bg-default);
 	color: var(--color-fg-default);
+	font-size: var(--font-sizes-sm);
+	line-height: var(--line-heights-md);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -28,46 +30,86 @@ body {
 	/* Animations */
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
-	
-	--animate-dialog-in: fade-in var(--durations-moderate) ease-out, scale-in var(--durations-moderate) ease-out;
-	--animate-dialog-out: fade-out var(--durations-moderate) ease-in, scale-out var(--durations-moderate) ease-in;
-	
-	--animate-dialog-slide-in: fade-in var(--durations-moderate) ease-out, slide-in-bottom var(--durations-slow) cubic-bezier(0.16, 1, 0.3, 1);
-	--animate-dialog-slide-out: fade-out var(--durations-moderate) ease-in, slide-out-bottom var(--durations-moderate) ease-in;
+
+	--animate-dialog-in:
+		fade-in var(--durations-moderate) ease-out,
+		scale-in var(--durations-moderate) ease-out;
+	--animate-dialog-out:
+		fade-out var(--durations-moderate) ease-in,
+		scale-out var(--durations-moderate) ease-in;
+
+	--animate-dialog-slide-in:
+		fade-in var(--durations-moderate) ease-out,
+		slide-in-bottom var(--durations-slow) cubic-bezier(0.16, 1, 0.3, 1);
+	--animate-dialog-slide-out:
+		fade-out var(--durations-moderate) ease-in,
+		slide-out-bottom var(--durations-moderate) ease-in;
 
 	--animate-accordion-down: slide-down var(--durations-moderate) ease-out;
 	--animate-accordion-up: slide-up var(--durations-moderate) ease-out;
 
 	@keyframes fade-in {
-		from { opacity: 0; }
-		to { opacity: 1; }
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 	@keyframes fade-out {
-		from { opacity: 1; }
-		to { opacity: 0; }
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
 	}
 	@keyframes scale-in {
-		from { transform: scale(0.95); }
-		to { transform: scale(1); }
+		from {
+			transform: scale(0.95);
+		}
+		to {
+			transform: scale(1);
+		}
 	}
 	@keyframes scale-out {
-		from { transform: scale(1); }
-		to { transform: scale(0.95); }
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(0.95);
+		}
 	}
 	@keyframes slide-in-bottom {
-		from { transform: translateY(2rem); }
-		to { transform: translateY(0); }
+		from {
+			transform: translateY(2rem);
+		}
+		to {
+			transform: translateY(0);
+		}
 	}
 	@keyframes slide-out-bottom {
-		from { transform: translateY(0); }
-		to { transform: translateY(2rem); }
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(2rem);
+		}
 	}
 	@keyframes slide-down {
-		from { height: 0; }
-		to { height: var(--height); }
+		from {
+			height: 0;
+		}
+		to {
+			height: var(--height);
+		}
 	}
 	@keyframes slide-up {
-		from { height: var(--height); }
-		to { height: 0; }
+		from {
+			height: var(--height);
+		}
+		to {
+			height: 0;
+		}
 	}
 }

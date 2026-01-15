@@ -6,11 +6,12 @@
 
 	export const link = tv({
 		base: [
+			// Layout
 			"cursor-(--cursor-button) outline-0 items-center gap-x-(--spacing-1_5) gap-y-(--spacing-1_5) inline-flex rounded",
-			"focus:outline-offset-2 focus:outline-1 focus:outline-solid focus:outline-(--c-600)",
-			// Base text colors and size
-			"text-md leading-5 text-(--c-700) dark:text-(--c-300)",
-			"antialiased",
+			// Focus - uses colour focus ring
+			"focus:outline-offset-2 focus:outline-1 focus:outline-solid focus:outline-(--c-focus-ring)",
+			// Typography - inherits font size from parent
+			"text-(--c-fg) antialiased",
 		],
 		variants: {
 			variant: {

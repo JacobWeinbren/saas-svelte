@@ -40,10 +40,14 @@ export type ColourName = (typeof availableColours)[number] | (string & {});
  * - Set style={generateColourVars(colour)} on the element
  * - Use classes like bg-(--c-500), text-(--c-700), border-(--c-200)
  *
- * Also provides semantic tokens:
- * - --c-contrast: text color for solid backgrounds (from --colors-{name}-contrast)
- * - --c-solid: solid background color (from --colors-{name}-solid)
- * - --c-focus-ring: focus ring color (from --color-{name}-focus-ring)
+ * Also provides semantic tokens (from --colors-{name}-*):
+ * - --c-contrast: text color for solid backgrounds
+ * - --c-fg: foreground/text color
+ * - --c-muted: muted background
+ * - --c-subtle: subtle background
+ * - --c-emphasized: emphasized background
+ * - --c-solid: solid background color
+ * - --c-focus-ring: focus ring color
  */
 export function generateColourVars(colourName: string): string {
     if (!colourName) return "";
@@ -57,6 +61,10 @@ export function generateColourVars(colourName: string): string {
     // Use the Saas UI preset's semantic tokens (--colors- has light-dark() values)
     const extras = [
         `--c-contrast: var(--colors-${colourName}-contrast)`,
+        `--c-fg: var(--colors-${colourName}-fg)`,
+        `--c-muted: var(--colors-${colourName}-muted)`,
+        `--c-subtle: var(--colors-${colourName}-subtle)`,
+        `--c-emphasized: var(--colors-${colourName}-emphasized)`,
         `--c-solid: var(--colors-${colourName}-solid)`,
         `--c-focus-ring: var(--colors-${colourName}-focus-ring)`,
     ].join("; ");
