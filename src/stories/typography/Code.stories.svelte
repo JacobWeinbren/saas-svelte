@@ -47,32 +47,36 @@
 </script>
 
 {#snippet sizesStory()}
-	<VStack align="start" class="gap-4">
+	<VStack align="start" class="gap-(--spacing-2)">
 		{#each codeSizes as size}
-			<Code {size}>console.log()</Code>
+			<HStack align="center" class="gap-(--spacing-10) px-(--spacing-4) w-full">
+				<Text size="sm" class="min-w-[8ch]">{size}</Text>
+				<Code {size}>console.log()</Code>
+			</HStack>
 		{/each}
 	</VStack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<VStack align="start" class="gap-4">
+	<VStack align="start" class="gap-(--spacing-2)">
 		{#each codeVariants as variant}
-			<Code {variant}>console.log()</Code>
+			<HStack align="center" class="gap-(--spacing-10) px-(--spacing-4) w-full">
+				<Text size="sm" class="min-w-[8ch]">{variant}</Text>
+				<Code {variant}>console.log()</Code>
+			</HStack>
 		{/each}
 	</VStack>
 {/snippet}
 
 {#snippet coloursStory()}
-	<VStack class="gap-4">
+	<VStack class="gap-(--spacing-2)">
 		{#each colours as colour}
-			<HStack class="gap-4">
-				<Text size="xs" class="w-16">{colour}</Text>
+			<HStack align="center" class="gap-(--spacing-10) px-(--spacing-4) w-full">
+				<Text size="sm" class="min-w-[8ch]">{colour}</Text>
 				<Code variant="solid" colour={colour as any}>console.log()</Code>
-				<Code variant="outline" colour={colour as any}>console.log()</Code
-				>
+				<Code variant="outline" colour={colour as any}>console.log()</Code>
 				<Code variant="subtle" colour={colour as any}>console.log()</Code>
-				<Code variant="surface" colour={colour as any}>console.log()</Code
-				>
+				<Code variant="surface" colour={colour as any}>console.log()</Code>
 			</HStack>
 		{/each}
 	</VStack>

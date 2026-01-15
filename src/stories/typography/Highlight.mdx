@@ -33,6 +33,7 @@ Pass an array of strings to the `query` prop to highlight multiple substrings.
 <Highlight
 	query={["spotlight", "emphasise", "accentuate"]}
 	text="With the Highlight component, you can spotlight, emphasise and accentuate words."
+	colour="teal"
 />
 ```
 
@@ -45,7 +46,7 @@ Use the `variant` prop to customise the style of the highlighted text.
 ```tsx
 <Highlight
 	query="component"
-	variant="text"
+	variant="plain"
 	text="With the Highlight component, you can spotlight words."
 />
 ```
@@ -67,7 +68,7 @@ Use the highlight component to highlight search query results.
 	<Stack>
 		{#each results as item}
 			<Text>
-				<Highlight ignoreCase {query} variant="text" text={item} />
+				<Highlight ignoreCase {query} variant="plain" text={item} />
 			</Text>
 		{/each}
 	</Stack>

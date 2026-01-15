@@ -53,6 +53,43 @@ Change the underlying HTML element using the `as` prop. The component renders an
 <Heading as="h3">Level 3</Heading>
 ```
 
+### Highlight
+
+Compose with the `Mark` component to highlight specific words in your headings.
+
+<Canvas of={HeadingStories.Highlight} />
+
+```tsx
+<Stack>
+	<Heading size="3xl">
+		Build modern SaaS applications with <Mark colour="indigo" variant="text">Saas UI</Mark>
+	</Heading>
+	<Text variant="secondary">
+		Saas UI provides enterprise-ready components and patterns to help you build professional
+		applications faster than ever.
+	</Text>
+</Stack>
+```
+
+### Composition
+
+Combine `Heading` with other typography components like `Text` and action components like `Button` to create complete sections.
+
+<Canvas of={HeadingStories.Composition} />
+
+```tsx
+<Stack align="start">
+	<Heading size="2xl">Modern payments for Stores</Heading>
+	<Text variant="secondary" class="mb-3">
+		PayMe helps startups get paid by anyone, anywhere in the world
+	</Text>
+	<Button>
+		Create account
+		<ArrowRight />
+	</Button>
+</Stack>
+```
+
 ### Props
 
 <ArgTypes of={Heading} exclude={headingPattern} />

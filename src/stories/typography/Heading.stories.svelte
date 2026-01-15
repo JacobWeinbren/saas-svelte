@@ -1,7 +1,11 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Heading } from "$saas/typography/heading";
+	import { Text } from "$saas/typography/text";
+	import { Mark } from "$saas/typography/mark";
+	import { Button } from "$saas/components/button";
 	import { Stack } from "$saas/layout/stack";
+	import ArrowRight from "phosphor-svelte/lib/ArrowRight";
 	import { commonArgTypes, getControls } from "../utils";
 
 	const headingSizes = [
@@ -94,6 +98,31 @@
 	<Heading>The quick brown fox jumps over the lazy dog</Heading>
 {/snippet}
 
+{#snippet highlightStory()}
+	<Stack>
+		<Heading size="3xl">
+			Build modern SaaS applications with <Mark colour="indigo" variant="text">Saas UI</Mark>
+		</Heading>
+		<Text variant="secondary">
+			Saas UI provides enterprise-ready components and patterns to help you build professional
+			applications faster than ever.
+		</Text>
+	</Stack>
+{/snippet}
+
+{#snippet compositionStory()}
+	<Stack align="start">
+		<Heading size="2xl">Modern payments for Stores</Heading>
+		<Text variant="secondary" class="mb-3">
+			PayMe helps startups get paid by anyone, anywhere in the world
+		</Text>
+		<Button>
+			Create account
+			<ArrowRight />
+		</Button>
+	</Stack>
+{/snippet}
+
 <Story name="Basic" template={basicStory} />
 
 <Story name="Sizes" template={sizesStory} />
@@ -103,3 +132,7 @@
 <Story name="Weights" template={weightsStory} />
 
 <Story name="AsElement" template={asStory} />
+
+<Story name="Highlight" template={highlightStory} />
+
+<Story name="Composition" template={compositionStory} />

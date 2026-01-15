@@ -59,6 +59,7 @@
 		<Highlight
 			query={["spotlight", "emphasise", "accentuate"]}
 			text="With the Highlight component, you can spotlight, emphasise and accentuate words."
+			colour="teal"
 		/>
 	</Heading>
 {/snippet}
@@ -66,7 +67,7 @@
 {#snippet customStyleStory()}
 	<Highlight
 		query="component"
-		variant="text"
+		variant="plain"
 		text="With the Highlight component, you can spotlight words."
 	/>
 {/snippet}
@@ -79,7 +80,7 @@
 		<Stack>
 			{#each results as item}
 				<Text>
-					<Highlight ignoreCase {query} variant="text" text={item} />
+					<Highlight ignoreCase {query} variant="plain" text={item} />
 				</Text>
 			{/each}
 		</Stack>

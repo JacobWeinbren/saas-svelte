@@ -1,4 +1,28 @@
 <style>
+	/* Ensure color-scheme is set for light-dark() to work */
+	:root,
+	html,
+	body,
+	#storybook-root,
+	.sb-show-main,
+	.docs-story {
+		color-scheme: light;
+	}
+
+	html.light,
+	html.light body,
+	html.light #storybook-root,
+	.light .docs-story {
+		color-scheme: light;
+	}
+
+	html.dark,
+	html.dark body,
+	html.dark #storybook-root,
+	.dark .docs-story {
+		color-scheme: dark;
+	}
+
 	/* Light mode background - subtle blueish tint */
 	body,
 	#storybook-root {
@@ -35,23 +59,17 @@
 		color: rgb(248, 250, 252) !important;
 	}
 
-	/* Light mode styling for docs elements */
-	.sbdocs h1,
-	.sbdocs h2,
-	.sbdocs h3,
-	.sbdocs h4,
-	.sbdocs p,
-	.sbdocs-p {
-		color: rgb(15, 23, 42) !important;
-	}
-
-	/* Dark mode styling for docs elements */
-	.dark .sbdocs h1,
-	.dark .sbdocs h2,
-	.dark .sbdocs h3,
-	.dark .sbdocs h4,
-	.dark .sbdocs p,
-	.dark .sbdocs-p {
+	/* Dark mode text for docs page elements (excluding story previews) */
+	.dark .sbdocs h1:not(.docs-story h1),
+	.dark .sbdocs h2:not(.docs-story h2),
+	.dark .sbdocs h3:not(.docs-story h3),
+	.dark .sbdocs h4:not(.docs-story h4),
+	.dark .sbdocs h5:not(.docs-story h5),
+	.dark .sbdocs h6:not(.docs-story h6),
+	.dark .sbdocs > p,
+	.dark .sbdocs-content > p,
+	.dark .sbdocs-content > div > p:not(.docs-story p),
+	.dark .sbdocs li:not(.docs-story li) {
 		color: rgb(248, 250, 252) !important;
 	}
 

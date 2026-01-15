@@ -36,13 +36,13 @@
 
 				// SURFACE: Neutral text with border and subtle background
 				surface: [
-					"text-(--c-fg) shadow-(--shadows-sm) border bg-(--c-muted)/20 border-(--c-subtle)/90",
-					"hover:bg-(--c-muted) hover:border-(--c-subtle)",
+					"text-(--c-fg) shadow-(--shadows-sm) border bg-(--c-muted)/20 border-(--c-emphasized)/90",
+					"hover:bg-(--c-muted) hover:border-(--c-emphasized)",
 				],
 
 				// OUTLINE: Neutral text with thin border
 				outline: [
-					"text-(--c-fg) border-[0.5px] border-(--c-subtle)",
+					"text-(--c-fg) border-[0.5px] border-(--c-emphasized)",
 					"hover:bg-(--c-muted)",
 				],
 
