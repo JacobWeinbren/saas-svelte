@@ -1,7 +1,26 @@
 <script lang="ts">
 	import { Dialog } from "@ark-ui/svelte";
 	import type { Snippet } from "svelte";
-	import { twMerge } from "tailwind-merge";
+	import { tv } from "tailwind-variants";
+
+	const dialogTitle = tv({
+		base: [
+			// Typography
+			"wrap-break-word text-(length:--font-sizes-md) leading-(--line-heights-md)",
+			// Text color using semantic token
+			"text-fg-default",
+			// Font rendering
+			"antialiased font-sans",
+		],
+		variants: {
+			weight: {
+				semibold: "font-(--font-weights-semibold)",
+			},
+		},
+		defaultVariants: {
+			weight: "semibold",
+		},
+	});
 
 	interface Props {
 		children: Snippet;
@@ -12,17 +31,6 @@
 	let { children, class: className, ...rest }: Props = $props();
 </script>
 
-<Dialog.Title
-	class={twMerge(
-		// Typography
-		"break-words text-(length:--font-sizes-md) font-(--font-weights-semibold) leading-(--line-heights-md)",
-		// Text color using semantic token
-		"text-(--color-fg-default)",
-		// Font and rendering
-		"antialiased font-sans",
-		className,
-	)}
-	{...rest}
->
+<Dialog.Title class={dialogTitle({ class: className })} {...rest}>
 	{@render children()}
 </Dialog.Title>
