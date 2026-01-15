@@ -115,7 +115,7 @@
 
 	{#if cite}
 		<figcaption class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-(--color-fg-muted)">
-			{#if showDash}— {/if}<cite>{cite}</cite>
+			{#if showDash}<span class="me-1">—</span>{/if}<cite>{cite}</cite>
 		</figcaption>
 	{/if}
 </figure>
