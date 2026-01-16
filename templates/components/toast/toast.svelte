@@ -30,6 +30,7 @@
 			content: "flex flex-col flex-1 max-w-full",
 			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-(--spacing-2)",
 			description: "text-(length:--font-sizes-sm) leading-(--line-heights-md) opacity-80 inline",
+			descriptionOnly: "text-(length:--font-sizes-sm) leading-(--line-heights-md) flex-1",
 			action: [
 				"[appearance:auto] cursor-pointer h-(--sizes-6) self-start",
 				"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md)",
@@ -52,11 +53,11 @@
 		},
 		variants: {
 			status: {
-				info: { icon: "" },
-				success: { icon: "text-fg-success" },
-				warning: { icon: "text-fg-warning" },
-				error: { icon: "text-fg-error" },
-				loading: { icon: "text-accent-fg" },
+				info: { icon: "", descriptionOnly: "font-(--font-weights-medium)" },
+				success: { icon: "text-fg-success", descriptionOnly: "font-(--font-weights-medium)" },
+				warning: { icon: "text-fg-warning", descriptionOnly: "font-(--font-weights-medium)" },
+				error: { icon: "text-fg-error", descriptionOnly: "font-(--font-weights-medium)" },
+				loading: { icon: "text-accent-fg", descriptionOnly: "opacity-80" },
 			},
 		},
 		defaultVariants: {
@@ -115,6 +116,9 @@
 		typeof icon !== "boolean" && icon ? icon : icon === false ? null : ICONS[status]
 	);
 
+	// Single-line toast: description only, no title or action, and not loading
+	const isSingleLine = $derived(description && !title && !action && status !== "loading");
+
 	// Fix Ark UI bugs: --index doesn't increment properly in overlap:false mode
 	// and height is calculated incorrectly
 	function fixIndex(node: HTMLElement) {
@@ -161,6 +165,13 @@
 	<ArkToast.Root class={styles.root({ class: className })} {style} {...restProps}>
 		{#if children}
 			{@render children()}
+		{:else if isSingleLine}
+			{#if status === "loading"}
+				<span class={styles.spinner()}></span>
+			{:else if resolvedIcon}
+				<Icon as={resolvedIcon} class={styles.icon()} />
+			{/if}
+			<ArkToast.Description class={styles.descriptionOnly()}>{description}</ArkToast.Description>
 		{:else}
 			{#if status === "loading"}
 				<span class={styles.spinner()}></span>

@@ -16,13 +16,6 @@
 				description: "The status of the toast.",
 				table: { defaultValue: { summary: "info" } },
 			},
-			variant: {
-				...commonArgTypes.variant,
-				options: variants.filter((v) =>
-					["subtle", "solid", "surface", "outline"].includes(v),
-				),
-				table: { defaultValue: { summary: "surface" } },
-			},
 			colour: commonArgTypes.colour,
 			title: {
 				control: "text",
@@ -43,7 +36,6 @@
 		parameters: {
 			controls: getControls([
 				"status",
-				"variant",
 				"colour",
 				"title",
 				"description",
@@ -54,7 +46,6 @@
 		},
 		args: {
 			status: "info",
-			variant: "surface",
 			title: "Toast Title",
 			description: "This is a toast description.",
 		},
@@ -67,12 +58,6 @@
 	});
 
 	const statusToaster = createToaster({
-		placement: "bottom-end",
-		overlap: true,
-		gap: 16,
-	});
-
-	const variantToaster = createToaster({
 		placement: "bottom-end",
 		overlap: true,
 		gap: 16,
@@ -110,7 +95,6 @@
 		<Button
 			onclick={() =>
 				basicToaster.create({
-					title: "Toast Title",
 					description: "This is a toast notification.",
 					type: "info",
 				})}
@@ -141,7 +125,6 @@
 				colour="blue"
 				onclick={() =>
 					statusToaster.create({
-						title: "Information",
 						description: "Here is some useful information.",
 						type: "info",
 					})}
@@ -152,7 +135,6 @@
 				colour="green"
 				onclick={() =>
 					statusToaster.create({
-						title: "Success!",
 						description: "Your changes have been saved.",
 						type: "success",
 					})}
@@ -163,7 +145,6 @@
 				colour="orange"
 				onclick={() =>
 					statusToaster.create({
-						title: "Warning",
 						description: "This action cannot be undone.",
 						type: "warning",
 					})}
@@ -174,7 +155,6 @@
 				colour="red"
 				onclick={() =>
 					statusToaster.create({
-						title: "Error occurred",
 						description: "Something went wrong. Please try again.",
 						type: "error",
 					})}
@@ -185,7 +165,6 @@
 				colour="gray"
 				onclick={() =>
 					statusToaster.create({
-						title: "Loading...",
 						description:
 							"Please wait while we process your request.",
 						type: "loading",
@@ -205,80 +184,6 @@
 						| "warning"
 						| "error"
 						| "loading"}
-				/>
-			{/snippet}
-		</Toaster>
-	</div>
-{/snippet}
-
-{#snippet variantsStory()}
-	<div class="min-h-[400px]">
-		<Stack direction="horizontal" class="gap-2 flex-wrap">
-			<Button
-				variant="subtle"
-				onclick={() =>
-					variantToaster.create({
-						title: "Subtle Toast",
-						description: "This is a subtle variant.",
-						type: "info",
-						meta: { variant: "subtle" },
-					})}
-			>
-				Subtle
-			</Button>
-			<Button
-				variant="solid"
-				onclick={() =>
-					variantToaster.create({
-						title: "Solid Toast",
-						description: "This is a solid variant.",
-						type: "info",
-						meta: { variant: "solid" },
-					})}
-			>
-				Solid
-			</Button>
-			<Button
-				variant="surface"
-				onclick={() =>
-					variantToaster.create({
-						title: "Surface Toast",
-						description: "This is a surface variant.",
-						type: "info",
-						meta: { variant: "surface" },
-					})}
-			>
-				Surface
-			</Button>
-			<Button
-				variant="outline"
-				onclick={() =>
-					variantToaster.create({
-						title: "Outline Toast",
-						description: "This is an outline variant.",
-						type: "info",
-						meta: { variant: "outline" },
-					})}
-			>
-				Outline
-			</Button>
-		</Stack>
-		<Toaster toaster={variantToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
-					variant={toast().meta?.variant as
-						| "subtle"
-						| "solid"
-						| "surface"
-						| "outline"}
 				/>
 			{/snippet}
 		</Toaster>
@@ -325,7 +230,6 @@
 			<Button
 				onclick={() =>
 					durationToaster.create({
-						title: "Quick Toast (1s)",
 						description: "This will disappear quickly.",
 						type: "info",
 						duration: 1000,
@@ -336,7 +240,6 @@
 			<Button
 				onclick={() =>
 					durationToaster.create({
-						title: "Default Toast (5s)",
 						description: "This uses the default duration.",
 						type: "info",
 						duration: 5000,
@@ -347,7 +250,6 @@
 			<Button
 				onclick={() =>
 					durationToaster.create({
-						title: "Persistent Toast",
 						description: "This will stay until dismissed.",
 						type: "info",
 						duration: Infinity,
@@ -378,7 +280,6 @@
 		<Button
 			onclick={() =>
 				placementToaster.create({
-					title: "Top Placement",
 					description: "This toast appears at the top.",
 					type: "info",
 				})}
@@ -457,8 +358,6 @@
 <Story name="Basic" template={basicStory} />
 
 <Story name="Status" template={statusStory} />
-
-<Story name="Variants" template={variantsStory} />
 
 <Story name="WithAction" template={actionStory} />
 
