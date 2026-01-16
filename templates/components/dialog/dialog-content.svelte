@@ -40,7 +40,7 @@
 				lg: "",
 				xl: "",
 				full: "",
-				cover: "p-10 items-center justify-center",
+				cover: "p-(--spacing-10) items-center justify-center",
 			},
 		},
 		defaultVariants: {
@@ -66,17 +66,17 @@
 		],
 		variants: {
 			size: {
-				xs: "w-full max-w-sm rounded-lg",
-				sm: "w-full max-w-md rounded-lg",
-				md: "w-full max-w-lg rounded-lg",
-				lg: "w-full max-w-2xl rounded-lg",
-				xl: "w-full max-w-4xl rounded-lg",
+				xs: "w-full max-w-sm rounded-(--radii-l3)",
+				sm: "w-full max-w-md rounded-(--radii-l3)",
+				md: "w-full max-w-lg rounded-(--radii-l3)",
+				lg: "w-full max-w-2xl rounded-(--radii-l3)",
+				xl: "w-full max-w-4xl rounded-(--radii-l3)",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
+				cover: "w-full h-full rounded-(--radii-l3) my-(--spacing-0) overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-4rem)] my-auto",
-				outside: "my-16",
+				outside: "my-(--spacing-16)",
 			},
 		},
 		defaultVariants: {

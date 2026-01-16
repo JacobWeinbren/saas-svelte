@@ -2,7 +2,7 @@
 	import { Dialog } from "@ark-ui/svelte";
 	import { button, type ButtonVariants } from "../button/button.svelte";
 	import type { Snippet } from "svelte";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	interface Props {
 		children: Snippet;
@@ -26,8 +26,7 @@
 		...rest
 	}: Props = $props();
 
-	// Generate CSS variables for the chosen colour (provides semantic tokens like --c-solid, --c-fg, etc.)
-	const colourVars = $derived(generateColourVars(colour));
+	const colourVars = $derived(getColourStyle(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 

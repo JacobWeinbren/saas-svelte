@@ -2,8 +2,7 @@
 	import { Dialog } from "@ark-ui/svelte";
 	import { button, type ButtonVariants } from "../button/button.svelte";
 	import type { Snippet } from "svelte";
-	import { twMerge } from "tailwind-merge";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	interface Props {
 		children: Snippet;
@@ -27,16 +26,12 @@
 		...rest
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour));
-	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
+	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
 </script>
 
 <Dialog.CloseTrigger
-	class={twMerge(
-		button({ variant, size, className }),
-		// Custom footer focus ring override
-		"focus-visible:outline-fg-default",
-	)}
+	class={button({ variant, size, className })}
 	style={finalStyle}
 	asChild={asChild ? children : undefined}
 	{...rest}

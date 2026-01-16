@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { ColourName, generateColourVars } from "$saas/utils/colours";
+	import type { ColourName } from "$saas/utils/colours";
 
 	export const code = tv({
 		base: [
@@ -51,7 +51,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
-	import { generateColourVars as genColourVars } from "$saas/utils/colours";
+	import { getColourStyle } from "$saas/utils/colours";
 
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
@@ -85,7 +85,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(genColourVars(colour || "gray"));
+	const colourVars = $derived(getColourStyle(colour || "gray"));
 
 	const finalClass = $derived(
 		code({

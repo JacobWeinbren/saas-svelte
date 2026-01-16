@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { generateColourVars, type ColourName } from "$saas/utils/colours";
+	import { getColourStyle, type ColourName } from "$saas/utils/colours";
 
 	export const textarea = tv({
 		base: [
@@ -131,7 +131,7 @@
 
 	const fieldState = $derived($fieldContext ?? {});
 
-	const colourVars = $derived(generateColourVars(colour));
+	const colourVars = $derived(getColourStyle(colour));
 
 	const isInvalid = $derived(invalid || fieldState.invalid || false);
 	const isDisabled = $derived(disabled || fieldState.disabled || false);

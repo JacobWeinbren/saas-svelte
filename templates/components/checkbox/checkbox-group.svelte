@@ -5,7 +5,7 @@
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
 	import { setContext } from "svelte";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	const checkboxGroup = tv({
 		base: "flex antialiased",
@@ -103,7 +103,7 @@
 		...rest
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour || "indigo"));
 
 	// Initialize value with defaultValue if provided
 	if (defaultValue && value.length === 0) {
@@ -171,7 +171,7 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded-(--radii-l1) size-4 {isIndeterminate ||
+					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded-(--radii-l1) size-(--spacing-4) {isIndeterminate ||
 					allChecked
 						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
 						: 'border-border-emphasized text-(--c-contrast)'}"

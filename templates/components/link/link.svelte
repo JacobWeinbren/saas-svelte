@@ -2,14 +2,14 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAnchorAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	export const link = tv({
 		base: [
 			// Layout
 			"cursor-(--cursor-button) outline-0 items-center gap-x-(--spacing-1_5) gap-y-(--spacing-1_5) inline-flex rounded-(--radii-l1)",
 			// Focus - uses colour focus ring
-			"focus:outline-offset-(--spacing-0_5) focus:outline-1 focus:outline-solid focus:outline-(--c-focus-ring)",
+			"focus:outline-offset-[var(--spacing-0_5)] focus:outline-1 focus:outline-solid focus:outline-(--c-focus-ring)",
 			// Typography - inherits font size from parent
 			"text-(--c-fg) antialiased",
 		],
@@ -62,7 +62,7 @@
 		...rest
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour || "gray"));
+	const colourVars = $derived(getColourStyle(colour || "gray"));
 
 	const finalClass = $derived(link({ variant, class: className as string }));
 

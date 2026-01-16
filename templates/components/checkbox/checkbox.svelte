@@ -3,7 +3,7 @@
 	import type { Snippet } from "svelte";
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import { tv, type VariantProps } from "tailwind-variants";
 	import { twMerge } from "tailwind-merge";
 	import { getContext, hasContext } from "svelte";
@@ -12,7 +12,7 @@
 		base: [
 			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
 			"rounded-(--radii-l1)",
-			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-(--spacing-0_5) peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
+			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-[var(--spacing-0_5)] peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
 		],
 		variants: {
@@ -197,7 +197,7 @@
 		return checked;
 	});
 
-	const colourVars = $derived(generateColourVars(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour || "indigo"));
 
 	const isChecked = $derived(
 		checkedState === true || checkedState === "indeterminate",

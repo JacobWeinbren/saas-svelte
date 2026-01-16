@@ -6,12 +6,12 @@
 	import XCircle from "phosphor-svelte/lib/XCircle";
 	import type { Snippet, Component } from "svelte";
 
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import { Icon } from "$saas/components/icon";
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radius-md) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-y-(--spacing-3) gap-x-(--spacing-3)",
+			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radii-l2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-(--spacing-3)",
 			iconWrapper:
 				"shrink-0 inline-flex items-center justify-center w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
 			content: "flex-1 min-w-0 flex flex-col gap-(--spacing-1)",
@@ -21,20 +21,20 @@
 		variants: {
 			variant: {
 				subtle: {
-					root: "bg-(--c-muted) text-(--c-fg)",
+					root: "bg-(--c-muted) [color:var(--c-fg)]",
 					iconWrapper: "text-current",
 				},
 				solid: {
-					root: "bg-(--c-solid) text-(--c-contrast)",
-					iconWrapper: "text-(--c-contrast)",
+					root: "bg-(--c-solid) [color:var(--c-contrast)]",
+					iconWrapper: "[color:var(--c-contrast)]",
 				},
 				surface: {
-					root: "bg-(--c-muted) text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-solid)]",
-					iconWrapper: "text-(--c-fg)",
+					root: "bg-(--c-muted) [color:var(--c-fg)] shadow-[inset_0_0_0_1px_var(--c-solid)]",
+					iconWrapper: "[color:var(--c-fg)]",
 				},
 				outline: {
-					root: "bg-transparent text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
-					iconWrapper: "text-(--c-fg)",
+					root: "bg-transparent [color:var(--c-fg)] shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					iconWrapper: "[color:var(--c-fg)]",
 				},
 			},
 		},
@@ -105,10 +105,10 @@
 		neutral: "gray",
 	};
 
-	const resolvedColour = $derived(
-		colour ?? statusColourMap[status] ?? "gray",
-	);
-	const colourVars = $derived(generateColourVars(resolvedColour));
+	const resolvedColour = $derived(colour ?? statusColourMap[status] ?? "gray");
+
+	const colourStyle = $derived(getColourStyle(resolvedColour));
+	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
 
 	const statusIconMap = {
 		info: Info,
@@ -131,8 +131,6 @@
 		title: titleClass,
 		description,
 	} = $derived(alert({ variant }));
-
-	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <div

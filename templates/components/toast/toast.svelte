@@ -55,7 +55,7 @@
 				"inline-flex rounded-(--radii-l1)",
 				"text-fg-default outline-0",
 				"transition-colors duration-(--durations-moderate)",
-				"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-solid",
+				"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-solid",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 				"hover:bg-bg-subtle",
 			],

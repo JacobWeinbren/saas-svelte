@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import Quotes from "phosphor-svelte/lib/Quotes";
 
 	export const blockquote = tv({
@@ -87,7 +87,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour));
+	const colourVars = $derived(getColourStyle(colour));
 	const finalClass = $derived(
 		blockquote({ variant, justify, class: className }),
 	);

@@ -2,7 +2,7 @@
 	import { setContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	const dataList = tv({
 		slots: {
@@ -106,7 +106,7 @@
 	}: Props = $props();
 
 	const classes = $derived(dataList({ size, orientation, divider }));
-	const colourVars = $derived(generateColourVars(colour));
+	const colourVars = $derived(getColourStyle(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	setContext("data-list-styles", {

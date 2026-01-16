@@ -31,7 +31,7 @@
 				"cursor-(--cursor-button)",
 				"transition-colors duration-(--durations-moderate)",
 				"hover:bg-bg-subtle",
-				"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
+				"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
 			],
 			separator: ["bg-border-default w-px h-(--sizes-5) self-stretch"],
 			closeButton: [
@@ -43,7 +43,7 @@
 				"inline-flex rounded-(--radii-l1)",
 				"text-fg-muted outline-0",
 				"transition-colors duration-(--durations-moderate)",
-				"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
+				"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 				"hover:bg-bg-subtle hover:text-fg-default",
 			],

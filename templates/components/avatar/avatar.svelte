@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import type { ColourName } from "$saas/utils/colours";
 	import User from "phosphor-svelte/lib/User";
 
 	export const avatar = tv({
@@ -9,7 +9,7 @@
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center [font-size:inherit]",
+				"uppercase font-(--font-weights-medium) leading-none rounded-(--radius-full) flex items-center justify-center [font-size:inherit]",
 		},
 		variants: {
 			size: {
@@ -58,9 +58,9 @@
 					fallback: "rounded-(--radii-l2)",
 				},
 				full: {
-					root: "rounded-full",
-					image: "rounded-full",
-					fallback: "rounded-full",
+					root: "rounded-(--radius-full)",
+					image: "rounded-(--radius-full)",
+					fallback: "rounded-(--radius-full)",
 				},
 			},
 			borderless: {
@@ -73,17 +73,15 @@
 			},
 			ring: {
 				true: {
-					root: "outline-2 outline-offset-[var(--spacing-0_5)] outline-solid outline-(--c-solid)",
+					root: "outline-2 outline-offset-0.5 outline-solid outline-(--c-solid)",
 				},
 			},
-			colour: {},
 		},
 		defaultVariants: {
 			size: "md",
 			variant: "solid",
 			shape: "full",
 			borderless: true,
-			colour: "gray" as any,
 		},
 	});
 
@@ -92,6 +90,7 @@
 
 <script lang="ts">
 	import { getContext, type Snippet } from "svelte";
+	import { getColourStyle } from "$saas/utils/colours";
 	import type { AvatarGroupContext } from "./avatar-group.svelte";
 
 	type AvatarVariants = VariantProps<typeof avatar>;
@@ -196,7 +195,8 @@
 			.toUpperCase(),
 	);
 
-	const colourVars = $derived(generateColourVars(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
 
 	const {
 		root,
@@ -209,11 +209,8 @@
 			shape,
 			borderless,
 			ring,
-			colour: "gray" as any,
 		}),
 	);
-
-	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
 <div

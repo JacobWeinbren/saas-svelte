@@ -3,14 +3,14 @@
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import type { ColourName } from "$saas/utils/colours";
 
 	export const button = tv({
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
 			"rounded-(--radii-l1) font-(--font-weights-medium)",
 			"transition-colors duration-(--durations-moderate)",
-			"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
+			"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {
@@ -18,7 +18,8 @@
 				// GLASS: Contrast text with gradient overlay and glossy effect
 				glass: [
 					"overflow-clip",
-					"text-(--c-contrast) bg-(--c-solid)",
+					"[color:var(--c-contrast)] bg-(--c-solid)",
+					"focus-visible:outline-(--c-focus-ring)",
 					"[text-shadow:0_1px_2px_rgba(0,0,0,0.3)]",
 					// Light mode: inset shadow for depth + subtle outer shadow
 					"shadow-[inset_0_0_0_1px_rgba(0,0,0,0.25),inset_0_2px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.05),0_0_2px_0_rgba(0,0,0,0.05)]",
@@ -33,35 +34,45 @@
 
 				// SOLID: Contrast text with solid background
 				solid: [
-					"text-(--c-contrast) bg-(--c-solid) shadow-(--shadows-sm)",
+					"[color:var(--c-contrast)] bg-(--c-solid) shadow-sm",
+					"focus-visible:outline-(--c-focus-ring)",
 					"hover:brightness-110",
 				],
 
-				// SUBTLE: Neutral text with subtle background
+				// SUBTLE: Accent text with subtle background
 				subtle: [
-					"text-(--c-fg) bg-(--c-muted)",
+					"[color:var(--c-fg)] bg-(--c-muted)",
+					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-subtle)",
 				],
 
-				// SURFACE: Neutral text with border and subtle background
+				// SURFACE: Accent text with border and subtle background
 				surface: [
-					"text-(--c-fg) shadow-(--shadows-sm) border bg-(--c-muted)/20 border-(--c-emphasized)/90",
+					"[color:var(--c-fg)] shadow-sm border bg-(--c-muted)/20 border-(--c-emphasized)/90",
+					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-muted) hover:border-(--c-emphasized)",
 				],
 
-				// OUTLINE: Neutral text with thin border
+				// OUTLINE: Accent text with thin border
 				outline: [
-					"text-(--c-fg) border-[0.5px] border-(--c-emphasized)",
+					"[color:var(--c-fg)] border-[0.5px] border-(--c-emphasized)",
+					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-muted)",
 				],
 
-				// GHOST: Neutral text, background on hover
-				ghost: ["text-(--c-fg)", "hover:bg-(--c-subtle)"],
+				// GHOST: Accent text, background on hover
+				ghost: [
+					"[color:var(--c-fg)]",
+					"focus-visible:outline-(--c-focus-ring)",
+					"hover:bg-(--c-subtle)",
+				],
 
-				// PLAIN: Neutral text only
-				plain: ["text-(--c-fg)"],
+				// PLAIN: Accent text only
+				plain: [
+					"[color:var(--c-fg)]",
+					"focus-visible:outline-(--c-focus-ring)",
+				],
 			},
-			colour: {},
 			size: {
 				xs: "h-(--spacing-6) min-w-(--spacing-6) gap-x-(--spacing-1) gap-y-(--spacing-1) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs) [&_svg]:size-(--spacing-2)",
 				sm: "h-(--spacing-7) min-w-(--spacing-7) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-3)",
@@ -102,7 +113,6 @@
 			variant: "surface",
 			size: "md",
 			icon: false,
-			colour: "gray" as any,
 		},
 	});
 
@@ -110,6 +120,8 @@
 </script>
 
 <script lang="ts">
+	import { getColourStyle } from "$saas/utils/colours";
+
 	type ButtonVariants = VariantProps<typeof button>;
 
 	interface Props extends HTMLButtonAttributes {
@@ -159,7 +171,8 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
 
 	const finalClass = $derived(
 		button({
@@ -169,8 +182,6 @@
 			class: `${className || ""}${variant === "glass" ? " group" : ""}`,
 		}),
 	);
-
-	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	const loaderSizeMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
 		xs: "size-(--spacing-2_5)",

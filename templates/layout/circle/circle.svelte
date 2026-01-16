@@ -1,10 +1,10 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { type ColourName, generateColourVars } from "$saas/utils/colours";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	export const circle = tv({
-		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-solid) text-(--c-contrast)",
+		base: "shrink-0 flex items-center justify-center rounded-(--radius-full) bg-(--c-solid) text-(--c-contrast)",
 		variants: {
 			size: {
 				xs: "size-(--sizes-5) text-(length:--font-sizes-xs)",
@@ -61,7 +61,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(generateColourVars(colour));
+	const colourVars = $derived(getColourStyle(colour));
 	const finalClass = $derived(circle({ size, variant, class: className }));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
