@@ -1,1 +1,1 @@
-export { default as Blockquote } from './blockquote.svelte';
+export { default as Blockquote } from "./blockquote.svelte";

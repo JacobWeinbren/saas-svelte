@@ -1,7 +1,12 @@
-import Root from './field-root.svelte';
-import Label from './field-label.svelte';
-import HelperText from './field-helper-text.svelte';
-import ErrorText from './field-error-text.svelte';
+import Root from "./field-root.svelte";
+import Label from "./field-label.svelte";
+import HelperText from "./field-helper-text.svelte";
+import ErrorText from "./field-error-text.svelte";
+
+export const FieldRoot = Root;
+export const FieldLabel = Label;
+export const FieldHelperText = HelperText;
+export const FieldErrorText = ErrorText;
 
 export const Field = {
 	Root,
@@ -9,5 +14,3 @@ export const Field = {
 	HelperText,
 	ErrorText,
 };
-
-export { Root, Label, HelperText, ErrorText };

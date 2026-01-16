@@ -1,0 +1,180 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import {
+		ActionBar,
+		ActionBarSelectionTrigger,
+		ActionBarSeparator,
+		ActionBarCloseButton,
+	} from "$saas/components/action-bar";
+	import { Button } from "$saas/components/button";
+	import { CheckboxRoot as Checkbox } from "$saas/components/checkbox";
+	import { HStack, VStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
+	import Trash from "phosphor-svelte/lib/Trash";
+	import ShareNetwork from "phosphor-svelte/lib/ShareNetwork";
+	import FolderPlus from "phosphor-svelte/lib/FolderPlus";
+	import { Icon } from "$saas/components/icon";
+	import { commonArgTypes, getControls } from "../utils";
+
+	const { Story } = defineMeta({
+		title: "components/Action Bar",
+		component: ActionBar,
+		argTypes: {
+			open: {
+				control: "boolean",
+				description: "Whether the action bar is visible.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			closeOnInteractOutside: {
+				control: "boolean",
+				description: "Whether to close when clicking outside.",
+				table: { defaultValue: { summary: "false" } },
+			},
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls(["open", "closeOnInteractOutside", "class"]),
+		},
+		args: {
+			open: false,
+		},
+	});
+</script>
+
+<script lang="ts">
+	let basicOpen = $state(false);
+	let closeTriggerOpen = $state(false);
+	let multipleActionsOpen = $state(false);
+	let selectedCount = $state(0);
+</script>
+
+{#snippet basicStory()}
+	<div class="min-h-[300px]">
+		<Checkbox
+			checked={basicOpen}
+			onCheckedChange={(e) => (basicOpen = !!e.checked)}
+		>
+			Show Action Bar
+		</Checkbox>
+
+		<ActionBar open={basicOpen}>
+			<ActionBarSelectionTrigger>2 selected</ActionBarSelectionTrigger>
+			<ActionBarSeparator />
+			<Button variant="outline" size="sm">
+				<Icon as={Trash} size="sm" />
+				Delete
+			</Button>
+			<Button variant="outline" size="sm">
+				<Icon as={ShareNetwork} size="sm" />
+				Share
+			</Button>
+		</ActionBar>
+	</div>
+{/snippet}
+
+{#snippet withCloseTriggerStory()}
+	<div class="min-h-[300px]">
+		<Checkbox
+			checked={closeTriggerOpen}
+			onCheckedChange={(e) => (closeTriggerOpen = !!e.checked)}
+		>
+			Show Action Bar
+		</Checkbox>
+
+		<ActionBar
+			open={closeTriggerOpen}
+			onOpenChange={(e) => (closeTriggerOpen = e.open)}
+			closeOnInteractOutside={false}
+		>
+			<ActionBarSelectionTrigger>2 selected</ActionBarSelectionTrigger>
+			<ActionBarSeparator />
+			<Button variant="outline" size="sm">
+				<Icon as={Trash} size="sm" />
+				Delete
+			</Button>
+			<Button variant="outline" size="sm">
+				<Icon as={ShareNetwork} size="sm" />
+				Share
+			</Button>
+			<ActionBarCloseButton onclick={() => (closeTriggerOpen = false)} />
+		</ActionBar>
+	</div>
+{/snippet}
+
+{#snippet multipleActionsStory()}
+	<div class="min-h-[300px]">
+		<Checkbox
+			checked={multipleActionsOpen}
+			onCheckedChange={(e) => (multipleActionsOpen = !!e.checked)}
+		>
+			Show Action Bar
+		</Checkbox>
+
+		<ActionBar open={multipleActionsOpen}>
+			<ActionBarSelectionTrigger>4 selected</ActionBarSelectionTrigger>
+			<ActionBarSeparator />
+			<Button variant="outline" size="sm">
+				<Icon as={FolderPlus} size="sm" />
+				Add to collection
+			</Button>
+			<Button variant="surface" size="sm" colour="red">
+				<Icon as={Trash} size="sm" />
+				Delete projects
+			</Button>
+		</ActionBar>
+	</div>
+{/snippet}
+
+{#snippet interactiveStory()}
+	<div class="min-h-[300px]">
+		<VStack class="gap-3">
+			<Text size="sm" variant="secondary">
+				Selected: {selectedCount} items
+			</Text>
+			<HStack class="gap-2 flex-wrap">
+				{#each Array(5) as _, i}
+					<Checkbox
+						onCheckedChange={(e) => {
+							if (e.checked) {
+								selectedCount++;
+							} else {
+								selectedCount--;
+							}
+						}}
+					>
+						Item {i + 1}
+					</Checkbox>
+				{/each}
+			</HStack>
+		</VStack>
+
+		<ActionBar
+			open={selectedCount > 0}
+			onOpenChange={(e) => {
+				if (!e.open) selectedCount = 0;
+			}}
+		>
+			<ActionBarSelectionTrigger>
+				{selectedCount} selected
+			</ActionBarSelectionTrigger>
+			<ActionBarSeparator />
+			<Button variant="outline" size="sm">
+				<Icon as={Trash} size="sm" />
+				Delete
+			</Button>
+			<Button variant="outline" size="sm">
+				<Icon as={ShareNetwork} size="sm" />
+				Share
+			</Button>
+			<ActionBarCloseButton onclick={() => (selectedCount = 0)} />
+		</ActionBar>
+	</div>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="WithCloseTrigger" template={withCloseTriggerStory} />
+
+<Story name="MultipleActions" template={multipleActionsStory} />
+
+<Story name="Interactive" template={interactiveStory} />

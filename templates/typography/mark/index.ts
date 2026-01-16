@@ -1,1 +1,1 @@
-export { default as Mark } from './mark.svelte';
+export { default as Mark } from "./mark.svelte";

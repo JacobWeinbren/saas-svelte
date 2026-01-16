@@ -135,6 +135,10 @@ export {
     markPattern,
     highlightPattern,
     toastPattern,
+    actionBarPattern,
+    actionBarSelectionTriggerPattern,
+    actionBarSeparatorPattern,
+    actionBarCloseButtonPattern,
 } from "./exclude-patterns";
 
 

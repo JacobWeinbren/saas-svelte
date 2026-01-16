@@ -65,3 +65,7 @@ export const highlightPattern = makePattern(['query', 'text', 'ignoreCase', 'mat
 
 export const toastPattern = makePattern(['status', 'variant', 'colour', 'icon', 'title', 'description', 'action', 'closable', 'class', 'children']);
 
+export const actionBarPattern = makePattern(['open', 'onOpenChange', 'closeOnInteractOutside', 'class', 'children']);
+export const actionBarSelectionTriggerPattern = makePattern(['class', 'children']);
+export const actionBarSeparatorPattern = makePattern(['class']);
+export const actionBarCloseButtonPattern = makePattern(['aria-label', 'class']);
