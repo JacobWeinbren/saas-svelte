@@ -111,6 +111,7 @@ body {
 
 :root {
 	--colors-orange-contrast: var(--text-white);
+	--colors-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
 	--colors-orange-solid: light-dark(
 		var(--color-orange-700),
 		var(--color-orange-700)
