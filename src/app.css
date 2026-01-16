@@ -97,7 +97,6 @@ body {
 		}
 	}
 
-	/* Toast entry animation - slide in from below */
 	@keyframes toast-slide-in {
 		from {
 			opacity: 0;
