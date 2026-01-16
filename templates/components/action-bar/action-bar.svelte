@@ -4,11 +4,14 @@
 	export const actionBar = tv({
 		slots: {
 			root: [
-				"fixed bottom-(--spacing-4) left-1/2 -translate-x-1/2",
+				"fixed bottom-(--spacing-4) left-0 right-0",
 				"z-(--z-indices-popover)",
-				"max-w-[calc(100%-2rem)]",
+				"flex justify-center",
+				"px-4",
+				"pointer-events-none",
 			],
 			content: [
+				"pointer-events-auto",
 				"inline-flex items-center gap-x-(--spacing-3) gap-y-(--spacing-3)",
 				"px-(--spacing-3) py-(--spacing-2_5)",
 				"rounded-(--radii-l2)",
@@ -16,6 +19,8 @@
 				"bg-bg-panel text-fg-default",
 				"border border-border-subtle",
 				"whitespace-nowrap",
+				"overflow-x-auto",
+				"max-w-full",
 			],
 			selectionTrigger: [
 				"appearance-auto self-stretch items-center gap-(--spacing-2)",
