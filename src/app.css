@@ -182,18 +182,74 @@ body {
 }
 
 /* Override colors for WCAG AA compliance */
-/* Light/bright colors need dark text or darker backgrounds for 4.5:1 contrast */
-:root {
-	--colors-emerald-contrast: var(--color-black);
-	--colors-cyan-contrast: var(--color-black);
-	--colors-sky-contrast: var(--color-black);
-	--colors-teal-solid: var(--color-teal-700);
-	--colors-green-solid: var(--color-green-700);
-	/* Orange solid needs darker shade for white text contrast (4.5:1 ratio) */
-	--colors-orange-solid: light-dark(
-		var(--color-orange-700),
-		var(--color-orange-600)
+/* Contrast colors for solid/glass button text */
+:root:root {
+	/* Black text for light/bright colors */
+	--colors-amber-contrast: var(--color-black);
+	--colors-yellow-contrast: var(--color-black);
+	--colors-lime-contrast: var(--color-black);
+	--colors-neutral-contrast: light-dark(
+		var(--color-white),
+		var(--color-black)
 	);
+
+	/* White text for all other colors */
+	--colors-gray-contrast: var(--color-white);
+	--colors-zinc-contrast: var(--color-white);
+	--colors-stone-contrast: var(--color-white);
+	--colors-slate-contrast: var(--color-white);
+	--colors-red-contrast: var(--color-white);
+	--colors-orange-contrast: var(--color-white);
+	--colors-green-contrast: var(--color-white);
+	--colors-emerald-contrast: var(--color-white);
+	--colors-teal-contrast: var(--color-white);
+	--colors-cyan-contrast: var(--color-white);
+	--colors-sky-contrast: var(--color-white);
+	--colors-blue-contrast: var(--color-white);
+	--colors-indigo-contrast: var(--color-white);
+	--colors-violet-contrast: var(--color-white);
+	--colors-purple-contrast: var(--color-white);
+	--colors-fuchsia-contrast: var(--color-white);
+	--colors-pink-contrast: var(--color-white);
+	--colors-rose-contrast: var(--color-white);
+
+	/* Semantic color overrides */
 	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
 	--color-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
+
+	/* Darker solid shades for WCAG AA 4.5:1 contrast with white text */
+	--colors-red-solid: light-dark(var(--color-red-700), var(--color-red-700));
+	--colors-orange-solid: light-dark(
+		var(--color-orange-700),
+		var(--color-orange-700)
+	);
+	--colors-green-solid: light-dark(
+		var(--color-green-700),
+		var(--color-green-700)
+	);
+	--colors-emerald-solid: light-dark(
+		var(--color-emerald-700),
+		var(--color-emerald-700)
+	);
+	--colors-teal-solid: light-dark(
+		var(--color-teal-700),
+		var(--color-teal-700)
+	);
+	--colors-cyan-solid: light-dark(
+		var(--color-cyan-700),
+		var(--color-cyan-700)
+	);
+	--colors-sky-solid: light-dark(var(--color-sky-700), var(--color-sky-700));
+	--colors-pink-solid: light-dark(
+		var(--color-pink-700),
+		var(--color-pink-700)
+	);
+	--colors-rose-solid: light-dark(
+		var(--color-rose-700),
+		var(--color-rose-700)
+	);
+	--colors-fuchsia-solid: light-dark(
+		var(--color-fuchsia-700),
+		var(--color-fuchsia-700)
+	);
 }
