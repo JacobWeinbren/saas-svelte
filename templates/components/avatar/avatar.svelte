@@ -257,7 +257,7 @@
 			</span>
 		{:else}
 			<span class={fallbackClass()}>
-				<User class="size-(--spacing-5)" weight="regular" />
+				<User class="size-(--spacing-5)" weight="regular" aria-hidden="true" />
 			</span>
 		{/if}
 	{/if}
