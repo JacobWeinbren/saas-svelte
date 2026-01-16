@@ -1,10 +1,9 @@
-import Root from "./checkbox.svelte";
-import Group from "./checkbox-group.svelte";
+import Checkbox from "./checkbox.svelte";
+import CheckboxGroup from "./checkbox-group.svelte";
 
-export const CheckboxRoot = Root;
-export const CheckboxGroup = Group;
+const CompoundCheckbox = Object.assign(Checkbox, {
+	Group: CheckboxGroup,
+});
 
-export const Checkbox = {
-	Root,
-	Group,
-};
+export { CompoundCheckbox as Checkbox, CheckboxGroup };
+export const CheckboxRoot = Checkbox;

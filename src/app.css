@@ -138,11 +138,13 @@ body {
 	scale: 1 1 !important;
 }
 
-/* Override solid colors for WCAG AA compliance */
-/* Using darker shades to maintain white text contrast */
+/* Override colors for WCAG AA compliance */
+/* Using darker shades to maintain contrast */
 :root {
 	--colors-green-solid: light-dark(var(--color-green-700), var(--color-green-700));
 	--colors-teal-solid: light-dark(var(--color-teal-700), var(--color-teal-700));
 	--colors-cyan-solid: light-dark(var(--color-cyan-700), var(--color-cyan-700));
 	--colors-orange-solid: light-dark(var(--color-orange-700), var(--color-orange-700));
+	/* Error text needs red-600 for 4.5:1 contrast on white */
+	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
 }

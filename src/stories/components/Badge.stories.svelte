@@ -56,12 +56,12 @@
 {#snippet withIconStory()}
 	<div class="flex flex-col items-start gap-2">
 		<Badge variant="solid" colour="blue">
-			<Star class="h-3" />
+			<Star class="h-3" aria-hidden="true" />
 			New
 		</Badge>
 		<Badge variant="solid" colour="green">
 			New
-			<CheckCircle class="h-3" />
+			<CheckCircle class="h-3" aria-hidden="true" />
 		</Badge>
 	</div>
 {/snippet}

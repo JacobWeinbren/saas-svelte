@@ -44,8 +44,8 @@
 			},
 			variant: {
 				primary: "text-(--color-fg-default)",
-				secondary: "text-(--color-fg-muted)",
-				tertiary: "text-(--color-fg-subtle)",
+				secondary: "text-(--color-fg-subtle)",
+				tertiary: "text-(--color-fg-emphasized)",
 			},
 		},
 		defaultVariants: {

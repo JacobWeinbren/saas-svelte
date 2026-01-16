@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Checkbox } from "$saas/components/checkbox";
+	import { Checkbox, CheckboxGroup } from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
@@ -17,8 +17,8 @@
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
-		component: Checkbox as any,
-		subcomponents: { CheckboxGroup: Checkbox.Group },
+		component: Checkbox,
+		subcomponents: { CheckboxGroup: CheckboxGroup },
 		argTypes: {
 			checked: {
 				control: "boolean",
@@ -151,18 +151,18 @@
 {/snippet}
 
 {#snippet groupStory()}
-	<Checkbox.Group label="Select framework">
+	<CheckboxGroup label="Select framework">
 		<Checkbox value="react" label="React" />
 		<Checkbox value="svelte" label="Svelte" />
 		<Checkbox value="vue" label="Vue" />
 		<Checkbox value="angular" label="Angular" />
-	</Checkbox.Group>
+	</CheckboxGroup>
 {/snippet}
 
 {#snippet customIconStory()}
 	<Checkbox checked label="With Custom Icon">
 		{#snippet icon()}
-			<Icon as={Plus} size="xs" />
+			<Icon as={Plus} size="xs" aria-hidden="true" />
 		{/snippet}
 	</Checkbox>
 {/snippet}
@@ -174,7 +174,7 @@
 		{ label: "Wednesday", value: "wednesday" },
 		{ label: "Thursday", value: "thursday" },
 	]}
-	<Checkbox.Group
+	<CheckboxGroup
 		selectAllLabel="Weekdays"
 		allValues={items.map((i) => i.value)}
 		defaultValue={["monday"]}
@@ -182,7 +182,7 @@
 		{#each items as item}
 			<Checkbox value={item.value} label={item.label} />
 		{/each}
-	</Checkbox.Group>
+	</CheckboxGroup>
 {/snippet}
 
 {#snippet descriptionStory()}

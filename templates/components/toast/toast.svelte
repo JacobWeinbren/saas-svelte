@@ -23,6 +23,8 @@
 				// Entry/exit animations
 				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
 				"data-[state=closed]:opacity-0",
+				// Top placement: ensure proper height
+				"[[data-placement^=top]_&]:min-h-(--sizes-12)",
 			],
 			icon: "shrink-0 size-(--sizes-5) stroke-current fill-current stroke-0",
 			spinner: [

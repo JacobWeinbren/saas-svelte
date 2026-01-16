@@ -177,9 +177,9 @@
 						: 'border-(--color-border-emphasized) text-(--c-contrast)'}"
 				>
 					{#if isIndeterminate}
-						<Minus class="size-(--spacing-3)" weight="bold" />
+						<Minus class="size-(--spacing-3)" weight="bold" aria-hidden="true" />
 					{:else if allChecked}
-						<Check class="size-(--spacing-3)" weight="bold" />
+						<Check class="size-(--spacing-3)" weight="bold" aria-hidden="true" />
 					{/if}
 				</div>
 			</div>

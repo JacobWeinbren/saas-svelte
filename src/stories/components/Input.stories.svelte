@@ -95,7 +95,7 @@
 	<HStack class="gap-4 w-full">
 		<InputGroup class="flex-1">
 			<InputElement placement="left">
-				<User class="size-3.5" />
+				<User class="size-3.5" aria-hidden="true" />
 			</InputElement>
 			<Input placeholder="Username" class="pl-(--spacing-8)" />
 		</InputGroup>
@@ -111,7 +111,7 @@
 	<HStack class="gap-4 w-full">
 		<InputGroup class="flex-1">
 			<InputElement placement="left">
-				<MagnifyingGlass class="size-3.5" />
+				<MagnifyingGlass class="size-3.5" aria-hidden="true" />
 			</InputElement>
 			<Input placeholder="Search contacts" class="px-(--spacing-8)" />
 			<InputElement placement="right" class="pointer-events-auto">

@@ -277,12 +277,13 @@
 			{#if icon}
 				{@render icon()}
 			{:else if checkedState === "indeterminate"}
-				<Minus class={iconClass} weight="bold" />
+				<Minus class={iconClass} weight="bold" aria-hidden="true" />
 			{:else}
 				<Check
 					class={iconClass}
 					weight="bold"
 					style="opacity: {isChecked ? 1 : 0};"
+					aria-hidden="true"
 				/>
 			{/if}
 		</div>
