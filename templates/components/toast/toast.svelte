@@ -18,10 +18,10 @@
 				// Transitions for stacking movement
 				"will-change-[translate,opacity,scale,height]",
 				"transition-[translate,scale,opacity,height,box-shadow]",
-				"duration-(--durations-slowest) ease-(--easings-ease-out)",
+				"duration-(--durations-moderate) ease-(--easings-ease-out)",
 				// Entry/exit animations with bounce
-				"animate-[toast-slide-in_var(--durations-slow)_var(--easings-bounce-in)]",
-				"data-[state=closed]:animate-[toast-slide-out_var(--durations-moderate)_var(--easings-ease-in)_forwards]",
+				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
+				"data-[state=closed]:animate-[toast-slide-out_var(--durations-fast)_var(--easings-ease-in)_forwards]",
 			],
 			icon: "shrink-0 size-(--sizes-5) stroke-current fill-current stroke-0",
 			spinner: [
