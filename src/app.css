@@ -139,19 +139,19 @@ body {
 }
 
 /* Override colors for WCAG AA compliance */
-/* Light/bright colors need black text for 4.5:1 contrast */
+/* Light/bright colors need dark text for 4.5:1 contrast */
 :root {
-	--colors-orange-contrast: black;
-	--colors-green-contrast: black;
-	--colors-emerald-contrast: black;
-	--colors-teal-contrast: black;
-	--colors-cyan-contrast: black;
-	--colors-sky-contrast: black;
-	--colors-lime-contrast: black;
-	--colors-yellow-contrast: black;
-	--colors-amber-contrast: black;
+	--colors-orange-contrast: var(--color-black);
+	--colors-green-contrast: var(--color-black);
+	--colors-emerald-contrast: var(--color-black);
+	--colors-teal-contrast: var(--color-black);
+	--colors-cyan-contrast: var(--color-black);
+	--colors-sky-contrast: var(--color-black);
+	--colors-lime-contrast: var(--color-black);
+	--colors-yellow-contrast: var(--color-black);
+	--colors-amber-contrast: var(--color-black);
 	/* Error text needs darker red for contrast on white */
-	--color-fg-error: light-dark(#dc2626, #f87171);
+	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
 	/* Muted text needs lighter gray in dark mode for contrast */
-	--color-fg-muted: light-dark(#6b7280, #9ca3af);
+	--color-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
 }
