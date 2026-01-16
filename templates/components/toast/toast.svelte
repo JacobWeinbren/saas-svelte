@@ -4,7 +4,7 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				"w-[calc(100vw-2rem)] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
+				"w-[calc(100%-1rem)] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
 				"rounded-(--radii-l2) border border-border-muted shadow-md",
 				"bg-bg-panel text-fg-default",
 				"z-(--z-index) pointer-events-auto",
