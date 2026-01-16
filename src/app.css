@@ -34,9 +34,6 @@ body {
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-	--font-sans: "Inter Variable", sans-serif;
-
-	/* Animations */
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
 
