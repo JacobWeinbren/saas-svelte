@@ -12,10 +12,10 @@
 				"flex items-center gap-(--spacing-3) w-full",
 				"rounded-(--radius-md)",
 				"outline-none",
-				"focus-visible:outline-2 focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-solid focus-visible:outline-accent-focus-ring",
+				"focus-visible:outline-2 focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
 				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 			],
-			content: "overflow-hidden text-(length:--font-sizes-sm) text-(--color-fg-muted)",
+			content: "overflow-hidden text-(length:--font-sizes-sm) text-fg-subtle",
 			contentBody: "",
 			indicator:
 				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--durations-moderate)",

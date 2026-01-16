@@ -178,22 +178,22 @@
 			<Stack class="gap-2">
 				<Text size="xs">{size}</Text>
 
-				<AccordionRoot {size} collapsible defaultValue={["b"]}>
-					<AccordionItem value="a">
+				<AccordionRoot {size} collapsible defaultValue={["{size}-b"]} id="accordion-size-{size}">
+					<AccordionItem value="{size}-a">
 						<AccordionItemTrigger>First Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 1...</AccordionItemContent
 						>
 					</AccordionItem>
 
-					<AccordionItem value="b">
+					<AccordionItem value="{size}-b">
 						<AccordionItemTrigger>Second Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 2...</AccordionItemContent
 						>
 					</AccordionItem>
 
-					<AccordionItem value="c">
+					<AccordionItem value="{size}-c">
 						<AccordionItemTrigger>Third Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 3...</AccordionItemContent
@@ -211,22 +211,22 @@
 			<Stack class="gap-2">
 				<Text size="xs">{variant}</Text>
 
-				<AccordionRoot {variant} collapsible defaultValue={["b"]}>
-					<AccordionItem value="a">
+				<AccordionRoot {variant} collapsible defaultValue={["{variant}-b"]} id="accordion-variant-{variant}">
+					<AccordionItem value="{variant}-a">
 						<AccordionItemTrigger>First Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 1...</AccordionItemContent
 						>
 					</AccordionItem>
 
-					<AccordionItem value="b">
+					<AccordionItem value="{variant}-b">
 						<AccordionItemTrigger>Second Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 2...</AccordionItemContent
 						>
 					</AccordionItem>
 
-					<AccordionItem value="c">
+					<AccordionItem value="{variant}-c">
 						<AccordionItemTrigger>Third Item</AccordionItemTrigger>
 						<AccordionItemContent
 							>Some value 3...</AccordionItemContent
