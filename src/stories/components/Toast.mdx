@@ -17,7 +17,7 @@ The Toast component uses [Ark UI](https://ark-ui.com/docs/components/toast) prim
 
 To use the Toast component, first create a toaster instance using `createToaster`. This manages the placement and grouping of toasts.
 
-```svelte
+```tsx
 <script>
 	import { Toast, Toaster, createToaster } from "$saas/components/toast";
 
@@ -50,7 +50,6 @@ To use the Toast component, first create a toaster instance using `createToaster
 Change the status of the toast by passing the `status` prop. This affects the colour scheme and icon used. Toast supports `info`, `success`, `warning`, `error`, and `loading` statuses.
 
 <Canvas of={ToastStories.Status} />
-
 
 ### With Action
 
@@ -90,9 +89,15 @@ toaster.create({
 });
 
 // Shorthand methods for different types
-toaster.success({ title: "Success!", description: "Your changes have been saved." });
+toaster.success({
+	title: "Success!",
+	description: "Your changes have been saved.",
+});
 toaster.error({ title: "Error", description: "Something went wrong." });
-toaster.warning({ title: "Warning", description: "This action cannot be undone." });
+toaster.warning({
+	title: "Warning",
+	description: "This action cannot be undone.",
+});
 toaster.info({ title: "Info", description: "Here is some information." });
 
 // Update an existing toast
