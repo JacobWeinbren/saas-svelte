@@ -4,7 +4,13 @@
 	import type { DataListContext } from "./types";
 
 	interface Props {
+		/**
+		 * The content of the data list item value.
+		 */
 		children: Snippet;
+		/**
+		 * Additional CSS classes to apply to the value.
+		 */
 		class?: string;
 		[key: string]: any;
 	}
