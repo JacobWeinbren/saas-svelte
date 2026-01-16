@@ -15,12 +15,20 @@
 		],
 		variants: {
 			variant: {
-				// GLASS: Contrast text with gradient overlay
+				// GLASS: Contrast text with gradient overlay and glossy effect
 				glass: [
-					"overflow-x-clip overflow-y-clip",
-					"text-(--c-contrast) bg-(--c-solid) shadow-(--shadows-inner)",
-					"after:content-[''] after:absolute after:inset-0 after:opacity-20 after:pointer-events-none after:bg-[linear-gradient(#fff_40%,#0003)] after:transition-opacity after:duration-200",
-					"hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
+					"overflow-clip",
+					"text-(--c-contrast) bg-(--c-solid)",
+					"[text-shadow:0_1px_2px_rgba(0,0,0,0.3)]",
+					// Light mode: inset shadow for depth + subtle outer shadow
+					"shadow-[inset_0_0_0_1px_rgba(0,0,0,0.25),inset_0_2px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.05),0_0_2px_0_rgba(0,0,0,0.05)]",
+					// Dark mode: simpler inset highlight + outer shadow
+					"dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.3),inset_0_0_1px_0_rgba(255,255,255,0.05)]",
+					// Gradient overlay pseudo-element
+					"after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:opacity-20 after:pointer-events-none",
+					"after:bg-[linear-gradient(180deg,white_40%,rgba(0,0,0,0.2))]",
+					"after:transition-opacity after:duration-(--durations-moderate)",
+					"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
 				],
 
 				// SOLID: Contrast text with solid background
