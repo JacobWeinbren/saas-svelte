@@ -26,10 +26,7 @@
 					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
-				subtle: [
-					"border-transparent",
-					"bg-bg-subtle",
-				],
+				subtle: ["border-transparent", "bg-bg-subtle"],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
@@ -38,11 +35,11 @@
 				],
 			},
 			size: {
-				xs: "px-(--spacing-2) py-(--spacing-1) text-(length:--font-sizes-xs) leading-(--line-heights-xs) scroll-pb-(--spacing-1)",
-				sm: "px-(--spacing-2_5) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-(--spacing-1_5)",
-				md: "px-(--spacing-3) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-(--spacing-1_5)",
-				lg: "px-(--spacing-4) py-(--spacing-2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-(--spacing-2) rounded-(--radius-md)",
-				xl: "px-(--spacing-5) py-(--spacing-3_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-(--spacing-3_5) rounded-(--radius-md)",
+				xs: "px-2 py-1 text-(length:--font-sizes-xs) leading-(--line-heights-xs) scroll-pb-1",
+				sm: "px-2.5 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-1.5",
+				md: "px-3 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-1.5",
+				lg: "px-4 py-2 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-2 rounded-md",
+				xl: "px-5 py-3.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-3.5 rounded-md",
 			},
 			invalid: {
 				true: [

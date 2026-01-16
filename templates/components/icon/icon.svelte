@@ -16,12 +16,12 @@
 		],
 		variants: {
 			size: {
-				xs: "size-(--spacing-3)",
-				sm: "size-(--spacing-4)",
-				md: "size-(--spacing-5)", // 20px
-				lg: "size-(--spacing-6)",
-				xl: "size-(--spacing-7)",
-				"2xl": "size-(--spacing-8)",
+				xs: "size-3",
+				sm: "size-4",
+				md: "size-5", // 20px
+				lg: "size-6",
+				xl: "size-7",
+				"2xl": "size-8",
 			},
 		},
 		defaultVariants: {

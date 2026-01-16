@@ -41,11 +41,11 @@
 				],
 			},
 			size: {
-				xs: "px-(--spacing-2) py-(--spacing-1) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "px-(--spacing-2_5) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "px-(--spacing-3) py-(--spacing-1_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "px-(--spacing-4) py-(--spacing-2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
-				xl: "px-(--spacing-5) py-(--spacing-3_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
+				xs: "px-2 py-1 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "px-2.5 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "px-3 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "px-4 py-2 text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
+				xl: "px-5 py-3.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
 			},
 			invalid: {
 				true: [
@@ -137,7 +137,7 @@
 <div class="relative grid" style={styles}>
 	<pre
 		aria-hidden="true"
-		class={`${classes} invisible whitespace-pre-wrap break-words overflow-hidden [grid-area:1/1/2/2]`}
+		class={`${classes} invisible whitespace-pre-wrap wrap-break-word overflow-hidden [grid-area:1/1/2/2]`}
 		style="min-height: {minHeight}; max-height: {maxHeight}">{value +
 			"\n"}</pre>
 

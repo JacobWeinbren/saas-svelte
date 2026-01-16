@@ -9,7 +9,7 @@
 			root: "w-full",
 			item: "overflow-anchor-none",
 			trigger: [
-				"flex items-center gap-(--spacing-3) w-full",
+				"flex items-center gap-3 w-full",
 				"rounded-(--radius-md)",
 				"outline-none",
 				"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
@@ -25,27 +25,27 @@
 			size: {
 				sm: {
 					trigger:
-						"text-(length:--font-sizes-sm) py-(--spacing-2) font-(--font-weights-medium)",
+						"text-(length:--font-sizes-sm) py-2 font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-sm)",
-					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
-					indicator: "size-(--spacing-3_5)",
-					icon: "size-(--spacing-3_5)",
+					contentBody: "pt-2 pb-4",
+					indicator: "size-3.5",
+					icon: "size-3.5",
 				},
 				md: {
 					trigger:
-						"text-(length:--font-sizes-sm) py-(--spacing-2) font-(--font-weights-medium)",
+						"text-(length:--font-sizes-sm) py-2 font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-sm)",
-					contentBody: "pt-(--spacing-2) pb-(--spacing-4)",
-					indicator: "size-(--spacing-3_5)",
-					icon: "size-(--spacing-3_5)",
+					contentBody: "pt-2 pb-4",
+					indicator: "size-3.5",
+					icon: "size-3.5",
 				},
 				lg: {
 					trigger:
-						"text-(length:--font-sizes-md) py-(--spacing-2_5) font-(--font-weights-medium)",
+						"text-(length:--font-sizes-md) py-2.5 font-(--font-weights-medium)",
 					content: "text-(length:--font-sizes-md)",
-					contentBody: "pt-(--spacing-2_5) pb-(--spacing-5)",
-					indicator: "size-(--spacing-4)",
-					icon: "size-(--spacing-4)",
+					contentBody: "pt-2.5 pb-5",
+					indicator: "size-4",
+					icon: "size-4",
 				},
 			},
 			variant: {
@@ -54,14 +54,14 @@
 				},
 				subtle: {
 					item: "rounded-(--radius-md) data-[state=open]:bg-bg-subtle",
-					trigger: "px-(--spacing-4)",
-					contentBody: "px-(--spacing-4)",
+					trigger: "px-4",
+					contentBody: "px-4",
 				},
 				enclosed: {
 					root: "border border-border-default rounded-(--radius-md)",
 					item: "border-b border-border-default last:border-b-0 data-[state=open]:bg-bg-subtle",
-					trigger: "px-(--spacing-4)",
-					contentBody: "px-(--spacing-4)",
+					trigger: "px-4",
+					contentBody: "px-4",
 				},
 				plain: {
 					item: "border-0",

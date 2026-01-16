@@ -11,7 +11,7 @@
 			// Selection & spacing
 			"select-none whitespace-nowrap [word-spacing:-0.5em]",
 			// Border radius & padding
-			"rounded-(--radii-l1) px-(--spacing-1)",
+			"rounded-(--radii-l1) px-1",
 		],
 		variants: {
 			variant: {
@@ -29,17 +29,14 @@
 					"text-fg-emphasized",
 				],
 				// Subtle: background only
-				subtle: [
-					"bg-bg-subtle",
-					"text-fg-emphasized",
-				],
+				subtle: ["bg-bg-subtle", "text-fg-emphasized"],
 				// Plain: text only
 				plain: ["text-fg-emphasized"],
 			},
 			size: {
-				sm: "h-(--spacing-4) text-(length:--font-sizes-2xs) font-(--font-weights-medium) leading-(--line-heights-2xs)",
-				md: "h-(--spacing-5) text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
-				lg: "h-(--spacing-6) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
+				sm: "h-4 text-(length:--font-sizes-2xs) font-(--font-weights-medium) leading-(--line-heights-2xs)",
+				md: "h-5 text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
+				lg: "h-6 text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 			},
 		},
 		defaultVariants: {

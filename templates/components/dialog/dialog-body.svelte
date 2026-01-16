@@ -18,7 +18,7 @@
 <div
 	class={twMerge(
 		// Flex and padding
-		"flex-1 px-(--spacing-6) py-(--spacing-2)",
+		"flex-1 px-6 py-2",
 		// Text color - body text uses default color for readability
 		"text-fg-default",
 		// Typography

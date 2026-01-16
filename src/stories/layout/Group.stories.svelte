@@ -45,10 +45,10 @@
 {#snippet basicStory()}
 	<div class="flex justify-center">
 		<Group>
-			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!"
+			<DecorativeBox class="h-20 w-40!"
 				>1</DecorativeBox
 			>
-			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!"
+			<DecorativeBox class="h-20 w-40!"
 				>2</DecorativeBox
 			>
 		</Group>
@@ -66,7 +66,7 @@
 
 {#snippet attachedStory()}
 	<div class="flex justify-center">
-		<VStack class="gap-(--spacing-4)">
+		<VStack class="gap-4">
 			<Group attached>
 				<Button variant="outline">Item 1</Button>
 				<Button variant="outline">Item 2</Button>

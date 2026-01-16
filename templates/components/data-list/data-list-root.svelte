@@ -14,19 +14,19 @@
 		variants: {
 			size: {
 				sm: {
-					root: "gap-y-(--spacing-3) gap-x-(--spacing-3)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
+					root: "gap-y-3 gap-x-3",
+					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				md: {
-					root: "gap-y-(--spacing-4) gap-x-(--spacing-4)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
+					root: "gap-y-4 gap-x-4",
+					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				lg: {
-					root: "gap-y-(--spacing-5) gap-x-(--spacing-5)",
-					item: "gap-y-(--spacing-4) gap-x-(--spacing-4) text-(length:--font-sizes-md) leading-(--line-heights-md)",
-					label: "gap-y-(--spacing-1) gap-x-(--spacing-1) min-w-(--spacing-32)",
+					root: "gap-y-5 gap-x-5",
+					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-md) leading-(--line-heights-md)",
+					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 			},
 			orientation: {
@@ -45,7 +45,7 @@
 			},
 			divider: {
 				true: {
-					item: "not-first:border-t not-first:border-border-default not-first:pt-(--spacing-4)",
+					item: "not-first:border-t not-first:border-border-default not-first:pt-4",
 				},
 			},
 		},

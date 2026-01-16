@@ -44,10 +44,10 @@
 				],
 			},
 			size: {
-				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
+				xs: "min-w-6 h-6 px-2 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "min-w-7 h-7 px-2.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "min-w-8 h-8 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "min-w-10 h-10 px-5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
 			},
 			invalid: {
 				true: [

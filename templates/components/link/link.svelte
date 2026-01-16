@@ -7,7 +7,7 @@
 	export const link = tv({
 		base: [
 			// Layout
-			"cursor-(--cursor-button) outline-0 items-center gap-x-(--spacing-1_5) gap-y-(--spacing-1_5) inline-flex rounded-(--radii-l1)",
+			"cursor-(--cursor-button) outline-0 items-center gap-x-1.5 gap-y-1.5 inline-flex rounded-(--radii-l1)",
 			// Focus - uses colour focus ring
 			"focus:outline-offset-2 focus:outline-1 focus:outline-solid focus:outline-(--c-focus-ring)",
 			// Typography - inherits font size from parent

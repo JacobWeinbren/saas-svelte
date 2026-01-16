@@ -27,8 +27,8 @@
 	}: Props = $props();
 
 	const placementStyles = {
-		left: "left-0 pl-(--spacing-3)",
-		right: "right-0 pr-(--spacing-3)",
+		left: "left-0 pl-3",
+		right: "right-0 pr-3",
 	};
 </script>
 

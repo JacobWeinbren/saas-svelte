@@ -7,7 +7,7 @@
 			// Core Layout
 			"saas-code",
 			"inline-flex items-center antialiased",
-			"rounded-(--radius-sm)",
+			"rounded-sm",
 			"font-mono",
 			"[word-wrap:break-word]",
 		],
@@ -33,10 +33,10 @@
 				],
 			},
 			size: {
-				xs: "text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-(--spacing-1) min-h-(--spacing-4)",
-				sm: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-(--spacing-1_5) min-h-(--spacing-5)",
-				md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2) min-h-(--spacing-6)",
-				lg: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2_5) min-h-(--spacing-7)",
+				xs: "text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-1 min-h-4",
+				sm: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-1.5 min-h-5",
+				md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2 min-h-6",
+				lg: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2.5 min-h-7",
 			},
 		},
 		defaultVariants: {

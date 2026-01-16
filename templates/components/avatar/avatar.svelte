@@ -9,27 +9,27 @@
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase font-(--font-weights-medium) leading-none rounded-(--radius-full) flex items-center justify-center [font-size:inherit]",
+				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center [font-size:inherit]",
 		},
 		variants: {
 			size: {
 				xs: {
-					root: "w-(--spacing-5) h-(--spacing-5) text-[10px]!",
+					root: "w-5 h-5 text-[10px]!",
 				},
 				sm: {
-					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-xs)",
+					root: "w-6 h-6 text-(length:--font-sizes-xs)",
 				},
 				md: {
-					root: "w-(--spacing-9) h-(--spacing-9) text-(length:--font-sizes-lg)",
+					root: "w-9 h-9 text-(length:--font-sizes-lg)",
 				},
 				lg: {
-					root: "w-(--spacing-12) h-(--spacing-12) text-(length:--font-sizes-2xl)",
+					root: "w-12 h-12 text-(length:--font-sizes-2xl)",
 				},
 				xl: {
-					root: "w-(--spacing-16) h-(--spacing-16) text-(length:--font-sizes-3xl)",
+					root: "w-16 h-16 text-(length:--font-sizes-3xl)",
 				},
 				"2xl": {
-					root: "w-(--spacing-20) h-(--spacing-20) text-(length:--font-sizes-4xl)",
+					root: "w-20 h-20 text-(length:--font-sizes-4xl)",
 				},
 				full: {
 					root: "w-full h-full",
@@ -37,13 +37,13 @@
 			},
 			variant: {
 				solid: {
-					root: "bg-(--c-solid) [color:var(--c-contrast)]",
+					root: "bg-(--c-solid) text-(--c-contrast)",
 				},
 				subtle: {
-					root: "bg-(--c-muted) [color:var(--c-fg)]",
+					root: "bg-(--c-muted) text-(--c-fg)",
 				},
 				outline: {
-					root: "bg-transparent border border-(--c-subtle) [color:var(--c-fg)]",
+					root: "bg-transparent border border-(--c-subtle) text-(--c-fg)",
 				},
 			},
 			shape: {
@@ -58,9 +58,9 @@
 					fallback: "rounded-(--radii-l2)",
 				},
 				full: {
-					root: "rounded-(--radius-full)",
-					image: "rounded-(--radius-full)",
-					fallback: "rounded-(--radius-full)",
+					root: "rounded-full",
+					image: "rounded-full",
+					fallback: "rounded-full",
 				},
 			},
 			borderless: {
@@ -196,7 +196,9 @@
 	);
 
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	const {
 		root,
@@ -244,11 +246,7 @@
 			</span>
 		{:else}
 			<span class={fallbackClass()}>
-				<User
-					class="size-(--spacing-5)"
-					weight="regular"
-					aria-hidden="true"
-				/>
+				<User class="size-5" weight="regular" aria-hidden="true" />
 			</span>
 		{/if}
 	{/if}

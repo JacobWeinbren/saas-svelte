@@ -9,23 +9,24 @@
 			"whitespace-nowrap",
 			"select-none",
 			"items-center",
-			"gap-(--spacing-1)",
+			"gap-1",
 			"font-(--font-weights-medium)",
 			"inline-flex",
-			"rounded-(--radius-full)",
+			"rounded-full",
 		],
 		variants: {
 			variant: {
-				subtle: "bg-(--c-muted) [color:var(--c-fg)]",
-				solid: "bg-(--c-solid) [color:var(--c-contrast)]",
-				outline: "[color:var(--c-fg)] ring-1 ring-inset ring-(--c-subtle)",
-				surface: "bg-(--c-muted)/50 [color:var(--c-fg)] ring-1 ring-inset ring-(--c-subtle)",
+				subtle: "bg-(--c-muted) text-(--c-fg)",
+				solid: "bg-(--c-solid) text-(--c-contrast)",
+				outline: "text-(--c-fg) ring-1 ring-inset ring-(--c-subtle)",
+				surface:
+					"bg-(--c-muted)/50 text-(--c-fg) ring-1 ring-inset ring-(--c-subtle)",
 			},
 			size: {
-				xs: "min-h-(--spacing-4) text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-(--spacing-1)",
-				sm: "min-h-(--spacing-5) text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-(--spacing-1_5)",
-				md: "min-h-(--spacing-6) text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2)",
-				lg: "min-h-(--spacing-7) text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-(--spacing-2_5)",
+				xs: "min-h-4 text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-1",
+				sm: "min-h-5 text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-1.5",
+				md: "min-h-6 text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2",
+				lg: "min-h-7 text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2.5",
 			},
 		},
 		defaultVariants: {
@@ -80,7 +81,9 @@
 	}: Props = $props();
 
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	const finalClass = $derived(badge({ variant, size, class: className }));
 </script>

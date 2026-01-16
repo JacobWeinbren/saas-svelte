@@ -74,7 +74,7 @@
 </script>
 
 <div
-	class={twMerge(stack({ direction, align, justify }), "gap-(--spacing-2)", className)}
+	class={twMerge(stack({ direction, align, justify }), "gap-2", className)}
 	{...restProps}
 >
 	{@render children()}

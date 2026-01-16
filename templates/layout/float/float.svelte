@@ -6,23 +6,23 @@
 		variants: {
 			placement: {
 				"bottom-end":
-					"[inset-block:auto_0] [inset-inline:auto_0] [translate:50%_50%]",
+					"inset-y-[auto_0] inset-x-[auto_0] [translate:50%_50%]",
 				"bottom-start":
-					"[inset-block:auto_0] [inset-inline:0_auto] [translate:-50%_50%]",
+					"inset-y-[auto_0] inset-x-[0_auto] [translate:-50%_50%]",
 				"top-end":
-					"[inset-block:0_auto] [inset-inline:auto_0] [translate:50%_-50%]",
+					"inset-y-[0_auto] inset-x-[auto_0] [translate:50%_-50%]",
 				"top-start":
-					"[inset-block:0_auto] [inset-inline:0_auto] [translate:-50%_-50%]",
+					"inset-y-[0_auto] inset-x-[0_auto] [translate:-50%_-50%]",
 				"bottom-center":
-					"[inset-block:auto_0] [inset-inline:50%] [translate:-50%_50%]",
+					"inset-y-[auto_0] inset-x-[50%] [translate:-50%_50%]",
 				"top-center":
-					"[inset-block:0_auto] [inset-inline:50%] [translate:-50%_-50%]",
+					"inset-y-[0_auto] inset-x-[50%] [translate:-50%_-50%]",
 				"middle-center":
-					"[inset-block:50%] [inset-inline:50%] [translate:-50%_-50%]",
+					"inset-y-[50%] inset-x-[50%] [translate:-50%_-50%]",
 				"middle-end":
-					"[inset-block:50%] [inset-inline:auto_0] [translate:50%_-50%]",
+					"inset-y-[50%] inset-x-[auto_0] [translate:50%_-50%]",
 				"middle-start":
-					"[inset-block:50%] [inset-inline:0_auto] [translate:-50%_-50%]",
+					"inset-y-[50%] inset-x-[0_auto] [translate:-50%_-50%]",
 			},
 		},
 		defaultVariants: {

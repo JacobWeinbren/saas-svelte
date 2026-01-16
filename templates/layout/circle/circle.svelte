@@ -4,14 +4,14 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	export const circle = tv({
-		base: "shrink-0 flex items-center justify-center rounded-(--radius-full) bg-(--c-solid) text-(--c-contrast)",
+		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-solid) text-(--c-contrast)",
 		variants: {
 			size: {
-				xs: "size-(--sizes-5) text-(length:--font-sizes-xs)",
-				sm: "size-(--sizes-8) text-(length:--font-sizes-sm)",
-				md: "size-(--sizes-10) text-(length:--font-sizes-md)",
-				lg: "size-(--sizes-12) text-(length:--font-sizes-lg)",
-				xl: "size-(--sizes-16) text-(length:--font-sizes-xl)",
+				xs: "size-5 text-(length:--font-sizes-xs)",
+				sm: "size-8 text-(length:--font-sizes-sm)",
+				md: "size-10 text-(length:--font-sizes-md)",
+				lg: "size-12 text-(length:--font-sizes-lg)",
+				xl: "size-16 text-(length:--font-sizes-xl)",
 			},
 			variant: {
 				solid: "bg-(--c-solid) text-(--c-contrast)",

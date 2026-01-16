@@ -15,8 +15,9 @@
 	});
 </script>
 
-<div class="flex flex-col gap-(--spacing-2)">
-	<pre class="rounded bg-bg-subtle p-(--spacing-4) text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-mono">{JSON.stringify(
+<div class="flex flex-col gap-2">
+	<pre
+		class="rounded bg-bg-subtle p-4 text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-mono">{JSON.stringify(
 			displayData,
 			null,
 			2,

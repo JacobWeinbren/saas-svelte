@@ -15,7 +15,7 @@
 		// Layout - flex-[0] to not grow
 		"flex flex-0",
 		// Padding: pt-4 pb-2 px-6
-		"px-(--spacing-6) pt-(--spacing-4) pb-(--spacing-2)",
+		"px-6 pt-4 pb-2",
 		// Text alignment
 		"text-left",
 		className,

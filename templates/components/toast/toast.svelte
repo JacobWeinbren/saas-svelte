@@ -4,7 +4,7 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				"w-[calc(100%-var(--spacing-4))] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
+				"w-[calc(100%-var(--spacing-4))] md:w-(--sizes-sm) flex items-start gap-x-2 gap-y-2 py-3 ps-3 pe-6",
 				"rounded-(--radii-l2) border border-border-muted shadow-md",
 				"bg-bg-panel text-fg-default",
 				"z-(--z-index) pointer-events-auto",
@@ -24,33 +24,33 @@
 				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
 				"data-[state=closed]:opacity-0",
 				// Top placement: ensure proper height
-				"[[data-placement^=top]_&]:min-h-(--sizes-12)",
+				"in-data-[placement^=top]:min-h-12",
 			],
-			icon: "shrink-0 size-(--sizes-5) stroke-current fill-current stroke-0",
+			icon: "shrink-0 size-5 stroke-current fill-current stroke-0",
 			spinner: [
-				"shrink-0 size-(--sizes-4) mt-(--spacing-0_5)",
-				"inline-block rounded-(--radius-full)",
+				"shrink-0 size-4 mt-0.5",
+				"inline-block rounded-full",
 				"border-2 border-solid",
 				"border-t-current border-r-current border-b-transparent border-l-transparent",
 				"animate-spin [animation-duration:var(--durations-slowest)] text-accent-solid",
 			],
 			content: "flex flex-col flex-1 max-w-full",
-			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-(--spacing-2)",
+			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-2",
 			description:
 				"text-(length:--font-sizes-sm) leading-(--line-heights-md) opacity-80 inline",
 			descriptionOnly:
 				"text-(length:--font-sizes-sm) leading-(--line-heights-md) flex-1",
 			action: [
-				"[appearance:auto] cursor-pointer h-(--sizes-6) self-start",
+				"appearance-auto cursor-pointer h-6 self-start",
 				"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md)",
 				"transition-[color,background-color] duration-(--durations-moderate)",
-				"-ms-(--spacing-3) px-(--spacing-3) rounded-(--radii-l1)",
+				"-ms-3 px-3 rounded-(--radii-l1)",
 				"text-accent-fg/80 hover:text-accent-fg hover:bg-bg-subtle",
 			],
 			close: [
-				"absolute top-(--spacing-2) end-2",
+				"absolute top-2 end-2",
 				"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate",
-				"shrink-0 justify-center items-center gap-(--spacing-1) min-w-(--sizes-6) h-(--sizes-6)",
+				"shrink-0 justify-center items-center gap-1 min-w-6 h-6",
 				"text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
 				"inline-flex rounded-(--radii-l1)",
 				"text-fg-default outline-0",
@@ -155,8 +155,15 @@
 		if (!group) return;
 
 		const update = () => {
-			const toasts = group.querySelectorAll('[data-part="root"][data-state="open"]');
-			toasts.forEach((toast, i) => (toast as HTMLElement).style.setProperty("--fixed-index", String(i)));
+			const toasts = group.querySelectorAll(
+				'[data-part="root"][data-state="open"]',
+			);
+			toasts.forEach((toast, i) =>
+				(toast as HTMLElement).style.setProperty(
+					"--fixed-index",
+					String(i),
+				),
+			);
 		};
 
 		const observer = new MutationObserver(update);
@@ -195,7 +202,9 @@
 
 			<div class={styles.content()}>
 				{#if title}
-					<ArkToast.Title class={styles.title()}>{title}</ArkToast.Title>
+					<ArkToast.Title class={styles.title()}
+						>{title}</ArkToast.Title
+					>
 				{/if}
 				{#if description}
 					<ArkToast.Description class={styles.description()}

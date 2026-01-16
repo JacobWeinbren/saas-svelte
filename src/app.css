@@ -4,16 +4,10 @@
 
 :root {
 	color-scheme: light dark;
-
-	/* Scale factor for sizing (affects font sizes, line heights, spacing) */
 	--scale-factor: 1;
-
-	/* Radius multipliers for component categories */
 	--radius-control: 1;
 	--radius-panel: 1;
 	--radius-indicator: 1;
-
-	--spacing-11: calc(2.75rem * var(--scale-factor));
 }
 
 html.light {
@@ -41,41 +35,6 @@ body {
 
 @theme {
 	--font-sans: "Inter Variable", sans-serif;
-
-	/* Semantic background colors - use as bg-default, bg-muted, etc. */
-	--color-bg-default: var(--colors-bg-default);
-	--color-bg-muted: var(--colors-bg-muted);
-	--color-bg-subtle: var(--colors-bg-subtle);
-	--color-bg-emphasized: var(--colors-bg-emphasized);
-	--color-bg-inverted: var(--colors-bg-inverted);
-	--color-bg-panel: var(--colors-bg-panel);
-	--color-bg-overlay: var(--colors-bg-overlay);
-	--color-bg-error: var(--colors-bg-error);
-	--color-bg-warning: var(--colors-bg-warning);
-	--color-bg-success: var(--colors-bg-success);
-	--color-bg-info: var(--colors-bg-info);
-
-	/* Semantic foreground/text colors - use as text-fg-default, text-fg-muted, etc. */
-	--color-fg-default: var(--colors-fg-default);
-	--color-fg-muted: var(--colors-fg-muted);
-	--color-fg-subtle: var(--colors-fg-subtle);
-	--color-fg-emphasized: var(--colors-fg-emphasized);
-	--color-fg-inverted: var(--colors-fg-inverted);
-	--color-fg-error: var(--colors-fg-error);
-	--color-fg-warning: var(--colors-fg-warning);
-	--color-fg-success: var(--colors-fg-success);
-	--color-fg-info: var(--colors-fg-info);
-
-	/* Semantic border colors - use as border-default, border-muted, etc. */
-	--color-border-default: var(--colors-border-default);
-	--color-border-muted: var(--colors-border-muted);
-	--color-border-subtle: var(--colors-border-subtle);
-	--color-border-emphasized: var(--colors-border-emphasized);
-	--color-border-inverted: var(--colors-border-inverted);
-	--color-border-error: var(--colors-border-error);
-	--color-border-warning: var(--colors-border-warning);
-	--color-border-success: var(--colors-border-success);
-	--color-border-info: var(--colors-border-info);
 
 	/* Animations */
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;

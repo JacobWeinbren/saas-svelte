@@ -14,9 +14,9 @@
 <Dialog.CloseTrigger
 	class={twMerge(
 		// Position & Shape
-		"absolute right-(--spacing-4) top-(--spacing-4) rounded-(--radius-md) transition-[color,background-color] duration-(--durations-moderate) cursor-(--cursor-button) min-w-(--spacing-7) h-(--spacing-7)",
+		"absolute right-4 top-4 rounded-md transition-[color,background-color] duration-(--durations-moderate) cursor-(--cursor-button) min-w-7 h-7",
 		// Layout
-		"flex items-center justify-center shrink-0 gap-(--spacing-2)",
+		"flex items-center justify-center shrink-0 gap-2",
 		// Colors - light: gray-900 text, dark: gray-200 text
 		"text-fg-default",
 		// Hover - light: gray-100 bg, dark: gray-900 bg
@@ -31,6 +31,6 @@
 	)}
 	{...rest}
 >
-	<X class="size-(--spacing-4)" weight="bold" />
+	<X class="size-4" weight="bold" />
 	<span class="sr-only">Close</span>
 </Dialog.CloseTrigger>

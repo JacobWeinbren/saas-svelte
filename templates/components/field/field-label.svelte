@@ -14,7 +14,12 @@
 		class?: string;
 	}
 
-	let { for: htmlFor, class: className, children, ...restProps }: Props = $props();
+	let {
+		for: htmlFor,
+		class: className,
+		children,
+		...restProps
+	}: Props = $props();
 
 	const fieldContext = getContext<FieldContext>("field");
 	const fieldId = $derived(htmlFor || $fieldContext.id);
@@ -25,7 +30,7 @@
 	for={fieldId}
 	class={[
 		// Layout
-		"flex items-center gap-(--spacing-1)",
+		"flex items-center gap-1",
 		// Text styles
 		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 		// Text color - inherits from parent, uses default fg color

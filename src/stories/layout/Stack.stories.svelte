@@ -47,18 +47,18 @@
 
 {#snippet basicStory()}
 	<Stack>
-		<DecorativeBox class="h-(--sizes-20)" />
-		<DecorativeBox class="h-(--sizes-20)" />
-		<DecorativeBox class="h-(--sizes-20)" />
+		<DecorativeBox class="h-20" />
+		<DecorativeBox class="h-20" />
+		<DecorativeBox class="h-20" />
 	</Stack>
 {/snippet}
 
 {#snippet horizontalStory()}
 	<div class="flex justify-center">
-		<Stack direction="row" class="h-(--sizes-20)">
-			<DecorativeBox class="w-(--sizes-40)!" />
-			<DecorativeBox class="w-(--sizes-40)!" />
-			<DecorativeBox class="w-(--sizes-40)!" />
+		<Stack direction="row" class="h-20">
+			<DecorativeBox class="w-40!" />
+			<DecorativeBox class="w-40!" />
+			<DecorativeBox class="w-40!" />
 		</Stack>
 	</div>
 {/snippet}
@@ -66,37 +66,37 @@
 {#snippet hStackStory()}
 	<div class="flex justify-center">
 		<HStack>
-			<DecorativeBox class="h-(--sizes-10) w-(--sizes-40)!" />
-			<DecorativeBox class="h-(--sizes-5) w-(--sizes-40)!" />
-			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!" />
+			<DecorativeBox class="h-10 w-40!" />
+			<DecorativeBox class="h-5 w-40!" />
+			<DecorativeBox class="h-20 w-40!" />
 		</HStack>
 	</div>
 {/snippet}
 
 {#snippet vStackStory()}
 	<VStack>
-		<DecorativeBox class="w-1/2 h-(--sizes-20)" />
-		<DecorativeBox class="w-1/4 h-(--sizes-20)" />
-		<DecorativeBox class="w-full h-(--sizes-20)" />
+		<DecorativeBox class="w-1/2 h-20" />
+		<DecorativeBox class="w-1/4 h-20" />
+		<DecorativeBox class="w-full h-20" />
 	</VStack>
 {/snippet}
 
 {#snippet separatorStory()}
 	<Stack>
-		<DecorativeBox class="h-(--sizes-20)" />
+		<DecorativeBox class="h-20" />
 		<Divider />
-		<DecorativeBox class="h-(--sizes-20)" />
+		<DecorativeBox class="h-20" />
 		<Divider />
-		<DecorativeBox class="h-(--sizes-20)" />
+		<DecorativeBox class="h-20" />
 	</Stack>
 {/snippet}
 
 {#snippet responsiveStory()}
 	<div class="flex justify-center">
-		<Stack class="flex-col gap-(--spacing-10) md:flex-row">
-			<DecorativeBox class="size-(--sizes-20)!" />
-			<DecorativeBox class="size-(--sizes-20)!" />
-			<DecorativeBox class="size-(--sizes-20)!" />
+		<Stack class="flex-col gap-10 md:flex-row">
+			<DecorativeBox class="size-20!" />
+			<DecorativeBox class="size-20!" />
+			<DecorativeBox class="size-20!" />
 		</Stack>
 	</div>
 {/snippet}

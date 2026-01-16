@@ -18,7 +18,7 @@
 				// GLASS: Contrast text with gradient overlay and glossy effect
 				glass: [
 					"overflow-clip",
-					"[color:var(--c-contrast)] bg-(--c-solid)",
+					"text-(--c-contrast) bg-(--c-solid)",
 					"focus-visible:outline-(--c-focus-ring)",
 					"[text-shadow:0_1px_2px_rgba(0,0,0,0.3)]",
 					// Light mode: inset shadow for depth + subtle outer shadow
@@ -26,7 +26,7 @@
 					// Dark mode: simpler inset highlight + outer shadow
 					"dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.3),inset_0_0_1px_0_rgba(255,255,255,0.05)]",
 					// Gradient overlay pseudo-element
-					"after:content-[''] after:absolute after:inset-0 after:[border-radius:inherit] after:opacity-20 after:pointer-events-none",
+					"after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:opacity-20 after:pointer-events-none",
 					"after:bg-[linear-gradient(180deg,white_40%,rgba(0,0,0,0.2))]",
 					"after:transition-opacity after:duration-(--durations-moderate)",
 					"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
@@ -34,51 +34,51 @@
 
 				// SOLID: Contrast text with solid background
 				solid: [
-					"[color:var(--c-contrast)] bg-(--c-solid) shadow-sm",
+					"text-(--c-contrast) bg-(--c-solid) shadow-sm",
 					"focus-visible:outline-(--c-focus-ring)",
 					"hover:brightness-110",
 				],
 
 				// SUBTLE: Accent text with subtle background
 				subtle: [
-					"[color:var(--c-fg)] bg-(--c-muted)",
+					"text-(--c-fg) bg-(--c-muted)",
 					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-subtle)",
 				],
 
 				// SURFACE: Accent text with border and subtle background
 				surface: [
-					"[color:var(--c-fg)] shadow-sm border bg-(--c-muted)/20 border-(--c-emphasized)/90",
+					"text-(--c-fg) shadow-sm border bg-(--c-muted)/20 border-(--c-emphasized)/90",
 					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-muted) hover:border-(--c-emphasized)",
 				],
 
 				// OUTLINE: Accent text with thin border
 				outline: [
-					"[color:var(--c-fg)] border-[0.5px] border-(--c-emphasized)",
+					"text-(--c-fg) border-[0.5px] border-(--c-emphasized)",
 					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-muted)",
 				],
 
 				// GHOST: Accent text, background on hover
 				ghost: [
-					"[color:var(--c-fg)]",
+					"text-(--c-fg)",
 					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-subtle)",
 				],
 
 				// PLAIN: Accent text only
 				plain: [
-					"[color:var(--c-fg)]",
+					"text-(--c-fg)",
 					"focus-visible:outline-(--c-focus-ring)",
 				],
 			},
 			size: {
-				xs: "h-(--spacing-6) min-w-(--spacing-6) gap-x-(--spacing-1) gap-y-(--spacing-1) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs) [&_svg]:size-(--spacing-2)",
-				sm: "h-(--spacing-7) min-w-(--spacing-7) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-3)",
-				md: "h-(--spacing-8) min-w-(--spacing-8) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-3_5)",
-				lg: "h-(--spacing-10) min-w-(--spacing-10) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-5) rounded-(--radius-md) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-5)",
-				xl: "h-(--spacing-12) min-w-(--spacing-12) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-6) rounded-(--radius-md) text-(length:--font-sizes-md) leading-(--line-heights-md) [&_svg]:size-(--spacing-6)",
+				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-(length:--font-sizes-xs) leading-(--line-heights-xs) [&_svg]:size-2",
+				sm: "h-7 min-w-7 gap-x-2 gap-y-2 px-2.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-3",
+				md: "h-8 min-w-8 gap-x-2 gap-y-2 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-3.5",
+				lg: "h-10 min-w-10 gap-x-3 gap-y-3 px-5 rounded-md text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-5",
+				xl: "h-12 min-w-12 gap-x-3 gap-y-3 px-6 rounded-md text-(length:--font-sizes-md) leading-(--line-heights-md) [&_svg]:size-6",
 			},
 			icon: { true: "px-0" },
 		},
@@ -86,27 +86,27 @@
 			{
 				size: "xs",
 				icon: true,
-				class: "w-(--spacing-6) [&_svg]:size-(--spacing-3)",
+				class: "w-6 [&_svg]:size-3",
 			},
 			{
 				size: "sm",
 				icon: true,
-				class: "w-(--spacing-7) [&_svg]:size-(--spacing-3_5)",
+				class: "w-7 [&_svg]:size-3.5",
 			},
 			{
 				size: "md",
 				icon: true,
-				class: "w-(--spacing-8) [&_svg]:size-(--spacing-3_5)",
+				class: "w-8 [&_svg]:size-3.5",
 			},
 			{
 				size: "lg",
 				icon: true,
-				class: "w-(--spacing-10) [&_svg]:size-(--spacing-5)",
+				class: "w-10 [&_svg]:size-5",
 			},
 			{
 				size: "xl",
 				icon: true,
-				class: "w-(--spacing-12) [&_svg]:size-(--spacing-6)",
+				class: "w-12 [&_svg]:size-6",
 			},
 		],
 		defaultVariants: {
@@ -172,7 +172,9 @@
 	}: Props = $props();
 
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	const finalClass = $derived(
 		button({
@@ -184,11 +186,11 @@
 	);
 
 	const loaderSizeMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
-		xs: "size-(--spacing-2_5)",
-		sm: "size-(--spacing-3)",
-		md: "size-(--spacing-3_5)",
-		lg: "size-(--spacing-4)",
-		xl: "size-(--spacing-5)",
+		xs: "size-2.5",
+		sm: "size-3",
+		md: "size-3.5",
+		lg: "size-4",
+		xl: "size-5",
 	};
 
 	const loaderClass = $derived(
@@ -204,7 +206,10 @@
 >
 	{#if loading && !loadingText}
 		<span class="contents">
-			<div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+			<div
+				class="absolute inset-0 flex items-center justify-center"
+				aria-hidden="true"
+			>
 				<CircleNotch class={loaderClass} />
 			</div>
 			<span class="sr-only">

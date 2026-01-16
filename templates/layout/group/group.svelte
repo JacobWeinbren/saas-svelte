@@ -18,7 +18,7 @@
 					"*:focus-visible:z-10",
 					"*:focus-within:z-10",
 				],
-				false: "gap-(--spacing-2)",
+				false: "gap-2",
 			},
 			grow: {
 				true: "w-full *:flex-1",
@@ -35,8 +35,8 @@
 				orientation: "vertical",
 				class: [
 					"space-x-0 -space-y-px", // Reset x-space, set y-space
-					"[&>*:first-child]:rounded-r-(--radius-l2) [&>*:first-child]:rounded-bl-none",
-					"[&>*:last-child]:rounded-l-(--radius-l2) [&>*:last-child]:rounded-tr-none",
+					"[&>*:first-child]:rounded-r-l2 [&>*:first-child]:rounded-bl-none",
+					"[&>*:last-child]:rounded-l-l2 [&>*:last-child]:rounded-tr-none",
 					"[&>*:not(:first-child):not(:last-child)]:rounded-none",
 				],
 			},

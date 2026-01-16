@@ -40,7 +40,7 @@
 				lg: "",
 				xl: "",
 				full: "",
-				cover: "p-(--spacing-10) items-center justify-center",
+				cover: "p-10 items-center justify-center",
 			},
 		},
 		defaultVariants: {
@@ -72,11 +72,11 @@
 				lg: "w-full max-w-2xl rounded-(--radii-l3)",
 				xl: "w-full max-w-4xl rounded-(--radii-l3)",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-(--radii-l3) my-(--spacing-0) overflow-hidden",
+				cover: "w-full h-full rounded-(--radii-l3) my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-var(--spacing-16))] my-auto",
-				outside: "my-(--spacing-16)",
+				outside: "my-16",
 			},
 		},
 		defaultVariants: {

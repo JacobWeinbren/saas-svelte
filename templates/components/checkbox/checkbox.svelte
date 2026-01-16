@@ -10,7 +10,7 @@
 
 	const checkboxControl = tv({
 		base: [
-			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
+			"flex items-center justify-center border shrink-0 p-0.5",
 			"rounded-(--radii-l1)",
 			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
@@ -25,9 +25,9 @@
 				outline: "",
 			},
 			size: {
-				sm: "size-(--spacing-3_5)",
-				md: "size-(--spacing-4)",
-				lg: "size-(--spacing-5)",
+				sm: "size-3.5",
+				md: "size-4",
+				lg: "size-5",
 			},
 			checked: {
 				true: "",
@@ -93,7 +93,7 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-center gap-(--spacing-2_5) cursor-(--cursor-checkbox) select-none",
+		base: "group inline-flex items-center gap-2.5 cursor-(--cursor-checkbox) select-none",
 		variants: {
 			disabled: {
 				true: "cursor-(--cursor-disabled) opacity-60",
@@ -208,9 +208,9 @@
 	);
 
 	const iconSizeClass = {
-		sm: "size-(--spacing-2_5)",
-		md: "size-(--spacing-3)",
-		lg: "size-(--spacing-3_5)",
+		sm: "size-2.5",
+		md: "size-3",
+		lg: "size-3.5",
 	} as const;
 
 	const iconClass = $derived(`${iconSizeClass[size || "md"]}`);
@@ -307,7 +307,7 @@
 			{/if}
 			{#if description}
 				<p
-					class="mt-(--spacing-1) text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-fg-muted"
+					class="mt-1 text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-fg-muted"
 				>
 					{description}
 				</p>

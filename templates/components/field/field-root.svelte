@@ -68,7 +68,7 @@
 		// Layout
 		"flex relative w-full flex-col items-start",
 		// Gap between label, input, and helper/error text
-		"gap-(--spacing-1_5)",
+		"gap-1.5",
 		className,
 	]
 		.filter(Boolean)

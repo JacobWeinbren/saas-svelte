@@ -91,12 +91,12 @@
 			<InputElement placement="left">
 				<User class="size-3.5" aria-hidden="true" />
 			</InputElement>
-			<Input placeholder="Username" class="pl-(--spacing-8)" />
+			<Input placeholder="Username" class="pl-8" />
 		</InputGroup>
 
 		<InputGroup class="flex-1">
 			<InputElement placement="left">https://</InputElement>
-			<Input placeholder="yoursite.com" class="pl-(--spacing-16)" />
+			<Input placeholder="yoursite.com" class="pl-16" />
 		</InputGroup>
 	</HStack>
 {/snippet}
@@ -107,7 +107,7 @@
 			<InputElement placement="left">
 				<MagnifyingGlass class="size-3.5" aria-hidden="true" />
 			</InputElement>
-			<Input placeholder="Search contacts" class="px-(--spacing-8)" />
+			<Input placeholder="Search contacts" class="px-8" />
 			<InputElement placement="right" class="pointer-events-auto">
 				<Kbd>⌘K</Kbd>
 			</InputElement>
@@ -115,7 +115,7 @@
 
 		<InputGroup class="flex-1">
 			<InputElement placement="left">https://</InputElement>
-			<Input placeholder="yoursite.com" class="pl-(--spacing-16)" />
+			<Input placeholder="yoursite.com" class="pl-16" />
 		</InputGroup>
 	</HStack>
 {/snippet}

@@ -11,30 +11,30 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-(--spacing-4) rounded-(--radii-l2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-(--spacing-3)",
+			root: "relative w-full flex items-start p-4 rounded-(--radii-l2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-3",
 			iconWrapper:
-				"shrink-0 inline-flex items-center justify-center w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
-			content: "flex-1 min-w-0 flex flex-col gap-(--spacing-1)",
+				"shrink-0 inline-flex items-center justify-center w-5 h-5 text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
+			content: "flex-1 min-w-0 flex flex-col gap-1",
 			title: "font-(--font-weights-medium) leading-(--line-heights-sm)",
 			description: "leading-(--line-heights-sm) opacity-90",
 		},
 		variants: {
 			variant: {
 				subtle: {
-					root: "bg-(--c-muted) [color:var(--c-fg)]",
+					root: "bg-(--c-muted) text-(--c-fg)",
 					iconWrapper: "text-current",
 				},
 				solid: {
-					root: "bg-(--c-solid) [color:var(--c-contrast)]",
-					iconWrapper: "[color:var(--c-contrast)]",
+					root: "bg-(--c-solid) text-(--c-contrast)",
+					iconWrapper: "text-(--c-contrast)",
 				},
 				surface: {
-					root: "bg-(--c-muted) [color:var(--c-fg)] shadow-[inset_0_0_0_1px_var(--c-solid)]",
-					iconWrapper: "[color:var(--c-fg)]",
+					root: "bg-(--c-muted) text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-solid)]",
+					iconWrapper: "text-(--c-fg)",
 				},
 				outline: {
-					root: "bg-transparent [color:var(--c-fg)] shadow-[inset_0_0_0_1px_var(--c-subtle)]",
-					iconWrapper: "[color:var(--c-fg)]",
+					root: "bg-transparent text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					iconWrapper: "text-(--c-fg)",
 				},
 			},
 		},
@@ -105,10 +105,14 @@
 		neutral: "gray",
 	};
 
-	const resolvedColour = $derived(colour ?? statusColourMap[status] ?? "gray");
+	const resolvedColour = $derived(
+		colour ?? statusColourMap[status] ?? "gray",
+	);
 
 	const colourStyle = $derived(getColourStyle(resolvedColour));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	const statusIconMap = {
 		info: Info,

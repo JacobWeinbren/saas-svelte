@@ -21,7 +21,7 @@
 	aria-live="polite"
 	class={[
 		// Layout
-		"inline-flex items-center gap-(--spacing-1)",
+		"inline-flex items-center gap-1",
 		// Text color - error color (red-500 light, red-400 dark)
 		"text-fg-error",
 		// Typography

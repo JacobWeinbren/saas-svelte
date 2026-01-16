@@ -26,10 +26,7 @@
 					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
-				subtle: [
-					"border-transparent",
-					"bg-bg-subtle",
-				],
+				subtle: ["border-transparent", "bg-bg-subtle"],
 				plain: [
 					"border-0 bg-transparent",
 					"text-fg-default",
@@ -37,11 +34,11 @@
 				],
 			},
 			size: {
-				xs: "h-(--spacing-6) pl-(--spacing-2) pr-(--spacing-6) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "h-(--spacing-8) pl-(--spacing-2_5) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "h-(--spacing-10) pl-(--spacing-3) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "h-(--spacing-11) pl-(--spacing-4) pr-(--spacing-8) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				xl: "h-(--spacing-12) pl-(--spacing-5) pr-(--spacing-10) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				xs: "h-6 pl-2 pr-6 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				sm: "h-8 pl-2.5 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				md: "h-10 pl-3 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				lg: "h-11 pl-4 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				xl: "h-12 pl-5 pr-10 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 			},
 			invalid: {
 				true: [

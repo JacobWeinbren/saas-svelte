@@ -6,8 +6,8 @@
 		base: "shrink-0 self-stretch border-border-default",
 		variants: {
 			orientation: {
-				horizontal: "my-(--spacing-2) border-t",
-				vertical: "mx-(--spacing-2) border-l",
+				horizontal: "my-2 border-t",
+				vertical: "mx-2 border-l",
 			},
 		},
 		defaultVariants: {

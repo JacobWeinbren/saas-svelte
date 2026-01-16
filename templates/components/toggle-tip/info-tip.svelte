@@ -57,7 +57,7 @@
 	<button
 		type="button"
 		aria-label={ariaLabel}
-		class="inline-flex items-center justify-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button) rounded-(--radii-l1) outline-0 transition-[color,background-color] duration-(--durations-moderate) hover:bg-bg-subtle focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized"
+		class="inline-flex items-center justify-center align-middle p-0 border-0 bg-transparent h-4 w-4 cursor-(--cursor-button) rounded-(--radii-l1) outline-0 transition-[color,background-color] duration-(--durations-moderate) hover:bg-bg-subtle focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized"
 	>
 		<Icon as={Info} size="sm" />
 	</button>

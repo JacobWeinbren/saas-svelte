@@ -24,7 +24,7 @@
 		// Isolation for z-index stacking
 		"isolate",
 		// Gap and alignment
-		"gap-(--spacing-2) items-center justify-start",
+		"gap-2 items-center justify-start",
 		className,
 	)}
 	{...restProps}

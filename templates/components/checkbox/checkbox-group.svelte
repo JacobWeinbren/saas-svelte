@@ -11,8 +11,8 @@
 		base: "flex antialiased",
 		variants: {
 			orientation: {
-				horizontal: "flex-row gap-(--spacing-6)",
-				vertical: "flex-col gap-(--spacing-1_5)",
+				horizontal: "flex-row gap-6",
+				vertical: "flex-col gap-1.5",
 			},
 		},
 		defaultVariants: {
@@ -156,11 +156,11 @@
 </script>
 
 {#if selectAllLabel && allValues}
-	<div class="flex flex-col gap-(--spacing-2)" style={colourVars}>
+	<div class="flex flex-col gap-2" style={colourVars}>
 		<div
 			role="button"
 			tabindex="0"
-			class="group inline-flex items-center gap-(--spacing-2_5) cursor-(--cursor-checkbox) select-none"
+			class="group inline-flex items-center gap-2.5 cursor-(--cursor-checkbox) select-none"
 			onclick={handleSelectAll}
 			onkeydown={(e) => {
 				if (e.key === " " || e.key === "Enter") {
@@ -171,15 +171,23 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded-(--radii-l1) size-(--spacing-4) {isIndeterminate ||
+					class="flex items-center justify-center border shrink-0 p-0.5 rounded-(--radii-l1) size-4 {isIndeterminate ||
 					allChecked
 						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
 						: 'border-border-emphasized text-(--c-contrast)'}"
 				>
 					{#if isIndeterminate}
-						<Minus class="size-(--spacing-3)" weight="bold" aria-hidden="true" />
+						<Minus
+							class="size-3"
+							weight="bold"
+							aria-hidden="true"
+						/>
 					{:else if allChecked}
-						<Check class="size-(--spacing-3)" weight="bold" aria-hidden="true" />
+						<Check
+							class="size-3"
+							weight="bold"
+							aria-hidden="true"
+						/>
 					{/if}
 				</div>
 			</div>
@@ -190,12 +198,12 @@
 			</span>
 		</div>
 		<div
-			class={twMerge(checkboxGroup({ orientation }), "ps-(--spacing-6)", className)}
+			class={twMerge(checkboxGroup({ orientation }), "ps-6", className)}
 			{...rest}
 		>
 			{#if label}
 				<span
-					class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
+					class="mb-2 text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
 				>
 					{label}
 				</span>
@@ -207,7 +215,7 @@
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
 			<span
-				class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
+				class="mb-2 text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
 			>
 				{label}
 			</span>

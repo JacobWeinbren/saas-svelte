@@ -35,10 +35,7 @@
 			variant: {
 				default: {},
 				inverted: {
-					content: [
-						"bg-bg-inverted",
-						"text-fg-inverted",
-					],
+					content: ["bg-bg-inverted", "text-fg-inverted"],
 					arrow: ["[--arrow-background:var(--colors-bg-inverted)]"],
 					arrowTip: ["border-border-inverted"],
 				},
@@ -79,10 +76,10 @@
 			},
 			padding: {
 				sm: {
-					content: "px-(--spacing-2) py-(--spacing-1)",
+					content: "px-2 py-1",
 				},
 				md: {
-					content: "px-(--spacing-2_5) py-(--spacing-1)",
+					content: "px-2.5 py-1",
 				},
 			},
 		},
