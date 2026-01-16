@@ -45,8 +45,12 @@
 {#snippet basicStory()}
 	<div class="flex justify-center">
 		<Group>
-			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!">1</DecorativeBox>
-			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!">2</DecorativeBox>
+			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!"
+				>1</DecorativeBox
+			>
+			<DecorativeBox class="h-(--sizes-20) w-(--sizes-40)!"
+				>2</DecorativeBox
+			>
 		</Group>
 	</div>
 {/snippet}

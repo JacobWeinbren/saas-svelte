@@ -185,16 +185,16 @@
 >
 	{#if loading && !loadingText}
 		<span class="contents">
-			<div class="absolute inset-0 flex items-center justify-center">
+			<div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
 				<CircleNotch class={loaderClass} />
 			</div>
-			<span class="invisible contents">
+			<span class="sr-only">
 				{@render children?.()}
 			</span>
 		</span>
 	{:else if loading && loadingText}
 		<span class="contents">
-			<CircleNotch class={loaderClass} />
+			<CircleNotch class={loaderClass} aria-hidden="true" />
 			{loadingText}
 		</span>
 	{:else}
