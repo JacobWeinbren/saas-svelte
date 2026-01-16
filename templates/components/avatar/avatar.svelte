@@ -14,7 +14,7 @@
 		variants: {
 			size: {
 				xs: {
-					root: "w-(--spacing-5) h-(--spacing-5) text-[8px]!",
+					root: "w-(--spacing-5) h-(--spacing-5) text-[10px]!",
 				},
 				sm: {
 					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-xs)",
@@ -37,13 +37,13 @@
 			},
 			variant: {
 				solid: {
-					root: "bg-(--c-solid) text-(--c-contrast)",
+					root: "bg-(--c-solid) [color:var(--c-contrast)]",
 				},
 				subtle: {
-					root: "bg-(--c-muted) text-(--c-fg)",
+					root: "bg-(--c-muted) [color:var(--c-fg)]",
 				},
 				outline: {
-					root: "bg-transparent border border-(--c-subtle) text-(--c-fg)",
+					root: "bg-transparent border border-(--c-subtle) [color:var(--c-fg)]",
 				},
 			},
 			shape: {
