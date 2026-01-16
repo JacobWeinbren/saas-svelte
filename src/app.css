@@ -151,5 +151,6 @@ body {
 		var(--color-cyan-700),
 		var(--color-cyan-700)
 	);
+	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
 	--colors-sky-solid: light-dark(var(--color-sky-700), var(--color-sky-700));
 }
