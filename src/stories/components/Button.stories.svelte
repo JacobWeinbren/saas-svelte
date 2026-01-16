@@ -123,8 +123,8 @@
 		{#each colours as colour}
 			<HStack class="gap-4">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Button variant="solid" {colour}>Solid</Button>
 				<Button variant="glass" {colour}>Glass</Button>
+				<Button variant="solid" {colour}>Solid</Button>
 				<Button variant="subtle" {colour}>Subtle</Button>
 				<Button variant="outline" {colour}>Outline</Button>
 			</HStack>
