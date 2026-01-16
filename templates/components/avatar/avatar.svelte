@@ -63,9 +63,9 @@
 					fallback: "",
 				},
 				rounded: {
-					root: "rounded",
-					image: "rounded",
-					fallback: "rounded",
+					root: "rounded-(--radii-l2)",
+					image: "rounded-(--radii-l2)",
+					fallback: "rounded-(--radii-l2)",
 				},
 				full: {
 					root: "rounded-full",
@@ -83,7 +83,7 @@
 			},
 			ring: {
 				true: {
-					root: "outline-2 outline-offset-2 outline-solid outline-(--c-solid)",
+					root: "outline-2 outline-offset-[var(--spacing-0_5)] outline-solid outline-(--c-solid)",
 				},
 			},
 			colour: {},
@@ -231,7 +231,7 @@
 	style={finalStyle}
 	{...restProps}
 	role="img"
-	aria-label={name}
+	aria-label={name || "Avatar"}
 >
 	{#if src && status !== "error"}
 		<img

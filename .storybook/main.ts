@@ -19,6 +19,7 @@ const config: StorybookConfig = {
             },
         },
         "storybook-dark-mode",
+        "@storybook/addon-a11y",
     ],
     framework: {
         name: "@storybook/sveltekit",

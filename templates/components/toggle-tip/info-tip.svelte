@@ -28,6 +28,11 @@
 		 * The positioning options for the info tip.
 		 */
 		positioning?: PopoverRootProps["positioning"];
+		/**
+		 * Accessible label for the info button.
+		 * @default "More information"
+		 */
+		"aria-label"?: string;
 	}
 
 	let {
@@ -36,6 +41,7 @@
 		class: className,
 		size = "xs",
 		positioning = { placement: "top", gutter: 8 },
+		"aria-label": ariaLabel = "More information",
 		...rest
 	}: Props = $props();
 </script>
@@ -47,6 +53,7 @@
 	{positioning}
 	class={className}
 	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button) rounded-(--radii-l1) outline-0 transition-colors duration-(--durations-moderate) hover:bg-bg-subtle focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-fg-default"
+	triggerAriaLabel={ariaLabel}
 	{...rest}
 >
 	<Icon as={Info} size="sm" />

@@ -38,6 +38,10 @@
 		 */
 		triggerClass?: string;
 		/**
+		 * Accessible label for the trigger button.
+		 */
+		triggerAriaLabel?: string;
+		/**
 		 * The size of the toggle tip.
 		 * @default "md"
 		 */
@@ -79,6 +83,7 @@
 		children,
 		class: className,
 		triggerClass,
+		triggerAriaLabel,
 		size = "md",
 		autoFocus = true,
 		closeOnEscape = true,
@@ -126,7 +131,7 @@
 	<ArkPopover.Trigger>
 		{#snippet asChild(props)}
 			{#if triggerClass}
-				<button type="button" {...props()} class={triggerClass}>
+				<button type="button" {...props()} class={triggerClass} aria-label={triggerAriaLabel}>
 					{@render children()}
 				</button>
 			{:else}

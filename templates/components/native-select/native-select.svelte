@@ -6,7 +6,7 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded border select-none",
+			"rounded-(--radii-l1) border select-none",
 			"[&_option]:bg-inherit",
 
 			// Text

@@ -8,7 +8,7 @@
 			// Layout
 			"flex items-center flex-none whitespace-nowrap",
 			// Border
-			"border border-solid rounded",
+			"border border-solid rounded-(--radii-l1)",
 			// Background - light: gray-50, dark: gray-900
 			"bg-(--color-bg-subtle)",
 			// Border color

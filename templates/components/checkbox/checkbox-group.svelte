@@ -171,7 +171,7 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded size-(--spacing-4) {isIndeterminate ||
+					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded-(--radii-l1) size-4 {isIndeterminate ||
 					allChecked
 						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
 						: 'border-(--color-border-emphasized) text-(--c-contrast)'}"

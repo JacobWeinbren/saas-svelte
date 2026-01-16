@@ -9,7 +9,7 @@
 			positioner: ["absolute", "isolate", "min-w-max"],
 			content: [
 				"flex flex-col relative",
-				"rounded",
+				"rounded-(--radii-l2)",
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 
 				// Light/Dark mode using semantic tokens

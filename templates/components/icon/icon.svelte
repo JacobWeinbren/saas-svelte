@@ -111,6 +111,8 @@
 		{weight}
 		{mirrored}
 		class={computedClasses}
+		aria-hidden="true"
+		focusable="false"
 		{...rest}
 	/>
 {:else}

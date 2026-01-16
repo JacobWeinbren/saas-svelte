@@ -11,7 +11,7 @@
 			// Selection & spacing
 			"select-none whitespace-nowrap [word-spacing:-0.5em]",
 			// Border radius & padding
-			"rounded px-(--spacing-1)",
+			"rounded-(--radii-l1) px-(--spacing-1)",
 		],
 		variants: {
 			variant: {

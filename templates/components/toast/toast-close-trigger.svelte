@@ -15,6 +15,7 @@
 
 <ArkToast.CloseTrigger
 	class="absolute top-(--spacing-2) right-(--spacing-2) p-(--spacing-0_5) rounded-(--radii-l1) text-fg-muted hover:text-fg-default hover:bg-bg-subtle transition-[background,color] duration-(--durations-moderate) cursor-pointer {className ?? ''}"
+	aria-label="Close"
 	{...restProps}
 >
 	{#if children}

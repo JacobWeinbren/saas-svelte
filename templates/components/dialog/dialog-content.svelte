@@ -40,7 +40,7 @@
 				lg: "",
 				xl: "",
 				full: "",
-				cover: "p-(--spacing-10) items-center justify-center",
+				cover: "p-10 items-center justify-center",
 			},
 		},
 		defaultVariants: {
@@ -53,11 +53,11 @@
 		base: [
 			"relative flex flex-col",
 			// Background with translucency and blur
-			"bg-white/95 dark:bg-gray-900/85 backdrop-blur-md",
+			"bg-bg-panel backdrop-blur-md",
 			// Text color
-			"text-(--color-fg-default)",
+			"text-fg-default",
 			// Shadow
-			"shadow-(--shadow-lg)",
+			"shadow-lg",
 			"mx-auto",
 			"outline-none focus:outline-none",
 			"antialiased",
@@ -66,17 +66,17 @@
 		],
 		variants: {
 			size: {
-				xs: "w-full max-w-sm rounded-(--radius-lg)",
-				sm: "w-full max-w-md rounded-(--radius-lg)",
-				md: "w-full max-w-lg rounded-(--radius-lg)",
-				lg: "w-full max-w-2xl rounded-(--radius-lg)",
-				xl: "w-full max-w-4xl rounded-(--radius-lg)",
+				xs: "w-full max-w-sm rounded-lg",
+				sm: "w-full max-w-md rounded-lg",
+				md: "w-full max-w-lg rounded-lg",
+				lg: "w-full max-w-2xl rounded-lg",
+				xl: "w-full max-w-4xl rounded-lg",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-(--radius-lg) my-0 overflow-hidden",
+				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-4rem)] my-auto",
-				outside: "my-(--spacing-16)",
+				outside: "my-16",
 			},
 		},
 		defaultVariants: {
@@ -87,7 +87,7 @@
 
 <Portal>
 	<Dialog.Backdrop
-		class="fixed inset-0 z-(--z-indices-overlay) transition-opacity duration-(--durations-moderate) bg-(--color-bg-backdrop) data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
+		class="fixed inset-0 z-(--z-indices-overlay) transition-opacity duration-(--durations-moderate) bg-bg-backdrop data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
 		data-state-layer
 	/>
 
