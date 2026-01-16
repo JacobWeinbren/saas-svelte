@@ -19,16 +19,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Dialog",
-		component: Dialog.Root as any,
-		subcomponents: {
-			Trigger: Dialog.Trigger,
-			Content: Dialog.Content,
-			Header: Dialog.Header,
-			Title: Dialog.Title,
-			Body: Dialog.Body,
-			Footer: Dialog.Footer,
-			CloseButton: Dialog.CloseButton,
-		},
+		component: Dialog.Root,
 		argTypes: {
 			open: {
 				control: "boolean",
@@ -116,14 +107,11 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" class="gap-6">
-		{#each ["xs", "sm", "md", "lg"] as size}
+		{#each ["xs", "sm", "md", "lg"] as const as size}
 			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
-				<Dialog.Root size={size as "xs" | "sm" | "md" | "lg"}>
-					<Dialog.Trigger
-						variant="outline"
-						size={size as "xs" | "sm" | "md" | "lg"}
-					>
+				<Dialog.Root {size}>
+					<Dialog.Trigger variant="outline" {size}>
 						Open
 					</Dialog.Trigger>
 					<Dialog.Content>

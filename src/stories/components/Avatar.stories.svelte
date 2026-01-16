@@ -7,7 +7,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Avatar",
-		component: Avatar as any,
+		component: Avatar,
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
@@ -23,11 +23,6 @@
 				options: ["full", "square", "rounded"],
 				description: "The shape of the avatar.",
 				table: { defaultValue: { summary: "full" } },
-			},
-			borderless: {
-				control: "boolean",
-				description: "Whether the avatar should have a border.",
-				table: { defaultValue: { summary: "true" } },
 			},
 			ring: {
 				control: "boolean",
@@ -67,7 +62,6 @@
 			variant: "solid",
 			shape: "full",
 			colour: "gray",
-			borderless: true,
 			name: "David Wilson",
 			src: "/avatars/1.png",
 		},
@@ -122,24 +116,9 @@
 
 {#snippet ringStory()}
 	<Stack class="flex-row items-center gap-4">
-		<Avatar
-			name="David Wilson"
-			colour="pink"
-			src="/avatars/1.png"
-			ring
-		/>
-		<Avatar
-			name="Marcus Chen"
-			colour="green"
-			src="/avatars/2.png"
-			ring
-		/>
-		<Avatar
-			name="Sarah Johnson"
-			colour="blue"
-			src="/avatars/3.png"
-			ring
-		/>
+		<Avatar name="David Wilson" colour="pink" src="/avatars/1.png" ring />
+		<Avatar name="Marcus Chen" colour="green" src="/avatars/2.png" ring />
+		<Avatar name="Sarah Johnson" colour="blue" src="/avatars/3.png" ring />
 	</Stack>
 {/snippet}
 

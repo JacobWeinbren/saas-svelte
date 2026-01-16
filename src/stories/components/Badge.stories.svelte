@@ -9,7 +9,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Badge",
-		component: Badge as any,
+		component: Badge,
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,

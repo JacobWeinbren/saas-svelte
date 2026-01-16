@@ -21,7 +21,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Icon",
-		component: Icon as any,
+		component: Icon,
 		argTypes: {
 			as: {
 				control: false,

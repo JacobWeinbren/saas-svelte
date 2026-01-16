@@ -12,11 +12,11 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["underline", "plain"] as any,
+				options: ["underline", "plain"],
 			},
 			colour: {
 				...commonArgTypes.colour,
-				options: colours as any,
+				options: colours,
 			},
 			href: {
 				control: "text",

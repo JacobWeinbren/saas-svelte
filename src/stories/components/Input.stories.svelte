@@ -60,18 +60,12 @@
 			size: "md",
 			colour: "gray",
 		},
-		subcomponents: {
-			InputGroup: InputGroup as any,
-			InputElement: InputElement as any,
-			InputAddon: InputAddon as any,
-		},
 	});
-	export { Input, InputGroup, InputElement, InputAddon };
 </script>
 
 {#snippet variantsStory()}
 	<Stack class="max-w-md gap-4">
-		{#each ["outline", "subtle", "flushed"] as variant}
+		{#each ["outline", "subtle", "flushed"] as const as variant}
 			<HStack align="center" class="gap-4">
 				<Text size="xs" class="min-w-[8ch]">{variant}</Text>
 				<Input {variant} placeholder="Placeholder" class="flex-1" />
@@ -82,7 +76,7 @@
 
 {#snippet sizesStory()}
 	<Stack class="max-w-md gap-4">
-		{#each ["xs", "sm", "md", "lg"] as size}
+		{#each ["xs", "sm", "md", "lg"] as const as size}
 			<HStack align="center" class="gap-4">
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
 				<Input {size} placeholder="Placeholder" class="flex-1" />
@@ -151,7 +145,11 @@
 		{#each colours as colour}
 			<HStack align="center" class="gap-4">
 				<Text size="xs" class="min-w-[8ch] capitalize">{colour}</Text>
-				<Input {colour} placeholder="Focus to see {colour} ring" class="flex-1" />
+				<Input
+					{colour}
+					placeholder="Focus to see {colour} ring"
+					class="flex-1"
+				/>
 			</HStack>
 		{/each}
 	</Stack>

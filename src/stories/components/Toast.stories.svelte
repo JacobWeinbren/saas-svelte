@@ -3,8 +3,9 @@
 	import { Toast, Toaster, createToaster } from "$saas/components/toast";
 	import { HStack } from "$saas/layout/stack";
 	import { Button } from "$saas/components/button";
-	import Alarm from "phosphor-svelte/lib/Alarm";
-	import { commonArgTypes, getControls, variants } from "../utils";
+	import { commonArgTypes, getControls } from "../utils";
+
+	type ToastStatus = "info" | "success" | "warning" | "error" | "loading";
 
 	const { Story } = defineMeta({
 		title: "components/Toast",
@@ -51,40 +52,23 @@
 		},
 	});
 
-	const basicToaster = createToaster({
-		placement: "bottom-end",
+	const defaultToasterConfig = {
+		placement: "bottom-end" as const,
 		overlap: true,
 		gap: 16,
-	});
+	};
 
-	const statusToaster = createToaster({
-		placement: "bottom-end",
-		overlap: true,
-		gap: 16,
-	});
-
-	const actionToaster = createToaster({
-		placement: "bottom-end",
-		overlap: true,
-		gap: 16,
-	});
-
-	const durationToaster = createToaster({
-		placement: "bottom-end",
-		overlap: true,
-		gap: 16,
-	});
-
+	const basicToaster = createToaster(defaultToasterConfig);
+	const statusToaster = createToaster(defaultToasterConfig);
+	const actionToaster = createToaster(defaultToasterConfig);
+	const durationToaster = createToaster(defaultToasterConfig);
 	const placementToaster = createToaster({
+		...defaultToasterConfig,
 		placement: "top",
-		overlap: true,
-		gap: 16,
 	});
-
 	const stackingToaster = createToaster({
-		placement: "bottom-end",
+		...defaultToasterConfig,
 		overlap: false,
-		gap: 16,
 	});
 
 	let stackCount = $state(0);
@@ -106,12 +90,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 				/>
 			{/snippet}
 		</Toaster>
@@ -178,12 +157,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 				/>
 			{/snippet}
 		</Toaster>
@@ -211,12 +185,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 					action={toast().action}
 				/>
 			{/snippet}
@@ -263,12 +232,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 				/>
 			{/snippet}
 		</Toaster>
@@ -291,12 +255,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 				/>
 			{/snippet}
 		</Toaster>
@@ -313,7 +272,7 @@
 						description: "File saved successfully",
 						type: ["info", "success", "warning", "error"][
 							stackCount % 4
-						] as "info" | "success" | "warning" | "error",
+						] as ToastStatus,
 						duration: 10000,
 					});
 				}}
@@ -329,7 +288,7 @@
 							description: "File saved successfully",
 							type: ["info", "success", "warning", "error"][
 								stackCount % 4
-							] as "info" | "success" | "warning" | "error",
+							] as ToastStatus,
 							duration: 15000,
 						});
 					}
@@ -343,12 +302,7 @@
 				<Toast
 					title={toast().title}
 					description={toast().description}
-					status={toast().type as
-						| "info"
-						| "success"
-						| "warning"
-						| "error"
-						| "loading"}
+					status={toast().type as ToastStatus}
 				/>
 			{/snippet}
 		</Toaster>

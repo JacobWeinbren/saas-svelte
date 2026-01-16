@@ -18,7 +18,6 @@
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
 		component: Checkbox,
-		subcomponents: { CheckboxGroup: CheckboxGroup },
 		argTypes: {
 			checked: {
 				control: "boolean",
@@ -53,11 +52,6 @@
 			group: {
 				control: false,
 				table: { disable: true },
-			},
-			orientation: {
-				control: "select",
-				options: orientations,
-				table: { defaultValue: { summary: "vertical" } },
 			},
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
@@ -96,12 +90,8 @@
 				<Text size="xs">
 					{variant}
 				</Text>
-				<Checkbox
-					checked={false}
-					variant={variant as any}
-					label="Unchecked"
-				/>
-				<Checkbox checked variant={variant as any} label="Checked" />
+				<Checkbox checked={false} {variant} label="Unchecked" />
+				<Checkbox checked {variant} label="Checked" />
 			</VStack>
 		{/each}
 	</HStack>
@@ -119,12 +109,7 @@
 					{colour}
 				</Text>
 				{#each checkboxVariants as variant}
-					<Checkbox
-						{variant}
-						colour={colour as any}
-						checked
-						label="Checkbox"
-					/>
+					<Checkbox {variant} {colour} checked label="Checkbox" />
 				{/each}
 			</HStack>
 		{/each}
@@ -133,10 +118,10 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" class="flex-1 gap-12">
-		{#each sizes.filter((s) => ["sm", "md", "lg"].includes(s)) as size}
+		{#each ["sm", "md", "lg"] as const as size}
 			<VStack class="gap-2 items-center">
 				<Text size="xs">{size}</Text>
-				<Checkbox size={size as any} checked label="Checkbox" />
+				<Checkbox {size} checked label="Checkbox" />
 			</VStack>
 		{/each}
 	</HStack>
@@ -188,10 +173,10 @@
 {#snippet descriptionStory()}
 	<Checkbox class="items-start">
 		<div class="flex flex-col">
-			<span class="text-(--color-fg-default)">
+			<span class="text-fg-default">
 				I agree to the terms and conditions
 			</span>
-			<span class="mt-1 font-normal text-(--color-fg-muted)">
+			<span class="mt-1 font-normal text-fg-muted">
 				By clicking this, you agree to our Terms and Privacy Policy.
 			</span>
 		</div>
@@ -210,7 +195,7 @@
 
 <Story name="Variants" template={variantsStory} />
 
-<Story name="Controlled" template={controlledStory as any} />
+<Story name="Controlled" template={controlledStory} />
 
 <Story name="Colours" template={coloursStory} />
 

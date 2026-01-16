@@ -12,12 +12,6 @@
 	const { Story } = defineMeta({
 		title: "layout/Stack",
 		component: Stack,
-		subcomponents: {
-			HStack,
-			VStack,
-			Divider,
-			DecorativeBox,
-		},
 		argTypes: {
 			direction: {
 				control: "select",
