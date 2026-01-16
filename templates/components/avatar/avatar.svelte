@@ -9,37 +9,27 @@
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center",
+				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center text-inherit",
 		},
 		variants: {
 			size: {
-				"2xs": {
-					root: "w-(--spacing-4) h-(--spacing-4) text-(length:--font-sizes-2xs)",
-					fallback: "text-(length:--font-sizes-2xs)",
-				},
 				xs: {
-					root: "w-(--spacing-5) h-(--spacing-5) text-(length:--font-sizes-xs)",
-					fallback: "text-(length:--font-sizes-xs)",
+					root: "w-(--spacing-5) h-(--spacing-5) text-[8px]!",
 				},
 				sm: {
-					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-sm)",
-					fallback: "text-(length:--font-sizes-sm)",
+					root: "w-(--spacing-6) h-(--spacing-6) text-(length:--font-sizes-xs)",
 				},
 				md: {
 					root: "w-(--spacing-9) h-(--spacing-9) text-(length:--font-sizes-lg)",
-					fallback: "text-(length:--font-sizes-lg)",
 				},
 				lg: {
 					root: "w-(--spacing-12) h-(--spacing-12) text-(length:--font-sizes-2xl)",
-					fallback: "text-(length:--font-sizes-2xl)",
 				},
 				xl: {
 					root: "w-(--spacing-16) h-(--spacing-16) text-(length:--font-sizes-3xl)",
-					fallback: "text-(length:--font-sizes-3xl)",
 				},
 				"2xl": {
 					root: "w-(--spacing-20) h-(--spacing-20) text-(length:--font-sizes-4xl)",
-					fallback: "text-(length:--font-sizes-4xl)",
 				},
 				full: {
 					root: "w-full h-full",
@@ -257,7 +247,11 @@
 			</span>
 		{:else}
 			<span class={fallbackClass()}>
-				<User class="size-(--spacing-5)" weight="regular" aria-hidden="true" />
+				<User
+					class="size-(--spacing-5)"
+					weight="regular"
+					aria-hidden="true"
+				/>
 			</span>
 		{/if}
 	{/if}
