@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Toast, Toaster, createToaster } from "$saas/components/toast";
-	import { Stack } from "$saas/layout/stack";
+	import { HStack } from "$saas/layout/stack";
 	import { Button } from "$saas/components/button";
 	import Alarm from "phosphor-svelte/lib/Alarm";
 	import { commonArgTypes, getControls, variants } from "../utils";
@@ -120,7 +120,7 @@
 
 {#snippet statusStory()}
 	<div class="min-h-[400px]">
-		<Stack direction="horizontal" class="gap-2 flex-wrap">
+		<HStack class="gap-2 flex-wrap">
 			<Button
 				colour="blue"
 				onclick={() =>
@@ -172,7 +172,7 @@
 			>
 				Loading
 			</Button>
-		</Stack>
+		</HStack>
 		<Toaster toaster={statusToaster}>
 			{#snippet children(toast)}
 				<Toast
@@ -226,7 +226,7 @@
 
 {#snippet durationStory()}
 	<div class="min-h-[400px]">
-		<Stack direction="horizontal" class="gap-2 flex-wrap">
+		<HStack class="gap-2 flex-wrap">
 			<Button
 				onclick={() =>
 					durationToaster.create({
@@ -257,7 +257,7 @@
 			>
 				Persistent
 			</Button>
-		</Stack>
+		</HStack>
 		<Toaster toaster={durationToaster}>
 			{#snippet children(toast)}
 				<Toast
@@ -305,7 +305,7 @@
 
 {#snippet stackingStory()}
 	<div class="min-h-[500px]">
-		<Stack direction="horizontal" class="gap-2 flex-wrap">
+		<HStack class="gap-2 flex-wrap">
 			<Button
 				onclick={() => {
 					stackCount++;
@@ -337,7 +337,7 @@
 			>
 				Add 5 Toasts
 			</Button>
-		</Stack>
+		</HStack>
 		<Toaster toaster={stackingToaster}>
 			{#snippet children(toast)}
 				<Toast
