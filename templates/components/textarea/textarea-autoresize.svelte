@@ -9,7 +9,7 @@
 
 			// Text & Placeholder
 			"antialiased",
-			"placeholder:text-(--color-fg-muted) placeholder:select-none",
+			"placeholder:text-fg-muted placeholder:select-none",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
@@ -22,23 +22,23 @@
 				outline: [
 					"bg-transparent",
 					// Light/Dark using semantic tokens
-					"border-(--color-border-default)",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-default",
+					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--color-accent-focus-ring)",
-					"text-(--color-fg-default)",
+					"text-fg-default",
 				],
 				subtle: [
 					"border-transparent",
 					// Light/Dark using semantic tokens
-					"bg-(--color-bg-muted)",
-					"text-(--color-fg-default)",
+					"bg-bg-muted",
+					"text-fg-default",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
 					// Light/Dark using semantic tokens
-					"border-(--color-border-default)",
-					"text-(--color-fg-default)",
+					"border-border-default",
+					"text-fg-default",
 
 					"focus-visible:outline-0 focus-visible:border-(--color-accent-focus-ring)",
 				],
@@ -52,7 +52,7 @@
 			},
 			invalid: {
 				true: [
-					"border-(--color-border-error) focus-visible:border-(--color-border-error) focus-visible:outline-(--color-border-error) hover:border-(--color-border-emphasized)",
+					"border-border-error focus-visible:border-border-error focus-visible:outline-border-error hover:border-border-emphasized",
 				],
 			},
 		},

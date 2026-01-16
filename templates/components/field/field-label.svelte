@@ -29,7 +29,7 @@
 		// Text styles
 		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 		// Text color - inherits from parent, uses default fg color
-		"text-(--color-fg-default)",
+		"text-fg-default",
 		// User interaction
 		"select-none antialiased",
 		// Disabled state

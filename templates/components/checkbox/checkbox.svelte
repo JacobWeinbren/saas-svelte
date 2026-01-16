@@ -38,7 +38,7 @@
 				true: "cursor-(--cursor-disabled) opacity-50",
 			},
 			invalid: {
-				true: "border-(--color-border-error)! peer-focus-visible:outline-(--color-border-error)!",
+				true: "border-border-error! peer-focus-visible:outline-border-error!",
 			},
 		},
 		compoundVariants: [
@@ -46,7 +46,7 @@
 			{
 				variant: "solid",
 				checked: false,
-				class: "border-(--color-border-emphasized) text-(--c-contrast)",
+				class: "border-border-emphasized text-(--c-contrast)",
 			},
 			// SOLID - checked: colored background and border, contrast text
 			{
@@ -70,7 +70,7 @@
 			{
 				variant: "outline",
 				checked: false,
-				class: "border-(--color-border-emphasized) text-(--c-contrast)",
+				class: "border-border-emphasized text-(--c-contrast)",
 			},
 			// OUTLINE - checked: colored border, colored icon
 			{
@@ -82,7 +82,7 @@
 			{
 				invalid: true,
 				checked: [true, "indeterminate"],
-				class: "bg-(--color-border-error)! border-(--color-border-error)! text-(--color-fg-inverted)!",
+				class: "bg-border-error! border-border-error! text-fg-inverted!",
 			},
 		],
 		defaultVariants: {
@@ -293,21 +293,21 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default) select-none"
+					class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default select-none"
 				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
 				<div
-					class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-(--color-fg-default) select-none"
+					class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-fg-default select-none"
 				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
 				<p
-					class="mt-(--spacing-1) text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-(--color-fg-muted)"
+					class="mt-(--spacing-1) text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-fg-muted"
 				>
 					{description}
 				</p>

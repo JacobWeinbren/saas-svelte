@@ -10,11 +10,11 @@
 			// Border
 			"border border-solid rounded-(--radii-l1)",
 			// Background - light: gray-50, dark: gray-900
-			"bg-(--color-bg-subtle)",
+			"bg-bg-subtle",
 			// Border color
-			"border-(--color-border-default)",
+			"border-border-default",
 			// Text color
-			"text-(--color-fg-default)",
+			"text-fg-default",
 			// Typography
 			"antialiased",
 			// Focus

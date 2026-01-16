@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	const divider = tv({
-		base: "shrink-0 self-stretch border-(--color-border-default)",
+		base: "shrink-0 self-stretch border-border-default",
 		variants: {
 			orientation: {
 				horizontal: "my-(--spacing-2) border-t",

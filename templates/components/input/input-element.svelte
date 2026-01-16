@@ -39,7 +39,7 @@
 		// Layout
 		"flex h-full items-center justify-center",
 		// Text color - muted (zinc-500)
-		"text-(--color-fg-muted)",
+		"text-fg-muted",
 		// Typography
 		"text-(length:--font-sizes-sm)",
 		// Pointer events

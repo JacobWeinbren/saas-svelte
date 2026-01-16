@@ -8,8 +8,8 @@
 		slots: {
 			root: "flex flex-col",
 			item: "inline-flex items-center grow",
-			label: "flex items-center text-(--color-fg-muted)",
-			value: "flex flex-1 text-(--color-fg-default)",
+			label: "flex items-center text-fg-muted",
+			value: "flex flex-1 text-fg-default",
 		},
 		variants: {
 			size: {
@@ -45,7 +45,7 @@
 			},
 			divider: {
 				true: {
-					item: "not-first:border-t not-first:border-(--color-border-default) not-first:pt-(--spacing-4)",
+					item: "not-first:border-t not-first:border-border-default not-first:pt-(--spacing-4)",
 				},
 			},
 		},
@@ -119,7 +119,7 @@
 <dl
 	data-orientation={orientation}
 	class={twMerge(
-		"text-(--color-fg-default) leading-normal antialiased",
+		"text-fg-default leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

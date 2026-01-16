@@ -4,7 +4,7 @@
 	import type { ClassNameValue } from "tailwind-merge";
 
 	const text = tv({
-		base: "text-(--color-fg-default) antialiased break-words",
+		base: "text-fg-default antialiased wrap-break-word",
 		variants: {
 			size: {
 				xs: "text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
@@ -43,9 +43,9 @@
 				none: "line-clamp-none",
 			},
 			variant: {
-				primary: "text-(--color-fg-default)",
-				secondary: "text-(--color-fg-subtle)",
-				tertiary: "text-(--color-fg-emphasized)",
+				primary: "text-fg-default",
+				secondary: "text-fg-subtle",
+				tertiary: "text-fg-emphasized",
 			},
 		},
 		defaultVariants: {

@@ -10,7 +10,7 @@
 
 			// Text & Placeholder
 			"antialiased",
-			"placeholder:text-(--color-fg-muted) placeholder:select-none",
+			"placeholder:text-fg-muted placeholder:select-none",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
@@ -22,18 +22,18 @@
 			variant: {
 				outline: [
 					"bg-transparent",
-					"border-(--color-border-default)",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-default",
+					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
-					"bg-(--color-bg-subtle)",
+					"bg-bg-subtle",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
-					"border-(--color-border-default)",
+					"border-border-default",
 					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--c-focus-ring)",
 				],
 			},
@@ -46,9 +46,9 @@
 			},
 			invalid: {
 				true: [
-					"border-(--color-border-error)!",
-					"focus-visible:border-(--color-border-error)! focus-visible:outline-(--color-border-error)!",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-error!",
+					"focus-visible:border-border-error! focus-visible:outline-border-error!",
+					"enabled:hover:border-border-emphasized",
 				],
 			},
 		},

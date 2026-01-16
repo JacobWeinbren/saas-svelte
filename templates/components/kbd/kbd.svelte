@@ -18,23 +18,23 @@
 				// Raised: 3D effect with border-t, border-b-2, border-x
 				raised: [
 					"border-t border-b-2 border-x",
-					"border-(--color-border-default)",
-					"bg-(--color-bg-muted)",
-					"text-(--color-fg-emphasized)",
+					"border-border-default",
+					"bg-bg-muted",
+					"text-fg-emphasized",
 				],
 				// Outline: simple border
 				outline: [
 					"border",
-					"border-(--color-border-default)",
-					"text-(--color-fg-emphasized)",
+					"border-border-default",
+					"text-fg-emphasized",
 				],
 				// Subtle: background only
 				subtle: [
-					"bg-(--color-bg-subtle)",
-					"text-(--color-fg-emphasized)",
+					"bg-bg-subtle",
+					"text-fg-emphasized",
 				],
 				// Plain: text only
-				plain: ["text-(--color-fg-emphasized)"],
+				plain: ["text-fg-emphasized"],
 			},
 			size: {
 				sm: "h-(--spacing-4) text-(length:--font-sizes-2xs) font-(--font-weights-medium) leading-(--line-heights-2xs)",

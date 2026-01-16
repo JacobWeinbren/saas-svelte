@@ -10,8 +10,8 @@
 
 			// Text & Placeholder
 			"antialiased",
-			"text-(--color-fg-default)",
-			"placeholder:text-(--color-fg-muted) placeholder:select-none",
+			"text-fg-default",
+			"placeholder:text-fg-muted placeholder:select-none",
 
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
@@ -24,21 +24,21 @@
 				outline: [
 					"bg-transparent",
 					// Border - light: gray-200, dark: gray-800
-					"border-(--color-border-default)",
+					"border-border-default",
 					// Hover - light: gray-300, dark: zinc-700
-					"enabled:hover:border-(--color-border-emphasized)",
+					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
 					// Background - light: gray-50, dark: gray-950
-					"bg-(--color-bg-subtle)",
+					"bg-bg-subtle",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
 					// Border - light: gray-200, dark: gray-800
-					"border-(--color-border-default)",
+					"border-border-default",
 					// Focus - shadow instead of outline
 					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--c-focus-ring)",
 				],
@@ -52,9 +52,9 @@
 			invalid: {
 				true: [
 					// Invalid border and focus ring - red-500 light, red-400 dark
-					"border-(--color-border-error)!",
-					"focus-visible:border-(--color-border-error)! focus-visible:outline-(--color-border-error)!",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-error!",
+					"focus-visible:border-border-error! focus-visible:outline-border-error!",
+					"enabled:hover:border-border-emphasized",
 				],
 			},
 		},

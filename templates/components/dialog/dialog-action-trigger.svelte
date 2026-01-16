@@ -35,7 +35,7 @@
 	class={twMerge(
 		button({ variant, size, className }),
 		// Custom footer focus ring override
-		"focus-visible:outline-(--color-fg-default)",
+		"focus-visible:outline-fg-default",
 	)}
 	style={finalStyle}
 	asChild={asChild ? children : undefined}

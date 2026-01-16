@@ -18,8 +18,8 @@
 			content: "overflow-hidden text-(length:--font-sizes-sm) text-fg-subtle",
 			contentBody: "",
 			indicator:
-				"flex items-center justify-center text-(--color-fg-muted) shrink-0 transition-transform duration-(--durations-moderate)",
-			icon: "shrink-0 text-(--color-fg-muted)",
+				"flex items-center justify-center text-fg-muted shrink-0 transition-transform duration-(--durations-moderate)",
+			icon: "shrink-0 text-fg-muted",
 		},
 		variants: {
 			size: {
@@ -50,16 +50,16 @@
 			},
 			variant: {
 				outline: {
-					item: "border-b border-(--color-border-default)",
+					item: "border-b border-border-default",
 				},
 				subtle: {
-					item: "rounded-(--radius-md) data-[state=open]:bg-(--color-bg-subtle)",
+					item: "rounded-(--radius-md) data-[state=open]:bg-bg-subtle",
 					trigger: "px-(--spacing-4)",
 					contentBody: "px-(--spacing-4)",
 				},
 				enclosed: {
-					root: "border border-(--color-border-default) rounded-(--radius-md)",
-					item: "border-b border-(--color-border-default) last:border-b-0 data-[state=open]:bg-(--color-bg-subtle)",
+					root: "border border-border-default rounded-(--radius-md)",
+					item: "border-b border-border-default last:border-b-0 data-[state=open]:bg-bg-subtle",
 					trigger: "px-(--spacing-4)",
 					contentBody: "px-(--spacing-4)",
 				},
@@ -138,7 +138,7 @@
 	{multiple}
 	{orientation}
 	class={twMerge(
-		"text-(--color-fg-default) leading-normal antialiased",
+		"text-fg-default leading-normal antialiased",
 		classes.root(),
 		className,
 	)}

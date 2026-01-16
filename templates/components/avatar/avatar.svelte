@@ -68,7 +68,7 @@
 					root: "",
 				},
 				false: {
-					root: "border-2 border-(--color-bg-default) dark:border-(--color-bg-default)",
+					root: "border-2 border-bg-default dark:border-bg-default",
 				},
 			},
 			ring: {

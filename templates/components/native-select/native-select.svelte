@@ -22,17 +22,17 @@
 			variant: {
 				outline: [
 					"bg-transparent",
-					"border-(--color-border-default)",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-default",
+					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
 					"border-transparent",
-					"bg-(--color-bg-subtle)",
+					"bg-bg-subtle",
 				],
 				plain: [
 					"border-0 bg-transparent",
-					"text-(--color-fg-default)",
+					"text-fg-default",
 					"focus-visible:outline-2",
 				],
 			},
@@ -45,9 +45,9 @@
 			},
 			invalid: {
 				true: [
-					"border-(--color-border-error)!",
-					"focus-visible:border-(--color-border-error)! focus-visible:outline-(--color-border-error)!",
-					"enabled:hover:border-(--color-border-emphasized)",
+					"border-border-error!",
+					"focus-visible:border-border-error! focus-visible:outline-border-error!",
+					"enabled:hover:border-border-emphasized",
 				],
 			},
 		},

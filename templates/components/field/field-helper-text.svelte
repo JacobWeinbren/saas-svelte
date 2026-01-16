@@ -20,7 +20,7 @@
 	id={helperId}
 	class={[
 		// Text color - muted for helper text (zinc-500)
-		"text-(--color-fg-muted)",
+		"text-fg-muted",
 		// Typography
 		"text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
 		// Rendering

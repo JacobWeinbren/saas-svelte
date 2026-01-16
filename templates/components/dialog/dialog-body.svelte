@@ -20,7 +20,7 @@
 		// Flex and padding
 		"flex-1 px-(--spacing-6) py-(--spacing-2)",
 		// Text color - body text uses default color for readability
-		"text-(--color-fg-default)",
+		"text-fg-default",
 		// Typography
 		"text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased",
 		// Scroll behavior

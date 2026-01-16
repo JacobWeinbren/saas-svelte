@@ -13,8 +13,8 @@
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 
 				// Light/Dark mode using semantic tokens
-				"bg-(--color-bg-panel) backdrop-blur-md",
-				"text-(--color-fg-default)",
+				"bg-bg-panel backdrop-blur-md",
+				"text-fg-default",
 
 				"text-(length:--font-sizes-xs) font-(--font-weights-normal) leading-(--line-heights-xs) antialiased",
 				"max-w-xs",
@@ -27,20 +27,20 @@
 			],
 			arrow: [
 				"[--arrow-size:8px]",
-				"[--arrow-background:var(--color-bg-panel)]",
+				"[--arrow-background:var(--colors-bg-panel)]",
 			],
-			arrowTip: ["border-l border-t", "border-(--color-border-subtle)"],
+			arrowTip: ["border-l border-t", "border-border-subtle"],
 		},
 		variants: {
 			variant: {
 				default: {},
 				inverted: {
 					content: [
-						"bg-(--color-bg-inverted)",
-						"text-(--color-fg-inverted)",
+						"bg-bg-inverted",
+						"text-fg-inverted",
 					],
-					arrow: ["[--arrow-background:var(--color-bg-inverted)]"],
-					arrowTip: ["border-(--color-border-inverted)"],
+					arrow: ["[--arrow-background:var(--colors-bg-inverted)]"],
+					arrowTip: ["border-border-inverted"],
 				},
 			},
 			interactive: {

@@ -23,7 +23,7 @@
 		// Layout
 		"inline-flex items-center gap-(--spacing-1)",
 		// Text color - error color (red-500 light, red-400 dark)
-		"text-(--color-fg-error)",
+		"text-fg-error",
 		// Typography
 		"text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
 		// Rendering

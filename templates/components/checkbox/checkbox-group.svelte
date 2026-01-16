@@ -174,7 +174,7 @@
 					class="flex items-center justify-center border shrink-0 p-(--spacing-0_5) rounded-(--radii-l1) size-4 {isIndeterminate ||
 					allChecked
 						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
-						: 'border-(--color-border-emphasized) text-(--c-contrast)'}"
+						: 'border-border-emphasized text-(--c-contrast)'}"
 				>
 					{#if isIndeterminate}
 						<Minus class="size-(--spacing-3)" weight="bold" aria-hidden="true" />
@@ -184,7 +184,7 @@
 				</div>
 			</div>
 			<span
-				class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
+				class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
 			>
 				{selectAllLabel}
 			</span>
@@ -195,7 +195,7 @@
 		>
 			{#if label}
 				<span
-					class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
+					class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
 				>
 					{label}
 				</span>
@@ -207,7 +207,7 @@
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
 			<span
-				class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-(--color-fg-default)"
+				class="mb-(--spacing-2) text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
 			>
 				{label}
 			</span>

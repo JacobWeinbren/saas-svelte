@@ -18,9 +18,9 @@
 		// Layout
 		"flex items-center justify-center shrink-0 gap-(--spacing-2)",
 		// Colors - light: gray-900 text, dark: gray-200 text
-		"text-(--color-fg-default)",
+		"text-fg-default",
 		// Hover - light: gray-100 bg, dark: gray-900 bg
-		"hover:bg-(--color-bg-subtle)",
+		"hover:bg-bg-subtle",
 		// Typography
 		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
 		// Focus ring
