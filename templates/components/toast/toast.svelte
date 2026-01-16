@@ -4,13 +4,17 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				"w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
-				"rounded-(--radii-l2) overflow-hidden border border-border-muted shadow-md",
+				"w-[calc(100vw-2rem)] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
+				"rounded-(--radii-l2) border border-border-muted shadow-md",
 				"bg-bg-panel text-fg-default",
-				"absolute z-(--z-index) pointer-events-auto",
+				"z-(--z-index) pointer-events-auto",
 				"[--computed-y:calc(var(--lift)*var(--fixed-index,var(--index))*(var(--first-height)+var(--gap)))]",
-				"inset-auto",
-				"[translate:var(--x)_var(--computed-y)]",
+				// Mobile: fixed positioning to center on viewport; Desktop: absolute within group
+				"fixed! md:absolute!",
+				"left-1/2! md:left-auto!",
+				"right-auto! md:right-[unset]!",
+				"bottom-4! md:bottom-0!",
+				"[translate:-50%_var(--computed-y)] md:[translate:var(--x)_var(--computed-y)]",
 				// Transitions for stacking movement - 500ms with bouncy easing
 				"will-change-[translate,opacity,scale,height]",
 				"transition-[translate,scale,opacity,height,box-shadow]",
@@ -29,8 +33,10 @@
 			],
 			content: "flex flex-col flex-1 max-w-full",
 			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-(--spacing-2)",
-			description: "text-(length:--font-sizes-sm) leading-(--line-heights-md) opacity-80 inline",
-			descriptionOnly: "text-(length:--font-sizes-sm) leading-(--line-heights-md) flex-1",
+			description:
+				"text-(length:--font-sizes-sm) leading-(--line-heights-md) opacity-80 inline",
+			descriptionOnly:
+				"text-(length:--font-sizes-sm) leading-(--line-heights-md) flex-1",
 			action: [
 				"[appearance:auto] cursor-pointer h-(--sizes-6) self-start",
 				"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md)",
@@ -53,11 +59,26 @@
 		},
 		variants: {
 			status: {
-				info: { icon: "", descriptionOnly: "font-(--font-weights-medium)" },
-				success: { icon: "text-fg-success", descriptionOnly: "font-(--font-weights-medium)" },
-				warning: { icon: "text-fg-warning", descriptionOnly: "font-(--font-weights-medium)" },
-				error: { icon: "text-fg-error", descriptionOnly: "font-(--font-weights-medium)" },
-				loading: { icon: "text-accent-fg", descriptionOnly: "opacity-80" },
+				info: {
+					icon: "",
+					descriptionOnly: "font-(--font-weights-medium)",
+				},
+				success: {
+					icon: "text-fg-success",
+					descriptionOnly: "font-(--font-weights-medium)",
+				},
+				warning: {
+					icon: "text-fg-warning",
+					descriptionOnly: "font-(--font-weights-medium)",
+				},
+				error: {
+					icon: "text-fg-error",
+					descriptionOnly: "font-(--font-weights-medium)",
+				},
+				loading: {
+					icon: "text-accent-fg",
+					descriptionOnly: "opacity-80",
+				},
 			},
 		},
 		defaultVariants: {
@@ -113,11 +134,17 @@
 	};
 
 	const resolvedIcon = $derived(
-		typeof icon !== "boolean" && icon ? icon : icon === false ? null : ICONS[status]
+		typeof icon !== "boolean" && icon
+			? icon
+			: icon === false
+				? null
+				: ICONS[status],
 	);
 
 	// Single-line toast: description only, no title or action, and not loading
-	const isSingleLine = $derived(description && !title && !action && status !== "loading");
+	const isSingleLine = $derived(
+		description && !title && !action && status !== "loading",
+	);
 
 	// Fix Ark UI bugs: --index doesn't increment properly in overlap:false mode
 	// and height is calculated incorrectly
@@ -130,7 +157,9 @@
 		let rafId: number | null = null;
 
 		const update = () => {
-			const toasts = Array.from(group.querySelectorAll('[data-part="root"][data-state="open"]'));
+			const toasts = Array.from(
+				group.querySelectorAll('[data-part="root"][data-state="open"]'),
+			);
 			const index = toasts.indexOf(root);
 			if (index >= 0) {
 				root.style.setProperty("--fixed-index", String(index));
@@ -162,7 +191,11 @@
 </script>
 
 <div use:fixIndex class="contents">
-	<ArkToast.Root class={styles.root({ class: className })} {style} {...restProps}>
+	<ArkToast.Root
+		class={styles.root({ class: className })}
+		{style}
+		{...restProps}
+	>
 		{#if children}
 			{@render children()}
 		{:else if isSingleLine}
@@ -171,7 +204,9 @@
 			{:else if resolvedIcon}
 				<Icon as={resolvedIcon} class={styles.icon()} />
 			{/if}
-			<ArkToast.Description class={styles.descriptionOnly()}>{description}</ArkToast.Description>
+			<ArkToast.Description class={styles.descriptionOnly()}
+				>{description}</ArkToast.Description
+			>
 		{:else}
 			{#if status === "loading"}
 				<span class={styles.spinner()}></span>
@@ -181,13 +216,20 @@
 
 			<div class={styles.content()}>
 				{#if title}
-					<ArkToast.Title class={styles.title()}>{title}</ArkToast.Title>
+					<ArkToast.Title class={styles.title()}
+						>{title}</ArkToast.Title
+					>
 				{/if}
 				{#if description}
-					<ArkToast.Description class={styles.description()}>{description}</ArkToast.Description>
+					<ArkToast.Description class={styles.description()}
+						>{description}</ArkToast.Description
+					>
 				{/if}
 				{#if action}
-					<ArkToast.ActionTrigger class={styles.action()} onclick={action.onClick}>
+					<ArkToast.ActionTrigger
+						class={styles.action()}
+						onclick={action.onClick}
+					>
 						{action.label}
 					</ArkToast.ActionTrigger>
 				{/if}
@@ -195,7 +237,10 @@
 		{/if}
 
 		{#if closable}
-			<ArkToast.CloseTrigger class={styles.close()} aria-label="Dismiss notification">
+			<ArkToast.CloseTrigger
+				class={styles.close()}
+				aria-label="Dismiss notification"
+			>
 				<Icon as={X} size="xs" />
 			</ArkToast.CloseTrigger>
 		{/if}
