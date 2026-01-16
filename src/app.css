@@ -135,11 +135,6 @@ body {
 	}
 }
 
-/* Prevent ghost elements from causing overflow on toast exit */
-[data-scope="toast"][data-part="root"][data-first] [data-ghost="before"] {
-	scale: 1 1 !important;
-}
-
 :root:root {
 	--colors-orange-solid: light-dark(
 		var(--color-orange-700),
