@@ -9,7 +9,7 @@ const config: StorybookConfig = {
         options: {
             legacyTemplate: false,
         },
-    }, "@storybook/addon-a11y", "@storybook/addon-docs", '@vueless/storybook-dark-mode', "@storybook/addon-vitest"],
+    }, "@storybook/addon-a11y", "@storybook/addon-docs", "@storybook/addon-viewport", '@vueless/storybook-dark-mode', "@storybook/addon-vitest"],
 
     framework: {
         name: "@storybook/sveltekit",
