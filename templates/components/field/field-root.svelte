@@ -2,6 +2,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
+	import type { FieldContextValue } from "./types";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -46,7 +47,7 @@
 	}: Props = $props();
 
 	// Create context for child components
-	const fieldContext = writable({
+	const fieldContext = writable<FieldContextValue>({
 		id,
 		disabled,
 		invalid,

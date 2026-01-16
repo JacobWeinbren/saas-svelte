@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
+	import type { DataListContext } from "./types";
 
 	interface Props {
 		/**
@@ -16,7 +17,7 @@
 
 	let { children, class: className, ...restProps }: Props = $props();
 
-	const ctx = getContext("data-list-styles") as { current: any };
+	const ctx = getContext<DataListContext>("data-list-styles");
 	const styles = $derived(ctx.current);
 </script>
 

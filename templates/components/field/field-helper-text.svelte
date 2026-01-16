@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 	import { getContext } from "svelte";
-	import type { Writable } from "svelte/store";
+	import type { FieldContext } from "./types";
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		/**
@@ -12,16 +12,7 @@
 
 	let { class: className, children, ...restProps }: Props = $props();
 
-	const fieldContext = getContext<
-		Writable<{
-			id: string;
-			disabled: boolean;
-			invalid: boolean;
-			required: boolean;
-			readOnly: boolean;
-		}>
-	>("field");
-
+	const fieldContext = getContext<FieldContext>("field");
 	const helperId = $derived(`${$fieldContext.id}-helper-text`);
 </script>
 

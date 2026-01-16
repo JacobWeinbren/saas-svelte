@@ -28,7 +28,4 @@ export const Dialog = {
 	Footer,
 	CloseButton,
 	ActionTrigger,
-	// Aliases for Anatomy consistency
-	Backdrop: () => null, // Backdrop is handled internally by Content/Portal
-	CloseTrigger: ActionTrigger, // Alias
 };

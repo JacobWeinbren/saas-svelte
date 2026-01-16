@@ -7,7 +7,7 @@
 		ActionBarCloseButton,
 	} from "$saas/components/action-bar";
 	import { Button } from "$saas/components/button";
-	import { CheckboxRoot as Checkbox } from "$saas/components/checkbox";
+	import { Checkbox } from "$saas/components/checkbox";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import Trash from "phosphor-svelte/lib/Trash";

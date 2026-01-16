@@ -6,4 +6,3 @@ const CompoundCheckbox = Object.assign(Checkbox, {
 });
 
 export { CompoundCheckbox as Checkbox, CheckboxGroup };
-export const CheckboxRoot = Checkbox;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLLabelAttributes } from "svelte/elements";
 	import { getContext } from "svelte";
-	import type { Writable } from "svelte/store";
+	import type { FieldContext } from "./types";
 
 	interface Props extends HTMLLabelAttributes {
 		/**
@@ -14,23 +14,9 @@
 		class?: string;
 	}
 
-	let {
-		for: htmlFor,
-		class: className,
-		children,
-		...restProps
-	}: Props = $props();
+	let { for: htmlFor, class: className, children, ...restProps }: Props = $props();
 
-	const fieldContext = getContext<
-		Writable<{
-			id: string;
-			disabled: boolean;
-			invalid: boolean;
-			required: boolean;
-			readOnly: boolean;
-		}>
-	>("field");
-
+	const fieldContext = getContext<FieldContext>("field");
 	const fieldId = $derived(htmlFor || $fieldContext.id);
 	const isDisabled = $derived($fieldContext.disabled);
 </script>
