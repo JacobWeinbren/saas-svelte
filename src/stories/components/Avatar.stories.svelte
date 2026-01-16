@@ -16,7 +16,7 @@
 			colour: commonArgTypes.colour,
 			size: {
 				...commonArgTypes.size,
-				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl", "full"],
+				options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"],
 			},
 			shape: {
 				control: "select",

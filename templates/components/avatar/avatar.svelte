@@ -9,7 +9,7 @@
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center text-inherit",
+				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center [font-size:inherit]",
 		},
 		variants: {
 			size: {
