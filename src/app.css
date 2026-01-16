@@ -141,93 +141,25 @@ body {
 }
 
 :root:root {
-	/* --- 1. Text Color Overrides --- */
-	/* Black text for the brightest colors (Unchanged) */
-	--colors-amber-contrast: var(--color-black);
-	--colors-yellow-contrast: var(--color-black);
-	--colors-lime-contrast: var(--color-black);
-	--colors-neutral-contrast: light-dark(
-		var(--color-white),
-		var(--color-black)
+	--colors-orange-solid: light-dark(
+		var(--color-orange-700),
+		var(--color-orange-700)
 	);
-
-	/* White text for everyone else */
-	--colors-gray-contrast: var(--color-white);
-	--colors-zinc-contrast: var(--color-white);
-	--colors-stone-contrast: var(--color-white);
-	--colors-slate-contrast: var(--color-white);
-	--colors-red-contrast: var(--color-white);
-	--colors-orange-contrast: var(--color-white);
-	--colors-green-contrast: var(--color-white);
-	--colors-emerald-contrast: var(--color-white);
-	--colors-teal-contrast: var(--color-white);
-	--colors-cyan-contrast: var(--color-white);
-	--colors-sky-contrast: var(--color-white);
-	--colors-blue-contrast: var(--color-white);
-	--colors-indigo-contrast: var(--color-white);
-	--colors-violet-contrast: var(--color-white);
-	--colors-purple-contrast: var(--color-white);
-	--colors-fuchsia-contrast: var(--color-white);
-	--colors-pink-contrast: var(--color-white);
-	--colors-rose-contrast: var(--color-white);
-
-	/* --- 2. Semantic Color Brightening --- */
-
-	/* Red, Pink, Rose: 600 is fully accessible and vibrant */
-	--colors-red-solid: light-dark(var(--color-red-600), var(--color-red-600));
-	--colors-pink-solid: light-dark(
-		var(--color-pink-600),
-		var(--color-pink-600)
+	--colors-green-solid: light-dark(
+		var(--color-green-700),
+		var(--color-green-700)
 	);
-	--colors-rose-solid: light-dark(
-		var(--color-rose-600),
-		var(--color-rose-600)
-	);
-	--colors-fuchsia-solid: light-dark(
-		var(--color-fuchsia-600),
-		var(--color-fuchsia-600)
-	);
-
-	/* Cool Colors: 600 is very safe and bright */
 	--colors-emerald-solid: light-dark(
-		var(--color-emerald-600),
-		var(--color-emerald-600)
+		var(--color-emerald-700),
+		var(--color-emerald-700)
 	);
 	--colors-teal-solid: light-dark(
-		var(--color-teal-600),
-		var(--color-teal-600)
+		var(--color-teal-700),
+		var(--color-teal-700)
 	);
-	--colors-sky-solid: light-dark(var(--color-sky-600), var(--color-sky-600));
-
-	/* The "Problem" Colors: Orange, Green, Cyan */
-	/* Standard 600 fails contrast with white text. 
-       Standard 700 is dull. 
-       Solution: Mix 600 and 700 to hit exactly 4.5:1 contrast 
-    */
-
-	/* Orange: Needs to be darker to support white text */
-	--colors-orange-solid: light-dark(
-		color-mix(
-			in oklch,
-			var(--color-orange-600),
-			var(--color-orange-700) 60%
-		),
-		color-mix(
-			in oklch,
-			var(--color-orange-600),
-			var(--color-orange-700) 60%
-		)
-	);
-
-	/* Green: Standard Green-600 is too yellow/light. We darken it slightly. */
-	--colors-green-solid: light-dark(
-		color-mix(in oklch, var(--color-green-600), var(--color-green-700) 50%),
-		color-mix(in oklch, var(--color-green-600), var(--color-green-700) 50%)
-	);
-
-	/* Cyan: Very light naturally. Needs a heavy mix towards 700. */
 	--colors-cyan-solid: light-dark(
-		color-mix(in oklch, var(--color-cyan-600), var(--color-cyan-700) 60%),
-		color-mix(in oklch, var(--color-cyan-600), var(--color-cyan-700) 60%)
+		var(--color-cyan-700),
+		var(--color-cyan-700)
 	);
+	--colors-sky-solid: light-dark(var(--color-sky-700), var(--color-sky-700));
 }

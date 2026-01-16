@@ -232,3 +232,12 @@
 		{/if}
 	</ArkToast.Root>
 </div>
+
+<style>
+	/* Prevent ghost elements from causing overflow on toast exit */
+	:global(
+		[data-scope="toast"][data-part="root"][data-first] [data-ghost="before"]
+	) {
+		scale: 1 1 !important;
+	}
+</style>
