@@ -15,13 +15,13 @@
 				"right-auto! md:right-[unset]!",
 				"bottom-4! md:bottom-0!",
 				"[translate:-50%_var(--computed-y)] md:[translate:var(--x)_var(--computed-y)]",
-				// Transitions for stacking movement - 500ms with bouncy easing
+				// Transitions for stacking movement
 				"will-change-[translate,opacity,scale,height]",
 				"transition-[translate,scale,opacity,height,box-shadow]",
-				"duration-500 ease-(--easings-bounce-in)",
+				"duration-(--durations-slowest) ease-(--easings-ease-out)",
 				// Entry/exit animations with bounce
-				"animate-[toast-slide-in_300ms_cubic-bezier(0.34,1.24,0.64,1)]",
-				"data-[state=closed]:animate-[toast-slide-out_200ms_ease-in_forwards]",
+				"animate-[toast-slide-in_var(--durations-slow)_var(--easings-bounce-in)]",
+				"data-[state=closed]:animate-[toast-slide-out_var(--durations-moderate)_var(--easings-ease-in)_forwards]",
 			],
 			icon: "shrink-0 size-(--sizes-5) stroke-current fill-current stroke-0",
 			spinner: [
@@ -29,7 +29,7 @@
 				"inline-block rounded-full",
 				"border-2 border-solid",
 				"border-t-current border-r-current border-b-transparent border-l-transparent",
-				"animate-spin [animation-duration:0.5s] text-accent-solid",
+				"animate-spin [animation-duration:var(--durations-slowest)] text-accent-solid",
 			],
 			content: "flex flex-col flex-1 max-w-full",
 			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-(--spacing-2)",
