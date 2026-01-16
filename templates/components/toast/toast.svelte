@@ -14,14 +14,15 @@
 				"left-1/2! md:left-auto!",
 				"right-auto! md:right-[unset]!",
 				"bottom-4! md:bottom-0!",
+				// Mobile: fixed -50% X, Y changes for stacking; Desktop: both X and Y from Ark UI
 				"[translate:-50%_var(--computed-y)] md:[translate:var(--x)_var(--computed-y)]",
 				// Transitions for stacking movement
 				"will-change-[translate,opacity,scale,height]",
 				"transition-[translate,scale,opacity,height,box-shadow]",
 				"duration-(--durations-moderate) ease-(--easings-ease-out)",
-				// Entry/exit animations with bounce
+				// Entry/exit animations
 				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
-				"data-[state=closed]:animate-[toast-slide-out_var(--durations-fast)_var(--easings-ease-in)_forwards]",
+				"data-[state=closed]:opacity-0",
 			],
 			icon: "shrink-0 size-(--sizes-5) stroke-current fill-current stroke-0",
 			spinner: [
