@@ -6,14 +6,16 @@
 			root: [
 				"fixed bottom-(--spacing-4) left-1/2 -translate-x-1/2",
 				"z-(--z-indices-popover)",
+				"max-w-[calc(100%-2rem)]",
 			],
 			content: [
-				"flex items-center gap-x-(--spacing-3) gap-y-(--spacing-3)",
+				"inline-flex items-center gap-x-(--spacing-3) gap-y-(--spacing-3)",
 				"px-(--spacing-3) py-(--spacing-2_5)",
 				"rounded-(--radii-l2)",
 				"shadow-(--shadows-md)",
 				"bg-bg-panel text-fg-default",
 				"border border-border-subtle",
+				"whitespace-nowrap",
 			],
 			selectionTrigger: [
 				"appearance-auto self-stretch items-center gap-(--spacing-2)",
