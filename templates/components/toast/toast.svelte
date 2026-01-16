@@ -149,45 +149,21 @@
 		description && !title && !action && status !== "loading",
 	);
 
-	// Fix Ark UI bugs: --index doesn't increment properly in overlap:false mode
-	// and height is calculated incorrectly
+	// Fix Ark UI bug: --index doesn't update properly when toasts are removed
 	function fixIndex(node: HTMLElement) {
-		const root = node.querySelector<HTMLElement>('[data-part="root"]');
 		const group = node.closest('[data-part="group"]');
-
-		if (!root || !group) return;
-
-		let rafId: number | null = null;
+		if (!group) return;
 
 		const update = () => {
-			const toasts = Array.from(
-				group.querySelectorAll('[data-part="root"][data-state="open"]'),
-			);
-			const index = toasts.indexOf(root);
-			if (index >= 0) {
-				root.style.setProperty("--fixed-index", String(index));
-			}
+			const toasts = group.querySelectorAll('[data-part="root"][data-state="open"]');
+			toasts.forEach((toast, i) => (toast as HTMLElement).style.setProperty("--fixed-index", String(i)));
 		};
 
-		const debouncedUpdate = () => {
-			if (rafId) return;
-			rafId = requestAnimationFrame(() => {
-				update();
-				rafId = null;
-			});
-		};
-
-		// Only observe childList changes (toasts added/removed), not attributes
-		const observer = new MutationObserver(debouncedUpdate);
+		const observer = new MutationObserver(update);
 		observer.observe(group, { childList: true });
 		update();
 
-		return {
-			destroy() {
-				if (rafId) cancelAnimationFrame(rafId);
-				observer.disconnect();
-			},
-		};
+		return { destroy: () => observer.disconnect() };
 	}
 
 	const styles = $derived(toast({ status }));
@@ -219,9 +195,7 @@
 
 			<div class={styles.content()}>
 				{#if title}
-					<ArkToast.Title class={styles.title()}
-						>{title}</ArkToast.Title
-					>
+					<ArkToast.Title class={styles.title()}>{title}</ArkToast.Title>
 				{/if}
 				{#if description}
 					<ArkToast.Description class={styles.description()}
