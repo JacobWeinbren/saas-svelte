@@ -205,7 +205,7 @@
 
 <Story name="Group" template={groupStory} />
 
-<Story name="CustomIcon" template={customIconStory} />
+<Story name="Custom Icon" template={customIconStory} />
 
 <Story name="Indeterminate" template={indeterminateStory} />
 
