@@ -139,13 +139,18 @@ body {
 }
 
 /* Override colors for WCAG AA compliance */
-/* Light/bright colors need dark text for 4.5:1 contrast */
+/* Light/bright colors need dark text or darker backgrounds for 4.5:1 contrast */
 :root {
 	--colors-emerald-contrast: var(--color-black);
 	--colors-cyan-contrast: var(--color-black);
 	--colors-sky-contrast: var(--color-black);
 	--colors-teal-solid: var(--color-teal-700);
 	--colors-green-solid: var(--color-green-700);
+	/* Orange solid needs darker shade for white text contrast (4.5:1 ratio) */
+	--colors-orange-solid: light-dark(
+		var(--color-orange-700),
+		var(--color-orange-600)
+	);
 	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
 	--color-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
 }
