@@ -25,7 +25,7 @@
 				"inline-block rounded-full",
 				"border-2 border-solid",
 				"border-t-current border-r-current border-b-transparent border-l-transparent",
-				"animate-spin [animation-duration:0.5s] text-accent-fg",
+				"animate-spin [animation-duration:0.5s] text-accent-solid",
 			],
 			content: "flex flex-col flex-1 max-w-full",
 			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-(--spacing-2)",
