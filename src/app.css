@@ -37,12 +37,8 @@ body {
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
 
-	--animate-dialog-in:
-		fade-in var(--durations-moderate) ease-out,
-		scale-in var(--durations-moderate) ease-out;
-	--animate-dialog-out:
-		fade-out var(--durations-moderate) ease-in,
-		scale-out var(--durations-moderate) ease-in;
+	--animate-dialog-in: fade-in var(--durations-moderate) ease-out;
+	--animate-dialog-out: fade-out var(--durations-moderate) ease-in;
 
 	--animate-dialog-slide-in:
 		fade-in var(--durations-moderate) ease-out,
@@ -68,22 +64,6 @@ body {
 		}
 		to {
 			opacity: 0;
-		}
-	}
-	@keyframes scale-in {
-		from {
-			transform: scale(0.95);
-		}
-		to {
-			transform: scale(1);
-		}
-	}
-	@keyframes scale-out {
-		from {
-			transform: scale(1);
-		}
-		to {
-			transform: scale(0.95);
 		}
 	}
 	@keyframes slide-in-bottom {
