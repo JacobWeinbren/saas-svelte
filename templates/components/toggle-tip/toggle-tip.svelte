@@ -130,15 +130,14 @@
 >
 	<ArkPopover.Trigger>
 		{#snippet asChild(props)}
-			{#if triggerClass}
-				<button type="button" {...props()} class={triggerClass} aria-label={triggerAriaLabel}>
-					{@render children()}
-				</button>
-			{:else}
-				<span {...props()}>
-					{@render children()}
-				</span>
-			{/if}
+			<button
+				type="button"
+				{...props()}
+				class={triggerClass || "appearance-none bg-transparent border-none p-0 cursor-pointer inline-flex"}
+				aria-label={triggerAriaLabel || "Show more information"}
+			>
+				{@render children()}
+			</button>
 		{/snippet}
 	</ArkPopover.Trigger>
 	<ArkPopover.Positioner class={styles.positioner()} style="z-index: 50;">

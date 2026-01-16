@@ -57,7 +57,7 @@
 		{#each nativeSelectSizes as size}
 			<VStack class="items-center gap-2">
 				<Text size="xs">{size}</Text>
-				<NativeSelect {size} value="">
+				<NativeSelect {size} value="" aria-label="Select framework">
 					<option value="">Select option</option>
 					<option value="react">React</option>
 					<option value="vue">Vue</option>
@@ -74,7 +74,7 @@
 		{#each nativeSelectVariants as variant}
 			<VStack class="items-center gap-2">
 				<Text size="xs">{variant}</Text>
-				<NativeSelect {variant} value="">
+				<NativeSelect {variant} value="" aria-label="Select framework">
 					<option value="">Select option</option>
 					<option value="react">React</option>
 					<option value="vue">Vue</option>
@@ -87,7 +87,7 @@
 {/snippet}
 
 {#snippet itemsStory()}
-	<NativeSelect size="sm" class="w-60">
+	<NativeSelect size="sm" class="w-60" aria-label="Select framework">
 		<option value="">Select option</option>
 		<option value="react">React</option>
 		<option value="vue">Vue</option>
@@ -97,7 +97,7 @@
 {/snippet}
 
 {#snippet controlledStory()}
-	<NativeSelect size="sm" class="w-60">
+	<NativeSelect size="sm" class="w-60" aria-label="Select framework">
 		<option value="">Select option</option>
 		<option value="react">React</option>
 		<option value="vue">Vue</option>
@@ -139,7 +139,7 @@
 {/snippet}
 
 {#snippet basicStory()}
-	<NativeSelect size="sm" class="w-60" value="">
+	<NativeSelect size="sm" class="w-60" value="" aria-label="Select framework">
 		<option value="">Select option</option>
 		<option value="react">React</option>
 		<option value="vue">Vue</option>

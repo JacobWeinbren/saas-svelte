@@ -3,13 +3,13 @@
 	import type { ColourName, generateColourVars } from "$saas/utils/colours";
 
 	export const mark = tv({
-		base: "whitespace-nowrap",
+		base: "whitespace-nowrap text-inherit",
 		variants: {
 			variant: {
-				subtle: "bg-(--c-muted)",
+				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "text-(--c-contrast) bg-(--c-solid)",
 				text: "bg-transparent text-(--c-fg) font-(--font-weights-medium)",
-				plain: "bg-transparent",
+				plain: "bg-transparent font-(--font-weights-semibold)",
 			},
 		},
 		defaultVariants: {

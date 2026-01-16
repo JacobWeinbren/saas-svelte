@@ -118,7 +118,7 @@
 		</Text>
 		<Button>
 			Create account
-			<ArrowRight />
+			<ArrowRight aria-hidden="true" />
 		</Button>
 	</Stack>
 {/snippet}

@@ -105,6 +105,7 @@
 				class="size-(--sizes-5) fill-current text-(--c-solid) scale-[-1]"
 				color="currentColor"
 				weight="fill"
+				aria-hidden="true"
 			/>
 		</div>
 	{/if}

@@ -173,6 +173,7 @@
 				class="w-4 h-4 text-white"
 				color="currentColor"
 				weight="regular"
+				aria-hidden="true"
 			/>
 		</Circle>
 	</Float>
