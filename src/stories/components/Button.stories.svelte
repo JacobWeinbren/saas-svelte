@@ -90,13 +90,13 @@
 {#snippet iconsStory()}
 	<HStack class="flex-wrap gap-4">
 		<Button colour="teal" variant="solid">
-			<Icon as={Envelope} class="size-4" />
+			<Icon as={Envelope} class="size-4" aria-hidden="true" />
 			Mail
 		</Button>
 
 		<Button colour="teal" variant="outline">
 			Call us
-			<Icon as={ArrowRight} class="size-4" />
+			<Icon as={ArrowRight} class="size-4" aria-hidden="true" />
 		</Button>
 	</HStack>
 
@@ -104,8 +104,8 @@
 
 	<VStack align="start" class="gap-4">
 		{#each sizes as size}
-			<Button colour="rose" variant="solid" {size} icon>
-				<Icon as={Heart} />
+			<Button colour="rose" variant="solid" {size} icon aria-label="Like">
+				<Icon as={Heart} aria-hidden="true" />
 			</Button>
 		{/each}
 	</VStack>
@@ -123,10 +123,9 @@
 		{#each colours as colour}
 			<HStack class="gap-4">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Button variant="solid" colour={colour as any}>Solid</Button>
-				<Button variant="subtle" colour={colour as any}>Subtle</Button>
-				<Button variant="outline" colour={colour as any}>Outline</Button
-				>
+				<Button variant="solid" {colour}>Solid</Button>
+				<Button variant="subtle" {colour}>Subtle</Button>
+				<Button variant="outline" {colour}>Outline</Button>
 			</HStack>
 		{/each}
 	</VStack>
@@ -135,8 +134,8 @@
 {#snippet groupStory()}
 	<ButtonGroup>
 		<Button variant="outline" size="sm">Button</Button>
-		<Button variant="outline" size="sm" icon>
-			<Icon as={CaretDown} />
+		<Button variant="outline" size="sm" icon aria-label="More options">
+			<Icon as={CaretDown} aria-hidden="true" />
 		</Button>
 	</ButtonGroup>
 {/snippet}
