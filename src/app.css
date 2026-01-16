@@ -135,7 +135,7 @@ body {
 	}
 }
 
-:root:root {
+:root {
 	--colors-orange-solid: light-dark(
 		var(--color-orange-700),
 		var(--color-orange-700)
