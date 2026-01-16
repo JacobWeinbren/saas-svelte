@@ -31,8 +31,6 @@ body {
 	line-height: var(--line-heights-md);
 }
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
