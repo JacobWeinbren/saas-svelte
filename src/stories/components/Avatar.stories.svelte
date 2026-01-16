@@ -164,6 +164,6 @@
 <Story name="Sizes" template={sizesStory} />
 <Story name="Shape" template={shapeStory} />
 <Story name="Fallback" template={fallbackStory} />
-<Story name="WithRing" template={ringStory} />
+<Story name="With Ring" template={ringStory} />
 <Story name="Group" template={groupStory} />
 <Story name="Stacking" template={stackingStory} />

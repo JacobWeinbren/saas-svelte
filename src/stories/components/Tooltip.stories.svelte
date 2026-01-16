@@ -170,7 +170,12 @@
 					<span>Search query info</span>
 				</div>
 			{/snippet}
-			<Button variant="outline" size="sm" icon aria-label="Search query help">
+			<Button
+				variant="outline"
+				size="sm"
+				icon
+				aria-label="Search query help"
+			>
 				<Icon as={Question} />
 			</Button>
 		</Tooltip>

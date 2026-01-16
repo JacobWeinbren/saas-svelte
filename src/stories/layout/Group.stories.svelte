@@ -45,12 +45,8 @@
 {#snippet basicStory()}
 	<div class="flex justify-center">
 		<Group>
-			<DecorativeBox class="h-20 w-40!"
-				>1</DecorativeBox
-			>
-			<DecorativeBox class="h-20 w-40!"
-				>2</DecorativeBox
-			>
+			<DecorativeBox class="h-20 w-40!">1</DecorativeBox>
+			<DecorativeBox class="h-20 w-40!">2</DecorativeBox>
 		</Group>
 	</div>
 {/snippet}
@@ -94,7 +90,7 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="WithButtons" template={buttonsStory} />
+<Story name="With Buttons" template={buttonsStory} />
 
 <Story name="Attached" template={attachedStory} />
 

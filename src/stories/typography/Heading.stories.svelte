@@ -48,7 +48,13 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["as", "size", "weight", "class", "children"]),
+			controls: getControls([
+				"as",
+				"size",
+				"weight",
+				"class",
+				"children",
+			]),
 		},
 		args: {
 			size: "xl",
@@ -61,7 +67,8 @@
 {#snippet sizesStory()}
 	<Stack>
 		{#each headingSizes as size}
-			<Heading {size}>The quick brown fox jumps over the lazy dog</Heading>
+			<Heading {size}>The quick brown fox jumps over the lazy dog</Heading
+			>
 		{/each}
 	</Stack>
 {/snippet}
@@ -101,11 +108,14 @@
 {#snippet highlightStory()}
 	<Stack>
 		<Heading size="3xl">
-			Build modern SaaS applications with <Mark colour="indigo" variant="text">Saas UI</Mark>
+			Build modern SaaS applications with <Mark
+				colour="indigo"
+				variant="text">Saas UI</Mark
+			>
 		</Heading>
 		<Text variant="secondary">
-			Saas UI provides enterprise-ready components and patterns to help you build professional
-			applications faster than ever.
+			Saas UI provides enterprise-ready components and patterns to help
+			you build professional applications faster than ever.
 		</Text>
 	</Stack>
 {/snippet}
@@ -131,7 +141,7 @@
 
 <Story name="Weights" template={weightsStory} />
 
-<Story name="AsElement" template={asStory} />
+<Story name="As Element" template={asStory} />
 
 <Story name="Highlight" template={highlightStory} />
 

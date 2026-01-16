@@ -173,8 +173,8 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="WithCloseTrigger" template={withCloseTriggerStory} />
+<Story name="With Close Trigger" template={withCloseTriggerStory} />
 
-<Story name="MultipleActions" template={multipleActionsStory} />
+<Story name="Multiple Actions" template={multipleActionsStory} />
 
 <Story name="Interactive" template={interactiveStory} />

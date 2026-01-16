@@ -15,7 +15,12 @@
 {#snippet basicStory()}
 	<div class="flex items-center justify-center p-8">
 		<ToggleTip content="This is some additional information.">
-			<Button size="xs" variant="ghost" icon aria-label="More information">
+			<Button
+				size="xs"
+				variant="ghost"
+				icon
+				aria-label="More information"
+			>
 				<Icon as={Info} />
 			</Button>
 		</ToggleTip>
@@ -53,16 +58,28 @@
 {#snippet positioningStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack class="gap-4">
-			<ToggleTip content="Top placement" positioning={{ placement: "top" }}>
+			<ToggleTip
+				content="Top placement"
+				positioning={{ placement: "top" }}
+			>
 				<Button variant="outline" size="sm">Top</Button>
 			</ToggleTip>
-			<ToggleTip content="Right placement" positioning={{ placement: "right" }}>
+			<ToggleTip
+				content="Right placement"
+				positioning={{ placement: "right" }}
+			>
 				<Button variant="outline" size="sm">Right</Button>
 			</ToggleTip>
-			<ToggleTip content="Bottom placement" positioning={{ placement: "bottom" }}>
+			<ToggleTip
+				content="Bottom placement"
+				positioning={{ placement: "bottom" }}
+			>
 				<Button variant="outline" size="sm">Bottom</Button>
 			</ToggleTip>
-			<ToggleTip content="Left placement" positioning={{ placement: "left" }}>
+			<ToggleTip
+				content="Left placement"
+				positioning={{ placement: "left" }}
+			>
 				<Button variant="outline" size="sm">Left</Button>
 			</ToggleTip>
 		</HStack>
@@ -76,7 +93,8 @@
 				<div class="flex flex-col gap-1">
 					<Text size="xs" weight="semibold">Custom Content</Text>
 					<Text size="xs">
-						This toggle tip has custom HTML content with multiple elements.
+						This toggle tip has custom HTML content with multiple
+						elements.
 					</Text>
 				</div>
 			{/snippet}
@@ -87,10 +105,10 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="InfoTip" template={infoTipStory} />
+<Story name="Info Tip" template={infoTipStory} />
 
 <Story name="Sizes" template={sizesStory} />
 
 <Story name="Positioning" template={positioningStory} />
 
-<Story name="CustomContent" template={customContentStory} />
+<Story name="Custom Content" template={customContentStory} />

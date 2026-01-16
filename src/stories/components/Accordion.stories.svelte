@@ -178,7 +178,12 @@
 			<Stack class="gap-2">
 				<Text size="xs">{size}</Text>
 
-				<AccordionRoot {size} collapsible defaultValue={["{size}-b"]} id="accordion-size-{size}">
+				<AccordionRoot
+					{size}
+					collapsible
+					defaultValue={["{size}-b"]}
+					id="accordion-size-{size}"
+				>
 					<AccordionItem value="{size}-a">
 						<AccordionItemTrigger>First Item</AccordionItemTrigger>
 						<AccordionItemContent
@@ -211,7 +216,12 @@
 			<Stack class="gap-2">
 				<Text size="xs">{variant}</Text>
 
-				<AccordionRoot {variant} collapsible defaultValue={["{variant}-b"]} id="accordion-variant-{variant}">
+				<AccordionRoot
+					{variant}
+					collapsible
+					defaultValue={["{variant}-b"]}
+					id="accordion-variant-{variant}"
+				>
 					<AccordionItem value="{variant}-a">
 						<AccordionItemTrigger>First Item</AccordionItemTrigger>
 						<AccordionItemContent
@@ -261,7 +271,7 @@
 
 <Story name="Controlled" template={controlledStory} />
 
-<Story name="WithIcon" template={withIconStory} />
+<Story name="With Icon" template={withIconStory} />
 
 <Story name="Multiple" template={multipleStory} />
 

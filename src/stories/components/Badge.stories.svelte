@@ -90,7 +90,7 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="WithIcon" template={withIconStory} />
+<Story name="With Icon" template={withIconStory} />
 
 <Story name="Variants" template={variantsStory} />
 

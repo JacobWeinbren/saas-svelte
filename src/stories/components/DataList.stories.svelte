@@ -35,7 +35,13 @@
 			children: commonArgTypes.children,
 		},
 		parameters: {
-			controls: getControls(["size", "orientation", "divider", "colour", "class"]),
+			controls: getControls([
+				"size",
+				"orientation",
+				"divider",
+				"colour",
+				"class",
+			]),
 		},
 		args: {
 			size: "md",
@@ -129,4 +135,4 @@
 
 <Story name="Vertical" template={verticalStory} />
 
-<Story name="WithDivider" template={dividerStory} />
+<Story name="With Divider" template={dividerStory} />

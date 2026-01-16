@@ -100,6 +100,6 @@
 
 <Story name="Multiple" template={multipleStory} />
 
-<Story name="CustomStyle" template={customStyleStory} />
+<Story name="Custom Style" template={customStyleStory} />
 
-<Story name="SearchQuery" template={searchQueryStory} />
+<Story name="Search Query" template={searchQueryStory} />

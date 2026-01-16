@@ -105,10 +105,9 @@
 
 <Story name="Horizontal" template={horizontalStory} />
 
-<Story name="WithHStack" template={hStackStory} />
+<Story name="With HStack" template={hStackStory} />
 
-<Story name="WithVStack" template={vStackStory} />
+<Story name="With VStack" template={vStackStory} />
 
-<Story name="WithSeparator" template={separatorStory} />
-
+<Story name="With Separator" template={separatorStory} />
 <Story name="Responsive" template={responsiveStory} />
