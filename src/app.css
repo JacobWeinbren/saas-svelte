@@ -110,7 +110,7 @@ body {
 }
 
 :root {
-    --colors-orange-contrast: var(--text-white);
+	--colors-orange-contrast: var(--text-white);
 	--colors-orange-solid: light-dark(
 		var(--color-orange-700),
 		var(--color-orange-700)
