@@ -4,7 +4,7 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				"w-[calc(100%-1rem)] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
+				"w-[calc(100%-var(--spacing-4))] md:w-(--sizes-sm) flex items-start gap-x-(--spacing-2) gap-y-(--spacing-2) py-(--spacing-3) ps-(--spacing-3) pe-(--spacing-6)",
 				"rounded-(--radii-l2) border border-border-muted shadow-md",
 				"bg-bg-panel text-fg-default",
 				"z-(--z-index) pointer-events-auto",
@@ -43,19 +43,19 @@
 			action: [
 				"[appearance:auto] cursor-pointer h-(--sizes-6) self-start",
 				"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md)",
-				"transition-all duration-(--durations-moderate)",
+				"transition-[color,background-color] duration-(--durations-moderate)",
 				"-ms-(--spacing-3) px-(--spacing-3) rounded-(--radii-l1)",
 				"text-accent-fg/80 hover:text-accent-fg hover:bg-bg-subtle",
 			],
 			close: [
-				"absolute top-(--spacing-2) [inset-inline-end:0.5rem]",
+				"absolute top-(--spacing-2) end-2",
 				"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate",
 				"shrink-0 justify-center items-center gap-(--spacing-1) min-w-(--sizes-6) h-(--sizes-6)",
 				"text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
 				"inline-flex rounded-(--radii-l1)",
 				"text-fg-default outline-0",
-				"transition-colors duration-(--durations-moderate)",
-				"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-solid",
+				"transition-[color,background-color] duration-(--durations-moderate)",
+				"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 				"hover:bg-bg-subtle",
 			],

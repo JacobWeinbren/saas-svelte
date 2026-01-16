@@ -26,7 +26,7 @@
 				"outline-none",
 			],
 			arrow: [
-				"[--arrow-size:8px]",
+				"[--arrow-size:var(--spacing-2)]",
 				"[--arrow-background:var(--colors-bg-panel)]",
 			],
 			arrowTip: ["border-l border-t", "border-border-subtle"],

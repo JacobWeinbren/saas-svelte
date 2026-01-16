@@ -12,7 +12,7 @@
 		base: [
 			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
 			"rounded-(--radii-l1)",
-			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-[var(--spacing-0_5)] peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
+			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
 		],
 		variants: {

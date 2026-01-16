@@ -9,8 +9,8 @@
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
 			"rounded-(--radii-l1) font-(--font-weights-medium)",
-			"transition-colors duration-(--durations-moderate)",
-			"focus-visible:outline-offset-[var(--spacing-0_5)] focus-visible:outline-1 focus-visible:outline-solid",
+			"transition-[color,background-color,border-color] duration-(--durations-moderate)",
+			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {

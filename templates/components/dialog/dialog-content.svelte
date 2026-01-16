@@ -75,7 +75,7 @@
 				cover: "w-full h-full rounded-(--radii-l3) my-(--spacing-0) overflow-hidden",
 			},
 			scrollBehavior: {
-				inside: "max-h-[calc(100vh-4rem)] my-auto",
+				inside: "max-h-[calc(100vh-var(--spacing-16))] my-auto",
 				outside: "my-(--spacing-16)",
 			},
 		},

@@ -128,19 +128,8 @@
 	{positioning}
 	{...rest}
 >
-	<ArkPopover.Trigger>
-		{#snippet asChild(props)}
-			<button
-				type="button"
-				{...props()}
-				class={triggerClass || "appearance-none bg-transparent border-none p-0 cursor-pointer inline-flex"}
-				aria-label={triggerAriaLabel || "Show more information"}
-			>
-				{@render children()}
-			</button>
-		{/snippet}
-	</ArkPopover.Trigger>
-	<ArkPopover.Positioner class={styles.positioner()} style="z-index: 50;">
+	<ArkPopover.Trigger asChild={children} />
+	<ArkPopover.Positioner class={styles.positioner()}>
 		<ArkPopover.Content
 			class={styles.content({ class: `${sizeClass} ${className || ""}` })}
 		>

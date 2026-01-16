@@ -1,6 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { ToggleTip, InfoTip } from "$saas/components/toggle-tip";
+	import { Button } from "$saas/components/button";
 	import { Icon } from "$saas/components/icon";
 	import { HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
@@ -13,12 +14,10 @@
 
 {#snippet basicStory()}
 	<div class="flex items-center justify-center p-8">
-		<ToggleTip
-			content="This is some additional information."
-			triggerClass="inline-flex items-center justify-center size-8 rounded-(--radii-l2) hover:bg-bg-subtle text-(--color-fg-muted) hover:text-(--color-fg-default) transition-colors"
-			triggerAriaLabel="More information"
-		>
-			<Icon as={Info} />
+		<ToggleTip content="This is some additional information.">
+			<Button size="xs" variant="ghost" icon aria-label="More information">
+				<Icon as={Info} />
+			</Button>
 		</ToggleTip>
 	</div>
 {/snippet}
@@ -35,78 +34,36 @@
 {#snippet sizesStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack class="gap-4">
-			<ToggleTip
-				content="Extra small toggle tip"
-				size="xs"
-				triggerClass="px-2 py-1 text-xs rounded-(--radii-l2) hover:bg-bg-subtle"
-				triggerAriaLabel="Extra small"
-			>
-				XS
+			<ToggleTip content="Extra small toggle tip" size="xs">
+				<Button size="xs" variant="ghost">XS</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Small toggle tip"
-				size="sm"
-				triggerClass="px-2.5 py-1 text-sm rounded-(--radii-l2) hover:bg-bg-subtle"
-				triggerAriaLabel="Small"
-			>
-				SM
+			<ToggleTip content="Small toggle tip" size="sm">
+				<Button size="sm" variant="ghost">SM</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Medium toggle tip"
-				size="md"
-				triggerClass="px-3 py-1.5 text-base rounded-(--radii-l2) hover:bg-bg-subtle"
-				triggerAriaLabel="Medium"
-			>
-				MD
+			<ToggleTip content="Medium toggle tip" size="md">
+				<Button size="md" variant="ghost">MD</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Large toggle tip"
-				size="lg"
-				triggerClass="px-4 py-2 text-lg rounded-(--radii-l2) hover:bg-bg-subtle"
-				triggerAriaLabel="Large"
-			>
-				LG
+			<ToggleTip content="Large toggle tip" size="lg">
+				<Button size="lg" variant="ghost">LG</Button>
 			</ToggleTip>
 		</HStack>
 	</div>
 {/snippet}
 
 {#snippet positioningStory()}
-	{@const triggerStyle =
-		"px-3 py-1.5 rounded-(--radii-l2) border border-border-default hover:bg-bg-subtle"}
 	<div class="flex items-center justify-center p-8">
 		<HStack class="gap-4">
-			<ToggleTip
-				content="Top placement"
-				positioning={{ placement: "top" }}
-				triggerClass={triggerStyle}
-				triggerAriaLabel="Top"
-			>
-				Top
+			<ToggleTip content="Top placement" positioning={{ placement: "top" }}>
+				<Button variant="outline" size="sm">Top</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Right placement"
-				positioning={{ placement: "right" }}
-				triggerClass={triggerStyle}
-				triggerAriaLabel="Right"
-			>
-				Right
+			<ToggleTip content="Right placement" positioning={{ placement: "right" }}>
+				<Button variant="outline" size="sm">Right</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Bottom placement"
-				positioning={{ placement: "bottom" }}
-				triggerClass={triggerStyle}
-				triggerAriaLabel="Bottom"
-			>
-				Bottom
+			<ToggleTip content="Bottom placement" positioning={{ placement: "bottom" }}>
+				<Button variant="outline" size="sm">Bottom</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Left placement"
-				positioning={{ placement: "left" }}
-				triggerClass={triggerStyle}
-				triggerAriaLabel="Left"
-			>
-				Left
+			<ToggleTip content="Left placement" positioning={{ placement: "left" }}>
+				<Button variant="outline" size="sm">Left</Button>
 			</ToggleTip>
 		</HStack>
 	</div>
@@ -114,20 +71,16 @@
 
 {#snippet customContentStory()}
 	<div class="flex items-center justify-center p-8">
-		<ToggleTip
-			triggerClass="px-3 py-1.5 rounded-(--radii-l2) border border-border-default hover:bg-bg-subtle"
-			triggerAriaLabel="Custom content"
-		>
+		<ToggleTip>
 			{#snippet content()}
 				<div class="flex flex-col gap-1">
 					<Text size="xs" weight="semibold">Custom Content</Text>
-					<Text size="xs"
-						>This toggle tip has custom HTML content with multiple
-						elements.</Text
-					>
+					<Text size="xs">
+						This toggle tip has custom HTML content with multiple elements.
+					</Text>
 				</div>
 			{/snippet}
-			Custom Content
+			<Button variant="outline" size="sm">Custom Content</Button>
 		</ToggleTip>
 	</div>
 {/snippet}

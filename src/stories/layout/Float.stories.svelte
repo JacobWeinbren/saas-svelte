@@ -81,7 +81,7 @@
 </script>
 
 {#snippet basicStory(args: Args)}
-	<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
+	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
 		<Float {...args}>
 			<Circle size="xs" colour="red">3</Circle>
 		</Float>
@@ -93,7 +93,7 @@
 		{#each floatPlacements as placement}
 			<VStack class="gap-2 items-center">
 				<Text size="xs">{placement}</Text>
-				<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
+				<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
 					<Float {placement}>
 						<Circle size="xs" colour="red">3</Circle>
 					</Float>
@@ -104,7 +104,7 @@
 {/snippet}
 
 {#snippet offsetXStory()}
-	<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
+	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
 		<Float offsetX="-4">
 			<Circle size="xs" colour="red">3</Circle>
 		</Float>
@@ -112,7 +112,7 @@
 {/snippet}
 
 {#snippet offsetYStory()}
-	<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
+	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
 		<Float offsetY="-4">
 			<Circle size="xs" colour="red">3</Circle>
 		</Float>
@@ -120,7 +120,7 @@
 {/snippet}
 
 {#snippet offsetStory()}
-	<div class="relative h-20 w-20 bg-(--color-bg-subtle)">
+	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
 		<Float offset="4">
 			<Circle size="xs" colour="red">3</Circle>
 		</Float>

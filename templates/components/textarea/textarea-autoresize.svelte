@@ -1,5 +1,6 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
+	import { getColourStyle, type ColourName } from "$saas/utils/colours";
 
 	export const textareaAutoresize = tv({
 		base: [
@@ -14,33 +15,29 @@
 			// Disabled
 			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 
-			// Focus (Global)
-			"focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring) focus-visible:border-(--color-accent-focus-ring)",
+			// Focus - uses colour focus ring
+			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"bg-transparent",
-					// Light/Dark using semantic tokens
 					"border-border-default",
 					"enabled:hover:border-border-emphasized",
-					"enabled:hover:focus-visible:border-(--color-accent-focus-ring)",
+					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 					"text-fg-default",
 				],
 				subtle: [
 					"border-transparent",
-					// Light/Dark using semantic tokens
 					"bg-bg-muted",
 					"text-fg-default",
 				],
 				flushed: [
 					"rounded-none border-t-0 border-x-0 border-b",
 					"bg-transparent shadow-none px-0",
-					// Light/Dark using semantic tokens
 					"border-border-default",
 					"text-fg-default",
-
-					"focus-visible:outline-0 focus-visible:border-(--color-accent-focus-ring)",
+					"focus-visible:outline-0 focus-visible:border-(--c-focus-ring)",
 				],
 			},
 			size: {
@@ -83,6 +80,11 @@
 		 */
 		size?: TextareaAutoresizeVariants["size"];
 		/**
+		 * The colour theme of the textarea.
+		 * @default "gray"
+		 */
+		colour?: ColourName;
+		/**
 		 * Whether the textarea is in an invalid state.
 		 * @default false
 		 */
@@ -106,13 +108,17 @@
 	let {
 		variant = "outline",
 		size = "md",
+		colour = "gray",
 		class: className,
 		invalid = false,
 		minRows = 1,
 		maxRows = 40,
 		value = $bindable(""),
+		style,
 		...restProps
 	}: Props = $props();
+
+	const colourVars = $derived(getColourStyle(colour));
 
 	const classes = $derived(
 		textareaAutoresize({
@@ -125,9 +131,10 @@
 
 	const minHeight = $derived(`${1 + minRows * 1.2}em`);
 	const maxHeight = $derived(maxRows ? `${1 + maxRows * 1.2}em` : `auto`);
+	const styles = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
-<div class="relative grid">
+<div class="relative grid" style={styles}>
 	<pre
 		aria-hidden="true"
 		class={`${classes} invisible whitespace-pre-wrap break-words overflow-hidden [grid-area:1/1/2/2]`}
