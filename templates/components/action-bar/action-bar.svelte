@@ -7,7 +7,7 @@
 				"fixed bottom-(--spacing-4) left-0 right-0",
 				"z-(--z-indices-popover)",
 				"flex justify-center",
-				"px-4",
+				"px-(--spacing-2)",
 				"pointer-events-none",
 			],
 			content: [
@@ -31,9 +31,9 @@
 				"cursor-(--cursor-button)",
 				"transition-colors duration-(--durations-moderate)",
 				"hover:bg-bg-subtle",
-				"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
+				"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
 			],
-			separator: ["bg-border-default w-px h-5 self-stretch"],
+			separator: ["bg-border-default w-px h-(--sizes-5) self-stretch"],
 			closeButton: [
 				"appearance-none select-none whitespace-nowrap align-middle",
 				"cursor-(--cursor-button) isolate",
@@ -43,7 +43,7 @@
 				"inline-flex rounded-(--radii-l1)",
 				"text-fg-muted outline-0",
 				"transition-colors duration-(--durations-moderate)",
-				"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
+				"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-neutral-focus-ring",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 				"hover:bg-bg-subtle hover:text-fg-default",
 			],
@@ -57,6 +57,7 @@
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { fly, fade } from "svelte/transition";
+	import { twMerge } from "tailwind-merge";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -103,7 +104,7 @@
 
 {#if open}
 	<div
-		class={styles.root({ class: className })}
+		class={twMerge(styles.root() as string, className as string)}
 		data-part="action-bar-root"
 		data-state="open"
 		role="toolbar"
@@ -113,7 +114,7 @@
 		{...restProps}
 	>
 		<div
-			class={styles.content()}
+			class={twMerge(styles.content() as string)}
 			data-part="action-bar-content"
 			in:fade={{ duration: 200 }}
 			out:fade={{ duration: 150 }}

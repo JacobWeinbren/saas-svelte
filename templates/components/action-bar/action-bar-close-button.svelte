@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import X from "phosphor-svelte/lib/X";
+	import { twMerge } from "tailwind-merge";
 	import { Icon } from "$saas/components/icon";
 	import { actionBar } from "./action-bar.svelte";
 
@@ -23,7 +24,7 @@
 
 <button
 	type="button"
-	class={styles.closeButton({ class: className })}
+	class={twMerge(styles.closeButton() as string, className as string)}
 	data-part="action-bar-close-button"
 	aria-label={ariaLabel}
 	{...restProps}

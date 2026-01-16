@@ -8,9 +8,9 @@
 	export const button = tv({
 		base: [
 			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"rounded font-(--font-weights-medium)",
-			"transition-colors duration-200",
-			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
+			"rounded-(--radii-l1) font-(--font-weights-medium)",
+			"transition-colors duration-(--durations-moderate)",
+			"focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-focus-ring)",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {
@@ -58,8 +58,8 @@
 				xs: "h-(--spacing-6) min-w-(--spacing-6) gap-x-(--spacing-1) gap-y-(--spacing-1) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs) [&_svg]:size-(--spacing-2)",
 				sm: "h-(--spacing-7) min-w-(--spacing-7) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-3)",
 				md: "h-(--spacing-8) min-w-(--spacing-8) gap-x-(--spacing-2) gap-y-(--spacing-2) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-3_5)",
-				lg: "h-(--spacing-10) min-w-(--spacing-10) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-5) rounded-md text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-5)",
-				xl: "h-(--spacing-12) min-w-(--spacing-12) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-6) rounded-md text-(length:--font-sizes-md) leading-(--line-heights-md) [&_svg]:size-(--spacing-6)",
+				lg: "h-(--spacing-10) min-w-(--spacing-10) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-5) rounded-(--radius-md) text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-(--spacing-5)",
+				xl: "h-(--spacing-12) min-w-(--spacing-12) gap-x-(--spacing-3) gap-y-(--spacing-3) px-(--spacing-6) rounded-(--radius-md) text-(length:--font-sizes-md) leading-(--line-heights-md) [&_svg]:size-(--spacing-6)",
 			},
 			icon: { true: "px-0" },
 		},

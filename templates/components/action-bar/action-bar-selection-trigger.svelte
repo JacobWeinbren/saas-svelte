@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 	import type { HTMLButtonAttributes } from "svelte/elements";
+	import { twMerge } from "tailwind-merge";
 	import { actionBar } from "./action-bar.svelte";
 
 	interface Props extends HTMLButtonAttributes {
@@ -17,7 +18,7 @@
 
 <button
 	type="button"
-	class={styles.selectionTrigger({ class: className })}
+	class={twMerge(styles.selectionTrigger() as string, className as string)}
 	data-part="action-bar-selection-trigger"
 	{...restProps}
 >

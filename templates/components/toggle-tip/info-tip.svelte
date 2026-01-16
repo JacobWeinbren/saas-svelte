@@ -46,7 +46,7 @@
 	{id}
 	{positioning}
 	class={className}
-	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button) rounded outline-0 transition-colors duration-200 hover:bg-(--color-bg-subtle) focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--color-fg-default)"
+	triggerClass="inline-flex items-center align-middle p-0 border-0 bg-transparent h-(--spacing-4) w-(--spacing-4) cursor-(--cursor-button) rounded-(--radii-l1) outline-0 transition-colors duration-(--durations-moderate) hover:bg-bg-subtle focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-fg-default"
 	{...rest}
 >
 	<Icon as={Info} size="sm" />

@@ -6,7 +6,7 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded border",
+			"rounded-(--radii-l1) border",
 
 			// Text & Placeholder
 			"antialiased",
@@ -47,7 +47,7 @@
 				xs: "min-w-(--spacing-6) h-(--spacing-6) px-(--spacing-2) text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
 				sm: "min-w-(--spacing-7) h-(--spacing-7) px-(--spacing-2_5) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
 				md: "min-w-(--spacing-8) h-(--spacing-8) px-(--spacing-3) text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
+				lg: "min-w-(--spacing-10) h-(--spacing-10) px-(--spacing-5) text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-(--radius-md)",
 			},
 			invalid: {
 				true: [

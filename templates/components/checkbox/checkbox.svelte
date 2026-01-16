@@ -11,8 +11,8 @@
 	const checkboxControl = tv({
 		base: [
 			"flex items-center justify-center border shrink-0 p-(--spacing-0_5)",
-			"rounded",
-			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
+			"rounded-(--radii-l1)",
+			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-(--spacing-0_5) peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
 		],
 		variants: {

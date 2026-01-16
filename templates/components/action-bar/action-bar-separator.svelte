@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
+	import { twMerge } from "tailwind-merge";
 	import { actionBar } from "./action-bar.svelte";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {}
@@ -10,7 +11,7 @@
 </script>
 
 <div
-	class={styles.separator({ class: className })}
+	class={twMerge(styles.separator() as string, className as string)}
 	data-part="action-bar-separator"
 	role="separator"
 	aria-orientation="vertical"

@@ -12,7 +12,7 @@
 				"flex items-center gap-(--spacing-3) w-full",
 				"rounded-(--radius-md)",
 				"outline-none",
-				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-(--color-accent-focus-ring)",
+				"focus-visible:outline-2 focus-visible:outline-offset-(--spacing-0_5) focus-visible:outline-solid focus-visible:outline-accent-focus-ring",
 				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 			],
 			content: "overflow-hidden text-(length:--font-sizes-sm) text-(--color-fg-muted)",
