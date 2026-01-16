@@ -134,6 +134,7 @@ export {
     emPattern,
     markPattern,
     highlightPattern,
+    toastPattern,
 } from "./exclude-patterns";
 
 

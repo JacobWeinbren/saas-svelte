@@ -63,3 +63,5 @@ export const emPattern = makePattern(['class', 'children']);
 export const markPattern = makePattern(['variant', 'colour', 'class', 'children']);
 export const highlightPattern = makePattern(['query', 'text', 'ignoreCase', 'matchAll', 'variant', 'colour', 'class']);
 
+export const toastPattern = makePattern(['status', 'variant', 'colour', 'icon', 'title', 'description', 'action', 'closable', 'class', 'children']);
+

@@ -1,0 +1,115 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/blocks";
+import * as ToastStories from "./Toast.stories.svelte";
+import { Toast } from "$saas/components/toast";
+import { toastPattern } from "../utils";
+
+<Meta of={ToastStories} />
+
+# Toast
+
+Toasts display brief, temporary notifications. They are typically used to provide feedback about an action or to display system messages.
+
+<Canvas of={ToastStories.Basic} />
+
+## Setup
+
+To use the Toast component, first create a toaster instance using `createToaster`. This manages the placement and grouping of toasts.
+
+```svelte
+<script>
+	import { Toast, Toaster, createToaster } from "$saas/components/toast";
+
+	const toaster = createToaster({
+		placement: "bottom-end",
+		overlap: true,
+		gap: 16,
+	});
+</script>
+
+<button onclick={() => toaster.create({ title: "Hello!", type: "info" })}>
+	Show Toast
+</button>
+
+<Toaster {toaster}>
+	{#snippet children(toast)}
+		<Toast
+			title={toast().title}
+			description={toast().description}
+			status={toast().type}
+		/>
+	{/snippet}
+</Toaster>
+```
+
+## Examples
+
+### Status
+
+Change the status of the toast by passing the `status` prop. This affects the colour scheme and icon used. Toast supports `info`, `success`, `warning`, `error`, and `loading` statuses.
+
+<Canvas of={ToastStories.Status} />
+
+### Variants
+
+Use the `variant` prop to change the visual style of the toast. Values can be `subtle`, `solid`, `surface`, or `outline`.
+
+<Canvas of={ToastStories.Variants} />
+
+### With Action
+
+Add an action button to the toast using the `action` prop.
+
+<Canvas of={ToastStories.WithAction} />
+
+### Duration
+
+Control how long a toast stays visible by setting a custom `duration` in milliseconds. Use `Infinity` to keep it visible until manually dismissed.
+
+<Canvas of={ToastStories.Duration} />
+
+### Placement
+
+Configure where toasts appear by setting the `placement` option in `createToaster`. Available placements include `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, and `bottom-end`.
+
+<Canvas of={ToastStories.Placement} />
+
+### Stacking
+
+Multiple toasts stack with a smooth overlap animation. Hover over the toast group to expand and see all toasts.
+
+<Canvas of={ToastStories.Stacking} />
+
+## Toaster Methods
+
+The toaster instance provides several methods:
+
+```ts
+// Create a toast
+toaster.create({
+	title: "Title",
+	description: "Description",
+	type: "info",
+	duration: 5000,
+});
+
+// Shorthand methods for different types
+toaster.success({ title: "Success!", description: "Your changes have been saved." });
+toaster.error({ title: "Error", description: "Something went wrong." });
+toaster.warning({ title: "Warning", description: "This action cannot be undone." });
+toaster.info({ title: "Info", description: "Here is some information." });
+
+// Update an existing toast
+const id = toaster.create({ title: "Loading...", type: "loading" });
+toaster.update(id, { title: "Done!", type: "success" });
+
+// Handle promises
+toaster.promise(asyncFunction, {
+	loading: { title: "Loading...", description: "Please wait." },
+	success: { title: "Success!", description: "Completed successfully." },
+	error: { title: "Error", description: "Something went wrong." },
+});
+```
+
+## Props
+
+<ArgTypes of={Toast} exclude={toastPattern} />
