@@ -3,30 +3,31 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx|svelte)"],
-    addons: [
-        "@storybook/addon-links",
-        {
-            name: "@storybook/addon-essentials",
-            options: {
-                outline: false,
-            },
+
+    addons: ["@storybook/addon-links", {
+        name: "@storybook/addon-svelte-csf",
+        options: {
+            legacyTemplate: false,
         },
-        "@storybook/addon-interactions",
-        {
-            name: "@storybook/addon-svelte-csf",
-            options: {
-                legacyTemplate: true,
-            },
-        },
-        "storybook-dark-mode",
-        "@storybook/addon-a11y",
-    ],
+    }, "@storybook/addon-a11y", "@storybook/addon-docs", '@vueless/storybook-dark-mode'],
+
     framework: {
         name: "@storybook/sveltekit",
         options: {},
     },
+
     viteFinal: async (config) => {
+        const fixMdxShimPlugin = {
+            name: "fix-mdx-shim",
+            resolveId(source) {
+                if (source.startsWith("file://") && source.includes("mdx-react-shim")) {
+                    return source.replace("file://./", "./").replace("file://", "");
+                }
+            },
+        };
+
         return mergeConfig(config, {
+            plugins: [fixMdxShimPlugin],
             server: {
                 fs: {
                     allow: [".."],
@@ -34,6 +35,10 @@ const config: StorybookConfig = {
             },
         });
     },
+
+    features: {
+        outline: false
+    }
 };
 
 export default config;

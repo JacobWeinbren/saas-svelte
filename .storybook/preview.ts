@@ -1,11 +1,11 @@
-import type { Preview } from "@storybook/svelte";
-import { themes } from "@storybook/theming";
+import type { Preview } from "@storybook/sveltekit";
+import { themes } from "storybook/theming";
 import "../src/app.css";
 
 const preview: Preview = {
     parameters: {
         backgrounds: {
-            disable: true,
+            disabled: true,
         },
         darkMode: {
             current: 'light',
