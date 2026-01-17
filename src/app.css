@@ -133,24 +133,24 @@ body {
 	--colors-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
 	--colors-orange-solid: light-dark(
 		var(--color-orange-700),
-		var(--color-orange-700)
+		var(--color-orange-500)
 	);
 	--colors-green-solid: light-dark(
 		var(--color-green-700),
-		var(--color-green-700)
+		var(--color-green-600)
 	);
 	--colors-emerald-solid: light-dark(
 		var(--color-emerald-700),
-		var(--color-emerald-700)
+		var(--color-emerald-600)
 	);
 	--colors-teal-solid: light-dark(
 		var(--color-teal-700),
-		var(--color-teal-700)
+		var(--color-teal-500)
 	);
 	--colors-cyan-solid: light-dark(
 		var(--color-cyan-700),
-		var(--color-cyan-700)
+		var(--color-cyan-600)
 	);
 	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
-	--colors-sky-solid: light-dark(var(--color-sky-700), var(--color-sky-700));
+	--colors-sky-solid: light-dark(var(--color-sky-800), var(--color-sky-600));
 }
