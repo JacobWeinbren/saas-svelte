@@ -30,7 +30,9 @@
 </script>
 
 {#snippet basicStory()}
-	<Box class="bg-red-500 w-full p-4 text-fg-inverted">This is the Box</Box>
+	<Box class="bg-(--colors-red-solid) w-full p-4 text-fg-inverted"
+		>This is the Box</Box
+	>
 {/snippet}
 
 {#snippet shorthandStory()}
@@ -48,7 +50,7 @@
 {/snippet}
 
 {#snippet asPropStory()}
-	<Box as="section" class="text-fg-muted p-4 bg-bg-subtle rounded-md">
+	<Box as="section" class="text-fg-default p-4 bg-bg-subtle rounded-md">
 		This is a Box rendered as a section
 	</Box>
 {/snippet}
