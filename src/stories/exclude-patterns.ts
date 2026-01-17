@@ -57,6 +57,7 @@ export const blockquotePattern = makePattern(['colour', 'justify', 'variant', 'c
 
 export const floatPattern = makePattern(['placement', 'offsetX', 'offsetY', 'offset', 'class', 'children']);
 export const circlePattern = makePattern(['size', 'variant', 'colour', 'class', 'children']);
+export const boxPattern = makePattern(['as', 'class', 'children']);
 
 export const headingPattern = makePattern(['as', 'size', 'weight', 'fontWeight', 'class', 'children']);
 export const emPattern = makePattern(['class', 'children']);

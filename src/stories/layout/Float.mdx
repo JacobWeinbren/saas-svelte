@@ -7,23 +7,24 @@ import { floatPattern } from "../utils";
 
 # Float
 
-## Used to anchor an element to the edge of a container.
+Used to anchor an element to the edge of a container.
 
 <Canvas of={FloatStories.Basic} />
 
 ## Anatomy
 
-```tsx
+```svelte
 <script>
 	import { Float } from "$saas/layout/float";
+	import { Box } from "$saas/layout/box";
 	import { Circle } from "$saas/layout/circle";
 </script>
 
-<div class="relative h-20 w-20 bg-zinc-100">
+<Box class="relative h-20 w-20 bg-bg-subtle">
 	<Float>
 		<Circle size="sm" colour="red">3</Circle>
 	</Float>
-</div>
+</Box>
 ```
 
 ## Examples
@@ -34,23 +35,11 @@ Use the `placement` prop to position the element along the edges of the containe
 
 <Canvas of={FloatStories.Placements} />
 
-### Offset X
+### Offsets
 
-Use the `offsetX` prop to offset the element along the x-axis.
+Use `offsetX`, `offsetY`, or `offset` props to offset the element.
 
-<Canvas of={FloatStories.OffsetX} />
-
-### Offset Y
-
-Use the `offsetY` prop to offset the element along the y-axis.
-
-<Canvas of={FloatStories.OffsetY} />
-
-### Offset
-
-Use the `offset` prop to offset the element along both axes.
-
-<Canvas of={FloatStories.Offset} />
+<Canvas of={FloatStories.Offsets} />
 
 ### With Avatar
 

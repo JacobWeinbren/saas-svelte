@@ -6,12 +6,7 @@
 	import { Button } from "$saas/components/button";
 	import { VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import {
-		textSizes,
-		inputVariants,
-		commonArgTypes,
-		getControls,
-	} from "../utils";
+	import { inputVariants, commonArgTypes, getControls } from "../utils";
 
 	const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 	const resizeOptions = ["none", "vertical", "horizontal", "both"] as const;
@@ -105,12 +100,11 @@
 {/snippet}
 
 {#snippet fieldStory()}
-	<div class="flex items-center gap-10 w-full">
-		<Field.Root required>
-			<Field.Label>Email</Field.Label>
-			<Input placeholder="me@example.com" variant="subtle" />
-		</Field.Root>
-	</div>
+	<Field.Root required>
+		<Field.Label>Message</Field.Label>
+		<Textarea placeholder="Enter your message..." variant="subtle" />
+		<Field.HelperText>Your message will be reviewed.</Field.HelperText>
+	</Field.Root>
 {/snippet}
 
 {#snippet hookFormStory()}

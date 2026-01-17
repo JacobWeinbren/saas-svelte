@@ -1,7 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Circle } from "$saas/layout/circle";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "layout/Circle",

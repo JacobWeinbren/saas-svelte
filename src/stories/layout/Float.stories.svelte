@@ -1,12 +1,15 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Float } from "$saas/layout/float";
+	import { Box } from "$saas/layout/box";
 	import { Circle } from "$saas/layout/circle";
 	import { Avatar } from "$saas/components/avatar";
 	import { Badge } from "$saas/components/badge";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { commonArgTypes, getControls } from "../utils";
+
+	const placeholder = "relative size-20 bg-bg-subtle dark:bg-bg-emphasized";
 
 	type Args = {
 		placement?:
@@ -81,54 +84,59 @@
 </script>
 
 {#snippet basicStory(args: Args)}
-	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
+	<Box class={placeholder}>
 		<Float {...args}>
 			<Circle size="xs" colour="red">3</Circle>
 		</Float>
-	</div>
+	</Box>
 {/snippet}
 
 {#snippet placementsStory()}
-	<HStack class="flex-wrap gap-x-8 gap-y-6 items-center">
+	<HStack gap={8} class="flex-wrap" align="start">
 		{#each floatPlacements as placement}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} align="center">
 				<Text size="xs">{placement}</Text>
-				<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
+				<Box class={placeholder}>
 					<Float {placement}>
 						<Circle size="xs" colour="red">3</Circle>
 					</Float>
-				</div>
+				</Box>
 			</VStack>
 		{/each}
 	</HStack>
 {/snippet}
 
-{#snippet offsetXStory()}
-	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
-		<Float offsetX="-4">
-			<Circle size="xs" colour="red">3</Circle>
-		</Float>
-	</div>
-{/snippet}
-
-{#snippet offsetYStory()}
-	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
-		<Float offsetY="-4">
-			<Circle size="xs" colour="red">3</Circle>
-		</Float>
-	</div>
-{/snippet}
-
-{#snippet offsetStory()}
-	<div class="relative h-20 w-20 bg-bg-subtle dark:bg-bg-emphasized">
-		<Float offset="4">
-			<Circle size="xs" colour="red">3</Circle>
-		</Float>
-	</div>
+{#snippet offsetsStory()}
+	<HStack gap={8} align="center">
+		<VStack gap={2} align="center">
+			<Text size="xs">offsetX="-4"</Text>
+			<Box class={placeholder}>
+				<Float offsetX="-4">
+					<Circle size="xs" colour="red">3</Circle>
+				</Float>
+			</Box>
+		</VStack>
+		<VStack gap={2} align="center">
+			<Text size="xs">offsetY="-4"</Text>
+			<Box class={placeholder}>
+				<Float offsetY="-4">
+					<Circle size="xs" colour="red">3</Circle>
+				</Float>
+			</Box>
+		</VStack>
+		<VStack gap={2} align="center">
+			<Text size="xs">offset="4"</Text>
+			<Box class={placeholder}>
+				<Float offset="4">
+					<Circle size="xs" colour="red">3</Circle>
+				</Float>
+			</Box>
+		</VStack>
+	</HStack>
 {/snippet}
 
 {#snippet avatarStory()}
-	<div class="relative inline-block">
+	<Box class="relative inline-block">
 		<Avatar
 			size="lg"
 			shape="rounded"
@@ -138,12 +146,10 @@
 		<Float placement="bottom-end">
 			<Badge size="sm" variant="solid" colour="teal">New</Badge>
 		</Float>
-	</div>
+	</Box>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
 <Story name="Placements" template={placementsStory} />
-<Story name="Offset X" template={offsetXStory} />
-<Story name="Offset Y" template={offsetYStory} />
-<Story name="Offset" template={offsetStory} />
+<Story name="Offsets" template={offsetsStory} />
 <Story name="With Avatar" template={avatarStory} />

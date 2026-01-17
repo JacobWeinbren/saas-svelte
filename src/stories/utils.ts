@@ -130,6 +130,7 @@ export {
     blockquotePattern,
     floatPattern,
     circlePattern,
+    boxPattern,
     headingPattern,
     emPattern,
     markPattern,

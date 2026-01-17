@@ -12,7 +12,6 @@
 		checkboxVariants,
 		commonArgTypes,
 		getControls,
-		orientations,
 	} from "../utils";
 
 	const { Story } = defineMeta({
