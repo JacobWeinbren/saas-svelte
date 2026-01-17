@@ -29,7 +29,7 @@
 					"after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:opacity-20 after:pointer-events-none",
 					"after:bg-[linear-gradient(180deg,white_40%,rgba(0,0,0,0.2))]",
 					"after:transition-opacity after:duration-(--durations-moderate)",
-					//"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
+					"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
 				],
 
 				// SOLID: Contrast text with solid background
