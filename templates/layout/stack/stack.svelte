@@ -58,6 +58,11 @@
 		 */
 		justify?: StackVariants["justify"];
 		/**
+		 * The gap between items (uses Tailwind spacing scale).
+		 * @default 2
+		 */
+		gap?: number;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
@@ -68,13 +73,15 @@
 		direction = "column",
 		align,
 		justify,
+		gap = 2,
 		class: className,
 		...restProps
 	}: Props = $props();
 </script>
 
 <div
-	class={twMerge(stack({ direction, align, justify }), "gap-2", className)}
+	class={twMerge(stack({ direction, align, justify }), className)}
+	style:gap="{gap * 0.25}rem"
 	{...restProps}
 >
 	{@render children()}

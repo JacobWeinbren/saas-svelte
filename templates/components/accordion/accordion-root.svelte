@@ -1,8 +1,22 @@
 <script lang="ts">
 	import { Accordion } from "@ark-ui/svelte";
+	import CaretRight from "phosphor-svelte/lib/CaretRight";
 	import { setContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { tv, type VariantProps } from "tailwind-variants";
+
+	export interface AccordionItem {
+		value: string;
+		title?: string;
+		content: string;
+		disabled?: boolean;
+	}
+
+	function formatTitle(value: string): string {
+		return value
+			.replace(/[-_]/g, " ")
+			.replace(/\b\w/g, (c) => c.toUpperCase());
+	}
 
 	const accordion = tv({
 		slots: {
@@ -78,7 +92,14 @@
 	type AccordionVariants = VariantProps<typeof accordion>;
 
 	interface Props {
-		children: Snippet;
+		/**
+		 * Content to render inside the accordion (composition API).
+		 */
+		children?: Snippet;
+		/**
+		 * Array of items for simple usage.
+		 */
+		items?: AccordionItem[];
 		class?: string;
 		/**
 		 * Whether accordion items can be collapsed.
@@ -114,6 +135,7 @@
 
 	let {
 		children,
+		items,
 		class: className,
 		collapsible = false,
 		defaultValue,
@@ -145,5 +167,40 @@
 	)}
 	{...restProps}
 >
-	{@render children()}
+	{#if items}
+		{#each items as item}
+			<Accordion.Item
+				class={classes.item()}
+				value={item.value}
+				disabled={item.disabled}
+			>
+				<Accordion.ItemTrigger class={classes.trigger()}>
+					{item.title ?? formatTitle(item.value)}
+					<Accordion.ItemIndicator
+						class={twMerge(
+							classes.indicator(),
+							"ml-auto data-[state=open]:rotate-90 origin-[50%]",
+						)}
+					>
+						<CaretRight
+							class="text-current inline-block w-full h-full"
+							weight="bold"
+						/>
+					</Accordion.ItemIndicator>
+				</Accordion.ItemTrigger>
+				<Accordion.ItemContent
+					class={twMerge(
+						"rounded-md overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up",
+						classes.content(),
+					)}
+				>
+					<div class={classes.contentBody()}>
+						{item.content}
+					</div>
+				</Accordion.ItemContent>
+			</Accordion.Item>
+		{/each}
+	{:else if children}
+		{@render children()}
+	{/if}
 </Accordion.Root>

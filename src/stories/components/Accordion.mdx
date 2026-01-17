@@ -32,14 +32,15 @@ The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordi
 <script>
   import { Accordion } from '$saas/accordion';
 
+  // Title is auto-generated from value (e.g., "first-item" -> "First Item")
   const items = [
-    { value: 'a', title: 'First Item', content: 'Some value 1...' },
-    { value: 'b', title: 'Second Item', content: 'Some value 2...' },
-    { value: 'c', title: 'Third Item', content: 'Some value 3...' },
+    { value: 'first-item', content: 'Some value 1...' },
+    { value: 'second-item', content: 'Some value 2...' },
+    { value: 'third-item', content: 'Some value 3...' },
   ];
 </script>
 
-<Accordion {items} collapsible defaultValue={['b']} />
+<Accordion.Root {items} collapsible defaultValue={['second-item']} />
 ```
 
 **Composition API:**
@@ -49,18 +50,18 @@ The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordi
   import { Accordion } from '$saas/accordion';
 </script>
 
-<Accordion.Root collapsible defaultValue={['b']}>
-  <Accordion.Item value="a">
+<Accordion.Root collapsible defaultValue={['second-item']}>
+  <Accordion.Item value="first-item">
     <Accordion.ItemTrigger>First Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 1...</Accordion.ItemContent>
   </Accordion.Item>
 
-  <Accordion.Item value="b">
+  <Accordion.Item value="second-item">
     <Accordion.ItemTrigger>Second Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 2...</Accordion.ItemContent>
   </Accordion.Item>
 
-  <Accordion.Item value="c">
+  <Accordion.Item value="third-item">
     <Accordion.ItemTrigger>Third Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 3...</Accordion.ItemContent>
   </Accordion.Item>
