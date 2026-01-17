@@ -10,12 +10,13 @@
 			item: "overflow-anchor-none",
 			trigger: [
 				"flex items-center gap-3 w-full",
-				"rounded-(--radius-md)",
+				"rounded-md",
 				"outline-none",
 				"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
 				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
 			],
-			content: "overflow-hidden text-(length:--font-sizes-sm) text-fg-subtle",
+			content:
+				"overflow-hidden text-(length:--font-sizes-sm) text-fg-subtle",
 			contentBody: "",
 			indicator:
 				"flex items-center justify-center text-fg-muted shrink-0 transition-transform duration-(--durations-moderate)",
@@ -53,12 +54,12 @@
 					item: "border-b border-border-default",
 				},
 				subtle: {
-					item: "rounded-(--radius-md) data-[state=open]:bg-bg-subtle",
+					item: "rounded-md data-[state=open]:bg-bg-subtle",
 					trigger: "px-4",
 					contentBody: "px-4",
 				},
 				enclosed: {
-					root: "border border-border-default rounded-(--radius-md)",
+					root: "border border-border-default rounded-md",
 					item: "border-b border-border-default last:border-b-0 data-[state=open]:bg-bg-subtle",
 					trigger: "px-4",
 					contentBody: "px-4",

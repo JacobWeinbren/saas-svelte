@@ -1,29 +1,25 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		AccordionRoot,
-		AccordionItem,
-		AccordionItemTrigger,
-		AccordionItemContent,
-	} from "$saas/components/accordion";
+	import { Accordion } from "$saas/components/accordion";
 	import { Stack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Icon } from "$saas/components/icon";
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
 	import CreditCard from "phosphor-svelte/lib/CreditCard";
-	import {
-		commonArgTypes,
-		getControls,
-		variants,
-		orientations,
-	} from "../utils";
+	import { commonArgTypes, getControls, variants, orientations } from "../utils";
 
 	const accordionSizes = ["sm", "md", "lg"] as const;
 
+	const items = [
+		{ value: "a", title: "First Item", content: "Some value 1..." },
+		{ value: "b", title: "Second Item", content: "Some value 2..." },
+		{ value: "c", title: "Third Item", content: "Some value 3..." },
+	];
+
 	const { Story } = defineMeta({
 		title: "components/Accordion",
-		component: AccordionRoot,
+		component: Accordion.Root,
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
@@ -73,198 +69,122 @@
 			multiple: false,
 		},
 	});
-	export {
-		AccordionRoot,
-		AccordionItem,
-		AccordionItemTrigger,
-		AccordionItemContent,
-	};
 </script>
 
 {#snippet basicStory()}
-	<AccordionRoot collapsible defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+	<Accordion.Root collapsible defaultValue={["b"]}>
+		{#each items as item}
+			<Accordion.Item value={item.value}>
+				<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+				<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+			</Accordion.Item>
+		{/each}
+	</Accordion.Root>
 {/snippet}
 
 {#snippet controlledStory()}
-	<AccordionRoot collapsible defaultValue={["b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+	<Accordion.Root collapsible defaultValue={["b"]}>
+		{#each items as item}
+			<Accordion.Item value={item.value}>
+				<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+				<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+			</Accordion.Item>
+		{/each}
+	</Accordion.Root>
 {/snippet}
 
 {#snippet withIconStory()}
-	<AccordionRoot collapsible defaultValue={["account"]}>
-		<AccordionItem value="account">
-			<AccordionItemTrigger>
+	<Accordion.Root collapsible defaultValue={["account"]}>
+		<Accordion.Item value="account">
+			<Accordion.ItemTrigger>
 				<Icon as={User} size="sm" colour="gray" />
 				Account Details
-			</AccordionItemTrigger>
-			<AccordionItemContent>
+			</Accordion.ItemTrigger>
+			<Accordion.ItemContent>
 				Manage your profile information and email preferences here.
-			</AccordionItemContent>
-		</AccordionItem>
+			</Accordion.ItemContent>
+		</Accordion.Item>
 
-		<AccordionItem value="billing">
-			<AccordionItemTrigger>
+		<Accordion.Item value="billing">
+			<Accordion.ItemTrigger>
 				<Icon as={CreditCard} size="sm" colour="gray" />
 				Billing & Plan
-			</AccordionItemTrigger>
-			<AccordionItemContent>
+			</Accordion.ItemTrigger>
+			<Accordion.ItemContent>
 				View your invoice history and manage your subscription plan.
-			</AccordionItemContent>
-		</AccordionItem>
+			</Accordion.ItemContent>
+		</Accordion.Item>
 
-		<AccordionItem value="preferences">
-			<AccordionItemTrigger>
+		<Accordion.Item value="preferences">
+			<Accordion.ItemTrigger>
 				<Icon as={Gear} size="sm" colour="gray" />
 				Preferences
-			</AccordionItemTrigger>
-			<AccordionItemContent>
+			</Accordion.ItemTrigger>
+			<Accordion.ItemContent>
 				Adjust your notification settings and application theme.
-			</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+			</Accordion.ItemContent>
+		</Accordion.Item>
+	</Accordion.Root>
 {/snippet}
 
 {#snippet multipleStory()}
-	<AccordionRoot collapsible multiple defaultValue={["a", "b"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b">
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+	<Accordion.Root collapsible multiple defaultValue={["a", "b"]}>
+		{#each items as item}
+			<Accordion.Item value={item.value}>
+				<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+				<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+			</Accordion.Item>
+		{/each}
+	</Accordion.Root>
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="gap-8">
+	<Stack gap={8}>
 		{#each accordionSizes as size}
-			<Stack class="gap-2">
+			<Stack gap={2}>
 				<Text size="xs">{size}</Text>
 
-				<AccordionRoot
-					{size}
-					collapsible
-					defaultValue={["{size}-b"]}
-					id="accordion-size-{size}"
-				>
-					<AccordionItem value="{size}-a">
-						<AccordionItemTrigger>First Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 1...</AccordionItemContent
-						>
-					</AccordionItem>
-
-					<AccordionItem value="{size}-b">
-						<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 2...</AccordionItemContent
-						>
-					</AccordionItem>
-
-					<AccordionItem value="{size}-c">
-						<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 3...</AccordionItemContent
-						>
-					</AccordionItem>
-				</AccordionRoot>
+				<Accordion.Root {size} collapsible defaultValue={[`${size}-b`]} id="accordion-size-{size}">
+					{#each items as item}
+						<Accordion.Item value="{size}-{item.value}">
+							<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+							<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+						</Accordion.Item>
+					{/each}
+				</Accordion.Root>
 			</Stack>
 		{/each}
 	</Stack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<Stack class="gap-8">
+	<Stack gap={8}>
 		{#each ["outline", "subtle", "enclosed", "plain"] as const as variant}
-			<Stack class="gap-2">
+			<Stack gap={2}>
 				<Text size="xs">{variant}</Text>
 
-				<AccordionRoot
-					{variant}
-					collapsible
-					defaultValue={["{variant}-b"]}
-					id="accordion-variant-{variant}"
-				>
-					<AccordionItem value="{variant}-a">
-						<AccordionItemTrigger>First Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 1...</AccordionItemContent
-						>
-					</AccordionItem>
-
-					<AccordionItem value="{variant}-b">
-						<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 2...</AccordionItemContent
-						>
-					</AccordionItem>
-
-					<AccordionItem value="{variant}-c">
-						<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-						<AccordionItemContent
-							>Some value 3...</AccordionItemContent
-						>
-					</AccordionItem>
-				</AccordionRoot>
+				<Accordion.Root {variant} collapsible defaultValue={[`${variant}-b`]} id="accordion-variant-{variant}">
+					{#each items as item}
+						<Accordion.Item value="{variant}-{item.value}">
+							<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+							<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+						</Accordion.Item>
+					{/each}
+				</Accordion.Root>
 			</Stack>
 		{/each}
 	</Stack>
 {/snippet}
 
 {#snippet disabledItemStory()}
-	<AccordionRoot collapsible defaultValue={["a"]}>
-		<AccordionItem value="a">
-			<AccordionItemTrigger>First Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 1...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="b" disabled>
-			<AccordionItemTrigger>Second Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 2...</AccordionItemContent>
-		</AccordionItem>
-
-		<AccordionItem value="c">
-			<AccordionItemTrigger>Third Item</AccordionItemTrigger>
-			<AccordionItemContent>Some value 3...</AccordionItemContent>
-		</AccordionItem>
-	</AccordionRoot>
+	<Accordion.Root collapsible defaultValue={["a"]}>
+		{#each items as item, i}
+			<Accordion.Item value={item.value} disabled={i === 1}>
+				<Accordion.ItemTrigger>{item.title}</Accordion.ItemTrigger>
+				<Accordion.ItemContent>{item.content}</Accordion.ItemContent>
+			</Accordion.Item>
+		{/each}
+	</Accordion.Root>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
