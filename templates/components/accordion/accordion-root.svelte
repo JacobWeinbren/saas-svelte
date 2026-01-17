@@ -7,15 +7,9 @@
 
 	export interface AccordionItem {
 		value: string;
-		title?: string;
+		title: string;
 		content: string;
 		disabled?: boolean;
-	}
-
-	function formatTitle(value: string): string {
-		return value
-			.replace(/[-_]/g, " ")
-			.replace(/\b\w/g, (c) => c.toUpperCase());
 	}
 
 	const accordion = tv({
@@ -111,6 +105,10 @@
 		 */
 		defaultValue?: string[];
 		/**
+		 * Unique identifier for the accordion. Required for accessibility.
+		 */
+		id: string;
+		/**
 		 * Whether multiple accordion items can be open at once.
 		 * @default false
 		 */
@@ -139,6 +137,7 @@
 		class: className,
 		collapsible = false,
 		defaultValue,
+		id,
 		multiple = false,
 		orientation = "vertical",
 		size = "md",
@@ -156,6 +155,7 @@
 </script>
 
 <Accordion.Root
+	{id}
 	{collapsible}
 	{defaultValue}
 	{multiple}
@@ -175,7 +175,7 @@
 				disabled={item.disabled}
 			>
 				<Accordion.ItemTrigger class={classes.trigger()}>
-					{item.title ?? formatTitle(item.value)}
+					{item.title}
 					<Accordion.ItemIndicator
 						class={twMerge(
 							classes.indicator(),

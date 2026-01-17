@@ -7,20 +7,55 @@
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
 	import CreditCard from "phosphor-svelte/lib/CreditCard";
-	import { commonArgTypes, getControls, variants, orientations } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		variants,
+		orientations,
+	} from "../utils";
 
 	const accordionSizes = ["sm", "md", "lg"] as const;
 
-	const createItems = (prefix: string) => [
-		{ value: `${prefix}-first-item`, content: "Some value 1..." },
-		{ value: `${prefix}-second-item`, content: "Some value 2..." },
-		{ value: `${prefix}-third-item`, content: "Some value 3..." },
-	];
+	function createItems(prefix: string) {
+		return [
+			{
+				value: "a",
+				title: `${prefix} First Item`,
+				content: "Some value 1...",
+			},
+			{
+				value: "b",
+				title: `${prefix} Second Item`,
+				content: "Some value 2...",
+			},
+			{
+				value: "c",
+				title: `${prefix} Third Item`,
+				content: "Some value 3...",
+			},
+		];
+	}
 
-	const createDisabledItems = (prefix: string) => [
-		{ value: `${prefix}-first-item`, content: "Some value 1..." },
-		{ value: `${prefix}-second-item`, content: "Some value 2...", disabled: true },
-		{ value: `${prefix}-third-item`, content: "Some value 3..." },
+	const basicItems = createItems("Basic");
+	const controlledItems = createItems("Controlled");
+	const multipleItems = createItems("Multiple");
+	const disabledItems = [
+		{
+			value: "a",
+			title: "Disabled First Item",
+			content: "Some value 1...",
+		},
+		{
+			value: "b",
+			title: "Disabled Second Item",
+			content: "Some value 2...",
+			disabled: true,
+		},
+		{
+			value: "c",
+			title: "Disabled Third Item",
+			content: "Some value 3...",
+		},
 	];
 
 	const { Story } = defineMeta({
@@ -78,16 +113,26 @@
 </script>
 
 {#snippet basicStory()}
-	<Accordion.Root items={createItems("basic")} collapsible defaultValue={["basic-second-item"]} />
+	<Accordion.Root
+		id="basic-accordion"
+		items={basicItems}
+		collapsible
+		defaultValue={["b"]}
+	/>
 {/snippet}
 
 {#snippet controlledStory()}
-	<Accordion.Root items={createItems("controlled")} collapsible defaultValue={["controlled-second-item"]} />
+	<Accordion.Root
+		id="controlled-accordion"
+		items={controlledItems}
+		collapsible
+		defaultValue={["b"]}
+	/>
 {/snippet}
 
 {#snippet withIconStory()}
-	<Accordion.Root collapsible defaultValue={["icon-account"]} id="icon">
-		<Accordion.Item value="icon-account">
+	<Accordion.Root id="icon-accordion" collapsible defaultValue={["account"]}>
+		<Accordion.Item value="account">
 			<Accordion.ItemTrigger>
 				<Icon as={User} size="sm" colour="gray" />
 				Account Details
@@ -97,7 +142,7 @@
 			</Accordion.ItemContent>
 		</Accordion.Item>
 
-		<Accordion.Item value="icon-billing">
+		<Accordion.Item value="billing">
 			<Accordion.ItemTrigger>
 				<Icon as={CreditCard} size="sm" colour="gray" />
 				Billing & Plan
@@ -107,7 +152,7 @@
 			</Accordion.ItemContent>
 		</Accordion.Item>
 
-		<Accordion.Item value="icon-preferences">
+		<Accordion.Item value="preferences">
 			<Accordion.ItemTrigger>
 				<Icon as={Gear} size="sm" colour="gray" />
 				Preferences
@@ -120,7 +165,13 @@
 {/snippet}
 
 {#snippet multipleStory()}
-	<Accordion.Root items={createItems("multiple")} collapsible multiple defaultValue={["multiple-first-item", "multiple-second-item"]} />
+	<Accordion.Root
+		id="multiple-accordion"
+		items={multipleItems}
+		collapsible
+		multiple
+		defaultValue={["a", "b"]}
+	/>
 {/snippet}
 
 {#snippet sizesStory()}
@@ -128,7 +179,13 @@
 		{#each accordionSizes as size}
 			<Stack gap={2}>
 				<Text size="xs">{size}</Text>
-				<Accordion.Root items={createItems(`size-${size}`)} {size} collapsible defaultValue={[`size-${size}-second-item`]} />
+				<Accordion.Root
+					id="size-{size}-accordion"
+					items={createItems(`Size ${size}`)}
+					{size}
+					collapsible
+					defaultValue={["b"]}
+				/>
 			</Stack>
 		{/each}
 	</Stack>
@@ -139,14 +196,25 @@
 		{#each ["outline", "subtle", "enclosed", "plain"] as const as variant}
 			<Stack gap={2}>
 				<Text size="xs">{variant}</Text>
-				<Accordion.Root items={createItems(`variant-${variant}`)} {variant} collapsible defaultValue={[`variant-${variant}-second-item`]} />
+				<Accordion.Root
+					id="variant-{variant}-accordion"
+					items={createItems(`Variant ${variant}`)}
+					{variant}
+					collapsible
+					defaultValue={["b"]}
+				/>
 			</Stack>
 		{/each}
 	</Stack>
 {/snippet}
 
 {#snippet disabledItemStory()}
-	<Accordion.Root items={createDisabledItems("disabled")} collapsible defaultValue={["disabled-first-item"]} />
+	<Accordion.Root
+		id="disabled-accordion"
+		items={disabledItems}
+		collapsible
+		defaultValue={["a"]}
+	/>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

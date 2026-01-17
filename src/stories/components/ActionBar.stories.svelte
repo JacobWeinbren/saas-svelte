@@ -43,7 +43,7 @@
 
 <script lang="ts">
 	let basicOpen = $state(false);
-	let closeTriggerOpen = $state(false);
+	let closableOpen = $state(false);
 	let multipleActionsOpen = $state(false);
 	let selectedCount = $state(0);
 </script>
@@ -72,19 +72,18 @@
 	</div>
 {/snippet}
 
-{#snippet withCloseTriggerStory()}
+{#snippet closableStory()}
 	<div class="min-h-[300px]">
 		<Checkbox
-			checked={closeTriggerOpen}
-			onCheckedChange={(e) => (closeTriggerOpen = !!e.checked)}
+			checked={closableOpen}
+			onCheckedChange={(e) => (closableOpen = !!e.checked)}
 		>
 			Show Action Bar
 		</Checkbox>
 
 		<ActionBar
-			open={closeTriggerOpen}
-			onOpenChange={(e) => (closeTriggerOpen = e.open)}
-			closeOnInteractOutside={false}
+			open={closableOpen}
+			onOpenChange={(e) => (closableOpen = e.open)}
 		>
 			<ActionBarSelectionTrigger>2 selected</ActionBarSelectionTrigger>
 			<ActionBarSeparator />
@@ -96,7 +95,7 @@
 				<Icon as={ShareNetwork} size="sm" />
 				Share
 			</Button>
-			<ActionBarCloseButton onclick={() => (closeTriggerOpen = false)} />
+			<ActionBarCloseButton onclick={() => (closableOpen = false)} />
 		</ActionBar>
 	</div>
 {/snippet}
@@ -127,19 +126,15 @@
 
 {#snippet interactiveStory()}
 	<div class="min-h-[300px]">
-		<VStack class="gap-3">
-			<Text size="sm" variant="secondary">
-				Selected: {selectedCount} items
-			</Text>
-			<HStack class="gap-2 flex-wrap">
+		<VStack gap={3}>
+			<Text size="sm" variant="secondary"
+				>Selected: {selectedCount} items</Text
+			>
+			<HStack gap={2} class="flex-wrap">
 				{#each Array(5) as _, i}
 					<Checkbox
 						onCheckedChange={(e) => {
-							if (e.checked) {
-								selectedCount++;
-							} else {
-								selectedCount--;
-							}
+							selectedCount += e.checked ? 1 : -1;
 						}}
 					>
 						Item {i + 1}
@@ -150,13 +145,11 @@
 
 		<ActionBar
 			open={selectedCount > 0}
-			onOpenChange={(e) => {
-				if (!e.open) selectedCount = 0;
-			}}
+			onOpenChange={(e) => !e.open && (selectedCount = 0)}
 		>
-			<ActionBarSelectionTrigger>
-				{selectedCount} selected
-			</ActionBarSelectionTrigger>
+			<ActionBarSelectionTrigger
+				>{selectedCount} selected</ActionBarSelectionTrigger
+			>
 			<ActionBarSeparator />
 			<Button variant="outline" size="sm">
 				<Icon as={Trash} size="sm" />
@@ -173,7 +166,7 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="With Close Trigger" template={withCloseTriggerStory} />
+<Story name="Closable" template={closableStory} />
 
 <Story name="Multiple Actions" template={multipleActionsStory} />
 

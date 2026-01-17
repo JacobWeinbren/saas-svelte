@@ -86,26 +86,6 @@
 	</VStack>
 {/snippet}
 
-{#snippet itemsStory()}
-	<NativeSelect size="sm" class="w-60" aria-label="Select framework">
-		<option value="">Select option</option>
-		<option value="react">React</option>
-		<option value="vue">Vue</option>
-		<option value="angular">Angular</option>
-		<option value="svelte">Svelte</option>
-	</NativeSelect>
-{/snippet}
-
-{#snippet controlledStory()}
-	<NativeSelect size="sm" class="w-60" aria-label="Select framework">
-		<option value="">Select option</option>
-		<option value="react">React</option>
-		<option value="vue">Vue</option>
-		<option value="angular">Angular</option>
-		<option value="svelte">Svelte</option>
-	</NativeSelect>
-{/snippet}
-
 {#snippet hookFormStory()}
 	{@const state = new HookFormState()}
 	<form
@@ -154,8 +134,4 @@
 
 <Story name="Variants" template={variantsStory} />
 
-<Story name="Items Prop" template={itemsStory} />
-
-<Story name="Controlled" template={controlledStory} />
-
-<Story name="Hook Form" template={hookFormStory} />
+<Story name="With Validation" template={hookFormStory} />

@@ -1,4 +1,10 @@
-import { Meta, Story, Canvas, ArgTypes, Controls } from "@storybook/addon-docs/blocks";
+import {
+	Meta,
+	Story,
+	Canvas,
+	ArgTypes,
+	Controls,
+} from "@storybook/addon-docs/blocks";
 import * as AccordionStories from "./Accordion.stories.svelte";
 import {
 	AccordionRoot,
@@ -26,42 +32,43 @@ import { getControls } from "../utils";
 
 The Accordion component uses [Ark UI](https://ark-ui.com/docs/components/accordion) primitives for accessibility, state management, and keyboard navigation.
 
+**Note:** The `id` prop is required for accessibility. Each accordion must have a unique ID to ensure they have ARIA relationships. When multiple accordions appear on the same page, each one should have a unique item `title` to comply by with WCAG landmark requirements.
+
 **Simple Usage:**
 
-```tsx
+```svelte
 <script>
   import { Accordion } from '$saas/accordion';
 
-  // Title is auto-generated from value (e.g., "first-item" -> "First Item")
   const items = [
-    { value: 'first-item', content: 'Some value 1...' },
-    { value: 'second-item', content: 'Some value 2...' },
-    { value: 'third-item', content: 'Some value 3...' },
+    { value: 'a', title: 'First Item', content: 'Some value 1...' },
+    { value: 'b', title: 'Second Item', content: 'Some value 2...' },
+    { value: 'c', title: 'Third Item', content: 'Some value 3...' },
   ];
 </script>
 
-<Accordion.Root {items} collapsible defaultValue={['second-item']} />
+<Accordion.Root id="faq-accordion" {items} collapsible defaultValue={['b']} />
 ```
 
 **Composition API:**
 
-```tsx
+```svelte
 <script>
   import { Accordion } from '$saas/accordion';
 </script>
 
-<Accordion.Root collapsible defaultValue={['second-item']}>
-  <Accordion.Item value="first-item">
+<Accordion.Root id="settings-accordion" collapsible defaultValue={['b']}>
+  <Accordion.Item value="a">
     <Accordion.ItemTrigger>First Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 1...</Accordion.ItemContent>
   </Accordion.Item>
 
-  <Accordion.Item value="second-item">
+  <Accordion.Item value="b">
     <Accordion.ItemTrigger>Second Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 2...</Accordion.ItemContent>
   </Accordion.Item>
 
-  <Accordion.Item value="third-item">
+  <Accordion.Item value="c">
     <Accordion.ItemTrigger>Third Item</Accordion.ItemTrigger>
     <Accordion.ItemContent>Some value 3...</Accordion.ItemContent>
   </Accordion.Item>
