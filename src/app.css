@@ -129,12 +129,8 @@ body {
 }
 
 :root {
-	--colors-orange-contrast: var(--color-white);
+	--colors-orange-contrast: var(--color-black);
 	--colors-fg-muted: light-dark(var(--color-gray-500), var(--color-gray-400));
-	--colors-orange-solid: light-dark(
-		var(--color-orange-700),
-		var(--color-orange-500)
-	);
 	--colors-green-solid: light-dark(
 		var(--color-green-700),
 		var(--color-green-600)
@@ -145,12 +141,12 @@ body {
 	);
 	--colors-teal-solid: light-dark(
 		var(--color-teal-700),
-		var(--color-teal-500)
+		var(--color-teal-600)
 	);
 	--colors-cyan-solid: light-dark(
 		var(--color-cyan-700),
 		var(--color-cyan-600)
 	);
 	--color-fg-error: light-dark(var(--color-red-600), var(--color-red-400));
-	--colors-sky-solid: light-dark(var(--color-sky-800), var(--color-sky-600));
+	--colors-sky-solid: light-dark(var(--color-sky-700), var(--color-sky-600));
 }
