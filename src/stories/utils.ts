@@ -147,6 +147,23 @@ export {
     breadcrumbEllipsisPattern,
     menuPattern,
     menuItemPattern,
+    cardRootPattern,
+    cardHeaderPattern,
+    cardBodyPattern,
+    cardFooterPattern,
+    cardTitlePattern,
+    cardDescriptionPattern,
+    formPattern,
+    formFieldPattern,
+    submitButtonPattern,
+    displayIfPattern,
+    checkboxCardRootPattern,
+    checkboxCardControlPattern,
+    checkboxCardContentPattern,
+    checkboxCardLabelPattern,
+    checkboxCardDescriptionPattern,
+    checkboxCardAddonPattern,
+    checkboxCardIndicatorPattern,
 } from "./exclude-patterns";
 
 

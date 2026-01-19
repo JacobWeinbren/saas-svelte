@@ -1,6 +1,14 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as CardStories from "./Card.stories.svelte";
 import { Card } from "$saas/components/card";
+import {
+	cardRootPattern,
+	cardHeaderPattern,
+	cardBodyPattern,
+	cardFooterPattern,
+	cardTitlePattern,
+	cardDescriptionPattern,
+} from "../utils";
 
 <Meta of={CardStories} />
 
@@ -69,4 +77,26 @@ Compose the Card with Avatar and other components for rich content layouts.
 
 ## Props
 
-<ArgTypes of={Card.Root} />
+### Root
+
+<ArgTypes of={Card.Root} exclude={cardRootPattern} />
+
+### Header
+
+<ArgTypes of={Card.Header} exclude={cardHeaderPattern} />
+
+### Body
+
+<ArgTypes of={Card.Body} exclude={cardBodyPattern} />
+
+### Footer
+
+<ArgTypes of={Card.Footer} exclude={cardFooterPattern} />
+
+### Title
+
+<ArgTypes of={Card.Title} exclude={cardTitlePattern} />
+
+### Description
+
+<ArgTypes of={Card.Description} exclude={cardDescriptionPattern} />

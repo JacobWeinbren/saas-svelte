@@ -79,3 +79,23 @@ export const breadcrumbEllipsisPattern = makePattern(['showSeparator', 'class'])
 
 export const menuPattern = makePattern(['size', 'colour', 'open', 'onOpenChange', 'closeOnSelect', 'loopFocus', 'positioning', 'typeahead', 'class', 'children']);
 export const menuItemPattern = makePattern(['value', 'valueText', 'disabled', 'closeOnSelect', 'onSelect', 'asChild', 'class', 'children']);
+
+export const cardRootPattern = makePattern(['variant', 'size', 'class', 'children']);
+export const cardHeaderPattern = makePattern(['class', 'children']);
+export const cardBodyPattern = makePattern(['class', 'children']);
+export const cardFooterPattern = makePattern(['class', 'children']);
+export const cardTitlePattern = makePattern(['class', 'children']);
+export const cardDescriptionPattern = makePattern(['class', 'children']);
+
+export const formPattern = makePattern(['form', 'class', 'children']);
+export const formFieldPattern = makePattern(['name', 'label', 'type', 'placeholder', 'description', 'options', 'class']);
+export const submitButtonPattern = makePattern(['disableIfUntouched', 'disableIfInvalid', 'variant', 'size', 'colour', 'class', 'children']);
+export const displayIfPattern = makePattern(['field', 'value', 'children']);
+
+export const checkboxCardRootPattern = makePattern(['checked', 'value', 'variant', 'size', 'colour', 'disabled', 'onCheckedChange', 'class', 'children']);
+export const checkboxCardControlPattern = makePattern(['align', 'class', 'children']);
+export const checkboxCardContentPattern = makePattern(['align', 'class', 'children']);
+export const checkboxCardLabelPattern = makePattern(['class', 'children']);
+export const checkboxCardDescriptionPattern = makePattern(['class', 'children']);
+export const checkboxCardAddonPattern = makePattern(['class', 'children']);
+export const checkboxCardIndicatorPattern = makePattern(['class']);
