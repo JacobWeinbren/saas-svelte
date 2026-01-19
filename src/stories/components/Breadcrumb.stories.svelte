@@ -5,6 +5,7 @@
 		BreadcrumbLink,
 		BreadcrumbCurrentLink,
 		BreadcrumbEllipsis,
+		BreadcrumbMenu,
 	} from "$saas/components/breadcrumb";
 	import {
 		MenuRoot,
@@ -147,7 +148,7 @@
 	<div class="p-1">
 		<BreadcrumbRoot separatorGap={4}>
 			<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-			<li class="items-center inline-flex">
+			<BreadcrumbMenu>
 				<MenuRoot size="sm">
 					<MenuButton variant="breadcrumb">Components</MenuButton>
 					<MenuContent>
@@ -156,8 +157,7 @@
 						<MenuItem value="custom">Customization</MenuItem>
 					</MenuContent>
 				</MenuRoot>
-			</li>
-			<li aria-hidden="true" class="text-fg-muted">/</li>
+			</BreadcrumbMenu>
 			<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
 		</BreadcrumbRoot>
 	</div>
