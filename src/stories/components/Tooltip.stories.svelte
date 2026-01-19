@@ -5,6 +5,7 @@
 	import { Icon } from "$saas/components/icon";
 	import Info from "phosphor-svelte/lib/Info";
 	import Question from "phosphor-svelte/lib/Question";
+	import { HStack, VStack } from "$saas/layout/stack";
 	import { commonArgTypes } from "../utils";
 
 	const { Story } = defineMeta({
@@ -85,8 +86,8 @@
 {/snippet}
 
 {#snippet placementsStory()}
-	<div class="flex flex-col items-center gap-4 p-8">
-		<div class="flex gap-4">
+	<VStack align="center" gap={4} class="p-8">
+		<HStack gap={4}>
 			<Tooltip
 				content="Tooltip top"
 				positioning={{ placement: "top" }}
@@ -115,12 +116,12 @@
 			>
 				<Button variant="outline" size="sm">Right</Button>
 			</Tooltip>
-		</div>
-	</div>
+		</HStack>
+	</VStack>
 {/snippet}
 
 {#snippet offsetStory()}
-	<div class="flex items-center justify-center gap-4 p-8">
+	<HStack align="center" justify="center" gap={4} class="p-8">
 		<Tooltip content="Default offset" showArrow>
 			<Button variant="outline" size="sm">Default</Button>
 		</Tooltip>
@@ -131,44 +132,44 @@
 		>
 			<Button variant="outline" size="sm">Custom offset</Button>
 		</Tooltip>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet delaysStory()}
-	<div class="flex items-center justify-center gap-4 p-8">
+	<HStack align="center" justify="center" gap={4} class="p-8">
 		<Tooltip content="Instant tooltip" openDelay={0} showArrow>
 			<Button variant="ghost">Instant</Button>
 		</Tooltip>
 		<Tooltip content="Delayed tooltip (700ms)" openDelay={700} showArrow>
 			<Button variant="ghost">Delayed</Button>
 		</Tooltip>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet interactiveStory()}
-	<div class="flex items-center justify-center p-8">
+	<HStack align="center" justify="center" class="p-8">
 		<Tooltip interactive showArrow>
 			{#snippet content()}
-				<div class="flex flex-col gap-1">
+				<VStack gap={1}>
 					<span class="font-semibold">Interactive tooltip</span>
 					<span class="text-xs opacity-80"
 						>You can hover over me!</span
 					>
-				</div>
+				</VStack>
 			{/snippet}
 			<Button variant="outline">Hover me</Button>
 		</Tooltip>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet contentSlotStory()}
-	<div class="flex items-center justify-center p-8">
+	<HStack align="center" justify="center" class="p-8">
 		<Tooltip>
 			{#snippet content()}
-				<div class="flex items-center gap-2">
+				<HStack align="center" gap={2}>
 					<Icon as={Info} class="size-3.5" />
 					<span>Search query info</span>
-				</div>
+				</HStack>
 			{/snippet}
 			<Button
 				variant="outline"
@@ -179,18 +180,18 @@
 				<Icon as={Question} />
 			</Button>
 		</Tooltip>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet disabledStory()}
-	<div class="flex items-center justify-center gap-4 p-8">
+	<HStack align="center" justify="center" gap={4} class="p-8">
 		<Tooltip content="This tooltip is disabled" disabled showArrow>
 			<Button variant="outline">Hover me (disabled)</Button>
 		</Tooltip>
 		<Tooltip content="This tooltip works" showArrow>
 			<Button variant="outline">Hover me (enabled)</Button>
 		</Tooltip>
-	</div>
+	</HStack>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

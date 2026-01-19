@@ -88,9 +88,9 @@
 {/snippet}
 
 {#snippet coloursStory()}
-	<VStack class="gap-4 w-full">
+	<VStack gap={4} class="w-full">
 		{#each colours as colourName}
-			<HStack class="gap-10 w-full px-4" align="center">
+			<HStack gap={10} class="w-full px-4" align="center">
 				<Text class="min-w-[8ch]">{colourName}</Text>
 				<Blockquote
 					colour={colourName as ColourName}
@@ -110,7 +110,7 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<VStack class="gap-8">
+	<VStack gap={8}>
 		<Blockquote variant="subtle">
 			<Text>
 				If anyone thinks he is something when he is nothing, he deceives

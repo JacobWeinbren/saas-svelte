@@ -4,7 +4,7 @@
 	import { Field } from "$saas/components/field";
 	import { Input } from "$saas/components/input";
 	import { Button } from "$saas/components/button";
-	import { VStack } from "$saas/layout/stack";
+	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { inputVariants, commonArgTypes, getControls } from "../utils";
 
@@ -48,9 +48,9 @@
 </script>
 
 {#snippet variantsStory()}
-	<VStack class="gap-4 w-80">
+	<VStack gap={4} class="w-80">
 		{#each inputVariants as variant}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{variant}</Text>
 				<Textarea {variant} placeholder={variant} />
 			</VStack>
@@ -59,9 +59,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<VStack class="gap-4 w-80">
+	<VStack gap={4} class="w-80">
 		{#each textareaSizes as size}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Textarea {size} placeholder="{size} size" />
 			</VStack>
@@ -70,7 +70,7 @@
 {/snippet}
 
 {#snippet helperTextStory()}
-	<div class="flex items-center gap-10 w-full">
+	<HStack align="center" gap={10} class="w-full">
 		<Field.Root required>
 			<Field.Label>Comment</Field.Label>
 			<Textarea placeholder="Start typing..." variant="subtle" />
@@ -81,11 +81,11 @@
 			<Textarea placeholder="Start typing..." variant="outline" />
 			<Field.HelperText>Max 500 characters.</Field.HelperText>
 		</Field.Root>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet errorTextStory()}
-	<div class="flex items-center gap-10 w-full">
+	<HStack align="center" gap={10} class="w-full">
 		<Field.Root invalid required>
 			<Field.Label>Comment</Field.Label>
 			<Textarea invalid placeholder="Start typing..." variant="subtle" />
@@ -96,7 +96,7 @@
 			<Textarea invalid placeholder="Start typing..." variant="outline" />
 			<Field.ErrorText>Field is required</Field.ErrorText>
 		</Field.Root>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet fieldStory()}
@@ -130,9 +130,9 @@
 {/snippet}
 
 {#snippet resizeStory()}
-	<VStack class="gap-4 w-64">
+	<VStack gap={4} class="w-64">
 		{#each resizeOptions as resize}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{resize}</Text>
 				<Textarea {resize} placeholder="Search the docs…" />
 			</VStack>

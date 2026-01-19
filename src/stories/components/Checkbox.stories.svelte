@@ -83,9 +83,9 @@
 </script>
 
 {#snippet variantsStory()}
-	<HStack align="start" class="gap-10">
+	<HStack align="start" gap={10}>
 		{#each checkboxVariants as variant}
-			<VStack class="flex-1 gap-2 items-center">
+			<VStack gap={2} class="flex-1 items-center">
 				<Text size="xs">
 					{variant}
 				</Text>
@@ -101,9 +101,9 @@
 {/snippet}
 
 {#snippet coloursStory()}
-	<VStack align="start" class="gap-2">
+	<VStack align="start" gap={2}>
 		{#each colours as colour}
-			<HStack align="center" class="w-full gap-10">
+			<HStack align="center" gap={10} class="w-full">
 				<Text size="xs" class="min-w-[8ch]">
 					{colour}
 				</Text>
@@ -116,9 +116,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack align="start" class="flex-1 gap-12">
+	<HStack align="start" gap={12} class="flex-1">
 		{#each ["sm", "md", "lg"] as const as size}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Checkbox {size} checked label="Checkbox" />
 			</VStack>
@@ -127,7 +127,7 @@
 {/snippet}
 
 {#snippet statesStory()}
-	<Stack class="gap-2">
+	<Stack gap={2}>
 		<Checkbox disabled label="Disabled" />
 		<Checkbox checked disabled label="Disabled Checked" />
 		<Checkbox invalid label="Invalid" />

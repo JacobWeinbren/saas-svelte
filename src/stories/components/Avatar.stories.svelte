@@ -76,9 +76,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="flex-row items-start gap-6">
+	<Stack gap={6} class="flex-row items-start">
 		{#each sizes as size}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Avatar {size} name="David Wilson" src="/avatars/1.png" />
 			</VStack>
@@ -87,9 +87,9 @@
 {/snippet}
 
 {#snippet shapeStory()}
-	<Stack class="flex-row items-start gap-8">
+	<Stack gap={8} class="flex-row items-start">
 		{#each shapes as shape}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{shape}</Text>
 				<Avatar
 					{shape}
@@ -103,7 +103,7 @@
 {/snippet}
 
 {#snippet fallbackStory()}
-	<Stack class="flex-row items-center gap-4">
+	<Stack gap={4} class="flex-row items-center">
 		<Avatar name="Oshigaki Kisame" src="https://bit.ly/broken-link" />
 		<Avatar
 			name="Sasuke Uchiha"
@@ -115,7 +115,7 @@
 {/snippet}
 
 {#snippet ringStory()}
-	<Stack class="flex-row items-center gap-4">
+	<Stack gap={4} class="flex-row items-center">
 		<Avatar name="David Wilson" colour="pink" src="/avatars/1.png" ring />
 		<Avatar name="Marcus Chen" colour="green" src="/avatars/2.png" ring />
 		<Avatar name="Sarah Johnson" colour="blue" src="/avatars/3.png" ring />
@@ -136,7 +136,7 @@
 {/snippet}
 
 {#snippet stackingStory()}
-	<Stack class="gap-8">
+	<Stack gap={8}>
 		<AvatarGroup size="lg" stacking="last-on-top">
 			<Avatar name="David Wilson" src="/avatars/1.png" />
 			<Avatar name="Marcus Chen" src="/avatars/2.png" />

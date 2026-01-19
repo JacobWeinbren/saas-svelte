@@ -35,13 +35,13 @@
 </script>
 
 {#snippet combinationsStory()}
-	<HStack class="gap-1">
+	<HStack gap={1}>
 		<Kbd>ctrl</Kbd>+<Kbd>shift</Kbd>+<Kbd>del</Kbd>
 	</HStack>
 {/snippet}
 
 {#snippet functionKeysStory()}
-	<HStack class="gap-2">
+	<HStack gap={2}>
 		<Kbd>⌘</Kbd>
 		<Kbd>⌥</Kbd>
 		<Kbd>⇧</Kbd>
@@ -50,9 +50,9 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<HStack class="flex-wrap gap-8">
+	<HStack gap={8} class="flex-wrap">
 		{#each kbdVariants as variant}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{variant}</Text>
 				<Kbd {variant}>Shift + Tab</Kbd>
 			</VStack>
@@ -61,9 +61,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack class="flex-wrap gap-8">
+	<HStack gap={8} class="flex-wrap">
 		{#each ["sm", "md", "lg"] as size}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Kbd size={size as "sm" | "md" | "lg"} variant="outline"
 					>Shift + Tab</Kbd

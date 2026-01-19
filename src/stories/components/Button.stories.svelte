@@ -66,9 +66,9 @@
 </script>
 
 {#snippet sizesStory()}
-	<HStack align="start" class="flex-wrap gap-4">
+	<HStack align="start" gap={4} class="flex-wrap">
 		{#each sizes as size}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Button {size}>Button ({size})</Button>
 			</VStack>
@@ -77,9 +77,9 @@
 {/snippet}
 
 {#snippet buttonVariantsStory()}
-	<HStack align="start" class="flex-wrap gap-4 p-4">
+	<HStack align="start" gap={4} class="flex-wrap p-4">
 		{#each buttonVariants as variant}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{variant}</Text>
 				<Button {variant}>{variant}</Button>
 			</VStack>
@@ -88,7 +88,7 @@
 {/snippet}
 
 {#snippet iconsStory()}
-	<HStack class="flex-wrap gap-4">
+	<HStack gap={4} class="flex-wrap">
 		<Button colour="teal" variant="solid">
 			<Icon as={Envelope} class="size-4" aria-hidden="true" />
 			Mail
@@ -102,7 +102,7 @@
 
 	<br />
 
-	<VStack align="start" class="gap-4">
+	<VStack align="start" gap={4}>
 		{#each sizes as size}
 			<Button colour="rose" variant="solid" {size} icon aria-label="Like">
 				<Icon as={Heart} aria-hidden="true" />
@@ -112,16 +112,16 @@
 {/snippet}
 
 {#snippet loadingStory()}
-	<HStack class="flex-wrap gap-4">
+	<HStack gap={4} class="flex-wrap">
 		<Button loading>Click me</Button>
 		<Button loading loadingText="Saving...">Click me</Button>
 	</HStack>
 {/snippet}
 
 {#snippet coloursStory()}
-	<VStack class="gap-4">
+	<VStack gap={4}>
 		{#each colours as colour}
-			<HStack class="gap-4">
+			<HStack gap={4}>
 				<Text size="xs" class="w-16">{colour}</Text>
 				<Button variant="glass" {colour}>Glass</Button>
 				<Button variant="solid" {colour}>Solid</Button>

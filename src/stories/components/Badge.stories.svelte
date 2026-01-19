@@ -45,16 +45,16 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="flex gap-2">
+	<HStack gap={2}>
 		<Badge>Default</Badge>
 		<Badge colour="green">Success</Badge>
 		<Badge colour="red">Removed</Badge>
 		<Badge colour="purple">New</Badge>
-	</div>
+	</HStack>
 {/snippet}
 
 {#snippet withIconStory()}
-	<div class="flex flex-col items-start gap-2">
+	<VStack align="start" gap={2}>
 		<Badge variant="solid" colour="blue">
 			<Star class="h-3" aria-hidden="true" />
 			New
@@ -63,13 +63,13 @@
 			New
 			<CheckCircle class="h-3" aria-hidden="true" />
 		</Badge>
-	</div>
+	</VStack>
 {/snippet}
 
 {#snippet variantsStory()}
-	<HStack align="start" class="gap-4">
+	<HStack align="start" gap={4}>
 		{#each variants as variant}
-			<VStack class="gap-2">
+			<VStack gap={2}>
 				<Text size="xs">{variant}</Text>
 				<Badge {variant}>Badge</Badge>
 			</VStack>
@@ -78,9 +78,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack align="start" class="gap-4">
+	<HStack align="start" gap={4}>
 		{#each sizes as size}
-			<VStack class="gap-2">
+			<VStack gap={2}>
 				<Text size="xs">{size}</Text>
 				<Badge {size}>New</Badge>
 			</VStack>

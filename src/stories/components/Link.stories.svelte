@@ -36,7 +36,7 @@
 </script>
 
 {#snippet variantsStory()}
-	<VStack class="items-center gap-2">
+	<VStack gap={2} class="items-center">
 		<Link href="#" variant="underline">Link (Underline)</Link>
 		<Link href="#" variant="plain">Link (Plain)</Link>
 	</VStack>

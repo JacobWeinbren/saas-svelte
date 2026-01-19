@@ -93,7 +93,7 @@
 
 {#snippet responsiveStory()}
 	<div class="flex justify-center">
-		<Stack class="flex-col gap-10 md:flex-row">
+		<Stack gap={10} class="flex-col md:flex-row">
 			<DecorativeBox class="size-20!" />
 			<DecorativeBox class="size-20!" />
 			<DecorativeBox class="size-20!" />

@@ -71,7 +71,7 @@
 		<Box class="p-4 space-y-2">
 			<HStack>
 				<Badge colour="teal" variant="solid">Superhost</Badge>
-				<HStack class="gap-1 font-medium">
+				<HStack gap={1} class="font-medium">
 					<Icon as={Star} colour="orange" weight="fill" size="sm" />
 					<Text>4.5 (34)</Text>
 				</HStack>

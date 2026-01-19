@@ -62,7 +62,7 @@
 {/snippet}
 
 {#snippet statusStory()}
-	<Stack class="w-full gap-2">
+	<Stack gap={2} class="w-full">
 		<Alert
 			status="error"
 			title="There was an error processing your request"
@@ -80,7 +80,7 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<Stack class="w-full gap-3">
+	<Stack gap={3} class="w-full">
 		<Alert
 			status="success"
 			variant="subtle"

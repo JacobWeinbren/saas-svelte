@@ -140,6 +140,13 @@ export {
     actionBarSelectionTriggerPattern,
     actionBarSeparatorPattern,
     actionBarCloseButtonPattern,
+    breadcrumbRootPattern,
+    breadcrumbItemPattern,
+    breadcrumbLinkPattern,
+    breadcrumbCurrentLinkPattern,
+    breadcrumbEllipsisPattern,
+    menuPattern,
+    menuItemPattern,
 } from "./exclude-patterns";
 
 

@@ -79,9 +79,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<VStack align="start" class="gap-4">
+	<VStack align="start" gap={4}>
 		{#each dataListSizes as size}
-			<HStack class="gap-4 items-center">
+			<HStack gap={4} class="items-center">
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
 				<DataListRoot {size}>
 					<DataListItem>

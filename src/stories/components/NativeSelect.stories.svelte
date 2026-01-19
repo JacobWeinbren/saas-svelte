@@ -53,9 +53,9 @@
 </script>
 
 {#snippet sizesStory()}
-	<VStack class="gap-4 w-60">
+	<VStack gap={4} class="w-60">
 		{#each nativeSelectSizes as size}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<NativeSelect {size} value="" aria-label="Select framework">
 					<option value="">Select option</option>
@@ -70,9 +70,9 @@
 {/snippet}
 
 {#snippet variantsStory()}
-	<VStack class="gap-4 w-60">
+	<VStack gap={4} class="w-60">
 		{#each nativeSelectVariants as variant}
-			<VStack class="items-center gap-2">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{variant}</Text>
 				<NativeSelect {variant} value="" aria-label="Select framework">
 					<option value="">Select option</option>

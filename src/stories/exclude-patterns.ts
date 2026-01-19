@@ -70,3 +70,12 @@ export const actionBarPattern = makePattern(['open', 'onOpenChange', 'closeOnInt
 export const actionBarSelectionTriggerPattern = makePattern(['class', 'children']);
 export const actionBarSeparatorPattern = makePattern(['class']);
 export const actionBarCloseButtonPattern = makePattern(['aria-label', 'class']);
+
+export const breadcrumbRootPattern = makePattern(['size', 'variant', 'separator', 'class', 'children']);
+export const breadcrumbItemPattern = makePattern(['showSeparator', 'class', 'children']);
+export const breadcrumbLinkPattern = makePattern(['href', 'showSeparator', 'class', 'children']);
+export const breadcrumbCurrentLinkPattern = makePattern(['class', 'children']);
+export const breadcrumbEllipsisPattern = makePattern(['showSeparator', 'class']);
+
+export const menuPattern = makePattern(['size', 'colour', 'open', 'onOpenChange', 'closeOnSelect', 'loopFocus', 'positioning', 'typeahead', 'class', 'children']);
+export const menuItemPattern = makePattern(['value', 'valueText', 'disabled', 'closeOnSelect', 'onSelect', 'asChild', 'class', 'children']);

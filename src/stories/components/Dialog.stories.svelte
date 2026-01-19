@@ -106,9 +106,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack align="start" class="gap-6">
+	<HStack align="start" gap={6}>
 		{#each ["xs", "sm", "md", "lg"] as const as size}
-			<VStack class="gap-2 items-center">
+			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Dialog.Root {size}>
 					<Dialog.Trigger variant="outline" {size}>
@@ -232,7 +232,7 @@
 				<Dialog.CloseButton />
 			</Dialog.Header>
 			<Dialog.Body>
-				<Stack class="gap-4">
+				<Stack gap={4}>
 					<Input placeholder="First Name" />
 					<Input placeholder="Last Name" />
 					<input

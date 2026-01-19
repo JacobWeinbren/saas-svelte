@@ -3,7 +3,7 @@
 	import { ToggleTip, InfoTip } from "$saas/components/toggle-tip";
 	import { Button } from "$saas/components/button";
 	import { Icon } from "$saas/components/icon";
-	import { HStack } from "$saas/layout/stack";
+	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import Info from "phosphor-svelte/lib/Info";
 
@@ -38,7 +38,7 @@
 
 {#snippet sizesStory()}
 	<div class="flex items-center justify-center p-8">
-		<HStack class="gap-4">
+		<HStack gap={4}>
 			<ToggleTip content="Extra small toggle tip" size="xs">
 				<Button size="xs" variant="ghost">XS</Button>
 			</ToggleTip>
@@ -57,7 +57,7 @@
 
 {#snippet positioningStory()}
 	<div class="flex items-center justify-center p-8">
-		<HStack class="gap-4">
+		<HStack gap={4}>
 			<ToggleTip
 				content="Top placement"
 				positioning={{ placement: "top" }}
@@ -87,20 +87,20 @@
 {/snippet}
 
 {#snippet customContentStory()}
-	<div class="flex items-center justify-center p-8">
+	<HStack align="center" justify="center" class="p-8">
 		<ToggleTip>
 			{#snippet content()}
-				<div class="flex flex-col gap-1">
+				<VStack gap={1}>
 					<Text size="xs" weight="semibold">Custom Content</Text>
 					<Text size="xs">
 						This toggle tip has custom HTML content with multiple
 						elements.
 					</Text>
-				</div>
+				</VStack>
 			{/snippet}
 			<Button variant="outline" size="sm">Custom Content</Button>
 		</ToggleTip>
-	</div>
+	</HStack>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

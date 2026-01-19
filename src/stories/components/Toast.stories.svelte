@@ -99,7 +99,7 @@
 
 {#snippet statusStory()}
 	<div class="min-h-[400px]">
-		<HStack class="gap-2 flex-wrap">
+		<HStack gap={2} class="flex-wrap">
 			<Button
 				colour="blue"
 				onclick={() =>
@@ -195,7 +195,7 @@
 
 {#snippet durationStory()}
 	<div class="min-h-[400px]">
-		<HStack class="gap-2 flex-wrap">
+		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() =>
 					durationToaster.create({
@@ -264,7 +264,7 @@
 
 {#snippet stackingStory()}
 	<div class="min-h-[500px]">
-		<HStack class="gap-2 flex-wrap">
+		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() => {
 					stackCount++;

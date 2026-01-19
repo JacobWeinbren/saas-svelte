@@ -29,10 +29,7 @@
 			icon: "shrink-0 size-5 stroke-current fill-current stroke-0",
 			spinner: [
 				"shrink-0 size-4 mt-0.5",
-				"inline-block rounded-full",
-				"border-2 border-solid",
-				"border-t-current border-r-current border-b-transparent border-l-transparent",
-				"animate-spin [animation-duration:var(--durations-slowest)] text-accent-solid",
+				"animate-spin [animation-duration:var(--durations-slow)] text-accent-solid",
 			],
 			content: "flex flex-col flex-1 max-w-full",
 			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-2",
@@ -97,6 +94,7 @@
 	import type { Snippet, Component } from "svelte";
 	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
 	import WarningCircle from "phosphor-svelte/lib/WarningCircle";
+	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 	import X from "phosphor-svelte/lib/X";
 	import { Icon } from "$saas/components/icon";
 
@@ -186,7 +184,7 @@
 			{@render children()}
 		{:else if isSingleLine}
 			{#if status === "loading"}
-				<span class={styles.spinner()}></span>
+				<CircleNotch class={styles.spinner()} />
 			{:else if resolvedIcon}
 				<Icon as={resolvedIcon} class={styles.icon()} />
 			{/if}
@@ -195,7 +193,7 @@
 			>
 		{:else}
 			{#if status === "loading"}
-				<span class={styles.spinner()}></span>
+				<CircleNotch class={styles.spinner()} />
 			{:else if resolvedIcon}
 				<Icon as={resolvedIcon} class={styles.icon()} />
 			{/if}

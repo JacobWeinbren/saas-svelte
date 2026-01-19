@@ -62,7 +62,7 @@
 
 {#snippet attachedStory()}
 	<div class="flex justify-center">
-		<VStack class="gap-4">
+		<VStack gap={4}>
 			<Group attached>
 				<Button variant="outline">Item 1</Button>
 				<Button variant="outline">Item 2</Button>

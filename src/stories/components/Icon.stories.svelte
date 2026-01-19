@@ -127,19 +127,19 @@
 
 <Story name="Colours">
 	{#snippet template(args)}
-		<div class="flex gap-4">
+		<HStack gap={4}>
 			<Icon as={Heart} colour="rose" size={args.size} />
 			<Icon as={User} colour="blue" size={args.size} />
 			<Icon as={Gear} colour="gray" size={args.size} />
-		</div>
+		</HStack>
 	{/snippet}
 </Story>
 
 <Story name="Sizes">
 	{#snippet template()}
-		<HStack class="items-end gap-4">
+		<HStack gap={4} class="items-end">
 			{#each sizes as size}
-				<VStack class="gap-2 items-center">
+				<VStack gap={2} class="items-center">
 					<Text size="xs">{size}</Text>
 					<Icon as={Star} colour="yellow" weight="fill" {size} />
 				</VStack>

@@ -64,9 +64,9 @@
 </script>
 
 {#snippet variantsStory()}
-	<Stack class="max-w-md gap-4">
+	<Stack gap={4} class="max-w-md">
 		{#each ["outline", "subtle", "flushed"] as const as variant}
-			<HStack align="center" class="gap-4">
+			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[8ch]">{variant}</Text>
 				<Input {variant} placeholder="Placeholder" class="flex-1" />
 			</HStack>
@@ -75,9 +75,9 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<Stack class="max-w-md gap-4">
+	<Stack gap={4} class="max-w-md">
 		{#each ["xs", "sm", "md", "lg"] as const as size}
-			<HStack align="center" class="gap-4">
+			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
 				<Input {size} placeholder="Placeholder" class="flex-1" />
 			</HStack>
@@ -86,7 +86,7 @@
 {/snippet}
 
 {#snippet leftElementStory()}
-	<HStack class="gap-4 w-full">
+	<HStack gap={4} class="w-full">
 		<InputGroup class="flex-1">
 			<InputElement placement="left">
 				<User class="size-3.5" aria-hidden="true" />
@@ -102,7 +102,7 @@
 {/snippet}
 
 {#snippet leftAndRightElementStory()}
-	<HStack class="gap-4 w-full">
+	<HStack gap={4} class="w-full">
 		<InputGroup class="flex-1">
 			<InputElement placement="left">
 				<MagnifyingGlass class="size-3.5" aria-hidden="true" />
@@ -121,7 +121,7 @@
 {/snippet}
 
 {#snippet withAddonsStory()}
-	<Stack class="max-w-sm gap-4">
+	<Stack gap={4} class="max-w-sm">
 		<Group attached>
 			<InputAddon>https://</InputAddon>
 			<Input placeholder="website.com" class="-ml-px focus-visible:z-1" />
@@ -141,9 +141,9 @@
 {/snippet}
 
 {#snippet coloursStory()}
-	<Stack class="max-w-sm gap-4">
+	<Stack gap={4} class="max-w-sm">
 		{#each colours as colour}
-			<HStack align="center" class="gap-4">
+			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[8ch] capitalize">{colour}</Text>
 				<Input
 					{colour}
