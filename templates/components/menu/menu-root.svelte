@@ -17,7 +17,7 @@
 				"py-1 px-1",
 				"rounded-lg",
 				"bg-bg-overlay backdrop-blur-lg",
-				"border border-border-emphasized",
+				"border border-border-default",
 				"shadow-(--shadow-overlay)",
 				"outline-none",
 			],
