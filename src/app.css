@@ -52,6 +52,9 @@ body {
 	--animate-accordion-down: slide-down var(--durations-moderate) ease-out;
 	--animate-accordion-up: slide-up var(--durations-moderate) ease-out;
 
+	--animate-collapsible-down: collapsible-down 200ms ease-out;
+	--animate-collapsible-up: collapsible-up 200ms ease-out;
+
 	@keyframes fade-in {
 		from {
 			opacity: 0;
@@ -114,6 +117,26 @@ body {
 		}
 		to {
 			height: 0;
+		}
+	}
+	@keyframes collapsible-down {
+		from {
+			height: 0;
+			opacity: 0;
+		}
+		to {
+			height: var(--height);
+			opacity: 1;
+		}
+	}
+	@keyframes collapsible-up {
+		from {
+			height: var(--height);
+			opacity: 1;
+		}
+		to {
+			height: 0;
+			opacity: 0;
 		}
 	}
 	@keyframes toast-slide-in {
