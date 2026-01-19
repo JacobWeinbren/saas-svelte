@@ -1,0 +1,92 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { CloseButton } from "$saas/components/close-button";
+	import { HStack } from "$saas/layout/stack";
+	import { Icon } from "$saas/components/icon";
+	import XCircle from "phosphor-svelte/lib/XCircle";
+	import { commonArgTypes, getControls } from "../utils";
+
+	const { Story } = defineMeta({
+		title: "components/Close Button",
+		component: CloseButton,
+		argTypes: {
+			size: {
+				control: "select",
+				options: ["xs", "sm", "md", "lg", "xl"],
+				description: "The size of the close button.",
+				table: { defaultValue: { summary: "md" } },
+			},
+			variant: {
+				control: "select",
+				options: [
+					"ghost",
+					"outline",
+					"subtle",
+					"solid",
+					"glass",
+					"surface",
+					"plain",
+				],
+				description: "The visual style of the close button.",
+				table: { defaultValue: { summary: "ghost" } },
+			},
+			colour: commonArgTypes.colour,
+			disabled: {
+				control: "boolean",
+				description: "Whether the close button is disabled.",
+			},
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls([
+				"size",
+				"variant",
+				"colour",
+				"disabled",
+				"class",
+			]),
+		},
+		args: {
+			size: "md",
+			variant: "ghost",
+		},
+	});
+</script>
+
+{#snippet basicStory()}
+	<CloseButton />
+{/snippet}
+
+{#snippet sizesStory()}
+	<HStack gap={4} class="flex-wrap items-center">
+		<CloseButton size="xs" variant="outline" />
+		<CloseButton size="sm" variant="outline" />
+		<CloseButton size="md" variant="outline" />
+		<CloseButton size="lg" variant="outline" />
+		<CloseButton size="xl" variant="outline" />
+	</HStack>
+{/snippet}
+
+{#snippet variantsStory()}
+	<HStack gap={2}>
+		<CloseButton variant="ghost" colour="indigo" />
+		<CloseButton variant="outline" colour="indigo" />
+		<CloseButton variant="subtle" colour="indigo" />
+		<CloseButton variant="solid" colour="indigo" />
+		<CloseButton variant="glass" colour="indigo" />
+	</HStack>
+{/snippet}
+
+{#snippet customIconStory()}
+	<CloseButton variant="ghost">
+		<Icon as={XCircle} size="md" />
+	</CloseButton>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="Sizes" template={sizesStory} />
+
+<Story name="Variants" template={variantsStory} />
+
+<Story name="CustomIcon" template={customIconStory} />
