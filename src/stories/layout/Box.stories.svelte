@@ -63,11 +63,11 @@
 	<Box
 		class="max-w-sm border border-border-default rounded-lg overflow-hidden"
 	>
-		<img
-			src="https://bit.ly/2Z4KKcF"
-			alt="Rear view of modern home with pool"
-			class="w-full h-48 object-cover"
-		/>
+		<div
+			class="w-full h-48 bg-bg-subtle dark:bg-bg-emphasized"
+			role="img"
+			aria-label="Property image placeholder"
+		></div>
 		<Box class="p-4 space-y-2">
 			<HStack>
 				<Badge colour="teal" variant="solid">Superhost</Badge>

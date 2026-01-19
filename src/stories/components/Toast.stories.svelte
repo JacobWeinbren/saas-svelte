@@ -1,11 +1,14 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Toast, Toaster, createToaster } from "$saas/components/toast";
+	import {
+		Toast,
+		Toaster,
+		createToaster,
+		type ToastStatus,
+	} from "$saas/components/toast";
 	import { HStack } from "$saas/layout/stack";
 	import { Button } from "$saas/components/button";
 	import { commonArgTypes, getControls } from "../utils";
-
-	type ToastStatus = "info" | "success" | "warning" | "error" | "loading";
 
 	const { Story } = defineMeta({
 		title: "components/Toast",
@@ -85,15 +88,7 @@
 		>
 			Show Toast
 		</Button>
-		<Toaster toaster={basicToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={basicToaster} />
 	</div>
 {/snippet}
 
@@ -152,15 +147,7 @@
 				Loading
 			</Button>
 		</HStack>
-		<Toaster toaster={statusToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={statusToaster} />
 	</div>
 {/snippet}
 
@@ -180,16 +167,7 @@
 		>
 			Show Toast with Action
 		</Button>
-		<Toaster toaster={actionToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-					action={toast().action}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={actionToaster} />
 	</div>
 {/snippet}
 
@@ -227,15 +205,7 @@
 				Persistent
 			</Button>
 		</HStack>
-		<Toaster toaster={durationToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={durationToaster} />
 	</div>
 {/snippet}
 
@@ -250,15 +220,7 @@
 		>
 			Show Top Toast
 		</Button>
-		<Toaster toaster={placementToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={placementToaster} />
 	</div>
 {/snippet}
 
@@ -297,15 +259,7 @@
 				Add 5 Toasts
 			</Button>
 		</HStack>
-		<Toaster toaster={stackingToaster}>
-			{#snippet children(toast)}
-				<Toast
-					title={toast().title}
-					description={toast().description}
-					status={toast().type as ToastStatus}
-				/>
-			{/snippet}
-		</Toaster>
+		<Toaster toaster={stackingToaster} />
 	</div>
 {/snippet}
 

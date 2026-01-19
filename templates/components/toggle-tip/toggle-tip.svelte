@@ -72,7 +72,12 @@
 		 */
 		portalled?: boolean;
 		/**
-		 * The positioning options for the toggle tip.
+		 * Shorthand for positioning.placement.
+		 * @default "top"
+		 */
+		placement?: PopoverRootProps["positioning"]["placement"];
+		/**
+		 * The positioning options for the toggle tip. Overrides placement if both are provided.
 		 */
 		positioning?: PopoverRootProps["positioning"];
 	}
@@ -90,9 +95,14 @@
 		closeOnInteractOutside = true,
 		modal = false,
 		portalled = true,
-		positioning = { placement: "top", gutter: 8, strategy: "absolute" },
+		placement = "top",
+		positioning,
 		...rest
 	}: Props = $props();
+
+	const finalPositioning = $derived(
+		positioning ?? { placement, gutter: 8, strategy: "absolute" as const },
+	);
 
 	const uniqueId = $derived(
 		id || `toggle-tip-${Math.random().toString(36).substring(2, 9)}`,
@@ -125,7 +135,7 @@
 	{closeOnInteractOutside}
 	{modal}
 	{portalled}
-	{positioning}
+	positioning={finalPositioning}
 	{...rest}
 >
 	<ArkPopover.Trigger asChild={children} />

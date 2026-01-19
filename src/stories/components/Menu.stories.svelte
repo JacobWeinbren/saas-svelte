@@ -18,6 +18,7 @@
 	} from "$saas/components/menu";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
+	import { Icon } from "$saas/components/icon";
 	import Scissors from "phosphor-svelte/lib/Scissors";
 	import Copy from "phosphor-svelte/lib/Copy";
 	import ClipboardText from "phosphor-svelte/lib/ClipboardText";
@@ -79,275 +80,299 @@
 </script>
 
 {#snippet basicStory()}
-	<MenuRoot>
-		<MenuButton>Open</MenuButton>
-		<MenuContent>
-			<MenuItem value="new-txt">New Text File</MenuItem>
-			<MenuItem value="new-file">New File...</MenuItem>
-			<MenuItem value="new-win">New Window</MenuItem>
-			<MenuItem value="open-file">Open File...</MenuItem>
-			<MenuItem value="export">Export</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Open</MenuButton>
+			<MenuContent>
+				<MenuItem value="new-txt">New Text File</MenuItem>
+				<MenuItem value="new-file">New File...</MenuItem>
+				<MenuItem value="new-win">New Window</MenuItem>
+				<MenuItem value="open-file">Open File...</MenuItem>
+				<MenuItem value="export">Export</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet sizesStory()}
-	<HStack align="start" gap={8}>
-		{#each sizes as size}
-			<VStack gap={2} class="items-center">
-				<Text size="xs">{size}</Text>
-				<MenuRoot {size}>
-					<MenuButton>Open</MenuButton>
-					<MenuContent>
-						<MenuItem value="new-txt">New Text File</MenuItem>
-						<MenuItem value="new-file">New File...</MenuItem>
-						<MenuItem value="new-win">New Window</MenuItem>
-						<MenuItem value="open-file">Open File...</MenuItem>
-						<MenuItem value="export">Export</MenuItem>
-					</MenuContent>
-				</MenuRoot>
-			</VStack>
-		{/each}
-	</HStack>
+	<div class="min-h-64">
+		<HStack align="start" gap={8}>
+			{#each sizes as size}
+				<VStack gap={2} class="items-center">
+					<Text size="xs">{size}</Text>
+					<MenuRoot {size}>
+						<MenuButton>Open</MenuButton>
+						<MenuContent>
+							<MenuItem value="new-txt">New Text File</MenuItem>
+							<MenuItem value="new-file">New File...</MenuItem>
+							<MenuItem value="new-win">New Window</MenuItem>
+							<MenuItem value="open-file">Open File...</MenuItem>
+							<MenuItem value="export">Export</MenuItem>
+						</MenuContent>
+					</MenuRoot>
+				</VStack>
+			{/each}
+		</HStack>
+	</div>
 {/snippet}
 
 {#snippet commandStory()}
-	<MenuRoot>
-		<MenuButton>Open</MenuButton>
-		<MenuContent>
-			<MenuItem value="new-txt">
-				New Text File <MenuItemCommand>⌘E</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="new-file">
-				New File... <MenuItemCommand>⌘N</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="new-win">
-				New Window <MenuItemCommand>⌘⇧N</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="open-file">
-				Open File... <MenuItemCommand>⌘O</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="export">
-				Export <MenuItemCommand>⌘S</MenuItemCommand>
-			</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Open</MenuButton>
+			<MenuContent>
+				<MenuItem value="new-txt">
+					New Text File <MenuItemCommand>⌘E</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="new-file">
+					New File... <MenuItemCommand>⌘N</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="new-win">
+					New Window <MenuItemCommand>⌘⇧N</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="open-file">
+					Open File... <MenuItemCommand>⌘O</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="export">
+					Export <MenuItemCommand>⌘S</MenuItemCommand>
+				</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet contextMenuStory()}
-	<MenuRoot>
-		<MenuContextTrigger>
-			<div
-				class="flex items-center justify-center w-64 h-32 border-2 border-dashed border-border-default rounded-(--radii-l2) text-fg-muted select-none"
-			>
-				Right click here
-			</div>
-		</MenuContextTrigger>
-		<MenuContent>
-			<MenuItem value="new-txt">New Text File</MenuItem>
-			<MenuItem value="new-file">New File...</MenuItem>
-			<MenuItem value="new-win">New Window</MenuItem>
-			<MenuItem value="open-file">Open File...</MenuItem>
-			<MenuItem value="export">Export</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuContextTrigger>
+				<div
+					class="flex items-center justify-center w-64 h-32 border-2 border-dashed border-border-default rounded-(--radii-l2) text-fg-muted select-none"
+				>
+					Right click here
+				</div>
+			</MenuContextTrigger>
+			<MenuContent>
+				<MenuItem value="new-txt">New Text File</MenuItem>
+				<MenuItem value="new-file">New File...</MenuItem>
+				<MenuItem value="new-win">New Window</MenuItem>
+				<MenuItem value="open-file">Open File...</MenuItem>
+				<MenuItem value="export">Export</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet groupStory()}
-	<MenuRoot>
-		<MenuButton>Edit</MenuButton>
-		<MenuContent>
-			<MenuItemGroup title="Styles">
-				<MenuItem value="bold">Bold</MenuItem>
-				<MenuItem value="underline">Underline</MenuItem>
-			</MenuItemGroup>
-			<MenuSeparator />
-			<MenuItemGroup title="Align">
-				<MenuItem value="left">Left</MenuItem>
-				<MenuItem value="middle">Middle</MenuItem>
-				<MenuItem value="right">Right</MenuItem>
-			</MenuItemGroup>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Edit</MenuButton>
+			<MenuContent>
+				<MenuItemGroup title="Styles">
+					<MenuItem value="bold">Bold</MenuItem>
+					<MenuItem value="underline">Underline</MenuItem>
+				</MenuItemGroup>
+				<MenuSeparator />
+				<MenuItemGroup title="Align">
+					<MenuItem value="left">Left</MenuItem>
+					<MenuItem value="middle">Middle</MenuItem>
+					<MenuItem value="right">Right</MenuItem>
+				</MenuItemGroup>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet submenuStory()}
-	<MenuRoot>
-		<MenuButton>Open</MenuButton>
-		<MenuContent>
-			<MenuItem value="new-txt">New Text File</MenuItem>
-			<MenuItem value="new-file">New File...</MenuItem>
-			<MenuRoot positioning={{ placement: "right-start", gutter: -4 }}>
-				<MenuTriggerItem value="open-recent"
-					>Open Recent</MenuTriggerItem
-				>
-				<MenuContent>
-					<MenuItem value="panda">Panda</MenuItem>
-					<MenuItem value="ark">Ark UI</MenuItem>
-					<MenuItem value="chakra">Chakra v3</MenuItem>
-				</MenuContent>
-			</MenuRoot>
-			<MenuItem value="open-file">Open File...</MenuItem>
-			<MenuItem value="export">Export</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Open</MenuButton>
+			<MenuContent>
+				<MenuItem value="new-txt">New Text File</MenuItem>
+				<MenuItem value="new-file">New File...</MenuItem>
+				<MenuRoot positioning={{ placement: "right-start", gutter: -4 }}>
+					<MenuTriggerItem value="open-recent"
+						>Open Recent</MenuTriggerItem
+					>
+					<MenuContent>
+						<MenuItem value="panda">Panda</MenuItem>
+						<MenuItem value="ark">Ark UI</MenuItem>
+						<MenuItem value="chakra">Chakra v3</MenuItem>
+					</MenuContent>
+				</MenuRoot>
+				<MenuItem value="open-file">Open File...</MenuItem>
+				<MenuItem value="export">Export</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet linksStory()}
-	<MenuRoot>
-		<MenuButton>Select Anime</MenuButton>
-		<MenuContent>
-			<MenuItemLink
-				value="naruto"
-				href="https://www.crunchyroll.com/naruto"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Naruto
-			</MenuItemLink>
-			<MenuItemLink
-				value="one-piece"
-				href="https://www.crunchyroll.com/one-piece"
-				target="_blank"
-				rel="noreferrer"
-			>
-				One Piece
-			</MenuItemLink>
-			<MenuItemLink
-				value="attack-on-titan"
-				href="https://www.crunchyroll.com/attack-on-titan"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Attack on Titan
-			</MenuItemLink>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Select Anime</MenuButton>
+			<MenuContent>
+				<MenuItemLink
+					value="naruto"
+					href="https://www.crunchyroll.com/naruto"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Naruto
+				</MenuItemLink>
+				<MenuItemLink
+					value="one-piece"
+					href="https://www.crunchyroll.com/one-piece"
+					target="_blank"
+					rel="noreferrer"
+				>
+					One Piece
+				</MenuItemLink>
+				<MenuItemLink
+					value="attack-on-titan"
+					href="https://www.crunchyroll.com/attack-on-titan"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Attack on Titan
+				</MenuItemLink>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet radioStory()}
-	<MenuRoot>
-		<MenuButton>
-			<SortAscending class="w-4 h-4" aria-hidden="true" /> Sort
-		</MenuButton>
-		<MenuContent>
-			<MenuRadioItemGroup value="asc">
-				<MenuRadioItem value="asc">
-					{#snippet startElement()}
-						<MenuItemIndicator />
-					{/snippet}
-					Ascending
-				</MenuRadioItem>
-				<MenuRadioItem value="desc">
-					{#snippet startElement()}
-						<MenuItemIndicator />
-					{/snippet}
-					Descending
-				</MenuRadioItem>
-			</MenuRadioItemGroup>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>
+				<Icon as={SortAscending} size="sm" /> Sort
+			</MenuButton>
+			<MenuContent>
+				<MenuRadioItemGroup value="asc">
+					<MenuRadioItem value="asc">
+						{#snippet startElement()}
+							<MenuItemIndicator />
+						{/snippet}
+						Ascending
+					</MenuRadioItem>
+					<MenuRadioItem value="desc">
+						{#snippet startElement()}
+							<MenuItemIndicator />
+						{/snippet}
+						Descending
+					</MenuRadioItem>
+				</MenuRadioItemGroup>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet checkboxStory()}
-	<MenuRoot closeOnSelect={false}>
-		<MenuButton>
-			<Funnel class="w-4 h-4" aria-hidden="true" /> Status
-		</MenuButton>
-		<MenuContent>
-			<MenuCheckboxItem checked={false} value="open">
-				{#snippet startElement()}
-					<MenuItemIndicator />
-				{/snippet}
-				Open
-			</MenuCheckboxItem>
-			<MenuCheckboxItem checked={true} value="closed">
-				{#snippet startElement()}
-					<MenuItemIndicator />
-				{/snippet}
-				Closed
-			</MenuCheckboxItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot closeOnSelect={false}>
+			<MenuButton>
+				<Icon as={Funnel} size="sm" /> Status
+			</MenuButton>
+			<MenuContent>
+				<MenuCheckboxItem checked={false} value="open">
+					{#snippet startElement()}
+						<MenuItemIndicator />
+					{/snippet}
+					Open
+				</MenuCheckboxItem>
+				<MenuCheckboxItem checked={true} value="closed">
+					{#snippet startElement()}
+						<MenuItemIndicator />
+					{/snippet}
+					Closed
+				</MenuCheckboxItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet iconAndCommandStory()}
-	<MenuRoot>
-		<MenuButton>Edit</MenuButton>
-		<MenuContent>
-			<MenuItem value="cut" valueText="cut">
-				<Scissors class="w-3.5 h-3.5" aria-hidden="true" />
-				<span class="flex-1">Cut</span>
-				<MenuItemCommand>⌘X</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="copy" valueText="copy">
-				<Copy class="w-3.5 h-3.5" aria-hidden="true" />
-				<span class="flex-1">Copy</span>
-				<MenuItemCommand>⌘C</MenuItemCommand>
-			</MenuItem>
-			<MenuItem value="paste" valueText="paste">
-				<ClipboardText class="w-3.5 h-3.5" aria-hidden="true" />
-				<span class="flex-1">Paste</span>
-				<MenuItemCommand>⌘V</MenuItemCommand>
-			</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Edit</MenuButton>
+			<MenuContent>
+				<MenuItem value="cut" valueText="cut">
+					<Icon as={Scissors} size="xs" />
+					<span class="flex-1">Cut</span>
+					<MenuItemCommand>⌘X</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="copy" valueText="copy">
+					<Icon as={Copy} size="xs" />
+					<span class="flex-1">Copy</span>
+					<MenuItemCommand>⌘C</MenuItemCommand>
+				</MenuItem>
+				<MenuItem value="paste" valueText="paste">
+					<Icon as={ClipboardText} size="xs" />
+					<span class="flex-1">Paste</span>
+					<MenuItemCommand>⌘V</MenuItemCommand>
+				</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet placementStory()}
-	<MenuRoot positioning={{ placement: "right-start" }}>
-		<MenuButton>Open</MenuButton>
-		<MenuContent>
-			<MenuItem value="new-txt">New Text File</MenuItem>
-			<MenuItem value="new-file">New File...</MenuItem>
-			<MenuItem value="new-win">New Window</MenuItem>
-			<MenuItem value="open-file">Open File...</MenuItem>
-			<MenuItem value="export">Export</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+	<div class="min-h-64">
+		<MenuRoot positioning={{ placement: "right-start" }}>
+			<MenuButton>Open</MenuButton>
+			<MenuContent>
+				<MenuItem value="new-txt">New Text File</MenuItem>
+				<MenuItem value="new-file">New File...</MenuItem>
+				<MenuItem value="new-win">New Window</MenuItem>
+				<MenuItem value="open-file">Open File...</MenuItem>
+				<MenuItem value="export">Export</MenuItem>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 {#snippet mixedLayoutStory()}
-	<MenuRoot>
-		<MenuButton>Open</MenuButton>
-		<MenuContent>
-			<div class="flex grow gap-0">
-				<MenuItem
-					value="cut"
-					class="w-14 gap-1 flex-col justify-center"
-				>
-					<Scissors class="w-3.5 h-3.5" aria-hidden="true" />
-					Cut
+	<div class="min-h-64">
+		<MenuRoot>
+			<MenuButton>Open</MenuButton>
+			<MenuContent>
+				<div class="flex grow gap-0">
+					<MenuItem
+						value="cut"
+						class="w-14 gap-1 flex-col justify-center"
+					>
+						<Icon as={Scissors} size="xs" />
+						Cut
+					</MenuItem>
+					<MenuItem
+						value="copy"
+						class="w-14 gap-1 flex-col justify-center"
+					>
+						<Icon as={Copy} size="xs" />
+						Copy
+					</MenuItem>
+					<MenuItem
+						value="paste"
+						class="w-14 gap-1 flex-col justify-center"
+					>
+						<Icon as={ClipboardText} size="xs" />
+						Paste
+					</MenuItem>
+				</div>
+				<MenuItem value="look-up">
+					<span class="flex-1">Look Up</span>
+					<Icon as={MagnifyingGlass} size="xs" />
 				</MenuItem>
-				<MenuItem
-					value="copy"
-					class="w-14 gap-1 flex-col justify-center"
-				>
-					<Copy class="w-3.5 h-3.5" aria-hidden="true" />
-					Copy
+				<MenuItem value="translate">
+					<span class="flex-1">Translate</span>
+					<Icon as={Translate} size="xs" />
 				</MenuItem>
-				<MenuItem
-					value="paste"
-					class="w-14 gap-1 flex-col justify-center"
-				>
-					<ClipboardText class="w-3.5 h-3.5" aria-hidden="true" />
-					Paste
+				<MenuItem value="share">
+					<span class="flex-1">Share</span>
+					<Icon as={ShareNetwork} size="xs" />
 				</MenuItem>
-			</div>
-			<MenuItem value="look-up">
-				<span class="flex-1">Look Up</span>
-				<MagnifyingGlass class="w-3.5 h-3.5" aria-hidden="true" />
-			</MenuItem>
-			<MenuItem value="translate">
-				<span class="flex-1">Translate</span>
-				<Translate class="w-3.5 h-3.5" aria-hidden="true" />
-			</MenuItem>
-			<MenuItem value="share">
-				<span class="flex-1">Share</span>
-				<ShareNetwork class="w-3.5 h-3.5" aria-hidden="true" />
-			</MenuItem>
-		</MenuContent>
-	</MenuRoot>
+			</MenuContent>
+		</MenuRoot>
+	</div>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

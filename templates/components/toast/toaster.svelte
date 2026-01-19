@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { Toaster as ArkToaster, type CreateToasterReturn } from "@ark-ui/svelte/toast";
+	import {
+		Toaster as ArkToaster,
+		type CreateToasterReturn,
+	} from "@ark-ui/svelte/toast";
 	import type { Snippet } from "svelte";
+	import Toast, { type ToastStatus } from "./toast.svelte";
 
 	interface Props {
 		/**
@@ -12,7 +16,7 @@
 		 */
 		class?: string;
 		/**
-		 * The content to render for each toast.
+		 * The content to render for each toast. If not provided, renders a default Toast.
 		 */
 		children?: Snippet<[() => any]>;
 		[key: string]: any;
@@ -23,6 +27,15 @@
 
 <ArkToaster {toaster} class={className} {...restProps}>
 	{#snippet children(toast)}
-		{@render children?.(toast)}
+		{#if children}
+			{@render children(toast)}
+		{:else}
+			<Toast
+				title={toast().title}
+				description={toast().description}
+				status={toast().type as ToastStatus}
+				action={toast().action}
+			/>
+		{/if}
 	{/snippet}
 </ArkToaster>

@@ -104,13 +104,9 @@
 
 {#snippet fallbackStory()}
 	<Stack gap={4} class="flex-row items-center">
-		<Avatar name="Oshigaki Kisame" src="https://bit.ly/broken-link" />
-		<Avatar
-			name="Sasuke Uchiha"
-			src="https://bit.ly/broken-link"
-			colour="teal"
-		/>
-		<Avatar src="https://bit.ly/broken-link" colour="red" />
+		<Avatar name="Oshigaki Kisame" />
+		<Avatar name="Sasuke Uchiha" colour="teal" />
+		<Avatar colour="red" />
 	</Stack>
 {/snippet}
 

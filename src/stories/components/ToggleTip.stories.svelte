@@ -58,28 +58,16 @@
 {#snippet positioningStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
-			<ToggleTip
-				content="Top placement"
-				positioning={{ placement: "top" }}
-			>
+			<ToggleTip content="Top placement" placement="top">
 				<Button variant="outline" size="sm">Top</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Right placement"
-				positioning={{ placement: "right" }}
-			>
+			<ToggleTip content="Right placement" placement="right">
 				<Button variant="outline" size="sm">Right</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Bottom placement"
-				positioning={{ placement: "bottom" }}
-			>
+			<ToggleTip content="Bottom placement" placement="bottom">
 				<Button variant="outline" size="sm">Bottom</Button>
 			</ToggleTip>
-			<ToggleTip
-				content="Left placement"
-				positioning={{ placement: "left" }}
-			>
+			<ToggleTip content="Left placement" placement="left">
 				<Button variant="outline" size="sm">Left</Button>
 			</ToggleTip>
 		</HStack>

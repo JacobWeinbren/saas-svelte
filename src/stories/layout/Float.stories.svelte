@@ -137,12 +137,7 @@
 
 {#snippet avatarStory()}
 	<Box class="relative inline-block">
-		<Avatar
-			size="lg"
-			shape="rounded"
-			src="https://bit.ly/dan-abramov"
-			name="Dan Abramov"
-		/>
+		<Avatar size="lg" shape="rounded" src="/avatars/1.png" name="David Wilson" />
 		<Float placement="bottom-end">
 			<Badge size="sm" variant="solid" colour="teal">New</Badge>
 		</Float>

@@ -87,6 +87,7 @@
 	});
 
 	export type ToastVariants = VariantProps<typeof toast>;
+	export type ToastStatus = "info" | "success" | "warning" | "error" | "loading";
 </script>
 
 <script lang="ts">
@@ -98,11 +99,9 @@
 	import X from "phosphor-svelte/lib/X";
 	import { Icon } from "$saas/components/icon";
 
-	type Status = "info" | "success" | "warning" | "error" | "loading";
-
 	interface Props {
 		class?: string;
-		status?: Status;
+		status?: ToastStatus;
 		icon?: boolean | Component<any>;
 		title?: string;
 		description?: string;
@@ -126,7 +125,7 @@
 		...restProps
 	}: Props = $props();
 
-	const ICONS: Record<Status, Component<any> | null> = {
+	const ICONS: Record<ToastStatus, Component<any> | null> = {
 		info: null,
 		success: CheckCircle,
 		warning: WarningCircle,
