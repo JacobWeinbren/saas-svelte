@@ -35,16 +35,17 @@
 			},
 		},
 		compoundVariants: [
-			// Subtle - always transparent border (no visible box)
+			// Subtle unchecked - gray border
 			{
 				variant: "subtle",
-				class: "border-transparent",
+				checked: false,
+				class: "border-border-emphasized text-white",
 			},
-			// Subtle - checked: colored checkmark
+			// Subtle - checked: solid background
 			{
 				variant: "subtle",
 				checked: true,
-				class: "text-(--c-fg)",
+				class: "text-white bg-(--c-solid) border-(--c-solid)",
 			},
 			// Surface/Outline unchecked - gray border
 			{
