@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as FormStories from "./Form.stories.svelte";
+import { Form } from "$saas/components/form";
+
+<Meta of={FormStories} />
+
+# Form
+
+## Build type-safe forms with Zod validation.
+
+<Canvas of={FormStories.Basic} />
+
+## Anatomy
+
+```svelte
+<script>
+	import { useForm, Form, FormField, SubmitButton } from "$saas/components/form";
+	import { z } from "zod";
+
+	const form = useForm({
+		schema: z.object({ name: z.string().min(1) }),
+		defaultValues: { name: "" },
+		onSubmit: (values) => console.log(values),
+	});
+</script>
+
+<Form {form}>
+	<FormField name="name" label="Name" />
+	<SubmitButton>Submit</SubmitButton>
+</Form>
+```
+
+## Examples
+
+### Validation
+
+Use Zod schemas for type-safe validation. Errors display automatically.
+
+<Canvas of={FormStories.WithValidation} />
+
+### Field Types
+
+Built-in support for text, email, password, number, textarea, select, and checkbox.
+
+<Canvas of={FormStories.FieldTypes} />
+
+### Conditional Fields
+
+Use `DisplayIf` to show fields based on other values.
+
+<Canvas of={FormStories.ConditionalFields} />
+
+### Submit Options
+
+Control button state with `disableIfUntouched` and `disableIfInvalid`.
+
+<Canvas of={FormStories.SubmitOptions} />
+
+## Props
+
+<ArgTypes of={Form} />

@@ -1,0 +1,107 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Form, FormField, SubmitButton, DisplayIf, useForm } from "$saas/components/form";
+	import { VStack, HStack } from "$saas/layout/stack";
+	import { commonArgTypes, getControls } from "../utils";
+
+	const { Story } = defineMeta({
+		title: "components/Form",
+		component: Form,
+		argTypes: { children: commonArgTypes.children, class: commonArgTypes.class },
+		parameters: { controls: getControls(["children", "class"]) },
+	});
+</script>
+
+<script lang="ts">
+	import { z } from "zod";
+
+	const basicForm = useForm({
+		defaultValues: { name: "" },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	});
+
+	const validationForm = useForm({
+		schema: z.object({ name: z.string().min(1, "Name is required"), email: z.string().email("Invalid email") }),
+		defaultValues: { name: "", email: "" },
+		onSubmit: async (values) => { await new Promise((r) => setTimeout(r, 1500)); alert(JSON.stringify(values, null, 2)); },
+	});
+
+	const fieldTypesForm = useForm({
+		defaultValues: { text: "", email: "", password: "", number: 0, textarea: "", select: "" },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	});
+
+	const conditionalForm = useForm({
+		schema: z.object({ name: z.string().min(1, "Required"), showAge: z.boolean(), age: z.number().optional() }),
+		defaultValues: { name: "", showAge: false, age: 0 },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	});
+
+	const selectOptions = [{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }, { label: "Option 3", value: "3" }];
+</script>
+
+{#snippet basicStory()}
+	<Form form={basicForm} class="w-full max-w-sm">
+		<VStack gap={4}>
+			<FormField name="name" label="Name" placeholder="Enter your name" />
+			<SubmitButton>Submit</SubmitButton>
+		</VStack>
+	</Form>
+{/snippet}
+
+{#snippet validationStory()}
+	<Form form={validationForm} class="w-full max-w-sm">
+		<VStack gap={4}>
+			<FormField name="name" label="Name" placeholder="Enter your name" required />
+			<FormField name="email" type="email" label="Email" placeholder="email@example.com" required />
+			<SubmitButton loadingText="Submitting...">Submit</SubmitButton>
+		</VStack>
+	</Form>
+{/snippet}
+
+{#snippet fieldTypesStory()}
+	<Form form={fieldTypesForm} class="w-full max-w-sm">
+		<VStack gap={4}>
+			<FormField name="text" label="Text" placeholder="Text input" />
+			<FormField name="email" type="email" label="Email" placeholder="email@example.com" />
+			<FormField name="password" type="password" label="Password" placeholder="Password" />
+			<FormField name="number" type="number" label="Number" />
+			<FormField name="textarea" type="textarea" label="Textarea" placeholder="Description..." />
+			<FormField name="select" type="select" label="Select" placeholder="Choose..." options={selectOptions} />
+			<SubmitButton>Submit</SubmitButton>
+		</VStack>
+	</Form>
+{/snippet}
+
+{#snippet conditionalStory()}
+	<Form form={conditionalForm} class="w-full max-w-sm">
+		<VStack gap={4}>
+			<FormField name="name" label="Name" required />
+			<FormField name="showAge" type="checkbox" label="Show age field" />
+			<DisplayIf name="showAge" condition={(v) => v === true}>
+				<FormField name="age" type="number" label="Age" />
+			</DisplayIf>
+			<SubmitButton>Submit</SubmitButton>
+		</VStack>
+	</Form>
+{/snippet}
+
+{#snippet submitOptionsStory()}
+	<Form form={validationForm} class="w-full max-w-sm">
+		<VStack gap={4}>
+			<FormField name="name" label="Name" required />
+			<FormField name="email" type="email" label="Email" required />
+			<HStack gap={2} class="flex-wrap">
+				<SubmitButton>Default</SubmitButton>
+				<SubmitButton disableIfUntouched variant="outline">Disable if untouched</SubmitButton>
+				<SubmitButton disableIfInvalid variant="subtle">Disable if invalid</SubmitButton>
+			</HStack>
+		</VStack>
+	</Form>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+<Story name="WithValidation" template={validationStory} />
+<Story name="FieldTypes" template={fieldTypesStory} />
+<Story name="ConditionalFields" template={conditionalStory} />
+<Story name="SubmitOptions" template={submitOptionsStory} />
