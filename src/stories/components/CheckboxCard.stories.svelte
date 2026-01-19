@@ -95,7 +95,9 @@
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Next.js</CheckboxCard.Label>
-				<CheckboxCard.Description>Best for apps</CheckboxCard.Description>
+				<CheckboxCard.Description
+					>Best for apps</CheckboxCard.Description
+				>
 			</CheckboxCard.Content>
 			<CheckboxCard.Indicator />
 		</CheckboxCard.Control>
@@ -207,7 +209,7 @@
 	<HStack gap={1.5} class="flex-wrap items-start">
 		{#each roleItems as item}
 			<CheckboxCard.Root
-				class="w-[300px] flex-none"
+				class="w-[200px] flex-none"
 				checked={roleValue.includes(item.label)}
 				onCheckedChange={({ checked }) => {
 					if (checked) {
@@ -219,7 +221,12 @@
 			>
 				<CheckboxCard.Control align="center">
 					<CheckboxCard.Content align="center">
-						<Icon as={item.icon} size="md" weight="fill" class="mb-2" />
+						<Icon
+							as={item.icon}
+							size="md"
+							weight="fill"
+							class="mb-2"
+						/>
 						<CheckboxCard.Label>{item.label}</CheckboxCard.Label>
 						<CheckboxCard.Description>
 							{item.description}

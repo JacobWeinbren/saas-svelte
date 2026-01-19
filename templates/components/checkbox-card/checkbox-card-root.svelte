@@ -37,17 +37,17 @@
 				checked: true,
 				class: "text-(--c-fg) bg-(--c-muted)",
 			},
-			// Surface - checked: lighter colored background with light border, border-2 with -m-px to prevent shift
+			// Surface - checked: lighter colored background with colored border + inset shadow for 2px effect
 			{
 				variant: "surface",
 				checked: true,
-				class: "text-(--c-fg) bg-(--c-subtle) border-2 border-(--c-subtle) -m-px",
+				class: "text-(--c-fg) bg-(--c-subtle) border-(--c-subtle) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 			},
-			// Outline - checked: just colored border, no background fill, border-2 with -m-px to prevent shift
+			// Outline - checked: just colored border, no background fill + inset shadow for 2px effect
 			{
 				variant: "outline",
 				checked: true,
-				class: "shadow border-2 border-(--c-solid) -m-px",
+				class: "shadow-[inset_0_0_0_1px_var(--c-solid)] border-(--c-solid)",
 			},
 			// Disabled states
 			{
