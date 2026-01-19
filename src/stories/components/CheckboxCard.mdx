@@ -21,7 +21,7 @@ Used to select or deselect options displayed within cards.
 
 ## Anatomy
 
-```svelte
+```tsx
 <script>
 	import { CheckboxCard } from "$saas/components/checkbox-card";
 </script>
@@ -95,7 +95,10 @@ Render custom icons within the checkbox card for visual identification.
 
 ### Description
 
-<ArgTypes of={CheckboxCard.Description} exclude={checkboxCardDescriptionPattern} />
+<ArgTypes
+	of={CheckboxCard.Description}
+	exclude={checkboxCardDescriptionPattern}
+/>
 
 ### Addon
 

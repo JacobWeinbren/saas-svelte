@@ -1,6 +1,11 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as FormStories from "./Form.stories.svelte";
-import { Form, FormField, SubmitButton, DisplayIf } from "$saas/components/form";
+import {
+	Form,
+	FormField,
+	SubmitButton,
+	DisplayIf,
+} from "$saas/components/form";
 import {
 	formPattern,
 	formFieldPattern,
@@ -18,7 +23,7 @@ import {
 
 ## Anatomy
 
-```svelte
+```tsx
 <script>
 	import { useForm, Form, FormField, SubmitButton } from "$saas/components/form";
 	import { z } from "zod";
