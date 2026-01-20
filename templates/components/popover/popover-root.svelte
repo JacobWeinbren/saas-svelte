@@ -5,7 +5,7 @@
 
 	export const popover = tv({
 		slots: {
-			positioner: ["absolute", "isolate", "min-w-max", "z-popover"],
+			positioner: ["absolute", "isolate", "min-w-max", "z-popover", "has-data-nested:min-w-0", "has-data-nested:w-full"],
 			content: [
 				"flex flex-col relative",
 				"rounded-l2",
@@ -18,6 +18,7 @@
 				"pointer-events-auto",
 				"text-sm leading-sm",
 				"data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out",
+				"data-nested:max-w-none",
 			],
 			arrow: ["[--arrow-size:var(--spacing-3)]", "[--arrow-background:var(--color-bg-panel)]"],
 			arrowTip: ["border-l border-t", "border-border-subtle"],
@@ -36,8 +37,10 @@
 				"size-6 rounded-l1",
 				"text-fg-muted hover:text-fg-default",
 				"hover:bg-bg-subtle",
-				"transition-colors duration-moderate",
+				"transition-[color,background-color] duration-moderate",
 				"cursor-pointer",
+				"outline-none",
+				"focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-fg-muted focus-visible:outline-offset-2",
 			],
 		},
 		variants: {
@@ -78,6 +81,7 @@
 	export interface PopoverContext {
 		size: PopoverVariants["size"];
 		styles: ReturnType<typeof popover>;
+		portalled: boolean;
 	}
 </script>
 
@@ -183,6 +187,9 @@
 		},
 		get styles() {
 			return styles;
+		},
+		get portalled() {
+			return portalled;
 		},
 	};
 

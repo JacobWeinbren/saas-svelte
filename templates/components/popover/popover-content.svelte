@@ -21,11 +21,19 @@
 	const ctx = getContext<PopoverContext>(POPOVER_CTX);
 </script>
 
-<Portal>
+{#if ctx?.portalled !== false}
+	<Portal>
+		<Popover.Positioner class={ctx?.styles?.positioner()}>
+			<Popover.Content class={ctx?.styles?.content({ class: className })} {...rest}>
+				{@render children()}
+			</Popover.Content>
+		</Popover.Positioner>
+	</Portal>
+{:else}
 	<Popover.Positioner class={ctx?.styles?.positioner()}>
 		<Popover.Content class={ctx?.styles?.content({ class: className })} {...rest}>
 			{@render children()}
 		</Popover.Content>
 	</Popover.Positioner>
-</Portal>
+{/if}
 

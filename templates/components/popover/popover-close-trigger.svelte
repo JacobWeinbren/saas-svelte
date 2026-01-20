@@ -26,14 +26,20 @@
 	const ctx = getContext<PopoverContext>(POPOVER_CTX);
 </script>
 
-<Popover.CloseTrigger
-	class={ctx?.styles?.closeTrigger({ class: className })}
-	aria-label={ariaLabel}
-	{...rest}
->
-	{#if children}
-		{@render children()}
-	{:else}
+{#if children}
+	<Popover.CloseTrigger aria-label={ariaLabel} {...rest}>
+		{#snippet asChild(props)}
+			<span {...props()}>
+				{@render children()}
+			</span>
+		{/snippet}
+	</Popover.CloseTrigger>
+{:else}
+	<Popover.CloseTrigger
+		class={ctx?.styles?.closeTrigger({ class: className })}
+		aria-label={ariaLabel}
+		{...rest}
+	>
 		<X class="size-4" />
-	{/if}
-</Popover.CloseTrigger>
+	</Popover.CloseTrigger>
+{/if}

@@ -5,6 +5,7 @@
 	import { Button } from "$saas/components/button";
 	import { Field } from "$saas/components/field";
 	import { Icon } from "$saas/components/icon";
+	import { Popover } from "$saas/components/popover";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import Code from "phosphor-svelte/lib/Code";
 	import { commonArgTypes, getControls } from "../utils";
@@ -638,5 +639,31 @@
 <Story
 	name="Links"
 	template={linksStory}
+	parameters={{ docs: { story: { inline: true } } }}
+/>
+
+{#snippet inPopoverStory()}
+	<Popover.Root>
+		<Popover.Trigger>
+			<Button variant="outline" size="sm">Select framework</Button>
+		</Popover.Trigger>
+		<Popover.Content>
+			<Popover.Header>
+				<Popover.Title>Select framework</Popover.Title>
+			</Popover.Header>
+			<Popover.Body>
+				<Combobox
+					items={frameworks}
+					placeholder="Type to search"
+					openOnClick
+				/>
+			</Popover.Body>
+		</Popover.Content>
+	</Popover.Root>
+{/snippet}
+
+<Story
+	name="InPopover"
+	template={inPopoverStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />

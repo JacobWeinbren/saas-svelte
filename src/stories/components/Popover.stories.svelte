@@ -26,7 +26,8 @@
 			},
 			autoFocus: {
 				control: "boolean",
-				description: "Whether to auto-focus the first focusable element.",
+				description:
+					"Whether to auto-focus the first focusable element.",
 				table: { defaultValue: { summary: "true" } },
 			},
 			closeOnEscape: {
@@ -90,8 +91,8 @@
 			<Popover.Body>
 				<Popover.Title>Naruto Form</Popover.Title>
 				<Text size="sm" class="my-4">
-					Naruto is a Japanese manga series written and illustrated by Masashi
-					Kishimoto.
+					Naruto is a Japanese manga series written and illustrated by
+					Masashi Kishimoto.
 				</Text>
 				<Input placeholder="Your fav. character" size="sm" />
 			</Popover.Body>
@@ -128,7 +129,8 @@
 					<Popover.Body>
 						<Popover.Title>Naruto Form</Popover.Title>
 						<Text size="sm" class="my-4">
-							Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
+							Naruto is a Japanese manga series written and
+							illustrated by Masashi Kishimoto.
 						</Text>
 						<Input placeholder="Your fav. character" {size} />
 					</Popover.Body>
@@ -148,7 +150,8 @@
 			<Popover.Body>
 				<Popover.Title>Lazy Mounted</Popover.Title>
 				<Text size="sm" class="my-4">
-					This popover content is lazily mounted and unmounts when closed.
+					This popover content is lazily mounted and unmounts when
+					closed.
 				</Text>
 			</Popover.Body>
 		</Popover.Content>
@@ -170,13 +173,13 @@
 {/snippet}
 
 {#snippet offsetStory()}
-	<Popover.Root positioning={{ offset: { crossAxis: 0, mainAxis: 0 } }} open>
+	<Popover.Root positioning={{ offset: { crossAxis: 0, mainAxis: 7 } }}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Open</Button>
+			<Button variant="outline" size="sm">Click me</Button>
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Body>
-				This popover has no offset from the trigger.
+				This popover has a custom offset from the trigger.
 			</Popover.Body>
 		</Popover.Content>
 	</Popover.Root>
@@ -185,7 +188,9 @@
 {#snippet sameWidthStory()}
 	<Popover.Root positioning={{ sameWidth: true }}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm" class="min-w-xs">Click me</Button>
+			<Button variant="outline" size="sm" class="min-w-xs"
+				>Click me</Button
+			>
 		</Popover.Trigger>
 		<Popover.Content class="w-auto!">
 			<Popover.Arrow />
@@ -205,12 +210,15 @@
 			<Popover.Arrow />
 			<Popover.Body>
 				<Text size="sm" class="mb-4">
-					Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto.
+					Naruto is a Japanese manga series written and illustrated by
+					Masashi Kishimoto.
 				</Text>
 
-				<Popover.Root>
+				<Popover.Root portalled={false} positioning={{ placement: "bottom" }}>
 					<Popover.Trigger>
-						<Button variant="outline" size="xs">Open Nested Popover</Button>
+						<Button variant="outline" size="xs"
+							>Open Nested Popover</Button
+						>
 					</Popover.Trigger>
 					<Popover.Content>
 						<Popover.Arrow />
@@ -236,7 +244,11 @@
 				<Text size="sm" class="mb-4">
 					The input below will be focused when the popover opens.
 				</Text>
-				<Input bind:ref={inputRef} placeholder="I get focused" size="sm" />
+				<Input
+					bind:ref={inputRef}
+					placeholder="I get focused"
+					size="sm"
+				/>
 			</Popover.Body>
 			<Popover.Footer>
 				<Box class="text-sm flex-1">Step 2 of 4</Box>
@@ -251,11 +263,11 @@
 {/snippet}
 
 {#snippet formStory()}
-	<Popover.Root>
+	<Popover.Root size="lg">
 		<Popover.Trigger>
 			<Button variant="outline" size="sm">Click me</Button>
 		</Popover.Trigger>
-		<Popover.Content>
+		<Popover.Content class="rounded-xl" style="width: 320px;">
 			<Popover.Arrow />
 			<Popover.Body>
 				<VStack gap={4}>
@@ -290,7 +302,8 @@
 			<Popover.Arrow />
 			<Popover.Body>
 				<Text size="sm">
-					Are you sure you want to delete this item? This action cannot be undone.
+					Are you sure you want to delete this item? This action
+					cannot be undone.
 				</Text>
 			</Popover.Body>
 			<Popover.Footer>
