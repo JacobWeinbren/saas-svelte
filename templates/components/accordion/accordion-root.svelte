@@ -21,37 +21,37 @@
 				"rounded-md",
 				"outline-none",
 				"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
-				"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+				"disabled:opacity-50 disabled:cursor-not-allowed",
 			],
 			content:
-				"overflow-hidden text-(length:--font-sizes-sm) text-fg-subtle",
+				"overflow-hidden text-sm text-fg-subtle",
 			contentBody: "",
 			indicator:
-				"flex items-center justify-center text-fg-muted shrink-0 transition-transform duration-(--durations-moderate)",
+				"flex items-center justify-center text-fg-muted shrink-0 transition-transform duration-moderate",
 			icon: "shrink-0 text-fg-muted",
 		},
 		variants: {
 			size: {
 				sm: {
 					trigger:
-						"text-(length:--font-sizes-sm) py-2 font-(--font-weights-medium)",
-					content: "text-(length:--font-sizes-sm)",
+						"text-sm py-2 font-medium",
+					content: "text-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
 				},
 				md: {
 					trigger:
-						"text-(length:--font-sizes-sm) py-2 font-(--font-weights-medium)",
-					content: "text-(length:--font-sizes-sm)",
+						"text-sm py-2 font-medium",
+					content: "text-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
 				},
 				lg: {
 					trigger:
-						"text-(length:--font-sizes-md) py-2.5 font-(--font-weights-medium)",
-					content: "text-(length:--font-sizes-md)",
+						"text-md py-2.5 font-medium",
+					content: "text-md",
 					contentBody: "pt-2.5 pb-5",
 					indicator: "size-4",
 					icon: "size-4",

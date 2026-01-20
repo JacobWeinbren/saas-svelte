@@ -6,7 +6,7 @@
 	export const checkboxCardRoot = tv({
 		base: [
 			"select-none flex-col flex-1 text-sm leading-5 flex relative rounded-md",
-			"cursor-(--cursor-checkbox)",
+			"cursor-default",
 			"antialiased",
 			"has-focus-visible:outline-1 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--c-focus-ring) has-focus-visible:outline-solid",
 		],
@@ -26,7 +26,7 @@
 				false: "",
 			},
 			disabled: {
-				true: "opacity-80 cursor-(--cursor-disabled)",
+				true: "opacity-80 cursor-not-allowed",
 				false: "",
 			},
 		},

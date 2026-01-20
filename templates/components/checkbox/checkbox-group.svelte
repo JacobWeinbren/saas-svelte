@@ -160,7 +160,7 @@
 		<div
 			role="button"
 			tabindex="0"
-			class="group inline-flex items-center gap-2.5 cursor-(--cursor-checkbox) select-none"
+			class="group inline-flex items-center gap-2.5 cursor-default select-none"
 			onclick={handleSelectAll}
 			onkeydown={(e) => {
 				if (e.key === " " || e.key === "Enter") {
@@ -171,7 +171,7 @@
 		>
 			<div class="flex items-center shrink-0">
 				<div
-					class="flex items-center justify-center border shrink-0 p-0.5 rounded-(--radii-l1) size-4 {isIndeterminate ||
+					class="flex items-center justify-center border shrink-0 p-0.5 rounded-l1 size-4 {isIndeterminate ||
 					allChecked
 						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
 						: 'border-border-emphasized text-(--c-contrast)'}"
@@ -192,7 +192,7 @@
 				</div>
 			</div>
 			<span
-				class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
+				class="text-sm font-medium leading-sm text-fg-default"
 			>
 				{selectAllLabel}
 			</span>
@@ -203,7 +203,7 @@
 		>
 			{#if label}
 				<span
-					class="mb-2 text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
+					class="mb-2 text-sm font-medium leading-sm text-fg-default"
 				>
 					{label}
 				</span>
@@ -215,7 +215,7 @@
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
 			<span
-				class="mb-2 text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default"
+				class="mb-2 text-sm font-medium leading-sm text-fg-default"
 			>
 				{label}
 			</span>

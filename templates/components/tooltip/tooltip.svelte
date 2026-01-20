@@ -9,6 +9,7 @@
 <script lang="ts">
 	// Import from the main package to ensure Context compatibility
 	import { Tooltip as ArkTooltip } from "@ark-ui/svelte";
+	import { Portal } from "@ark-ui/svelte/portal";
 	import type { TooltipRootProps } from "@ark-ui/svelte/tooltip";
 	import type { Snippet } from "svelte";
 
@@ -104,23 +105,25 @@
 >
 	<ArkTooltip.Trigger>
 		{#snippet asChild(props)}
-			<div {...props()}>
+			<span class="inline-block" {...props()}>
 				{@render children()}
-			</div>
+			</span>
 		{/snippet}
 	</ArkTooltip.Trigger>
-	<ArkTooltip.Positioner class={styles.positioner()}>
-		<ArkTooltip.Content class={styles.content()}>
-			{#if showArrow}
-				<ArkTooltip.Arrow class={styles.arrow()}>
-					<ArkTooltip.ArrowTip class={styles.arrowTip()} />
-				</ArkTooltip.Arrow>
-			{/if}
-			{#if typeof content === "string"}
-				{content}
-			{:else if content}
-				{@render content()}
-			{/if}
-		</ArkTooltip.Content>
-	</ArkTooltip.Positioner>
+	<Portal>
+		<ArkTooltip.Positioner class={styles.positioner()}>
+			<ArkTooltip.Content class={styles.content()}>
+				{#if showArrow}
+					<ArkTooltip.Arrow class={styles.arrow()}>
+						<ArkTooltip.ArrowTip class={styles.arrowTip()} />
+					</ArkTooltip.Arrow>
+				{/if}
+				{#if typeof content === "string"}
+					{content}
+				{:else if content}
+					{@render content()}
+				{/if}
+			</ArkTooltip.Content>
+		</ArkTooltip.Positioner>
+	</Portal>
 </ArkTooltip.Root>

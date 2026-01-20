@@ -178,5 +178,5 @@
 <Story
 	name="WithMenu"
 	template={withMenuStory}
-	parameters={{ docs: { story: { inline: true, height: "200px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />

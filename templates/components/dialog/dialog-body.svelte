@@ -22,7 +22,7 @@
 		// Text color - body text uses default color for readability
 		"text-fg-default",
 		// Typography
-		"text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased",
+		"text-sm leading-sm antialiased",
 		// Scroll behavior
 		ctx.scrollBehavior === "inside" && "overflow-y-auto",
 		className,

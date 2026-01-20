@@ -1,0 +1,39 @@
+<script lang="ts">
+	import { Popover } from "@ark-ui/svelte/popover";
+	import { getContext, type Snippet } from "svelte";
+	import X from "phosphor-svelte/lib/X";
+	import { POPOVER_CTX, type PopoverContext } from "./popover-root.svelte";
+
+	interface Props {
+		/**
+		 * Custom content for the close trigger.
+		 */
+		children?: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
+		class?: string;
+		/**
+		 * Accessible label for the close button.
+		 * @default "Close"
+		 */
+		"aria-label"?: string;
+		[key: string]: unknown;
+	}
+
+	let { children, class: className, "aria-label": ariaLabel = "Close", ...rest }: Props = $props();
+
+	const ctx = getContext<PopoverContext>(POPOVER_CTX);
+</script>
+
+<Popover.CloseTrigger
+	class={ctx?.styles?.closeTrigger({ class: className })}
+	aria-label={ariaLabel}
+	{...rest}
+>
+	{#if children}
+		{@render children()}
+	{:else}
+		<X class="size-4" />
+	{/if}
+</Popover.CloseTrigger>

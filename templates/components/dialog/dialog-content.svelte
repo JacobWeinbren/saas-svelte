@@ -22,7 +22,7 @@
 	const ctx = getContext(DIALOG_CTX) as DialogContext;
 
 	const positionerStyles = tv({
-		base: "fixed inset-0 z-(--z-indices-modal) flex w-screen h-dvh overflow-hidden",
+		base: "fixed inset-0 z-modal flex w-screen h-dvh overflow-hidden",
 		variants: {
 			placement: {
 				center: "items-start justify-center",
@@ -62,17 +62,17 @@
 			"outline-none focus:outline-none",
 			"antialiased",
 			// Typography
-			"text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+			"text-sm leading-sm",
 		],
 		variants: {
 			size: {
-				xs: "w-full max-w-sm rounded-(--radii-l3)",
-				sm: "w-full max-w-md rounded-(--radii-l3)",
-				md: "w-full max-w-lg rounded-(--radii-l3)",
-				lg: "w-full max-w-2xl rounded-(--radii-l3)",
-				xl: "w-full max-w-4xl rounded-(--radii-l3)",
+				xs: "w-full max-w-sm rounded-l3",
+				sm: "w-full max-w-md rounded-l3",
+				md: "w-full max-w-lg rounded-l3",
+				lg: "w-full max-w-2xl rounded-l3",
+				xl: "w-full max-w-4xl rounded-l3",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-(--radii-l3) my-0 overflow-hidden",
+				cover: "w-full h-full rounded-l3 my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-var(--spacing-16))] my-auto",
@@ -87,7 +87,7 @@
 
 <Portal>
 	<Dialog.Backdrop
-		class="fixed inset-0 z-(--z-indices-overlay) transition-opacity duration-(--durations-moderate) bg-bg-backdrop data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
+		class="fixed inset-0 z-overlay transition-opacity duration-moderate bg-bg-backdrop data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
 		data-state-layer
 	/>
 

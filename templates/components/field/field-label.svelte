@@ -32,7 +32,7 @@
 		// Layout
 		"flex items-center gap-1",
 		// Text styles
-		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
+		"text-sm font-medium leading-sm",
 		// Text color - inherits from parent, uses default fg color
 		"text-fg-default",
 		// User interaction

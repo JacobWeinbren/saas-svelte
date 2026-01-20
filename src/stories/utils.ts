@@ -172,6 +172,16 @@ export {
     comboboxItemPattern,
     comboboxItemTextPattern,
     comboboxItemIndicatorPattern,
+    popoverRootPattern,
+    popoverTriggerPattern,
+    popoverContentPattern,
+    popoverArrowPattern,
+    popoverHeaderPattern,
+    popoverBodyPattern,
+    popoverFooterPattern,
+    popoverTitlePattern,
+    popoverDescriptionPattern,
+    popoverCloseTriggerPattern,
 } from "./exclude-patterns";
 
 

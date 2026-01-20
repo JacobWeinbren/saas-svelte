@@ -52,11 +52,11 @@
 			"items-center",
 			"inline-flex",
 			"cursor-pointer",
-			"rounded-(--radii-l1)",
+			"rounded-l1",
 			"focus:outline-offset-2",
 			"focus:outline-1",
 			"focus:outline-solid",
-			"focus:outline-(--colors-neutral-focus-ring)",
+			"focus:outline-(--color-neutral-focus-ring)",
 		];
 
 		// Button uses tighter gap

@@ -16,9 +16,9 @@
 		],
 		variants: {
 			size: {
-				sm: "text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "text-(length:--font-sizes-md) leading-(--line-heights-md)",
+				sm: "text-sm leading-sm",
+				md: "text-sm leading-sm",
+				lg: "text-md leading-md",
 			},
 		},
 		defaultVariants: {

@@ -10,7 +10,7 @@
 			"select-none",
 			"items-center",
 			"gap-1",
-			"font-(--font-weights-medium)",
+			"font-medium",
 			"inline-flex",
 			"rounded-full",
 		],
@@ -23,10 +23,10 @@
 					"bg-(--c-muted)/50 text-(--c-fg) ring-1 ring-inset ring-(--c-subtle)",
 			},
 			size: {
-				xs: "min-h-4 text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-1",
-				sm: "min-h-5 text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-1.5",
-				md: "min-h-6 text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2",
-				lg: "min-h-7 text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2.5",
+				xs: "min-h-4 text-xs leading-2xs px-1",
+				sm: "min-h-5 text-xs leading-xs px-1.5",
+				md: "min-h-6 text-sm leading-sm px-2",
+				lg: "min-h-7 text-sm leading-sm px-2.5",
 			},
 		},
 		defaultVariants: {

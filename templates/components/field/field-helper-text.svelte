@@ -22,7 +22,7 @@
 		// Text color - muted for helper text (zinc-500)
 		"text-fg-muted",
 		// Typography
-		"text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+		"text-xs leading-xs",
 		// Rendering
 		"antialiased",
 		className,

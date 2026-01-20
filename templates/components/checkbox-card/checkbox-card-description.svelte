@@ -6,8 +6,8 @@
 	const checkboxCardDescription = tv({
 		base: [
 			"opacity-64",
-			"text-(length:--font-sizes-sm)",
-			"leading-(--line-heights-sm)",
+			"text-sm",
+			"leading-sm",
 		],
 	});
 

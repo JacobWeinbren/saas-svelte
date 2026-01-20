@@ -9,7 +9,7 @@
 
 	export const menu = tv({
 		slots: {
-			positioner: "z-(--z-indices-dropdown)",
+			positioner: "z-dropdown",
 			content: [
 				"flex flex-col",
 				"min-w-[128px]",
@@ -18,7 +18,7 @@
 				"rounded-lg",
 				"bg-bg-overlay backdrop-blur-lg",
 				"border border-border-default",
-				"shadow-(--shadow-overlay)",
+				"shadow-overlay",
 				"outline-none",
 			],
 			item: [
@@ -26,16 +26,16 @@
 				"relative",
 				"min-h-7 px-2",
 				"rounded",
-				"text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				"text-sm leading-sm",
 				"text-fg-default",
-				"cursor-(--cursor-button)",
+				"cursor-pointer",
 				"select-none",
 				"outline-none",
 				"data-highlighted:bg-(--c-solid) data-highlighted:text-(--c-contrast)",
 				"data-disabled:opacity-50 data-disabled:cursor-not-allowed",
 			],
 			itemCommand: [
-				"text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+				"text-xs leading-xs",
 				"text-fg-default opacity-60",
 				"ps-4 ml-auto",
 				"tracking-(--letter-spacings-wider)",
@@ -47,7 +47,7 @@
 			itemGroupLabel: [
 				"flex items-center",
 				"min-h-7 px-2",
-				"text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				"text-sm leading-sm",
 				"text-fg-muted",
 				"select-none",
 			],
@@ -56,9 +56,9 @@
 				"relative",
 				"min-h-7 px-2",
 				"rounded",
-				"text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				"text-sm leading-sm",
 				"text-fg-default",
-				"cursor-(--cursor-button)",
+				"cursor-pointer",
 				"select-none",
 				"outline-none",
 				"data-highlighted:bg-(--c-solid) data-highlighted:text-(--c-contrast)",
@@ -70,15 +70,15 @@
 			size: {
 				sm: {
 					content: "",
-					item: "min-h-6 px-1.5 gap-1 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+					item: "min-h-6 px-1.5 gap-1 text-xs leading-xs",
 					itemCommand: [
-						"text-(length:--font-sizes-2xs) leading-(--line-heights-2xs)",
+						"text-2xs leading-2xs",
 						"pl-3",
 					],
 					triggerItem:
-						"min-h-6 px-1.5 gap-1 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+						"min-h-6 px-1.5 gap-1 text-xs leading-xs",
 					itemGroupLabel:
-						"min-h-6 px-1.5 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+						"min-h-6 px-1.5 text-xs leading-xs",
 				},
 				md: {},
 			},

@@ -8,7 +8,7 @@
 			// Layout
 			"flex items-center flex-none whitespace-nowrap",
 			// Border
-			"border border-solid rounded-(--radii-l1)",
+			"border border-solid rounded-l1",
 			// Background - light: gray-50, dark: gray-900
 			"bg-bg-subtle",
 			// Border color
@@ -22,10 +22,10 @@
 		],
 		variants: {
 			size: {
-				xs: "h-6 px-2 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "h-7 px-2.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "h-8 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "h-10 px-4 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				xs: "h-6 px-2 text-xs leading-xs",
+				sm: "h-7 px-2.5 text-sm leading-sm",
+				md: "h-8 px-3 text-sm leading-sm",
+				lg: "h-10 px-4 text-sm leading-sm",
 			},
 		},
 		defaultVariants: {

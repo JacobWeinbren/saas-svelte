@@ -533,110 +533,110 @@
 <Story
 	name="Basic"
 	template={basicStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Sizes"
 	template={sizesStory}
-	parameters={{ docs: { story: { inline: true, height: "600px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Variants"
 	template={variantsStory}
-	parameters={{ docs: { story: { inline: true, height: "500px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Multiple"
 	template={multipleStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="AsyncLoading"
 	template={asyncLoadingStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="HighlightMatch"
 	template={highlightMatchStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="OpenOnClick"
 	template={openOnClickStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Field"
 	template={fieldStory}
-	parameters={{ docs: { story: { inline: true, height: "150px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Disabled"
 	template={disabledStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="DisabledItem"
 	template={disabledItemStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="InputGroup"
 	template={inputGroupStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Invalid"
 	template={invalidStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="ControlledValue"
 	template={controlledValueStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="ControlledOpen"
 	template={controlledOpenStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="AllowCustomValue"
 	template={allowCustomValueStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="CustomObjects"
 	template={customObjectsStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="MinCharacters"
 	template={minCharactersStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Limit"
 	template={limitStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Virtualised"
 	template={virtualisedStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Colours"
 	template={coloursStory}
-	parameters={{ docs: { story: { inline: true, height: "800px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="CustomFilter"
 	template={customFilterStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
 	name="Links"
 	template={linksStory}
-	parameters={{ docs: { story: { inline: true, height: "400px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />

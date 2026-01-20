@@ -4,8 +4,8 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				"w-[calc(100%-var(--spacing-4))] md:w-(--sizes-sm) flex items-start gap-x-2 gap-y-2 py-3 ps-3 pe-6",
-				"rounded-(--radii-l2) border border-border-muted shadow-md",
+				"w-[calc(100%-var(--spacing-4))] md:w-sm flex items-start gap-x-2 gap-y-2 py-3 ps-3 pe-6",
+				"rounded-l2 border border-border-muted shadow-md",
 				"bg-bg-panel text-fg-default",
 				"z-(--z-index) pointer-events-auto",
 				"[--computed-y:calc(var(--lift)*var(--fixed-index,var(--index))*(var(--first-height)+var(--gap)))]",
@@ -19,7 +19,7 @@
 				// Transitions for stacking movement
 				"will-change-[translate,opacity,scale,height]",
 				"transition-[translate,scale,opacity,height,box-shadow]",
-				"duration-(--durations-moderate) ease-(--easings-ease-out)",
+				"duration-moderate ease-(--easings-ease-out)",
 				// Entry/exit animations
 				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
 				"data-[state=closed]:opacity-0",
@@ -32,26 +32,26 @@
 				"animate-spin [animation-duration:var(--durations-slow)] text-accent-solid",
 			],
 			content: "flex flex-col flex-1 max-w-full",
-			title: "text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md) me-2",
+			title: "text-sm font-medium leading-md me-2",
 			description:
-				"text-(length:--font-sizes-sm) leading-(--line-heights-md) opacity-80 inline",
+				"text-sm leading-md opacity-80 inline",
 			descriptionOnly:
-				"text-(length:--font-sizes-sm) leading-(--line-heights-md) flex-1",
+				"text-sm leading-md flex-1",
 			action: [
 				"appearance-auto cursor-pointer h-6 self-start",
-				"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-md)",
-				"transition-[color,background-color] duration-(--durations-moderate)",
-				"-ms-3 px-3 rounded-(--radii-l1)",
+				"text-sm font-medium leading-md",
+				"transition-[color,background-color] duration-moderate",
+				"-ms-3 px-3 rounded-l1",
 				"text-accent-fg/80 hover:text-accent-fg hover:bg-bg-subtle",
 			],
 			close: [
 				"absolute top-2 end-2",
 				"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate",
 				"shrink-0 justify-center items-center gap-1 min-w-6 h-6",
-				"text-(length:--font-sizes-xs) font-(--font-weights-medium) leading-(--line-heights-xs)",
-				"inline-flex rounded-(--radii-l1)",
+				"text-xs font-medium leading-xs",
+				"inline-flex rounded-l1",
 				"text-fg-default outline-0",
-				"transition-[color,background-color] duration-(--durations-moderate)",
+				"transition-[color,background-color] duration-moderate",
 				"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 				"hover:bg-bg-subtle",
@@ -61,19 +61,19 @@
 			status: {
 				info: {
 					icon: "",
-					descriptionOnly: "font-(--font-weights-medium)",
+					descriptionOnly: "font-medium",
 				},
 				success: {
 					icon: "text-fg-success",
-					descriptionOnly: "font-(--font-weights-medium)",
+					descriptionOnly: "font-medium",
 				},
 				warning: {
 					icon: "text-fg-warning",
-					descriptionOnly: "font-(--font-weights-medium)",
+					descriptionOnly: "font-medium",
 				},
 				error: {
 					icon: "text-fg-error",
-					descriptionOnly: "font-(--font-weights-medium)",
+					descriptionOnly: "font-medium",
 				},
 				loading: {
 					icon: "text-accent-fg",

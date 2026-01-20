@@ -3,9 +3,9 @@
 
 	export const clipboardButton = tv({
 		base: [
-			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"h-8 min-w-8 gap-x-2 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-			"rounded-(--radii-l1) font-(--font-weights-medium)",
+			"relative isolate inline-flex shrink-0 cursor-pointer appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
+			"h-8 min-w-8 gap-x-2 px-3 text-sm leading-sm",
+			"rounded-l1 font-medium",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 			"text-fg-default",
@@ -24,13 +24,13 @@
 	export const clipboardInput = tv({
 		base: [
 			"appearance-none outline-0 w-full relative",
-			"h-8 min-w-8 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-			"rounded-(--radii-l1) border",
+			"h-8 min-w-8 px-3 text-sm leading-sm",
+			"rounded-l1 border",
 			"antialiased",
 			"text-fg-default",
 			"bg-transparent",
 			"border-border-default",
-			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+			"disabled:opacity-50 disabled:cursor-not-allowed",
 			"focus-visible:outline-solid focus-visible:outline-border-emphasized focus-visible:border-border-emphasized",
 			"enabled:hover:border-border-emphasized",
 		],

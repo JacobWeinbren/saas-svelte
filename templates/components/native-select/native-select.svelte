@@ -6,14 +6,14 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded-(--radii-l1) border select-none",
+			"rounded-l1 border select-none",
 			"[&_option]:bg-inherit",
 
 			// Text
 			"antialiased",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+			"disabled:opacity-50 disabled:cursor-not-allowed",
 
 			// Focus - uses colour focus ring
 			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
@@ -34,11 +34,11 @@
 				],
 			},
 			size: {
-				xs: "h-6 pl-2 pr-6 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "h-8 pl-2.5 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "h-10 pl-3 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "h-11 pl-4 pr-8 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				xl: "h-12 pl-5 pr-10 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+				xs: "h-6 pl-2 pr-6 text-xs leading-xs",
+				sm: "h-8 pl-2.5 pr-8 text-sm leading-sm",
+				md: "h-10 pl-3 pr-8 text-sm leading-sm",
+				lg: "h-11 pl-4 pr-8 text-sm leading-sm",
+				xl: "h-12 pl-5 pr-10 text-sm leading-sm",
 			},
 			invalid: {
 				true: [

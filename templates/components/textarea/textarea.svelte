@@ -6,14 +6,14 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded-(--radii-l1) border",
+			"rounded-l1 border",
 
 			// Text & Placeholder
 			"antialiased",
 			"placeholder:text-fg-muted placeholder:select-none",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+			"disabled:opacity-50 disabled:cursor-not-allowed",
 
 			// Focus - uses colour focus ring
 			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
@@ -35,11 +35,11 @@
 				],
 			},
 			size: {
-				xs: "px-2 py-1 text-(length:--font-sizes-xs) leading-(--line-heights-xs) scroll-pb-1",
-				sm: "px-2.5 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-1.5",
-				md: "px-3 py-1.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-1.5",
-				lg: "px-4 py-2 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-2 rounded-md",
-				xl: "px-5 py-3.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) scroll-pb-3.5 rounded-md",
+				xs: "px-2 py-1 text-xs leading-xs scroll-pb-1",
+				sm: "px-2.5 py-1.5 text-sm leading-sm scroll-pb-1.5",
+				md: "px-3 py-1.5 text-sm leading-sm scroll-pb-1.5",
+				lg: "px-4 py-2 text-sm leading-sm scroll-pb-2 rounded-md",
+				xl: "px-5 py-3.5 text-sm leading-sm scroll-pb-3.5 rounded-md",
 			},
 			invalid: {
 				true: [

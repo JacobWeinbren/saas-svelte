@@ -6,8 +6,8 @@
 	const cardDescription = tv({
 		base: [
 			"wrap-break-word",
-			"text-(length:--font-sizes-sm)",
-			"leading-(--line-heights-sm)",
+			"text-sm",
+			"leading-sm",
 			"text-fg-muted",
 		],
 	});

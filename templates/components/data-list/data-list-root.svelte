@@ -15,17 +15,17 @@
 			size: {
 				sm: {
 					root: "gap-y-3 gap-x-3",
-					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
+					item: "gap-y-4 gap-x-4 text-xs leading-xs",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				md: {
 					root: "gap-y-4 gap-x-4",
-					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
+					item: "gap-y-4 gap-x-4 text-sm leading-sm",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				lg: {
 					root: "gap-y-5 gap-x-5",
-					item: "gap-y-4 gap-x-4 text-(length:--font-sizes-md) leading-(--line-heights-md)",
+					item: "gap-y-4 gap-x-4 text-md leading-md",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 			},

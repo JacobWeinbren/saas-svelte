@@ -108,3 +108,14 @@ export const comboboxContentPattern = makePattern(['class', 'children']);
 export const comboboxItemPattern = makePattern(['item', 'class', 'children']);
 export const comboboxItemTextPattern = makePattern(['class', 'children']);
 export const comboboxItemIndicatorPattern = makePattern(['class', 'children']);
+
+export const popoverRootPattern = makePattern(['size', 'open', 'onOpenChange', 'autoFocus', 'closeOnEscape', 'closeOnInteractOutside', 'modal', 'portalled', 'lazyMount', 'unmountOnExit', 'positioning', 'initialFocusEl', 'class', 'children']);
+export const popoverTriggerPattern = makePattern(['class', 'children']);
+export const popoverContentPattern = makePattern(['class', 'children']);
+export const popoverArrowPattern = makePattern(['class']);
+export const popoverHeaderPattern = makePattern(['class', 'children']);
+export const popoverBodyPattern = makePattern(['class', 'children']);
+export const popoverFooterPattern = makePattern(['class', 'children']);
+export const popoverTitlePattern = makePattern(['class', 'children']);
+export const popoverDescriptionPattern = makePattern(['class', 'children']);
+export const popoverCloseTriggerPattern = makePattern(['aria-label', 'class', 'children']);

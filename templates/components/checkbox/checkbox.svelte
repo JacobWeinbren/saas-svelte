@@ -11,7 +11,7 @@
 	const checkboxControl = tv({
 		base: [
 			"flex items-center justify-center border shrink-0 p-0.5",
-			"rounded-(--radii-l1)",
+			"rounded-l1",
 			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
 			"antialiased",
 		],
@@ -35,7 +35,7 @@
 				indeterminate: "",
 			},
 			disabled: {
-				true: "cursor-(--cursor-disabled) opacity-50",
+				true: "cursor-not-allowed opacity-50",
 			},
 			invalid: {
 				true: "border-border-error! peer-focus-visible:outline-border-error!",
@@ -93,10 +93,10 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-center gap-2.5 cursor-(--cursor-checkbox) select-none",
+		base: "group inline-flex items-center gap-2.5 cursor-default select-none",
 		variants: {
 			disabled: {
-				true: "cursor-(--cursor-disabled) opacity-60",
+				true: "cursor-not-allowed opacity-60",
 			},
 		},
 	});
@@ -293,21 +293,21 @@
 		<div class="flex flex-col">
 			{#if label}
 				<span
-					class="text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm) text-fg-default select-none"
+					class="text-sm font-medium leading-sm text-fg-default select-none"
 				>
 					{label}
 				</span>
 			{/if}
 			{#if children}
 				<div
-					class="text-(length:--font-sizes-sm) leading-(--line-heights-sm) text-fg-default select-none"
+					class="text-sm leading-sm text-fg-default select-none"
 				>
 					{@render children()}
 				</div>
 			{/if}
 			{#if description}
 				<p
-					class="mt-1 text-(length:--font-sizes-sm) font-(--font-weights-normal) leading-(--line-heights-sm) text-fg-muted"
+					class="mt-1 text-sm font-normal leading-sm text-fg-muted"
 				>
 					{description}
 				</p>

@@ -6,30 +6,30 @@
 
 	export const avatar = tv({
 		slots: {
-			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-(--font-weights-medium)",
+			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-medium",
 			image: "object-cover w-full h-full border-none",
 			fallback:
-				"uppercase font-(--font-weights-medium) leading-none rounded-full flex items-center justify-center",
+				"uppercase font-medium leading-none rounded-full flex items-center justify-center",
 		},
 		variants: {
 			size: {
 				xs: {
-					root: "w-5 h-5 text-[10px]",
+					root: "w-5 h-5 text-2xs",
 				},
 				sm: {
-					root: "w-6 h-6 text-(length:--font-sizes-xs)",
+					root: "w-6 h-6 text-xs",
 				},
 				md: {
-					root: "w-9 h-9 text-(length:--font-sizes-lg)",
+					root: "w-9 h-9 text-lg",
 				},
 				lg: {
-					root: "w-12 h-12 text-(length:--font-sizes-2xl)",
+					root: "w-12 h-12 text-2xl",
 				},
 				xl: {
-					root: "w-16 h-16 text-(length:--font-sizes-3xl)",
+					root: "w-16 h-16 text-3xl",
 				},
 				"2xl": {
-					root: "w-20 h-20 text-(length:--font-sizes-4xl)",
+					root: "w-20 h-20 text-4xl",
 				},
 				full: {
 					root: "w-full h-full",
@@ -53,9 +53,9 @@
 					fallback: "",
 				},
 				rounded: {
-					root: "rounded-(--radii-l2)",
-					image: "rounded-(--radii-l2)",
-					fallback: "rounded-(--radii-l2)",
+					root: "rounded-l2",
+					image: "rounded-l2",
+					fallback: "rounded-l2",
 				},
 				full: {
 					root: "rounded-full",

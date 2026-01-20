@@ -11,12 +11,12 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-(--radii-l2) text-(length:--font-sizes-sm) leading-(--line-heights-sm) antialiased gap-3",
+			root: "relative w-full flex items-start p-4 rounded-l2 text-sm leading-sm antialiased gap-3",
 			iconWrapper:
-				"shrink-0 inline-flex items-center justify-center w-5 h-5 text-(length:--font-sizes-lg) leading-(--line-heights-xl)",
+				"shrink-0 inline-flex items-center justify-center w-5 h-5 text-lg leading-xl",
 			content: "flex-1 min-w-0 flex flex-col gap-1",
-			title: "font-(--font-weights-medium) leading-(--line-heights-sm)",
-			description: "leading-(--line-heights-sm) opacity-90",
+			title: "font-medium leading-sm",
+			description: "leading-sm opacity-90",
 		},
 		variants: {
 			variant: {

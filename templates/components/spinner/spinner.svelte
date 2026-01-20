@@ -67,6 +67,7 @@
 		borderWidth?: string;
 		/**
 		 * The track colour palette (the non-spinning part).
+		 * When specified, uses the 200 shade of the colour.
 		 */
 		trackColour?: ColourName;
 		/**
@@ -89,7 +90,7 @@
 	const colourStyle = $derived(getColourStyle(colour));
 	const trackBorderStyle = $derived(
 		trackColour
-			? `border-bottom-color: var(--colors-${trackColour}-fg); border-left-color: var(--colors-${trackColour}-fg);`
+			? `border-bottom-color: var(--color-${trackColour}-200); border-left-color: var(--color-${trackColour}-200);`
 			: "",
 	);
 </script>

@@ -6,7 +6,7 @@
 		base: [
 			// Core Layout
 			"appearance-none outline-0 w-full relative",
-			"rounded-(--radii-l1) border",
+			"rounded-l1 border",
 
 			// Text & Placeholder
 			"antialiased",
@@ -14,7 +14,7 @@
 			"placeholder:text-fg-muted placeholder:select-none",
 
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+			"disabled:opacity-50 disabled:cursor-not-allowed",
 
 			// Focus - using colour prop (--c-focus-ring set via getColourStyle)
 			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
@@ -44,10 +44,10 @@
 				],
 			},
 			size: {
-				xs: "min-w-6 h-6 px-2 text-(length:--font-sizes-xs) leading-(--line-heights-xs)",
-				sm: "min-w-7 h-7 px-2.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				md: "min-w-8 h-8 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm)",
-				lg: "min-w-10 h-10 px-5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) rounded-md",
+				xs: "min-w-6 h-6 px-2 text-xs leading-xs",
+				sm: "min-w-7 h-7 px-2.5 text-sm leading-sm",
+				md: "min-w-8 h-8 px-3 text-sm leading-sm",
+				lg: "min-w-10 h-10 px-5 text-sm leading-sm rounded-md",
 			},
 			invalid: {
 				true: [
@@ -106,6 +106,10 @@
 		 * Additional CSS classes to apply.
 		 */
 		class?: ClassNameValue;
+		/**
+		 * Reference to the input element.
+		 */
+		ref?: HTMLInputElement | null;
 	}
 
 	let {
@@ -117,6 +121,7 @@
 		disabled = false,
 		style,
 		value = $bindable(),
+		ref = $bindable(null),
 		...restProps
 	}: Props = $props();
 
@@ -157,6 +162,7 @@
 </script>
 
 <input
+	bind:this={ref}
 	{id}
 	disabled={isDisabled}
 	required={isRequired}

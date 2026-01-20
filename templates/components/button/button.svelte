@@ -6,9 +6,9 @@
 
 	export const button = tv({
 		base: [
-			"relative isolate inline-flex shrink-0 cursor-(--cursor-button) appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"rounded-(--radii-l1) font-(--font-weights-medium)",
-			"transition-[color,background-color,border-color] duration-(--durations-moderate)",
+			"relative isolate inline-flex shrink-0 cursor-pointer appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
+			"rounded-l1 font-medium",
+			"transition-[color,background-color,border-color] duration-moderate",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
@@ -27,7 +27,7 @@
 					// Gradient overlay pseudo-element
 					"after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:opacity-20 after:pointer-events-none",
 					"after:bg-[linear-gradient(180deg,white_40%,rgba(0,0,0,0.2))]",
-					"after:transition-opacity after:duration-(--durations-moderate)",
+					"after:transition-opacity after:duration-moderate",
 					"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
 				],
 
@@ -73,11 +73,11 @@
 				],
 			},
 			size: {
-				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-(length:--font-sizes-xs) leading-(--line-heights-xs) [&_svg]:size-2",
-				sm: "h-7 min-w-7 gap-x-2 gap-y-2 px-2.5 text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-3",
-				md: "h-8 min-w-8 gap-x-2 gap-y-2 px-3 text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-3.5",
-				lg: "h-10 min-w-10 gap-x-3 gap-y-3 px-5 rounded-md text-(length:--font-sizes-sm) leading-(--line-heights-sm) [&_svg]:size-5",
-				xl: "h-12 min-w-12 gap-x-3 gap-y-3 px-6 rounded-md text-(length:--font-sizes-md) leading-(--line-heights-md) [&_svg]:size-6",
+				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-xs [&_svg]:size-2",
+				sm: "h-7 min-w-7 gap-x-2 gap-y-2 px-2.5 text-sm leading-sm [&_svg]:size-3",
+				md: "h-8 min-w-8 gap-x-2 gap-y-2 px-3 text-sm leading-sm [&_svg]:size-3.5",
+				lg: "h-10 min-w-10 gap-x-3 gap-y-3 px-5 rounded-md text-sm leading-sm [&_svg]:size-5",
+				xl: "h-12 min-w-12 gap-x-3 gap-y-3 px-6 rounded-md text-md leading-md [&_svg]:size-6",
 			},
 			icon: { true: "px-0" },
 		},

@@ -13,15 +13,15 @@
 		variants: {
 			size: {
 				sm: {
-					root: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) gap-x-1 gap-y-1",
+					root: "text-xs leading-xs gap-x-1 gap-y-1",
 					list: "gap-x-1 gap-y-1",
 				},
 				md: {
-					root: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) gap-x-1.5 gap-y-1.5",
+					root: "text-sm leading-sm gap-x-1.5 gap-y-1.5",
 					list: "gap-x-1.5 gap-y-1.5",
 				},
 				lg: {
-					root: "text-(length:--font-sizes-md) leading-(--line-heights-md) gap-x-2 gap-y-2",
+					root: "text-md leading-md gap-x-2 gap-y-2",
 					list: "gap-x-2 gap-y-2",
 				},
 			},

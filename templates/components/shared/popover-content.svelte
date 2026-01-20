@@ -9,25 +9,25 @@
 			positioner: ["absolute", "isolate", "min-w-max"],
 			content: [
 				"flex flex-col relative",
-				"rounded-(--radii-l2)",
+				"rounded-l2",
 				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
 
 				// Light/Dark mode using semantic tokens
-				"bg-bg-panel backdrop-blur-md",
+				"bg-bg-panel backdrop-blur-lg",
 				"text-fg-default",
 
-				"text-(length:--font-sizes-xs) font-(--font-weights-normal) leading-(--line-heights-xs) antialiased",
+				"text-sm font-normal leading-sm antialiased",
 				"max-w-xs",
 				"border-0",
 
 				// Shadow
-				"shadow-(--shadow-overlay)",
+				"shadow-overlay",
 
 				"outline-none",
 			],
 			arrow: [
-				"[--arrow-size:var(--spacing-2)]",
-				"[--arrow-background:var(--colors-bg-panel)]",
+				"[--arrow-size:var(--spacing-3)]",
+				"[--arrow-background:var(--color-bg-panel)]",
 			],
 			arrowTip: ["border-l border-t", "border-border-subtle"],
 		},
@@ -36,7 +36,7 @@
 				default: {},
 				inverted: {
 					content: ["bg-bg-inverted", "text-fg-inverted"],
-					arrow: ["[--arrow-background:var(--colors-bg-inverted)]"],
+					arrow: ["[--arrow-background:var(--color-bg-inverted)]"],
 					arrowTip: ["border-border-inverted"],
 				},
 			},
@@ -50,10 +50,10 @@
 			},
 			zIndex: {
 				10: {
-					positioner: "z-(--z-indices-popup)",
+					positioner: "z-dropdown",
 				},
 				50: {
-					positioner: "z-(--z-indices-popover)",
+					positioner: "z-popover",
 				},
 			},
 			animation: {
@@ -68,10 +68,10 @@
 			},
 			fontWeight: {
 				normal: {
-					content: "font-(--font-weights-normal)",
+					content: "font-normal",
 				},
 				medium: {
-					content: "font-(--font-weights-medium)",
+					content: "font-medium",
 				},
 			},
 			padding: {

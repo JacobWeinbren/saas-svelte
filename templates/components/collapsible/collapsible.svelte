@@ -12,7 +12,7 @@
 	export const collapsibleIndicator = tv({
 		base: [
 			"inline-flex items-center justify-center",
-			"transition-transform duration-200",
+			"transition-transform duration-moderate",
 			"data-[state=open]:rotate-90",
 		],
 	});

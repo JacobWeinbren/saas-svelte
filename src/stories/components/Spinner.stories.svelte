@@ -153,41 +153,41 @@
 <Story
 	name="Basic"
 	template={basicStory}
-	parameters={{ docs: { story: { inline: true, height: "80px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="Sizes"
 	template={sizesStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="Colours"
 	template={coloursStory}
-	parameters={{ docs: { story: { inline: true, height: "500px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="TrackColour"
 	template={trackColourStory}
-	parameters={{ docs: { story: { inline: true, height: "80px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="CustomSpeed"
 	template={customSpeedStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="Thickness"
 	template={thicknessStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
 	name="WithLabel"
 	template={withLabelStory}
-	parameters={{ docs: { story: { inline: true, height: "100px" } } }}
+	parameters={{ docs: { story: { inline: true } } }}
 />

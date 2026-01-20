@@ -59,7 +59,7 @@
 	);
 	const buttonSize = $derived(isBreadcrumb ? "xs" : size);
 	const breadcrumbClasses =
-		"h-auto min-h-0 text-fg-muted hover:text-fg-default hover:bg-transparent gap-1 px-0 [&]:focus-visible:outline-(--colors-neutral-focus-ring)";
+		"h-auto min-h-0 text-fg-muted hover:text-fg-default hover:bg-transparent gap-1 px-0 [&]:focus-visible:outline-(--color-neutral-focus-ring)";
 
 	const colourVars = $derived(getColourStyle(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));

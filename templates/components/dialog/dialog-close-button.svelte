@@ -14,7 +14,7 @@
 <Dialog.CloseTrigger
 	class={twMerge(
 		// Position & Shape
-		"absolute right-4 top-4 rounded-md transition-[color,background-color] duration-(--durations-moderate) cursor-(--cursor-button) min-w-7 h-7",
+		"absolute right-4 top-4 rounded-md transition-[color,background-color] duration-moderate cursor-pointer min-w-7 h-7",
 		// Layout
 		"flex items-center justify-center shrink-0 gap-2",
 		// Colors - light: gray-900 text, dark: gray-200 text
@@ -22,11 +22,11 @@
 		// Hover - light: gray-100 bg, dark: gray-900 bg
 		"hover:bg-bg-subtle",
 		// Typography
-		"text-(length:--font-sizes-sm) font-(--font-weights-medium) leading-(--line-heights-sm)",
+		"text-sm font-medium leading-sm",
 		// Focus ring
 		"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
 		// Disabled state
-		"disabled:opacity-50 disabled:cursor-(--cursor-disabled)",
+		"disabled:opacity-50 disabled:cursor-not-allowed",
 		className,
 	)}
 	{...rest}

@@ -6,9 +6,9 @@
 	const cardTitle = tv({
 		base: [
 			"wrap-break-word",
-			"text-(length:--font-sizes-md)",
-			"leading-(--line-heights-md)",
-			"font-(--font-weights-semibold)",
+			"text-md",
+			"leading-md",
+			"font-semibold",
 			"text-fg-default",
 		],
 	});
