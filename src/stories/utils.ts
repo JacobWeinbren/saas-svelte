@@ -164,6 +164,14 @@ export {
     checkboxCardDescriptionPattern,
     checkboxCardAddonPattern,
     checkboxCardIndicatorPattern,
+    comboboxPattern,
+    comboboxRootPattern,
+    comboboxControlPattern,
+    comboboxInputPattern,
+    comboboxContentPattern,
+    comboboxItemPattern,
+    comboboxItemTextPattern,
+    comboboxItemIndicatorPattern,
 } from "./exclude-patterns";
 
 

@@ -99,3 +99,12 @@ export const checkboxCardLabelPattern = makePattern(['class', 'children']);
 export const checkboxCardDescriptionPattern = makePattern(['class', 'children']);
 export const checkboxCardAddonPattern = makePattern(['class', 'children']);
 export const checkboxCardIndicatorPattern = makePattern(['class']);
+
+export const comboboxPattern = makePattern(['items', 'label', 'placeholder', 'emptyText', 'size', 'variant', 'invalid', 'disabled', 'colour', 'value', 'onValueChange', 'multiple', 'openOnClick', 'open', 'onOpenChange', 'allowCustomValue', 'inputBehavior', 'selectionBehavior', 'isItemDisabled', 'loading', 'loadingText', 'onInputValueChange', 'disableFilter', 'itemSnippet', 'loadingContent', 'highlightMatch', 'minCharacters', 'limit', 'startElement', 'itemDescriptionKey', 'itemPrefixKey', 'virtualised', 'virtualItemHeight', 'class']);
+export const comboboxRootPattern = makePattern(['collection', 'variant', 'size', 'invalid', 'colour', 'class', 'children']);
+export const comboboxControlPattern = makePattern(['class', 'children']);
+export const comboboxInputPattern = makePattern(['placeholder', 'class']);
+export const comboboxContentPattern = makePattern(['class', 'children']);
+export const comboboxItemPattern = makePattern(['item', 'class', 'children']);
+export const comboboxItemTextPattern = makePattern(['class', 'children']);
+export const comboboxItemIndicatorPattern = makePattern(['class', 'children']);

@@ -95,9 +95,9 @@
 	import type { Snippet, Component } from "svelte";
 	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
 	import WarningCircle from "phosphor-svelte/lib/WarningCircle";
-	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 	import X from "phosphor-svelte/lib/X";
 	import { Icon } from "$saas/components/icon";
+	import { Spinner } from "$saas/components/spinner";
 
 	interface Props {
 		class?: string;
@@ -183,7 +183,7 @@
 			{@render children()}
 		{:else if isSingleLine}
 			{#if status === "loading"}
-				<CircleNotch class={styles.spinner()} />
+				<Spinner size="sm" colour="indigo" class="shrink-0 mt-0.5" />
 			{:else if resolvedIcon}
 				<Icon as={resolvedIcon} class={styles.icon()} />
 			{/if}
@@ -192,7 +192,7 @@
 			>
 		{:else}
 			{#if status === "loading"}
-				<CircleNotch class={styles.spinner()} />
+				<Spinner size="sm" colour="indigo" class="shrink-0 mt-0.5" />
 			{:else if resolvedIcon}
 				<Icon as={resolvedIcon} class={styles.icon()} />
 			{/if}

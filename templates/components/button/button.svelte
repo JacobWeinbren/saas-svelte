@@ -1,7 +1,6 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLButtonAttributes } from "svelte/elements";
-	import CircleNotch from "phosphor-svelte/lib/CircleNotch";
 
 	import type { ColourName } from "$saas/utils/colours";
 
@@ -121,6 +120,7 @@
 
 <script lang="ts">
 	import { getColourStyle } from "$saas/utils/colours";
+	import { Spinner } from "$saas/components/spinner";
 
 	type ButtonVariants = VariantProps<typeof button>;
 
@@ -185,17 +185,16 @@
 		}),
 	);
 
-	const loaderSizeMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
-		xs: "size-2.5",
-		sm: "size-3",
-		md: "size-3.5",
-		lg: "size-4",
-		xl: "size-5",
+	// Original spinner sizes: xs=size-2.5, sm=size-3, md=size-3.5, lg=size-4, xl=size-5
+	const spinnerClassMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
+		xs: "size-2.5!",
+		sm: "size-3!",
+		md: "size-3.5!",
+		lg: "size-4!",
+		xl: "size-5!",
 	};
 
-	const loaderClass = $derived(
-		`${loaderSizeMap[size]} animate-spin [animation-duration:var(--durations-slow)]`,
-	);
+	const spinnerClass = $derived(spinnerClassMap[size]);
 </script>
 
 <button
@@ -210,7 +209,7 @@
 				class="absolute inset-0 flex items-center justify-center"
 				aria-hidden="true"
 			>
-				<CircleNotch class={loaderClass} />
+				<Spinner colour={colour} class={spinnerClass} />
 			</div>
 			<span class="sr-only">
 				{@render children?.()}
@@ -218,7 +217,7 @@
 		</span>
 	{:else if loading && loadingText}
 		<span class="contents">
-			<CircleNotch class={loaderClass} aria-hidden="true" />
+			<Spinner colour={colour} class={spinnerClass} />
 			{loadingText}
 		</span>
 	{:else}

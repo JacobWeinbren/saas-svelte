@@ -62,25 +62,13 @@
 	const items = [
 		{ value: "next", title: "Next.js", description: "Best for apps" },
 		{ value: "vite", title: "Vite", description: "Best for SPAs" },
-		{
-			value: "astro",
-			title: "Astro",
-			description: "Best for static sites",
-		},
+		{ value: "astro", title: "Astro", description: "Best for static sites" },
 	];
 
 	const roleItems = [
-		{
-			icon: ShieldCheck,
-			label: "Admin",
-			description: "Give full access",
-		},
+		{ icon: ShieldCheck, label: "Admin", description: "Give full access" },
 		{ icon: User, label: "User", description: "Give limited access" },
-		{
-			icon: Globe,
-			label: "Guest",
-			description: "Give read-only access",
-		},
+		{ icon: Globe, label: "Guest", description: "Give read-only access" },
 		{ icon: Lock, label: "Blocked", description: "No access" },
 	];
 </script>
@@ -95,9 +83,7 @@
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Next.js</CheckboxCard.Label>
-				<CheckboxCard.Description
-					>Best for apps</CheckboxCard.Description
-				>
+				<CheckboxCard.Description>Best for apps</CheckboxCard.Description>
 			</CheckboxCard.Content>
 			<CheckboxCard.Indicator />
 		</CheckboxCard.Control>
@@ -115,19 +101,14 @@
 						if (checked) {
 							groupValue = [...groupValue, item.value];
 						} else {
-							groupValue = groupValue.filter(
-								(v) => v !== item.value,
-							);
+							groupValue = groupValue.filter((v) => v !== item.value);
 						}
 					}}
 				>
 					<CheckboxCard.Control>
 						<CheckboxCard.Content>
-							<CheckboxCard.Label>{item.title}</CheckboxCard.Label
-							>
-							<CheckboxCard.Description>
-								{item.description}
-							</CheckboxCard.Description>
+							<CheckboxCard.Label>{item.title}</CheckboxCard.Label>
+							<CheckboxCard.Description>{item.description}</CheckboxCard.Description>
 						</CheckboxCard.Content>
 						<CheckboxCard.Indicator />
 					</CheckboxCard.Control>
@@ -143,9 +124,7 @@
 			<CheckboxCard.Root {size}>
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>
-						<CheckboxCard.Label
-							>Checkbox ({size})</CheckboxCard.Label
-						>
+						<CheckboxCard.Label>Checkbox ({size})</CheckboxCard.Label>
 					</CheckboxCard.Content>
 					<CheckboxCard.Indicator />
 				</CheckboxCard.Control>
@@ -160,9 +139,7 @@
 			<CheckboxCard.Root {variant} checked colour="teal">
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>
-						<CheckboxCard.Label
-							>Checkbox ({variant})</CheckboxCard.Label
-						>
+						<CheckboxCard.Label>Checkbox ({variant})</CheckboxCard.Label>
 					</CheckboxCard.Content>
 					<CheckboxCard.Indicator />
 				</CheckboxCard.Control>
@@ -176,9 +153,7 @@
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Disabled</CheckboxCard.Label>
-				<CheckboxCard.Description>
-					This is a disabled checkbox
-				</CheckboxCard.Description>
+				<CheckboxCard.Description>This is a disabled checkbox</CheckboxCard.Description>
 			</CheckboxCard.Content>
 			<CheckboxCard.Indicator />
 		</CheckboxCard.Control>
@@ -190,9 +165,7 @@
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>With Addon</CheckboxCard.Label>
-				<CheckboxCard.Description
-					>Some description</CheckboxCard.Description
-				>
+				<CheckboxCard.Description>Some description</CheckboxCard.Description>
 			</CheckboxCard.Content>
 			<CheckboxCard.Indicator />
 		</CheckboxCard.Control>
@@ -221,16 +194,9 @@
 			>
 				<CheckboxCard.Control align="center">
 					<CheckboxCard.Content align="center">
-						<Icon
-							as={item.icon}
-							size="md"
-							weight="fill"
-							class="mb-2"
-						/>
+						<Icon as={item.icon} size="md" weight="fill" class="mb-2" />
 						<CheckboxCard.Label>{item.label}</CheckboxCard.Label>
-						<CheckboxCard.Description>
-							{item.description}
-						</CheckboxCard.Description>
+						<CheckboxCard.Description>{item.description}</CheckboxCard.Description>
 					</CheckboxCard.Content>
 					<CheckboxCard.Indicator />
 				</CheckboxCard.Control>

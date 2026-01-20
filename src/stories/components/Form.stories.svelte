@@ -3,6 +3,7 @@
 	import { Form, FormField, SubmitButton, DisplayIf, useForm } from "$saas/components/form";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { commonArgTypes, getControls } from "../utils";
+	import { z } from "zod";
 
 	const { Story } = defineMeta({
 		title: "components/Form",
@@ -10,37 +11,15 @@
 		argTypes: { children: commonArgTypes.children, class: commonArgTypes.class },
 		parameters: { controls: getControls(["children", "class"]) },
 	});
-</script>
-
-<script lang="ts">
-	import { z } from "zod";
-
-	const basicForm = useForm({
-		defaultValues: { name: "" },
-		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
-	});
-
-	const validationForm = useForm({
-		schema: z.object({ name: z.string().min(1, "Name is required"), email: z.string().email("Invalid email") }),
-		defaultValues: { name: "", email: "" },
-		onSubmit: async (values) => { await new Promise((r) => setTimeout(r, 1500)); alert(JSON.stringify(values, null, 2)); },
-	});
-
-	const fieldTypesForm = useForm({
-		defaultValues: { text: "", email: "", password: "", number: 0, textarea: "", select: "" },
-		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
-	});
-
-	const conditionalForm = useForm({
-		schema: z.object({ name: z.string().min(1, "Required"), showAge: z.boolean(), age: z.number().optional() }),
-		defaultValues: { name: "", showAge: false, age: 0 },
-		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
-	});
 
 	const selectOptions = [{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }, { label: "Option 3", value: "3" }];
 </script>
 
 {#snippet basicStory()}
+	{@const basicForm = useForm({
+		defaultValues: { name: "" },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	})}
 	<Form form={basicForm} class="w-full max-w-sm">
 		<VStack gap={4}>
 			<FormField name="name" label="Name" placeholder="Enter your name" />
@@ -50,6 +29,11 @@
 {/snippet}
 
 {#snippet validationStory()}
+	{@const validationForm = useForm({
+		schema: z.object({ name: z.string().min(1, "Name is required"), email: z.string().email("Invalid email") }),
+		defaultValues: { name: "", email: "" },
+		onSubmit: async (values) => { await new Promise((r) => setTimeout(r, 1500)); alert(JSON.stringify(values, null, 2)); },
+	})}
 	<Form form={validationForm} class="w-full max-w-sm">
 		<VStack gap={4}>
 			<FormField name="name" label="Name" placeholder="Enter your name" required />
@@ -60,6 +44,10 @@
 {/snippet}
 
 {#snippet fieldTypesStory()}
+	{@const fieldTypesForm = useForm({
+		defaultValues: { text: "", email: "", password: "", number: 0, textarea: "", select: "" },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	})}
 	<Form form={fieldTypesForm} class="w-full max-w-sm">
 		<VStack gap={4}>
 			<FormField name="text" label="Text" placeholder="Text input" />
@@ -74,6 +62,11 @@
 {/snippet}
 
 {#snippet conditionalStory()}
+	{@const conditionalForm = useForm({
+		schema: z.object({ name: z.string().min(1, "Required"), showAge: z.boolean(), age: z.number().optional() }),
+		defaultValues: { name: "", showAge: false, age: 0 },
+		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+	})}
 	<Form form={conditionalForm} class="w-full max-w-sm">
 		<VStack gap={4}>
 			<FormField name="name" label="Name" required />
@@ -87,7 +80,12 @@
 {/snippet}
 
 {#snippet submitOptionsStory()}
-	<Form form={validationForm} class="w-full max-w-sm">
+	{@const submitOptionsForm = useForm({
+		schema: z.object({ name: z.string().min(1, "Name is required"), email: z.string().email("Invalid email") }),
+		defaultValues: { name: "", email: "" },
+		onSubmit: async (values) => { await new Promise((r) => setTimeout(r, 1500)); alert(JSON.stringify(values, null, 2)); },
+	})}
+	<Form form={submitOptionsForm} class="w-full max-w-sm">
 		<VStack gap={4}>
 			<FormField name="name" label="Name" required />
 			<FormField name="email" type="email" label="Email" required />
