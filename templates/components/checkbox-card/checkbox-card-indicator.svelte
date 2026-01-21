@@ -68,7 +68,7 @@
 		},
 	});
 
-	interface Props extends HTMLAttributes<SVGSVGElement> {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
 		 * Additional CSS classes to apply.
 		 */
