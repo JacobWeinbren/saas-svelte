@@ -139,7 +139,13 @@
 	positioning={finalPositioning}
 	{...rest}
 >
-	<ArkPopover.Trigger class={triggerClass} asChild={children} />
+	<ArkPopover.Trigger class={triggerClass}>
+		{#snippet asChild(props)}
+			<button type="button" class="inline-flex appearance-none bg-transparent border-0 p-0 cursor-pointer" {...props()}>
+				{@render children()}
+			</button>
+		{/snippet}
+	</ArkPopover.Trigger>
 	<Portal>
 		<ArkPopover.Positioner class={styles.positioner()}>
 			<ArkPopover.Content

@@ -17,4 +17,10 @@
 	let { children, class: className, ...rest }: Props = $props();
 </script>
 
-<Popover.Trigger class={className} asChild={children} {...rest} />
+<Popover.Trigger class={className} {...rest}>
+	{#snippet asChild(props)}
+		<button type="button" class="inline-flex appearance-none bg-transparent border-0 p-0 cursor-pointer" {...props()}>
+			{@render children()}
+		</button>
+	{/snippet}
+</Popover.Trigger>
