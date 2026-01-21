@@ -19,7 +19,7 @@
 				glass: [
 					"overflow-x-clip overflow-y-clip",
 					"text-(--c-contrast) bg-(--c-solid)",
-					"shadow-inner",
+					"shadow-[inset_0_1px_0_#fff3,0_2px_4px_#0000004d,inset_0_0_1px_var(--colors-gray-300)/5%]",
 					"[text-shadow:0_1px_2px_#0000004d]",
 					// Gradient overlay pseudo-element
 					"after:content-[''] after:absolute after:inset-0 after:opacity-20 after:pointer-events-none",
