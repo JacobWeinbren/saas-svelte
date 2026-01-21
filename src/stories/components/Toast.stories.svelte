@@ -78,7 +78,7 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="min-h-[400px]">
+	<div class="h-auto">
 		<Button
 			onclick={() =>
 				basicToaster.create({
@@ -93,7 +93,7 @@
 {/snippet}
 
 {#snippet statusStory()}
-	<div class="min-h-[400px]">
+	<div class="h-auto">
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				colour="blue"
@@ -152,7 +152,7 @@
 {/snippet}
 
 {#snippet actionStory()}
-	<div class="min-h-[400px]">
+	<div class="h-auto">
 		<Button
 			onclick={() =>
 				actionToaster.create({
@@ -172,7 +172,7 @@
 {/snippet}
 
 {#snippet durationStory()}
-	<div class="min-h-[400px]">
+	<div class="h-auto">
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() =>
@@ -210,7 +210,7 @@
 {/snippet}
 
 {#snippet placementStory()}
-	<div class="min-h-[400px]">
+	<div class="h-auto">
 		<Button
 			onclick={() =>
 				placementToaster.create({
@@ -225,7 +225,7 @@
 {/snippet}
 
 {#snippet stackingStory()}
-	<div class="min-h-[500px]">
+	<div class="h-auto">
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() => {
@@ -267,7 +267,7 @@
 
 <Story name="Status" template={statusStory} />
 
-<Story name="WithAction" template={actionStory} />
+<Story name="With Action" template={actionStory} />
 
 <Story name="Duration" template={durationStory} />
 

@@ -169,13 +169,13 @@
 />
 
 <Story
-	name="TrackColour"
+	name="Track Colour"
 	template={trackColourStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 
 <Story
-	name="CustomSpeed"
+	name="Custom Speed"
 	template={customSpeedStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
@@ -187,7 +187,7 @@
 />
 
 <Story
-	name="WithLabel"
+	name="With Label"
 	template={withLabelStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />

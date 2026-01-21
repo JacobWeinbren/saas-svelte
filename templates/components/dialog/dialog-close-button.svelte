@@ -13,24 +13,41 @@
 
 <Dialog.CloseTrigger
 	class={twMerge(
-		// Position & Shape
-		"absolute right-4 top-4 rounded-md transition-[color,background-color] duration-moderate cursor-pointer min-w-7 h-7",
-		// Layout
-		"flex items-center justify-center shrink-0 gap-2",
-		// Colors - light: gray-900 text, dark: gray-200 text
-		"text-fg-default",
-		// Hover - light: gray-100 bg, dark: gray-900 bg
+		"absolute",
+		"right-4",
+		"top-4",
+		"min-w-7",
+		"h-7",
+		"rounded",
+		"flex",
+		"items-center",
+		"justify-center",
+		"shrink-0",
+		"gap-y-2",
+		"gap-x-2",
+		"cursor-pointer",
+		"text-fg-muted",
+		"text-sm",
+		"font-medium",
+		"leading-sm",
+		"antialiased",
+		"isolate",
+		"appearance-none",
+		"select-none",
+		"outline-0",
+		"transition-colors",
+		"duration-200",
 		"hover:bg-bg-subtle",
-		// Typography
-		"text-sm font-medium leading-sm",
-		// Focus ring
-		"focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
-		// Disabled state
-		"disabled:opacity-50 disabled:cursor-not-allowed",
+		"focus-visible:outline-1",
+		"focus-visible:outline-offset-2",
+		"focus-visible:outline-solid",
+		"focus-visible:outline-fg-muted",
+		"disabled:opacity-50",
+		"disabled:cursor-not-allowed",
 		className,
 	)}
 	{...rest}
 >
-	<X class="size-4" weight="bold" />
+	<X class="w-4 h-4 shrink-0" weight="bold" />
 	<span class="sr-only">Close</span>
 </Dialog.CloseTrigger>

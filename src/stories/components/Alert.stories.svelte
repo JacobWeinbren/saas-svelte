@@ -120,4 +120,4 @@
 
 <Story name="Variants" template={variantsStory} />
 
-<Story name="CustomIcon" template={customIconStory} />
+<Story name="Custom Icon" template={customIconStory} />

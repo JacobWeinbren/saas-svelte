@@ -20,13 +20,13 @@
 	id={errorId}
 	aria-live="polite"
 	class={[
-		// Layout
-		"inline-flex items-center gap-1",
-		// Text color - error color (red-500 light, red-400 dark)
+		"inline-flex",
+		"items-center",
+		"gap-y-1",
+		"gap-x-1",
 		"text-fg-error",
-		// Typography
-		"text-xs font-medium leading-xs",
-		// Rendering
+		"text-xs",
+		"leading-4",
 		"antialiased",
 		className,
 	]

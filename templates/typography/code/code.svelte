@@ -33,10 +33,10 @@
 				],
 			},
 			size: {
-				xs: "text-(length:--font-sizes-xs) leading-(--line-heights-2xs) px-1 min-h-4",
-				sm: "text-(length:--font-sizes-xs) leading-(--line-heights-xs) px-1.5 min-h-5",
-				md: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2 min-h-6",
-				lg: "text-(length:--font-sizes-sm) leading-(--line-heights-sm) px-2.5 min-h-7",
+				xs: "text-xs leading-2xs px-1 min-h-4",
+				sm: "text-xs leading-xs px-1.5 min-h-5",
+				md: "text-sm leading-sm px-2 min-h-6",
+				lg: "text-sm leading-sm px-2.5 min-h-7",
 			},
 		},
 		defaultVariants: {

@@ -6,38 +6,50 @@
 
 	const dataList = tv({
 		slots: {
-			root: "flex flex-col",
-			item: "inline-flex items-center grow",
-			label: "flex items-center text-fg-muted",
-			value: "flex flex-1 text-fg-default",
+			root: [
+				"flex",
+				"flex-col",
+				"antialiased",
+			],
+			item: [
+				"inline-flex",
+				"items-center",
+			],
+			label: [
+				"flex",
+				"items-center",
+				"text-fg-muted",
+			],
+			value: [
+				"flex",
+				"flex-1",
+			],
 		},
 		variants: {
 			size: {
 				sm: {
 					root: "gap-y-3 gap-x-3",
-					item: "gap-y-4 gap-x-4 text-xs leading-xs",
+					item: "gap-y-4 gap-x-4 text-xs leading-4",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				md: {
 					root: "gap-y-4 gap-x-4",
-					item: "gap-y-4 gap-x-4 text-sm leading-sm",
+					item: "gap-y-4 gap-x-4 text-sm leading-5",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 				lg: {
 					root: "gap-y-5 gap-x-5",
-					item: "gap-y-4 gap-x-4 text-md leading-md",
+					item: "gap-y-4 gap-x-4 text-sm leading-5",
 					label: "gap-y-1 gap-x-1 min-w-32",
 				},
 			},
 			orientation: {
 				horizontal: {
-					// Items stacked vertically, but label-value are horizontal (side-by-side)
 					root: "flex-col",
 					item: "flex-row items-center",
 					value: "flex-1",
 				},
 				vertical: {
-					// Items stacked vertically, label-value are vertical (stacked)
 					root: "flex-col",
 					item: "flex-col items-start",
 					value: "w-full",
@@ -118,11 +130,7 @@
 
 <dl
 	data-orientation={orientation}
-	class={twMerge(
-		"text-fg-default leading-normal antialiased",
-		classes.root(),
-		className,
-	)}
+	class={twMerge(classes.root(), className)}
 	style={finalStyle}
 	{...restProps}
 >

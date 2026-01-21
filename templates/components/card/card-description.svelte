@@ -5,10 +5,9 @@
 
 	const cardDescription = tv({
 		base: [
-			"wrap-break-word",
-			"text-sm",
-			"leading-sm",
+			"break-words",
 			"text-fg-muted",
+			"text-sm",
 		],
 	});
 

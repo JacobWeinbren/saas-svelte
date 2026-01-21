@@ -5,27 +5,25 @@
 
 	const addon = tv({
 		base: [
-			// Layout
-			"flex items-center flex-none whitespace-nowrap",
-			// Border
-			"border border-solid rounded-l1",
-			// Background - light: gray-50, dark: gray-900
+			"flex",
+			"items-center",
+			"flex-none",
+			"whitespace-nowrap",
+			"border",
+			"border-solid",
+			"rounded",
 			"bg-bg-subtle",
-			// Border color
 			"border-border-default",
-			// Text color
 			"text-fg-default",
-			// Typography
 			"antialiased",
-			// Focus
 			"focus-visible:z-1",
 		],
 		variants: {
 			size: {
-				xs: "h-6 px-2 text-xs leading-xs",
-				sm: "h-7 px-2.5 text-sm leading-sm",
-				md: "h-8 px-3 text-sm leading-sm",
-				lg: "h-10 px-4 text-sm leading-sm",
+				xs: "h-6 px-2 text-xs leading-4",
+				sm: "h-7 px-2.5 text-sm leading-5",
+				md: "h-8 px-3 text-sm leading-5",
+				lg: "h-10 px-4 text-sm leading-5",
 			},
 		},
 		defaultVariants: {

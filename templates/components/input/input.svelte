@@ -4,57 +4,51 @@
 
 	export const input = tv({
 		base: [
-			// Core Layout
-			"appearance-none outline-0 w-full relative",
-			"rounded-l1 border",
-
-			// Text & Placeholder
+			"appearance-none",
+			"outline-0",
+			"w-full",
+			"relative",
+			"rounded",
+			"border",
 			"antialiased",
-			"text-fg-default",
-			"placeholder:text-fg-muted placeholder:select-none",
-
-			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
-
-			// Focus - using colour prop (--c-focus-ring set via getColourStyle)
-			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-focus-ring)",
+			"focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
-					"bg-transparent",
-					// Border - light: gray-200, dark: gray-800
 					"border-border-default",
-					// Hover - light: gray-300, dark: zinc-700
-					"enabled:hover:border-border-emphasized",
-					"enabled:hover:focus-visible:border-(--c-focus-ring)",
+					"hover:border-border-emphasized",
+					"hover:focus-visible:border-(--c-focus-ring)",
 				],
 				subtle: [
-					"border-transparent",
-					// Background - light: gray-50, dark: gray-950
 					"bg-bg-subtle",
+					"border-transparent",
 				],
 				flushed: [
-					"rounded-none border-t-0 border-x-0 border-b",
-					"bg-transparent shadow-none px-0",
-					// Border - light: gray-200, dark: gray-800
-					"border-border-default",
-					// Focus - shadow instead of outline
-					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--c-focus-ring)",
+					"rounded-none",
+					"border-t-0",
+					"border-x-0",
+					"border-b",
+					"border-b-border-default",
+					"focus-visible:shadow",
+					"focus-visible:border-(--c-focus-ring)",
 				],
 			},
 			size: {
-				xs: "min-w-6 h-6 px-2 text-xs leading-xs",
-				sm: "min-w-7 h-7 px-2.5 text-sm leading-sm",
-				md: "min-w-8 h-8 px-3 text-sm leading-sm",
-				lg: "min-w-10 h-10 px-5 text-sm leading-sm rounded-md",
+				xs: "min-w-6 h-6 px-2 text-xs leading-4",
+				sm: "min-w-7 h-7 px-2.5 text-sm leading-5",
+				md: "min-w-8 h-8 px-3 text-sm leading-5",
+				lg: "min-w-10 h-10 px-5 text-sm leading-5 rounded-md",
 			},
 			invalid: {
 				true: [
-					// Invalid border and focus ring - red-500 light, red-400 dark
 					"border-border-error!",
-					"focus-visible:border-border-error! focus-visible:outline-border-error!",
-					"enabled:hover:border-border-emphasized",
+					"focus-visible:border-border-error!",
+					"focus-visible:outline-border-error!",
 				],
 			},
 		},

@@ -10,8 +10,11 @@
 			"inline-block",
 			"rounded-full",
 			"border-2",
-			"border-b-transparent",
+			"border-solid",
 			"border-l-transparent",
+			"border-b-transparent",
+			"border-r-current",
+			"border-t-current",
 			"animate-spin",
 		],
 		variants: {
@@ -20,11 +23,11 @@
 			 * @default "md"
 			 */
 			size: {
-				xs: "size-3",
-				sm: "size-4",
-				md: "size-5",
-				lg: "size-8",
-				xl: "size-10",
+				xs: "w-3 h-3",
+				sm: "w-4 h-4",
+				md: "w-5 h-5",
+				lg: "w-8 h-8",
+				xl: "w-10 h-10",
 			},
 		},
 		defaultVariants: {
@@ -99,6 +102,6 @@
 	role="status"
 	aria-label={label}
 	class={spinner({ size, class: className })}
-	style="{colourStyle}; border-top-color: var(--c-fg); border-right-color: var(--c-fg); animation-duration: {animationDuration}; border-width: {borderWidth}; {trackBorderStyle}"
+	style="{colourStyle}; color: var(--c-fg); animation-duration: {animationDuration}; border-width: {borderWidth}; {trackBorderStyle}"
 	{...restProps}
 ></span>

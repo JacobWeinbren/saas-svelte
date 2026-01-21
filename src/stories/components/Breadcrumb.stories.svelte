@@ -25,8 +25,8 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["emphasised", "muted"],
-				table: { defaultValue: { summary: "emphasised" } },
+				options: ["plain", "underline"],
+				table: { defaultValue: { summary: "plain" } },
 			},
 			size: {
 				...commonArgTypes.size,
@@ -51,14 +51,14 @@
 			]),
 		},
 		args: {
-			variant: "emphasised",
+			variant: "plain",
 			size: "md",
 			separator: "/",
 		},
 	});
 
 	const sizes = ["sm", "md", "lg"] as const;
-	const variants = ["emphasised", "muted"] as const;
+	const variants = ["plain", "underline"] as const;
 </script>
 
 {#snippet basicStory()}

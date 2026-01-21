@@ -7,11 +7,11 @@
 		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-solid) text-(--c-contrast)",
 		variants: {
 			size: {
-				xs: "size-5 text-(length:--font-sizes-xs)",
-				sm: "size-8 text-(length:--font-sizes-sm)",
-				md: "size-10 text-(length:--font-sizes-md)",
-				lg: "size-12 text-(length:--font-sizes-lg)",
-				xl: "size-16 text-(length:--font-sizes-xl)",
+				xs: "size-5 text-xs",
+				sm: "size-8 text-sm",
+				md: "size-10 text-md",
+				lg: "size-12 text-lg",
+				xl: "size-16 text-xl",
 			},
 			variant: {
 				solid: "bg-(--c-solid) text-(--c-contrast)",

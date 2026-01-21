@@ -8,36 +8,40 @@
 		slots: {
 			positioner: ["absolute", "isolate", "min-w-max"],
 			content: [
-				"flex flex-col relative",
-				"rounded-l2",
-				"data-[side=bottom]:origin-top data-[side=left]:origin-right data-[side=right]:origin-left data-[side=top]:origin-bottom",
-
+				"flex",
+				"flex-col",
+				"relative",
+				"rounded-sm",
+				"data-[side=bottom]:origin-top",
+				"data-[side=left]:origin-right",
+				"data-[side=right]:origin-left",
+				"data-[side=top]:origin-bottom",
 				// Light/Dark mode using semantic tokens
-				"bg-bg-panel backdrop-blur-lg",
+				"bg-bg-overlay",
 				"text-fg-default",
-
-				"text-sm font-normal leading-sm antialiased",
-				"max-w-xs",
+				"text-xs",
+				"font-normal",
+				"leading-xs",
+				"antialiased",
+				"max-w-80",
 				"border-0",
-
 				// Shadow
-				"shadow-overlay",
-
+				"shadow-md",
 				"outline-none",
 			],
 			arrow: [
-				"[--arrow-size:var(--spacing-3)]",
-				"[--arrow-background:var(--color-bg-panel)]",
+				"[--arrow-size:var(--spacing-2)]",
+				"[--arrow-background:var(--color-bg-overlay)]",
 			],
-			arrowTip: ["border-l border-t", "border-border-subtle"],
+			arrowTip: ["border-l", "border-t", "border-border-subtle"],
 		},
 		variants: {
 			variant: {
 				default: {},
 				inverted: {
-					content: ["bg-bg-inverted", "text-fg-inverted"],
+					content: ["bg-bg-inverted", "text-fg-inverted", "shadow-[0_4px_8px_rgba(24,24,27,0.1),0_0_1px_rgba(24,24,27,0.3)]"],
 					arrow: ["[--arrow-background:var(--color-bg-inverted)]"],
-					arrowTip: ["border-border-inverted"],
+					arrowTip: ["border-bg-inverted"],
 				},
 			},
 			interactive: {
@@ -79,6 +83,9 @@
 					content: "px-2 py-1",
 				},
 				md: {
+					content: "px-2.5 py-1",
+				},
+				tooltip: {
 					content: "px-2.5 py-1",
 				},
 			},

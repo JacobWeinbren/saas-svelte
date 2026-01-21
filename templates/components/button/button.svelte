@@ -6,78 +6,69 @@
 
 	export const button = tv({
 		base: [
-			"relative isolate inline-flex shrink-0 cursor-pointer appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"rounded-l1 font-medium",
-			"transition-[color,background-color,border-color] duration-moderate",
-			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid",
+			"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate",
+			"outline-0 shrink-0 justify-center items-center",
+			"font-medium inline-flex relative",
+			"rounded",
+			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-fg-muted",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
 		variants: {
 			variant: {
 				// GLASS: Contrast text with gradient overlay and glossy effect
 				glass: [
-					"overflow-clip",
+					"overflow-x-clip overflow-y-clip",
 					"text-(--c-contrast) bg-(--c-solid)",
-					"focus-visible:outline-(--c-focus-ring)",
-					"[text-shadow:0_1px_2px_rgba(0,0,0,0.3)]",
-					// Light mode: inset shadow for depth + subtle outer shadow
-					"shadow-[inset_0_0_0_1px_rgba(0,0,0,0.25),inset_0_2px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.05),0_0_2px_0_rgba(0,0,0,0.05)]",
-					// Dark mode: simpler inset highlight + outer shadow
-					"dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_2px_4px_0_rgba(0,0,0,0.3),inset_0_0_1px_0_rgba(255,255,255,0.05)]",
+					"shadow-inner",
+					"[text-shadow:0_1px_2px_#0000004d]",
 					// Gradient overlay pseudo-element
-					"after:content-[''] after:absolute after:inset-0 after:rounded-[inherit] after:opacity-20 after:pointer-events-none",
-					"after:bg-[linear-gradient(180deg,white_40%,rgba(0,0,0,0.2))]",
-					"after:transition-opacity after:duration-moderate",
-					"hover:after:bg-[linear-gradient(180deg,rgba(255,255,255,0.8)_40%,rgba(0,0,0,0.6))]",
+					"after:content-[''] after:absolute after:inset-0 after:opacity-20 after:pointer-events-none",
+					"after:bg-[linear-gradient(#fff_40%,#0003)]",
+					"after:transition-opacity after:duration-200",
+					"hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
 				],
 
 				// SOLID: Contrast text with solid background
 				solid: [
-					"text-(--c-contrast) bg-(--c-solid) shadow-sm",
-					"focus-visible:outline-(--c-focus-ring)",
-					"hover:brightness-110",
+					"shadow text-(--c-contrast) bg-(--c-solid)",
+					"hover:bg-(--c-solid)/90",
 				],
 
 				// SUBTLE: Accent text with subtle background
 				subtle: [
 					"text-(--c-fg) bg-(--c-muted)",
-					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-subtle)",
 				],
 
 				// SURFACE: Accent text with border and subtle background
 				surface: [
-					"text-(--c-fg) shadow-sm border bg-(--c-muted)/20 border-(--c-emphasized)/90",
-					"focus-visible:outline-(--c-focus-ring)",
+					"shadow-sm border text-(--c-fg) bg-(--c-muted)/20 border-(--c-emphasized)/90",
 					"hover:bg-(--c-muted) hover:border-(--c-emphasized)",
 				],
 
 				// OUTLINE: Accent text with thin border
 				outline: [
-					"text-(--c-fg) border-[0.5px] border-(--c-emphasized)",
-					"focus-visible:outline-(--c-focus-ring)",
+					"border-[0.5px] text-(--c-fg) border-(--c-emphasized)",
 					"hover:bg-(--c-muted)",
 				],
 
 				// GHOST: Accent text, background on hover
 				ghost: [
 					"text-(--c-fg)",
-					"focus-visible:outline-(--c-focus-ring)",
 					"hover:bg-(--c-subtle)",
 				],
 
 				// PLAIN: Accent text only
 				plain: [
 					"text-(--c-fg)",
-					"focus-visible:outline-(--c-focus-ring)",
 				],
 			},
 			size: {
-				xs: "h-6 min-w-6 gap-x-1 gap-y-1 px-2 text-xs leading-xs [&_svg]:size-2",
-				sm: "h-7 min-w-7 gap-x-2 gap-y-2 px-2.5 text-sm leading-sm [&_svg]:size-3",
-				md: "h-8 min-w-8 gap-x-2 gap-y-2 px-3 text-sm leading-sm [&_svg]:size-3.5",
-				lg: "h-10 min-w-10 gap-x-3 gap-y-3 px-5 rounded-md text-sm leading-sm [&_svg]:size-5",
-				xl: "h-12 min-w-12 gap-x-3 gap-y-3 px-6 rounded-md text-md leading-md [&_svg]:size-6",
+				xs: "h-6 min-w-6 gap-y-1 gap-x-1 text-xs leading-4 px-2 [&_svg]:size-2",
+				sm: "h-7 min-w-7 gap-y-2 gap-x-2 text-sm leading-5 px-2.5 [&_svg]:size-3",
+				md: "h-8 min-w-8 gap-y-2 gap-x-2 text-sm leading-5 px-3 [&_svg]:size-3.5",
+				lg: "h-10 min-w-10 gap-y-3 gap-x-3 text-sm leading-5 px-5 rounded-md [&_svg]:size-5",
+				xl: "h-12 min-w-12 gap-y-3 gap-x-3 text-base leading-6 px-6 rounded-md [&_svg]:size-6",
 			},
 			icon: { true: "px-0" },
 		},

@@ -6,12 +6,12 @@
 	import { CARD_CTX, type CardVariants } from "./card-root.svelte";
 
 	const cardFooter = tv({
-		base: ["flex flex-row items-center gap-2"],
+		base: ["items-center gap-y-2 gap-x-2 flex pt-2"],
 		variants: {
 			size: {
-				sm: "px-2.5 pt-1.5 pb-2.5",
-				md: "px-4 pt-2 pb-4",
-				lg: "px-6 pt-3 pb-6",
+				sm: "px-2.5 pb-2.5",
+				md: "px-4 pb-4",
+				lg: "px-6 pb-6",
 			},
 		},
 		defaultVariants: {

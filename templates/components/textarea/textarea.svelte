@@ -5,18 +5,23 @@
 	export const textarea = tv({
 		base: [
 			// Core Layout
-			"appearance-none outline-0 w-full relative",
-			"rounded-l1 border",
-
+			"appearance-none",
+			"outline-0",
+			"w-full",
+			"relative",
+			"rounded",
+			"border",
 			// Text & Placeholder
 			"antialiased",
-			"placeholder:text-fg-muted placeholder:select-none",
-
+			"placeholder:text-fg-muted",
+			"placeholder:select-none",
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
-
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
 			// Focus - uses colour focus ring
-			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-focus-ring)",
+			"focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
@@ -26,12 +31,22 @@
 					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
-				subtle: ["border-transparent", "bg-bg-subtle"],
+				subtle: [
+					"border-transparent",
+					"bg-bg-subtle",
+				],
 				flushed: [
-					"rounded-none border-t-0 border-x-0 border-b",
-					"bg-transparent shadow-none px-0",
+					"rounded-none",
+					"border-t-0",
+					"border-x-0",
+					"border-b",
+					"bg-transparent",
+					"shadow-none",
+					"px-0",
 					"border-border-default",
-					"focus-visible:outline-0 focus-visible:shadow focus-visible:border-(--c-focus-ring)",
+					"focus-visible:outline-0",
+					"focus-visible:shadow",
+					"focus-visible:border-(--c-focus-ring)",
 				],
 			},
 			size: {
@@ -44,7 +59,8 @@
 			invalid: {
 				true: [
 					"border-border-error!",
-					"focus-visible:border-border-error! focus-visible:outline-border-error!",
+					"focus-visible:border-border-error!",
+					"focus-visible:outline-border-error!",
 					"enabled:hover:border-border-emphasized",
 				],
 			},

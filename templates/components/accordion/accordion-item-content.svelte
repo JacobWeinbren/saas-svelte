@@ -23,8 +23,8 @@
 
 <Accordion.ItemContent
 	class={twMerge(
-		"rounded-md overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up",
 		styles.content(),
+		"data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up",
 		className,
 	)}
 	{...restProps}

@@ -4,8 +4,7 @@
 
 	export const breadcrumb = tv({
 		slots: {
-			root: "wrap-break-word text-fg-muted items-center inline-flex",
-			list: "flex items-center gap-x-1.5 gap-y-1.5",
+			root: "[word-break:break-word] text-fg-muted items-center flex",
 			item: "items-center inline-flex",
 			separator: "text-fg-muted opacity-80",
 			ellipsis: "justify-center items-center inline-flex",
@@ -13,26 +12,23 @@
 		variants: {
 			size: {
 				sm: {
-					root: "text-xs leading-xs gap-x-1 gap-y-1",
-					list: "gap-x-1 gap-y-1",
+					root: "text-xs leading-4 gap-x-1 gap-y-1",
 				},
 				md: {
-					root: "text-sm leading-sm gap-x-1.5 gap-y-1.5",
-					list: "gap-x-1.5 gap-y-1.5",
+					root: "text-sm leading-5 gap-x-1.5 gap-y-1.5",
 				},
 				lg: {
-					root: "text-md leading-md gap-x-2 gap-y-2",
-					list: "gap-x-2 gap-y-2",
+					root: "text-sm leading-5 gap-x-2 gap-y-2",
 				},
 			},
 			variant: {
-				muted: {},
-				emphasised: {},
+				plain: {},
+				underline: {},
 			},
 		},
 		defaultVariants: {
 			size: "md",
-			variant: "emphasised",
+			variant: "plain",
 		},
 	});
 
@@ -57,7 +53,7 @@
 		size?: BreadcrumbVariants["size"];
 		/**
 		 * The visual style of the breadcrumb links.
-		 * @default "emphasised"
+		 * @default "plain"
 		 */
 		variant?: BreadcrumbVariants["variant"];
 		/**
@@ -78,7 +74,7 @@
 	let {
 		children,
 		size = "md",
-		variant = "emphasised",
+		variant = "plain",
 		separator = "/",
 		separatorGap,
 		class: className,
@@ -107,12 +103,8 @@
 	});
 </script>
 
-<nav
-	aria-label="breadcrumb"
-	class={styles.root({ class: className })}
-	{...restProps}
->
-	<ol class={styles.list({ class: separatorGapClass })}>
+<nav aria-label="breadcrumb" {...restProps}>
+	<ol class={styles.root({ class: [separatorGapClass, className].filter(Boolean).join(" ") })}>
 		{@render children()}
 	</ol>
 </nav>

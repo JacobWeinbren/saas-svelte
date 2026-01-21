@@ -22,16 +22,24 @@
 	const ctx = getContext(DIALOG_CTX) as DialogContext;
 
 	const positionerStyles = tv({
-		base: "fixed inset-0 z-modal flex w-screen h-dvh overflow-hidden",
+		base: [
+			"fixed",
+			"inset-0",
+			"z-1000",
+			"flex",
+			"justify-center",
+			"pointer-events-auto",
+			"overscroll-y-none",
+		],
 		variants: {
 			placement: {
-				center: "items-start justify-center",
-				top: "items-start justify-center",
-				bottom: "items-end justify-center",
+				center: "items-start",
+				top: "items-start",
+				bottom: "items-end",
 			},
 			scrollBehavior: {
 				inside: "overflow-hidden",
-				outside: "overflow-y-auto",
+				outside: "overflow-y-auto overflow-x-auto",
 			},
 			size: {
 				xs: "",
@@ -51,28 +59,29 @@
 
 	const contentStyles = tv({
 		base: [
-			"relative flex flex-col",
-			// Background with translucency and blur
-			"bg-bg-panel backdrop-blur-md",
-			// Text color
-			"text-fg-default",
-			// Shadow
-			"shadow-lg",
+			"relative",
+			"flex",
+			"flex-col",
+			"bg-bg-overlay",
+			"backdrop-blur-xl",
+			"shadow-overlay",
 			"mx-auto",
-			"outline-none focus:outline-none",
+			"outline-none",
 			"antialiased",
-			// Typography
-			"text-sm leading-sm",
+			"text-sm",
+			"leading-sm",
+			"pointer-events-auto",
+			"z-1000",
 		],
 		variants: {
 			size: {
-				xs: "w-full max-w-sm rounded-l3",
-				sm: "w-full max-w-md rounded-l3",
-				md: "w-full max-w-lg rounded-l3",
-				lg: "w-full max-w-2xl rounded-l3",
-				xl: "w-full max-w-4xl rounded-l3",
+				xs: "w-full max-w-sm rounded-lg",
+				sm: "w-full max-w-md rounded-lg",
+				md: "w-full max-w-lg rounded-lg",
+				lg: "w-full max-w-2xl rounded-lg",
+				xl: "w-full max-w-4xl rounded-lg",
 				full: "w-full h-full",
-				cover: "w-full h-full rounded-l3 my-0 overflow-hidden",
+				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-var(--spacing-16))] my-auto",
@@ -87,7 +96,7 @@
 
 <Portal>
 	<Dialog.Backdrop
-		class="fixed inset-0 z-overlay transition-opacity duration-moderate bg-bg-backdrop data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
+		class="fixed inset-0 z-999 transition-opacity duration-moderate bg-bg-backdrop data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out"
 		data-state-layer
 	/>
 

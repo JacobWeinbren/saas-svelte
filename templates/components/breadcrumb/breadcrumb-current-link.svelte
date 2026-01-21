@@ -26,18 +26,10 @@
 
 	const context = getContext<BreadcrumbContext>("breadcrumb");
 	const styles = $derived(context?.styles);
-	const variant = $derived(context?.variant ?? "emphasised");
 
 	const currentClasses = $derived(() => {
-		const classes = [className];
-		// Emphasised variant: current link is emphasized (stands out from gray links)
-		// Muted variant: current link is default (same as other white links)
-		if (variant === "emphasised") {
-			classes.push("text-fg-emphasized");
-		} else {
-			classes.push("text-fg-default");
-		}
-		return classes.filter(Boolean).join(" ");
+		// Current link is always default color (stands out from muted links)
+		return ["text-fg-default", className].filter(Boolean).join(" ");
 	});
 </script>
 

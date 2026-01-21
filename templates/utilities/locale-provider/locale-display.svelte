@@ -17,7 +17,7 @@
 
 <div class="flex flex-col gap-2">
 	<pre
-		class="rounded bg-bg-subtle p-4 text-(length:--font-sizes-sm) leading-(--line-heights-sm) font-mono">{JSON.stringify(
+		class="rounded bg-bg-subtle p-4 text-sm leading-sm font-mono">{JSON.stringify(
 			displayData,
 			null,
 			2,

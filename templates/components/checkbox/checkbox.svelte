@@ -6,14 +6,22 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import { tv, type VariantProps } from "tailwind-variants";
 	import { twMerge } from "tailwind-merge";
-	import { getContext, hasContext } from "svelte";
+	import { getContext } from "svelte";
 
 	const checkboxControl = tv({
 		base: [
-			"flex items-center justify-center border shrink-0 p-0.5",
-			"rounded-l1",
-			"peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-(--c-focus-ring) peer-focus-visible:outline-solid",
-			"antialiased",
+			"shrink-0",
+			"justify-center",
+			"items-center",
+			"inline-flex",
+			"p-0.5",
+			"rounded",
+			"border",
+			"focus-visible:outline-offset-2",
+			"focus-visible:outline-1",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-solid)",
+			"disabled:opacity-50",
 		],
 		variants: {
 			variant: {
@@ -25,9 +33,9 @@
 				outline: "",
 			},
 			size: {
-				sm: "size-3.5",
-				md: "size-4",
-				lg: "size-5",
+				sm: "w-3.5 h-3.5",
+				md: "w-4 h-4",
+				lg: "w-5 h-5",
 			},
 			checked: {
 				true: "",
@@ -35,44 +43,44 @@
 				indeterminate: "",
 			},
 			disabled: {
-				true: "cursor-not-allowed opacity-50",
+				true: "opacity-50",
 			},
 			invalid: {
-				true: "border-border-error! peer-focus-visible:outline-border-error!",
+				true: "border-border-error! focus-visible:outline-border-error!",
 			},
 		},
 		compoundVariants: [
-			// SOLID - unchecked: gray border, white/transparent icon
+			// SOLID - unchecked: gray border, white text (hidden)
 			{
 				variant: "solid",
 				checked: false,
-				class: "border-border-emphasized text-(--c-contrast)",
+				class: "text-white border-border-default",
 			},
-			// SOLID - checked: colored background and border, contrast text
+			// SOLID - checked: colored background and border, white text
 			{
 				variant: "solid",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-solid) border-(--c-solid) text-(--c-contrast)",
+				class: "text-white bg-(--c-solid) border-(--c-solid)",
 			},
-			// SUBTLE - unchecked: light bg, light border, hidden icon
+			// SUBTLE - unchecked: gray border (same as solid unchecked)
 			{
 				variant: "subtle",
 				checked: false,
-				class: "bg-(--c-muted) border-(--c-subtle) text-(--c-contrast)",
+				class: "text-white border-border-default",
 			},
-			// SUBTLE - checked: light bg, light border, colored icon
+			// SUBTLE - checked: light bg, light border, colored text
 			{
 				variant: "subtle",
 				checked: [true, "indeterminate"],
-				class: "bg-(--c-muted) border-(--c-subtle) text-(--c-fg)",
+				class: "bg-(--c-subtle) border-(--c-muted) text-(--c-fg)",
 			},
-			// OUTLINE - unchecked: gray border, transparent bg
+			// OUTLINE - unchecked: gray border
 			{
 				variant: "outline",
 				checked: false,
-				class: "border-border-emphasized text-(--c-contrast)",
+				class: "text-white border-border-default",
 			},
-			// OUTLINE - checked: colored border, colored icon
+			// OUTLINE - checked: colored border, colored text
 			{
 				variant: "outline",
 				checked: [true, "indeterminate"],
@@ -93,10 +101,10 @@
 	});
 
 	const container = tv({
-		base: "group inline-flex items-center gap-2.5 cursor-default select-none",
+		base: "align-top items-center gap-y-2.5 gap-x-2.5 inline-flex relative",
 		variants: {
 			disabled: {
-				true: "cursor-not-allowed opacity-60",
+				true: "opacity-50",
 			},
 		},
 	});
@@ -213,7 +221,7 @@
 		lg: "size-3.5",
 	} as const;
 
-	const iconClass = $derived(`${iconSizeClass[size || "md"]}`);
+	const iconClass = $derived(iconSizeClass[size || "md"]);
 
 	function handleChange(e: Event) {
 		const target = e.currentTarget as HTMLInputElement;
@@ -251,67 +259,55 @@
 	)}
 	style={colourVars}
 >
-	<div class="flex items-center shrink-0">
-		<input
-			bind:this={inputRef}
-			type="checkbox"
-			class="peer sr-only"
-			checked={isChecked}
-			onchange={handleChange}
-			{value}
-			disabled={effectiveDisabled}
-			name={effectiveName}
-			aria-invalid={effectiveInvalid}
-			{...rest}
-		/>
-		<div
-			class={checkboxControl({
-				size,
-				variant,
-				checked: variantState,
-				disabled: effectiveDisabled ? true : undefined,
-				invalid: effectiveInvalid,
-			})}
-			aria-hidden="true"
-		>
-			{#if icon}
-				{@render icon()}
-			{:else if checkedState === "indeterminate"}
-				<Minus class={iconClass} weight="bold" aria-hidden="true" />
-			{:else}
-				<Check
-					class={iconClass}
-					weight="bold"
-					style="opacity: {isChecked ? 1 : 0};"
-					aria-hidden="true"
-				/>
-			{/if}
-		</div>
+	<input
+		bind:this={inputRef}
+		type="checkbox"
+		class="[clip:rect(0_0_0_0)] whitespace-nowrap [word-wrap:normal] w-px h-px absolute overflow-x-hidden overflow-y-hidden -m-px border-0"
+		checked={isChecked}
+		onchange={handleChange}
+		{value}
+		disabled={effectiveDisabled}
+		name={effectiveName}
+		aria-invalid={effectiveInvalid}
+		{...rest}
+	/>
+	<div
+		class={checkboxControl({
+			size,
+			variant,
+			checked: variantState,
+			disabled: effectiveDisabled ? true : undefined,
+			invalid: effectiveInvalid,
+		})}
+		aria-hidden="true"
+	>
+		{#if icon}
+			{@render icon()}
+		{:else if checkedState === "indeterminate"}
+			<Minus class={iconClass} weight="bold" aria-hidden="true" />
+		{:else}
+			<Check
+				class={iconClass}
+				weight="bold"
+				style="opacity: {isChecked ? 1 : 0};"
+				aria-hidden="true"
+			/>
+		{/if}
 	</div>
 
-	{#if label || children || description}
-		<div class="flex flex-col">
+	{#if label || children}
+		<span class="select-none text-sm font-medium leading-5 disabled:opacity-50">
 			{#if label}
-				<span
-					class="text-sm font-medium leading-sm text-fg-default select-none"
-				>
-					{label}
-				</span>
+				{label}
 			{/if}
 			{#if children}
-				<div
-					class="text-sm leading-sm text-fg-default select-none"
-				>
-					{@render children()}
-				</div>
+				{@render children()}
 			{/if}
-			{#if description}
-				<p
-					class="mt-1 text-sm font-normal leading-sm text-fg-muted"
-				>
-					{description}
-				</p>
-			{/if}
-		</div>
+		</span>
+	{/if}
+	{#if description}
+		<p class="text-sm font-normal leading-5 text-fg-muted">
+			{description}
+		</p>
 	{/if}
 </label>

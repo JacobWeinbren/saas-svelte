@@ -65,10 +65,14 @@
 <div
 	role="group"
 	class={[
-		// Layout
-		"flex relative w-full flex-col items-start",
-		// Gap between label, input, and helper/error text
-		"gap-1.5",
+		"flex",
+		"flex-col",
+		"items-start",
+		"gap-y-1.5",
+		"gap-x-1.5",
+		"w-full",
+		"relative",
+		"antialiased",
 		className,
 	]
 		.filter(Boolean)

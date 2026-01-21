@@ -12,12 +12,16 @@
 
 <div
 	class={twMerge(
-		// Layout
-		"flex flex-row justify-end items-center",
-		// Padding: pt-2 pb-4 px-6
-		"px-6 pt-2 pb-4",
-		// Gap between buttons
-		"gap-3",
+		"flex",
+		"items-center",
+		"justify-end",
+		"gap-y-3",
+		"gap-x-3",
+		"pb-4",
+		"pt-2",
+		"ps-6",
+		"pe-6",
+		"antialiased",
 		className,
 	)}
 >

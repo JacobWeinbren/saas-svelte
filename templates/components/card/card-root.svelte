@@ -5,17 +5,17 @@
 
 	export const cardRoot = tv({
 		base: [
-			"flex flex-col relative",
-			"rounded-lg",
+			"break-words",
 			"text-fg-default",
-			"wrap-break-word",
-			"antialiased",
+			"bg-bg-panel",
+			"flex-col flex relative",
+			"rounded-lg",
 		],
 		variants: {
 			variant: {
 				subtle: "bg-bg-subtle",
-				outline: "bg-bg-panel border border-border-default",
-				elevated: "bg-bg-panel shadow-xs border-[0.5px] border-border-default",
+				outline: "border border-border-default",
+				elevated: "shadow-md border-[0.5px] border-border-default",
 			},
 			size: {
 				sm: "",

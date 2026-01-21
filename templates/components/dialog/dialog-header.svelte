@@ -12,12 +12,13 @@
 
 <div
 	class={twMerge(
-		// Layout - flex-[0] to not grow
-		"flex flex-0",
-		// Padding: pt-4 pb-2 px-6
-		"px-6 pt-4 pb-2",
-		// Text alignment
-		"text-left",
+		"flex",
+		"flex-0",
+		"ps-6",
+		"pe-6",
+		"pt-4",
+		"pb-2",
+		"antialiased",
 		className,
 	)}
 >

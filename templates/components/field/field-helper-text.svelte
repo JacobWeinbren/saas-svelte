@@ -19,11 +19,9 @@
 <span
 	id={helperId}
 	class={[
-		// Text color - muted for helper text (zinc-500)
 		"text-fg-muted",
-		// Typography
-		"text-xs leading-xs",
-		// Rendering
+		"text-xs",
+		"leading-4",
 		"antialiased",
 		className,
 	]

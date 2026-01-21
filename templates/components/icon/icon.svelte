@@ -7,21 +7,20 @@
 
 	const iconStyles = tv({
 		base: [
-			// Display
-			"inline-block shrink-0",
-			// Typography alignment
-			"leading-none align-middle",
-			// Rendering
+			"shrink-0",
+			"inline-block",
 			"antialiased",
 		],
 		variants: {
 			size: {
-				xs: "size-3",
-				sm: "size-4",
-				md: "size-5", // 20px
-				lg: "size-6",
-				xl: "size-7",
-				"2xl": "size-8",
+				xs: "w-3 h-3",
+				sm: "w-4 h-4",
+				md: "w-5 h-5",
+				lg: "w-6 h-6",
+				xl: "w-7 h-7",
+				"2xl": "w-8 h-8",
+				"3xl": "w-9 h-9",
+				"4xl": "w-10 h-10",
 			},
 		},
 		defaultVariants: {
@@ -32,32 +31,11 @@
 	type IconVariants = VariantProps<typeof iconStyles>;
 
 	interface Props extends SVGAttributes<SVGElement> {
-		/**
-		 * The icon component to render (e.g. from phosphor-svelte or custom).
-		 */
 		as?: Component<any>;
-		/**
-		 * The size of the icon.
-		 * @default "md"
-		 */
 		size?: IconVariants["size"];
-		/**
-		 * The colour theme of the icon.
-		 * @default "currentColor"
-		 */
 		colour?: ColourName;
-		/**
-		 * The weight/style of the icon (for Phosphor icons).
-		 * @default "regular"
-		 */
 		weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
-		/**
-		 * Whether to flip the icon horizontally (for Phosphor icons).
-		 */
 		mirrored?: boolean;
-		/**
-		 * SVG path elements for custom icons (if `as` is not provided).
-		 */
 		children?: Snippet;
 	}
 
@@ -87,21 +65,18 @@
 		lg: 24,
 		xl: 28,
 		"2xl": 32,
+		"3xl": 36,
+		"4xl": 40,
 	} as const;
 
-	const sizeInPixels = $derived(sizeMap[size]);
-
+	const sizeInPixels = $derived(sizeMap[size ?? "md"]);
 	const strokeColour = $derived(colour ? getColourHex(colour) : undefined);
-
 	const finalStyle = $derived(
 		[strokeColour ? `color: ${strokeColour}` : undefined, style]
 			.filter(Boolean)
 			.join("; "),
 	);
-
-	const computedClasses = $derived(
-		iconStyles({ size, class: className as string }) as string,
-	);
+	const computedClasses = $derived(iconStyles({ size, class: className as string }));
 </script>
 
 {#if IconComponent}

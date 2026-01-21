@@ -5,18 +5,23 @@
 	export const textareaAutoresize = tv({
 		base: [
 			// Core Layout
-			"appearance-none outline-0 w-full relative",
-			"rounded-l1 border",
-
+			"appearance-none",
+			"outline-0",
+			"w-full",
+			"relative",
+			"rounded",
+			"border",
 			// Text & Placeholder
 			"antialiased",
-			"placeholder:text-fg-muted placeholder:select-none",
-
+			"placeholder:text-fg-muted",
+			"placeholder:select-none",
 			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
-
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
 			// Focus - uses colour focus ring
-			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-focus-ring)",
+			"focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
@@ -25,19 +30,23 @@
 					"border-border-default",
 					"enabled:hover:border-border-emphasized",
 					"enabled:hover:focus-visible:border-(--c-focus-ring)",
-					"text-fg-default",
 				],
 				subtle: [
 					"border-transparent",
-					"bg-bg-muted",
-					"text-fg-default",
+					"bg-bg-subtle",
 				],
 				flushed: [
-					"rounded-none border-t-0 border-x-0 border-b",
-					"bg-transparent shadow-none px-0",
+					"rounded-none",
+					"border-t-0",
+					"border-x-0",
+					"border-b",
+					"bg-transparent",
+					"shadow-none",
+					"px-0",
 					"border-border-default",
-					"text-fg-default",
-					"focus-visible:outline-0 focus-visible:border-(--c-focus-ring)",
+					"focus-visible:outline-0",
+					"focus-visible:shadow",
+					"focus-visible:border-(--c-focus-ring)",
 				],
 			},
 			size: {
@@ -49,7 +58,10 @@
 			},
 			invalid: {
 				true: [
-					"border-border-error focus-visible:border-border-error focus-visible:outline-border-error hover:border-border-emphasized",
+					"border-border-error!",
+					"focus-visible:border-border-error!",
+					"focus-visible:outline-border-error!",
+					"enabled:hover:border-border-emphasized",
 				],
 			},
 		},

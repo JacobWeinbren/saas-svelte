@@ -5,16 +5,22 @@
 
 	export const checkboxCardRoot = tv({
 		base: [
-			"select-none flex-col flex-1 text-sm leading-5 flex relative rounded-md",
-			"cursor-default",
+			"select-none",
 			"antialiased",
-			"has-focus-visible:outline-1 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--c-focus-ring) has-focus-visible:outline-solid",
+			"flex-col flex-1 flex relative",
+			"text-sm leading-sm",
+			"rounded-md",
+			"border",
+			"has-focus-visible:outline-offset-2",
+			"has-focus-visible:outline-1",
+			"has-focus-visible:outline-solid",
+			"has-focus-visible:outline-(--c-solid)",
 		],
 		variants: {
 			variant: {
-				subtle: "bg-bg-subtle",
-				surface: "border border-border-default",
-				outline: "border border-border-default",
+				subtle: "bg-bg-subtle border-transparent",
+				surface: "border-border-default",
+				outline: "border-border-default",
 			},
 			size: {
 				sm: "",
@@ -26,39 +32,39 @@
 				false: "",
 			},
 			disabled: {
-				true: "opacity-80 cursor-not-allowed",
+				true: "opacity-80 border-border-muted",
 				false: "",
 			},
 		},
 		compoundVariants: [
-			// Subtle - checked: darker colored background
+			// Subtle - checked: darker colored background, no border effect
 			{
 				variant: "subtle",
 				checked: true,
 				class: "text-(--c-fg) bg-(--c-muted)",
 			},
-			// Surface - checked: lighter colored background with colored border + inset shadow for 2px effect
+			// Surface - checked: lighter colored background + 2px border effect via inset shadow
 			{
 				variant: "surface",
 				checked: true,
 				class: "text-(--c-fg) bg-(--c-subtle) border-(--c-subtle) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 			},
-			// Outline - checked: just colored border, no background fill + inset shadow for 2px effect
+			// Outline - checked: colored border + 2px border effect via inset shadow
 			{
 				variant: "outline",
 				checked: true,
-				class: "shadow-[inset_0_0_0_1px_var(--c-solid)] border-(--c-solid)",
+				class: "border-(--c-solid) shadow-[inset_0_0_0_1px_var(--c-solid)]",
 			},
 			// Disabled states
 			{
 				disabled: true,
 				variant: "outline",
-				class: "border-border-default",
+				class: "border-border-muted",
 			},
 			{
 				disabled: true,
 				variant: "surface",
-				class: "bg-bg-subtle border-border-default",
+				class: "bg-bg-subtle border-border-muted",
 			},
 		],
 		defaultVariants: {

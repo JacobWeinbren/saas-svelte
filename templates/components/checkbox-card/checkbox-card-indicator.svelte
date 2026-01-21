@@ -10,9 +10,23 @@
 
 	const checkboxCardIndicator = tv({
 		base: [
-			"shrink-0 justify-center items-center inline-flex rounded border",
-			"fill-none stroke-current stroke-[3px]",
-			"[stroke-linecap:round] [stroke-linejoin:round]",
+			"shrink-0",
+			"justify-center",
+			"items-center",
+			"inline-flex",
+			"rounded",
+			"border",
+			"focus-visible:outline-offset-2",
+			"focus-visible:outline-1",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-solid)",
+			"disabled:opacity-50",
+			"fill-none",
+			"stroke-current",
+			"stroke-[3px]",
+			"[stroke-linecap:round]",
+			"[stroke-linejoin:round]",
+			"text-white",
 		],
 		variants: {
 			size: {
@@ -35,40 +49,15 @@
 			},
 		},
 		compoundVariants: [
-			// Subtle unchecked - gray border
+			// Unchecked - gray border for all variants
 			{
-				variant: "subtle",
 				checked: false,
-				class: "border-border-emphasized text-white",
+				class: "border-border-emphasized",
 			},
-			// Subtle - checked: solid background
+			// Checked - solid background for all variants
 			{
-				variant: "subtle",
 				checked: true,
-				class: "text-white bg-(--c-solid) border-(--c-solid)",
-			},
-			// Surface/Outline unchecked - gray border
-			{
-				variant: "surface",
-				checked: false,
-				class: "border-border-emphasized text-white",
-			},
-			{
-				variant: "outline",
-				checked: false,
-				class: "border-border-emphasized text-white",
-			},
-			// Surface - checked: solid background
-			{
-				variant: "surface",
-				checked: true,
-				class: "text-white bg-(--c-solid) border-(--c-solid)",
-			},
-			// Outline - checked: solid background
-			{
-				variant: "outline",
-				checked: true,
-				class: "text-white bg-(--c-solid) border-(--c-solid)",
+				class: "bg-(--c-solid) border-(--c-solid)",
 			},
 		],
 		defaultVariants: {

@@ -44,41 +44,35 @@
 
 	const context = getContext<BreadcrumbContext>("breadcrumb");
 	const styles = $derived(context?.styles);
-	const variant = $derived(context?.variant ?? "emphasised");
+	const variant = $derived(context?.variant ?? "plain");
 
 	const linkClasses = $derived(() => {
 		const baseClasses = [
 			"outline-0",
 			"items-center",
+			"gap-y-2 gap-x-2",
 			"inline-flex",
-			"cursor-pointer",
-			"rounded-l1",
+			"rounded",
 			"focus:outline-offset-2",
 			"focus:outline-1",
 			"focus:outline-solid",
-			"focus:outline-(--color-neutral-focus-ring)",
+			"focus:outline-fg-muted",
 		];
 
-		// Button uses tighter gap
-		if (as === "button") {
-			baseClasses.push("gap-1");
-		} else {
-			baseClasses.push("gap-x-2", "gap-y-2");
-		}
-
-		if (variant === "emphasised") {
-			// Emphasised variant: gray text (muted), no underline, hover to white
+		if (variant === "plain") {
+			// Plain variant: muted (gray) text, no underline, hover to default
 			baseClasses.push(
 				"text-fg-muted",
 				"no-underline",
 				"hover:text-fg-default"
 			);
 		} else {
-			// Muted variant: white text (default), no underline
+			// Underline variant: default (white) text with underline
 			baseClasses.push(
+				"underline",
 				"text-fg-default",
-				"no-underline",
-				"hover:text-fg-emphasized"
+				"underline-offset-[0.2em]",
+				"decoration-border-muted"
 			);
 		}
 

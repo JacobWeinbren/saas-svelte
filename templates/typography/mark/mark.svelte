@@ -8,8 +8,8 @@
 			variant: {
 				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "text-(--c-contrast) bg-(--c-solid)",
-				text: "bg-transparent text-(--c-fg) font-(--font-weights-medium)",
-				plain: "bg-transparent font-(--font-weights-semibold)",
+				text: "bg-transparent text-(--c-fg) font-medium",
+				plain: "bg-transparent font-semibold",
 			},
 		},
 		defaultVariants: {

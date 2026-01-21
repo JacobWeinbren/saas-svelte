@@ -9,12 +9,12 @@
 	} from "./checkbox-card-root.svelte";
 
 	const checkboxCardContent = tv({
-		base: ["flex-col flex-1 items-start flex"],
+		base: ["gap-y-1 gap-x-1 flex-col flex-1 items-start flex"],
 		variants: {
 			size: {
-				sm: "gap-1",
-				md: "gap-1",
-				lg: "gap-1",
+				sm: "",
+				md: "",
+				lg: "",
 			},
 			align: {
 				start: "items-start text-start",

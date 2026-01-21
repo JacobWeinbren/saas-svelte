@@ -29,15 +29,15 @@
 <label
 	for={fieldId}
 	class={[
-		// Layout
-		"flex items-center gap-1",
-		// Text styles
-		"text-sm font-medium leading-sm",
-		// Text color - inherits from parent, uses default fg color
-		"text-fg-default",
-		// User interaction
-		"select-none antialiased",
-		// Disabled state
+		"select-none",
+		"items-center",
+		"gap-y-1",
+		"gap-x-1",
+		"text-sm",
+		"font-medium",
+		"leading-sm",
+		"flex",
+		"antialiased",
 		isDisabled && "opacity-50",
 		className,
 	]

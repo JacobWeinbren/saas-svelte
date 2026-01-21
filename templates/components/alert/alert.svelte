@@ -11,12 +11,12 @@
 
 	const alert = tv({
 		slots: {
-			root: "relative w-full flex items-start p-4 rounded-l2 text-sm leading-sm antialiased gap-3",
+			root: "relative w-full flex items-start p-4 rounded-md text-sm leading-5 antialiased gap-3",
 			iconWrapper:
-				"shrink-0 inline-flex items-center justify-center w-5 h-5 text-lg leading-xl",
-			content: "flex-1 min-w-0 flex flex-col gap-1",
-			title: "font-medium leading-sm",
-			description: "leading-sm opacity-90",
+				"shrink-0 inline-flex items-center justify-center w-5 h-5 text-lg leading-7",
+			content: "flex-1 flex flex-col gap-1",
+			title: "font-medium",
+			description: "inline",
 		},
 		variants: {
 			variant: {

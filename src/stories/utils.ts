@@ -182,6 +182,12 @@ export {
     popoverTitlePattern,
     popoverDescriptionPattern,
     popoverCloseTriggerPattern,
+    navbarRootPattern,
+    navbarContentPattern,
+    navbarBrandPattern,
+    navbarItemGroupPattern,
+    navbarItemPattern,
+    navbarLinkPattern,
 } from "./exclude-patterns";
 
 

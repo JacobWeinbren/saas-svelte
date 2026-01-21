@@ -15,43 +15,39 @@
 	const accordion = tv({
 		slots: {
 			root: "w-full",
-			item: "overflow-anchor-none",
+			item: "[overflow-anchor:none]",
 			trigger: [
-				"flex items-center gap-3 w-full",
+				"appearance-auto flex items-center gap-3 w-full",
 				"rounded-md",
 				"outline-none",
-				"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid focus-visible:outline-border-emphasized",
+				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-fg-muted",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 			],
-			content:
-				"overflow-hidden text-sm text-fg-subtle",
+			content: "overflow-x-hidden overflow-y-hidden rounded-md",
 			contentBody: "",
 			indicator:
-				"flex items-center justify-center text-fg-muted shrink-0 transition-transform duration-moderate",
+				"flex items-center justify-center text-fg-muted shrink-0 transition-all duration-moderate ml-auto origin-center data-[state=open]:rotate-90",
 			icon: "shrink-0 text-fg-muted",
 		},
 		variants: {
 			size: {
 				sm: {
-					trigger:
-						"text-sm py-2 font-medium",
-					content: "text-sm",
+					trigger: "text-sm leading-sm py-2 font-medium",
+					content: "text-sm leading-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
 				},
 				md: {
-					trigger:
-						"text-sm py-2 font-medium",
-					content: "text-sm",
+					trigger: "text-sm leading-sm py-2 font-medium",
+					content: "text-sm leading-sm",
 					contentBody: "pt-2 pb-4",
 					indicator: "size-3.5",
 					icon: "size-3.5",
 				},
 				lg: {
-					trigger:
-						"text-md py-2.5 font-medium",
-					content: "text-md",
+					trigger: "text-md leading-md py-2.5 font-medium",
+					content: "text-md leading-md",
 					contentBody: "pt-2.5 pb-5",
 					indicator: "size-4",
 					icon: "size-4",
@@ -176,12 +172,7 @@
 			>
 				<Accordion.ItemTrigger class={classes.trigger()}>
 					{item.title}
-					<Accordion.ItemIndicator
-						class={twMerge(
-							classes.indicator(),
-							"ml-auto data-[state=open]:rotate-90 origin-[50%]",
-						)}
-					>
+					<Accordion.ItemIndicator class={classes.indicator()}>
 						<CaretRight
 							class="text-current inline-block w-full h-full"
 							weight="bold"
@@ -190,8 +181,8 @@
 				</Accordion.ItemTrigger>
 				<Accordion.ItemContent
 					class={twMerge(
-						"rounded-md overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up",
 						classes.content(),
+						"data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up",
 					)}
 				>
 					<div class={classes.contentBody()}>

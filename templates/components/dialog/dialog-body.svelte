@@ -17,13 +17,11 @@
 
 <div
 	class={twMerge(
-		// Flex and padding
-		"flex-1 px-6 py-2",
-		// Text color - body text uses default color for readability
-		"text-fg-default",
-		// Typography
-		"text-sm leading-sm antialiased",
-		// Scroll behavior
+		"flex-1",
+		"ps-6",
+		"pe-6",
+		"py-2",
+		"antialiased",
 		ctx.scrollBehavior === "inside" && "overflow-y-auto",
 		className,
 	)}

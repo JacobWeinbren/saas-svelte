@@ -552,17 +552,17 @@
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="AsyncLoading"
+	name="Async Loading"
 	template={asyncLoadingStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="HighlightMatch"
+	name="Highlight Match"
 	template={highlightMatchStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="OpenOnClick"
+	name="Open On Click"
 	template={openOnClickStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
@@ -577,12 +577,12 @@
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="DisabledItem"
+	name="Disabled Item"
 	template={disabledItemStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="InputGroup"
+	name="Input Group"
 	template={inputGroupStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
@@ -592,27 +592,27 @@
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="ControlledValue"
+	name="Controlled Value"
 	template={controlledValueStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="ControlledOpen"
+	name="Controlled Open"
 	template={controlledOpenStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="AllowCustomValue"
+	name="Allow Custom Value"
 	template={allowCustomValueStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="CustomObjects"
+	name="Custom Objects"
 	template={customObjectsStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="MinCharacters"
+	name="Min Characters"
 	template={minCharactersStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
@@ -632,7 +632,7 @@
 	parameters={{ docs: { story: { inline: true } } }}
 />
 <Story
-	name="CustomFilter"
+	name="Custom Filter"
 	template={customFilterStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />
@@ -663,7 +663,7 @@
 {/snippet}
 
 <Story
-	name="InPopover"
+	name="In Popover"
 	template={inPopoverStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />

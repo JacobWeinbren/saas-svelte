@@ -6,30 +6,35 @@
 
 	export const avatar = tv({
 		slots: {
-			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative antialiased font-medium",
-			image: "object-cover w-full h-full border-none",
-			fallback:
-				"uppercase font-medium leading-none rounded-full flex items-center justify-center",
+			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative font-medium antialiased",
+			image: "border-none object-cover w-full h-full",
+			fallback: "uppercase font-medium leading-none",
 		},
 		variants: {
 			size: {
 				xs: {
-					root: "w-5 h-5 text-2xs",
+					root: "w-5 h-5 text-xs",
+					fallback: "text-xs",
 				},
 				sm: {
 					root: "w-6 h-6 text-xs",
+					fallback: "text-xs",
 				},
 				md: {
 					root: "w-9 h-9 text-lg",
+					fallback: "text-lg",
 				},
 				lg: {
 					root: "w-12 h-12 text-2xl",
+					fallback: "text-2xl",
 				},
 				xl: {
 					root: "w-16 h-16 text-3xl",
+					fallback: "text-3xl",
 				},
 				"2xl": {
 					root: "w-20 h-20 text-4xl",
+					fallback: "text-4xl",
 				},
 				full: {
 					root: "w-full h-full",
@@ -53,9 +58,9 @@
 					fallback: "",
 				},
 				rounded: {
-					root: "rounded-l2",
-					image: "rounded-l2",
-					fallback: "rounded-l2",
+					root: "rounded",
+					image: "rounded",
+					fallback: "rounded",
 				},
 				full: {
 					root: "rounded-full",

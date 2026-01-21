@@ -10,15 +10,17 @@
 
 	const checkboxCardLabel = tv({
 		base: [
-			"items-center gap-2 font-medium flex",
-			"text-fg-default",
-			"peer-disabled:opacity-50",
+			"items-center",
+			"gap-y-2 gap-x-2",
+			"font-medium",
+			"flex",
+			"disabled:opacity-50",
 		],
 		variants: {
 			size: {
-				sm: "text-sm leading-sm",
-				md: "text-sm leading-sm",
-				lg: "text-md leading-md",
+				sm: "",
+				md: "",
+				lg: "",
 			},
 		},
 		defaultVariants: {

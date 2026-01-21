@@ -28,12 +28,7 @@
 >
 	{@render children()}
 
-	<Accordion.ItemIndicator
-		class={twMerge(
-			styles.indicator(),
-			"ml-auto data-[state=open]:rotate-90 origin-[50%]",
-		)}
-	>
+	<Accordion.ItemIndicator class={styles.indicator()}>
 		<CaretRight
 			class="text-current inline-block w-full h-full"
 			weight="bold"

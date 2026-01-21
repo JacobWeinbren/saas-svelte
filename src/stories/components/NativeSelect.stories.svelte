@@ -11,7 +11,7 @@
 	const nativeSelectVariants = ["outline", "subtle", "plain"] as const;
 
 	const { Story } = defineMeta({
-		title: "components/Native Select",
+		title: "components/Select (Native)",
 		component: NativeSelect,
 		argTypes: {
 			variant: {

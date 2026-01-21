@@ -19,12 +19,15 @@
 
 <div
 	class={twMerge(
-		// Layout
-		"relative inline-flex w-full",
-		// Isolation for z-index stacking
+		"relative",
+		"inline-flex",
+		"w-full",
 		"isolate",
-		// Gap and alignment
-		"gap-2 items-center justify-start",
+		"gap-y-2",
+		"gap-x-2",
+		"items-center",
+		"justify-start",
+		"antialiased",
 		className,
 	)}
 	{...restProps}

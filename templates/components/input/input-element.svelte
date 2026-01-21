@@ -34,16 +34,17 @@
 
 <div
 	class={twMerge(
-		// Position
-		"absolute top-0 z-2",
-		// Layout
-		"flex h-full items-center justify-center",
-		// Text color - muted (zinc-500)
+		"absolute",
+		"top-0",
+		"z-2",
+		"flex",
+		"h-full",
+		"items-center",
+		"justify-center",
 		"text-fg-muted",
-		// Typography
 		"text-sm",
-		// Pointer events
 		"pointer-events-none",
+		"antialiased",
 		placementStyles[placement],
 		className,
 	)}

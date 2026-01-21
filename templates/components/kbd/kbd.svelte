@@ -4,39 +4,40 @@
 
 	export const kbd = tv({
 		base: [
-			// Layout
-			"inline-flex items-center shrink-0",
-			// Typography
+			"whitespace-nowrap",
+			"[word-spacing:-0.5em]",
+			"select-none",
+			"text-fg-default",
+			"shrink-0",
+			"items-center",
+			"inline-flex",
+			"px-1",
+			"rounded",
+			"font-medium",
 			"antialiased",
-			// Selection & spacing
-			"select-none whitespace-nowrap [word-spacing:-0.5em]",
-			// Border radius & padding
-			"rounded-l1 px-1",
 		],
 		variants: {
 			variant: {
-				// Raised: 3D effect with border-t, border-b-2, border-x
 				raised: [
-					"border-t border-b-2 border-x",
-					"border-border-default",
-					"bg-bg-muted",
-					"text-fg-emphasized",
+					"bg-bg-subtle",
+					"border-t",
+					"border-b-2",
+					"border-x",
+					"border-bg-muted",
 				],
-				// Outline: simple border
 				outline: [
 					"border",
 					"border-border-default",
-					"text-fg-emphasized",
 				],
-				// Subtle: background only
-				subtle: ["bg-bg-subtle", "text-fg-emphasized"],
-				// Plain: text only
-				plain: ["text-fg-emphasized"],
+				subtle: [
+					"bg-bg-subtle",
+				],
+				plain: [],
 			},
 			size: {
-				sm: "h-4 text-2xs font-medium leading-2xs",
-				md: "h-5 text-xs font-medium leading-xs",
-				lg: "h-6 text-sm font-medium leading-sm",
+				sm: "h-4 text-2xs leading-3",
+				md: "h-5 text-xs leading-4",
+				lg: "h-6 text-sm leading-5",
 			},
 		},
 		defaultVariants: {

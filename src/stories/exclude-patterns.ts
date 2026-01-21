@@ -119,3 +119,10 @@ export const popoverFooterPattern = makePattern(['class', 'children']);
 export const popoverTitlePattern = makePattern(['class', 'children']);
 export const popoverDescriptionPattern = makePattern(['class', 'children']);
 export const popoverCloseTriggerPattern = makePattern(['aria-label', 'class', 'children']);
+
+export const navbarRootPattern = makePattern(['variant', 'position', 'bordered', 'colour', 'shouldHideOnScroll', 'parentRef', 'class', 'children']);
+export const navbarContentPattern = makePattern(['maxW', 'class', 'children']);
+export const navbarBrandPattern = makePattern(['class', 'children']);
+export const navbarItemGroupPattern = makePattern(['gap', 'justify', 'class', 'children']);
+export const navbarItemPattern = makePattern(['class', 'children']);
+export const navbarLinkPattern = makePattern(['active', 'href', 'class', 'children']);

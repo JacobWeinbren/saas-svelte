@@ -9,7 +9,7 @@
 			"whitespace-nowrap",
 			"select-none",
 			"items-center",
-			"gap-1",
+			"gap-x-1 gap-y-1",
 			"font-medium",
 			"inline-flex",
 			"rounded-full",
@@ -18,15 +18,15 @@
 			variant: {
 				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "bg-(--c-solid) text-(--c-contrast)",
-				outline: "text-(--c-fg) ring-1 ring-inset ring-(--c-subtle)",
+				outline: "text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 				surface:
-					"bg-(--c-muted)/50 text-(--c-fg) ring-1 ring-inset ring-(--c-subtle)",
+					"bg-(--c-muted)/20 text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 			},
 			size: {
-				xs: "min-h-4 text-xs leading-2xs px-1",
-				sm: "min-h-5 text-xs leading-xs px-1.5",
-				md: "min-h-6 text-sm leading-sm px-2",
-				lg: "min-h-7 text-sm leading-sm px-2.5",
+				xs: "min-h-4 text-xs leading-3 px-1",
+				sm: "min-h-5 text-xs leading-4 px-1.5",
+				md: "min-h-6 text-sm leading-5 px-2",
+				lg: "min-h-7 text-sm leading-5 px-2.5",
 			},
 		},
 		defaultVariants: {

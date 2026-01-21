@@ -17,12 +17,32 @@
 		class?: string;
 	}
 
-	let { children, variant = "solid", size = "md", colour = "indigo", disableIfUntouched = false, disableIfInvalid = false, loadingText = "", class: className }: Props = $props();
+	let {
+		children,
+		variant = "solid",
+		size = "md",
+		colour = "indigo",
+		disableIfUntouched = false,
+		disableIfInvalid = false,
+		loadingText = "",
+		class: className,
+	}: Props = $props();
 
 	const form = getContext<FormApi>(FORM_CTX);
-	const disabled = $derived((disableIfUntouched && !form.isDirty) || (disableIfInvalid && !form.isValid));
+	const disabled = $derived(
+		(disableIfUntouched && !form.isDirty) || (disableIfInvalid && !form.isValid),
+	);
 </script>
 
-<Button type="submit" {variant} {size} {colour} loading={form.isSubmitting} {loadingText} {disabled} class={className}>
+<Button
+	type="submit"
+	{variant}
+	{size}
+	{colour}
+	loading={form.isSubmitting}
+	{loadingText}
+	{disabled}
+	class={className}
+>
 	{@render children()}
 </Button>

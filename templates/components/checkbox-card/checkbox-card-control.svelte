@@ -9,12 +9,12 @@
 	} from "./checkbox-card-root.svelte";
 
 	const checkboxCardControl = tv({
-		base: ["flex-1 items-start inline-flex relative rounded-lg"],
+		base: ["flex-1 items-start inline-flex relative rounded-md"],
 		variants: {
 			size: {
-				sm: "gap-1.5 p-3",
-				md: "gap-2.5 p-4",
-				lg: "gap-3.5 p-4",
+				sm: "gap-y-1.5 gap-x-1.5 p-3",
+				md: "gap-y-2.5 gap-x-2.5 p-4",
+				lg: "gap-y-3.5 gap-x-3.5 p-4",
 			},
 			align: {
 				start: "items-start",

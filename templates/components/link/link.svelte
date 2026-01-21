@@ -6,29 +6,36 @@
 
 	export const link = tv({
 		base: [
-			// Layout
-			"cursor-pointer outline-0 items-center gap-x-1.5 gap-y-1.5 inline-flex rounded-l1",
-			// Focus - uses colour focus ring
-			"focus:outline-offset-2 focus:outline-1 focus:outline-solid focus:outline-(--c-focus-ring)",
-			// Typography - inherits font size from parent
-			"text-(--c-fg) antialiased",
+			"cursor-pointer",
+			"text-(--c-fg)",
+			"outline-0",
+			"items-center",
+			"gap-y-1.5",
+			"gap-x-1.5",
+			"inline-flex",
+			"rounded",
+			"focus:outline-offset-2",
+			"focus:outline-1",
+			"focus:outline-solid",
+			"focus:outline-(--c-focus-ring)",
+			"antialiased",
 		],
 		variants: {
 			variant: {
 				underline: [
-					"underline underline-offset-[3px]",
+					"underline",
+					"underline-offset-[3px]",
 					"decoration-[color-mix(in_srgb,currentColor_20%,transparent)]",
 				],
 				plain: [
-					"hover:underline hover:underline-offset-[3px]",
+					"hover:underline-offset-[3px]",
+					"hover:underline",
 					"hover:decoration-[color-mix(in_srgb,currentColor_20%,transparent)]",
 				],
 			},
-			colour: {},
 		},
 		defaultVariants: {
 			variant: "plain",
-			colour: "gray" as any,
 		},
 	});
 

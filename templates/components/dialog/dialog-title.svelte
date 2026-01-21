@@ -5,11 +5,9 @@
 
 	const dialogTitle = tv({
 		base: [
-			// Typography
-			"wrap-break-word text-md leading-md font-semibold",
-			// Text color using semantic token
-			"text-fg-default",
-			// Font rendering
+			"text-base",
+			"font-semibold",
+			"leading-6",
 			"antialiased",
 		],
 	});

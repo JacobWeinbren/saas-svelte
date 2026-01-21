@@ -1,6 +1,10 @@
 <script module lang="ts">
 	import { tv } from "tailwind-variants";
 
+	export const collapsibleRoot = tv({
+		base: ["antialiased"],
+	});
+
 	export const collapsibleContent = tv({
 		base: [
 			"overflow-hidden",
@@ -11,8 +15,11 @@
 
 	export const collapsibleIndicator = tv({
 		base: [
-			"inline-flex items-center justify-center",
-			"transition-transform duration-moderate",
+			"inline-flex",
+			"items-center",
+			"justify-center",
+			"transition-transform",
+			"duration-200",
 			"data-[state=open]:rotate-90",
 		],
 	});
@@ -98,7 +105,7 @@
 	{unmountOnExit}
 	{onOpenChange}
 	{onExitComplete}
-	class={className}
+	class={collapsibleRoot({ class: className })}
 	{...rest}
 >
 	{#if children}

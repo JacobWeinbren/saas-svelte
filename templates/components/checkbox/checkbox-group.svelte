@@ -8,11 +8,11 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	const checkboxGroup = tv({
-		base: "flex antialiased",
+		base: "flex",
 		variants: {
 			orientation: {
-				horizontal: "flex-row gap-6",
-				vertical: "flex-col gap-1.5",
+				horizontal: "flex-row gap-y-6 gap-x-6",
+				vertical: "flex-col gap-y-1.5 gap-x-1.5",
 			},
 		},
 		defaultVariants: {
@@ -156,11 +156,11 @@
 </script>
 
 {#if selectAllLabel && allValues}
-	<div class="flex flex-col gap-2" style={colourVars}>
+	<div class="flex flex-col gap-y-2 gap-x-2" style={colourVars}>
 		<div
 			role="button"
 			tabindex="0"
-			class="group inline-flex items-center gap-2.5 cursor-default select-none"
+			class="align-top items-center gap-y-2.5 gap-x-2.5 inline-flex relative"
 			onclick={handleSelectAll}
 			onkeydown={(e) => {
 				if (e.key === " " || e.key === "Enter") {
@@ -169,31 +169,20 @@
 				}
 			}}
 		>
-			<div class="flex items-center shrink-0">
-				<div
-					class="flex items-center justify-center border shrink-0 p-0.5 rounded-l1 size-4 {isIndeterminate ||
-					allChecked
-						? 'bg-(--c-solid) border-(--c-solid) text-(--c-contrast)'
-						: 'border-border-emphasized text-(--c-contrast)'}"
-				>
-					{#if isIndeterminate}
-						<Minus
-							class="size-3"
-							weight="bold"
-							aria-hidden="true"
-						/>
-					{:else if allChecked}
-						<Check
-							class="size-3"
-							weight="bold"
-							aria-hidden="true"
-						/>
-					{/if}
-				</div>
-			</div>
-			<span
-				class="text-sm font-medium leading-sm text-fg-default"
+			<div
+				class="shrink-0 justify-center items-center w-4 h-4 inline-flex p-0.5 rounded border focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-solid) {isIndeterminate ||
+				allChecked
+					? 'text-white bg-(--c-solid) border-(--c-solid)'
+					: 'text-white border-border-default'}"
+				aria-hidden="true"
 			>
+				{#if isIndeterminate}
+					<Minus class="size-3" weight="bold" aria-hidden="true" />
+				{:else if allChecked}
+					<Check class="size-3" weight="bold" aria-hidden="true" />
+				{/if}
+			</div>
+			<span class="select-none text-sm font-medium leading-5">
 				{selectAllLabel}
 			</span>
 		</div>
@@ -202,9 +191,7 @@
 			{...rest}
 		>
 			{#if label}
-				<span
-					class="mb-2 text-sm font-medium leading-sm text-fg-default"
-				>
+				<span class="mb-2 text-sm font-medium leading-5">
 					{label}
 				</span>
 			{/if}
@@ -214,9 +201,7 @@
 {:else}
 	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
 		{#if label}
-			<span
-				class="mb-2 text-sm font-medium leading-sm text-fg-default"
-			>
+			<span class="mb-2 text-sm font-medium leading-5">
 				{label}
 			</span>
 		{/if}

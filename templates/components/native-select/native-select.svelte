@@ -4,47 +4,45 @@
 
 	export const nativeSelect = tv({
 		base: [
-			// Core Layout
-			"appearance-none outline-0 w-full relative",
-			"rounded-l1 border select-none",
-			"[&_option]:bg-inherit",
-
-			// Text
+			"appearance-none",
+			"outline-0",
+			"w-full",
+			"rounded",
+			"border",
 			"antialiased",
-
-			// Disabled
-			"disabled:opacity-50 disabled:cursor-not-allowed",
-
-			// Focus - uses colour focus ring
-			"focus-visible:outline-solid focus-visible:outline-(--c-focus-ring) focus-visible:border-(--c-focus-ring)",
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-(--c-focus-ring)",
+			"focus-visible:border-(--c-focus-ring)",
 		],
 		variants: {
 			variant: {
 				outline: [
-					"bg-transparent",
 					"border-border-default",
-					"enabled:hover:border-border-emphasized",
-					"enabled:hover:focus-visible:border-(--c-focus-ring)",
 				],
-				subtle: ["border-transparent", "bg-bg-subtle"],
+				subtle: [
+					"bg-bg-subtle",
+					"border-transparent",
+				],
 				plain: [
-					"border-0 bg-transparent",
+					"rounded",
 					"text-fg-default",
 					"focus-visible:outline-2",
 				],
 			},
 			size: {
-				xs: "h-6 pl-2 pr-6 text-xs leading-xs",
-				sm: "h-8 pl-2.5 pr-8 text-sm leading-sm",
-				md: "h-10 pl-3 pr-8 text-sm leading-sm",
-				lg: "h-11 pl-4 pr-8 text-sm leading-sm",
-				xl: "h-12 pl-5 pr-10 text-sm leading-sm",
+				xs: "h-6 pl-2 pr-6 text-xs leading-4",
+				sm: "h-8 pl-2.5 pr-8 text-sm leading-5",
+				md: "h-10 pl-3 pr-8 text-sm leading-5",
+				lg: "h-11 pl-4 pr-8 text-sm leading-5",
+				xl: "h-12 pl-5 pr-10 text-sm leading-5",
 			},
 			invalid: {
 				true: [
 					"border-border-error!",
-					"focus-visible:border-border-error! focus-visible:outline-border-error!",
-					"enabled:hover:border-border-emphasized",
+					"focus-visible:border-border-error!",
+					"focus-visible:outline-border-error!",
 				],
 			},
 		},

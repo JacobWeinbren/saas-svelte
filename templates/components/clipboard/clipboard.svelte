@@ -3,36 +3,84 @@
 
 	export const clipboardButton = tv({
 		base: [
-			"relative isolate inline-flex shrink-0 cursor-pointer appearance-none items-center justify-center align-middle whitespace-nowrap outline-0 select-none",
-			"h-8 min-w-8 gap-x-2 px-3 text-sm leading-sm",
-			"rounded-l1 font-medium",
-			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized",
-			"disabled:opacity-50 disabled:cursor-not-allowed",
+			"appearance-none",
+			"select-none",
+			"whitespace-nowrap",
+			"align-middle",
+			"cursor-pointer",
+			"isolate",
+			"antialiased",
 			"text-fg-default",
-			"shadow-sm border",
-			"bg-bg-default border-border-emphasized",
+			"shadow-sm",
+			"outline-0",
+			"shrink-0",
+			"justify-center",
+			"items-center",
+			"font-medium",
+			"inline-flex",
+			"relative",
+			"rounded",
+			"border",
+			"bg-bg-subtle/20",
+			"border-border-default/90",
+			"focus-visible:outline-offset-2",
+			"focus-visible:outline-1",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-fg-muted",
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
 			"hover:bg-bg-subtle",
+			"hover:border-border-default",
 		],
 		variants: {
-			icon: { true: "px-0 w-8" },
+			size: {
+				xs: "min-w-6 h-6 gap-y-1 gap-x-1 text-xs leading-4 px-2",
+				sm: "min-w-7 h-7 gap-y-2 gap-x-2 text-sm leading-5 px-2.5",
+				md: "min-w-8 h-8 gap-y-2 gap-x-2 text-sm leading-5 px-3",
+			},
+			icon: {
+				true: "px-0",
+			},
+			variant: {
+				surface: "",
+				ghost: "shadow-none border-transparent bg-transparent hover:bg-bg-muted hover:border-transparent",
+			},
 		},
+		compoundVariants: [
+			{ size: "xs", icon: true, class: "w-6" },
+			{ size: "sm", icon: true, class: "w-7" },
+			{ size: "md", icon: true, class: "w-8" },
+		],
 		defaultVariants: {
+			size: "xs",
 			icon: false,
+			variant: "surface",
 		},
 	});
 
 	export const clipboardInput = tv({
 		base: [
-			"appearance-none outline-0 w-full relative",
-			"h-8 min-w-8 px-3 text-sm leading-sm",
-			"rounded-l1 border",
+			"appearance-none",
+			"outline-0",
+			"w-full",
+			"min-w-8",
+			"h-8",
+			"text-sm",
+			"leading-5",
+			"relative",
+			"pl-3",
+			"rounded",
+			"border",
 			"antialiased",
-			"text-fg-default",
-			"bg-transparent",
 			"border-border-default",
-			"disabled:opacity-50 disabled:cursor-not-allowed",
-			"focus-visible:outline-solid focus-visible:outline-border-emphasized focus-visible:border-border-emphasized",
-			"enabled:hover:border-border-emphasized",
+			"disabled:opacity-50",
+			"disabled:cursor-not-allowed",
+			"focus-visible:outline-solid",
+			"focus-visible:outline-fg-muted",
+			"focus-visible:border-fg-muted",
+			"hover:border-border-emphasized",
+			"hover:focus-visible:border-fg-muted",
+			"pr-8",
 		],
 	});
 </script>
@@ -88,13 +136,19 @@
 		{@render children()}
 	{:else}
 		<ArkClipboard.Trigger
-			class={clipboardButton({ icon: true })}
+			class={clipboardButton({ icon: true, size: "xs" })}
 			aria-label="Copy to clipboard"
 		>
 			<ArkClipboard.Indicator>
-				<CopySimple class="size-3.5" weight="bold" />
+				<CopySimple
+					class="text-current shrink-0 w-3.5 h-3.5 inline-block"
+					weight="regular"
+				/>
 				{#snippet copied()}
-					<Check class="size-3.5" weight="bold" />
+					<Check
+						class="text-current shrink-0 w-3.5 h-3.5 inline-block"
+						weight="regular"
+					/>
 				{/snippet}
 			</ArkClipboard.Indicator>
 		</ArkClipboard.Trigger>
