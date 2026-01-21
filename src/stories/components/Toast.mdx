@@ -9,45 +9,33 @@ import { toastPattern } from "../utils";
 
 ## Toasts display brief, temporary notifications. They are typically used to provide feedback about an action or to display system messages.
 
-[Ark UI](https://ark-ui.com/docs/components/toast)
-
 <Canvas of={ToastStories.Basic} />
 
 ## Setup
 
-To use the Toast component, first create a toaster instance using `createToaster`. This manages the placement and grouping of toasts.
+To use the Toast component, first create a toaster instance using `createToaster`. This manages the toast state and provides methods to create and dismiss toasts.
 
 ```tsx
 <script>
 	import { Toast, Toaster, createToaster } from "$saas/components/toast";
 
 	const toaster = createToaster({
-		placement: "bottom-end",
-		overlap: true,
-		gap: 16,
+		duration: 5000, // Default duration in ms
 	});
 </script>
 
-<button onclick={() => toaster.create({ title: "Hello!", type: "info" })}>
+<button onclick={() => toaster.create({ description: "Hello!", type: "info" })}>
 	Show Toast
 </button>
 
-<Toaster {toaster}>
-	{#snippet children(toast)}
-		<Toast
-			title={toast().title}
-			description={toast().description}
-			status={toast().type}
-		/>
-	{/snippet}
-</Toaster>
+<Toaster {toaster} />
 ```
 
 ## Examples
 
 ### Status
 
-Change the status of the toast by passing the `status` prop. This affects the colour scheme and icon used. Toast supports `info`, `success`, `warning`, `error`, and `loading` statuses.
+Change the status of the toast by passing the `type` prop when creating. This affects the colour scheme and icon used. Toast supports `info`, `success`, `warning`, `error`, and `loading` statuses.
 
 <Canvas of={ToastStories.Status} />
 
@@ -63,15 +51,9 @@ Control how long a toast stays visible by setting a custom `duration` in millise
 
 <Canvas of={ToastStories.Duration} />
 
-### Placement
-
-Configure where toasts appear by setting the `placement` option in `createToaster`. Available placements include `top`, `top-start`, `top-end`, `bottom`, `bottom-start`, and `bottom-end`.
-
-<Canvas of={ToastStories.Placement} />
-
 ### Stacking
 
-Multiple toasts stack with a smooth overlap animation. Hover over the toast group to expand and see all toasts.
+Multiple toasts stack vertically. New toasts appear at the bottom and push existing toasts up.
 
 <Canvas of={ToastStories.Stacking} />
 
@@ -88,28 +70,12 @@ toaster.create({
 	duration: 5000,
 });
 
-// Shorthand methods for different types
-toaster.success({
-	title: "Success!",
-	description: "Your changes have been saved.",
-});
-toaster.error({ title: "Error", description: "Something went wrong." });
-toaster.warning({
-	title: "Warning",
-	description: "This action cannot be undone.",
-});
-toaster.info({ title: "Info", description: "Here is some information." });
+// Dismiss a toast by ID
+const id = toaster.create({ description: "Hello!" });
+toaster.dismiss(id);
 
-// Update an existing toast
-const id = toaster.create({ title: "Loading...", type: "loading" });
-toaster.update(id, { title: "Done!", type: "success" });
-
-// Handle promises
-toaster.promise(asyncFunction, {
-	loading: { title: "Loading...", description: "Please wait." },
-	success: { title: "Success!", description: "Completed successfully." },
-	error: { title: "Error", description: "Something went wrong." },
-});
+// Dismiss all toasts
+toaster.dismissAll();
 ```
 
 ## Props

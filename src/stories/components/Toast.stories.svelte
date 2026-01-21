@@ -1,14 +1,12 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		Toast,
-		Toaster,
-		createToaster,
-		type ToastStatus,
-	} from "$saas/components/toast";
+	import { Toast, type ToastStatus } from "$saas/components/toast";
 	import { HStack } from "$saas/layout/stack";
 	import { Button } from "$saas/components/button";
 	import { commonArgTypes, getControls } from "../utils";
+	import ToastStoryWrapper, {
+		sharedToaster as toaster,
+	} from "./ToastStoryWrapper.svelte";
 
 	const { Story } = defineMeta({
 		title: "components/Toast",
@@ -55,28 +53,11 @@
 		},
 	});
 
-	const defaultToasterConfig = {
-		placement: "bottom-end" as const,
-		overlap: true,
-		gap: 16,
-	};
-
-	// Use a single shared toaster so all stories stack together properly
-	const toaster = createToaster(defaultToasterConfig);
-	const placementToaster = createToaster({
-		...defaultToasterConfig,
-		placement: "top",
-	});
-	const stackingToaster = createToaster({
-		...defaultToasterConfig,
-		overlap: false,
-	});
-
 	let stackCount = $state(0);
 </script>
 
 {#snippet basicStory()}
-	<div class="h-auto">
+	<ToastStoryWrapper>
 		<Button
 			onclick={() =>
 				toaster.create({
@@ -86,12 +67,11 @@
 		>
 			Show Toast
 		</Button>
-		<Toaster {toaster} />
-	</div>
+	</ToastStoryWrapper>
 {/snippet}
 
 {#snippet statusStory()}
-	<div class="h-auto">
+	<ToastStoryWrapper>
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				colour="blue"
@@ -145,12 +125,11 @@
 				Loading
 			</Button>
 		</HStack>
-		<Toaster {toaster} />
-	</div>
+	</ToastStoryWrapper>
 {/snippet}
 
 {#snippet actionStory()}
-	<div class="h-auto">
+	<ToastStoryWrapper>
 		<Button
 			onclick={() =>
 				toaster.create({
@@ -165,12 +144,11 @@
 		>
 			Show Toast with Action
 		</Button>
-		<Toaster {toaster} />
-	</div>
+	</ToastStoryWrapper>
 {/snippet}
 
 {#snippet durationStory()}
-	<div class="h-auto">
+	<ToastStoryWrapper>
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() =>
@@ -203,32 +181,16 @@
 				Persistent
 			</Button>
 		</HStack>
-		<Toaster {toaster} />
-	</div>
-{/snippet}
-
-{#snippet placementStory()}
-	<div class="h-auto">
-		<Button
-			onclick={() =>
-				placementToaster.create({
-					description: "This toast appears at the top.",
-					type: "info",
-				})}
-		>
-			Show Top Toast
-		</Button>
-		<Toaster toaster={placementToaster} />
-	</div>
+	</ToastStoryWrapper>
 {/snippet}
 
 {#snippet stackingStory()}
-	<div class="h-auto">
+	<ToastStoryWrapper>
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() => {
 					stackCount++;
-					stackingToaster.create({
+					toaster.create({
 						description: "File saved successfully",
 						type: ["info", "success", "warning", "error"][
 							stackCount % 4
@@ -243,22 +205,23 @@
 				variant="outline"
 				onclick={() => {
 					for (let i = 0; i < 5; i++) {
-						stackCount++;
-						stackingToaster.create({
-							description: "File saved successfully",
-							type: ["info", "success", "warning", "error"][
-								stackCount % 4
-							] as ToastStatus,
-							duration: 15000,
-						});
+						setTimeout(() => {
+							stackCount++;
+							toaster.create({
+								description: "File saved successfully",
+								type: ["info", "success", "warning", "error"][
+									stackCount % 4
+								] as ToastStatus,
+								duration: 15000,
+							});
+						}, i * 100);
 					}
 				}}
 			>
 				Add 5 Toasts
 			</Button>
 		</HStack>
-		<Toaster toaster={stackingToaster} />
-	</div>
+	</ToastStoryWrapper>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
@@ -268,7 +231,5 @@
 <Story name="With Action" template={actionStory} />
 
 <Story name="Duration" template={durationStory} />
-
-<Story name="Placement" template={placementStory} />
 
 <Story name="Stacking" template={stackingStory} />
