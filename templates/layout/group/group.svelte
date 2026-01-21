@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const group = tv({
-		base: "inline-flex relative isolate items-center justify-start antialiased",
+		base: "inline-flex relative isolate items-center justify-start",
 		variants: {
 			attached: {
 				true: [

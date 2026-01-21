@@ -7,7 +7,7 @@
 			// Core Layout
 			"saas-code",
 			"inline-flex items-center antialiased",
-			"rounded-sm",
+			"rounded",
 			"font-mono",
 			"[word-wrap:break-word]",
 		],

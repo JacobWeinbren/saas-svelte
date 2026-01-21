@@ -29,27 +29,11 @@ Pass an array of strings to the `query` prop to highlight multiple substrings.
 
 <Canvas of={HighlightStories.Multiple} />
 
-```tsx
-<Highlight
-	query={["spotlight", "emphasise", "accentuate"]}
-	text="With the Highlight component, you can spotlight, emphasise and accentuate words."
-	colour="teal"
-/>
-```
-
 ### Custom style
 
 Use the `variant` prop to customise the style of the highlighted text.
 
 <Canvas of={HighlightStories.CustomStyle} />
-
-```tsx
-<Highlight
-	query="component"
-	variant="plain"
-	text="With the Highlight component, you can spotlight words."
-/>
-```
 
 ### Search query
 
@@ -57,23 +41,11 @@ Use the highlight component to highlight search query results.
 
 <Canvas of={HighlightStories.SearchQuery} />
 
-```tsx
-<script>
-	const query = "spot";
-	const results = ["Spotlight bulb", "Spot cleaner", "Spot ceiling"];
-</script>
+### Mark class
 
-<Stack>
-	<Text>Search result for: spot</Text>
-	<Stack>
-		{#each results as item}
-			<Text>
-				<Highlight ignoreCase {query} variant="plain" text={item} />
-			</Text>
-		{/each}
-	</Stack>
-</Stack>
-```
+Use the `markClass` prop to apply custom CSS classes to the highlighted text beyond the built-in variants.
+
+<Canvas of={HighlightStories.MarkClass} />
 
 ### Props
 

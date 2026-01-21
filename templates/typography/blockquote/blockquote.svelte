@@ -5,7 +5,7 @@
 	import Quotes from "phosphor-svelte/lib/Quotes";
 
 	export const blockquote = tv({
-		base: "relative flex flex-col items-start gap-y-2 gap-x-2 px-5",
+		base: "relative flex flex-col items-start gap-2 px-5 antialiased",
 		variants: {
 			variant: {
 				subtle: "border-l-4 border-l-(--c-muted)",
@@ -33,7 +33,7 @@
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
 		 * The colour palette of the component.
-		 * @default "gray"
+		 * @default "neutral"
 		 */
 		colour?: ColourName;
 		/**
@@ -74,7 +74,7 @@
 	}
 
 	let {
-		colour = "gray",
+		colour = "neutral",
 		justify = "start",
 		variant = "subtle",
 		cite,

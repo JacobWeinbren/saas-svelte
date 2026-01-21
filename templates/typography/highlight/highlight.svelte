@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Mark } from "$saas/typography/mark";
 	import type { MarkVariants } from "$saas/typography/mark/mark.svelte";
+	import { Text } from "$saas/typography/text";
 	import type { ColourName } from "$saas/utils/colours";
 
 	interface Props {
@@ -29,11 +30,15 @@
 		variant?: MarkVariants["variant"];
 		/**
 		 * The colour palette to use for highlighted text.
-		 * @default "gray"
+		 * @default "orange"
 		 */
 		colour?: ColourName;
 		/**
-		 * Additional CSS classes to apply.
+		 * Additional CSS classes to apply to the highlighted text.
+		 */
+		markClass?: string;
+		/**
+		 * Additional CSS classes to apply to the container.
 		 */
 		class?: string;
 	}
@@ -44,7 +49,8 @@
 		ignoreCase = false,
 		matchAll = true,
 		variant = "subtle",
-		colour = "gray",
+		colour = "orange",
+		markClass,
 		class: className,
 	}: Props = $props();
 
@@ -89,12 +95,9 @@
 	const parts = $derived(highlightText(text, query));
 </script>
 
-<span class={className}>
-	{#each parts as { text: partText, match }}
-		{#if match}
-			<Mark {variant} {colour}>{partText}</Mark>
-		{:else}
-			{partText}
-		{/if}
-	{/each}
-</span>
+<Text class={className}
+	>{#each parts as { text: partText, match }}{#if match}<Mark
+				{variant}
+				{colour}
+				class={markClass}>{partText}</Mark>{:else}{partText}{/if}{/each}</Text
+>

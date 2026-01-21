@@ -30,6 +30,10 @@
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			colour: commonArgTypes.colour,
+			markClass: {
+				control: "text",
+				description: "Additional CSS classes to apply to the highlighted text",
+			},
 			class: commonArgTypes.class,
 		},
 		parameters: {
@@ -40,6 +44,7 @@
 				"matchAll",
 				"variant",
 				"colour",
+				"markClass",
 				"class",
 			]),
 		},
@@ -49,7 +54,7 @@
 			ignoreCase: false,
 			matchAll: true,
 			variant: "subtle",
-			colour: "gray",
+			colour: "orange",
 		},
 	});
 </script>
@@ -59,6 +64,7 @@
 		<Highlight
 			query={["spotlight", "emphasise", "accentuate"]}
 			text="With the Highlight component, you can spotlight, emphasise and accentuate words."
+			variant="subtle"
 			colour="teal"
 		/>
 	</Heading>
@@ -67,7 +73,7 @@
 {#snippet customStyleStory()}
 	<Highlight
 		query="component"
-		variant="plain"
+		variant="text"
 		text="With the Highlight component, you can spotlight words."
 	/>
 {/snippet}
@@ -79,12 +85,19 @@
 		<Text>Search result for: spot</Text>
 		<Stack>
 			{#each results as item}
-				<Text>
-					<Highlight ignoreCase {query} variant="plain" text={item} />
-				</Text>
+				<Highlight ignoreCase {query} variant="text" text={item} />
 			{/each}
 		</Stack>
 	</Stack>
+{/snippet}
+
+{#snippet markClassStory()}
+	<Highlight
+		query="custom"
+		variant="plain"
+		text="Use markClass to apply custom styling to highlighted text."
+		markClass="underline decoration-2 decoration-pink-500"
+	/>
 {/snippet}
 
 {#snippet basicStory()}
@@ -103,3 +116,5 @@
 <Story name="Custom Style" template={customStyleStory} />
 
 <Story name="Search Query" template={searchQueryStory} />
+
+<Story name="Mark Class" template={markClassStory} />

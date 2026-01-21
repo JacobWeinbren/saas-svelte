@@ -1,22 +1,19 @@
-<script module lang="ts">
-	import type { HTMLAttributes } from "svelte/elements";
-	import type { Component } from "svelte";
-</script>
-
-<script lang="ts" generics="T extends keyof HTMLElementTagNameMap = 'div'">
+<script lang="ts">
 	import type { Snippet } from "svelte";
 
-	type Props = HTMLAttributes<HTMLElementTagNameMap[T]> & {
+	interface Props {
 		/**
 		 * The HTML element to render.
 		 * @default "div"
 		 */
-		as?: T | Component;
+		as?: keyof HTMLElementTagNameMap;
 		children?: Snippet;
-	};
+		class?: string;
+		[key: string]: unknown;
+	}
 
 	let {
-		as = "div" as T,
+		as = "div",
 		children,
 		...restProps
 	}: Props = $props();

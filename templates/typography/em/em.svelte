@@ -3,7 +3,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	const em = tv({
-		base: "italic",
+		base: "italic antialiased",
 	});
 
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {

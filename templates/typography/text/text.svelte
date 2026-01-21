@@ -4,7 +4,7 @@
 	import type { ClassNameValue } from "tailwind-merge";
 
 	const text = tv({
-		base: "text-fg-default antialiased wrap-break-word",
+		base: "break-words antialiased",
 		variants: {
 			size: {
 				xs: "text-xs leading-xs",
@@ -31,7 +31,7 @@
 				black: "font-black",
 			},
 			truncate: {
-				true: "truncate", // Sets overflow-hidden, text-ellipsis, whitespace-nowrap
+				true: "truncate",
 			},
 			lineClamp: {
 				"1": "line-clamp-1",
@@ -42,16 +42,10 @@
 				"6": "line-clamp-6",
 				none: "line-clamp-none",
 			},
-			variant: {
-				primary: "text-fg-default",
-				secondary: "text-fg-subtle",
-				tertiary: "text-fg-emphasized",
-			},
 		},
 		defaultVariants: {
 			size: "sm",
 			weight: "normal",
-			variant: "primary",
 		},
 	});
 
@@ -65,7 +59,7 @@
 		as?: string;
 		/**
 		 * The size of the text.
-		 * @default "md"
+		 * @default "sm"
 		 */
 		size?: TextVariants["size"];
 		/**
@@ -74,19 +68,13 @@
 		 */
 		weight?: TextVariants["weight"];
 		/**
-		 * The color variant of the text.
-		 * @default "primary"
-		 */
-		variant?: TextVariants["variant"];
-		/**
 		 * Whether to truncate the text with an ellipsis.
 		 */
 		truncate?: boolean;
 		/**
 		 * The number of lines to clamp the text to.
 		 */
-		lineClamp?: TextVariants["lineClamp"]; // Supports "1" | "2" etc.
-		// Compatibility props from Saas/Chakra patterns
+		lineClamp?: TextVariants["lineClamp"];
 		/**
 		 * Alias for `weight`.
 		 */
@@ -105,7 +93,6 @@
 		as = "p",
 		size,
 		weight,
-		variant,
 		truncate,
 		lineClamp,
 		fontWeight,
@@ -125,7 +112,6 @@
 	class={text({
 		size: finalSize,
 		weight: finalWeight,
-		variant,
 		truncate,
 		lineClamp,
 		class: className,

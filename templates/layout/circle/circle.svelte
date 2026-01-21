@@ -4,19 +4,19 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	export const circle = tv({
-		base: "shrink-0 flex items-center justify-center rounded-full bg-(--c-solid) text-(--c-contrast)",
+		base: "shrink-0 flex items-center justify-center rounded-full",
 		variants: {
 			size: {
-				xs: "size-5 text-xs",
-				sm: "size-8 text-sm",
-				md: "size-10 text-md",
-				lg: "size-12 text-lg",
-				xl: "size-16 text-xl",
+				xs: "size-5 text-xs leading-xs",
+				sm: "size-8 text-sm leading-sm",
+				md: "size-10 text-md leading-md",
+				lg: "size-12 text-lg leading-lg",
+				xl: "size-16 text-xl leading-xl",
 			},
 			variant: {
 				solid: "bg-(--c-solid) text-(--c-contrast)",
 				subtle: "bg-(--c-muted) text-(--c-fg)",
-				outline: "border border-(--c-subtle) text-(--c-fg)",
+				outline: "border border-(--c-subtle) text-(--c-fg) bg-transparent",
 				plain: "text-(--c-fg) bg-transparent",
 			},
 		},
@@ -62,7 +62,7 @@
 	}: Props = $props();
 
 	const colourVars = $derived(getColourStyle(colour));
-	const finalClass = $derived(circle({ size, variant, class: className }));
+	const finalClass = $derived(circle({ size, variant, class: className as string }));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 

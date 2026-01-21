@@ -39,7 +39,7 @@
 		showArrow?: boolean;
 		/**
 		 * The variant of the tooltip.
-		 * @default "inverted"
+		 * @default "default"
 		 */
 		variant?: TooltipVariants["variant"];
 		/**
@@ -70,7 +70,7 @@
 		children,
 		class: className,
 		showArrow = false,
-		variant = "inverted",
+		variant = "default",
 		openDelay = 0,
 		closeDelay = 100,
 		positioning = { placement: "bottom", strategy: "fixed" },
