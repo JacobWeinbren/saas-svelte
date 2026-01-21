@@ -139,13 +139,7 @@
 	positioning={finalPositioning}
 	{...rest}
 >
-	<ArkPopover.Trigger>
-		{#snippet asChild(props)}
-			<span class="inline-block {triggerClass || ''}" {...props()}>
-				{@render children()}
-			</span>
-		{/snippet}
-	</ArkPopover.Trigger>
+	<ArkPopover.Trigger class={triggerClass} asChild={children} />
 	<Portal>
 		<ArkPopover.Positioner class={styles.positioner()}>
 			<ArkPopover.Content

@@ -18,7 +18,6 @@
 				description: "The status of the toast.",
 				table: { defaultValue: { summary: "info" } },
 			},
-			colour: commonArgTypes.colour,
 			title: {
 				control: "text",
 				description: "The title of the toast.",
@@ -38,7 +37,6 @@
 		parameters: {
 			controls: getControls([
 				"status",
-				"colour",
 				"title",
 				"description",
 				"icon",

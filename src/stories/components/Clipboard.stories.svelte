@@ -73,7 +73,7 @@
 
 <Story name="Button" template={buttonStory} />
 
-<Story name="CustomLabels" template={customLabelsStory} />
+<Story name="Custom Labels" template={customLabelsStory} />
 
 <Story name="Input" template={inputStory} />
 

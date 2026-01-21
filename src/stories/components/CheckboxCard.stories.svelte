@@ -79,7 +79,7 @@
 </script>
 
 {#snippet basicStory()}
-	<CheckboxCard.Root class="max-w-60">
+	<CheckboxCard.Root aria-label="Next.js" class="max-w-60">
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Next.js</CheckboxCard.Label>
@@ -96,6 +96,7 @@
 		<HStack gap={2} class="items-stretch">
 			{#each items as item}
 				<CheckboxCard.Root
+					aria-label={item.title}
 					checked={groupValue.includes(item.value)}
 					onCheckedChange={({ checked }) => {
 						if (checked) {
@@ -121,7 +122,7 @@
 {#snippet sizesStory()}
 	<VStack class="max-w-xs" gap={2}>
 		{#each sizes as size}
-			<CheckboxCard.Root {size}>
+			<CheckboxCard.Root aria-label="Checkbox {size}" {size}>
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>
 						<CheckboxCard.Label>Checkbox ({size})</CheckboxCard.Label>
@@ -136,7 +137,7 @@
 {#snippet variantsStory()}
 	<VStack class="max-w-xs" gap={2}>
 		{#each variants as variant}
-			<CheckboxCard.Root {variant} checked colour="teal">
+			<CheckboxCard.Root aria-label="Checkbox {variant}" {variant} checked colour="teal">
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>
 						<CheckboxCard.Label>Checkbox ({variant})</CheckboxCard.Label>
@@ -149,7 +150,7 @@
 {/snippet}
 
 {#snippet disabledStory()}
-	<CheckboxCard.Root disabled class="max-w-xs">
+	<CheckboxCard.Root aria-label="Disabled" disabled class="max-w-xs">
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Disabled</CheckboxCard.Label>
@@ -161,7 +162,7 @@
 {/snippet}
 
 {#snippet withAddonStory()}
-	<CheckboxCard.Root class="max-w-72">
+	<CheckboxCard.Root aria-label="With Addon" class="max-w-72">
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>With Addon</CheckboxCard.Label>
@@ -179,9 +180,10 @@
 {/snippet}
 
 {#snippet withIconStory()}
-	<HStack gap={1.5} class="flex-wrap items-start">
+	<HStack gap={1.5} class="flex-wrap items-stretch">
 		{#each roleItems as item}
 			<CheckboxCard.Root
+				aria-label={item.label}
 				class="w-[200px] flex-none"
 				checked={roleValue.includes(item.label)}
 				onCheckedChange={({ checked }) => {

@@ -4,12 +4,17 @@
 
 	interface Props {
 		/**
+		 * Accessible label for the input field.
+		 * @default "Clipboard value"
+		 */
+		"aria-label"?: string;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
 	}
 
-	let { class: className }: Props = $props();
+	let { "aria-label": ariaLabel = "Clipboard value", class: className }: Props = $props();
 </script>
 
-<ArkClipboard.Input class={clipboardInput({ class: className })} />
+<ArkClipboard.Input class={clipboardInput({ class: className })} aria-label={ariaLabel} />

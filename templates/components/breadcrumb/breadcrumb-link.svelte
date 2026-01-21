@@ -53,6 +53,8 @@
 			"gap-y-2 gap-x-2",
 			"inline-flex",
 			"rounded",
+			"font-normal",
+			"transition-none",
 			"focus:outline-offset-2",
 			"focus:outline-1",
 			"focus:outline-solid",
@@ -60,7 +62,7 @@
 		];
 
 		if (variant === "plain") {
-			// Plain variant: muted (gray) text, no underline, hover to default
+			// Plain variant: muted (gray-500) text, no underline, hover to default
 			baseClasses.push(
 				"text-fg-muted",
 				"no-underline",

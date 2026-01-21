@@ -42,9 +42,9 @@
 		{@render children()}
 	{:else}
 		<ArkClipboard.Indicator>
-			<CopySimple class="size-3.5" weight="bold" />
+			<CopySimple class="size-3.5" weight="bold" aria-hidden="true" />
 			{#snippet copied()}
-				<Check class="size-3.5" weight="bold" />
+				<Check class="size-3.5" weight="bold" aria-hidden="true" />
 			{/snippet}
 		</ArkClipboard.Indicator>
 		<ArkClipboard.Indicator>

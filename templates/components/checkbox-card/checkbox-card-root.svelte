@@ -86,6 +86,11 @@
 
 	interface Props extends Omit<HTMLLabelAttributes, "class"> {
 		/**
+		 * Accessible label for the checkbox input.
+		 * Required for accessibility compliance.
+		 */
+		"aria-label": string;
+		/**
 		 * The controlled checked state of the checkbox card.
 		 * @default false
 		 */
@@ -129,6 +134,7 @@
 	}
 
 	let {
+		"aria-label": ariaLabel,
 		checked = $bindable(false),
 		value,
 		variant = "outline",
@@ -195,6 +201,7 @@
 	<input
 		type="checkbox"
 		class="sr-only peer"
+		aria-label={ariaLabel}
 		{checked}
 		{value}
 		{disabled}

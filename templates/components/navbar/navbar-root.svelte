@@ -128,6 +128,8 @@
 		children?: Snippet;
 		/** Additional CSS classes to apply. */
 		class?: string;
+		/** Accessible label for the navigation landmark. @default "Main navigation" */
+		"aria-label"?: string;
 	}
 
 	let {
@@ -140,6 +142,7 @@
 		children,
 		class: className,
 		style,
+		"aria-label": ariaLabel = "Main navigation",
 		...rest
 	}: Props = $props();
 
@@ -186,6 +189,6 @@
 	});
 </script>
 
-<nav bind:this={navElement} class={styles.root({ class: className })} style={finalStyle} {...rest}>
+<nav bind:this={navElement} class={styles.root({ class: className })} style={finalStyle} aria-label={ariaLabel} {...rest}>
 	{@render children?.()}
 </nav>

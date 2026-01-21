@@ -212,7 +212,7 @@
 			<Box class="w-full">
 				<Text size="sm" class="mb-2 text-fg-muted">{variant}</Text>
 				<Box class={variant === "solid" ? "bg-accent-solid rounded-l2" : "bg-bg-subtle rounded-l2"}>
-					<Navbar.Root {variant} colour="accent">
+					<Navbar.Root {variant} colour="accent" aria-label="{variant} variant navigation">
 						<Navbar.Content maxW="max-w-4xl">
 							<Navbar.Brand>
 								{@render logoSvg(variant === "solid" ? "white" : undefined)}
@@ -331,7 +331,7 @@
 	<VStack gap={4} class="w-full">
 		{#each ["accent", "blue", "green", "red", "purple"] as colour}
 			<Box class="w-full rounded-l2 overflow-hidden">
-				<Navbar.Root variant="solid" {colour}>
+				<Navbar.Root variant="solid" {colour} aria-label="{colour} colour navigation">
 					<Navbar.Content maxW="max-w-4xl">
 						<Navbar.Brand>
 							{@render logoSvg("white")}
@@ -346,7 +346,7 @@
 						</Navbar.ItemGroup>
 						<Navbar.ItemGroup justify="end">
 							<Navbar.Item>
-								<Text size="xs" class="opacity-75">{colour}</Text>
+								<Text size="xs">{colour}</Text>
 							</Navbar.Item>
 						</Navbar.ItemGroup>
 					</Navbar.Content>

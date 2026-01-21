@@ -233,7 +233,6 @@ body {
 	}
 }
 
-
 :root {
 	--colors-orange-contrast: var(--color-black);
 	--colors-fg-muted: light-dark(var(--color-gray-600), var(--color-gray-400));

@@ -4,7 +4,7 @@
 
 	export const breadcrumb = tv({
 		slots: {
-			root: "[word-break:break-word] text-fg-muted items-center flex",
+			root: "[word-break:break-word] text-fg-muted items-center flex font-normal",
 			item: "items-center inline-flex",
 			separator: "text-fg-muted opacity-80",
 			ellipsis: "justify-center items-center inline-flex",
@@ -15,7 +15,7 @@
 					root: "text-xs leading-4 gap-x-1 gap-y-1",
 				},
 				md: {
-					root: "text-sm leading-5 gap-x-1.5 gap-y-1.5",
+					root: "text-[13px] leading-[1.4] gap-x-1.5 gap-y-1.5",
 				},
 				lg: {
 					root: "text-sm leading-5 gap-x-2 gap-y-2",
@@ -66,6 +66,11 @@
 		 */
 		separatorGap?: string | number;
 		/**
+		 * Accessible label for the breadcrumb navigation.
+		 * @default "Breadcrumb"
+		 */
+		ariaLabel?: string;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
@@ -77,13 +82,14 @@
 		variant = "plain",
 		separator = "/",
 		separatorGap,
+		ariaLabel = "Breadcrumb",
 		class: className,
 		...restProps
 	}: Props = $props();
 
 	const styles = $derived(breadcrumb({ size, variant }));
-	const separatorGapClass = $derived(
-		separatorGap ? `gap-${separatorGap}` : undefined,
+	const separatorGapStyle = $derived(
+		separatorGap ? `gap: calc(${separatorGap} * 0.25rem)` : undefined,
 	);
 
 	// Provide context to child components
@@ -103,8 +109,8 @@
 	});
 </script>
 
-<nav aria-label="breadcrumb" {...restProps}>
-	<ol class={styles.root({ class: [separatorGapClass, className].filter(Boolean).join(" ") })}>
+<nav aria-label={ariaLabel} {...restProps}>
+	<ol class={styles.root({ class: className })} style={separatorGapStyle}>
 		{@render children()}
 	</ol>
 </nav>

@@ -257,10 +257,10 @@
 		/>
 		<div class={ctx.styles.indicatorGroup()}>
 			<Combobox.ClearTrigger class={ctx.styles.clearTrigger()}>
-				<X />
+				<X aria-hidden="true" />
 			</Combobox.ClearTrigger>
 			<Combobox.Trigger class={ctx.styles.trigger()}>
-				<CaretDown />
+				<CaretDown aria-hidden="true" />
 			</Combobox.Trigger>
 		</div>
 	</Combobox.Control>
@@ -311,7 +311,7 @@
 															<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
 														{/if}
 													</Combobox.ItemText>
-													<ArrowSquareOut class="size-4 ml-auto text-fg-muted" />
+													<ArrowSquareOut class="size-4 ml-auto text-fg-muted" aria-hidden="true" />
 												{/if}
 											</a>
 										{/snippet}
@@ -337,7 +337,7 @@
 												{/if}
 											</Combobox.ItemText>
 											<Combobox.ItemIndicator class={ctx.styles.itemIndicator()}>
-												<Check weight="bold" />
+												<Check weight="bold" aria-hidden="true" />
 											</Combobox.ItemIndicator>
 										{/if}
 									</Combobox.Item>
@@ -376,7 +376,7 @@
 													<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
 												{/if}
 											</Combobox.ItemText>
-											<ArrowSquareOut class="size-4 ml-auto text-fg-muted" />
+											<ArrowSquareOut class="size-4 ml-auto text-fg-muted" aria-hidden="true" />
 										{/if}
 									</a>
 								{/snippet}
@@ -398,7 +398,7 @@
 										{/if}
 									</Combobox.ItemText>
 									<Combobox.ItemIndicator class={ctx.styles.itemIndicator()}>
-										<Check weight="bold" />
+										<Check weight="bold" aria-hidden="true" />
 									</Combobox.ItemIndicator>
 								{/if}
 							</Combobox.Item>

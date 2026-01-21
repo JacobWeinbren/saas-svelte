@@ -74,7 +74,7 @@
 		{#each sizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-8">{size}</Text>
-				<BreadcrumbRoot {size}>
+				<BreadcrumbRoot {size} ariaLabel="Breadcrumb {size}">
 					<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 					<BreadcrumbLink href="#">Components</BreadcrumbLink>
 					<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
@@ -89,7 +89,7 @@
 		{#each variants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-20">{variant}</Text>
-				<BreadcrumbRoot {variant}>
+				<BreadcrumbRoot {variant} ariaLabel="Breadcrumb {variant}">
 					<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 					<BreadcrumbLink href="#">Components</BreadcrumbLink>
 					<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
@@ -122,13 +122,13 @@
 {/snippet}
 
 {#snippet withIconStory()}
-	<BreadcrumbRoot>
+	<BreadcrumbRoot ariaLabel="Breadcrumb with icons">
 		<BreadcrumbLink href="#">
-			<House class="h-3.5" weight="regular" />
+			<House class="h-3.5" weight="regular" aria-hidden="true" />
 			Home
 		</BreadcrumbLink>
 		<BreadcrumbLink href="#">
-			<TShirt class="h-3.5" weight="regular" />
+			<TShirt class="h-3.5" weight="regular" aria-hidden="true" />
 			Men Wear
 		</BreadcrumbLink>
 		<BreadcrumbCurrentLink>Trousers</BreadcrumbCurrentLink>
@@ -146,7 +146,7 @@
 
 {#snippet withMenuStory()}
 	<div class="p-1">
-		<BreadcrumbRoot separatorGap={4}>
+		<BreadcrumbRoot separatorGap={4} ariaLabel="Breadcrumb with menu">
 			<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 			<BreadcrumbMenu>
 				<MenuRoot size="sm">
@@ -169,14 +169,14 @@
 
 <Story name="Variants" template={variantsStory} />
 
-<Story name="WithSeparator" template={separatorStory} />
+<Story name="With Separator" template={separatorStory} />
 
-<Story name="WithIcon" template={withIconStory} />
+<Story name="With Icon" template={withIconStory} />
 
-<Story name="WithEllipsis" template={ellipsisStory} />
+<Story name="With Ellipsis" template={ellipsisStory} />
 
 <Story
-	name="WithMenu"
+	name="With Menu"
 	template={withMenuStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />

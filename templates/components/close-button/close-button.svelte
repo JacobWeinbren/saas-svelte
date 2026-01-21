@@ -155,6 +155,6 @@
 	{#if children}
 		{@render children()}
 	{:else}
-		<X class={iconClass} weight="bold" />
+		<X class={iconClass} weight="bold" aria-hidden="true" />
 	{/if}
 </button>

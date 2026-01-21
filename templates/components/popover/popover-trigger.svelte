@@ -17,10 +17,4 @@
 	let { children, class: className, ...rest }: Props = $props();
 </script>
 
-<Popover.Trigger class={className} {...rest}>
-	{#snippet asChild(props)}
-		<span class="inline-block" {...props()}>
-			{@render children()}
-		</span>
-	{/snippet}
-</Popover.Trigger>
+<Popover.Trigger class={className} asChild={children} {...rest} />

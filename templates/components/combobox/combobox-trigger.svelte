@@ -18,5 +18,5 @@
 </script>
 
 <Combobox.Trigger class={ctx?.styles?.trigger({ class: className })} {...rest}>
-	<CaretDown />
+	<CaretDown aria-hidden="true" />
 </Combobox.Trigger>

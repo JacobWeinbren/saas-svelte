@@ -5,6 +5,12 @@
 	import type { Snippet } from "svelte";
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import CaretDown from "phosphor-svelte/lib/CaretDown";
+	import { getContext } from "svelte";
+	import type { BreadcrumbVariants } from "../breadcrumb/breadcrumb-root.svelte";
+
+	interface BreadcrumbContext {
+		size: BreadcrumbVariants["size"];
+	}
 
 	interface Props extends MenuTriggerProps {
 		/**
@@ -46,22 +52,28 @@
 		class: className,
 		asChild,
 		variant = "outline",
-		size = "md",
+		size,
 		colour = "gray",
 		showIndicator = false,
 		style,
 		...rest
 	}: Props = $props();
 
+	const breadcrumbContext = getContext<BreadcrumbContext | undefined>("breadcrumb");
+
 	const isBreadcrumb = $derived(variant === "breadcrumb");
 	const buttonVariant = $derived(
 		(isBreadcrumb ? "ghost" : variant) as ButtonVariants["variant"]
 	);
-	const buttonSize = $derived(isBreadcrumb ? "xs" : size);
+	// For breadcrumb variant, use the breadcrumb context size; otherwise use the provided size or default to "md"
+	const buttonSize = $derived(
+		isBreadcrumb ? (breadcrumbContext?.size ?? "sm") : (size ?? "md")
+	);
 	const breadcrumbClasses =
-		"h-auto min-h-0 text-fg-muted hover:text-fg-default hover:bg-transparent gap-1 px-0 [&]:focus-visible:outline-(--color-neutral-focus-ring)";
+		"h-auto min-h-0 text-fg-muted hover:text-fg-default hover:bg-transparent gap-2! px-0 cursor-default font-normal transition-none [&]:focus-visible:outline-neutral-focus-ring [&_svg]:size-[1em]!";
 
-	const colourVars = $derived(getColourStyle(colour));
+	// Don't apply colour variables for breadcrumb variant - it inherits from parent
+	const colourVars = $derived(isBreadcrumb ? undefined : getColourStyle(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 	const finalClassName = $derived(
 		isBreadcrumb ? [breadcrumbClasses, className].filter(Boolean).join(" ") : className
@@ -80,7 +92,7 @@
 	>
 		{@render children()}
 		{#if showIndicator || isBreadcrumb}
-			<CaretDown class="w-3.5 h-3.5" />
+			<CaretDown aria-hidden="true" />
 		{/if}
 	</Menu.Trigger>
 {/if}

@@ -11,13 +11,19 @@
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
+		/**
+		 * When true, passes trigger behavior to the child element instead of rendering a button.
+		 * Use this to avoid nested interactive controls when using a Button as the trigger.
+		 * @default true
+		 */
+		asChild?: boolean;
 	}
 
-	let { children, class: className }: Props = $props();
+	let { children, class: className, asChild = true }: Props = $props();
 </script>
 
-<ArkCollapsible.Trigger class={className}>
-	{#if children}
+<ArkCollapsible.Trigger class={className} asChild={asChild ? children : undefined}>
+	{#if !asChild && children}
 		{@render children()}
 	{/if}
 </ArkCollapsible.Trigger>
