@@ -24,8 +24,8 @@
 				{@render children(toast)}
 			{:else}
 				<Toast
-					title={toast().title}
-					description={toast().description}
+					title={toast().title as string | undefined}
+					description={toast().description as string | undefined}
 					status={toast().type as ToastStatus}
 					action={toast().action}
 				/>

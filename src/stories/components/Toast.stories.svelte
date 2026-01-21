@@ -61,10 +61,8 @@
 		gap: 16,
 	};
 
-	const basicToaster = createToaster(defaultToasterConfig);
-	const statusToaster = createToaster(defaultToasterConfig);
-	const actionToaster = createToaster(defaultToasterConfig);
-	const durationToaster = createToaster(defaultToasterConfig);
+	// Use a single shared toaster so all stories stack together properly
+	const toaster = createToaster(defaultToasterConfig);
 	const placementToaster = createToaster({
 		...defaultToasterConfig,
 		placement: "top",
@@ -81,14 +79,14 @@
 	<div class="h-auto">
 		<Button
 			onclick={() =>
-				basicToaster.create({
+				toaster.create({
 					description: "This is a toast notification.",
 					type: "info",
 				})}
 		>
 			Show Toast
 		</Button>
-		<Toaster toaster={basicToaster} />
+		<Toaster {toaster} />
 	</div>
 {/snippet}
 
@@ -98,7 +96,7 @@
 			<Button
 				colour="blue"
 				onclick={() =>
-					statusToaster.create({
+					toaster.create({
 						description: "Here is some useful information.",
 						type: "info",
 					})}
@@ -108,7 +106,7 @@
 			<Button
 				colour="green"
 				onclick={() =>
-					statusToaster.create({
+					toaster.create({
 						description: "Your changes have been saved.",
 						type: "success",
 					})}
@@ -118,7 +116,7 @@
 			<Button
 				colour="orange"
 				onclick={() =>
-					statusToaster.create({
+					toaster.create({
 						description: "This action cannot be undone.",
 						type: "warning",
 					})}
@@ -128,7 +126,7 @@
 			<Button
 				colour="red"
 				onclick={() =>
-					statusToaster.create({
+					toaster.create({
 						description: "Something went wrong. Please try again.",
 						type: "error",
 					})}
@@ -138,7 +136,7 @@
 			<Button
 				colour="gray"
 				onclick={() =>
-					statusToaster.create({
+					toaster.create({
 						description:
 							"Please wait while we process your request.",
 						type: "loading",
@@ -147,7 +145,7 @@
 				Loading
 			</Button>
 		</HStack>
-		<Toaster toaster={statusToaster} />
+		<Toaster {toaster} />
 	</div>
 {/snippet}
 
@@ -155,7 +153,7 @@
 	<div class="h-auto">
 		<Button
 			onclick={() =>
-				actionToaster.create({
+				toaster.create({
 					title: "Update successful",
 					description: "File saved successfully to the server",
 					type: "success",
@@ -167,7 +165,7 @@
 		>
 			Show Toast with Action
 		</Button>
-		<Toaster toaster={actionToaster} />
+		<Toaster {toaster} />
 	</div>
 {/snippet}
 
@@ -176,7 +174,7 @@
 		<HStack gap={2} class="flex-wrap">
 			<Button
 				onclick={() =>
-					durationToaster.create({
+					toaster.create({
 						description: "This will disappear quickly.",
 						type: "info",
 						duration: 1000,
@@ -186,7 +184,7 @@
 			</Button>
 			<Button
 				onclick={() =>
-					durationToaster.create({
+					toaster.create({
 						description: "This uses the default duration.",
 						type: "info",
 						duration: 5000,
@@ -196,7 +194,7 @@
 			</Button>
 			<Button
 				onclick={() =>
-					durationToaster.create({
+					toaster.create({
 						description: "This will stay until dismissed.",
 						type: "info",
 						duration: Infinity,
@@ -205,7 +203,7 @@
 				Persistent
 			</Button>
 		</HStack>
-		<Toaster toaster={durationToaster} />
+		<Toaster {toaster} />
 	</div>
 {/snippet}
 

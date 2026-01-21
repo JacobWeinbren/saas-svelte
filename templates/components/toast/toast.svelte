@@ -4,8 +4,8 @@
 	export const toast = tv({
 		slots: {
 			root: [
-				// Layout
-				"w-full",
+				// Layout - mobile: full width minus 2rem margin each side; desktop: fixed 384px
+				"w-[calc(100vw-4rem)]",
 				"md:w-96",
 				"flex",
 				"items-start",
@@ -25,29 +25,28 @@
 				// Positioning
 				"z-(--z-index)",
 				"pointer-events-auto",
-				"[--computed-y:calc(var(--lift)*var(--fixed-index,var(--index))*(var(--first-height)+var(--gap)))]",
-				// Mobile: fixed positioning to center on viewport; Desktop: absolute within group
+				// Custom stacking: use cumulative offset calculated by JS (--lift is -1 for bottom, 1 for top)
+				"[--stack-y:calc(var(--lift,-1)*var(--stack-offset,0px))]",
+				// Mobile: fixed + centered at bottom; Desktop: fixed at bottom-right
 				"fixed!",
-				"md:absolute!",
 				"left-1/2!",
 				"md:left-auto!",
-				"right-auto!",
-				"md:right-[unset]!",
-				"bottom-4!",
-				"md:bottom-0!",
-				// Mobile: fixed -50% X, Y changes for stacking; Desktop: both X and Y from Ark UI
-				"[translate:-50%_var(--computed-y)]",
-				"md:[translate:var(--x)_var(--computed-y)]",
+				"md:right-4!",
+				// Use bottom for stacking (transitions smoothly) and translate only for horizontal centering
+				"bottom-[calc(1rem-var(--stack-y))]!",
+				"[translate:-50%_0]!",
+				"md:[translate:0_0]!",
 				// Transitions for stacking movement
-				"will-change-[translate,opacity,scale,height]",
-				"transition-all",
+				"will-change-[opacity,scale,bottom]",
+				"transition-[opacity,scale,bottom]",
 				"duration-moderate",
 				"ease-(--easings-ease-out)",
 				// Overflow
 				"overflow-x-hidden",
 				"overflow-y-hidden",
-				// Entry/exit animations
-				"animate-[toast-slide-in_var(--durations-moderate)_var(--easings-bounce-in)]",
+				// Entry/exit animations - bottom placements slide from bottom, top from top
+				"animate-[toast-slide-in-bottom_var(--durations-moderate)_var(--easings-bounce-in)]",
+				"in-data-[placement^=top]:animate-[toast-slide-in-top_var(--durations-moderate)_var(--easings-bounce-in)]",
 				"data-[state=closed]:opacity-0",
 			],
 			icon: "shrink-0 w-5 h-5 stroke-current fill-current stroke-0",
@@ -205,28 +204,39 @@
 		description && !title && !action && status !== "loading",
 	);
 
-	// Fix Ark UI bug: --index doesn't update properly when toasts are removed
+	// Calculate cumulative stack offsets based on each toast's actual height
 	function fixIndex(node: HTMLElement) {
 		const group = node.closest('[data-part="group"]');
 		if (!group) return;
 
+		const gap = 16; // matches the gap in createToaster config
+
 		const update = () => {
-			const toasts = group.querySelectorAll(
-				'[data-part="root"][data-state="open"]',
-			);
-			toasts.forEach((toast, i) =>
-				(toast as HTMLElement).style.setProperty(
-					"--fixed-index",
-					String(i),
-				),
-			);
+			const toasts = Array.from(
+				group.querySelectorAll('[data-part="root"][data-state="open"]'),
+			) as HTMLElement[];
+
+			let cumulativeOffset = 0;
+			toasts.forEach((toast, i) => {
+				toast.style.setProperty("--index", String(i));
+				toast.style.setProperty("--stack-offset", `${cumulativeOffset}px`);
+				cumulativeOffset += toast.offsetHeight + gap;
+			});
 		};
 
 		const observer = new MutationObserver(update);
-		observer.observe(group, { childList: true });
+		observer.observe(group, { childList: true, subtree: true, attributes: true });
+		// Also update on resize in case content changes
+		const resizeObserver = new ResizeObserver(update);
+		resizeObserver.observe(node);
 		update();
 
-		return { destroy: () => observer.disconnect() };
+		return {
+			destroy: () => {
+				observer.disconnect();
+				resizeObserver.disconnect();
+			},
+		};
 	}
 
 	const styles = $derived(toast({ status }));
@@ -234,10 +244,10 @@
 
 <div use:fixIndex class="contents">
 	<ArkToast.Root
-		class={styles.root({ class: className })}
-		{style}
-		{...restProps}
-	>
+	class={styles.root({ class: className })}
+	{style}
+	{...restProps}
+>
 		{#if children}
 			{@render children()}
 		{:else if isSingleLine}

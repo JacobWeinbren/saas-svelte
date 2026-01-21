@@ -143,10 +143,20 @@ body {
 			opacity: 0;
 		}
 	}
-	@keyframes toast-slide-in {
+	@keyframes toast-slide-in-bottom {
 		from {
 			opacity: 0;
 			transform: translateY(1rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes toast-slide-in-top {
+		from {
+			opacity: 0;
+			transform: translateY(-1rem);
 		}
 		to {
 			opacity: 1;
