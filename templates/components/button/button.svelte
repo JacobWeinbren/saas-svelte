@@ -10,6 +10,7 @@
 			"outline-0 shrink-0 justify-center items-center",
 			"font-medium inline-flex relative",
 			"rounded",
+			"transition-[background-color,border-color,color,fill,stroke,opacity,box-shadow,translate,transform] duration-200",
 			"focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-fg-muted",
 			"disabled:opacity-50 disabled:cursor-not-allowed",
 		],
