@@ -49,7 +49,7 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="min-h-[300px]">
+	<div>
 		<Checkbox
 			checked={basicOpen}
 			onCheckedChange={(e) => (basicOpen = !!e.checked)}
@@ -73,7 +73,7 @@
 {/snippet}
 
 {#snippet closableStory()}
-	<div class="min-h-[300px]">
+	<div>
 		<Checkbox
 			checked={closableOpen}
 			onCheckedChange={(e) => (closableOpen = !!e.checked)}
@@ -101,7 +101,7 @@
 {/snippet}
 
 {#snippet multipleActionsStory()}
-	<div class="min-h-[300px]">
+	<div>
 		<Checkbox
 			checked={multipleActionsOpen}
 			onCheckedChange={(e) => (multipleActionsOpen = !!e.checked)}
@@ -125,7 +125,7 @@
 {/snippet}
 
 {#snippet interactiveStory()}
-	<div class="min-h-[300px]">
+	<div>
 		<VStack gap={3}>
 			<Text size="sm" variant="secondary">Selected: {selectedCount} items</Text>
 			<HStack gap={2} class="flex-wrap">

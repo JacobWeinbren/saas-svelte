@@ -59,6 +59,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import { fly, fade } from "svelte/transition";
 	import { twMerge } from "tailwind-merge";
+	import { Portal } from "@ark-ui/svelte/portal";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -104,23 +105,25 @@
 <svelte:window onclick={handleClickOutside} />
 
 {#if open}
-	<div
-		class={twMerge(styles.root() as string, className as string)}
-		data-part="action-bar-root"
-		data-state="open"
-		role="toolbar"
-		aria-label="Bulk actions"
-		in:fly={{ y: 32, duration: 200 }}
-		out:fly={{ y: 32, duration: 150 }}
-		{...restProps}
-	>
+	<Portal>
 		<div
-			class={twMerge(styles.content() as string)}
-			data-part="action-bar-content"
-			in:fade={{ duration: 200 }}
-			out:fade={{ duration: 150 }}
+			class={twMerge(styles.root() as string, className as string)}
+			data-part="action-bar-root"
+			data-state="open"
+			role="toolbar"
+			aria-label="Bulk actions"
+			in:fly={{ y: 32, duration: 200 }}
+			out:fly={{ y: 32, duration: 150 }}
+			{...restProps}
 		>
-			{@render children?.()}
+			<div
+				class={twMerge(styles.content() as string)}
+				data-part="action-bar-content"
+				in:fade={{ duration: 200 }}
+				out:fade={{ duration: 150 }}
+			>
+				{@render children?.()}
+			</div>
 		</div>
-	</div>
+	</Portal>
 {/if}
