@@ -222,6 +222,11 @@ export {
     fileUploadLabelPattern,
     fileUploadInputPattern,
     fileUploadClearTriggerPattern,
+    gridListRootPattern,
+    gridListHeaderPattern,
+    gridListItemPattern,
+    gridListCellPattern,
+    tagPattern,
 } from "./exclude-patterns";
 
 

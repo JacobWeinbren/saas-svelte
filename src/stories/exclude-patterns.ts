@@ -167,3 +167,10 @@ export const fileUploadListPattern = makePattern(['showSize', 'clearable', 'clas
 export const fileUploadLabelPattern = makePattern(['class', 'children']);
 export const fileUploadInputPattern = makePattern(['placeholder', 'class']);
 export const fileUploadClearTriggerPattern = makePattern(['class', 'children']);
+
+export const gridListRootPattern = makePattern(['interactive', 'class', 'children']);
+export const gridListHeaderPattern = makePattern(['class', 'children']);
+export const gridListItemPattern = makePattern(['class', 'children']);
+export const gridListCellPattern = makePattern(['flex', 'shrink', 'width', 'class', 'children']);
+
+export const tagPattern = makePattern(['variant', 'size', 'colour', 'closable', 'onClose', 'startElement', 'endElement', 'maxWidth', 'class', 'children']);
