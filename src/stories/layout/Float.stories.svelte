@@ -137,7 +137,7 @@
 
 {#snippet avatarStory()}
 	<Box class="relative inline-block">
-		<Avatar size="lg" shape="rounded" src="/avatars/1.png" name="David Wilson" />
+		<Avatar size="lg" shape="rounded" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" name="David Wilson" />
 		<Float placement="bottom-end">
 			<Badge size="sm" variant="solid" colour="teal">New</Badge>
 		</Float>

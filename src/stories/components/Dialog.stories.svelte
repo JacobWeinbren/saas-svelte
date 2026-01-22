@@ -128,8 +128,8 @@
 						</Dialog.Header>
 						<Dialog.Body>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing
-								elit.
+								Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit.
 							</p>
 						</Dialog.Body>
 						<Dialog.Footer>
@@ -305,7 +305,7 @@
 								<HStack>
 									<Avatar
 										size="xs"
-										src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1720569600&semt=ais_user"
+										src="https://api.dicebear.com/9.x/adventurer/svg?seed=james"
 										name="Eelco Wiersma"
 									/>
 									Eelco Wiersma

@@ -179,3 +179,5 @@ export const hoverCardRootPattern = makePattern(['size', 'open', 'onOpenChange',
 export const hoverCardTriggerPattern = makePattern(['asChild', 'class', 'children']);
 export const hoverCardContentPattern = makePattern(['class', 'children']);
 export const hoverCardArrowPattern = makePattern(['class']);
+
+export const imagePattern = makePattern(['src', 'alt', 'width', 'height', 'aspectRatio', 'rounded', 'fit', 'class', 'style']);
