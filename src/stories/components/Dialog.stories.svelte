@@ -305,7 +305,7 @@
 								<HStack>
 									<Avatar
 										size="xs"
-										src="https://api.dicebear.com/9.x/adventurer/svg?seed=james"
+										src="https://api.dicebear.com/9.x/shapes/svg?seed=james"
 										name="Eelco Wiersma"
 									/>
 									Eelco Wiersma

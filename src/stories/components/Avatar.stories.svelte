@@ -63,7 +63,7 @@
 			shape: "full",
 			colour: "gray",
 			name: "David Wilson",
-			src: "https://api.dicebear.com/9.x/adventurer/svg?seed=david",
+			src: "https://api.dicebear.com/9.x/shapes/svg?seed=jacob",
 		},
 	});
 
@@ -89,7 +89,11 @@
 		{#each sizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
-				<Avatar {size} name="David Wilson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" />
+				<Avatar
+					{size}
+					name="David Wilson"
+					src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+				/>
 			</VStack>
 		{/each}
 	</Stack>
@@ -104,7 +108,7 @@
 					{shape}
 					size="lg"
 					name="David Wilson"
-					src="https://api.dicebear.com/9.x/adventurer/svg?seed=david"
+					src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
 				/>
 			</VStack>
 		{/each}
@@ -121,17 +125,41 @@
 
 {#snippet ringStory()}
 	<Stack gap={4} class="flex-row items-center">
-		<Avatar name="David Wilson" colour="pink" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" ring />
-		<Avatar name="Marcus Chen" colour="green" src="https://api.dicebear.com/9.x/adventurer/svg?seed=marcus" ring />
-		<Avatar name="Sarah Johnson" colour="blue" src="https://api.dicebear.com/9.x/adventurer/svg?seed=sarah" ring />
+		<Avatar
+			name="David Wilson"
+			colour="pink"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+			ring
+		/>
+		<Avatar
+			name="Marcus Chen"
+			colour="green"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=marcus"
+			ring
+		/>
+		<Avatar
+			name="Sarah Johnson"
+			colour="blue"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
+			ring
+		/>
 	</Stack>
 {/snippet}
 
 {#snippet groupStory()}
 	<AvatarGroup size="lg">
-		<Avatar name="David Wilson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" />
-		<Avatar name="Marcus Chen" src="https://api.dicebear.com/9.x/adventurer/svg?seed=marcus" />
-		<Avatar name="Sarah Johnson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=sarah" />
+		<Avatar
+			name="David Wilson"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+		/>
+		<Avatar
+			name="Marcus Chen"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=marcus"
+		/>
+		<Avatar
+			name="Sarah Johnson"
+			src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
+		/>
 		<Avatar fallback={moreFallback} variant="solid" />
 	</AvatarGroup>
 {/snippet}
@@ -143,23 +171,50 @@
 {#snippet stackingStory()}
 	<Stack gap={8}>
 		<AvatarGroup size="lg" stacking="last-on-top">
-			<Avatar name="David Wilson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" />
-			<Avatar name="Marcus Chen" src="https://api.dicebear.com/9.x/adventurer/svg?seed=marcus" />
-			<Avatar name="Sarah Johnson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=sarah" />
+			<Avatar
+				name="David Wilson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+			/>
+			<Avatar
+				name="Marcus Chen"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=marcus"
+			/>
+			<Avatar
+				name="Sarah Johnson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
+			/>
 			<Avatar fallback={moreFallback} />
 		</AvatarGroup>
 
 		<AvatarGroup size="lg" stacking="first-on-top">
-			<Avatar name="David Wilson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" />
-			<Avatar name="Marcus Chen" src="https://api.dicebear.com/9.x/adventurer/svg?seed=marcus" />
-			<Avatar name="Sarah Johnson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=sarah" />
+			<Avatar
+				name="David Wilson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+			/>
+			<Avatar
+				name="Marcus Chen"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=marcus"
+			/>
+			<Avatar
+				name="Sarah Johnson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
+			/>
 			<Avatar fallback={moreFallback} />
 		</AvatarGroup>
 
 		<AvatarGroup size="lg" spaceX="1" borderless>
-			<Avatar name="David Wilson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=david" />
-			<Avatar name="Marcus Chen" src="https://api.dicebear.com/9.x/adventurer/svg?seed=marcus" />
-			<Avatar name="Sarah Johnson" src="https://api.dicebear.com/9.x/adventurer/svg?seed=sarah" />
+			<Avatar
+				name="David Wilson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+			/>
+			<Avatar
+				name="Marcus Chen"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=marcus"
+			/>
+			<Avatar
+				name="Sarah Johnson"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
+			/>
 			<Avatar fallback={moreFallback} />
 		</AvatarGroup>
 	</Stack>
