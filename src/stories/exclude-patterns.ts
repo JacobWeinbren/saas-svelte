@@ -157,3 +157,5 @@ export const editableTriggerPattern = makePattern(['variant', 'size', 'colour', 
 export const listRootPattern = makePattern(['as', 'variant', 'align', 'class', 'children']);
 export const listItemPattern = makePattern(['class', 'children']);
 export const listIndicatorPattern = makePattern(['size', 'colour', 'class', 'children']);
+
+export const emptyStatePattern = makePattern(['size', 'align', 'colour', 'icon', 'title', 'description', 'class', 'children']);
