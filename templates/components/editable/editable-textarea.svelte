@@ -43,7 +43,8 @@
 </script>
 
 <script lang="ts">
-	import { Editable } from "@ark-ui/svelte/editable";
+	import { mergeProps } from "@zag-js/svelte";
+	import { useEditableContext } from "@ark-ui/svelte/editable";
 	import { getContext } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { EDITABLE_CTX } from "./editable-root.svelte";
@@ -58,23 +59,29 @@
 		 */
 		rows?: number;
 		/**
-		 * Additional props passed to Ark UI.
+		 * Additional props passed to the textarea element.
 		 */
 		[key: string]: any;
 	}
 
-	let { class: className, rows = 3, ...restProps }: Props = $props();
+	let { class: className, rows = 2, ...restProps }: Props = $props();
 
-	type EditableContext = {
+	type EditableCtx = {
 		size: "xs" | "sm" | "md" | "lg";
 		colour: string;
 		invalid: boolean;
 		disabled: boolean;
 	};
 
-	const ctx = getContext<EditableContext>(EDITABLE_CTX);
+	const ctx = getContext<EditableCtx>(EDITABLE_CTX);
 	const size = $derived(ctx?.size ?? "md");
 	const finalClass = $derived(twMerge(editableTextarea({ size }), className));
+
+	const editable = useEditableContext();
+	const inputProps = $derived(editable().getInputProps());
+	const mergedProps = $derived(
+		mergeProps(inputProps, { rows, class: finalClass, ...restProps })
+	);
 </script>
 
-<Editable.Textarea class={finalClass} {rows} {...restProps} />
+<textarea {...mergedProps}></textarea>

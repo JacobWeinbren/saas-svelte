@@ -18,7 +18,7 @@
 			size: {
 				xs: "text-xs",
 				sm: "text-sm",
-				md: "text-sm leading-5",
+				md: "text-sm",
 				lg: "text-base",
 			},
 		},

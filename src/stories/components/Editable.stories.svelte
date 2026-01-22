@@ -8,7 +8,6 @@
 
 	const { Story } = defineMeta({
 		title: "components/Editable",
-		component: EditableRoot,
 		parameters: {
 			controls: getControls([
 				"size",
@@ -100,9 +99,11 @@
 </Story>
 
 <Story name="Textarea">
-	<Editable.Root defaultValue="Click to edit">
-		<Editable.Preview class="min-h-12 w-full items-start" />
-		<Editable.Textarea />
+	<Editable.Root defaultValue="Click to edit" autoResize class="w-full">
+		<Editable.Area>
+			<Editable.Preview class="min-h-14 items-start" />
+			<Editable.Textarea class="min-h-14" />
+		</Editable.Area>
 	</Editable.Root>
 </Story>
 

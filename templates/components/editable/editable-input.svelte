@@ -31,7 +31,7 @@
 			size: {
 				xs: "min-h-6 text-xs",
 				sm: "min-h-7 text-sm",
-				md: "min-h-9 text-sm leading-5",
+				md: "min-h-9 text-sm",
 				lg: "min-h-10 text-base",
 			},
 		},
