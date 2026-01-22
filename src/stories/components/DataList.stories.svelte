@@ -13,7 +13,7 @@
 	const dataListSizes = ["sm", "md", "lg"] as const;
 
 	const { Story } = defineMeta({
-		title: "components/DataList",
+		title: "components/Data List",
 		component: DataListRoot,
 		argTypes: {
 			size: {
