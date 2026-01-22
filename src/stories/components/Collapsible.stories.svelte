@@ -6,7 +6,6 @@
 		CollapsibleContent,
 		CollapsibleIndicator,
 	} from "$saas/components/collapsible";
-	import { Button } from "$saas/components/button";
 	import { CardRoot } from "$saas/components/card";
 	import { commonArgTypes, getControls } from "../utils";
 
@@ -55,9 +54,7 @@
 
 {#snippet basicStory()}
 	<Collapsible>
-		<CollapsibleTrigger>
-			<Button variant="ghost" class="mb-2">Toggle Collapsible</Button>
-		</CollapsibleTrigger>
+		<CollapsibleTrigger>Toggle Collapsible</CollapsibleTrigger>
 		<CollapsibleContent>
 			<CardRoot class="p-2 px-4 text-sm">
 				Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -71,11 +68,7 @@
 
 {#snippet lazyMountedStory()}
 	<Collapsible unmountOnExit>
-		<CollapsibleTrigger>
-			<Button variant="ghost" class="mb-2">
-				Toggle Collapse (Unmount on exit)
-			</Button>
-		</CollapsibleTrigger>
+		<CollapsibleTrigger>Toggle Collapse (Unmount on exit)</CollapsibleTrigger>
 		<CollapsibleContent>
 			<CardRoot class="p-2 px-4 text-sm">
 				If you inspect the DOM, you'll notice that the content is

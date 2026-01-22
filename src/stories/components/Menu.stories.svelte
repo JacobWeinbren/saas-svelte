@@ -80,7 +80,7 @@
 </script>
 
 {#snippet basicStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
@@ -95,7 +95,7 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<div class="min-h-64">
+	<div>
 		<HStack align="start" gap={8}>
 			{#each sizes as size}
 				<VStack gap={2} class="items-center">
@@ -117,7 +117,7 @@
 {/snippet}
 
 {#snippet commandStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
@@ -142,7 +142,7 @@
 {/snippet}
 
 {#snippet contextMenuStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuContextTrigger>
 				<div
@@ -163,7 +163,7 @@
 {/snippet}
 
 {#snippet groupStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Edit</MenuButton>
 			<MenuContent>
@@ -183,7 +183,7 @@
 {/snippet}
 
 {#snippet submenuStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
@@ -207,7 +207,7 @@
 {/snippet}
 
 {#snippet linksStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Select Anime</MenuButton>
 			<MenuContent>
@@ -241,7 +241,7 @@
 {/snippet}
 
 {#snippet radioStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>
 				<Icon as={SortAscending} size="sm" /> Sort
@@ -267,7 +267,7 @@
 {/snippet}
 
 {#snippet checkboxStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot closeOnSelect={false}>
 			<MenuButton>
 				<Icon as={Funnel} size="sm" /> Status
@@ -291,7 +291,7 @@
 {/snippet}
 
 {#snippet iconAndCommandStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Edit</MenuButton>
 			<MenuContent>
@@ -316,7 +316,7 @@
 {/snippet}
 
 {#snippet placementStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot positioning={{ placement: "right-start" }}>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
@@ -331,7 +331,7 @@
 {/snippet}
 
 {#snippet mixedLayoutStory()}
-	<div class="min-h-64">
+	<div>
 		<MenuRoot>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>

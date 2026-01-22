@@ -17,10 +17,6 @@
 			"p-0.5",
 			"rounded",
 			"border",
-			"focus-visible:outline-offset-2",
-			"focus-visible:outline-1",
-			"focus-visible:outline-solid",
-			"focus-visible:outline-(--c-solid)",
 			"disabled:opacity-50",
 		],
 		variants: {
@@ -254,6 +250,7 @@
 
 <label
 	class={twMerge(
+		"group",
 		container({ disabled: effectiveDisabled ? true : undefined }),
 		className,
 	)}
@@ -262,7 +259,7 @@
 	<input
 		bind:this={inputRef}
 		type="checkbox"
-		class="[clip:rect(0_0_0_0)] whitespace-nowrap [word-wrap:normal] w-px h-px absolute overflow-x-hidden overflow-y-hidden -m-px border-0"
+		class="peer [clip:rect(0_0_0_0)] whitespace-nowrap [word-wrap:normal] w-px h-px absolute overflow-x-hidden overflow-y-hidden -m-px border-0"
 		checked={isChecked}
 		onchange={handleChange}
 		{value}
@@ -272,13 +269,13 @@
 		{...rest}
 	/>
 	<div
-		class={checkboxControl({
+		class="{checkboxControl({
 			size,
 			variant,
 			checked: variantState,
 			disabled: effectiveDisabled ? true : undefined,
 			invalid: effectiveInvalid,
-		})}
+		})} group-has-focus-visible:outline-offset-2 group-has-focus-visible:outline-1 group-has-focus-visible:outline-solid group-has-focus-visible:outline-(--c-focus-ring)"
 		aria-hidden="true"
 	>
 		{#if icon}
