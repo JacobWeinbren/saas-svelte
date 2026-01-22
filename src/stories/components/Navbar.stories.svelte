@@ -5,7 +5,36 @@
 	import { Box } from "$saas/layout/box";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
+	import { Drawer } from "$saas/components/drawer";
+	import { Link } from "$saas/components/link";
+	import List from "phosphor-svelte/lib/List";
+	import X from "phosphor-svelte/lib/X";
 	import { colours, commonArgTypes, getControls } from "../utils";
+
+	class MobileNavState {
+		open = $state(false);
+		private mediaQuery: MediaQueryList | null = null;
+		private handleResize = () => {
+			if (this.mediaQuery?.matches) {
+				this.open = false;
+			}
+		};
+
+		constructor() {
+			if (typeof window !== "undefined") {
+				this.mediaQuery = window.matchMedia("(min-width: 768px)");
+				this.mediaQuery.addEventListener("change", this.handleResize);
+			}
+		}
+
+		toggle() {
+			this.open = !this.open;
+		}
+
+		destroy() {
+			this.mediaQuery?.removeEventListener("change", this.handleResize);
+		}
+	}
 
 	const { Story } = defineMeta({
 		title: "components/Navbar",
@@ -356,6 +385,82 @@
 	</VStack>
 {/snippet}
 
+{#snippet mobileNavStory()}
+	{@const state = new MobileNavState()}
+	<Box class="h-80 overflow-auto bg-bg-subtle rounded-l2">
+		<Navbar.Root position="sticky" bordered>
+			<Navbar.Content maxW="max-w-4xl">
+				<Navbar.Brand>
+					{@render logoSvg()}
+				</Navbar.Brand>
+				<Navbar.ItemGroup class="hidden md:flex">
+					<Navbar.Item>
+						<Navbar.Link href="#">Features</Navbar.Link>
+					</Navbar.Item>
+					<Navbar.Item>
+						<Navbar.Link href="#" active>Customers</Navbar.Link>
+					</Navbar.Item>
+					<Navbar.Item>
+						<Navbar.Link href="#">Integrations</Navbar.Link>
+					</Navbar.Item>
+					<Navbar.Item>
+						<Navbar.Link href="#">Pricing</Navbar.Link>
+					</Navbar.Item>
+				</Navbar.ItemGroup>
+				<Navbar.ItemGroup justify="end" gap={2}>
+					<Navbar.Item class="hidden md:flex">
+						<Navbar.Link href="#">Login</Navbar.Link>
+					</Navbar.Item>
+					<Navbar.Item class="hidden md:flex">
+						<Button size="sm" variant="glass" colour="accent">Sign Up</Button>
+					</Navbar.Item>
+					<Navbar.Item class="flex md:hidden">
+						<Button
+							size="sm"
+							variant="ghost"
+							aria-label={state.open ? "Close menu" : "Open menu"}
+							onclick={() => state.toggle()}
+						>
+							{#if state.open}
+								<X weight="bold" />
+							{:else}
+								<List weight="bold" />
+							{/if}
+						</Button>
+					</Navbar.Item>
+				</Navbar.ItemGroup>
+			</Navbar.Content>
+		</Navbar.Root>
+		<Drawer.Root bind:open={state.open} placement="end" size="xs">
+			<Drawer.Content>
+				<Drawer.Header>
+					<Drawer.CloseButton />
+				</Drawer.Header>
+				<Drawer.Body>
+					<VStack gap={2} class="w-full">
+						{#each ["Features", "Customers", "Integrations", "Pricing"] as item}
+							<Link
+								href="#"
+								class="w-full justify-start px-4 py-2"
+							>
+								{item}
+							</Link>
+						{/each}
+					</VStack>
+				</Drawer.Body>
+			</Drawer.Content>
+		</Drawer.Root>
+		<Box class="p-6">
+			<VStack gap={4}>
+				<Box class="h-24 w-full bg-bg-muted rounded-l1" />
+				<Box class="h-24 w-full bg-bg-muted rounded-l1" />
+				<Box class="h-24 w-full bg-bg-muted rounded-l1" />
+				<Box class="h-24 w-full bg-bg-muted rounded-l1" />
+			</VStack>
+		</Box>
+	</Box>
+{/snippet}
+
 <Story name="Basic" template={basicStory} parameters={{ docs: { story: { inline: true } } }} />
 
 <Story name="Bordered" template={borderedStory} parameters={{ docs: { story: { inline: true } } }} />
@@ -371,3 +476,5 @@
 <Story name="Hide on Scroll" template={hideOnScrollStory} parameters={{ docs: { story: { inline: true } } }} />
 
 <Story name="Colour Palettes" template={colourPalettesStory} parameters={{ docs: { story: { inline: true } } }} />
+
+<Story name="Mobile Navigation" template={mobileNavStory} parameters={{ docs: { story: { inline: true } } }} />

@@ -105,6 +105,7 @@ export {
     checkboxPattern,
     checkboxGroupPattern,
     dialogRootPattern,
+    drawerRootPattern,
     iconPattern,
     inputPattern,
     inputGroupPattern,
