@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
+import * as EditableStories from "./Editable.stories.svelte";
+import { Editable, EditableRoot } from "$saas/components/editable";
+import { editablePattern } from "../utils";
+
+<Meta of={EditableStories} />
+
+# Editable
+
+## Used for inline renaming of some text.
+
+<Canvas of={EditableStories.Basic} />
+
+## Anatomy
+
+```svelte
+<script>
+	import { Editable } from "$saas/components/editable";
+</script>
+
+<Editable.Root defaultValue="Click to edit">
+	<Editable.Area>
+		<Editable.Preview />
+		<Editable.Input />
+	</Editable.Area>
+</Editable.Root>
+```
+
+## Examples
+
+### Controlled
+
+<Canvas of={EditableStories.Controlled} />
+
+### With Double Click
+
+Use the `activationMode` prop to make the content editable when users double click.
+
+<Canvas of={EditableStories.WithDoubleClick} />
+
+### Disabled
+
+Use the `disabled` prop to disable the editable component.
+
+<Canvas of={EditableStories.Disabled} />
+
+### Invalid
+
+Use the `invalid` prop to indicate that the editable component is invalid.
+
+<Canvas of={EditableStories.Invalid} />
+
+### Textarea
+
+You can make a text area editable.
+
+<Canvas of={EditableStories.Textarea} />
+
+### With Controls
+
+Add controls such as "edit", "cancel" and "submit" to Editable for better user experience.
+
+<Canvas of={EditableStories.WithControls} />
+
+## Props
+
+### Editable.Root
+
+<ArgTypes of={EditableRoot} exclude={editablePattern} />

@@ -203,6 +203,7 @@ export {
     sidebarLinkPattern,
     sidebarTogglePattern,
     appShellPattern,
+    editablePattern,
 } from "./exclude-patterns";
 
 

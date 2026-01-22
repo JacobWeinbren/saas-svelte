@@ -144,3 +144,5 @@ export const sidebarLinkPattern = makePattern(['active', 'icon', 'href', 'class'
 export const sidebarTogglePattern = makePattern(['onclick', 'class', 'children']);
 
 export const appShellPattern = makePattern(['header', 'sidebar', 'aside', 'footer', 'height', 'class', 'children']);
+
+export const editablePattern = makePattern(['activationMode', 'autoResize', 'defaultValue', 'value', 'onValueChange', 'onValueCommit', 'onValueRevert', 'onEditChange', 'placeholder', 'maxLength', 'selectOnFocus', 'submitMode', 'disabled', 'readOnly', 'required', 'invalid', 'size', 'colour', 'name', 'form', 'class', 'children']);
