@@ -1,6 +1,8 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Editable, EditableRoot } from "$saas/components/editable";
+	import { HStack, VStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
 	import PencilSimple from "phosphor-svelte/lib/PencilSimple";
 	import Check from "phosphor-svelte/lib/Check";
 	import X from "phosphor-svelte/lib/X";
@@ -21,7 +23,7 @@
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: ["xs", "sm", "md", "lg"],
 			},
 			colour: {
 				...commonArgTypes.colour,
@@ -32,8 +34,6 @@
 			activationMode: {
 				control: "select",
 				options: ["focus", "dblclick", "click", "none"],
-				description: "How to activate edit mode.",
-				table: { defaultValue: { summary: "focus" } },
 			},
 			class: commonArgTypes.class,
 		},
@@ -125,4 +125,20 @@
 			</Editable.SubmitTrigger>
 		</Editable.Control>
 	</Editable.Root>
+</Story>
+
+<Story name="Colours">
+	<VStack gap={4}>
+		{#each colours as colour}
+			<HStack gap={4} align="center">
+				<Text size="xs" class="w-16">{colour}</Text>
+				<Editable.Root defaultValue="Click to edit" {colour} class="w-full">
+					<Editable.Area>
+						<Editable.Preview />
+						<Editable.Input />
+					</Editable.Area>
+				</Editable.Root>
+			</HStack>
+		{/each}
+	</VStack>
 </Story>

@@ -146,3 +146,10 @@ export const sidebarTogglePattern = makePattern(['onclick', 'class', 'children']
 export const appShellPattern = makePattern(['header', 'sidebar', 'aside', 'footer', 'height', 'class', 'children']);
 
 export const editablePattern = makePattern(['activationMode', 'autoResize', 'defaultValue', 'value', 'onValueChange', 'onValueCommit', 'onValueRevert', 'onEditChange', 'placeholder', 'maxLength', 'selectOnFocus', 'submitMode', 'disabled', 'readOnly', 'required', 'invalid', 'size', 'colour', 'name', 'form', 'class', 'children']);
+export const editableAreaPattern = makePattern(['class', 'children']);
+export const editablePreviewPattern = makePattern(['class']);
+export const editableInputPattern = makePattern(['class']);
+export const editableTextareaPattern = makePattern(['rows', 'class']);
+export const editableControlPattern = makePattern(['class', 'children']);
+export const editableLabelPattern = makePattern(['class', 'children']);
+export const editableTriggerPattern = makePattern(['variant', 'size', 'colour', 'icon', 'class', 'style', 'children']);

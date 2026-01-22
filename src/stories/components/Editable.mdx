@@ -1,7 +1,16 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as EditableStories from "./Editable.stories.svelte";
-import { Editable, EditableRoot } from "$saas/components/editable";
-import { editablePattern } from "../utils";
+import { Editable } from "$saas/components/editable";
+import {
+	editablePattern,
+	editableAreaPattern,
+	editablePreviewPattern,
+	editableInputPattern,
+	editableTextareaPattern,
+	editableControlPattern,
+	editableLabelPattern,
+	editableTriggerPattern,
+} from "../utils";
 
 <Meta of={EditableStories} />
 
@@ -62,8 +71,50 @@ Add controls such as "edit", "cancel" and "submit" to Editable for better user e
 
 <Canvas of={EditableStories.WithControls} />
 
+### Colours
+
+The `colour` prop sets the focus ring colour for the input.
+
+<Canvas of={EditableStories.Colours} />
+
 ## Props
 
 ### Editable.Root
 
-<ArgTypes of={EditableRoot} exclude={editablePattern} />
+<ArgTypes of={Editable.Root} exclude={editablePattern} />
+
+### Editable.Area
+
+<ArgTypes of={Editable.Area} exclude={editableAreaPattern} />
+
+### Editable.Preview
+
+<ArgTypes of={Editable.Preview} exclude={editablePreviewPattern} />
+
+### Editable.Input
+
+<ArgTypes of={Editable.Input} exclude={editableInputPattern} />
+
+### Editable.Textarea
+
+<ArgTypes of={Editable.Textarea} exclude={editableTextareaPattern} />
+
+### Editable.Control
+
+<ArgTypes of={Editable.Control} exclude={editableControlPattern} />
+
+### Editable.EditTrigger
+
+<ArgTypes of={Editable.EditTrigger} exclude={editableTriggerPattern} />
+
+### Editable.CancelTrigger
+
+<ArgTypes of={Editable.CancelTrigger} exclude={editableTriggerPattern} />
+
+### Editable.SubmitTrigger
+
+<ArgTypes of={Editable.SubmitTrigger} exclude={editableTriggerPattern} />
+
+### Editable.Label
+
+<ArgTypes of={Editable.Label} exclude={editableLabelPattern} />

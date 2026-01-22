@@ -204,6 +204,13 @@ export {
     sidebarTogglePattern,
     appShellPattern,
     editablePattern,
+    editableAreaPattern,
+    editablePreviewPattern,
+    editableInputPattern,
+    editableTextareaPattern,
+    editableControlPattern,
+    editableLabelPattern,
+    editableTriggerPattern,
 } from "./exclude-patterns";
 
 
