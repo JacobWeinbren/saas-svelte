@@ -8,9 +8,10 @@
 		slots: {
 			root: "flex w-full h-full px-8 py-12 antialiased",
 			content: "flex flex-col text-sm leading-5",
-			iconWrapper: "flex items-center justify-center mb-3 text-3xl leading-9 tracking-tight",
-			title: "break-words font-semibold text-base leading-6",
-			description: "break-words text-fg-muted text-sm leading-5",
+			iconWrapper:
+				"flex items-center justify-center mb-3 text-3xl leading-9 tracking-tight",
+			title: "wrap-break-word font-semibold text-base leading-6",
+			description: "wrap-break-word text-fg-muted text-sm leading-5",
 			actions: "flex gap-2 mt-3",
 		},
 		variants: {

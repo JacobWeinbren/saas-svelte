@@ -227,6 +227,10 @@ export {
     gridListItemPattern,
     gridListCellPattern,
     tagPattern,
+    hoverCardRootPattern,
+    hoverCardTriggerPattern,
+    hoverCardContentPattern,
+    hoverCardArrowPattern,
 } from "./exclude-patterns";
 
 

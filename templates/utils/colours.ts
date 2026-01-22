@@ -4,6 +4,8 @@
  * These map to --colors-{name}-{shade} CSS variables.
  */
 export const availableColours = [
+    // Semantic
+    "accent",
     // Grays
     "gray",
     "zinc",

@@ -5,7 +5,7 @@
 
 	export const cardRoot = tv({
 		base: [
-			"break-words",
+			"wrap-break-word",
 			"text-fg-default",
 			"bg-bg-panel",
 			"flex-col flex relative",

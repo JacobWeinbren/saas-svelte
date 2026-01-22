@@ -4,7 +4,7 @@
 	import type { ClassNameValue } from "tailwind-merge";
 
 	const text = tv({
-		base: "break-words antialiased",
+		base: "wrap-break-word antialiased",
 		variants: {
 			size: {
 				xs: "text-xs leading-xs",

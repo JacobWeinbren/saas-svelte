@@ -20,7 +20,7 @@
 			"data-disabled:cursor-not-allowed",
 			"data-disabled:opacity-50",
 			"data-disabled:select-none",
-			"data-[placeholder-shown]:text-fg-muted",
+			"data-placeholder-shown:text-fg-muted",
 			"selection:bg-fg-muted/20",
 		],
 		variants: {

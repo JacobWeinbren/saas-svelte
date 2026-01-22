@@ -9,7 +9,7 @@
 			"font-medium",
 			"text-fg-default",
 			"antialiased",
-			"data-[disabled]:opacity-50",
+			"data-disabled:opacity-50",
 		],
 		variants: {
 			size: {

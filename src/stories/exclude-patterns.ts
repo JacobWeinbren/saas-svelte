@@ -174,3 +174,8 @@ export const gridListItemPattern = makePattern(['class', 'children']);
 export const gridListCellPattern = makePattern(['flex', 'shrink', 'width', 'class', 'children']);
 
 export const tagPattern = makePattern(['variant', 'size', 'colour', 'closable', 'onClose', 'startElement', 'endElement', 'maxWidth', 'class', 'children']);
+
+export const hoverCardRootPattern = makePattern(['size', 'open', 'onOpenChange', 'openDelay', 'closeDelay', 'portalled', 'lazyMount', 'unmountOnExit', 'positioning', 'class', 'children']);
+export const hoverCardTriggerPattern = makePattern(['asChild', 'class', 'children']);
+export const hoverCardContentPattern = makePattern(['class', 'children']);
+export const hoverCardArrowPattern = makePattern(['class']);
