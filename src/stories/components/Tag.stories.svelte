@@ -64,12 +64,20 @@
 	const sizes = ["sm", "md", "lg"] as const;
 </script>
 
-<Story name="Basic">
-	<HStack gap={2}>
-		<Tag>Plain Tag</Tag>
-		<Tag closable>Closable Tag</Tag>
-	</HStack>
-</Story>
+{#snippet basicStory(args: any)}
+	<Tag
+		variant={args.variant}
+		size={args.size}
+		colour={args.colour}
+		closable={args.closable}
+		maxWidth={args.maxWidth}
+		class={args.class}
+	>
+		Tag
+	</Tag>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Variants">
 	<VStack gap={4}>
