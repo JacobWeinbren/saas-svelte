@@ -125,13 +125,13 @@
 		</Editable.Area>
 		<Editable.Control>
 			<Editable.EditTrigger icon aria-label="Edit">
-				<PencilSimple class="size-3.5" weight="bold" />
+				<PencilSimple class="size-3.5" weight="bold" aria-hidden="true" />
 			</Editable.EditTrigger>
 			<Editable.CancelTrigger icon aria-label="Cancel">
-				<X class="size-3.5" weight="bold" />
+				<X class="size-3.5" weight="bold" aria-hidden="true" />
 			</Editable.CancelTrigger>
 			<Editable.SubmitTrigger icon aria-label="Submit">
-				<Check class="size-3.5" weight="bold" />
+				<Check class="size-3.5" weight="bold" aria-hidden="true" />
 			</Editable.SubmitTrigger>
 		</Editable.Control>
 	</Editable.Root>

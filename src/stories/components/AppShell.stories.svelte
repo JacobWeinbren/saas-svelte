@@ -125,7 +125,7 @@
 						<Navbar.Item class="hidden md:flex">
 							<InputGroup class="w-40">
 								<InputElement placement="left">
-									<MagnifyingGlass class="w-3.5 h-3.5" />
+									<MagnifyingGlass class="w-3.5 h-3.5" aria-hidden="true" />
 								</InputElement>
 								<Input
 									size="sm"
@@ -144,9 +144,9 @@
 								onclick={() => mobileNav.toggle()}
 							>
 								{#if mobileNav.open}
-									<X weight="bold" />
+									<X weight="bold" aria-hidden="true" />
 								{:else}
-									<List weight="bold" />
+									<List weight="bold" aria-hidden="true" />
 								{/if}
 							</Button>
 						</Navbar.Item>
@@ -204,12 +204,12 @@
 						<Sidebar.GroupContent>
 							<Sidebar.NavItem>
 								<Sidebar.NavButton active>
-									<House weight="regular" class="w-4 h-4" /> Home
+									<House weight="regular" class="w-4 h-4" aria-hidden="true" /> Home
 								</Sidebar.NavButton>
 							</Sidebar.NavItem>
 							<Sidebar.NavItem>
 								<Sidebar.NavButton>
-									<Users weight="regular" class="w-4 h-4" /> Contacts
+									<Users weight="regular" class="w-4 h-4" aria-hidden="true" /> Contacts
 								</Sidebar.NavButton>
 							</Sidebar.NavItem>
 						</Sidebar.GroupContent>

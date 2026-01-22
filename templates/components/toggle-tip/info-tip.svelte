@@ -54,11 +54,14 @@
 	class={className}
 	{...rest}
 >
-	<button
-		type="button"
-		aria-label={ariaLabel}
-		class="inline-flex items-center justify-center align-middle p-0 border-0 bg-transparent h-4 w-4 cursor-pointer rounded outline-0 transition-all duration-moderate hover:bg-bg-subtle focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized"
-	>
-		<Icon as={Info} size="sm" />
-	</button>
+	{#snippet children(props)}
+		<button
+			type="button"
+			aria-label={ariaLabel}
+			class="inline-flex items-center justify-center align-middle p-0 border-0 bg-transparent h-4 w-4 cursor-pointer rounded outline-0 transition-all duration-moderate hover:bg-bg-subtle focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-border-emphasized"
+			{...props()}
+		>
+			<Icon as={Info} size="sm" aria-hidden="true" />
+		</button>
+	{/snippet}
 </ToggleTip>

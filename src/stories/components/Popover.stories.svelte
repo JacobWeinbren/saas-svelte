@@ -92,7 +92,9 @@
 		unmountOnExit={args.unmountOnExit}
 	>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Arrow />
@@ -112,7 +114,9 @@
 	<HStack gap={4} align="center">
 		<Popover.Root bind:open={controlledOpen}>
 			<Popover.Trigger>
-				<Button variant="outline" size="sm">Click me</Button>
+				{#snippet children(props)}
+					<Button variant="outline" size="sm" {...props()}>Click me</Button>
+				{/snippet}
 			</Popover.Trigger>
 			<Popover.Content>
 				<Popover.Arrow />
@@ -130,7 +134,9 @@
 		{#each sizes as size}
 			<Popover.Root {size}>
 				<Popover.Trigger>
-					<Button variant="outline" {size}>Size: {size}</Button>
+					{#snippet children(props)}
+						<Button variant="outline" {size} {...props()}>Size: {size}</Button>
+					{/snippet}
 				</Popover.Trigger>
 				<Popover.Content>
 					<Popover.Arrow />
@@ -151,7 +157,9 @@
 {#snippet lazyMountedStory()}
 	<Popover.Root lazyMount unmountOnExit>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Arrow />
@@ -169,7 +177,9 @@
 {#snippet placementStory()}
 	<Popover.Root positioning={{ placement: "bottom-end" }}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Bottom End</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Bottom End</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Arrow />
@@ -183,7 +193,9 @@
 {#snippet offsetStory()}
 	<Popover.Root positioning={{ offset: { crossAxis: 0, mainAxis: 7 } }}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Body>
@@ -196,9 +208,11 @@
 {#snippet sameWidthStory()}
 	<Popover.Root positioning={{ sameWidth: true }}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm" class="min-w-xs"
-				>Click me</Button
-			>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" class="min-w-xs" {...props()}>
+					Click me
+				</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content class="w-auto!">
 			<Popover.Arrow />
@@ -212,7 +226,9 @@
 {#snippet nestedStory()}
 	<Popover.Root>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Arrow />
@@ -224,9 +240,11 @@
 
 				<Popover.Root portalled={false} positioning={{ placement: "bottom" }}>
 					<Popover.Trigger>
-						<Button variant="outline" size="xs"
-							>Open Nested Popover</Button
-						>
+						{#snippet children(props)}
+							<Button variant="outline" size="xs" {...props()}>
+								Open Nested Popover
+							</Button>
+						{/snippet}
 					</Popover.Trigger>
 					<Popover.Content>
 						<Popover.Arrow />
@@ -241,7 +259,9 @@
 {#snippet initialFocusStory()}
 	<Popover.Root initialFocusEl={() => inputRef}>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Header>
@@ -273,7 +293,9 @@
 {#snippet formStory()}
 	<Popover.Root size="lg">
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content class="rounded-xl" style="width: 320px;">
 			<Popover.Arrow />
@@ -301,7 +323,9 @@
 {#snippet withHeaderFooterStory()}
 	<Popover.Root>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Click me</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Click me</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Header>
@@ -317,8 +341,8 @@
 			<Popover.Footer>
 				<HStack gap={2} class="ml-auto">
 					<Popover.CloseTrigger>
-						{#snippet children()}
-							<Button size="sm" variant="ghost">Cancel</Button>
+						{#snippet children(props)}
+							<Button size="sm" variant="ghost" {...props()}>Cancel</Button>
 						{/snippet}
 					</Popover.CloseTrigger>
 					<Button size="sm" colour="red">Delete</Button>

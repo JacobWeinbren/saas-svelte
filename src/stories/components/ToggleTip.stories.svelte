@@ -43,14 +43,17 @@
 {#snippet basicStory(args: any)}
 	<div class="flex items-center justify-center p-8">
 		<ToggleTip content={args.content} size={args.size} placement={args.placement} class={args.class}>
-			<Button
-				size="xs"
-				variant="ghost"
-				icon
-				aria-label="More information"
-			>
-				<Icon as={Info} />
-			</Button>
+			{#snippet children(props)}
+				<Button
+					size="xs"
+					variant="ghost"
+					icon
+					aria-label="More information"
+					{...props()}
+				>
+					<Icon as={Info} aria-hidden="true" />
+				</Button>
+			{/snippet}
 		</ToggleTip>
 	</div>
 {/snippet}
@@ -68,16 +71,24 @@
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
 			<ToggleTip content="Extra small toggle tip" size="xs">
-				<Button size="xs" variant="ghost">XS</Button>
+				{#snippet children(props)}
+					<Button size="xs" variant="ghost" {...props()}>XS</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Small toggle tip" size="sm">
-				<Button size="sm" variant="ghost">SM</Button>
+				{#snippet children(props)}
+					<Button size="sm" variant="ghost" {...props()}>SM</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Medium toggle tip" size="md">
-				<Button size="md" variant="ghost">MD</Button>
+				{#snippet children(props)}
+					<Button size="md" variant="ghost" {...props()}>MD</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Large toggle tip" size="lg">
-				<Button size="lg" variant="ghost">LG</Button>
+				{#snippet children(props)}
+					<Button size="lg" variant="ghost" {...props()}>LG</Button>
+				{/snippet}
 			</ToggleTip>
 		</HStack>
 	</div>
@@ -87,16 +98,24 @@
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
 			<ToggleTip content="Top placement" placement="top">
-				<Button variant="outline" size="sm">Top</Button>
+				{#snippet children(props)}
+					<Button variant="outline" size="sm" {...props()}>Top</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Right placement" placement="right">
-				<Button variant="outline" size="sm">Right</Button>
+				{#snippet children(props)}
+					<Button variant="outline" size="sm" {...props()}>Right</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Bottom placement" placement="bottom">
-				<Button variant="outline" size="sm">Bottom</Button>
+				{#snippet children(props)}
+					<Button variant="outline" size="sm" {...props()}>Bottom</Button>
+				{/snippet}
 			</ToggleTip>
 			<ToggleTip content="Left placement" placement="left">
-				<Button variant="outline" size="sm">Left</Button>
+				{#snippet children(props)}
+					<Button variant="outline" size="sm" {...props()}>Left</Button>
+				{/snippet}
 			</ToggleTip>
 		</HStack>
 	</div>
@@ -114,7 +133,9 @@
 					</Text>
 				</VStack>
 			{/snippet}
-			<Button variant="outline" size="sm">Custom Content</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Custom Content</Button>
+			{/snippet}
 		</ToggleTip>
 	</HStack>
 {/snippet}

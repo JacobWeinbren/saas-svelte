@@ -6,9 +6,9 @@
 
 	interface Props {
 		/**
-		 * Custom content for the close trigger.
+		 * Custom content for the close trigger. Receives trigger props that must be spread onto an interactive element.
 		 */
-		children?: Snippet;
+		children?: Snippet<[() => Record<string, unknown>]>;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -29,9 +29,7 @@
 {#if children}
 	<Popover.CloseTrigger aria-label={ariaLabel} {...rest}>
 		{#snippet asChild(props)}
-			<span {...props()}>
-				{@render children()}
-			</span>
+			{@render children(props)}
 		{/snippet}
 	</Popover.CloseTrigger>
 {:else}
@@ -40,6 +38,6 @@
 		aria-label={ariaLabel}
 		{...rest}
 	>
-		<X class="size-4" />
+		<X class="size-4" aria-hidden="true" />
 	</Popover.CloseTrigger>
 {/if}

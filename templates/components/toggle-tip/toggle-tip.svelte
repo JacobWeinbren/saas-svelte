@@ -27,9 +27,9 @@
 		 */
 		content?: string | Snippet;
 		/**
-		 * The trigger element.
+		 * The trigger element. Receives trigger props that must be spread onto an interactive element.
 		 */
-		children: Snippet;
+		children: Snippet<[() => Record<string, unknown>]>;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -141,9 +141,7 @@
 >
 	<ArkPopover.Trigger class={triggerClass}>
 		{#snippet asChild(props)}
-			<button type="button" class="inline-flex appearance-none bg-transparent border-0 p-0 cursor-pointer" {...props()}>
-				{@render children()}
-			</button>
+			{@render children(props)}
 		{/snippet}
 	</ArkPopover.Trigger>
 	<Portal>

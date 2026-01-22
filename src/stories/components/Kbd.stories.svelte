@@ -42,10 +42,10 @@
 
 {#snippet functionKeysStory()}
 	<HStack gap={2}>
-		<Kbd>⌘</Kbd>
-		<Kbd>⌥</Kbd>
-		<Kbd>⇧</Kbd>
-		<Kbd>⌃</Kbd>
+		<Kbd aria-label="Command">⌘</Kbd>
+		<Kbd aria-label="Option">⌥</Kbd>
+		<Kbd aria-label="Shift">⇧</Kbd>
+		<Kbd aria-label="Control">⌃</Kbd>
 	</HStack>
 {/snippet}
 

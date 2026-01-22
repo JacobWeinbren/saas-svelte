@@ -68,4 +68,4 @@
 	const finalClass = $derived(twMerge(editablePreview({ size }), className));
 </script>
 
-<Editable.Preview class={finalClass} {...restProps} />
+<Editable.Preview class={finalClass} role="button" {...restProps} />

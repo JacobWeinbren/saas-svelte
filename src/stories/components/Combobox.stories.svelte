@@ -375,7 +375,7 @@
 		class="w-80"
 	>
 		{#snippet startElement()}
-			<Icon as={Code} />
+			<Icon as={Code} aria-hidden="true" />
 		{/snippet}
 	</Combobox>
 {/snippet}
@@ -650,7 +650,9 @@
 {#snippet inPopoverStory()}
 	<Popover.Root>
 		<Popover.Trigger>
-			<Button variant="outline" size="sm">Select framework</Button>
+			{#snippet children(props)}
+				<Button variant="outline" size="sm" {...props()}>Select framework</Button>
+			{/snippet}
 		</Popover.Trigger>
 		<Popover.Content>
 			<Popover.Header>
