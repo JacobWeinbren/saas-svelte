@@ -215,6 +215,13 @@ export {
     listItemPattern,
     listIndicatorPattern,
     emptyStatePattern,
+    fileUploadRootPattern,
+    fileUploadTriggerPattern,
+    fileUploadDropzonePattern,
+    fileUploadListPattern,
+    fileUploadLabelPattern,
+    fileUploadInputPattern,
+    fileUploadClearTriggerPattern,
 } from "./exclude-patterns";
 
 

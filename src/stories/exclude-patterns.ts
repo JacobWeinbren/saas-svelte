@@ -159,3 +159,11 @@ export const listItemPattern = makePattern(['class', 'children']);
 export const listIndicatorPattern = makePattern(['size', 'colour', 'class', 'children']);
 
 export const emptyStatePattern = makePattern(['size', 'align', 'colour', 'icon', 'title', 'description', 'class', 'children']);
+
+export const fileUploadRootPattern = makePattern(['accept', 'allowDrop', 'capture', 'directory', 'disabled', 'invalid', 'maxFiles', 'maxFileSize', 'minFileSize', 'name', 'required', 'onFileAccept', 'onFileChange', 'onFileReject', 'class', 'children']);
+export const fileUploadTriggerPattern = makePattern(['variant', 'size', 'colour', 'class', 'children']);
+export const fileUploadDropzonePattern = makePattern(['class', 'children']);
+export const fileUploadListPattern = makePattern(['showSize', 'clearable', 'class']);
+export const fileUploadLabelPattern = makePattern(['class', 'children']);
+export const fileUploadInputPattern = makePattern(['placeholder', 'class']);
+export const fileUploadClearTriggerPattern = makePattern(['class', 'children']);

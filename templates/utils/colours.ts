@@ -1,6 +1,6 @@
 /**
- * Colors available in the Saas UI Tailwind preset.
- * All standard Tailwind colors with OKLCH color space.
+ * Colours available in the Saas UI Tailwind preset.
+ * All standard Tailwind colors with OKLCH colour space.
  * These map to --colors-{name}-{shade} CSS variables.
  */
 export const availableColours = [
@@ -10,7 +10,7 @@ export const availableColours = [
     "neutral",
     "stone",
     "slate",
-    // Colors
+    // Colours
     "red",
     "orange",
     "amber",
@@ -35,26 +35,6 @@ export type ColourName = (typeof availableColours)[number] | (string & {});
 // Pre-computed cache for colour style strings
 const colourStyleCache = new Map<string, string>();
 
-/**
- * Generates CSS custom properties for dynamic color theming.
- * Uses a cache to avoid string concatenation on repeated calls.
- *
- * Maps --c-* to the preset's --colors-{name}-* tokens which have
- * light-dark() values for automatic theme switching.
- *
- * Usage in components:
- * - Set style={getColourStyle(colour)} on the element
- * - Use semantic classes like bg-(--c-muted), bg-(--c-solid), [color:var(--c-fg)]
- *
- * Available semantic tokens:
- * - --c-contrast: text color for solid backgrounds
- * - --c-fg: foreground/text color
- * - --c-muted: muted background
- * - --c-subtle: subtle background
- * - --c-emphasized: emphasized background
- * - --c-solid: solid background color
- * - --c-focus-ring: focus ring color
- */
 export function getColourStyle(colourName: string): string {
     if (!colourName) return "";
 
