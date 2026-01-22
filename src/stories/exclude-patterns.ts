@@ -128,3 +128,19 @@ export const navbarBrandPattern = makePattern(['class', 'children']);
 export const navbarItemGroupPattern = makePattern(['gap', 'justify', 'class', 'children']);
 export const navbarItemPattern = makePattern(['class', 'children']);
 export const navbarLinkPattern = makePattern(['active', 'href', 'class', 'children']);
+
+export const sidebarRootPattern = makePattern(['class', 'children']);
+export const sidebarHeaderPattern = makePattern(['class', 'children']);
+export const sidebarBodyPattern = makePattern(['class', 'children']);
+export const sidebarFooterPattern = makePattern(['class', 'children']);
+export const sidebarGroupPattern = makePattern(['class', 'children']);
+export const sidebarGroupHeaderPattern = makePattern(['class', 'children']);
+export const sidebarGroupTitlePattern = makePattern(['class', 'children']);
+export const sidebarGroupContentPattern = makePattern(['class', 'children']);
+export const sidebarNavItemPattern = makePattern(['class', 'children']);
+export const sidebarNavButtonPattern = makePattern(['active', 'class', 'children']);
+export const sidebarItemPattern = makePattern(['active', 'icon', 'class', 'children']);
+export const sidebarLinkPattern = makePattern(['active', 'icon', 'href', 'class', 'children']);
+export const sidebarTogglePattern = makePattern(['onclick', 'class', 'children']);
+
+export const appShellPattern = makePattern(['header', 'sidebar', 'aside', 'footer', 'height', 'class', 'children']);

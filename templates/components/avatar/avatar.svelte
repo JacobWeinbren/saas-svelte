@@ -7,11 +7,16 @@
 	export const avatar = tv({
 		slots: {
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative font-medium antialiased",
-			image: "border-none object-cover w-full h-full",
-			fallback: "uppercase font-medium leading-none",
+			image: "border-none object-cover",
+			fallback:
+				"uppercase font-medium leading-none flex items-center justify-center w-full h-full",
 		},
 		variants: {
 			size: {
+				"2xs": {
+					root: "w-4 h-4 text-xs",
+					fallback: "text-xs",
+				},
 				xs: {
 					root: "w-5 h-5 text-xs",
 					fallback: "text-xs",
@@ -251,7 +256,11 @@
 			</span>
 		{:else}
 			<span class={fallbackClass()}>
-				<User class="size-5" weight="regular" aria-hidden="true" />
+				<User
+					class="w-[70%]! h-[70%]!"
+					weight="regular"
+					aria-hidden="true"
+				/>
 			</span>
 		{/if}
 	{/if}

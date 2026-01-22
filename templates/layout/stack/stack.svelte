@@ -27,6 +27,11 @@
 				between: "justify-between",
 				around: "justify-around",
 			},
+			wrap: {
+				wrap: "flex-wrap",
+				nowrap: "flex-nowrap",
+				"wrap-reverse": "flex-wrap-reverse",
+			},
 		},
 		defaultVariants: {
 			direction: "column",
@@ -58,6 +63,10 @@
 		 */
 		justify?: StackVariants["justify"];
 		/**
+		 * Whether items should wrap to the next line.
+		 */
+		wrap?: StackVariants["wrap"];
+		/**
 		 * The gap between items (uses Tailwind spacing scale).
 		 * @default 2
 		 */
@@ -73,6 +82,7 @@
 		direction = "column",
 		align,
 		justify,
+		wrap,
 		gap = 2,
 		class: className,
 		...restProps
@@ -80,7 +90,7 @@
 </script>
 
 <div
-	class={twMerge(stack({ direction, align, justify }), className)}
+	class={twMerge(stack({ direction, align, justify, wrap }), className)}
 	style:gap="{gap * 0.25}rem"
 	{...restProps}
 >

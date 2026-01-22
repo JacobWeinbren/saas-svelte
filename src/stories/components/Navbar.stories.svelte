@@ -9,32 +9,8 @@
 	import { Link } from "$saas/components/link";
 	import List from "phosphor-svelte/lib/List";
 	import X from "phosphor-svelte/lib/X";
+	import { createMobileNav } from "$saas/utils/mobile-nav.svelte";
 	import { colours, commonArgTypes, getControls } from "../utils";
-
-	class MobileNavState {
-		open = $state(false);
-		private mediaQuery: MediaQueryList | null = null;
-		private handleResize = () => {
-			if (this.mediaQuery?.matches) {
-				this.open = false;
-			}
-		};
-
-		constructor() {
-			if (typeof window !== "undefined") {
-				this.mediaQuery = window.matchMedia("(min-width: 768px)");
-				this.mediaQuery.addEventListener("change", this.handleResize);
-			}
-		}
-
-		toggle() {
-			this.open = !this.open;
-		}
-
-		destroy() {
-			this.mediaQuery?.removeEventListener("change", this.handleResize);
-		}
-	}
 
 	const { Story } = defineMeta({
 		title: "components/Navbar",
@@ -386,7 +362,7 @@
 {/snippet}
 
 {#snippet mobileNavStory()}
-	{@const state = new MobileNavState()}
+	{@const mobileNav = createMobileNav()}
 	<Box class="h-80 overflow-auto bg-bg-subtle rounded-l2">
 		<Navbar.Root position="sticky" bordered>
 			<Navbar.Content maxW="max-w-4xl">
@@ -418,10 +394,10 @@
 						<Button
 							size="sm"
 							variant="ghost"
-							aria-label={state.open ? "Close menu" : "Open menu"}
-							onclick={() => state.toggle()}
+							aria-label={mobileNav.open ? "Close menu" : "Open menu"}
+							onclick={() => mobileNav.toggle()}
 						>
-							{#if state.open}
+							{#if mobileNav.open}
 								<X weight="bold" />
 							{:else}
 								<List weight="bold" />
@@ -431,7 +407,7 @@
 				</Navbar.ItemGroup>
 			</Navbar.Content>
 		</Navbar.Root>
-		<Drawer.Root bind:open={state.open} placement="end" size="xs">
+		<Drawer.Root bind:open={mobileNav.open} placement="end" size="xs">
 			<Drawer.Content>
 				<Drawer.Header>
 					<Drawer.CloseButton />

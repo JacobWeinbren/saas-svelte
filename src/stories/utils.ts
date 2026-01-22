@@ -189,6 +189,20 @@ export {
     navbarItemGroupPattern,
     navbarItemPattern,
     navbarLinkPattern,
+    sidebarRootPattern,
+    sidebarHeaderPattern,
+    sidebarBodyPattern,
+    sidebarFooterPattern,
+    sidebarGroupPattern,
+    sidebarGroupHeaderPattern,
+    sidebarGroupTitlePattern,
+    sidebarGroupContentPattern,
+    sidebarNavItemPattern,
+    sidebarNavButtonPattern,
+    sidebarItemPattern,
+    sidebarLinkPattern,
+    sidebarTogglePattern,
+    appShellPattern,
 } from "./exclude-patterns";
 
 
