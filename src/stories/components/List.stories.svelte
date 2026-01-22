@@ -75,7 +75,7 @@
 				<span>Assumenda, quia temporibus eveniet a libero incidunt suscipit. Another multi-line example to show how icons align.</span>
 			</List.Item>
 			<List.Item>
-				<List.Indicator colour="gray">
+				<List.Indicator colour="green">
 					<CircleDashed class="h-full w-full" aria-hidden="true" />
 				</List.Indicator>
 				<span>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</span>
