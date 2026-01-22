@@ -58,8 +58,16 @@
 </script>
 
 <!-- Basic -->
-{#snippet basicStory()}
-	<Spinner size="sm" />
+{#snippet basicStory(args: any)}
+	<Spinner
+		size={args.size}
+		colour={args.colour}
+		label={args.label}
+		animationDuration={args.animationDuration}
+		borderWidth={args.borderWidth}
+		trackColour={args.trackColour}
+		class={args.class}
+	/>
 {/snippet}
 
 <!-- Sizes -->

@@ -8,15 +8,12 @@
 		base: [
 			"appearance-none",
 			"outline-0",
-			"outline-(--c-focus-ring)",
 			"border-0",
 			"bg-transparent",
 			"w-full",
 			"rounded",
 			"p-1",
 			"antialiased",
-			"transition-colors",
-			"duration-200",
 			"placeholder:opacity-60",
 			"placeholder:text-fg-muted",
 			"selection:bg-fg-muted/20",
@@ -46,6 +43,7 @@
 	import { getContext } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { EDITABLE_CTX } from "./editable-root.svelte";
+	import { getColourStyle } from "$saas/utils/colours";
 
 	interface Props {
 		/**
@@ -53,12 +51,16 @@
 		 */
 		class?: string;
 		/**
+		 * Additional inline styles.
+		 */
+		style?: string;
+		/**
 		 * Additional props passed to Ark UI.
 		 */
 		[key: string]: any;
 	}
 
-	let { class: className, ...restProps }: Props = $props();
+	let { class: className, style, ...restProps }: Props = $props();
 
 	type EditableContext = {
 		size: "xs" | "sm" | "md" | "lg";
@@ -69,7 +71,10 @@
 
 	const ctx = getContext<EditableContext>(EDITABLE_CTX);
 	const size = $derived(ctx?.size ?? "md");
+	const colour = $derived(ctx?.colour ?? "gray");
 	const finalClass = $derived(twMerge(editableInput({ size }), className));
+	const colourVars = $derived(getColourStyle(colour));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 
-<Editable.Input class={finalClass} {...restProps} />
+<Editable.Input class={finalClass} style={finalStyle} {...restProps} />

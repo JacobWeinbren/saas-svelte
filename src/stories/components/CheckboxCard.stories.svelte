@@ -78,8 +78,16 @@
 	let roleValue = $state<string[]>([]);
 </script>
 
-{#snippet basicStory()}
-	<CheckboxCard.Root aria-label="Next.js" class="max-w-60">
+{#snippet basicStory(args: any)}
+	<CheckboxCard.Root
+		aria-label="Next.js"
+		variant={args.variant}
+		size={args.size}
+		colour={args.colour}
+		disabled={args.disabled}
+		checked={args.checked}
+		class="max-w-60"
+	>
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Next.js</CheckboxCard.Label>

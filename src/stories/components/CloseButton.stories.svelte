@@ -53,8 +53,14 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<CloseButton />
+{#snippet basicStory(args: any)}
+	<CloseButton
+		size={args.size}
+		variant={args.variant}
+		colour={args.colour}
+		disabled={args.disabled}
+		class={args.class}
+	/>
 {/snippet}
 
 {#snippet sizesStory()}

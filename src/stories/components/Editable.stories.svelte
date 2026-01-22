@@ -50,12 +50,22 @@
 </script>
 
 <Story name="Basic">
-	<Editable.Root defaultValue="Click to edit">
-		<Editable.Area>
-			<Editable.Preview />
-			<Editable.Input />
-		</Editable.Area>
-	</Editable.Root>
+	{#snippet template(args: any)}
+		<Editable.Root
+			defaultValue="Click to edit"
+			size={args.size}
+			colour={args.colour}
+			disabled={args.disabled}
+			invalid={args.invalid}
+			activationMode={args.activationMode}
+			class={args.class}
+		>
+			<Editable.Area>
+				<Editable.Preview />
+				<Editable.Input />
+			</Editable.Area>
+		</Editable.Root>
+	{/snippet}
 </Story>
 
 <Story name="Controlled">

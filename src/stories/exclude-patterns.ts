@@ -153,3 +153,7 @@ export const editableTextareaPattern = makePattern(['rows', 'class']);
 export const editableControlPattern = makePattern(['class', 'children']);
 export const editableLabelPattern = makePattern(['class', 'children']);
 export const editableTriggerPattern = makePattern(['variant', 'size', 'colour', 'icon', 'class', 'style', 'children']);
+
+export const listRootPattern = makePattern(['as', 'variant', 'align', 'class', 'children']);
+export const listItemPattern = makePattern(['class', 'children']);
+export const listIndicatorPattern = makePattern(['size', 'colour', 'class', 'children']);

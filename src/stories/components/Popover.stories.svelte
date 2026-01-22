@@ -81,8 +81,16 @@
 	let inputRef = $state<HTMLInputElement | null>(null);
 </script>
 
-{#snippet basicStory()}
-	<Popover.Root>
+{#snippet basicStory(args: any)}
+	<Popover.Root
+		size={args.size}
+		autoFocus={args.autoFocus}
+		closeOnEscape={args.closeOnEscape}
+		closeOnInteractOutside={args.closeOnInteractOutside}
+		modal={args.modal}
+		lazyMount={args.lazyMount}
+		unmountOnExit={args.unmountOnExit}
+	>
 		<Popover.Trigger>
 			<Button variant="outline" size="sm">Click me</Button>
 		</Popover.Trigger>

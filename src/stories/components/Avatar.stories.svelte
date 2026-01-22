@@ -16,7 +16,7 @@
 			colour: commonArgTypes.colour,
 			size: {
 				...commonArgTypes.size,
-				options: ["xs", "sm", "md", "lg", "xl", "2xl", "full"],
+				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"],
 			},
 			shape: {
 				control: "select",
@@ -67,12 +67,21 @@
 		},
 	});
 
-	const sizes = ["xs", "sm", "md", "lg", "xl", "2xl"] as const;
+	const sizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
 	const shapes = ["square", "rounded", "full"] as const;
 </script>
 
-{#snippet basicStory()}
-	<Avatar name="David Wilson" src="/avatars/1.png" />
+{#snippet basicStory(args: any)}
+	<Avatar
+		name={args.name}
+		src={args.src}
+		size={args.size}
+		variant={args.variant}
+		shape={args.shape}
+		colour={args.colour}
+		ring={args.ring}
+		class={args.class}
+	/>
 {/snippet}
 
 {#snippet sizesStory()}

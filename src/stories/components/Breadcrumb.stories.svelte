@@ -61,8 +61,8 @@
 	const variants = ["plain", "underline"] as const;
 </script>
 
-{#snippet basicStory()}
-	<BreadcrumbRoot>
+{#snippet basicStory(args: any)}
+	<BreadcrumbRoot variant={args.variant} size={args.size} separator={args.separator} class={args.class}>
 		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 		<BreadcrumbLink href="#">Components</BreadcrumbLink>
 		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>

@@ -55,6 +55,16 @@
 	});
 </script>
 
+{#snippet basicStory(args: any)}
+	<Alert
+		status={args.status}
+		variant={args.variant}
+		colour={args.colour}
+		title={args.title}
+		class={args.class}
+	/>
+{/snippet}
+
 {#snippet descriptionStory()}
 	<Alert status="error" title="Invalid Fields">
 		Your form has some errors. Please fix them and try again.
@@ -112,7 +122,7 @@
 	/>
 {/snippet}
 
-<Story name="Basic" />
+<Story name="Basic" template={basicStory} />
 
 <Story name="Description" template={descriptionStory} />
 

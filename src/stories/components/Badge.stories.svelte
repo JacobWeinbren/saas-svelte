@@ -44,13 +44,15 @@
 	const sizes = ["xs", "sm", "md", "lg"] as const;
 </script>
 
-{#snippet basicStory()}
-	<HStack gap={2}>
-		<Badge>Default</Badge>
-		<Badge colour="green">Success</Badge>
-		<Badge colour="red">Removed</Badge>
-		<Badge colour="purple">New</Badge>
-	</HStack>
+{#snippet basicStory(args: any)}
+	<Badge
+		variant={args.variant}
+		size={args.size}
+		colour={args.colour}
+		class={args.class}
+	>
+		Badge
+	</Badge>
 {/snippet}
 
 {#snippet withIconStory()}
@@ -88,6 +90,15 @@
 	</HStack>
 {/snippet}
 
+{#snippet coloursStory()}
+	<HStack gap={2}>
+		<Badge>Default</Badge>
+		<Badge colour="green">Success</Badge>
+		<Badge colour="red">Removed</Badge>
+		<Badge colour="purple">New</Badge>
+	</HStack>
+{/snippet}
+
 <Story name="Basic" template={basicStory} />
 
 <Story name="With Icon" template={withIconStory} />
@@ -95,3 +106,5 @@
 <Story name="Variants" template={variantsStory} />
 
 <Story name="Sizes" template={sizesStory} />
+
+<Story name="Colours" template={coloursStory} />

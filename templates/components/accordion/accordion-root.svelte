@@ -23,7 +23,7 @@
 				"focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-fg-muted",
 				"disabled:opacity-50 disabled:cursor-not-allowed",
 			],
-			content: "overflow-x-hidden overflow-y-hidden rounded-md",
+			content: "overflow-hidden rounded-md",
 			contentBody: "",
 			indicator:
 				"flex items-center justify-center text-fg-muted shrink-0 transition-all duration-moderate ml-auto origin-center data-[state=open]:rotate-90",
@@ -110,11 +110,6 @@
 		 */
 		multiple?: boolean;
 		/**
-		 * The orientation of the accordion.
-		 * @default "vertical"
-		 */
-		orientation?: "horizontal" | "vertical";
-		/**
 		 * The size of the accordion.
 		 * @default "md"
 		 */
@@ -135,7 +130,6 @@
 		defaultValue,
 		id,
 		multiple = false,
-		orientation = "vertical",
 		size = "md",
 		variant = "outline",
 		...restProps
@@ -155,7 +149,6 @@
 	{collapsible}
 	{defaultValue}
 	{multiple}
-	{orientation}
 	class={twMerge(
 		"text-fg-default leading-normal antialiased",
 		classes.root(),

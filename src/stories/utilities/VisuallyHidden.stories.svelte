@@ -18,11 +18,11 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Button>
 		<Bell class="h-4 w-4" aria-hidden="true" />
 		3
-		<VisuallyHidden>Notifications</VisuallyHidden>
+		<VisuallyHidden class={args.class}>Notifications</VisuallyHidden>
 	</Button>
 {/snippet}
 

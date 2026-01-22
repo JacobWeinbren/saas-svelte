@@ -7,15 +7,15 @@
 	export const avatar = tv({
 		slots: {
 			root: "align-top select-none shrink-0 justify-center items-center inline-flex relative font-medium antialiased",
-			image: "border-none object-cover",
+			image: "border-none object-cover w-full h-full",
 			fallback:
 				"uppercase font-medium leading-none flex items-center justify-center w-full h-full",
 		},
 		variants: {
 			size: {
 				"2xs": {
-					root: "w-4 h-4 text-xs",
-					fallback: "text-xs",
+					root: "w-4 h-4 text-[8px]",
+					fallback: "text-[8px]",
 				},
 				xs: {
 					root: "w-5 h-5 text-xs",
@@ -83,7 +83,7 @@
 			},
 			ring: {
 				true: {
-					root: "outline-2 outline-offset-0.5 outline-solid outline-(--c-solid)",
+					root: "outline-2 outline-offset-2 outline-(--c-solid)",
 				},
 			},
 		},

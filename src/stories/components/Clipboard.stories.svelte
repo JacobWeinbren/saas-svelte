@@ -34,8 +34,8 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<Clipboard value="https://saas-ui.dev">
+{#snippet basicStory(args: any)}
+	<Clipboard value={args.value} timeout={args.timeout} class={args.class}>
 		<ClipboardIconButton />
 	</Clipboard>
 {/snippet}

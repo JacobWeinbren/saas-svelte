@@ -17,16 +17,25 @@
 
 	// Determine text direction based on locale
 	const rtlLocales = ["ar", "he", "fa", "ur"];
-	const lang = locale.split("-")[0];
-	const dir: "ltr" | "rtl" = rtlLocales.includes(lang) ? "rtl" : "ltr";
 
-	// Set context immediately (not in an effect)
-	const context: LocaleContext = {
-		locale,
-		dir,
+	// Create reactive context state
+	const getDir = (loc: string): "ltr" | "rtl" => {
+		const lang = loc.split("-")[0];
+		return rtlLocales.includes(lang) ? "rtl" : "ltr";
 	};
 
-	setLocaleContext(context);
+	let contextState = $state<LocaleContext>({
+		locale,
+		dir: getDir(locale),
+	});
+
+	// Update context when locale changes
+	$effect(() => {
+		contextState.locale = locale;
+		contextState.dir = getDir(locale);
+	});
+
+	setLocaleContext(contextState);
 </script>
 
 {@render children()}

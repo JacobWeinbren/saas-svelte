@@ -32,9 +32,8 @@
 				"text-fg-muted",
 				"disabled:opacity-50",
 				"disabled:cursor-not-allowed",
+				"focus-visible:outline-1",
 				"focus-visible:outline-solid",
-				"focus-visible:outline-fg-muted",
-				"focus-visible:border-fg-muted",
 			],
 			indicatorGroup: [
 				"end-0",
@@ -90,12 +89,12 @@
 				"flex-1",
 				"rounded",
 				"outline-none",
-				"data-highlighted:bg-bg-subtle",
+				"data-highlighted:bg-(--c-subtle)",
 				"data-disabled:opacity-50",
 				"data-disabled:cursor-not-allowed",
 			],
 			itemText: "flex-1 truncate",
-			itemIndicator: "flex items-center justify-center w-4 h-4 ml-auto",
+			itemIndicator: "flex items-center justify-center w-4 h-4 ml-auto text-(--c-fg)",
 			itemGroup: "flex flex-col",
 			itemGroupLabel: [
 				"flex items-center",
@@ -164,10 +163,17 @@
 			},
 			variant: {
 				outline: {
-					input: "border-border-default",
+					input: [
+						"border-border-default",
+						"focus-visible:outline-(--c-focus-ring)",
+					],
 				},
 				subtle: {
-					input: "border-transparent bg-bg-subtle",
+					input: [
+						"border-transparent",
+						"bg-(--c-subtle)",
+						"focus-visible:outline-(--c-focus-ring)",
+					],
 				},
 				flushed: {
 					input: [
@@ -177,8 +183,8 @@
 						"border-b",
 						"border-b-border-default",
 						"px-0",
-						"focus-visible:shadow",
-						"focus-visible:border-fg-muted",
+						"focus-visible:outline-none",
+						"focus-visible:border-b-(--c-focus-ring)",
 					],
 					indicatorGroup: "px-0",
 				},

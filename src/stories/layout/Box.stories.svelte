@@ -79,7 +79,7 @@
 			<Text weight="medium">
 				Modern home in city center in the heart of historic Los Angeles
 			</Text>
-			<Text variant="secondary">$435 • 3 beds</Text>
+			<Text class="text-fg-muted">$435 • 3 beds</Text>
 		</Box>
 	</Box>
 {/snippet}

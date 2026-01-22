@@ -166,7 +166,17 @@
 {/snippet}
 
 <Story name="Basic">
-	<Input placeholder="Enter text..." />
+	{#snippet template(args)}
+		<Input
+			variant={args.variant}
+			size={args.size}
+			colour={args.colour}
+			invalid={args.invalid}
+			disabled={args.disabled}
+			placeholder={args.placeholder}
+			class={args.class}
+		/>
+	{/snippet}
 </Story>
 
 <Story name="Variants" template={variantsStory} />

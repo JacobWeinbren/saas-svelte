@@ -42,10 +42,16 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<Field.Root>
+{#snippet basicStory(args: any)}
+	<Field.Root
+		disabled={args.disabled}
+		invalid={args.invalid}
+		required={args.required}
+		readOnly={args.readOnly}
+		class={args.class}
+	>
 		<Field.Label>Email</Field.Label>
-		<Input placeholder="me@example.com" />
+		<Input placeholder="me@example.com" disabled={args.disabled} invalid={args.invalid} />
 	</Field.Root>
 {/snippet}
 

@@ -6,15 +6,43 @@
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import Info from "phosphor-svelte/lib/Info";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Toggle Tip",
+		component: ToggleTip,
+		argTypes: {
+			content: {
+				control: "text",
+				description: "The content of the toggle tip.",
+			},
+			size: {
+				...commonArgTypes.size,
+				options: ["xs", "sm", "md", "lg"],
+				table: { defaultValue: { summary: "sm" } },
+			},
+			placement: {
+				control: "select",
+				options: ["top", "bottom", "left", "right"],
+				description: "The placement of the toggle tip.",
+				table: { defaultValue: { summary: "top" } },
+			},
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls(["content", "size", "placement", "class"]),
+		},
+		args: {
+			content: "This is some additional information.",
+			size: "sm",
+			placement: "top",
+		},
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<div class="flex items-center justify-center p-8">
-		<ToggleTip content="This is some additional information.">
+		<ToggleTip content={args.content} size={args.size} placement={args.placement} class={args.class}>
 			<Button
 				size="xs"
 				variant="ghost"

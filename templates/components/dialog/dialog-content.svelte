@@ -33,7 +33,7 @@
 		],
 		variants: {
 			placement: {
-				center: "items-start",
+				center: "items-center",
 				top: "items-start",
 				bottom: "items-end",
 			},
@@ -80,16 +80,29 @@
 				md: "w-full max-w-lg rounded-lg",
 				lg: "w-full max-w-2xl rounded-lg",
 				xl: "w-full max-w-4xl rounded-lg",
-				full: "w-full h-full",
+				full: "w-full h-full my-0",
 				cover: "w-full h-full rounded-lg my-0 overflow-hidden",
 			},
 			scrollBehavior: {
 				inside: "max-h-[calc(100vh-var(--spacing-16))] my-auto",
 				outside: "my-16",
 			},
+			placement: {
+				center: "",
+				top: "mb-auto",
+				bottom: "mt-auto",
+			},
 		},
+		compoundVariants: [
+			{
+				size: "full",
+				scrollBehavior: "outside",
+				class: "my-0",
+			},
+		],
 		defaultVariants: {
 			size: "md",
+			placement: "center",
 		},
 	});
 </script>
@@ -102,7 +115,7 @@
 
 	<Dialog.Positioner
 		class={positionerStyles({
-			placement: ctx.placement === "center" ? "top" : ctx.placement,
+			placement: ctx.size === "cover" ? "center" : ctx.placement,
 			scrollBehavior:
 				ctx.size === "cover" ? "inside" : ctx.scrollBehavior,
 			size: ctx.size,
@@ -112,7 +125,9 @@
 			tabindex={-1}
 			class={contentStyles({
 				size: ctx.size,
-				scrollBehavior: ctx.scrollBehavior,
+				scrollBehavior:
+					ctx.size === "cover" ? "inside" : ctx.scrollBehavior,
+				placement: ctx.size === "cover" ? "center" : ctx.placement,
 				class: className,
 			}) +
 				(ctx.motionPreset === "slide-in-bottom"

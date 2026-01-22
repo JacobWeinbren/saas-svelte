@@ -55,8 +55,8 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<Card.Root class="w-80">
+{#snippet basicStory(args: any)}
+	<Card.Root class="w-80" variant={args.variant} size={args.size}>
 		<Card.Body class="gap-2">
 			<Avatar
 				src="https://picsum.photos/200/300"
@@ -130,7 +130,7 @@
 		<img
 			src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
 			alt="Green double couch with wooden legs"
-			class="w-full object-cover"
+			class="w-full object-cover rounded-lg"
 		/>
 		<Card.Body class="gap-2">
 			<Card.Title>Living room Sofa</Card.Title>
@@ -152,7 +152,7 @@
 		<img
 			src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
 			alt="Caffe Latte"
-			class="object-cover max-w-52"
+			class="object-cover max-w-52 rounded-lg"
 		/>
 		<Box>
 			<Card.Body>

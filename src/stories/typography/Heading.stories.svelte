@@ -101,8 +101,15 @@
 	</Stack>
 {/snippet}
 
-{#snippet basicStory()}
-	<Heading>The quick brown fox jumps over the lazy dog</Heading>
+{#snippet basicStory(args: any)}
+	<Heading
+		as={args.as}
+		size={args.size}
+		weight={args.weight}
+		class={args.class}
+	>
+		The quick brown fox jumps over the lazy dog
+	</Heading>
 {/snippet}
 
 {#snippet highlightStory()}
@@ -113,7 +120,7 @@
 				variant="text">Saas UI</Mark
 			>
 		</Heading>
-		<Text variant="secondary">
+		<Text class="text-fg-muted">
 			Saas UI provides enterprise-ready components and patterns to help
 			you build professional applications faster than ever.
 		</Text>
@@ -123,7 +130,7 @@
 {#snippet compositionStory()}
 	<Stack align="start">
 		<Heading size="2xl">Modern payments for Stores</Heading>
-		<Text variant="secondary" class="mb-3">
+		<Text class="text-fg-muted mb-3">
 			PayMe helps startups get paid by anyone, anywhere in the world
 		</Text>
 		<Button>

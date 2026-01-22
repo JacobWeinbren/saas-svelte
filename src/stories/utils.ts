@@ -211,6 +211,9 @@ export {
     editableControlPattern,
     editableLabelPattern,
     editableTriggerPattern,
+    listRootPattern,
+    listItemPattern,
+    listIndicatorPattern,
 } from "./exclude-patterns";
 
 

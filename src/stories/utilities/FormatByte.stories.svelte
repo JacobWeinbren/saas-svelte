@@ -39,9 +39,14 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Text size="lg">
-		File size: <FormatByte value={1450.45} />
+		File size: <FormatByte
+			value={args.value}
+			unit={args.unit}
+			unitDisplay={args.unitDisplay}
+			locale={args.locale}
+		/>
 	</Text>
 {/snippet}
 

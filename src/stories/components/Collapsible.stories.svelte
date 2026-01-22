@@ -15,8 +15,7 @@
 		argTypes: {
 			defaultOpen: {
 				control: "boolean",
-				description:
-					"Whether the collapsible is open by default. Use when you don't need to control the open state.",
+				description: "Whether the collapsible is open by default.",
 			},
 			disabled: {
 				control: "boolean",
@@ -52,8 +51,14 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<Collapsible>
+{#snippet basicStory(args: any)}
+	<Collapsible
+		defaultOpen={args.defaultOpen}
+		disabled={args.disabled}
+		lazyMount={args.lazyMount}
+		unmountOnExit={args.unmountOnExit}
+		class={args.class}
+	>
 		<CollapsibleTrigger>Toggle Collapsible</CollapsibleTrigger>
 		<CollapsibleContent>
 			<CardRoot class="p-2 px-4 text-sm">

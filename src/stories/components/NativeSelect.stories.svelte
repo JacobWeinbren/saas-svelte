@@ -118,8 +118,16 @@
 	</form>
 {/snippet}
 
-{#snippet basicStory()}
-	<NativeSelect size="sm" class="w-60" value="" aria-label="Select framework">
+{#snippet basicStory(args: any)}
+	<NativeSelect
+		variant={args.variant}
+		size={args.size}
+		invalid={args.invalid}
+		disabled={args.disabled}
+		class="w-60"
+		value=""
+		aria-label="Select framework"
+	>
 		<option value="">Select option</option>
 		<option value="react">React</option>
 		<option value="vue">Vue</option>

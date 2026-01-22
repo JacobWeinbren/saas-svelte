@@ -7,12 +7,7 @@
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
 	import CreditCard from "phosphor-svelte/lib/CreditCard";
-	import {
-		commonArgTypes,
-		getControls,
-		variants,
-		orientations,
-	} from "../utils";
+	import { commonArgTypes, getControls, variants } from "../utils";
 
 	const accordionSizes = ["sm", "md", "lg"] as const;
 
@@ -72,11 +67,6 @@
 				...commonArgTypes.size,
 				options: accordionSizes,
 			},
-			orientation: {
-				control: "select",
-				options: orientations,
-				table: { defaultValue: { summary: "vertical" } },
-			},
 			collapsible: {
 				control: "boolean",
 				table: { defaultValue: { summary: "false" } },
@@ -95,7 +85,6 @@
 			controls: getControls([
 				"variant",
 				"size",
-				"orientation",
 				"collapsible",
 				"multiple",
 				"defaultValue",
@@ -105,19 +94,22 @@
 		args: {
 			variant: "outline",
 			size: "md",
-			orientation: "vertical",
 			collapsible: true,
 			multiple: false,
 		},
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Accordion.Root
 		id="basic-accordion"
 		items={basicItems}
-		collapsible
-		defaultValue={["b"]}
+		variant={args.variant}
+		size={args.size}
+		collapsible={args.collapsible}
+		multiple={args.multiple}
+		defaultValue={args.defaultValue ?? ["b"]}
+		class={args.class}
 	/>
 {/snippet}
 

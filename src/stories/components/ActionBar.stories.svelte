@@ -20,11 +20,6 @@
 		title: "components/Action Bar",
 		component: ActionBar,
 		argTypes: {
-			open: {
-				control: "boolean",
-				description: "Whether the action bar is visible.",
-				table: { defaultValue: { summary: "false" } },
-			},
 			closeOnInteractOutside: {
 				control: "boolean",
 				description: "Whether to close when clicking outside.",
@@ -33,22 +28,22 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["open", "closeOnInteractOutside", "class"]),
+			controls: getControls(["closeOnInteractOutside", "class"]),
 		},
 		args: {
-			open: false,
+			closeOnInteractOutside: false,
 		},
 	});
 </script>
 
 <script lang="ts">
-	let basicOpen = $state(false);
+	let basicOpen = $state(true);
 	let closableOpen = $state(false);
 	let multipleActionsOpen = $state(false);
 	let selectedCount = $state(0);
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<div>
 		<Checkbox
 			checked={basicOpen}
@@ -57,7 +52,12 @@
 			Show Action Bar
 		</Checkbox>
 
-		<ActionBar open={basicOpen}>
+		<ActionBar
+			open={basicOpen}
+			onOpenChange={(e) => (basicOpen = e.open)}
+			closeOnInteractOutside={args.closeOnInteractOutside}
+			class={args.class}
+		>
 			<ActionBarSelectionTrigger>2 selected</ActionBarSelectionTrigger>
 			<ActionBarSeparator />
 			<Button variant="outline" size="sm">
@@ -127,7 +127,7 @@
 {#snippet interactiveStory()}
 	<div>
 		<VStack gap={3}>
-			<Text size="sm" variant="secondary">Selected: {selectedCount} items</Text>
+			<Text size="sm" class="text-fg-muted">Selected: {selectedCount} items</Text>
 			<HStack gap={2} class="flex-wrap">
 				{#each Array(5) as _, i}
 					<Checkbox

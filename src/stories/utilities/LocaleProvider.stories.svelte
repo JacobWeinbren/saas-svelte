@@ -8,6 +8,8 @@
 	import { Text } from "$saas/typography/text";
 	import { Stack } from "$saas/layout/stack";
 
+	import { getControls } from "../utils";
+
 	const { Story } = defineMeta({
 		title: "utilities/Locale Provider",
 		component: LocaleProvider,
@@ -23,15 +25,25 @@
 				table: { type: { summary: "Snippet" } },
 			},
 		},
+		parameters: {
+			controls: getControls(["locale"]),
+		},
 		args: {
 			locale: "en-US",
 		},
 	});
 </script>
 
-{#snippet basicStory()}
-	<LocaleProvider locale="ar-BH">
-		<LocaleDisplay />
+{#snippet basicStory(args: any)}
+	<LocaleProvider locale={args.locale}>
+		<Stack gap={2}>
+			<LocaleDisplay />
+			<Text size="sm" class="text-fg-muted">Number formatting (locale affects separators):</Text>
+			<Text size="lg">
+				<FormatNumber value={1234567.89} />
+			</Text>
+			<Text size="sm" class="text-fg-muted">Date: {new Date().toLocaleDateString(args.locale)}</Text>
+		</Stack>
 	</LocaleProvider>
 {/snippet}
 

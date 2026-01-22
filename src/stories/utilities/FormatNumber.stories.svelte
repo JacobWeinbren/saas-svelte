@@ -57,9 +57,19 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Text size="lg">
-		<FormatNumber value={1450.45} />
+		<FormatNumber
+			value={args.value}
+			style={args.style}
+			currency={args.currency}
+			unit={args.unit}
+			minimumFractionDigits={args.minimumFractionDigits}
+			maximumFractionDigits={args.maximumFractionDigits}
+			notation={args.notation}
+			compactDisplay={args.compactDisplay}
+			locale={args.locale}
+		/>
 	</Text>
 {/snippet}
 

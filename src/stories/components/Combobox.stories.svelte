@@ -235,11 +235,16 @@
 	}
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Combobox
 		items={frameworks}
 		label="Select framework"
 		placeholder="Type to search"
+		size={args.size}
+		variant={args.variant}
+		invalid={args.invalid}
+		disabled={args.disabled}
+		colour={args.colour}
 		class="w-80"
 	/>
 {/snippet}

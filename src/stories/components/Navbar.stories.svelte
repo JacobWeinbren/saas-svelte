@@ -63,9 +63,9 @@
 	</svg>
 {/snippet}
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Box class="h-20">
-		<Navbar.Root>
+		<Navbar.Root variant={args.variant} position={args.position} bordered={args.bordered} colour={args.colour} class={args.class}>
 			<Navbar.Content maxW="max-w-4xl">
 				<Navbar.Brand>
 					{@render logoSvg()}

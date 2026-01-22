@@ -79,9 +79,9 @@
 	const sizes = ["sm", "md"] as const;
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<div>
-		<MenuRoot>
+		<MenuRoot size={args.size} colour={args.colour} closeOnSelect={args.closeOnSelect} loopFocus={args.loopFocus}>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
 				<MenuItem value="new-txt">New Text File</MenuItem>

@@ -100,12 +100,16 @@
 	/>
 {/snippet}
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Highlight
-		query="spotlight"
-		variant="subtle"
-		colour="orange"
-		text="With the Highlight component, you can spotlight words."
+		query={args.query}
+		text={args.text}
+		ignoreCase={args.ignoreCase}
+		matchAll={args.matchAll}
+		variant={args.variant}
+		colour={args.colour}
+		markClass={args.markClass}
+		class={args.class}
 	/>
 {/snippet}
 

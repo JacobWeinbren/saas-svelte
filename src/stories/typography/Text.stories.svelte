@@ -23,11 +23,6 @@
 				options: weights,
 				table: { defaultValue: { summary: "normal" } },
 			},
-			variant: {
-				control: "select",
-				options: ["primary", "secondary", "tertiary"],
-				table: { defaultValue: { summary: "primary" } },
-			},
 			truncate: {
 				control: "boolean",
 			},
@@ -49,7 +44,6 @@
 				"as",
 				"size",
 				"weight",
-				"variant",
 				"truncate",
 				"lineClamp",
 				"class",

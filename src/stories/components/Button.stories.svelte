@@ -65,6 +65,19 @@
 	});
 </script>
 
+{#snippet basicStory(args: any)}
+	<Button
+		variant={args.variant}
+		size={args.size}
+		colour={args.colour}
+		loading={args.loading}
+		loadingText={args.loadingText}
+		class={args.class}
+	>
+		Button
+	</Button>
+{/snippet}
+
 {#snippet sizesStory()}
 	<HStack align="start" gap={4} class="flex-wrap">
 		{#each sizes as size}
@@ -141,7 +154,7 @@
 	</ButtonGroup>
 {/snippet}
 
-<Story name="Basic">Button</Story>
+<Story name="Basic" template={basicStory} />
 
 <Story name="With Icon" template={iconsStory} />
 

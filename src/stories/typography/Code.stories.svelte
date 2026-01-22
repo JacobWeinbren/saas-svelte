@@ -83,7 +83,16 @@
 {/snippet}
 
 <Story name="Basic">
-	<Code>console.log("Hello, world!")</Code>
+	{#snippet template(args)}
+		<Code
+			variant={args.variant}
+			size={args.size}
+			colour={args.colour}
+			class={args.class}
+		>
+			console.log("Hello, world!")
+		</Code>
+	{/snippet}
 </Story>
 
 <Story name="Sizes" template={sizesStory} />

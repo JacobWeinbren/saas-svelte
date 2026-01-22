@@ -61,9 +61,19 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<div class="flex items-center justify-center p-8">
-		<Tooltip content="Add to library">
+		<Tooltip
+			content={args.content}
+			showArrow={args.showArrow}
+			variant={args.variant}
+			interactive={args.interactive}
+			openDelay={args.openDelay}
+			closeDelay={args.closeDelay}
+			positioning={args.positioning}
+			disabled={args.disabled}
+			class={args.class}
+		>
 			<Button variant="outline">Hover me</Button>
 		</Tooltip>
 	</div>

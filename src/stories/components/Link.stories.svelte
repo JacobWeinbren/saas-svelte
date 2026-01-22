@@ -35,6 +35,17 @@
 	});
 </script>
 
+{#snippet basicStory(args: any)}
+	<Link
+		variant={args.variant}
+		colour={args.colour}
+		href={args.href}
+		class={args.class}
+	>
+		Visit Chakra UI
+	</Link>
+{/snippet}
+
 {#snippet variantsStory()}
 	<VStack gap={2} class="items-center">
 		<Link href="#" variant="underline">Link (Underline)</Link>
@@ -57,7 +68,7 @@
 	</Link>
 {/snippet}
 
-<Story name="Basic">Visit Chakra UI</Story>
+<Story name="Basic" template={basicStory} />
 
 <Story name="Variants" template={variantsStory} />
 

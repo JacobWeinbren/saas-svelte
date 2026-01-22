@@ -54,6 +54,17 @@
 	let stackCount = $state(0);
 </script>
 
+{#snippet defaultStory(args: any)}
+	<Toast
+		status={args.status}
+		title={args.title}
+		description={args.description}
+		icon={args.icon}
+		closable={args.closable}
+		class={args.class}
+	/>
+{/snippet}
+
 {#snippet basicStory()}
 	<ToastStoryWrapper>
 		<Button
@@ -221,6 +232,8 @@
 		</HStack>
 	</ToastStoryWrapper>
 {/snippet}
+
+<Story name="Default" template={defaultStory} />
 
 <Story name="Basic" template={basicStory} />
 

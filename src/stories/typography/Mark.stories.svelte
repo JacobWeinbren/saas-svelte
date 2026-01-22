@@ -30,9 +30,9 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Text>
-		The <Mark>design system</Mark> is a collection of UI elements
+		The <Mark variant={args.variant} colour={args.colour} class={args.class}>design system</Mark> is a collection of UI elements
 	</Text>
 {/snippet}
 

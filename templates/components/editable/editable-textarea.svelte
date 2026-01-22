@@ -8,7 +8,6 @@
 		base: [
 			"appearance-none",
 			"outline-0",
-			"outline-(--c-focus-ring)",
 			"border-0",
 			"bg-transparent",
 			"w-full",
@@ -16,8 +15,6 @@
 			"p-1",
 			"antialiased",
 			"resize-none",
-			"transition-colors",
-			"duration-200",
 			"placeholder:opacity-60",
 			"placeholder:text-fg-muted",
 			"selection:bg-fg-muted/20",
@@ -48,12 +45,17 @@
 	import { getContext } from "svelte";
 	import { twMerge } from "tailwind-merge";
 	import { EDITABLE_CTX } from "./editable-root.svelte";
+	import { getColourStyle } from "$saas/utils/colours";
 
 	interface Props {
 		/**
 		 * Additional CSS classes.
 		 */
 		class?: string;
+		/**
+		 * Additional inline styles.
+		 */
+		style?: string;
 		/**
 		 * Number of rows for the textarea.
 		 */
@@ -64,7 +66,7 @@
 		[key: string]: any;
 	}
 
-	let { class: className, rows = 2, ...restProps }: Props = $props();
+	let { class: className, style, rows = 2, ...restProps }: Props = $props();
 
 	type EditableCtx = {
 		size: "xs" | "sm" | "md" | "lg";
@@ -75,12 +77,15 @@
 
 	const ctx = getContext<EditableCtx>(EDITABLE_CTX);
 	const size = $derived(ctx?.size ?? "md");
+	const colour = $derived(ctx?.colour ?? "gray");
 	const finalClass = $derived(twMerge(editableTextarea({ size }), className));
+	const colourVars = $derived(getColourStyle(colour));
+	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	const editable = useEditableContext();
 	const inputProps = $derived(editable().getInputProps());
 	const mergedProps = $derived(
-		mergeProps(inputProps, { rows, class: finalClass, ...restProps })
+		mergeProps(inputProps, { rows, class: finalClass, style: finalStyle, ...restProps })
 	);
 </script>
 
