@@ -54,7 +54,7 @@
 
 {#snippet basicStory(args: any)}
 	<div class="w-72">
-		<PasswordInput {...args} />
+		<PasswordInput aria-label="Password" {...args} />
 	</div>
 {/snippet}
 
@@ -63,7 +63,7 @@
 		{#each passwordInputSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
-				<PasswordInput {size} placeholder={size} class="flex-1" />
+				<PasswordInput {size} placeholder={size} aria-label="Password {size}" class="flex-1" />
 			</HStack>
 		{/each}
 	</Stack>
@@ -71,7 +71,7 @@
 
 {#snippet controlledStory()}
 	<Stack gap={4} class="max-w-72">
-		<PasswordInput bind:value={controlledValue} placeholder="Enter password" />
+		<PasswordInput bind:value={controlledValue} placeholder="Enter password" aria-label="Password" />
 		<Text size="sm">Value: {controlledValue ? "•".repeat(controlledValue.length) : "(empty)"}</Text>
 	</Stack>
 {/snippet}
@@ -82,6 +82,7 @@
 			defaultValue="secret"
 			visible={controlledVisible}
 			onVisibleChange={(v) => (controlledVisible = v)}
+			aria-label="Password"
 		/>
 		<Text size="sm">Password is {controlledVisible ? "visible" : "hidden"}</Text>
 	</Stack>
@@ -113,7 +114,7 @@
 
 {#snippet disabledStory()}
 	<div class="w-72">
-		<PasswordInput disabled placeholder="Disabled password" />
+		<PasswordInput disabled placeholder="Disabled password" aria-label="Password" />
 	</div>
 {/snippet}
 
@@ -133,6 +134,7 @@
 				<PasswordInput
 					{colour}
 					placeholder="Focus to see ring"
+					aria-label="Password {colour}"
 					class="flex-1"
 				/>
 			</HStack>

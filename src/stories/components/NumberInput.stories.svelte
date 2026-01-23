@@ -76,7 +76,7 @@
 
 {#snippet basicStory(args: any)}
 	<div class="w-52">
-		<NumberInput {...args} />
+		<NumberInput aria-label="Number" {...args} />
 	</div>
 {/snippet}
 
@@ -85,7 +85,7 @@
 		{#each numberInputSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
-				<NumberInput {size} defaultValue="10" class="flex-1" />
+				<NumberInput {size} defaultValue="10" aria-label="Number {size}" class="flex-1" />
 			</HStack>
 		{/each}
 	</Stack>
@@ -93,25 +93,25 @@
 
 {#snippet minMaxStory()}
 	<div class="w-52">
-		<NumberInput defaultValue="10" min={5} max={50} />
+		<NumberInput defaultValue="10" min={5} max={50} aria-label="Number" />
 	</div>
 {/snippet}
 
 {#snippet stepStory()}
 	<div class="w-52">
-		<NumberInput defaultValue="2" step={3} />
+		<NumberInput defaultValue="2" step={3} aria-label="Number" />
 	</div>
 {/snippet}
 
 {#snippet mouseWheelStory()}
 	<div class="w-52">
-		<NumberInput defaultValue="10" allowMouseWheel />
+		<NumberInput defaultValue="10" allowMouseWheel aria-label="Number" />
 	</div>
 {/snippet}
 
 {#snippet disabledStory()}
 	<div class="w-52">
-		<NumberInput defaultValue="10" disabled />
+		<NumberInput defaultValue="10" disabled aria-label="Number" />
 	</div>
 {/snippet}
 
@@ -139,6 +139,7 @@
 			formatOptions={{
 				style: "percent",
 			}}
+			aria-label="Percentage"
 		/>
 	</Stack>
 {/snippet}
@@ -153,6 +154,7 @@
 				currencyDisplay: "code",
 				currencySign: "accounting",
 			}}
+			aria-label="Amount"
 		/>
 	</Stack>
 {/snippet}
@@ -166,6 +168,7 @@
 				unit: "inch",
 				unitDisplay: "long",
 			}}
+			aria-label="Length"
 		/>
 	</Stack>
 {/snippet}
@@ -175,7 +178,7 @@
 		{#each colours as colour}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-16">{colour}</Text>
-				<NumberInput {colour} defaultValue="10" class="flex-1" />
+				<NumberInput {colour} defaultValue="10" aria-label="Number {colour}" class="flex-1" />
 			</HStack>
 		{/each}
 	</Stack>

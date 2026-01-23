@@ -67,4 +67,4 @@
 	const styles = $derived(presenceBadge({ size, presence, class: className }));
 </script>
 
-<span class={styles} aria-label={`Status: ${presence}`}></span>
+<span class={styles} role="img" aria-label={`Status: ${presence}`}></span>

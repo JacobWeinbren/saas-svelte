@@ -227,6 +227,10 @@
 		 */
 		readOnly?: boolean;
 		/**
+		 * Accessible label for the input (for screen readers).
+		 */
+		"aria-label"?: string;
+		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: ClassNameValue;
@@ -262,6 +266,7 @@
 		name,
 		required = false,
 		readOnly = false,
+		"aria-label": ariaLabel,
 		class: className,
 		style,
 		id,
@@ -346,6 +351,7 @@
 			class={inputClasses}
 			{placeholder}
 			required={isRequired}
+			aria-label={ariaLabel}
 		/>
 	</NumberInput.Control>
 	<div class={triggerGroupClasses} role="group" aria-disabled={isDisabled}>

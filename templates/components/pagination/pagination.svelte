@@ -284,6 +284,12 @@
 		 * The id of the pagination element.
 		 */
 		id?: string;
+		/**
+		 * Accessible label for the pagination navigation.
+		 * Required when multiple paginations exist on a page.
+		 * @default "pagination"
+		 */
+		"aria-label"?: string;
 	}
 
 	let {
@@ -304,6 +310,7 @@
 		class: className,
 		style,
 		id,
+		"aria-label": ariaLabel,
 	}: Props = $props();
 
 	// Convert getHref to getPageUrl format for Ark UI
@@ -361,6 +368,7 @@
 	{type}
 	{getPageUrl}
 	{onPageChange}
+	aria-label={ariaLabel}
 >
 	<Pagination.Context>
 		{#snippet render(api)}

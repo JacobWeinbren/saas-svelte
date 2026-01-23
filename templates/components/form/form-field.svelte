@@ -112,6 +112,7 @@
 			{max}
 			{step}
 			invalid={!!error}
+			aria-label={label}
 			onValueChange={(details) => onChange(details.valueAsNumber)}
 		/>
 	{:else if type === "password"}

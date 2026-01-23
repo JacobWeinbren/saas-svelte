@@ -128,7 +128,7 @@
 		{#each paginationSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
-				<Pagination count={50} pageSize={10} defaultPage={1} {size} />
+				<Pagination count={50} pageSize={10} defaultPage={1} {size} aria-label="{size} size pagination" />
 			</HStack>
 		{/each}
 	</Stack>
@@ -139,7 +139,7 @@
 		{#each paginationVariants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[8ch] capitalize">{variant}</Text>
-				<Pagination count={100} pageSize={10} defaultPage={1} {variant} />
+				<Pagination count={100} pageSize={10} defaultPage={1} {variant} aria-label="{variant} variant pagination" />
 			</HStack>
 		{/each}
 	</Stack>
@@ -229,6 +229,7 @@
 					defaultPage={1}
 					variant="solid"
 					{colour}
+					aria-label="{colour} colour pagination"
 				/>
 			</HStack>
 		{/each}
