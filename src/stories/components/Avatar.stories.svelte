@@ -8,6 +8,7 @@
 		getControls,
 		avatarSizes,
 		avatarShapes,
+		avatarVariants,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -16,7 +17,7 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["solid", "subtle", "outline"],
+				options: avatarVariants,
 			},
 			colour: commonArgTypes.colour,
 			size: {

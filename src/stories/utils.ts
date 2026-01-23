@@ -119,6 +119,48 @@ export const floatPlacements = [
 	"middle-end",
 ] as const;
 
+// Typography (additional)
+export const blockquoteVariants = ["subtle", "solid", "plain"] as const;
+
+// Components (additional)
+export const circleVariants = ["solid", "subtle", "outline", "plain"] as const;
+export const linkVariants = ["underline", "plain"] as const;
+export const listVariants = ["marker", "plain"] as const;
+export const hoverCardSizes = ["xs", "sm", "md", "lg"] as const;
+export const editableSizes = ["xs", "sm", "md", "lg"] as const;
+export const editableActivationModes = ["focus", "dblclick", "click", "none"] as const;
+export const dialogSizes = ["xs", "sm", "md", "lg", "xl", "cover", "full"] as const;
+export const dialogPlacements = ["center", "top", "bottom"] as const;
+export const dialogScrollBehaviors = ["outside", "inside"] as const;
+export const dialogMotionPresets = ["scale", "slide-in-bottom", "none"] as const;
+export const dialogRoles = ["dialog", "alertdialog"] as const;
+export const drawerSizes = ["xs", "sm", "md", "lg", "xl", "full"] as const;
+export const drawerPlacements = ["start", "end", "top", "bottom"] as const;
+export const toastStatuses = ["info", "success", "warning", "error", "loading"] as const;
+export const tooltipVariants = ["default", "inverted"] as const;
+export const closeButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export const closeButtonVariants = ["ghost", "outline", "subtle", "solid", "glass", "surface", "plain"] as const;
+export const toggleTipSizes = ["xs", "sm", "md", "lg"] as const;
+export const toggleTipPlacements = ["top", "bottom", "left", "right"] as const;
+export const inputSizes = ["xs", "sm", "md", "lg"] as const;
+
+// Common alignment/layout options
+export const alignOptions = ["start", "center", "end"] as const;
+export const stackDirections = ["row", "column", "row-reverse", "col-reverse"] as const;
+export const stackAlignOptions = ["start", "center", "end", "stretch", "baseline"] as const;
+export const stackJustifyOptions = ["start", "center", "end", "between", "around"] as const;
+
+// Additional component options
+export const avatarVariants = ["solid", "subtle", "outline"] as const;
+export const kbdSizes = ["sm", "md", "lg"] as const;
+export const navbarPositions = ["static", "sticky", "fixed"] as const;
+export const textLeadingOptions = ["1", "2", "3", "4", "5", "6", "none"] as const;
+export const pinInputTypes = ["numeric", "alphabetic", "alphanumeric"] as const;
+export const paginationLabelVariants = ["short", "long"] as const;
+export const paginationTypes = ["button", "link"] as const;
+export const linkBoxAsOptions = ["div", "article", "section", "aside", "figure"] as const;
+export const listAsOptions = ["ul", "ol"] as const;
+
 export const commonArgTypes = {
     variant: {
         control: "select",

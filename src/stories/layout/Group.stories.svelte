@@ -4,7 +4,7 @@
 	import { Button } from "$saas/components/button";
 	import { Badge } from "$saas/components/badge";
 	import { VStack, DecorativeBox } from "$saas/layout/stack";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, orientations } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "layout/Group",
@@ -24,7 +24,7 @@
 			},
 			orientation: {
 				control: "radio",
-				options: ["horizontal", "vertical"],
+				options: orientations,
 				description: "The orientation of the group.",
 				table: { defaultValue: { summary: "horizontal" } },
 			},

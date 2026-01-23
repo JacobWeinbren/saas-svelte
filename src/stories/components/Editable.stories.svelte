@@ -6,7 +6,13 @@
 	import PencilSimple from "phosphor-svelte/lib/PencilSimple";
 	import Check from "phosphor-svelte/lib/Check";
 	import X from "phosphor-svelte/lib/X";
-	import { commonArgTypes, getControls, colours } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		editableSizes,
+		editableActivationModes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Editable",
@@ -23,7 +29,7 @@
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
-				options: ["xs", "sm", "md", "lg"],
+				options: editableSizes,
 			},
 			colour: {
 				...commonArgTypes.colour,
@@ -33,7 +39,7 @@
 			invalid: commonArgTypes.invalid,
 			activationMode: {
 				control: "select",
-				options: ["focus", "dblclick", "click", "none"],
+				options: editableActivationModes,
 			},
 			class: commonArgTypes.class,
 		},

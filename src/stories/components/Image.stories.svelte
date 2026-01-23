@@ -4,6 +4,7 @@
 	import { Stack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import {
+		commonArgTypes,
 		getControls,
 		imageRoundedOptions,
 		imageFitOptions,
@@ -48,10 +49,7 @@
 				description: "The object-fit property of the image.",
 				table: { defaultValue: { summary: "cover" } },
 			},
-			class: {
-				control: "text",
-				description: "Additional CSS classes to apply.",
-			},
+			class: commonArgTypes.class,
 		},
 		parameters: {
 			controls: getControls([

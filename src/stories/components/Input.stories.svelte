@@ -15,8 +15,8 @@
 	import {
 		commonArgTypes,
 		getControls,
-		sizes,
 		inputVariants,
+		inputSizes,
 		colours,
 	} from "../utils";
 
@@ -41,7 +41,7 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: sizes.filter((s) => s !== "xl"),
+				options: inputSizes,
 			},
 			colour: {
 				...commonArgTypes.colour,
@@ -65,7 +65,7 @@
 
 {#snippet variantsStory()}
 	<Stack gap={4} class="max-w-md">
-		{#each ["outline", "subtle", "flushed"] as const as variant}
+		{#each inputVariants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[8ch]">{variant}</Text>
 				<Input {variant} placeholder="Placeholder" class="flex-1" />
@@ -76,7 +76,7 @@
 
 {#snippet sizesStory()}
 	<Stack gap={4} class="max-w-md">
-		{#each ["xs", "sm", "md", "lg"] as const as size}
+		{#each inputSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
 				<Input {size} placeholder="Placeholder" class="flex-1" />

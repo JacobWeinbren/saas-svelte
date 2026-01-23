@@ -4,10 +4,10 @@
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import {
-		sizes,
 		commonArgTypes,
 		getControls,
 		kbdVariants,
+		kbdSizes,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -21,7 +21,7 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: kbdSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			children: commonArgTypes.children,
@@ -65,12 +65,10 @@
 
 {#snippet sizesStory()}
 	<HStack gap={8} class="flex-wrap">
-		{#each ["sm", "md", "lg"] as size}
+		{#each kbdSizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
-				<Kbd size={size as "sm" | "md" | "lg"} variant="outline"
-					>Shift + Tab</Kbd
-				>
+				<Kbd {size} variant="outline">Shift + Tab</Kbd>
 			</VStack>
 		{/each}
 	</HStack>

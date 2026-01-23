@@ -3,7 +3,13 @@
 	import { List } from "$saas/components/list";
 	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
 	import CircleDashed from "phosphor-svelte/lib/CircleDashed";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		listVariants,
+		alignOptions,
+		listAsOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/List",
@@ -13,20 +19,20 @@
 		argTypes: {
 			variant: {
 				control: "select",
-				options: ["marker", "plain"],
+				options: listVariants,
 				description: "The visual style of the list.",
 				table: { defaultValue: { summary: "marker" } },
 			},
 			align: {
 				control: "select",
-				options: ["start", "center", "end"],
+				options: alignOptions,
 				description:
 					"The alignment of list item content with indicators.",
 				table: { defaultValue: { summary: "start" } },
 			},
 			as: {
 				control: "select",
-				options: ["ul", "ol"],
+				options: listAsOptions,
 				description: "The HTML element to render.",
 				table: { defaultValue: { summary: "ul" } },
 			},

@@ -8,7 +8,7 @@
 	import { Text } from "$saas/typography/text";
 	import { Stack } from "$saas/layout/stack";
 
-	import { getControls } from "../utils";
+	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "utilities/Locale Provider",
@@ -19,11 +19,7 @@
 				description: "The locale to use for the application.",
 				table: { defaultValue: { summary: "en-US" } },
 			},
-			children: {
-				control: false,
-				description: "The content to be rendered inside the provider.",
-				table: { type: { summary: "Snippet" } },
-			},
+			children: commonArgTypes.children,
 		},
 		parameters: {
 			controls: getControls(["locale"]),

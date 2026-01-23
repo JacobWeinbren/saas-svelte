@@ -4,7 +4,12 @@
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import Info from "phosphor-svelte/lib/Info";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		toggleTipSizes,
+		toggleTipPlacements,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Toggle Tip",
@@ -16,12 +21,12 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["xs", "sm", "md", "lg"],
+				options: toggleTipSizes,
 				table: { defaultValue: { summary: "sm" } },
 			},
 			placement: {
 				control: "select",
-				options: ["top", "bottom", "left", "right"],
+				options: toggleTipPlacements,
 				description: "The placement of the toggle tip.",
 				table: { defaultValue: { summary: "top" } },
 			},

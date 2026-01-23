@@ -9,6 +9,8 @@
 		colours,
 		paginationSizes,
 		paginationVariants,
+		paginationLabelVariants,
+		paginationTypes,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -71,7 +73,7 @@
 			},
 			pageTextFormat: {
 				control: "select",
-				options: ["short", "long"],
+				options: paginationLabelVariants,
 				description:
 					'The format of the page text. "short" shows "1 of 7", "long" shows "1 - 5 of 50".',
 				table: { defaultValue: { summary: "short" } },
@@ -83,7 +85,7 @@
 			},
 			type: {
 				control: "select",
-				options: ["button", "link"],
+				options: paginationTypes,
 				description: "The type of the trigger element.",
 				table: { defaultValue: { summary: "button" } },
 			},

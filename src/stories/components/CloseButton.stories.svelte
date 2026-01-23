@@ -4,37 +4,29 @@
 	import { HStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import XCircle from "phosphor-svelte/lib/XCircle";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		closeButtonSizes,
+		closeButtonVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Close Button",
 		component: CloseButton,
 		argTypes: {
 			size: {
-				control: "select",
-				options: ["xs", "sm", "md", "lg", "xl"],
-				description: "The size of the close button.",
+				...commonArgTypes.size,
+				options: closeButtonSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			variant: {
-				control: "select",
-				options: [
-					"ghost",
-					"outline",
-					"subtle",
-					"solid",
-					"glass",
-					"surface",
-					"plain",
-				],
-				description: "The visual style of the close button.",
+				...commonArgTypes.variant,
+				options: closeButtonVariants,
 				table: { defaultValue: { summary: "ghost" } },
 			},
 			colour: commonArgTypes.colour,
-			disabled: {
-				control: "boolean",
-				description: "Whether the close button is disabled.",
-			},
+			disabled: commonArgTypes.disabled,
 			class: commonArgTypes.class,
 		},
 		parameters: {

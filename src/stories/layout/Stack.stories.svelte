@@ -7,7 +7,13 @@
 		Divider,
 		DecorativeBox,
 	} from "$saas/layout/stack";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		stackDirections,
+		stackAlignOptions,
+		stackJustifyOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "layout/Stack",
@@ -15,17 +21,17 @@
 		argTypes: {
 			direction: {
 				control: "select",
-				options: ["row", "column", "row-reverse", "col-reverse"],
+				options: stackDirections,
 				table: { defaultValue: { summary: "column" } },
 			},
 			align: {
 				control: "select",
-				options: ["start", "center", "end", "stretch", "baseline"],
+				options: stackAlignOptions,
 				table: { defaultValue: { summary: "stretch" } },
 			},
 			justify: {
 				control: "select",
-				options: ["start", "center", "end", "between", "around"],
+				options: stackJustifyOptions,
 				table: { defaultValue: { summary: "start" } },
 			},
 			class: commonArgTypes.class,

@@ -15,6 +15,7 @@
 		commonArgTypes,
 		getControls,
 		navbarVariants,
+		navbarPositions,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -28,7 +29,7 @@
 			},
 			position: {
 				control: "select",
-				options: ["static", "sticky", "fixed"],
+				options: navbarPositions,
 				description: "The position of the navbar.",
 				table: { defaultValue: { summary: "static" } },
 			},

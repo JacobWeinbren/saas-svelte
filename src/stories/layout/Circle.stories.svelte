@@ -1,21 +1,21 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Circle } from "$saas/layout/circle";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, sizes, circleVariants } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "layout/Circle",
 		component: Circle,
 		argTypes: {
 			size: {
-				control: "select",
-				options: ["xs", "sm", "md", "lg", "xl"],
+				...commonArgTypes.size,
+				options: sizes,
 				description: "The size of the circle.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			variant: {
 				control: "select",
-				options: ["solid", "subtle", "outline", "plain"],
+				options: circleVariants,
 				description: "The visual style of the circle.",
 				table: { defaultValue: { summary: "solid" } },
 			},

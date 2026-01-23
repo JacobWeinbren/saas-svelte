@@ -11,6 +11,7 @@
 		colours,
 		inputVariants,
 		pinInputSizes,
+		pinInputTypes,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -59,7 +60,7 @@
 			},
 			type: {
 				control: "select",
-				options: ["numeric", "alphabetic", "alphanumeric"],
+				options: pinInputTypes,
 				description: "The type of value the pin input should allow.",
 				table: { defaultValue: { summary: "numeric" } },
 			},

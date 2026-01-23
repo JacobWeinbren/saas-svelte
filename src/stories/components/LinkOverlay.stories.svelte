@@ -5,7 +5,7 @@
 	import { Text } from "$saas/typography/text";
 	import { Heading } from "$saas/typography/heading";
 	import { VStack } from "$saas/layout/stack";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, linkBoxAsOptions } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Link Overlay",
@@ -13,7 +13,7 @@
 		argTypes: {
 			as: {
 				control: "select",
-				options: ["div", "article", "section", "aside", "figure"],
+				options: linkBoxAsOptions,
 				description: "The HTML element to render.",
 				table: { defaultValue: { summary: "div" } },
 			},

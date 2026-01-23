@@ -5,15 +5,15 @@
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
 	import { VStack, HStack } from "$saas/layout/stack";
-	import { getControls } from "../utils";
+	import { commonArgTypes, getControls, hoverCardSizes } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Hover Card",
 		component: HoverCardRoot,
 		argTypes: {
 			size: {
-				control: "select",
-				options: ["xs", "sm", "md", "lg"],
+				...commonArgTypes.size,
+				options: hoverCardSizes,
 				description: "The size of the hover card.",
 				table: { defaultValue: { summary: "md" } },
 			},

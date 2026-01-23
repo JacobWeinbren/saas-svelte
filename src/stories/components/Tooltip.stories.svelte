@@ -6,7 +6,7 @@
 	import Info from "phosphor-svelte/lib/Info";
 	import Question from "phosphor-svelte/lib/Question";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { commonArgTypes } from "../utils";
+	import { commonArgTypes, getControls, tooltipVariants } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Tooltip",
@@ -21,7 +21,7 @@
 			},
 			variant: {
 				control: "select",
-				options: ["default", "inverted"],
+				options: tooltipVariants,
 				table: { defaultValue: { summary: "default" } },
 			},
 			interactive: {
@@ -47,6 +47,20 @@
 			disabled: commonArgTypes.disabled,
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
+		},
+		parameters: {
+			controls: getControls([
+				"content",
+				"showArrow",
+				"variant",
+				"interactive",
+				"openDelay",
+				"closeDelay",
+				"positioning",
+				"disabled",
+				"class",
+				"children",
+			]),
 		},
 		args: {
 			content: "This is a tooltip",

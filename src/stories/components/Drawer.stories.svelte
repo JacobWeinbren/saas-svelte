@@ -7,7 +7,13 @@
 	import { Text } from "$saas/typography/text";
 	import { Kbd } from "$saas/components/kbd";
 
-	import { commonArgTypes, getControls, sizes } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		drawerSizes,
+		drawerPlacements,
+		dialogRoles,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Drawer",
@@ -18,11 +24,11 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: [...sizes, "full"],
+				options: drawerSizes,
 			},
 			placement: {
 				control: "select",
-				options: ["start", "end", "top", "bottom"],
+				options: drawerPlacements,
 				table: { defaultValue: { summary: "end" } },
 			},
 			attached: {
@@ -33,7 +39,7 @@
 			},
 			role: {
 				control: "select",
-				options: ["dialog", "alertdialog"],
+				options: dialogRoles,
 				table: { defaultValue: { summary: "dialog" } },
 			},
 			children: commonArgTypes.children,

@@ -37,14 +37,7 @@
 				control: "select",
 				description:
 					"The weight/style of the icon (for Phosphor icons).",
-				options: [
-					"thin",
-					"light",
-					"regular",
-					"bold",
-					"fill",
-					"duotone",
-				],
+				options: iconWeights,
 				table: {
 					type: {
 						summary:

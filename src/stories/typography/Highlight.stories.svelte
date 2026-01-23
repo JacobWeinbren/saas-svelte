@@ -4,7 +4,7 @@
 	import { Heading } from "$saas/typography/heading";
 	import { Text } from "$saas/typography/text";
 	import { Stack } from "$saas/layout/stack";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, markVariants } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Highlight",
@@ -26,7 +26,7 @@
 			},
 			variant: {
 				control: "select",
-				options: ["subtle", "solid", "text", "plain"],
+				options: markVariants,
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			colour: commonArgTypes.colour,

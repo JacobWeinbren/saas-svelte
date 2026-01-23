@@ -4,7 +4,7 @@
 	import { VStack } from "$saas/layout/stack";
 	import ArrowSquareOut from "phosphor-svelte/lib/ArrowSquareOut";
 	import { Icon } from "$saas/components/icon";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import { colours, commonArgTypes, getControls, linkVariants } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Link",
@@ -12,7 +12,7 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["underline", "plain"],
+				options: linkVariants,
 			},
 			colour: {
 				...commonArgTypes.colour,

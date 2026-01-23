@@ -15,7 +15,15 @@
 	import { Textarea } from "$saas/components/textarea";
 	import { Text } from "$saas/typography/text";
 
-	import { commonArgTypes, getControls, sizes } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		dialogSizes,
+		dialogPlacements,
+		dialogScrollBehaviors,
+		dialogMotionPresets,
+		dialogRoles,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Dialog",
@@ -26,26 +34,26 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: [...sizes, "cover", "full"],
+				options: dialogSizes,
 			},
 			placement: {
 				control: "select",
-				options: ["center", "top", "bottom"],
+				options: dialogPlacements,
 				table: { defaultValue: { summary: "center" } },
 			},
 			scrollBehavior: {
 				control: "select",
-				options: ["outside", "inside"],
+				options: dialogScrollBehaviors,
 				table: { defaultValue: { summary: "outside" } },
 			},
 			motionPreset: {
 				control: "select",
-				options: ["scale", "slide-in-bottom", "none"],
+				options: dialogMotionPresets,
 				table: { defaultValue: { summary: "scale" } },
 			},
 			role: {
 				control: "select",
-				options: ["dialog", "alertdialog"],
+				options: dialogRoles,
 				table: { defaultValue: { summary: "dialog" } },
 			},
 			children: commonArgTypes.children,

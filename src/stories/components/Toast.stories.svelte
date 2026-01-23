@@ -3,7 +3,7 @@
 	import { Toast, type ToastStatus } from "$saas/components/toast";
 	import { HStack } from "$saas/layout/stack";
 	import { Button } from "$saas/components/button";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, toastStatuses } from "../utils";
 	import ToastStoryWrapper, {
 		sharedToaster as toaster,
 	} from "./ToastStoryWrapper.svelte";
@@ -14,7 +14,7 @@
 		argTypes: {
 			status: {
 				control: "select",
-				options: ["info", "success", "warning", "error", "loading"],
+				options: toastStatuses,
 				description: "The status of the toast.",
 				table: { defaultValue: { summary: "info" } },
 			},

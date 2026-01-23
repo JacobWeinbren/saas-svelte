@@ -30,7 +30,7 @@
 	<GridList.Root {...args}>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Sarah Johnson" />
+				<Checkbox.Root aria-label="Select Sarah Johnson" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Sarah Johnson</Text>
@@ -42,7 +42,7 @@
 		</GridList.Item>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Michael Chen" />
+				<Checkbox.Root aria-label="Select Michael Chen" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Michael Chen</Text>
@@ -54,7 +54,7 @@
 		</GridList.Item>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Emma Rodriguez" />
+				<Checkbox.Root aria-label="Select Emma Rodriguez" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Emma Rodriguez</Text>
@@ -72,7 +72,7 @@
 		<GridList.Header>Users</GridList.Header>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Sarah Johnson" />
+				<Checkbox.Root aria-label="Select Sarah Johnson" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Sarah Johnson</Text>
@@ -84,7 +84,7 @@
 		</GridList.Item>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Michael Chen" />
+				<Checkbox.Root aria-label="Select Michael Chen" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Michael Chen</Text>
@@ -96,7 +96,7 @@
 		</GridList.Item>
 		<GridList.Item>
 			<GridList.Cell width="8">
-				<Checkbox aria-label="Select Emma Rodriguez" />
+				<Checkbox.Root aria-label="Select Emma Rodriguez" />
 			</GridList.Cell>
 			<GridList.Cell flex="1">
 				<Text class="font-medium">Emma Rodriguez</Text>

@@ -45,12 +45,12 @@
 
 {#snippet basicStory(args: any)}
 	<div>
-		<Checkbox
+		<Checkbox.Root
 			checked={basicOpen}
 			onCheckedChange={(e) => (basicOpen = !!e.checked)}
 		>
 			Show Action Bar
-		</Checkbox>
+		</Checkbox.Root>
 
 		<ActionBar
 			open={basicOpen}
@@ -73,12 +73,12 @@
 
 {#snippet closableStory()}
 	<div>
-		<Checkbox
+		<Checkbox.Root
 			checked={closableOpen}
 			onCheckedChange={(e) => (closableOpen = !!e.checked)}
 		>
 			Show Action Bar
-		</Checkbox>
+		</Checkbox.Root>
 
 		<ActionBar
 			open={closableOpen}
@@ -101,12 +101,12 @@
 
 {#snippet multipleActionsStory()}
 	<div>
-		<Checkbox
+		<Checkbox.Root
 			checked={multipleActionsOpen}
 			onCheckedChange={(e) => (multipleActionsOpen = !!e.checked)}
 		>
 			Show Action Bar
-		</Checkbox>
+		</Checkbox.Root>
 
 		<ActionBar open={multipleActionsOpen}>
 			<ActionBarSelectionTrigger>4 selected</ActionBarSelectionTrigger>
@@ -131,13 +131,13 @@
 			>
 			<HStack gap={2} class="flex-wrap">
 				{#each Array(5) as _, i}
-					<Checkbox
+					<Checkbox.Root
 						onCheckedChange={(e) => {
 							selectedCount += e.checked ? 1 : -1;
 						}}
 					>
 						Item {i + 1}
-					</Checkbox>
+					</Checkbox.Root>
 				{/each}
 			</HStack>
 		</VStack>

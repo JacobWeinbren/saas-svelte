@@ -7,7 +7,13 @@
 	import { Circle } from "$saas/layout/circle";
 	import { Float } from "$saas/layout/float";
 	import type { ColourName } from "$saas/utils/colours";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import {
+		colours,
+		commonArgTypes,
+		getControls,
+		blockquoteVariants,
+		alignOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Block Quote",
@@ -15,7 +21,7 @@
 		argTypes: {
 			variant: {
 				control: "select",
-				options: ["subtle", "solid", "plain"],
+				options: blockquoteVariants,
 				description: "The visual style of the blockquote.",
 				table: { defaultValue: { summary: "subtle" } },
 			},
@@ -25,7 +31,7 @@
 			},
 			justify: {
 				control: "select",
-				options: ["start", "center", "end"],
+				options: alignOptions,
 				description: "The alignment of the content.",
 				table: { defaultValue: { summary: "start" } },
 			},

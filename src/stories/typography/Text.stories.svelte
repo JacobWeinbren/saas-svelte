@@ -7,6 +7,7 @@
 		getControls,
 		textSizes,
 		textWeights,
+		textLeadingOptions,
 	} from "../utils";
 
 	const { Story } = defineMeta({
@@ -31,7 +32,7 @@
 			},
 			lineClamp: {
 				control: "select",
-				options: ["1", "2", "3", "4", "5", "6", "none"],
+				options: textLeadingOptions,
 			},
 			fontWeight: {
 				table: { disable: true },
