@@ -79,6 +79,8 @@ export const breadcrumbVariants = ["plain", "underline"] as const;
 export const cardVariants = ["subtle", "outline", "elevated"] as const;
 export const cardSizes = ["sm", "md", "lg"] as const;
 export const checkboxSizes = ["sm", "md", "lg"] as const;
+export const radioVariants = ["outline", "subtle", "solid"] as const;
+export const radioSizes = ["sm", "md", "lg"] as const;
 export const checkboxCardVariants = ["subtle", "surface", "outline"] as const;
 export const checkboxCardSizes = ["sm", "md", "lg"] as const;
 export const comboboxSizes = ["xs", "sm", "md", "lg"] as const;
@@ -219,6 +221,8 @@ export {
     buttonPattern,
     checkboxPattern,
     checkboxGroupPattern,
+    radioGroupPattern,
+    radioItemPattern,
     dialogRootPattern,
     drawerRootPattern,
     iconPattern,

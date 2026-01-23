@@ -19,6 +19,9 @@ export const buttonPattern = makePattern(['variant', 'size', 'colour', 'loading'
 export const checkboxPattern = makePattern(['checked', 'size', 'variant', 'colour', 'label', 'description', 'disabled', 'invalid', 'icon', 'value', 'class', 'children']);
 export const checkboxGroupPattern = makePattern(['orientation', 'class', 'children']);
 
+export const radioGroupPattern = makePattern(['value', 'defaultValue', 'size', 'variant', 'colour', 'orientation', 'disabled', 'invalid', 'readOnly', 'name', 'onValueChange', 'class', 'children']);
+export const radioItemPattern = makePattern(['value', 'label', 'disabled', 'invalid', 'class', 'children']);
+
 export const dialogRootPattern = makePattern(['open', 'size', 'placement', 'scrollBehavior', 'motionPreset', 'role', 'initialFocusEl', 'finalFocusEl', 'restoreFocus', 'lazyMount', 'unmountOnExit', 'class', 'children']);
 
 export const drawerRootPattern = makePattern(['open', 'size', 'placement', 'attached', 'role', 'initialFocusEl', 'finalFocusEl', 'restoreFocus', 'lazyMount', 'unmountOnExit', 'class', 'children']);
