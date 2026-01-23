@@ -245,6 +245,7 @@ export {
     personaSecondaryLabelPattern,
     personaTertiaryLabelPattern,
     pinInputPattern,
+    progressCirclePattern,
 } from "./exclude-patterns";
 
 

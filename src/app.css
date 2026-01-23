@@ -357,6 +357,21 @@ body {
 		cubic-bezier(0.32, 0.72, 0, 1) forwards;
 	--animate-action-bar-out: action-bar-out var(--durations-moderate) ease-in
 		forwards;
+
+	/* Progress Circle animations */
+	@keyframes circular-progress {
+		0% {
+			stroke-dashoffset: 75%;
+		}
+		50% {
+			stroke-dashoffset: 25%;
+		}
+		100% {
+			stroke-dashoffset: 75%;
+		}
+	}
+
+	--animate-circular-progress: circular-progress 1.5s linear infinite;
 }
 
 :root {
