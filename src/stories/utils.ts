@@ -235,6 +235,7 @@ export {
     linkBoxPattern,
     linkOverlayPattern,
     numberInputPattern,
+    paginationPattern,
 } from "./exclude-patterns";
 
 

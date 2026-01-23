@@ -186,3 +186,5 @@ export const linkBoxPattern = makePattern(['as', 'class', 'children']);
 export const linkOverlayPattern = makePattern(['variant', 'colour', 'href', 'class', 'children']);
 
 export const numberInputPattern = makePattern(['size', 'colour', 'invalid', 'disabled', 'placeholder', 'value', 'defaultValue', 'onValueChange', 'min', 'max', 'step', 'allowMouseWheel', 'clampValueOnBlur', 'allowOverflow', 'spinOnPress', 'inputMode', 'locale', 'formatOptions', 'name', 'required', 'readOnly', 'class']);
+
+export const paginationPattern = makePattern(['count', 'pageSize', 'page', 'defaultPage', 'siblingCount', 'size', 'variant', 'colour', 'onPageChange', 'class']);
