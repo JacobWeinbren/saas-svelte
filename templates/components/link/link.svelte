@@ -46,7 +46,7 @@
 	interface Props extends HTMLAnchorAttributes {
 		/**
 		 * The visual style of the link.
-		 * @default "plain"
+		 * @default "underline"
 		 */
 		variant?: LinkVariants["variant"];
 		/**

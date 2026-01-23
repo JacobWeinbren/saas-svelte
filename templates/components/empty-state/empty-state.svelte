@@ -101,6 +101,9 @@
 		 * Inline styles to apply to the empty state.
 		 */
 		style?: string;
+		/**
+		 * Additional HTML attributes to spread onto the container element.
+		 */
 		[key: string]: any;
 	}
 

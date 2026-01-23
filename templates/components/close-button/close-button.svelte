@@ -110,6 +110,11 @@
 		 * Custom icon or content for the close button.
 		 */
 		children?: Snippet;
+		/**
+		 * Accessible label for the close button.
+		 * @default "Close"
+		 */
+		"aria-label"?: string;
 	}
 
 	let {

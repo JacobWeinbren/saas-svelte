@@ -146,6 +146,9 @@
 		onCheckedChange?: (details: {
 			checked: boolean | "indeterminate";
 		}) => void;
+		/**
+		 * Additional props to spread onto the Ark Checkbox.Root component.
+		 */
 		[key: string]: any;
 	}
 

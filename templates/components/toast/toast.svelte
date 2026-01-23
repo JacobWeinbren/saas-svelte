@@ -121,14 +121,43 @@
 	import { Spinner } from "$saas/components/spinner";
 
 	interface Props {
+		/**
+		 * Additional CSS classes to apply.
+		 */
 		class?: string;
+		/**
+		 * The status/type of the toast notification.
+		 * @default "info"
+		 */
 		status?: ToastStatus;
+		/**
+		 * Custom icon component, or false to hide the icon.
+		 */
 		icon?: boolean | Component<any>;
+		/**
+		 * The title text of the toast.
+		 */
 		title?: string;
+		/**
+		 * The description text of the toast.
+		 */
 		description?: string;
+		/**
+		 * An action button to display in the toast.
+		 */
 		action?: { label: string; onClick?: () => void };
+		/**
+		 * Whether the toast can be dismissed.
+		 * @default true
+		 */
 		closable?: boolean;
+		/**
+		 * Callback invoked when the toast is closed.
+		 */
 		onclose?: () => void;
+		/**
+		 * Custom content to render inside the toast.
+		 */
 		children?: Snippet;
 	}
 

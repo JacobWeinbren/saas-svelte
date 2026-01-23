@@ -71,6 +71,9 @@
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
+		/**
+		 * The quote content to display.
+		 */
 		children?: Snippet;
 	}
 

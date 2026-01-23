@@ -3,6 +3,9 @@
 	import type { Snippet } from "svelte";
 
 	interface Props {
+		/**
+		 * Additional content to render below the locale display.
+		 */
 		children?: Snippet;
 	}
 

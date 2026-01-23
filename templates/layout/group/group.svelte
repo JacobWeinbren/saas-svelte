@@ -53,8 +53,13 @@
 
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
+	import type { Snippet } from "svelte";
 
 	interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "class"> {
+		/**
+		 * The content to render inside the group.
+		 */
+		children?: Snippet;
 		/**
 		 * Additional CSS classes to apply.
 		 */

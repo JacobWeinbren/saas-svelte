@@ -3,20 +3,22 @@
 
 	interface Props {
 		/**
-		 * The byte size to format
+		 * The byte size to format.
 		 */
 		value: number;
 		/**
-		 * The unit granularity to display
+		 * The unit granularity to display.
+		 * @default "byte"
 		 */
 		unit?: "bit" | "byte";
 		/**
-		 * The unit display format
+		 * The unit display format.
+		 * @default "short"
 		 */
 		unitDisplay?: "long" | "short" | "narrow";
 		/**
-		 * The locale to use for formatting
-		 * If not provided, uses the locale from LocaleProvider context
+		 * The locale to use for formatting.
+		 * If not provided, uses the locale from LocaleProvider context.
 		 */
 		locale?: string;
 	}

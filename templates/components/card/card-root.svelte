@@ -56,6 +56,10 @@
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
+		/**
+		 * Inline styles to apply to the card.
+		 */
+		style?: string;
 	}
 
 	let {

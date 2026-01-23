@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
-	import { setContext } from "svelte";
+	import { setContext, type Snippet } from "svelte";
 	import { writable } from "svelte/store";
 	import { FIELD_CTX, type FieldContextValue } from "./types";
 
@@ -33,6 +33,10 @@
 		 * Additional CSS classes to apply to the field container.
 		 */
 		class?: string;
+		/**
+		 * The field content (label, input, helper text, etc.).
+		 */
+		children?: Snippet;
 	}
 
 	let {

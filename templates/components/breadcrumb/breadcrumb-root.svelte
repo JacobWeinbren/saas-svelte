@@ -46,10 +46,7 @@
 </script>
 
 <script lang="ts">
-	import type { Snippet, Component } from "svelte";
 	import { setContext } from "svelte";
-
-	type BreadcrumbVariants = VariantProps<typeof breadcrumb>;
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		/**

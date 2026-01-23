@@ -37,16 +37,29 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
 
-	type Props = HTMLAttributes<HTMLElement> & {
+	interface Props extends HTMLAttributes<HTMLElement> {
+		/**
+		 * The placement of the floating element.
+		 * @default "top-end"
+		 */
 		placement?: FloatVariants["placement"];
-		/** Adds to X (Right) */
+		/**
+		 * Offset applied to the X axis (right direction).
+		 */
 		offsetX?: number | string;
-		/** Adds to Y (Up - Cartesian style) */
+		/**
+		 * Offset applied to the Y axis (up direction, Cartesian style).
+		 */
 		offsetY?: number | string;
-		/** Applied to both X and Y */
+		/**
+		 * Offset applied to both X and Y axes.
+		 */
 		offset?: number | string;
+		/**
+		 * The content to render inside the floating container.
+		 */
 		children?: Snippet;
-	};
+	}
 
 	let {
 		placement = "top-end",

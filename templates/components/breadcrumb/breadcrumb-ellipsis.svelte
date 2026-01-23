@@ -41,7 +41,8 @@
 		{#if typeof context?.separator === "string"}
 			{context.separator}
 		{:else if context?.separator}
-			{@render context.separator()}
+			{@const Separator = context.separator}
+			<Separator />
 		{:else}
 			/
 		{/if}

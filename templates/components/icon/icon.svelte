@@ -31,11 +31,32 @@
 	type IconVariants = VariantProps<typeof iconStyles>;
 
 	interface Props extends SVGAttributes<SVGElement> {
+		/**
+		 * The icon component to render (e.g., a Phosphor icon).
+		 */
 		as?: Component<any>;
+		/**
+		 * The size of the icon.
+		 * @default "md"
+		 */
 		size?: IconVariants["size"];
+		/**
+		 * The colour palette of the icon.
+		 */
 		colour?: ColourName;
+		/**
+		 * The weight/style of the icon (for Phosphor icons).
+		 * @default "regular"
+		 */
 		weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
+		/**
+		 * Whether to mirror the icon horizontally.
+		 * @default false
+		 */
 		mirrored?: boolean;
+		/**
+		 * Custom SVG content to render when not using the `as` prop.
+		 */
 		children?: Snippet;
 	}
 

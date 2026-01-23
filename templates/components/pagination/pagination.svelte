@@ -311,7 +311,7 @@
 		class: className,
 		style,
 		id,
-		"aria-label": ariaLabel,
+		"aria-label": ariaLabel = "pagination",
 	}: Props = $props();
 
 	// Convert getHref to getPageUrl format for Ark UI

@@ -79,6 +79,10 @@
 		 * Content to render inside the action bar.
 		 */
 		children?: Snippet;
+		/**
+		 * Additional CSS classes to apply.
+		 */
+		class?: string;
 	}
 
 	let {
