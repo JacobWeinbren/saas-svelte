@@ -244,6 +244,7 @@ export {
     personaLabelPattern,
     personaSecondaryLabelPattern,
     personaTertiaryLabelPattern,
+    pinInputPattern,
 } from "./exclude-patterns";
 
 

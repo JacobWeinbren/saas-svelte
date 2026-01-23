@@ -36,21 +36,21 @@
 			if (isActive) {
 				return twMerge(base, "text-white bg-(--c-solid) border-(--c-solid)");
 			}
-			return twMerge(base, "text-white border-border-default");
+			return twMerge(base, "text-white border-border-emphasized");
 		}
 
 		if (variant === "subtle") {
 			if (isActive) {
 				return twMerge(base, "bg-(--c-subtle) border-(--c-muted) text-(--c-fg)");
 			}
-			return twMerge(base, "text-white border-border-default");
+			return twMerge(base, "text-white border-border-emphasized");
 		}
 
 		if (variant === "outline") {
 			if (isActive) {
 				return twMerge(base, "border-(--c-solid) text-(--c-fg)");
 			}
-			return twMerge(base, "text-white border-border-default");
+			return twMerge(base, "text-white border-border-emphasized");
 		}
 
 		return base;

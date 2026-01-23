@@ -198,3 +198,5 @@ export const personaDetailsPattern = makePattern(['class', 'children']);
 export const personaLabelPattern = makePattern(['class', 'children']);
 export const personaSecondaryLabelPattern = makePattern(['class', 'children']);
 export const personaTertiaryLabelPattern = makePattern(['class', 'children']);
+
+export const pinInputPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'placeholder', 'value', 'defaultValue', 'onValueChange', 'onValueComplete', 'onValueInvalid', 'count', 'type', 'otp', 'mask', 'attached', 'autoFocus', 'blurOnComplete', 'selectOnFocus', 'name', 'required', 'readOnly', 'class']);
