@@ -21,7 +21,12 @@
 		[key: string]: any;
 	}
 
-	let { children, class: className, checked = false, ...restProps }: Props = $props();
+	let {
+		children,
+		class: className,
+		checked = false,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<CheckboxContext>(CHECKBOX_CTX);
 	const styles = $derived(ctx.styles);
@@ -34,14 +39,20 @@
 
 		if (variant === "solid") {
 			if (isActive) {
-				return twMerge(base, "text-white bg-(--c-solid) border-(--c-solid)");
+				return twMerge(
+					base,
+					"text-white bg-(--c-solid) border-(--c-solid)",
+				);
 			}
 			return twMerge(base, "text-white border-border-emphasized");
 		}
 
 		if (variant === "subtle") {
 			if (isActive) {
-				return twMerge(base, "bg-(--c-subtle) border-(--c-muted) text-(--c-fg)");
+				return twMerge(
+					base,
+					"bg-(--c-subtle) border-(--c-muted) text-(--c-fg)",
+				);
 			}
 			return twMerge(base, "text-white border-border-emphasized");
 		}
@@ -60,7 +71,7 @@
 <Checkbox.Control
 	class={twMerge(
 		getControlClasses(checked),
-		"group-has-[[data-focus]]:outline-offset-2 group-has-[[data-focus]]:outline-1 group-has-[[data-focus]]:outline-solid group-has-[[data-focus]]:outline-(--c-focus-ring)",
+		"group-has-data-focus:outline-offset-2 group-has-data-focus:outline-1 group-has-data-focus:outline-solid group-has-data-focus:outline-(--c-focus-ring)",
 		className,
 	)}
 	style={colourVars}

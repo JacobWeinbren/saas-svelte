@@ -1,6 +1,10 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Checkbox, CheckboxRoot, CheckboxGroup } from "$saas/components/checkbox";
+	import {
+		Checkbox,
+		CheckboxRoot,
+		CheckboxGroup,
+	} from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
@@ -87,13 +91,18 @@
 
 	let indeterminateValue = $state<string[]>(["monday"]);
 
-	const allSelected = $derived(indeterminateValue.length === indeterminateItems.length);
+	const allSelected = $derived(
+		indeterminateValue.length === indeterminateItems.length,
+	);
 	const isIndeterminate = $derived(
-		indeterminateValue.length > 0 && indeterminateValue.length < indeterminateItems.length
+		indeterminateValue.length > 0 &&
+			indeterminateValue.length < indeterminateItems.length,
 	);
 
 	function handleSelectAll(details: { checked: boolean | "indeterminate" }) {
-		indeterminateValue = details.checked ? indeterminateItems.map((i) => i.value) : [];
+		indeterminateValue = details.checked
+			? indeterminateItems.map((i) => i.value)
+			: [];
 	}
 </script>
 
@@ -116,7 +125,10 @@
 {/snippet}
 
 {#snippet controlledStory(args: any)}
-	<Checkbox.Root bind:checked={args.checked} label="Accept terms and conditions" />
+	<Checkbox.Root
+		bind:checked={args.checked}
+		label="Accept terms and conditions"
+	/>
 {/snippet}
 
 {#snippet coloursStory()}
@@ -127,7 +139,12 @@
 					{colour}
 				</Text>
 				{#each checkboxVariants as variant}
-					<Checkbox.Root {variant} {colour} checked label="Checkbox" />
+					<Checkbox.Root
+						{variant}
+						{colour}
+						checked
+						label="Checkbox"
+					/>
 				{/each}
 			</HStack>
 		{/each}
@@ -215,7 +232,9 @@
 		</Checkbox.Control>
 		<Checkbox.Label>
 			I agree to the{" "}
-			<Link colour="teal" href="https://google.com">terms and conditions</Link>
+			<Link colour="teal" href="https://google.com"
+				>terms and conditions</Link
+			>
 		</Checkbox.Label>
 		<Checkbox.HiddenInput />
 	</Checkbox.Root>

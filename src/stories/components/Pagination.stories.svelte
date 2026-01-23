@@ -62,13 +62,15 @@
 			},
 			compact: {
 				control: "boolean",
-				description: "Whether to show compact page text instead of page items.",
+				description:
+					"Whether to show compact page text instead of page items.",
 				table: { defaultValue: { summary: "false" } },
 			},
 			pageTextFormat: {
 				control: "select",
 				options: ["short", "long"],
-				description: 'The format of the page text. "short" shows "1 of 7", "long" shows "1 - 5 of 50".',
+				description:
+					'The format of the page text. "short" shows "1 of 7", "long" shows "1 - 5 of 50".',
 				table: { defaultValue: { summary: "short" } },
 			},
 			attached: {
@@ -99,7 +101,9 @@
 		},
 	});
 
-	const items = new Array(50).fill(0).map((_, index) => `Lorem ipsum dolor sit amet ${index + 1}`);
+	const items = new Array(50)
+		.fill(0)
+		.map((_, index) => `Lorem ipsum dolor sit amet ${index + 1}`);
 </script>
 
 <script lang="ts">
@@ -128,7 +132,13 @@
 		{#each paginationSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
-				<Pagination count={50} pageSize={10} defaultPage={1} {size} aria-label="{size} size pagination" />
+				<Pagination
+					count={50}
+					pageSize={10}
+					defaultPage={1}
+					{size}
+					aria-label="{size} size pagination"
+				/>
 			</HStack>
 		{/each}
 	</Stack>
@@ -139,19 +149,20 @@
 		{#each paginationVariants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="min-w-[8ch] capitalize">{variant}</Text>
-				<Pagination count={100} pageSize={10} defaultPage={1} {variant} aria-label="{variant} variant pagination" />
+				<Pagination
+					count={100}
+					pageSize={10}
+					defaultPage={1}
+					{variant}
+					aria-label="{variant} variant pagination"
+				/>
 			</HStack>
 		{/each}
 	</Stack>
 {/snippet}
 
 {#snippet siblingCountStory()}
-	<Pagination
-		count={200}
-		pageSize={10}
-		defaultPage={10}
-		siblingCount={2}
-	/>
+	<Pagination count={200} pageSize={10} defaultPage={10} siblingCount={2} />
 {/snippet}
 
 {#snippet controlledStory()}
@@ -164,12 +175,7 @@
 {/snippet}
 
 {#snippet compactStory()}
-	<Pagination
-		count={20}
-		pageSize={2}
-		defaultPage={1}
-		compact
-	/>
+	<Pagination count={20} pageSize={2} defaultPage={1} compact />
 {/snippet}
 
 {#snippet attachedStory()}

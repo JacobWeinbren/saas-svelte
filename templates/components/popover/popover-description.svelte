@@ -20,6 +20,9 @@
 	const ctx = getContext<PopoverContext>(POPOVER_CTX);
 </script>
 
-<Popover.Description class={ctx?.styles?.description({ class: className })} {...rest}>
+<Popover.Description
+	class={ctx?.styles?.description({ class: className })}
+	{...rest}
+>
 	{@render children()}
 </Popover.Description>

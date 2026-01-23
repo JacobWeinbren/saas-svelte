@@ -26,7 +26,13 @@
 
 	const personaSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
 	const avatarShapes = ["square", "rounded", "full"] as const;
-	const presenceStatuses = ["online", "offline", "busy", "dnd", "away"] as const;
+	const presenceStatuses = [
+		"online",
+		"offline",
+		"busy",
+		"dnd",
+		"away",
+	] as const;
 </script>
 
 {#snippet basicStory(args: any)}
@@ -52,7 +58,9 @@
 				/>
 				<Persona.Details>
 					<Persona.Label>David Wilson</Persona.Label>
-					<Persona.SecondaryLabel>Software Engineer</Persona.SecondaryLabel>
+					<Persona.SecondaryLabel
+						>Software Engineer</Persona.SecondaryLabel
+					>
 				</Persona.Details>
 			</Persona.Root>
 		{/each}
@@ -125,7 +133,9 @@
 			</Persona.Avatar>
 			<Persona.Details>
 				<Persona.Label>David Wilson</Persona.Label>
-				<Persona.SecondaryLabel>Software Engineer</Persona.SecondaryLabel>
+				<Persona.SecondaryLabel
+					>Software Engineer</Persona.SecondaryLabel
+				>
 			</Persona.Details>
 		</Persona.Root>
 
@@ -140,7 +150,8 @@
 			</Persona.Avatar>
 			<Persona.Details>
 				<Persona.Label>Marcus Chen</Persona.Label>
-				<Persona.SecondaryLabel>Product Designer</Persona.SecondaryLabel>
+				<Persona.SecondaryLabel>Product Designer</Persona.SecondaryLabel
+				>
 			</Persona.Details>
 		</Persona.Root>
 
@@ -155,7 +166,9 @@
 			</Persona.Avatar>
 			<Persona.Details>
 				<Persona.Label>Sarah Johnson</Persona.Label>
-				<Persona.SecondaryLabel>Engineering Manager</Persona.SecondaryLabel>
+				<Persona.SecondaryLabel
+					>Engineering Manager</Persona.SecondaryLabel
+				>
 			</Persona.Details>
 		</Persona.Root>
 	</Stack>

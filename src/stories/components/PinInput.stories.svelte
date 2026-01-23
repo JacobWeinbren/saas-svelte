@@ -5,7 +5,12 @@
 	import { Button } from "$saas/components/button";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours, inputVariants } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		inputVariants,
+	} from "../utils";
 
 	const pinInputSizes = ["xs", "sm", "md", "lg"] as const;
 
@@ -149,7 +154,8 @@
 	<Stack gap={4}>
 		<PinInput
 			bind:value={controlledValue}
-			onValueComplete={(details) => console.log("Complete:", details.valueAsString)}
+			onValueComplete={(details) =>
+				console.log("Complete:", details.valueAsString)}
 		/>
 		<Text size="sm">Value: {controlledValue.join("") || "(empty)"}</Text>
 	</Stack>

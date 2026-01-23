@@ -143,7 +143,9 @@
 		/**
 		 * Callback invoked when the checked state changes.
 		 */
-		onCheckedChange?: (details: { checked: boolean | "indeterminate" }) => void;
+		onCheckedChange?: (details: {
+			checked: boolean | "indeterminate";
+		}) => void;
 		[key: string]: any;
 	}
 
@@ -181,7 +183,9 @@
 		},
 	});
 
-	function handleCheckedChange(details: { checked: boolean | "indeterminate" }) {
+	function handleCheckedChange(details: {
+		checked: boolean | "indeterminate";
+	}) {
 		checked = details.checked;
 		onCheckedChange?.(details);
 	}
@@ -192,19 +196,28 @@
 		const isActive = isChecked === true || isChecked === "indeterminate";
 
 		if (invalid && isActive) {
-			return twMerge(base, "bg-border-error! border-border-error! text-fg-inverted!");
+			return twMerge(
+				base,
+				"bg-border-error! border-border-error! text-fg-inverted!",
+			);
 		}
 
 		if (variant === "solid") {
 			if (isActive) {
-				return twMerge(base, "text-white bg-(--c-solid) border-(--c-solid)");
+				return twMerge(
+					base,
+					"text-white bg-(--c-solid) border-(--c-solid)",
+				);
 			}
 			return twMerge(base, "text-white border-border-emphasized");
 		}
 
 		if (variant === "subtle") {
 			if (isActive) {
-				return twMerge(base, "bg-(--c-subtle) border-(--c-muted) text-(--c-fg)");
+				return twMerge(
+					base,
+					"bg-(--c-subtle) border-(--c-muted) text-(--c-fg)",
+				);
 			}
 			return twMerge(base, "text-white border-border-emphasized");
 		}
@@ -236,7 +249,9 @@
 		{@render children()}
 	{:else}
 		<Checkbox.Control
-			class="{getControlClasses(checked)} group-has-[[data-focus]]:outline-offset-2 group-has-[[data-focus]]:outline-1 group-has-[[data-focus]]:outline-solid group-has-[[data-focus]]:outline-(--c-focus-ring)"
+			class="{getControlClasses(
+				checked,
+			)} group-has-data-focus:outline-offset-2 group-has-data-focus:outline-1 group-has-data-focus:outline-solid group-has-data-focus:outline-(--c-focus-ring)"
 		>
 			<Checkbox.Indicator class={classes.indicator()}>
 				{#if icon}
