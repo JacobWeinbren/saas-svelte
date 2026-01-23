@@ -92,7 +92,7 @@
 	class={twMerge(
 		"group",
 		styles.item(),
-		"data-[state=checked]:z-[1] data-[state=checked]:shadow-[inset_0_0_0_2px_var(--c-solid)]",
+		"data-[state=checked]:z-1 data-[state=checked]:shadow-[inset_0_0_0_2px_var(--c-solid)]",
 		isDisabled && "cursor-not-allowed",
 		className,
 	)}
@@ -121,10 +121,7 @@
 				{/if}
 			</div>
 			<RadioGroup.ItemControl
-				class={twMerge(
-					"group/control",
-					getControlClasses(),
-				)}
+				class={twMerge("group/control", getControlClasses())}
 			>
 				<span
 					class="{styles.indicator()} hidden group-data-[state=checked]/control:block"
