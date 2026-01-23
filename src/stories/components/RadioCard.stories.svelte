@@ -109,29 +109,8 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<RadioCard.Root {...args} defaultValue="next">
-		<RadioCard.Label>Select framework</RadioCard.Label>
-		<HStack align="stretch">
-			{#each frameworks as item}
-				<RadioCard.Item
-					label={item.title}
-					description={item.description}
-					value={item.value}
-				/>
-			{/each}
-		</HStack>
-	</RadioCard.Root>
-{/snippet}
-
-{#snippet controlledStory()}
-	<VStack gap={4} align="start">
-		<Text size="sm" class="text-fg-muted">
-			Selected: {controlledValue}
-		</Text>
-		<RadioCard.Root
-			bind:value={controlledValue}
-			onValueChange={({ value }) => (controlledValue = value)}
-		>
+	<div class="max-w-3xl">
+		<RadioCard.Root {...args} defaultValue="next">
 			<RadioCard.Label>Select framework</RadioCard.Label>
 			<HStack align="stretch">
 				{#each frameworks as item}
@@ -143,124 +122,163 @@
 				{/each}
 			</HStack>
 		</RadioCard.Root>
-	</VStack>
+	</div>
+{/snippet}
+
+{#snippet controlledStory()}
+	<div class="max-w-3xl">
+		<VStack gap={4} align="start">
+			<Text size="sm" class="text-fg-muted">
+				Selected: {controlledValue}
+			</Text>
+			<RadioCard.Root
+				bind:value={controlledValue}
+				onValueChange={({ value }) => (controlledValue = value)}
+			>
+				<RadioCard.Label>Select framework</RadioCard.Label>
+				<HStack align="stretch">
+					{#each frameworks as item}
+						<RadioCard.Item
+							label={item.title}
+							description={item.description}
+							value={item.value}
+						/>
+					{/each}
+				</HStack>
+			</RadioCard.Root>
+		</VStack>
+	</div>
 {/snippet}
 
 {#snippet sizesStory()}
-	<VStack gap={8} class="max-w-xs">
-		{#each radioCardSizes as size}
-			<RadioCard.Root {size} defaultValue="next">
-				<RadioCard.Label>size = ({size})</RadioCard.Label>
-				<HStack align="stretch">
-					<RadioCard.Item label="Next.js" value="next" />
-				</HStack>
-			</RadioCard.Root>
-		{/each}
-	</VStack>
+	<div class="w-64">
+		<VStack gap={8}>
+			{#each radioCardSizes as size}
+				<RadioCard.Root {size} defaultValue="next">
+					<RadioCard.Label>size = ({size})</RadioCard.Label>
+					<HStack align="stretch">
+						<RadioCard.Item label="Next.js" value="next" />
+					</HStack>
+				</RadioCard.Root>
+			{/each}
+		</VStack>
+	</div>
 {/snippet}
 
 {#snippet coloursStory()}
-	<VStack gap={6} class="max-w-xs">
-		{#each colours as colour}
-			<RadioCard.Root {colour} defaultValue="next">
-				<RadioCard.Label>{colour}</RadioCard.Label>
-				<HStack align="stretch">
-					<RadioCard.Item label="Next.js" value="next" />
-				</HStack>
-			</RadioCard.Root>
-		{/each}
-	</VStack>
+	<div class="w-64">
+		<VStack gap={6}>
+			{#each colours as colour}
+				<RadioCard.Root {colour} defaultValue="next">
+					<RadioCard.Label>{colour}</RadioCard.Label>
+					<HStack align="stretch">
+						<RadioCard.Item label="Next.js" value="next" />
+					</HStack>
+				</RadioCard.Root>
+			{/each}
+		</VStack>
+	</div>
 {/snippet}
 
 {#snippet withIconStory()}
-	<RadioCard.Root defaultValue="allow">
-		<RadioCard.Label>Select permission</RadioCard.Label>
-		<HStack align="stretch">
-			<RadioCard.Item
-				label="Allow"
-				description="This user can access the system"
-				value="allow"
-				icon={ArrowRight}
-			/>
-			<RadioCard.Item
-				label="Deny"
-				description="This user will be denied access"
-				value="deny"
-				icon={Prohibit}
-			/>
-			<RadioCard.Item
-				label="Lock"
-				description="This user will be locked out"
-				value="lock"
-				icon={Lock}
-			/>
-		</HStack>
-	</RadioCard.Root>
+	<div class="max-w-3xl">
+		<RadioCard.Root defaultValue="allow">
+			<RadioCard.Label>Select permission</RadioCard.Label>
+			<HStack align="stretch">
+				<RadioCard.Item
+					label="Allow"
+					description="This user can access the system"
+					value="allow"
+					icon={ArrowRight}
+				/>
+				<RadioCard.Item
+					label="Deny"
+					description="This user will be denied access"
+					value="deny"
+					icon={Prohibit}
+				/>
+				<RadioCard.Item
+					label="Lock"
+					description="This user will be locked out"
+					value="lock"
+					icon={Lock}
+				/>
+			</HStack>
+		</RadioCard.Root>
+	</div>
 {/snippet}
 
 {#snippet centeredStory()}
-	<RadioCard.Root align="center" defaultValue="fixed">
-		<RadioCard.Label>Select contract type</RadioCard.Label>
-		<HStack align="stretch">
-			<RadioCard.Item
-				label="Fixed Rate"
-				value="fixed"
-				icon={CurrencyDollar}
-			/>
-			<RadioCard.Item
-				label="Milestone"
-				value="milestone"
-				icon={TrendUp}
-			/>
-			<RadioCard.Item label="Hourly" value="hourly" icon={Clock} />
-		</HStack>
-	</RadioCard.Root>
+	<div class="max-w-3xl">
+		<RadioCard.Root align="center" defaultValue="fixed">
+			<RadioCard.Label>Select contract type</RadioCard.Label>
+			<HStack align="stretch">
+				<RadioCard.Item
+					label="Fixed Rate"
+					value="fixed"
+					icon={CurrencyDollar}
+				/>
+				<RadioCard.Item
+					label="Milestone"
+					value="milestone"
+					icon={TrendUp}
+				/>
+				<RadioCard.Item label="Hourly" value="hourly" icon={Clock} />
+			</HStack>
+		</RadioCard.Root>
+	</div>
 {/snippet}
 
 {#snippet withAddonStory()}
-	<RadioCard.Root defaultValue="next">
-		<RadioCard.Label>Select framework</RadioCard.Label>
-		<HStack align="stretch">
-			{#each frameworks as item}
-				<RadioCard.Item
-					label={item.title}
-					description={item.description}
-					value={item.value}
-					addon="Some addon text"
-				/>
-			{/each}
-		</HStack>
-	</RadioCard.Root>
+	<div class="max-w-3xl">
+		<RadioCard.Root defaultValue="next">
+			<RadioCard.Label>Select framework</RadioCard.Label>
+			<HStack align="stretch">
+				{#each frameworks as item}
+					<RadioCard.Item
+						label={item.title}
+						description={item.description}
+						value={item.value}
+						addon="Some addon text"
+					/>
+				{/each}
+			</HStack>
+		</RadioCard.Root>
+	</div>
 {/snippet}
 
 {#snippet verticalStory()}
-	<RadioCard.Root orientation="vertical" defaultValue="next" class="max-w-xs">
-		<RadioCard.Label>Select framework</RadioCard.Label>
-		<VStack align="stretch">
-			{#each frameworks as item}
-				<RadioCard.Item
-					label={item.title}
-					description={item.description}
-					value={item.value}
-				/>
-			{/each}
-		</VStack>
-	</RadioCard.Root>
+	<div class="w-64">
+		<RadioCard.Root orientation="vertical" defaultValue="next">
+			<RadioCard.Label>Select framework</RadioCard.Label>
+			<VStack align="stretch">
+				{#each frameworks as item}
+					<RadioCard.Item
+						label={item.title}
+						description={item.description}
+						value={item.value}
+					/>
+				{/each}
+			</VStack>
+		</RadioCard.Root>
+	</div>
 {/snippet}
 
 {#snippet disabledStory()}
-	<RadioCard.Root defaultValue="next" disabled>
-		<RadioCard.Label>Select framework (disabled)</RadioCard.Label>
-		<HStack align="stretch">
-			{#each frameworks as item}
-				<RadioCard.Item
-					label={item.title}
-					description={item.description}
-					value={item.value}
-				/>
-			{/each}
-		</HStack>
-	</RadioCard.Root>
+	<div class="max-w-3xl">
+		<RadioCard.Root defaultValue="next" disabled>
+			<RadioCard.Label>Select framework (disabled)</RadioCard.Label>
+			<HStack align="stretch">
+				{#each frameworks as item}
+					<RadioCard.Item
+						label={item.title}
+						description={item.description}
+						value={item.value}
+					/>
+				{/each}
+			</HStack>
+		</RadioCard.Root>
+	</div>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

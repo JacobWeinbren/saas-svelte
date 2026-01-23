@@ -133,42 +133,46 @@
 {/snippet}
 
 {#snippet sizesStory()}
-	<VStack class="max-w-xs" gap={2}>
-		{#each checkboxCardSizes as size}
-			<CheckboxCard.Root aria-label="Checkbox {size}" {size}>
-				<CheckboxCard.Control>
-					<CheckboxCard.Content>
-						<CheckboxCard.Label
-							>Checkbox ({size})</CheckboxCard.Label
-						>
-					</CheckboxCard.Content>
-					<CheckboxCard.Indicator />
-				</CheckboxCard.Control>
-			</CheckboxCard.Root>
-		{/each}
-	</VStack>
+	<div class="w-64">
+		<VStack gap={2}>
+			{#each checkboxCardSizes as size}
+				<CheckboxCard.Root aria-label="Checkbox {size}" {size}>
+					<CheckboxCard.Control>
+						<CheckboxCard.Content>
+							<CheckboxCard.Label
+								>Checkbox ({size})</CheckboxCard.Label
+							>
+						</CheckboxCard.Content>
+						<CheckboxCard.Indicator />
+					</CheckboxCard.Control>
+				</CheckboxCard.Root>
+			{/each}
+		</VStack>
+	</div>
 {/snippet}
 
 {#snippet variantsStory()}
-	<VStack class="max-w-xs" gap={2}>
-		{#each checkboxCardVariants as variant}
-			<CheckboxCard.Root
-				aria-label="Checkbox {variant}"
-				{variant}
-				checked
-				colour="teal"
-			>
-				<CheckboxCard.Control>
-					<CheckboxCard.Content>
-						<CheckboxCard.Label
-							>Checkbox ({variant})</CheckboxCard.Label
-						>
-					</CheckboxCard.Content>
-					<CheckboxCard.Indicator />
-				</CheckboxCard.Control>
-			</CheckboxCard.Root>
-		{/each}
-	</VStack>
+	<div class="w-64">
+		<VStack gap={2}>
+			{#each checkboxCardVariants as variant}
+				<CheckboxCard.Root
+					aria-label="Checkbox {variant}"
+					{variant}
+					checked
+					colour="teal"
+				>
+					<CheckboxCard.Control>
+						<CheckboxCard.Content>
+							<CheckboxCard.Label
+								>Checkbox ({variant})</CheckboxCard.Label
+							>
+						</CheckboxCard.Content>
+						<CheckboxCard.Indicator />
+					</CheckboxCard.Control>
+				</CheckboxCard.Root>
+			{/each}
+		</VStack>
+	</div>
 {/snippet}
 
 {#snippet disabledStory()}
