@@ -22,7 +22,7 @@
 	<Button>
 		<Bell class="h-4 w-4" aria-hidden="true" />
 		3
-		<VisuallyHidden class={args.class}>Notifications</VisuallyHidden>
+		<VisuallyHidden {...args}>Notifications</VisuallyHidden>
 	</Button>
 {/snippet}
 

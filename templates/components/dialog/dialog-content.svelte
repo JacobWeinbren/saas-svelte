@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Dialog, Portal } from "@ark-ui/svelte";
 	import { tv } from "tailwind-variants";
+	import { twMerge } from "tailwind-merge";
 	import { getContext, type Snippet } from "svelte";
 	import { DIALOG_CTX } from "./dialog-root.svelte";
 
@@ -123,16 +124,18 @@
 	>
 		<Dialog.Content
 			tabindex={-1}
-			class={contentStyles({
-				size: ctx.size,
-				scrollBehavior:
-					ctx.size === "cover" ? "inside" : ctx.scrollBehavior,
-				placement: ctx.size === "cover" ? "center" : ctx.placement,
-				class: className,
-			}) +
-				(ctx.motionPreset === "slide-in-bottom"
-					? " data-[state=open]:animate-dialog-slide-in data-[state=closed]:animate-dialog-slide-out"
-					: " data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out")}
+			class={twMerge(
+				contentStyles({
+					size: ctx.size,
+					scrollBehavior:
+						ctx.size === "cover" ? "inside" : ctx.scrollBehavior,
+					placement: ctx.size === "cover" ? "center" : ctx.placement,
+					class: className,
+				}),
+				ctx.motionPreset === "slide-in-bottom"
+					? "data-[state=open]:animate-dialog-slide-in data-[state=closed]:animate-dialog-slide-out"
+					: "data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out"
+			)}
 			data-motion-preset={ctx.motionPreset}
 			{...rest}
 		>

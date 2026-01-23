@@ -5,7 +5,7 @@
 	import { DataList } from "$saas/components/data-list";
 	import { commonArgTypes, getControls } from "../utils";
 
-	const variants = ["subtle", "solid", "text", "plain"] as const;
+	const markVariants = ["subtle", "solid", "text", "plain"] as const;
 
 	const { Story } = defineMeta({
 		title: "typography/Mark",
@@ -13,7 +13,7 @@
 		argTypes: {
 			variant: {
 				control: "select",
-				options: variants,
+				options: markVariants,
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			colour: commonArgTypes.colour,
@@ -32,13 +32,13 @@
 
 {#snippet basicStory(args: any)}
 	<Text>
-		The <Mark variant={args.variant} colour={args.colour} class={args.class}>design system</Mark> is a collection of UI elements
+		The <Mark {...args}>design system</Mark> is a collection of UI elements
 	</Text>
 {/snippet}
 
 {#snippet variantsStory()}
 	<DataList.Root orientation="vertical">
-		{#each variants as variant}
+		{#each markVariants as variant}
 			<DataList.Item>
 				<DataList.ItemLabel>{variant}</DataList.ItemLabel>
 				<DataList.ItemValue>

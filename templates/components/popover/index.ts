@@ -1,14 +1,3 @@
-export { default as PopoverRoot } from "./popover-root.svelte";
-export { default as PopoverTrigger } from "./popover-trigger.svelte";
-export { default as PopoverContent } from "./popover-content.svelte";
-export { default as PopoverArrow } from "./popover-arrow.svelte";
-export { default as PopoverHeader } from "./popover-header.svelte";
-export { default as PopoverBody } from "./popover-body.svelte";
-export { default as PopoverFooter } from "./popover-footer.svelte";
-export { default as PopoverTitle } from "./popover-title.svelte";
-export { default as PopoverDescription } from "./popover-description.svelte";
-export { default as PopoverCloseTrigger } from "./popover-close-trigger.svelte";
-
 import Root from "./popover-root.svelte";
 import Trigger from "./popover-trigger.svelte";
 import Content from "./popover-content.svelte";
@@ -19,6 +8,23 @@ import Footer from "./popover-footer.svelte";
 import Title from "./popover-title.svelte";
 import Description from "./popover-description.svelte";
 import CloseTrigger from "./popover-close-trigger.svelte";
+
+export {
+	popover,
+	type PopoverVariants,
+	type PopoverContext,
+} from "./popover-root.svelte";
+
+export const PopoverRoot = Root;
+export const PopoverTrigger = Trigger;
+export const PopoverContent = Content;
+export const PopoverArrow = Arrow;
+export const PopoverHeader = Header;
+export const PopoverBody = Body;
+export const PopoverFooter = Footer;
+export const PopoverTitle = Title;
+export const PopoverDescription = Description;
+export const PopoverCloseTrigger = CloseTrigger;
 
 export const Popover = {
 	Root,
@@ -32,9 +38,3 @@ export const Popover = {
 	Description,
 	CloseTrigger,
 };
-
-export {
-	popover,
-	type PopoverVariants,
-	type PopoverContext,
-} from "./popover-root.svelte";

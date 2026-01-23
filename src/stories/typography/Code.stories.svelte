@@ -82,18 +82,11 @@
 	</VStack>
 {/snippet}
 
-<Story name="Basic">
-	{#snippet template(args)}
-		<Code
-			variant={args.variant}
-			size={args.size}
-			colour={args.colour}
-			class={args.class}
-		>
-			console.log("Hello, world!")
-		</Code>
-	{/snippet}
-</Story>
+{#snippet basicStory(args: any)}
+	<Code {...args}>console.log("Hello, world!")</Code>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Sizes" template={sizesStory} />
 

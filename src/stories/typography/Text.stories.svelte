@@ -4,7 +4,7 @@
 	import { DataList } from "$saas/components/data-list";
 	import { commonArgTypes, getControls, textSizes } from "../utils";
 
-	const weights = ["light", "normal", "medium", "semibold", "bold"] as const;
+	const textWeights = ["light", "normal", "medium", "semibold", "bold"] as const;
 
 	const { Story } = defineMeta({
 		title: "typography/Text",
@@ -20,7 +20,7 @@
 			},
 			weight: {
 				control: "select",
-				options: weights,
+				options: textWeights,
 				table: { defaultValue: { summary: "normal" } },
 			},
 			truncate: {
@@ -73,7 +73,7 @@
 
 {#snippet weightsStory()}
 	<DataList.Root orientation="vertical">
-		{#each weights as w}
+		{#each textWeights as w}
 			<DataList.Item>
 				<DataList.ItemLabel>{w}</DataList.ItemLabel>
 				<DataList.ItemValue>
@@ -103,7 +103,11 @@
 	</div>
 {/snippet}
 
-<Story name="Basic">Sphinx of black quartz, judge my vow.</Story>
+{#snippet basicStory(args: any)}
+	<Text {...args}>Sphinx of black quartz, judge my vow.</Text>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Sizes" template={sizesStory} />
 

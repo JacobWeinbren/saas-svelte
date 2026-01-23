@@ -52,7 +52,7 @@
 		},
 	});
 
-	const variants = ["default", "glass", "solid"] as const;
+	const navbarVariants = ["default", "glass", "solid"] as const;
 </script>
 
 {#snippet logoSvg(color?: string)}
@@ -65,7 +65,7 @@
 
 {#snippet basicStory(args: any)}
 	<Box class="h-20">
-		<Navbar.Root variant={args.variant} position={args.position} bordered={args.bordered} colour={args.colour} class={args.class}>
+		<Navbar.Root {...args}>
 			<Navbar.Content maxW="max-w-4xl">
 				<Navbar.Brand>
 					{@render logoSvg()}
@@ -213,7 +213,7 @@
 
 {#snippet variantsStory()}
 	<VStack gap={4} class="w-full">
-		{#each variants as variant}
+		{#each navbarVariants as variant}
 			<Box class="w-full">
 				<Text size="sm" class="mb-2 text-fg-muted">{variant}</Text>
 				<Box class={variant === "solid" ? "bg-accent-solid rounded-l2" : "bg-bg-subtle rounded-l2"}>

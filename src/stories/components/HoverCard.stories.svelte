@@ -62,13 +62,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<HoverCard.Root
-		size={args.size}
-		openDelay={args.openDelay}
-		closeDelay={args.closeDelay}
-		lazyMount={args.lazyMount}
-		unmountOnExit={args.unmountOnExit}
-	>
+	<HoverCard.Root {...args}>
 		Follow
 		<HoverCard.Trigger>
 			<Link href="#" colour="accent">@saas_js</Link>

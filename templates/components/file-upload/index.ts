@@ -6,6 +6,14 @@ import Label from "./file-upload-label.svelte";
 import Input from "./file-upload-input.svelte";
 import ClearTrigger from "./file-upload-clear-trigger.svelte";
 
+export const FileUploadRoot = Root;
+export const FileUploadTrigger = Trigger;
+export const FileUploadDropzone = Dropzone;
+export const FileUploadList = List;
+export const FileUploadLabel = Label;
+export const FileUploadInput = Input;
+export const FileUploadClearTrigger = ClearTrigger;
+
 export const FileUpload = {
 	Root,
 	Trigger,
@@ -14,14 +22,4 @@ export const FileUpload = {
 	Label,
 	Input,
 	ClearTrigger,
-};
-
-export {
-	Root as FileUploadRoot,
-	Trigger as FileUploadTrigger,
-	Dropzone as FileUploadDropzone,
-	List as FileUploadList,
-	Label as FileUploadLabel,
-	Input as FileUploadInput,
-	ClearTrigger as FileUploadClearTrigger,
 };

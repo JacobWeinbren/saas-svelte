@@ -57,12 +57,12 @@
 		},
 	});
 
-	const sizes = ["sm", "md", "lg"] as const;
-	const variants = ["plain", "underline"] as const;
+	const breadcrumbSizes = ["sm", "md", "lg"] as const;
+	const breadcrumbVariants = ["plain", "underline"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
-	<BreadcrumbRoot variant={args.variant} size={args.size} separator={args.separator} class={args.class}>
+	<BreadcrumbRoot {...args}>
 		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 		<BreadcrumbLink href="#">Components</BreadcrumbLink>
 		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
@@ -71,7 +71,7 @@
 
 {#snippet sizesStory()}
 	<VStack gap={2}>
-		{#each sizes as size}
+		{#each breadcrumbSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-8">{size}</Text>
 				<BreadcrumbRoot {size} ariaLabel="Breadcrumb {size}">
@@ -86,7 +86,7 @@
 
 {#snippet variantsStory()}
 	<VStack gap={4}>
-		{#each variants as variant}
+		{#each breadcrumbVariants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-20">{variant}</Text>
 				<BreadcrumbRoot {variant} ariaLabel="Breadcrumb {variant}">

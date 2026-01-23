@@ -181,3 +181,6 @@ export const hoverCardContentPattern = makePattern(['class', 'children']);
 export const hoverCardArrowPattern = makePattern(['class']);
 
 export const imagePattern = makePattern(['src', 'alt', 'width', 'height', 'aspectRatio', 'rounded', 'fit', 'class', 'style']);
+
+export const linkBoxPattern = makePattern(['as', 'class', 'children']);
+export const linkOverlayPattern = makePattern(['variant', 'colour', 'href', 'class', 'children']);

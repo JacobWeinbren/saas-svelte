@@ -1,8 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { ToggleTip, InfoTip } from "$saas/components/toggle-tip";
-	import { Button } from "$saas/components/button";
-	import { Icon } from "$saas/components/icon";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import Info from "phosphor-svelte/lib/Info";
@@ -42,19 +40,12 @@
 
 {#snippet basicStory(args: any)}
 	<div class="flex items-center justify-center p-8">
-		<ToggleTip content={args.content} size={args.size} placement={args.placement} class={args.class}>
-			{#snippet children(props)}
-				<Button
-					size="xs"
-					variant="ghost"
-					icon
-					aria-label="More information"
-					{...props()}
-				>
-					<Icon as={Info} aria-hidden="true" />
-				</Button>
-			{/snippet}
-		</ToggleTip>
+		<ToggleTip
+			{...args}
+			triggerIcon={Info}
+			triggerSize="xs"
+			triggerAriaLabel="More information"
+		/>
 	</div>
 {/snippet}
 
@@ -70,26 +61,10 @@
 {#snippet sizesStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
-			<ToggleTip content="Extra small toggle tip" size="xs">
-				{#snippet children(props)}
-					<Button size="xs" variant="ghost" {...props()}>XS</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Small toggle tip" size="sm">
-				{#snippet children(props)}
-					<Button size="sm" variant="ghost" {...props()}>SM</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Medium toggle tip" size="md">
-				{#snippet children(props)}
-					<Button size="md" variant="ghost" {...props()}>MD</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Large toggle tip" size="lg">
-				{#snippet children(props)}
-					<Button size="lg" variant="ghost" {...props()}>LG</Button>
-				{/snippet}
-			</ToggleTip>
+			<ToggleTip content="Extra small toggle tip" size="xs" triggerText="XS" triggerSize="xs" />
+			<ToggleTip content="Small toggle tip" size="sm" triggerText="SM" triggerSize="sm" />
+			<ToggleTip content="Medium toggle tip" size="md" triggerText="MD" triggerSize="md" />
+			<ToggleTip content="Large toggle tip" size="lg" triggerText="LG" triggerSize="lg" />
 		</HStack>
 	</div>
 {/snippet}
@@ -97,45 +72,24 @@
 {#snippet positioningStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
-			<ToggleTip content="Top placement" placement="top">
-				{#snippet children(props)}
-					<Button variant="outline" size="sm" {...props()}>Top</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Right placement" placement="right">
-				{#snippet children(props)}
-					<Button variant="outline" size="sm" {...props()}>Right</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Bottom placement" placement="bottom">
-				{#snippet children(props)}
-					<Button variant="outline" size="sm" {...props()}>Bottom</Button>
-				{/snippet}
-			</ToggleTip>
-			<ToggleTip content="Left placement" placement="left">
-				{#snippet children(props)}
-					<Button variant="outline" size="sm" {...props()}>Left</Button>
-				{/snippet}
-			</ToggleTip>
+			<ToggleTip content="Top placement" placement="top" triggerText="Top" triggerVariant="outline" />
+			<ToggleTip content="Right placement" placement="right" triggerText="Right" triggerVariant="outline" />
+			<ToggleTip content="Bottom placement" placement="bottom" triggerText="Bottom" triggerVariant="outline" />
+			<ToggleTip content="Left placement" placement="left" triggerText="Left" triggerVariant="outline" />
 		</HStack>
 	</div>
 {/snippet}
 
 {#snippet customContentStory()}
 	<HStack align="center" justify="center" class="p-8">
-		<ToggleTip>
-			{#snippet content()}
-				<VStack gap={1}>
-					<Text size="xs" weight="semibold">Custom Content</Text>
-					<Text size="xs">
-						This toggle tip has custom HTML content with multiple
-						elements.
-					</Text>
-				</VStack>
-			{/snippet}
-			{#snippet children(props)}
-				<Button variant="outline" size="sm" {...props()}>Custom Content</Button>
-			{/snippet}
+		<ToggleTip triggerText="Custom Content" triggerVariant="outline">
+			<VStack gap={1}>
+				<Text size="xs" weight="semibold">Custom Content</Text>
+				<Text size="xs">
+					This toggle tip has custom HTML content with multiple
+					elements.
+				</Text>
+			</VStack>
 		</ToggleTip>
 	</HStack>
 {/snippet}

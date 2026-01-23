@@ -55,8 +55,7 @@
 		<ActionBar
 			open={basicOpen}
 			onOpenChange={(e) => (basicOpen = e.open)}
-			closeOnInteractOutside={args.closeOnInteractOutside}
-			class={args.class}
+			{...args}
 		>
 			<ActionBarSelectionTrigger>2 selected</ActionBarSelectionTrigger>
 			<ActionBarSeparator />

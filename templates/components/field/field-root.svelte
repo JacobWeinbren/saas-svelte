@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import { setContext } from "svelte";
 	import { writable } from "svelte/store";
-	import type { FieldContextValue } from "./types";
+	import { FIELD_CTX, type FieldContextValue } from "./types";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -59,7 +59,7 @@
 		fieldContext.set({ id, disabled, invalid, required, readOnly });
 	});
 
-	setContext("field", fieldContext);
+	setContext(FIELD_CTX, fieldContext);
 </script>
 
 <div

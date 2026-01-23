@@ -35,7 +35,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Clipboard value={args.value} timeout={args.timeout} class={args.class}>
+	<Clipboard {...args}>
 		<ClipboardIconButton />
 	</Clipboard>
 {/snippet}

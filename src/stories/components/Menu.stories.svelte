@@ -14,7 +14,6 @@
 		MenuCheckboxItem,
 		MenuRadioItemGroup,
 		MenuRadioItem,
-		MenuItemIndicator,
 	} from "$saas/components/menu";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
@@ -76,12 +75,12 @@
 		},
 	});
 
-	const sizes = ["sm", "md"] as const;
+	const menuSizes = ["sm", "md"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
 	<div>
-		<MenuRoot size={args.size} colour={args.colour} closeOnSelect={args.closeOnSelect} loopFocus={args.loopFocus}>
+		<MenuRoot {...args}>
 			<MenuButton>Open</MenuButton>
 			<MenuContent>
 				<MenuItem value="new-txt">New Text File</MenuItem>
@@ -97,7 +96,7 @@
 {#snippet sizesStory()}
 	<div>
 		<HStack align="start" gap={8}>
-			{#each sizes as size}
+			{#each menuSizes as size}
 				<VStack gap={2} class="items-center">
 					<Text size="xs">{size}</Text>
 					<MenuRoot {size}>
@@ -248,18 +247,8 @@
 			</MenuButton>
 			<MenuContent>
 				<MenuRadioItemGroup value="asc">
-					<MenuRadioItem value="asc">
-						{#snippet startElement()}
-							<MenuItemIndicator />
-						{/snippet}
-						Ascending
-					</MenuRadioItem>
-					<MenuRadioItem value="desc">
-						{#snippet startElement()}
-							<MenuItemIndicator />
-						{/snippet}
-						Descending
-					</MenuRadioItem>
+					<MenuRadioItem value="asc">Ascending</MenuRadioItem>
+					<MenuRadioItem value="desc">Descending</MenuRadioItem>
 				</MenuRadioItemGroup>
 			</MenuContent>
 		</MenuRoot>
@@ -273,18 +262,8 @@
 				<Icon as={Funnel} size="sm" /> Status
 			</MenuButton>
 			<MenuContent>
-				<MenuCheckboxItem checked={false} value="open">
-					{#snippet startElement()}
-						<MenuItemIndicator />
-					{/snippet}
-					Open
-				</MenuCheckboxItem>
-				<MenuCheckboxItem checked={true} value="closed">
-					{#snippet startElement()}
-						<MenuItemIndicator />
-					{/snippet}
-					Closed
-				</MenuCheckboxItem>
+				<MenuCheckboxItem checked={false} value="open">Open</MenuCheckboxItem>
+				<MenuCheckboxItem checked={true} value="closed">Closed</MenuCheckboxItem>
 			</MenuContent>
 		</MenuRoot>
 	</div>

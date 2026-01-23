@@ -36,14 +36,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Link
-		variant={args.variant}
-		colour={args.colour}
-		href={args.href}
-		class={args.class}
-	>
-		Visit Chakra UI
-	</Link>
+	<Link {...args}>Visit Chakra UI</Link>
 {/snippet}
 
 {#snippet variantsStory()}

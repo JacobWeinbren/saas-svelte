@@ -7,17 +7,20 @@
 	import { Badge } from "$saas/components/badge";
 	import { commonArgTypes, getControls } from "../utils";
 
+	const badgeVariants = ["subtle", "solid", "outline", "surface"] as const;
+	const badgeSizes = ["xs", "sm", "md", "lg"] as const;
+
 	const { Story } = defineMeta({
 		title: "components/Badge",
 		component: Badge,
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["subtle", "solid", "outline", "surface"],
+				options: badgeVariants,
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["xs", "sm", "md", "lg"],
+				options: badgeSizes,
 				table: { defaultValue: { summary: "sm" } },
 			},
 			colour: commonArgTypes.colour,
@@ -39,20 +42,10 @@
 			colour: "gray",
 		},
 	});
-
-	const variants = ["subtle", "solid", "outline", "surface"] as const;
-	const sizes = ["xs", "sm", "md", "lg"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
-	<Badge
-		variant={args.variant}
-		size={args.size}
-		colour={args.colour}
-		class={args.class}
-	>
-		Badge
-	</Badge>
+	<Badge {...args}>Badge</Badge>
 {/snippet}
 
 {#snippet withIconStory()}
@@ -70,7 +63,7 @@
 
 {#snippet variantsStory()}
 	<HStack align="start" gap={4}>
-		{#each variants as variant}
+		{#each badgeVariants as variant}
 			<VStack gap={2}>
 				<Text size="xs">{variant}</Text>
 				<Badge {variant}>Badge</Badge>
@@ -81,7 +74,7 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" gap={4}>
-		{#each sizes as size}
+		{#each badgeSizes as size}
 			<VStack gap={2}>
 				<Text size="xs">{size}</Text>
 				<Badge {size}>New</Badge>

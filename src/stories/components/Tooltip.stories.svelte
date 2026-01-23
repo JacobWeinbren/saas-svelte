@@ -63,17 +63,7 @@
 
 {#snippet basicStory(args: any)}
 	<div class="flex items-center justify-center p-8">
-		<Tooltip
-			content={args.content}
-			showArrow={args.showArrow}
-			variant={args.variant}
-			interactive={args.interactive}
-			openDelay={args.openDelay}
-			closeDelay={args.closeDelay}
-			positioning={args.positioning}
-			disabled={args.disabled}
-			class={args.class}
-		>
+		<Tooltip {...args}>
 			<Button variant="outline">Hover me</Button>
 		</Tooltip>
 	</div>
@@ -159,15 +149,13 @@
 {#snippet interactiveStory()}
 	<HStack align="center" justify="center" class="p-8">
 		<Tooltip interactive showArrow>
-			{#snippet content()}
-				<VStack gap={1}>
-					<span class="font-semibold">Interactive tooltip</span>
-					<span class="text-xs opacity-80"
-						>You can hover over me!</span
-					>
-				</VStack>
+			{#snippet trigger()}
+				<Button variant="outline">Hover me</Button>
 			{/snippet}
-			<Button variant="outline">Hover me</Button>
+			<VStack gap={1}>
+				<span class="font-semibold">Interactive tooltip</span>
+				<span class="text-xs opacity-80">You can hover over me!</span>
+			</VStack>
 		</Tooltip>
 	</HStack>
 {/snippet}
@@ -175,20 +163,20 @@
 {#snippet contentSlotStory()}
 	<HStack align="center" justify="center" class="p-8">
 		<Tooltip>
-			{#snippet content()}
-				<HStack align="center" gap={2}>
-					<Icon as={Info} class="size-3.5" />
-					<span>Search query info</span>
-				</HStack>
+			{#snippet trigger()}
+				<Button
+					variant="outline"
+					size="sm"
+					icon
+					aria-label="Search query help"
+				>
+					<Icon as={Question} />
+				</Button>
 			{/snippet}
-			<Button
-				variant="outline"
-				size="sm"
-				icon
-				aria-label="Search query help"
-			>
-				<Icon as={Question} />
-			</Button>
+			<HStack align="center" gap={2}>
+				<Icon as={Info} class="size-3.5" />
+				<span>Search query info</span>
+			</HStack>
 		</Tooltip>
 	</HStack>
 {/snippet}

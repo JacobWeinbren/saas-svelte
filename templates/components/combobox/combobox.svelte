@@ -2,7 +2,7 @@
 	import { Combobox, createListCollection } from "@ark-ui/svelte/combobox";
 	import type { CollectionItem } from "@ark-ui/svelte/combobox";
 	import { Portal } from "@ark-ui/svelte/portal";
-	import { setContext, type Snippet } from "svelte";
+	import { setContext, type Snippet, type Component } from "svelte";
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import {
 		combobox,
@@ -11,6 +11,7 @@
 		type ComboboxVariants,
 	} from "./combobox-root.svelte";
 	import { Highlight } from "$saas/typography/highlight";
+	import { Icon } from "$saas/components/icon";
 	import CaretDown from "phosphor-svelte/lib/CaretDown";
 	import X from "phosphor-svelte/lib/X";
 	import Check from "phosphor-svelte/lib/Check";
@@ -74,7 +75,9 @@
 		minCharacters?: number;
 		/** Maximum number of items to display in the dropdown. */
 		limit?: number;
-		/** Element to display at the start of the input (e.g., an icon). */
+		/** Icon component to display at the start of the input. */
+		startIcon?: Component;
+		/** Element to display at the start of the input (for complex content). */
 		startElement?: Snippet;
 		/** Key to use for item description text. */
 		itemDescriptionKey?: string;
@@ -117,6 +120,7 @@
 		highlightMatch = false,
 		minCharacters = 0,
 		limit,
+		startIcon,
 		startElement,
 		itemDescriptionKey,
 		itemPrefixKey,
@@ -245,14 +249,18 @@
 	{/if}
 
 	<Combobox.Control class={ctx.styles.control()}>
-		{#if startElement}
+		{#if startIcon}
+			<div class={ctx.styles.startElement()}>
+				<Icon as={startIcon} aria-hidden="true" />
+			</div>
+		{:else if startElement}
 			<div class={ctx.styles.startElement()}>
 				{@render startElement()}
 			</div>
 		{/if}
 		<Combobox.Input
 			{placeholder}
-			class="{ctx.styles.input()} {startElement ? 'pl-8' : ''}"
+			class="{ctx.styles.input()} {startIcon || startElement ? 'pl-8' : ''}"
 			style={ctx.colourStyle}
 		/>
 		<div class={ctx.styles.indicatorGroup()}>

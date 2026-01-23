@@ -67,26 +67,17 @@
 		},
 	});
 
-	const sizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
-	const shapes = ["square", "rounded", "full"] as const;
+	const avatarSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
+	const avatarShapes = ["square", "rounded", "full"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
-	<Avatar
-		name={args.name}
-		src={args.src}
-		size={args.size}
-		variant={args.variant}
-		shape={args.shape}
-		colour={args.colour}
-		ring={args.ring}
-		class={args.class}
-	/>
+	<Avatar {...args} />
 {/snippet}
 
 {#snippet sizesStory()}
 	<Stack gap={6} class="flex-row items-start">
-		{#each sizes as size}
+		{#each avatarSizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Avatar
@@ -101,7 +92,7 @@
 
 {#snippet shapeStory()}
 	<Stack gap={8} class="flex-row items-start">
-		{#each shapes as shape}
+		{#each avatarShapes as shape}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{shape}</Text>
 				<Avatar

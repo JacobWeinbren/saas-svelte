@@ -22,7 +22,7 @@
 		"7xl",
 	] as const;
 
-	const weights = ["normal", "medium", "semibold", "bold"] as const;
+	const headingWeights = ["normal", "medium", "semibold", "bold"] as const;
 
 	const { Story } = defineMeta({
 		title: "typography/Heading",
@@ -38,7 +38,7 @@
 			},
 			weight: {
 				control: "select",
-				options: weights,
+				options: headingWeights,
 				table: { defaultValue: { summary: "semibold" } },
 			},
 			fontWeight: {
@@ -87,7 +87,7 @@
 
 {#snippet weightsStory()}
 	<Stack>
-		{#each weights as w}
+		{#each headingWeights as w}
 			<Heading weight={w}>{w}</Heading>
 		{/each}
 	</Stack>
@@ -102,14 +102,7 @@
 {/snippet}
 
 {#snippet basicStory(args: any)}
-	<Heading
-		as={args.as}
-		size={args.size}
-		weight={args.weight}
-		class={args.class}
-	>
-		The quick brown fox jumps over the lazy dog
-	</Heading>
+	<Heading {...args}>The quick brown fox jumps over the lazy dog</Heading>
 {/snippet}
 
 {#snippet highlightStory()}

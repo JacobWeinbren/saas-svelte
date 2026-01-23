@@ -101,16 +101,7 @@
 {/snippet}
 
 {#snippet basicStory(args: any)}
-	<Highlight
-		query={args.query}
-		text={args.text}
-		ignoreCase={args.ignoreCase}
-		matchAll={args.matchAll}
-		variant={args.variant}
-		colour={args.colour}
-		markClass={args.markClass}
-		class={args.class}
-	/>
+	<Highlight {...args} />
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

@@ -55,14 +55,7 @@
 </script>
 
 {#snippet defaultStory(args: any)}
-	<Toast
-		status={args.status}
-		title={args.title}
-		description={args.description}
-		icon={args.icon}
-		closable={args.closable}
-		class={args.class}
-	/>
+	<Toast {...args} />
 {/snippet}
 
 {#snippet basicStory()}

@@ -104,12 +104,8 @@
 	<Accordion.Root
 		id="basic-accordion"
 		items={basicItems}
-		variant={args.variant}
-		size={args.size}
-		collapsible={args.collapsible}
-		multiple={args.multiple}
+		{...args}
 		defaultValue={args.defaultValue ?? ["b"]}
-		class={args.class}
 	/>
 {/snippet}
 

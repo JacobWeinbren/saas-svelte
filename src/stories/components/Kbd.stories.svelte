@@ -79,7 +79,11 @@
 	</Text>
 {/snippet}
 
-<Story name="Basic">Shift + Tab</Story>
+{#snippet basicStory(args: any)}
+	<Kbd {...args}>Shift + Tab</Kbd>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Combinations" template={combinationsStory} />
 

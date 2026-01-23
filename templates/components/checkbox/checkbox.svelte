@@ -7,6 +7,10 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 	import { twMerge } from "tailwind-merge";
 	import { getContext } from "svelte";
+	import {
+		CHECKBOX_GROUP_CTX,
+		type CheckboxGroupContext,
+	} from "./checkbox-group.svelte";
 
 	const checkboxControl = tv({
 		base: [
@@ -185,7 +189,7 @@
 	}: Props = $props();
 
 	// Get checkbox group context if it exists
-	const groupContext = getContext<any>("checkbox-group");
+	const groupContext = getContext<CheckboxGroupContext>(CHECKBOX_GROUP_CTX);
 
 	// Use group values if in a group, otherwise use props
 	const effectiveDisabled = $derived(disabled || groupContext?.disabled);

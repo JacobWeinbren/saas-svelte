@@ -67,7 +67,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Drawer.Root size={args.size} placement={args.placement} attached={args.attached} role={args.role} class={args.class}>
+	<Drawer.Root {...args}>
 		<Drawer.Trigger variant="outline" size="sm">Open Drawer</Drawer.Trigger>
 		<Drawer.Content>
 			<Drawer.Header>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLLabelAttributes } from "svelte/elements";
 	import { getContext } from "svelte";
-	import type { FieldContext } from "./types";
+	import { FIELD_CTX, type FieldContext } from "./types";
 
 	interface Props extends HTMLLabelAttributes {
 		/**
@@ -21,7 +21,7 @@
 		...restProps
 	}: Props = $props();
 
-	const fieldContext = getContext<FieldContext>("field");
+	const fieldContext = getContext<FieldContext>(FIELD_CTX);
 	const fieldId = $derived(htmlFor || $fieldContext.id);
 	const isDisabled = $derived($fieldContext.disabled);
 </script>

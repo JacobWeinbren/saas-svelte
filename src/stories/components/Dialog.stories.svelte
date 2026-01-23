@@ -81,14 +81,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Dialog.Root
-		size={args.size}
-		placement={args.placement}
-		scrollBehavior={args.scrollBehavior}
-		motionPreset={args.motionPreset}
-		role={args.role}
-		class={args.class}
-	>
+	<Dialog.Root {...args}>
 		<Dialog.Trigger>Open Dialog</Dialog.Trigger>
 		<Dialog.Content>
 			<Dialog.Header>

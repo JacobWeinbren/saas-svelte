@@ -61,19 +61,11 @@
 	});
 
 	const emptyStateSizes = ["sm", "md", "lg"] as const;
-	const alignOptions = ["centre", "start", "end"] as const;
+	const emptyStateAlignOptions = ["centre", "start", "end"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
-	<EmptyState
-		icon={ShoppingCart}
-		title={args.title}
-		description={args.description}
-		size={args.size}
-		align={args.align}
-		colour={args.colour}
-		class={args.class}
-	/>
+	<EmptyState icon={ShoppingCart} {...args} />
 {/snippet}
 
 {#snippet withActionStory()}
@@ -120,7 +112,7 @@
 
 {#snippet alignmentStory()}
 	<Stack gap={4} class="w-full">
-		{#each alignOptions as align}
+		{#each emptyStateAlignOptions as align}
 			<div class="border border-border-default rounded-md">
 				<EmptyState
 					icon={Users}

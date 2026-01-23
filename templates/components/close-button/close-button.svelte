@@ -37,18 +37,21 @@
 					"after:bg-[linear-gradient(#fff_40%,#0003)]",
 					"after:transition-opacity after:duration-200",
 					"hover:after:bg-[linear-gradient(#fffc_40%,#0009)]",
+					"transition-colors duration-200",
 				],
 
 				// SOLID: Contrast text with solid background
 				solid: [
 					"shadow text-(--c-contrast) bg-(--c-solid)",
 					"hover:bg-(--c-solid)/90",
+					"transition-colors duration-200",
 				],
 
 				// SUBTLE: Accent text with subtle background
 				subtle: [
 					"text-(--c-fg) bg-(--c-muted)",
 					"hover:bg-(--c-subtle)",
+					"transition-colors duration-200",
 				],
 
 				// OUTLINE: Accent text with thin border
@@ -61,6 +64,7 @@
 				ghost: [
 					"text-(--c-fg)",
 					"hover:bg-(--c-subtle)",
+					"transition-colors duration-200",
 				],
 			},
 			size: {

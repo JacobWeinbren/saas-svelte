@@ -2,14 +2,7 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import type { BreadcrumbVariants, breadcrumb } from "./breadcrumb-root.svelte";
-
-	interface BreadcrumbContext {
-		size: BreadcrumbVariants["size"];
-		variant: BreadcrumbVariants["variant"];
-		separator: Snippet | string;
-		styles: ReturnType<typeof breadcrumb>;
-	}
+	import { BREADCRUMB_CTX, type BreadcrumbContext } from "./breadcrumb-root.svelte";
 
 	interface Props extends HTMLAttributes<HTMLLIElement> {
 		/**
@@ -34,7 +27,7 @@
 		...restProps
 	}: Props = $props();
 
-	const context = getContext<BreadcrumbContext>("breadcrumb");
+	const context = getContext<BreadcrumbContext>(BREADCRUMB_CTX);
 	const styles = $derived(context?.styles);
 </script>
 

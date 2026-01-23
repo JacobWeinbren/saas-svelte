@@ -101,7 +101,10 @@
 <script lang="ts">
 	import { getContext, type Snippet } from "svelte";
 	import { getColourStyle } from "$saas/utils/colours";
-	import type { AvatarGroupContext } from "./avatar-group.svelte";
+	import {
+		AVATAR_GROUP_CTX,
+		type AvatarGroupContext,
+	} from "./avatar-group.svelte";
 
 	type AvatarVariants = VariantProps<typeof avatar>;
 
@@ -178,7 +181,7 @@
 	}: Props = $props();
 
 	// Get context from AvatarGroup if available
-	const groupContext = getContext<AvatarGroupContext>("avatar-group");
+	const groupContext = getContext<AvatarGroupContext>(AVATAR_GROUP_CTX);
 
 	const size = $derived(groupContext?.size ?? propSize ?? "md");
 	const variant = propVariant ?? "solid";

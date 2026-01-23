@@ -52,13 +52,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Collapsible
-		defaultOpen={args.defaultOpen}
-		disabled={args.disabled}
-		lazyMount={args.lazyMount}
-		unmountOnExit={args.unmountOnExit}
-		class={args.class}
-	>
+	<Collapsible {...args}>
 		<CollapsibleTrigger>Toggle Collapsible</CollapsibleTrigger>
 		<CollapsibleContent>
 			<CardRoot class="p-2 px-4 text-sm">

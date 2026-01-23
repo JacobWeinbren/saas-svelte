@@ -1,6 +1,16 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
+	import type { Snippet } from "svelte";
+
+	export const BREADCRUMB_CTX = Symbol("BREADCRUMB_CTX");
+
+	export interface BreadcrumbContext {
+		size: BreadcrumbVariants["size"];
+		variant: BreadcrumbVariants["variant"];
+		separator: Snippet | string;
+		styles: ReturnType<typeof breadcrumb>;
+	}
 
 	export const breadcrumb = tv({
 		slots: {
@@ -93,7 +103,7 @@
 	);
 
 	// Provide context to child components
-	setContext("breadcrumb", {
+	setContext<BreadcrumbContext>(BREADCRUMB_CTX, {
 		get size() {
 			return size;
 		},

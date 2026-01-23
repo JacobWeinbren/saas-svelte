@@ -68,13 +68,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<DataListRoot
-		orientation={args.orientation}
-		size={args.size}
-		divider={args.divider}
-		colour={args.colour}
-		class={args.class}
-	>
+	<DataListRoot {...args}>
 		{#each stats as item}
 			<DataListItem>
 				<DataListItemLabel>{item.label}</DataListItemLabel>

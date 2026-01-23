@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 	import { twMerge } from "tailwind-merge";
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
 		 * The body content.
 		 */
@@ -13,7 +14,7 @@
 		class?: string;
 	}
 
-	let { children, class: className }: Props = $props();
+	let { children, class: className, ...rest }: Props = $props();
 </script>
 
 <div
@@ -26,6 +27,7 @@
 		"overflow-y-auto",
 		className,
 	)}
+	{...rest}
 >
 	{@render children()}
 </div>

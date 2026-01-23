@@ -83,18 +83,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Checkbox
-		checked={args.checked}
-		size={args.size}
-		variant={args.variant}
-		colour={args.colour}
-		label={args.label}
-		description={args.description}
-		disabled={args.disabled}
-		invalid={args.invalid}
-		value={args.value}
-		class={args.class}
-	/>
+	<Checkbox {...args} />
 {/snippet}
 
 {#snippet variantsStory()}

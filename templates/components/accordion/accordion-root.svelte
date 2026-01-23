@@ -1,18 +1,9 @@
-<script lang="ts">
-	import { Accordion } from "@ark-ui/svelte";
-	import CaretRight from "phosphor-svelte/lib/CaretRight";
-	import { setContext, type Snippet } from "svelte";
-	import { twMerge } from "tailwind-merge";
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 
-	export interface AccordionItem {
-		value: string;
-		title: string;
-		content: string;
-		disabled?: boolean;
-	}
+	export const ACCORDION_CTX = Symbol("ACCORDION_CTX");
 
-	const accordion = tv({
+	export const accordion = tv({
 		slots: {
 			root: "w-full",
 			item: "[overflow-anchor:none]",
@@ -79,7 +70,25 @@
 		},
 	});
 
-	type AccordionVariants = VariantProps<typeof accordion>;
+	export type AccordionVariants = VariantProps<typeof accordion>;
+
+	export interface AccordionContext {
+		styles: ReturnType<typeof accordion>;
+	}
+</script>
+
+<script lang="ts">
+	import { Accordion } from "@ark-ui/svelte";
+	import CaretRight from "phosphor-svelte/lib/CaretRight";
+	import { setContext, type Snippet } from "svelte";
+	import { twMerge } from "tailwind-merge";
+
+	export interface AccordionItem {
+		value: string;
+		title: string;
+		content: string;
+		disabled?: boolean;
+	}
 
 	interface Props {
 		/**
@@ -137,8 +146,8 @@
 
 	const classes = $derived(accordion({ size, variant }));
 
-	setContext("accordion-styles", {
-		get current() {
+	setContext<AccordionContext>(ACCORDION_CTX, {
+		get styles() {
 			return classes;
 		},
 	});

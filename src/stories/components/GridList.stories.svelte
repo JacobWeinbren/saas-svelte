@@ -27,7 +27,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<GridList.Root interactive={args.interactive}>
+	<GridList.Root {...args}>
 		<GridList.Item>
 			<GridList.Cell width="8">
 				<Checkbox aria-label="Select Sarah Johnson" />

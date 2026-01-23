@@ -3,12 +3,27 @@
 	import { getContext, type Snippet } from "svelte";
 	import X from "phosphor-svelte/lib/X";
 	import { POPOVER_CTX, type PopoverContext } from "./popover-root.svelte";
+	import { Button } from "$saas/components/button";
 
 	interface Props {
 		/**
 		 * Custom content for the close trigger. Receives trigger props that must be spread onto an interactive element.
 		 */
 		children?: Snippet<[() => Record<string, unknown>]>;
+		/**
+		 * Simple text to display on the close button (creates a text button instead of icon).
+		 */
+		buttonText?: string;
+		/**
+		 * Variant for the auto-generated button when using buttonText.
+		 * @default "ghost"
+		 */
+		buttonVariant?: "ghost" | "outline" | "solid" | "subtle" | "plain";
+		/**
+		 * Size for the auto-generated button when using buttonText.
+		 * @default "sm"
+		 */
+		buttonSize?: "xs" | "sm" | "md" | "lg";
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -21,7 +36,15 @@
 		[key: string]: unknown;
 	}
 
-	let { children, class: className, "aria-label": ariaLabel = "Close", ...rest }: Props = $props();
+	let {
+		children,
+		buttonText,
+		buttonVariant = "ghost",
+		buttonSize = "sm",
+		class: className,
+		"aria-label": ariaLabel = "Close",
+		...rest
+	}: Props = $props();
 
 	const ctx = getContext<PopoverContext>(POPOVER_CTX);
 </script>
@@ -30,6 +53,14 @@
 	<Popover.CloseTrigger aria-label={ariaLabel} {...rest}>
 		{#snippet asChild(props)}
 			{@render children(props)}
+		{/snippet}
+	</Popover.CloseTrigger>
+{:else if buttonText}
+	<Popover.CloseTrigger aria-label={ariaLabel} {...rest}>
+		{#snippet asChild(props)}
+			<Button variant={buttonVariant} size={buttonSize} {...props()}>
+				{buttonText}
+			</Button>
 		{/snippet}
 	</Popover.CloseTrigger>
 {:else}

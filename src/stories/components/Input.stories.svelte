@@ -165,19 +165,11 @@
 	</Stack>
 {/snippet}
 
-<Story name="Basic">
-	{#snippet template(args)}
-		<Input
-			variant={args.variant}
-			size={args.size}
-			colour={args.colour}
-			invalid={args.invalid}
-			disabled={args.disabled}
-			placeholder={args.placeholder}
-			class={args.class}
-		/>
-	{/snippet}
-</Story>
+{#snippet basicStory(args: any)}
+	<Input {...args} />
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Variants" template={variantsStory} />
 

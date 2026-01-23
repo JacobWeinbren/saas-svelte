@@ -44,8 +44,8 @@
 		},
 	});
 
-	const variants = ["subtle", "outline", "elevated"] as const;
-	const sizes = ["sm", "md", "lg"] as const;
+	const cardVariants = ["subtle", "outline", "elevated"] as const;
+	const cardSizes = ["sm", "md", "lg"] as const;
 </script>
 
 <script lang="ts">
@@ -56,10 +56,10 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Card.Root class="w-80" variant={args.variant} size={args.size}>
+	<Card.Root class="w-80" {...args}>
 		<Card.Body class="gap-2">
 			<Avatar
-				src="https://picsum.photos/200/300"
+				src="https://api.dicebear.com/9.x/shapes/svg?seed=nue"
 				name="Nue Camp"
 				size="lg"
 				shape="rounded"
@@ -79,7 +79,7 @@
 
 {#snippet variantsStory()}
 	<VStack align="start" gap={4}>
-		{#each variants as variant}
+		{#each cardVariants as variant}
 			<VStack gap={2} class="items-start">
 				<Text size="xs">{variant}</Text>
 				<Card.Root class="w-80" {variant}>
@@ -108,7 +108,7 @@
 
 {#snippet sizesStory()}
 	<VStack gap={4}>
-		{#each sizes as size}
+		{#each cardSizes as size}
 			<VStack gap={2} class="items-start">
 				<Text size="xs">{size}</Text>
 				<Card.Root {size}>
@@ -128,7 +128,7 @@
 {#snippet withImageStory()}
 	<Card.Root class="max-w-sm overflow-hidden">
 		<img
-			src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+			src="https://picsum.photos/seed/sofa/800/600"
 			alt="Green double couch with wooden legs"
 			class="w-full object-cover rounded-lg"
 		/>
@@ -150,7 +150,7 @@
 {#snippet horizontalStory()}
 	<Card.Root class="flex-row overflow-hidden max-w-xl">
 		<img
-			src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+			src="https://picsum.photos/seed/latte/800/600"
 			alt="Caffe Latte"
 			class="object-cover max-w-52 rounded-lg"
 		/>
@@ -178,7 +178,7 @@
 		<Card.Body>
 			<HStack class="mb-6 gap-3">
 				<Avatar
-					src="https://images.unsplash.com/photo-1511806754518-53bada35f930"
+					src="https://api.dicebear.com/9.x/shapes/svg?seed=nate"
 					name="Nate Foss"
 				/>
 				<VStack gap={0}>

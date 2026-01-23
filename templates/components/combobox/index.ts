@@ -1,18 +1,18 @@
-export { default as Combobox } from "./combobox.svelte";
-export { default as ComboboxRoot } from "./combobox-root.svelte";
-export { default as ComboboxLabel } from "./combobox-label.svelte";
-export { default as ComboboxControl } from "./combobox-control.svelte";
-export { default as ComboboxInput } from "./combobox-input.svelte";
-export { default as ComboboxIndicatorGroup } from "./combobox-indicator-group.svelte";
-export { default as ComboboxTrigger } from "./combobox-trigger.svelte";
-export { default as ComboboxClearTrigger } from "./combobox-clear-trigger.svelte";
-export { default as ComboboxContent } from "./combobox-content.svelte";
-export { default as ComboboxItem } from "./combobox-item.svelte";
-export { default as ComboboxItemText } from "./combobox-item-text.svelte";
-export { default as ComboboxItemIndicator } from "./combobox-item-indicator.svelte";
-export { default as ComboboxItemGroup } from "./combobox-item-group.svelte";
-export { default as ComboboxItemGroupLabel } from "./combobox-item-group-label.svelte";
-export { default as ComboboxEmpty } from "./combobox-empty.svelte";
+import PreComposed from "./combobox.svelte";
+import Root from "./combobox-root.svelte";
+import Label from "./combobox-label.svelte";
+import Control from "./combobox-control.svelte";
+import Input from "./combobox-input.svelte";
+import IndicatorGroup from "./combobox-indicator-group.svelte";
+import Trigger from "./combobox-trigger.svelte";
+import ClearTrigger from "./combobox-clear-trigger.svelte";
+import Content from "./combobox-content.svelte";
+import Item from "./combobox-item.svelte";
+import ItemText from "./combobox-item-text.svelte";
+import ItemIndicator from "./combobox-item-indicator.svelte";
+import ItemGroup from "./combobox-item-group.svelte";
+import ItemGroupLabel from "./combobox-item-group-label.svelte";
+import Empty from "./combobox-empty.svelte";
 
 export {
 	combobox,
@@ -26,3 +26,36 @@ export {
 	type CollectionItem,
 	type ListCollection,
 } from "@ark-ui/svelte/combobox";
+
+export const Combobox = PreComposed;
+export const ComboboxRoot = Root;
+export const ComboboxLabel = Label;
+export const ComboboxControl = Control;
+export const ComboboxInput = Input;
+export const ComboboxIndicatorGroup = IndicatorGroup;
+export const ComboboxTrigger = Trigger;
+export const ComboboxClearTrigger = ClearTrigger;
+export const ComboboxContent = Content;
+export const ComboboxItem = Item;
+export const ComboboxItemText = ItemText;
+export const ComboboxItemIndicator = ItemIndicator;
+export const ComboboxItemGroup = ItemGroup;
+export const ComboboxItemGroupLabel = ItemGroupLabel;
+export const ComboboxEmpty = Empty;
+
+export const ComboboxParts = {
+	Root,
+	Label,
+	Control,
+	Input,
+	IndicatorGroup,
+	Trigger,
+	ClearTrigger,
+	Content,
+	Item,
+	ItemText,
+	ItemIndicator,
+	ItemGroup,
+	ItemGroupLabel,
+	Empty,
+};

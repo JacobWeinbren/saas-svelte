@@ -56,13 +56,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Alert
-		status={args.status}
-		variant={args.variant}
-		colour={args.colour}
-		title={args.title}
-		class={args.class}
-	/>
+	<Alert {...args} />
 {/snippet}
 
 {#snippet descriptionStory()}

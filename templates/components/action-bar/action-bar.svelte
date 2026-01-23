@@ -57,7 +57,6 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { fly, fade } from "svelte/transition";
 	import { twMerge } from "tailwind-merge";
 	import { Portal } from "@ark-ui/svelte/portal";
 
@@ -93,6 +92,22 @@
 
 	const styles = actionBar();
 
+	// Track visibility separately to allow exit animation to complete
+	let visible = $state(open);
+
+	$effect(() => {
+		if (open) {
+			visible = true;
+		}
+	});
+
+	function handleAnimationEnd(event: AnimationEvent) {
+		// Only handle the out animation
+		if (!open && event.animationName.includes('action-bar-out')) {
+			visible = false;
+		}
+	}
+
 	function handleClickOutside(event: MouseEvent) {
 		if (!closeOnInteractOutside || !open) return;
 		const target = event.target as HTMLElement;
@@ -104,23 +119,21 @@
 
 <svelte:window onclick={handleClickOutside} />
 
-{#if open}
+{#if visible}
 	<Portal>
 		<div
 			class={twMerge(styles.root() as string, className as string)}
 			data-part="action-bar-root"
-			data-state="open"
+			data-state={open ? "open" : "closed"}
 			role="toolbar"
 			aria-label="Bulk actions"
-			in:fly={{ y: 32, duration: 200 }}
-			out:fly={{ y: 32, duration: 150 }}
 			{...restProps}
 		>
 			<div
 				class={twMerge(styles.content() as string)}
 				data-part="action-bar-content"
-				in:fade={{ duration: 200 }}
-				out:fade={{ duration: 150 }}
+				data-state={open ? "open" : "closed"}
+				onanimationend={handleAnimationEnd}
 			>
 				{@render children?.()}
 			</div>

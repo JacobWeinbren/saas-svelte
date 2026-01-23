@@ -56,8 +56,8 @@
 		},
 	});
 
-	const variants = ["subtle", "surface", "outline"] as const;
-	const sizes = ["sm", "md", "lg"] as const;
+	const checkboxCardVariants = ["subtle", "surface", "outline"] as const;
+	const checkboxCardSizes = ["sm", "md", "lg"] as const;
 
 	const items = [
 		{ value: "next", title: "Next.js", description: "Best for apps" },
@@ -79,15 +79,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<CheckboxCard.Root
-		aria-label="Next.js"
-		variant={args.variant}
-		size={args.size}
-		colour={args.colour}
-		disabled={args.disabled}
-		checked={args.checked}
-		class="max-w-60"
-	>
+	<CheckboxCard.Root aria-label="Next.js" {...args} class="max-w-60">
 		<CheckboxCard.Control>
 			<CheckboxCard.Content>
 				<CheckboxCard.Label>Next.js</CheckboxCard.Label>
@@ -129,7 +121,7 @@
 
 {#snippet sizesStory()}
 	<VStack class="max-w-xs" gap={2}>
-		{#each sizes as size}
+		{#each checkboxCardSizes as size}
 			<CheckboxCard.Root aria-label="Checkbox {size}" {size}>
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>
@@ -144,7 +136,7 @@
 
 {#snippet variantsStory()}
 	<VStack class="max-w-xs" gap={2}>
-		{#each variants as variant}
+		{#each checkboxCardVariants as variant}
 			<CheckboxCard.Root aria-label="Checkbox {variant}" {variant} checked colour="teal">
 				<CheckboxCard.Control>
 					<CheckboxCard.Content>

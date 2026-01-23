@@ -22,12 +22,18 @@
 		id?: string;
 		/**
 		 * The text content of the tooltip.
+		 * Can be a string, snippet, or use children when trigger prop is provided.
 		 */
 		content?: string | Snippet;
 		/**
-		 * The trigger element.
+		 * The trigger element (default usage).
+		 * When trigger prop is provided, children become the content instead.
 		 */
-		children: Snippet;
+		children?: Snippet;
+		/**
+		 * Alternative trigger element. When provided, children become the content.
+		 */
+		trigger?: Snippet;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -68,6 +74,7 @@
 		id,
 		content,
 		children,
+		trigger,
 		class: className,
 		showArrow = false,
 		variant = "default",
@@ -82,6 +89,10 @@
 	const uniqueId = $derived(
 		id || `tooltip-${Math.random().toString(36).substring(2, 9)}`,
 	);
+
+	// When trigger is provided, children become the content
+	const effectiveTrigger = $derived(trigger ?? children);
+	const effectiveContent = $derived(content ?? (trigger ? children : undefined));
 
 	const styles = $derived(
 		popoverContentStyles({
@@ -106,7 +117,9 @@
 	<ArkTooltip.Trigger>
 		{#snippet asChild(props)}
 			<span class="inline-block" {...props()}>
-				{@render children()}
+				{#if effectiveTrigger}
+					{@render effectiveTrigger()}
+				{/if}
 			</span>
 		{/snippet}
 	</ArkTooltip.Trigger>
@@ -118,10 +131,10 @@
 						<ArkTooltip.ArrowTip class={styles.arrowTip()} />
 					</ArkTooltip.Arrow>
 				{/if}
-				{#if typeof content === "string"}
-					{content}
-				{:else if content}
-					{@render content()}
+				{#if typeof effectiveContent === "string"}
+					{effectiveContent}
+				{:else if effectiveContent}
+					{@render effectiveContent()}
 				{/if}
 			</ArkTooltip.Content>
 		</ArkTooltip.Positioner>

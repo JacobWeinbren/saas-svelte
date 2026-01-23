@@ -57,17 +57,8 @@
 	const spinnerSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 </script>
 
-<!-- Basic -->
 {#snippet basicStory(args: any)}
-	<Spinner
-		size={args.size}
-		colour={args.colour}
-		label={args.label}
-		animationDuration={args.animationDuration}
-		borderWidth={args.borderWidth}
-		trackColour={args.trackColour}
-		class={args.class}
-	/>
+	<Spinner {...args} />
 {/snippet}
 
 <!-- Sizes -->

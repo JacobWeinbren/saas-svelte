@@ -68,7 +68,7 @@
 		},
 	});
 
-	const roundedOptions = [
+	const imageRoundedOptions = [
 		"none",
 		"sm",
 		"md",
@@ -78,20 +78,11 @@
 		"3xl",
 		"full",
 	] as const;
-	const fitOptions = ["cover", "contain", "fill", "none", "scale-down"] as const;
+	const imageFitOptions = ["cover", "contain", "fill", "none", "scale-down"] as const;
 </script>
 
 {#snippet basicStory(args: any)}
-	<Image
-		src={args.src}
-		alt={args.alt}
-		width={args.width}
-		height={args.height}
-		aspectRatio={args.aspectRatio}
-		rounded={args.rounded}
-		fit={args.fit}
-		class={args.class}
-	/>
+	<Image {...args} />
 {/snippet}
 
 {#snippet heightStory()}
@@ -126,7 +117,7 @@
 
 {#snippet fitStory()}
 	<Stack gap={6} class="flex-row items-start flex-wrap">
-		{#each fitOptions as fit}
+		{#each imageFitOptions as fit}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{fit}</Text>
 				<Image
@@ -145,7 +136,7 @@
 
 {#snippet roundedStory()}
 	<Stack gap={6} class="flex-row items-start flex-wrap">
-		{#each roundedOptions as rounded}
+		{#each imageRoundedOptions as rounded}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{rounded}</Text>
 				<Image

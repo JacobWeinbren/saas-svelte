@@ -128,6 +128,8 @@
 	import type { Snippet, Component } from "svelte";
 	import { getColourStyle } from "$saas/utils/colours";
 	import X from "phosphor-svelte/lib/X";
+	import { Icon } from "$saas/components/icon";
+	import { Avatar } from "$saas/components/avatar";
 
 	type TagVariants = VariantProps<typeof tag>;
 
@@ -161,11 +163,23 @@
 		 */
 		onClose?: () => void;
 		/**
-		 * Element to display at the start of the tag.
+		 * Icon component to display at the start of the tag.
+		 */
+		startIcon?: Component;
+		/**
+		 * Icon component to display at the end of the tag.
+		 */
+		endIcon?: Component;
+		/**
+		 * Avatar configuration for start element. Accepts src and name.
+		 */
+		startAvatar?: { src?: string; name?: string };
+		/**
+		 * Element to display at the start of the tag (for complex content).
 		 */
 		startElement?: Snippet;
 		/**
-		 * Element to display at the end of the tag.
+		 * Element to display at the end of the tag (for complex content).
 		 */
 		endElement?: Snippet;
 		/**
@@ -185,6 +199,9 @@
 		colour = "gray",
 		closable = false,
 		onClose,
+		startIcon,
+		endIcon,
+		startAvatar,
 		startElement,
 		endElement,
 		maxWidth,
@@ -192,6 +209,13 @@
 		style,
 		...restProps
 	}: Props = $props();
+
+	const avatarMargin = $derived({
+		sm: "-ml-0.5",
+		md: "-ml-1",
+		lg: "-ml-1.5",
+		xl: "-ml-2",
+	}[size || "md"]);
 
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
 	const maxWidthStyle = $derived(maxWidth ? `max-width: ${maxWidth}` : "");
@@ -211,7 +235,18 @@
 </script>
 
 <span class={finalClass} style={finalStyle} {...restProps}>
-	{#if startElement}
+	{#if startAvatar}
+		<Avatar
+			src={startAvatar.src}
+			name={startAvatar.name}
+			size="full"
+			class={avatarMargin}
+		/>
+	{:else if startIcon}
+		<span class={elementClass}>
+			<Icon as={startIcon} class="w-4/5 h-4/5" aria-hidden="true" />
+		</span>
+	{:else if startElement}
 		<span class={elementClass}>
 			{@render startElement()}
 		</span>
@@ -219,7 +254,11 @@
 	<span class={labelClass}>
 		{@render children()}
 	</span>
-	{#if endElement}
+	{#if endIcon}
+		<span class={elementClass}>
+			<Icon as={endIcon} class="w-full h-full" weight="bold" aria-hidden="true" />
+		</span>
+	{:else if endElement}
 		<span class={elementClass}>
 			{@render endElement()}
 		</span>

@@ -232,6 +232,8 @@ export {
     hoverCardContentPattern,
     hoverCardArrowPattern,
     imagePattern,
+    linkBoxPattern,
+    linkOverlayPattern,
 } from "./exclude-patterns";
 
 

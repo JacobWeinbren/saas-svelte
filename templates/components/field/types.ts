@@ -1,5 +1,7 @@
 import type { Writable } from "svelte/store";
 
+export const FIELD_CTX = Symbol("FIELD_CTX");
+
 export interface FieldContextValue {
 	id: string;
 	disabled: boolean;

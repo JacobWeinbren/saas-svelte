@@ -35,7 +35,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<LocaleProvider locale={args.locale}>
+	<LocaleProvider {...args}>
 		<Stack gap={2}>
 			<LocaleDisplay />
 			<Text size="sm" class="text-fg-muted">Number formatting (locale affects separators):</Text>

@@ -1,29 +1,14 @@
-<script lang="ts">
-	import { setContext, type Snippet } from "svelte";
-	import { twMerge } from "tailwind-merge";
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
-	const dataList = tv({
+	export const DATA_LIST_CTX = Symbol("DATA_LIST_CTX");
+
+	export const dataList = tv({
 		slots: {
-			root: [
-				"flex",
-				"flex-col",
-				"antialiased",
-			],
-			item: [
-				"inline-flex",
-				"items-center",
-			],
-			label: [
-				"flex",
-				"items-center",
-				"text-fg-muted",
-			],
-			value: [
-				"flex",
-				"flex-1",
-			],
+			root: ["flex", "flex-col", "antialiased"],
+			item: ["inline-flex", "items-center"],
+			label: ["flex", "items-center", "text-fg-muted"],
+			value: ["flex", "flex-1"],
 		},
 		variants: {
 			size: {
@@ -68,7 +53,17 @@
 		},
 	});
 
-	type DataListVariants = VariantProps<typeof dataList>;
+	export type DataListVariants = VariantProps<typeof dataList>;
+
+	export interface DataListContext {
+		styles: ReturnType<typeof dataList>;
+	}
+</script>
+
+<script lang="ts">
+	import { setContext, type Snippet } from "svelte";
+	import { twMerge } from "tailwind-merge";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
 	interface Props {
 		/**
@@ -121,8 +116,8 @@
 	const colourVars = $derived(getColourStyle(colour));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 
-	setContext("data-list-styles", {
-		get current() {
+	setContext<DataListContext>(DATA_LIST_CTX, {
+		get styles() {
 			return classes;
 		},
 	});

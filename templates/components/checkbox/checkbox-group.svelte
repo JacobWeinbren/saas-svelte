@@ -1,3 +1,15 @@
+<script module lang="ts">
+	export const CHECKBOX_GROUP_CTX = Symbol("CHECKBOX_GROUP_CTX");
+
+	export interface CheckboxGroupContext {
+		value: string[];
+		name?: string;
+		disabled?: boolean;
+		invalid?: boolean;
+		toggleValue: (value: string) => void;
+	}
+</script>
+
 <script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import { twMerge } from "tailwind-merge";
@@ -131,7 +143,7 @@
 		onValueChange?.(newValue);
 	}
 
-	setContext("checkbox-group", {
+	setContext<CheckboxGroupContext>(CHECKBOX_GROUP_CTX, {
 		get value() {
 			return value;
 		},

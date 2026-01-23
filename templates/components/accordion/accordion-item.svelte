@@ -2,6 +2,7 @@
 	import { Accordion } from "@ark-ui/svelte";
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
+	import { ACCORDION_CTX, type AccordionContext } from "./accordion-root.svelte";
 
 	interface Props {
 		/**
@@ -21,8 +22,8 @@
 
 	let { children, class: className, value, ...restProps }: Props = $props();
 
-	const ctx = getContext("accordion-styles") as { current: any };
-	const styles = $derived(ctx.current);
+	const ctx = getContext<AccordionContext>(ACCORDION_CTX);
+	const styles = $derived(ctx.styles);
 </script>
 
 <Accordion.Item

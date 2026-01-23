@@ -125,9 +125,9 @@
 		{ label: "Next.js", value: "nextjs", href: "https://nextjs.org" },
 	];
 
-	const sizes = ["xs", "sm", "md", "lg"] as const;
-	const variants = ["outline", "subtle", "flushed"] as const;
-	const colours = [
+	const comboboxSizes = ["xs", "sm", "md", "lg"] as const;
+	const comboboxVariants = ["outline", "subtle", "flushed"] as const;
+	const comboboxColours = [
 		"gray",
 		"red",
 		"orange",
@@ -240,18 +240,14 @@
 		items={frameworks}
 		label="Select framework"
 		placeholder="Type to search"
-		size={args.size}
-		variant={args.variant}
-		invalid={args.invalid}
-		disabled={args.disabled}
-		colour={args.colour}
+		{...args}
 		class="w-80"
 	/>
 {/snippet}
 
 {#snippet sizesStory()}
 	<VStack gap={8} class="w-80">
-		{#each sizes as size}
+		{#each comboboxSizes as size}
 			<Combobox
 				items={frameworks}
 				label="Size: {size}"
@@ -264,7 +260,7 @@
 
 {#snippet variantsStory()}
 	<VStack gap={8} class="w-80">
-		{#each variants as variant}
+		{#each comboboxVariants as variant}
 			<Combobox
 				items={frameworks}
 				label="Variant: {variant}"
@@ -372,12 +368,9 @@
 		items={frameworks}
 		label="Select framework"
 		placeholder="Type to search"
+		startIcon={Code}
 		class="w-80"
-	>
-		{#snippet startElement()}
-			<Icon as={Code} aria-hidden="true" />
-		{/snippet}
-	</Combobox>
+	/>
 {/snippet}
 
 {#snippet invalidStory()}
@@ -497,7 +490,7 @@
 
 {#snippet coloursStory()}
 	<VStack gap={8} class="w-80">
-		{#each colours as colour}
+		{#each comboboxColours as colour}
 			<Combobox
 				items={frameworks}
 				label="Colour: {colour}"
@@ -649,11 +642,7 @@
 
 {#snippet inPopoverStory()}
 	<Popover.Root>
-		<Popover.Trigger>
-			{#snippet children(props)}
-				<Button variant="outline" size="sm" {...props()}>Select framework</Button>
-			{/snippet}
-		</Popover.Trigger>
+		<Popover.Trigger triggerText="Select framework" />
 		<Popover.Content>
 			<Popover.Header>
 				<Popover.Title>Select framework</Popover.Title>

@@ -60,14 +60,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<FileUpload.Root
-		maxFiles={args.maxFiles}
-		maxFileSize={args.maxFileSize}
-		accept={args.accept}
-		disabled={args.disabled}
-		invalid={args.invalid}
-		directory={args.directory}
-	>
+	<FileUpload.Root {...args}>
 		<FileUpload.Trigger>
 			<Icon as={UploadSimple} />
 			Upload file

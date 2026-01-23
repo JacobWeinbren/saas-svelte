@@ -66,16 +66,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Button
-		variant={args.variant}
-		size={args.size}
-		colour={args.colour}
-		loading={args.loading}
-		loadingText={args.loadingText}
-		class={args.class}
-	>
-		Button
-	</Button>
+	<Button {...args}>Button</Button>
 {/snippet}
 
 {#snippet sizesStory()}

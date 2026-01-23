@@ -9,7 +9,7 @@
 	import { inputVariants, commonArgTypes, getControls } from "../utils";
 
 	const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
-	const resizeOptions = ["none", "vertical", "horizontal", "both"] as const;
+	const textareaResizeOptions = ["none", "vertical", "horizontal", "both"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Textarea",
@@ -131,7 +131,7 @@
 
 {#snippet resizeStory()}
 	<VStack gap={4} class="w-64">
-		{#each resizeOptions as resize}
+		{#each textareaResizeOptions as resize}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{resize}</Text>
 				<Textarea {resize} placeholder="Search the docs…" />
@@ -148,11 +148,11 @@
 	/>
 {/snippet}
 
-<Story name="Basic">
-	{#snippet template(args)}
-		<Textarea {...args} placeholder="Comment..." />
-	{/snippet}
-</Story>
+{#snippet basicStory(args: any)}
+	<Textarea {...args} placeholder="Comment..." />
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
 
 <Story name="Variants" template={variantsStory} />
 

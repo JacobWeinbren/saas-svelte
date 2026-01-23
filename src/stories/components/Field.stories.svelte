@@ -43,13 +43,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Field.Root
-		disabled={args.disabled}
-		invalid={args.invalid}
-		required={args.required}
-		readOnly={args.readOnly}
-		class={args.class}
-	>
+	<Field.Root {...args}>
 		<Field.Label>Email</Field.Label>
 		<Input placeholder="me@example.com" disabled={args.disabled} invalid={args.invalid} />
 	</Field.Root>

@@ -1,16 +1,48 @@
-export { default as MenuRoot } from "./menu-root.svelte";
-export { default as MenuButton } from "./menu-button.svelte";
-export { default as MenuContent } from "./menu-content.svelte";
-export { default as MenuItem } from "./menu-item.svelte";
-export { default as MenuItemLink } from "./menu-item-link.svelte";
-export { default as MenuItemCommand } from "./menu-item-command.svelte";
-export { default as MenuItemGroup } from "./menu-item-group.svelte";
-export { default as MenuSeparator } from "./menu-separator.svelte";
-export { default as MenuTriggerItem } from "./menu-trigger-item.svelte";
-export { default as MenuContextTrigger } from "./menu-context-trigger.svelte";
-export { default as MenuCheckboxItem } from "./menu-checkbox-item.svelte";
-export { default as MenuRadioItemGroup } from "./menu-radio-item-group.svelte";
-export { default as MenuRadioItem } from "./menu-radio-item.svelte";
-export { default as MenuItemIndicator } from "./menu-item-indicator.svelte";
+import Root from "./menu-root.svelte";
+import Button from "./menu-button.svelte";
+import Content from "./menu-content.svelte";
+import Item from "./menu-item.svelte";
+import ItemLink from "./menu-item-link.svelte";
+import ItemCommand from "./menu-item-command.svelte";
+import ItemGroup from "./menu-item-group.svelte";
+import Separator from "./menu-separator.svelte";
+import TriggerItem from "./menu-trigger-item.svelte";
+import ContextTrigger from "./menu-context-trigger.svelte";
+import CheckboxItem from "./menu-checkbox-item.svelte";
+import RadioItemGroup from "./menu-radio-item-group.svelte";
+import RadioItem from "./menu-radio-item.svelte";
+import ItemIndicator from "./menu-item-indicator.svelte";
 
 export { menu, type MenuVariants } from "./menu-root.svelte";
+
+export const MenuRoot = Root;
+export const MenuButton = Button;
+export const MenuContent = Content;
+export const MenuItem = Item;
+export const MenuItemLink = ItemLink;
+export const MenuItemCommand = ItemCommand;
+export const MenuItemGroup = ItemGroup;
+export const MenuSeparator = Separator;
+export const MenuTriggerItem = TriggerItem;
+export const MenuContextTrigger = ContextTrigger;
+export const MenuCheckboxItem = CheckboxItem;
+export const MenuRadioItemGroup = RadioItemGroup;
+export const MenuRadioItem = RadioItem;
+export const MenuItemIndicator = ItemIndicator;
+
+export const Menu = {
+	Root,
+	Button,
+	Content,
+	Item,
+	ItemLink,
+	ItemCommand,
+	ItemGroup,
+	Separator,
+	TriggerItem,
+	ContextTrigger,
+	CheckboxItem,
+	RadioItemGroup,
+	RadioItem,
+	ItemIndicator,
+};

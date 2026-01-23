@@ -10,7 +10,7 @@
 	import Gear from "phosphor-svelte/lib/Gear";
 	import { commonArgTypes, getControls, sizes } from "../utils";
 
-	const weights = [
+	const iconWeights = [
 		"thin",
 		"light",
 		"regular",
@@ -119,61 +119,61 @@
 	});
 </script>
 
-<Story name="Basic">
-	{#snippet template(args)}
-		<Icon as={Heart} colour="yellow" {...args} />
-	{/snippet}
-</Story>
+{#snippet basicStory(args: any)}
+	<Icon as={Heart} colour="yellow" {...args} />
+{/snippet}
 
-<Story name="Colours">
-	{#snippet template(args)}
-		<HStack gap={4}>
-			<Icon as={Heart} colour="rose" size={args.size} />
-			<Icon as={User} colour="blue" size={args.size} />
-			<Icon as={Gear} colour="gray" size={args.size} />
-		</HStack>
-	{/snippet}
-</Story>
+{#snippet coloursStory(args: any)}
+	<HStack gap={4}>
+		<Icon as={Heart} colour="rose" size={args.size} />
+		<Icon as={User} colour="blue" size={args.size} />
+		<Icon as={Gear} colour="gray" size={args.size} />
+	</HStack>
+{/snippet}
 
-<Story name="Sizes">
-	{#snippet template()}
-		<HStack gap={4} class="items-end">
-			{#each sizes as size}
-				<VStack gap={2} class="items-center">
-					<Text size="xs">{size}</Text>
-					<Icon as={Star} colour="yellow" weight="fill" {size} />
-				</VStack>
-			{/each}
-		</HStack>
-	{/snippet}
-</Story>
+{#snippet sizesStory()}
+	<HStack gap={4} class="items-end">
+		{#each sizes as size}
+			<VStack gap={2} class="items-center">
+				<Text size="xs">{size}</Text>
+				<Icon as={Star} colour="yellow" weight="fill" {size} />
+			</VStack>
+		{/each}
+	</HStack>
+{/snippet}
 
-<Story name="Weights">
-	{#snippet template()}
-		<DataList.Root>
-			{#each weights as weight}
-				<DataList.Item>
-					<DataList.ItemLabel>{weight}</DataList.ItemLabel>
-					<DataList.ItemValue>
-						<Icon as={Heart} colour="rose" size="xl" {weight} />
-					</DataList.ItemValue>
-				</DataList.Item>
-			{/each}
-		</DataList.Root>
-	{/snippet}
-</Story>
+{#snippet weightsStory()}
+	<DataList.Root>
+		{#each iconWeights as weight}
+			<DataList.Item>
+				<DataList.ItemLabel>{weight}</DataList.ItemLabel>
+				<DataList.ItemValue>
+					<Icon as={Heart} colour="rose" size="xl" {weight} />
+				</DataList.ItemValue>
+			</DataList.Item>
+		{/each}
+	</DataList.Root>
+{/snippet}
 
-<Story name="Custom SVG">
-	{#snippet template()}
-		<Icon size="xl" colour="blue" viewBox="0 0 32 32">
-			<path
-				fill="currentColor"
-				d="M16,11.5a3,3,0,1,0-3-3A3,3,0,0,0,16,11.5Z"
-			/>
-			<path
-				fill="currentColor"
-				d="M16.868.044A8.579,8.579,0,0,0,16,0a15.99,15.99,0,0,0-.868,31.956A8.579,8.579,0,0,0,16,32,15.99,15.99,0,0,0,16.868.044ZM16,26.5a3,3,0,1,1,3-3A3,3,0,0,1,16,26.5ZM16,15A8.483,8.483,0,0,0,8.788,27.977,13.986,13.986,0,0,1,16,2a6.5,6.5,0,0,1,0,13Z"
-			/>
-		</Icon>
-	{/snippet}
-</Story>
+{#snippet customSvgStory()}
+	<Icon size="xl" colour="blue" viewBox="0 0 32 32">
+		<path
+			fill="currentColor"
+			d="M16,11.5a3,3,0,1,0-3-3A3,3,0,0,0,16,11.5Z"
+		/>
+		<path
+			fill="currentColor"
+			d="M16.868.044A8.579,8.579,0,0,0,16,0a15.99,15.99,0,0,0-.868,31.956A8.579,8.579,0,0,0,16,32,15.99,15.99,0,0,0,16.868.044ZM16,26.5a3,3,0,1,1,3-3A3,3,0,0,1,16,26.5ZM16,15A8.483,8.483,0,0,0,8.788,27.977,13.986,13.986,0,0,1,16,2a6.5,6.5,0,0,1,0,13Z"
+		/>
+	</Icon>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="Colours" template={coloursStory} />
+
+<Story name="Sizes" template={sizesStory} />
+
+<Story name="Weights" template={weightsStory} />
+
+<Story name="Custom SVG" template={customSvgStory} />

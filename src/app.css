@@ -330,6 +330,33 @@ body {
 			transform: translateY(-100%);
 		}
 	}
+
+	/* Action bar animations */
+	@keyframes action-bar-in {
+		from {
+			opacity: 0;
+			transform: translateY(100%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes action-bar-out {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(100%);
+		}
+	}
+
+	--animate-action-bar-in: action-bar-in var(--durations-moderate)
+		cubic-bezier(0.32, 0.72, 0, 1) forwards;
+	--animate-action-bar-out: action-bar-out var(--durations-moderate) ease-in
+		forwards;
 }
 
 :root {

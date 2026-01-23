@@ -1,6 +1,10 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
+	import type { AvatarVariants } from "./avatar.svelte";
+
+	export const AVATAR_GROUP_CTX = Symbol("AVATAR_GROUP_CTX");
+
 	export interface AvatarGroupContext {
 		size?: AvatarVariants["size"];
 		borderless?: boolean;
@@ -88,7 +92,7 @@
 		...restProps
 	}: Props = $props();
 
-	setContext<AvatarGroupContext>("avatar-group", {
+	setContext<AvatarGroupContext>(AVATAR_GROUP_CTX, {
 		get size() {
 			return size;
 		},

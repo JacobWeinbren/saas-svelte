@@ -14,9 +14,11 @@
 	import { Popover as ArkPopover } from "@ark-ui/svelte";
 	import { Portal } from "@ark-ui/svelte/portal";
 	import type { PopoverRootProps } from "@ark-ui/svelte/popover";
-	import type { Snippet } from "svelte";
+	import type { Snippet, Component } from "svelte";
+	import { Button } from "$saas/components/button";
+	import { Icon } from "$saas/components/icon";
 
-	interface Props extends Omit<PopoverRootProps, "id"> {
+	interface Props extends Omit<PopoverRootProps, "id" | "children"> {
 		/**
 		 * The unique identifier for the toggle tip.
 		 * If not provided, a unique ID will be auto-generated.
@@ -24,12 +26,40 @@
 		id?: string;
 		/**
 		 * The content to display in the toggle tip.
+		 * Can be a string, snippet, or use children when triggerText/triggerIcon is provided.
 		 */
 		content?: string | Snippet;
 		/**
-		 * The trigger element. Receives trigger props that must be spread onto an interactive element.
+		 * Content to display in the toggle tip when using triggerText/triggerIcon.
+		 * When using simple trigger props, children become the content.
+		 * When using custom trigger, use the trigger prop instead.
 		 */
-		children: Snippet<[() => Record<string, unknown>]>;
+		children?: Snippet;
+		/**
+		 * Custom trigger element. Receives trigger props that must be spread onto an interactive element.
+		 * Use this for custom triggers instead of children.
+		 */
+		trigger?: Snippet<[() => Record<string, any>]>;
+		/**
+		 * Simple text to display on the trigger button.
+		 * When provided, children become the content.
+		 */
+		triggerText?: string;
+		/**
+		 * Icon component to display on the trigger button.
+		 * When provided, children become the content.
+		 */
+		triggerIcon?: Component;
+		/**
+		 * Variant for the auto-generated trigger button.
+		 * @default "ghost"
+		 */
+		triggerVariant?: "ghost" | "outline" | "solid" | "subtle" | "plain";
+		/**
+		 * Size for the auto-generated trigger button.
+		 * @default "sm"
+		 */
+		triggerSize?: "xs" | "sm" | "md" | "lg";
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -87,6 +117,11 @@
 		id,
 		content,
 		children,
+		trigger,
+		triggerText,
+		triggerIcon,
+		triggerVariant = "ghost",
+		triggerSize = "sm",
 		class: className,
 		triggerClass,
 		triggerAriaLabel,
@@ -100,6 +135,10 @@
 		positioning,
 		...rest
 	}: Props = $props();
+
+	const hasSimpleTrigger = $derived(triggerText || triggerIcon);
+	// When using simple trigger props, children become the content
+	const effectiveContent = $derived(content ?? (hasSimpleTrigger ? children : undefined));
 
 	const finalPositioning = $derived(
 		positioning ?? { placement, gutter: 8, strategy: "absolute" as const },
@@ -141,7 +180,24 @@
 >
 	<ArkPopover.Trigger class={triggerClass}>
 		{#snippet asChild(props)}
-			{@render children(props)}
+			{#if trigger}
+				{@render trigger(props)}
+			{:else if hasSimpleTrigger}
+				<Button
+					variant={triggerVariant}
+					size={triggerSize}
+					icon={triggerIcon && !triggerText}
+					aria-label={triggerAriaLabel}
+					{...props()}
+				>
+					{#if triggerIcon}
+						<Icon as={triggerIcon} aria-hidden="true" />
+					{/if}
+					{#if triggerText}
+						{triggerText}
+					{/if}
+				</Button>
+			{/if}
 		{/snippet}
 	</ArkPopover.Trigger>
 	<Portal>
@@ -149,10 +205,10 @@
 			<ArkPopover.Content
 				class={styles.content({ class: `${sizeClass} ${className || ""}` })}
 			>
-				{#if typeof content === "string"}
-					{content}
-				{:else if content}
-					{@render content()}
+				{#if typeof effectiveContent === "string"}
+					{effectiveContent}
+				{:else if effectiveContent}
+					{@render effectiveContent()}
 				{/if}
 			</ArkPopover.Content>
 		</ArkPopover.Positioner>
