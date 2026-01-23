@@ -33,20 +33,21 @@
 			"relative",
 			"antialiased",
 			"text-fg-default",
-			"placeholder:text-fg-muted",
+			"placeholder:text-fg-subtle",
+			"placeholder:text-[0.6em]",
 			"disabled:opacity-50",
 			"disabled:cursor-not-allowed",
 			"focus-visible:outline-solid",
 			"focus-visible:outline-(--c-focus-ring)",
 			"focus-visible:border-(--c-focus-ring)",
-			"focus-visible:z-[1]",
+			"focus-visible:z-1",
 		],
 		variants: {
 			variant: {
 				outline: [
 					"border",
 					"rounded",
-					"bg-bg-default",
+					"bg-transparent",
 					"border-border-default",
 					"hover:border-border-emphasized",
 					"hover:focus-visible:border-(--c-focus-ring)",
@@ -157,15 +158,21 @@
 		/**
 		 * Callback when the value changes.
 		 */
-		onValueChange?: (details: { value: string[]; valueAsString: string }) => void;
+		onValueChange?: (details: {
+			value: string[];
+			valueAsString: string;
+		}) => void;
 		/**
 		 * Callback when all inputs have valid values.
 		 */
-		onValueComplete?: (details: { value: string[]; valueAsString: string }) => void;
+		onValueComplete?: (details: {
+			value: string[];
+			valueAsString: string;
+		}) => void;
 		/**
 		 * Callback when an invalid value is entered.
 		 */
-		onValueInvalid?: (details: { value: string[]; index: number }) => void;
+		onValueInvalid?: (details: { value: string; index: number }) => void;
 		/**
 		 * The number of pin inputs to render.
 		 * @default 4
