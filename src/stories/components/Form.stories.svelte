@@ -26,6 +26,12 @@
 		{ label: "Option 2", value: "2" },
 		{ label: "Option 3", value: "3" },
 	];
+
+	const radioOptions = [
+		{ label: "React", value: "react" },
+		{ label: "Svelte", value: "svelte" },
+		{ label: "Vue", value: "vue" },
+	];
 </script>
 
 {#snippet basicStory()}
@@ -83,6 +89,7 @@
 			numberInput: 10,
 			textarea: "",
 			select: "",
+			radio: "svelte",
 		},
 		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
 	})}
@@ -122,6 +129,12 @@
 				label="Select"
 				placeholder="Choose..."
 				options={selectOptions}
+			/>
+			<FormField
+				name="radio"
+				type="radio"
+				label="Framework"
+				options={radioOptions}
 			/>
 			<SubmitButton>Submit</SubmitButton>
 		</VStack>

@@ -81,6 +81,8 @@ export const cardSizes = ["sm", "md", "lg"] as const;
 export const checkboxSizes = ["sm", "md", "lg"] as const;
 export const radioVariants = ["outline", "subtle", "solid"] as const;
 export const radioSizes = ["sm", "md", "lg"] as const;
+export const radioCardSizes = ["sm", "md", "lg"] as const;
+export const radioCardAligns = ["start", "center", "end"] as const;
 export const checkboxCardVariants = ["subtle", "surface", "outline"] as const;
 export const checkboxCardSizes = ["sm", "md", "lg"] as const;
 export const comboboxSizes = ["xs", "sm", "md", "lg"] as const;
@@ -223,6 +225,8 @@ export {
     checkboxGroupPattern,
     radioGroupPattern,
     radioItemPattern,
+    radioCardRootPattern,
+    radioCardItemPattern,
     dialogRootPattern,
     drawerRootPattern,
     iconPattern,

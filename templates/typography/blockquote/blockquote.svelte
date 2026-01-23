@@ -28,7 +28,8 @@
 </script>
 
 <script lang="ts">
-	import type { Snippet } from "svelte";
+	import type { Snippet, Component } from "svelte";
+	import { Icon } from "$saas/components/icon";
 
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
@@ -62,10 +63,10 @@
 		 */
 		showIcon?: boolean;
 		/**
-		 * Custom icon snippet.
+		 * Custom icon component. Auto-sized to match the default icon.
 		 * @default undefined
 		 */
-		icon?: Snippet;
+		icon?: Component<any>;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -96,7 +97,16 @@
 
 <figure class={finalClass} style={finalStyle} {...restProps}>
 	{#if icon}
-		{@render icon()}
+		<div
+			class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]"
+		>
+			<Icon
+				as={icon}
+				size="md"
+				class="fill-current text-(--c-solid) scale-[-1]"
+				weight="fill"
+			/>
+		</div>
 	{:else if showIcon}
 		<div
 			class="justify-center items-center inline-flex absolute inset-y-[0.5rem_auto] inset-x-[0_auto] [translate:-50%_-50%]"

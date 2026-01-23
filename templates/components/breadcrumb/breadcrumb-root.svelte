@@ -1,14 +1,14 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
 	import type { HTMLAttributes } from "svelte/elements";
-	import type { Snippet } from "svelte";
+	import type { Snippet, Component } from "svelte";
 
 	export const BREADCRUMB_CTX = Symbol("BREADCRUMB_CTX");
 
 	export interface BreadcrumbContext {
 		size: BreadcrumbVariants["size"];
 		variant: BreadcrumbVariants["variant"];
-		separator: Snippet | string;
+		separator: Component<any> | string;
 		styles: ReturnType<typeof breadcrumb>;
 	}
 
@@ -46,7 +46,7 @@
 </script>
 
 <script lang="ts">
-	import type { Snippet } from "svelte";
+	import type { Snippet, Component } from "svelte";
 	import { setContext } from "svelte";
 
 	type BreadcrumbVariants = VariantProps<typeof breadcrumb>;
@@ -67,10 +67,10 @@
 		 */
 		variant?: BreadcrumbVariants["variant"];
 		/**
-		 * The separator element between breadcrumb items.
+		 * The separator element between breadcrumb items. Can be a string or SVG component.
 		 * @default "/"
 		 */
-		separator?: Snippet | string;
+		separator?: Component<any> | string;
 		/**
 		 * The gap around separators (in spacing units).
 		 */

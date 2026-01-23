@@ -92,7 +92,7 @@
 		{#if typeof context?.separator === "string"}
 			{context.separator}
 		{:else if context?.separator}
-			{@render context.separator()}
+			<svelte:component this={context.separator} class="fill-current stroke-current w-3.5 h-3.5" />
 		{:else}
 			/
 		{/if}

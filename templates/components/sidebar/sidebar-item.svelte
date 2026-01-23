@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { getContext } from "svelte";
+	import { getContext, type Component } from "svelte";
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { SIDEBAR_CTX, type SidebarContext, sidebar } from "./sidebar-root.svelte";
+	import { Icon } from "$saas/components/icon";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -11,9 +12,9 @@
 		 */
 		active?: boolean;
 		/**
-		 * Icon to display before the label
+		 * Icon component to display before the label. Auto-sized to fit.
 		 */
-		icon?: Snippet;
+		icon?: Component<any>;
 		/**
 		 * The label text or content
 		 */
@@ -38,7 +39,7 @@
 >
 	{#if icon}
 		<span class={iconClass}>
-			{@render icon()}
+			<Icon as={icon} size="sm" />
 		</span>
 	{/if}
 	<span class={labelClass}>

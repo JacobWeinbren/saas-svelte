@@ -155,12 +155,8 @@
 			name="Sarah Johnson"
 			src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 		/>
-		<Avatar fallback={moreFallback} variant="solid" />
+		<Avatar fallback="+3" variant="solid" />
 	</AvatarGroup>
-{/snippet}
-
-{#snippet moreFallback()}
-	+3
 {/snippet}
 
 {#snippet stackingStory()}
@@ -178,7 +174,7 @@
 				name="Sarah Johnson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
-			<Avatar fallback={moreFallback} />
+			<Avatar fallback="+3" />
 		</AvatarGroup>
 
 		<AvatarGroup size="lg" stacking="first-on-top">
@@ -194,7 +190,7 @@
 				name="Sarah Johnson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
-			<Avatar fallback={moreFallback} />
+			<Avatar fallback="+3" />
 		</AvatarGroup>
 
 		<AvatarGroup size="lg" spaceX="1" borderless>
@@ -210,7 +206,7 @@
 				name="Sarah Johnson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
-			<Avatar fallback={moreFallback} />
+			<Avatar fallback="+3" />
 		</AvatarGroup>
 	</Stack>
 {/snippet}

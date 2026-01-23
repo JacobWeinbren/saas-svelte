@@ -17,6 +17,7 @@
 	import { VStack, HStack } from "$saas/layout/stack";
 	import House from "phosphor-svelte/lib/House";
 	import TShirt from "phosphor-svelte/lib/TShirt";
+	import CaretRight from "phosphor-svelte/lib/CaretRight";
 	import {
 		commonArgTypes,
 		getControls,
@@ -101,22 +102,8 @@
 	</VStack>
 {/snippet}
 
-{#snippet slashSeparator()}
-	<svg
-		stroke-width="0"
-		viewBox="0 0 32 32"
-		width="1em"
-		xmlns="http://www.w3.org/2000/svg"
-		class="fill-current stroke-current w-3.5 h-3.5"
-	>
-		<path
-			d="M 26.28125 4.28125 L 4.28125 26.28125 L 5.71875 27.71875 L 27.71875 5.71875 Z"
-		/>
-	</svg>
-{/snippet}
-
 {#snippet separatorStory()}
-	<BreadcrumbRoot separator={slashSeparator}>
+	<BreadcrumbRoot separator={CaretRight}>
 		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
 		<BreadcrumbLink href="#">Components</BreadcrumbLink>
 		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>

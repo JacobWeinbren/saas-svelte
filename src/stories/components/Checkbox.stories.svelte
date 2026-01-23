@@ -6,7 +6,6 @@
 		CheckboxGroup,
 	} from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
-	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
 	import Plus from "phosphor-svelte/lib/Plus";
@@ -178,11 +177,7 @@
 {/snippet}
 
 {#snippet customIconStory()}
-	<Checkbox.Root checked label="With Custom Icon">
-		{#snippet icon()}
-			<Icon as={Plus} size="xs" aria-hidden="true" />
-		{/snippet}
-	</Checkbox.Root>
+	<Checkbox.Root checked label="With Custom Icon" icon={Plus} />
 {/snippet}
 
 {#snippet indeterminateStory()}

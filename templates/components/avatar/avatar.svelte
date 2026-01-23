@@ -144,9 +144,9 @@
 		 */
 		ring?: boolean;
 		/**
-		 * Use the provided child snippet as the fallback content.
+		 * Custom fallback content. Can be a string (like "+3") or a Snippet.
 		 */
-		fallback?: Snippet;
+		fallback?: string | Snippet;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -220,7 +220,9 @@
 	{...restProps}
 >
 	<ArkAvatar.Fallback class={fallbackClass()}>
-		{#if fallback}
+		{#if typeof fallback === "string"}
+			{fallback}
+		{:else if fallback}
 			{@render fallback()}
 		{:else if initials}
 			{initials}

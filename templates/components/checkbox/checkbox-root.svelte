@@ -73,7 +73,7 @@
 	import Check from "phosphor-svelte/lib/Check";
 	import Minus from "phosphor-svelte/lib/Minus";
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
-	import { setContext, type Snippet } from "svelte";
+	import { setContext, type Snippet, type Component } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
 	interface Props {
@@ -137,9 +137,9 @@
 		 */
 		required?: boolean;
 		/**
-		 * Custom icon snippet to render when checked.
+		 * Custom icon component to render when checked. Auto-sized to fill the checkbox.
 		 */
-		icon?: Snippet;
+		icon?: Component<any>;
 		/**
 		 * Callback invoked when the checked state changes.
 		 */
@@ -255,7 +255,7 @@
 		>
 			<Checkbox.Indicator class={classes.indicator()}>
 				{#if icon}
-					{@render icon()}
+					<svelte:component this={icon} class="w-full h-full" weight="bold" />
 				{:else}
 					<Check class="w-full h-full" weight="bold" />
 				{/if}

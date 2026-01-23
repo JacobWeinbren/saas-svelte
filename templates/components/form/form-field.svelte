@@ -6,6 +6,7 @@
 	import { Textarea } from "../textarea";
 	import { NativeSelect } from "../native-select";
 	import { Checkbox } from "../checkbox";
+	import { Radio } from "../radio";
 	import { NumberInput } from "../number-input";
 	import { PasswordInput } from "../password-input";
 	import type { FormApi } from "./use-form.svelte";
@@ -61,7 +62,7 @@
 </script>
 
 <FieldRoot invalid={!!error} {required} {disabled} class={className}>
-	{#if label && type !== "checkbox"}
+	{#if label && type !== "checkbox" && type !== "radio"}
 		<FieldLabel>{label}{#if required}<span class="text-fg-error">*</span>{/if}</FieldLabel>
 	{/if}
 
@@ -102,6 +103,20 @@
 		>
 			{label}
 		</Checkbox>
+	{:else if type === "radio"}
+		<Radio.Group
+			value={value as string}
+			{disabled}
+			invalid={!!error}
+			onValueChange={(details) => onChange(details.value)}
+		>
+			{#if label}
+				<Radio.Label>{label}{#if required}<span class="text-fg-error">*</span>{/if}</Radio.Label>
+			{/if}
+			{#each options as opt}
+				<Radio.Item value={opt.value} label={opt.label} disabled={opt.disabled} />
+			{/each}
+		</Radio.Group>
 	{:else if type === "number-input"}
 		<NumberInput
 			value={value != null ? String(value) : undefined}

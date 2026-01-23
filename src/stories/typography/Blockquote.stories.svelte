@@ -4,8 +4,6 @@
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import Quotes from "phosphor-svelte/lib/Quotes";
-	import { Circle } from "$saas/layout/circle";
-	import { Float } from "$saas/layout/float";
 	import type { ColourName } from "$saas/utils/colours";
 	import {
 		colours,
@@ -161,8 +159,7 @@
 	<Blockquote
 		cite="Uzumaki Naruto"
 		colour="blue"
-		class="pl-8"
-		icon={customIcon}
+		icon={Quotes}
 	>
 		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
@@ -170,19 +167,6 @@
 			pride in himself, without comparing himself to anyone else.
 		</Text>
 	</Blockquote>
-{/snippet}
-
-{#snippet customIcon()}
-	<Float placement="middle-start">
-		<Circle colour="blue">
-			<Quotes
-				class="w-4 h-4 text-white"
-				color="currentColor"
-				weight="regular"
-				aria-hidden="true"
-			/>
-		</Circle>
-	</Float>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
