@@ -1,11 +1,13 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Checkbox, CheckboxGroup } from "$saas/components/checkbox";
+	import { Checkbox, CheckboxRoot, CheckboxGroup } from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
 	import Plus from "phosphor-svelte/lib/Plus";
+	import Check from "phosphor-svelte/lib/Check";
+	import Minus from "phosphor-svelte/lib/Minus";
 	import {
 		colours,
 		sizes,
@@ -18,7 +20,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
-		component: Checkbox,
+		component: CheckboxRoot,
 		argTypes: {
 			checked: {
 				control: "boolean",
@@ -41,18 +43,10 @@
 			label: {
 				control: "text",
 			},
-			description: {
-				control: "text",
-			},
 			disabled: commonArgTypes.disabled,
 			invalid: commonArgTypes.invalid,
-			icon: commonArgTypes.icon,
 			value: {
 				control: "text",
-			},
-			group: {
-				control: false,
-				table: { disable: true },
 			},
 			class: commonArgTypes.class,
 			children: commonArgTypes.children,
@@ -64,10 +58,8 @@
 				"variant",
 				"colour",
 				"label",
-				"description",
 				"disabled",
 				"invalid",
-				"icon",
 				"value",
 				"orientation",
 				"class",
@@ -84,8 +76,29 @@
 	});
 </script>
 
+<script lang="ts">
+	// State for indeterminate story
+	const indeterminateItems = [
+		{ label: "Monday", value: "monday" },
+		{ label: "Tuesday", value: "tuesday" },
+		{ label: "Wednesday", value: "wednesday" },
+		{ label: "Thursday", value: "thursday" },
+	];
+
+	let indeterminateValue = $state<string[]>(["monday"]);
+
+	const allSelected = $derived(indeterminateValue.length === indeterminateItems.length);
+	const isIndeterminate = $derived(
+		indeterminateValue.length > 0 && indeterminateValue.length < indeterminateItems.length
+	);
+
+	function handleSelectAll(details: { checked: boolean | "indeterminate" }) {
+		indeterminateValue = details.checked ? indeterminateItems.map((i) => i.value) : [];
+	}
+</script>
+
 {#snippet basicStory(args: any)}
-	<Checkbox {...args} />
+	<Checkbox.Root {...args} />
 {/snippet}
 
 {#snippet variantsStory()}
@@ -95,15 +108,15 @@
 				<Text size="xs">
 					{variant}
 				</Text>
-				<Checkbox checked={false} {variant} label="Unchecked" />
-				<Checkbox checked {variant} label="Checked" />
+				<Checkbox.Root checked={false} {variant} label="Unchecked" />
+				<Checkbox.Root checked {variant} label="Checked" />
 			</VStack>
 		{/each}
 	</HStack>
 {/snippet}
 
 {#snippet controlledStory(args: any)}
-	<Checkbox bind:checked={args.checked} label="Accept terms and conditions" />
+	<Checkbox.Root bind:checked={args.checked} label="Accept terms and conditions" />
 {/snippet}
 
 {#snippet coloursStory()}
@@ -114,7 +127,7 @@
 					{colour}
 				</Text>
 				{#each checkboxVariants as variant}
-					<Checkbox {variant} {colour} checked label="Checkbox" />
+					<Checkbox.Root {variant} {colour} checked label="Checkbox" />
 				{/each}
 			</HStack>
 		{/each}
@@ -126,7 +139,7 @@
 		{#each checkboxSizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
-				<Checkbox {size} checked label="Checkbox" />
+				<Checkbox.Root {size} checked label="Checkbox" />
 			</VStack>
 		{/each}
 	</HStack>
@@ -134,66 +147,78 @@
 
 {#snippet statesStory()}
 	<Stack gap={2}>
-		<Checkbox disabled label="Disabled" />
-		<Checkbox checked disabled label="Disabled Checked" />
-		<Checkbox invalid label="Invalid" />
+		<Checkbox.Root disabled label="Disabled" />
+		<Checkbox.Root checked disabled label="Disabled Checked" />
+		<Checkbox.Root invalid label="Invalid" />
 	</Stack>
 {/snippet}
 
 {#snippet groupStory()}
-	<CheckboxGroup label="Select framework">
-		<Checkbox value="react" label="React" />
-		<Checkbox value="svelte" label="Svelte" />
-		<Checkbox value="vue" label="Vue" />
-		<Checkbox value="angular" label="Angular" />
-	</CheckboxGroup>
+	<Checkbox.Group label="Select framework">
+		<Checkbox.Root value="react" label="React" />
+		<Checkbox.Root value="svelte" label="Svelte" />
+		<Checkbox.Root value="vue" label="Vue" />
+		<Checkbox.Root value="angular" label="Angular" />
+	</Checkbox.Group>
 {/snippet}
 
 {#snippet customIconStory()}
-	<Checkbox checked label="With Custom Icon">
+	<Checkbox.Root checked label="With Custom Icon">
 		{#snippet icon()}
 			<Icon as={Plus} size="xs" aria-hidden="true" />
 		{/snippet}
-	</Checkbox>
+	</Checkbox.Root>
 {/snippet}
 
 {#snippet indeterminateStory()}
-	{@const items = [
-		{ label: "Monday", value: "monday" },
-		{ label: "Tuesday", value: "tuesday" },
-		{ label: "Wednesday", value: "wednesday" },
-		{ label: "Thursday", value: "thursday" },
-	]}
-	<CheckboxGroup
-		selectAllLabel="Weekdays"
-		allValues={items.map((i) => i.value)}
-		defaultValue={["monday"]}
-	>
-		{#each items as item}
-			<Checkbox value={item.value} label={item.label} />
-		{/each}
-	</CheckboxGroup>
+	<VStack gap={2}>
+		<Checkbox.Root
+			checked={isIndeterminate ? "indeterminate" : allSelected}
+			onCheckedChange={handleSelectAll}
+			label="Weekdays"
+		/>
+		<Checkbox.Group bind:value={indeterminateValue} class="ps-6">
+			{#each indeterminateItems as item}
+				<Checkbox.Root value={item.value} label={item.label} />
+			{/each}
+		</Checkbox.Group>
+	</VStack>
 {/snippet}
 
 {#snippet descriptionStory()}
-	<Checkbox class="items-start">
-		<div class="flex flex-col">
-			<span class="text-fg-default">
-				I agree to the terms and conditions
-			</span>
-			<span class="mt-1 font-normal text-fg-muted">
-				By clicking this, you agree to our Terms and Privacy Policy.
-			</span>
-		</div>
-	</Checkbox>
+	<Checkbox.Root class="items-start">
+		<Checkbox.Control>
+			<Checkbox.Indicator>
+				<Check class="w-full h-full" weight="bold" />
+			</Checkbox.Indicator>
+		</Checkbox.Control>
+		<Checkbox.Label>
+			<div class="flex flex-col">
+				<span class="text-fg-default">
+					I agree to the terms and conditions
+				</span>
+				<span class="mt-1 font-normal text-fg-muted">
+					By clicking this, you agree to our Terms and Privacy Policy.
+				</span>
+			</div>
+		</Checkbox.Label>
+		<Checkbox.HiddenInput />
+	</Checkbox.Root>
 {/snippet}
 
 {#snippet linkStory()}
-	<Checkbox>
-		I agree to the{" "}
-		<Link colour="teal" href="https://google.com">terms and conditions</Link
-		>
-	</Checkbox>
+	<Checkbox.Root>
+		<Checkbox.Control>
+			<Checkbox.Indicator>
+				<Check class="w-full h-full" weight="bold" />
+			</Checkbox.Indicator>
+		</Checkbox.Control>
+		<Checkbox.Label>
+			I agree to the{" "}
+			<Link colour="teal" href="https://google.com">terms and conditions</Link>
+		</Checkbox.Label>
+		<Checkbox.HiddenInput />
+	</Checkbox.Root>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

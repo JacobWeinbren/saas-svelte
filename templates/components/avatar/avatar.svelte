@@ -1,6 +1,5 @@
 <script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { HTMLAttributes } from "svelte/elements";
 	import type { ColourName } from "$saas/utils/colours";
 	import User from "phosphor-svelte/lib/User";
 
@@ -99,6 +98,8 @@
 </script>
 
 <script lang="ts">
+	import { Avatar as ArkAvatar } from "@ark-ui/svelte/avatar";
+	import type { AvatarRootProps } from "@ark-ui/svelte/avatar";
 	import { getContext, type Snippet } from "svelte";
 	import { getColourStyle } from "$saas/utils/colours";
 	import {
@@ -108,7 +109,7 @@
 
 	type AvatarVariants = VariantProps<typeof avatar>;
 
-	interface Props extends HTMLAttributes<HTMLDivElement> {
+	interface Props extends Omit<AvatarRootProps, "class" | "style"> {
 		/**
 		 * The image source of the avatar.
 		 */
@@ -147,10 +148,6 @@
 		 */
 		fallback?: Snippet;
 		/**
-		 * Event handler called when the image loading status changes (e.g. error or load).
-		 */
-		onStatusChange?: (status: "loaded" | "error") => void;
-		/**
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
@@ -187,18 +184,6 @@
 	const variant = propVariant ?? "solid";
 	const borderless = groupContext?.borderless ?? true;
 
-	let status: "loaded" | "error" | "pending" = $state("pending");
-
-	function handleLoad() {
-		status = "loaded";
-		onStatusChange?.("loaded");
-	}
-
-	function handleError() {
-		status = "error";
-		onStatusChange?.("error");
-	}
-
 	const initials = $derived(
 		name
 			?.split(" ")
@@ -228,43 +213,28 @@
 	);
 </script>
 
-<div
+<ArkAvatar.Root
 	class={root({ class: className })}
 	style={finalStyle}
+	{onStatusChange}
 	{...restProps}
-	role="img"
-	aria-label={name || "Avatar"}
 >
-	{#if src && status !== "error"}
-		<img
-			{src}
-			alt={name}
-			class={image()}
-			onload={handleLoad}
-			onerror={handleError}
-			hidden={status !== "loaded"}
-		/>
-	{/if}
-
-	{#if status === "error" || !src || status === "pending"}
+	<ArkAvatar.Fallback class={fallbackClass()}>
 		{#if fallback}
 			{@render fallback()}
 		{:else if initials}
-			<span class={fallbackClass()}>
-				{initials}
-			</span>
+			{initials}
 		{:else if children}
-			<span class={fallbackClass()}>
-				{@render children()}
-			</span>
+			{@render children()}
 		{:else}
-			<span class={fallbackClass()}>
-				<User
-					class="w-[70%]! h-[70%]!"
-					weight="regular"
-					aria-hidden="true"
-				/>
-			</span>
+			<User
+				class="w-[70%]! h-[70%]!"
+				weight="regular"
+				aria-hidden="true"
+			/>
 		{/if}
+	</ArkAvatar.Fallback>
+	{#if src}
+		<ArkAvatar.Image src={src} alt={name || "Avatar"} class={image()} />
 	{/if}
-</div>
+</ArkAvatar.Root>

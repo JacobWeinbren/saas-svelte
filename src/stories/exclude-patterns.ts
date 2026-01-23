@@ -190,3 +190,11 @@ export const numberInputPattern = makePattern(['size', 'colour', 'invalid', 'dis
 export const paginationPattern = makePattern(['count', 'pageSize', 'page', 'defaultPage', 'siblingCount', 'size', 'variant', 'colour', 'onPageChange', 'class']);
 
 export const passwordInputPattern = makePattern(['size', 'colour', 'invalid', 'disabled', 'placeholder', 'defaultVisible', 'visible', 'onVisibleChange', 'class', 'rootClass']);
+
+export const personaRootPattern = makePattern(['size', 'class', 'children']);
+export const personaAvatarPattern = makePattern(['src', 'name', 'shape', 'variant', 'colour', 'ring', 'class', 'children']);
+export const personaPresenceBadgePattern = makePattern(['presence', 'class']);
+export const personaDetailsPattern = makePattern(['class', 'children']);
+export const personaLabelPattern = makePattern(['class', 'children']);
+export const personaSecondaryLabelPattern = makePattern(['class', 'children']);
+export const personaTertiaryLabelPattern = makePattern(['class', 'children']);

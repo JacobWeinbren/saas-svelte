@@ -237,6 +237,13 @@ export {
     numberInputPattern,
     paginationPattern,
     passwordInputPattern,
+    personaRootPattern,
+    personaAvatarPattern,
+    personaPresenceBadgePattern,
+    personaDetailsPattern,
+    personaLabelPattern,
+    personaSecondaryLabelPattern,
+    personaTertiaryLabelPattern,
 } from "./exclude-patterns";
 
 

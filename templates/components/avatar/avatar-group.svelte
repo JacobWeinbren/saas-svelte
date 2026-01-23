@@ -13,7 +13,6 @@
 
 <script lang="ts">
 	import { setContext, type Snippet } from "svelte";
-	import type { AvatarVariants } from "./avatar.svelte";
 
 	const avatarGroup = tv({
 		base: "flex items-center justify-start",

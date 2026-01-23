@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as CheckboxStories from "./Checkbox.stories.svelte";
-import { Checkbox, CheckboxGroup } from "$saas/components/checkbox";
+import { Checkbox, CheckboxRoot, CheckboxGroup } from "$saas/components/checkbox";
 import { checkboxPattern, checkboxGroupPattern } from "../utils";
 
 <Meta of={CheckboxStories} />
@@ -9,16 +9,39 @@ import { checkboxPattern, checkboxGroupPattern } from "../utils";
 
 ## Used in forms when a user needs to select multiple values from several options.
 
+[Ark UI](https://ark-ui.com/docs/components/checkbox)
+
 <Canvas of={CheckboxStories.Basic} />
 
 ## Anatomy
 
+**Simple Usage:**
+
 ```tsx
 <script>
-	import { Checkbox } from "$saas/checkbox";
+	import { Checkbox } from "$saas/components/checkbox";
 </script>
 
-<Checkbox>Click me</Checkbox>
+<Checkbox.Root label="Accept terms and conditions" />
+```
+
+**Composition API:**
+
+```tsx
+<script>
+	import { Checkbox } from "$saas/components/checkbox";
+	import { Check } from "phosphor-svelte";
+</script>
+
+<Checkbox.Root>
+	<Checkbox.Control>
+		<Checkbox.Indicator>
+			<Check weight="bold" />
+		</Checkbox.Indicator>
+	</Checkbox.Control>
+	<Checkbox.Label>Accept terms and conditions</Checkbox.Label>
+	<Checkbox.HiddenInput />
+</Checkbox.Root>
 ```
 
 ## Examples
@@ -55,7 +78,7 @@ Use the disabled or invalid prop to change the visual state of the checkbox.
 
 ### Group
 
-Use the CheckboxGroup component to group multiple checkboxes together.
+Use the Checkbox.Group component to group multiple checkboxes together.
 
 <Canvas of={CheckboxStories.Group} />
 
@@ -67,30 +90,28 @@ Use the icon snippet to change the icon of the checkbox.
 
 ### Indeterminate
 
-Set the checked prop to "indeterminate" to show the checkbox in an indeterminate state.
+Set the checked prop to "indeterminate" to show the checkbox in an indeterminate state. This example shows how to implement a "select all" checkbox with indeterminate state.
 
 <Canvas of={CheckboxStories.Indeterminate} />
 
 ### Description
 
-Add content to the children of the Checkbox component to add a description.
+Use the composition API to add a description below the checkbox label.
 
 <Canvas of={CheckboxStories.Description} />
 
 ### Link
 
-Render an anchor tag as the checkbox label.
+Render an anchor tag as the checkbox label using the composition API.
 
 <Canvas of={CheckboxStories.Link} />
 
 ## Props
 
-### Props
+**Checkbox.Root**
 
-**Checkbox**
+<ArgTypes of={CheckboxRoot} exclude={checkboxPattern} />
 
-<ArgTypes of={Checkbox} exclude={checkboxPattern} />
-
-**CheckboxGroup**
+**Checkbox.Group**
 
 <ArgTypes of={CheckboxGroup} exclude={checkboxGroupPattern} />

@@ -1,25 +1,7 @@
 <script module lang="ts">
-	export const CHECKBOX_GROUP_CTX = Symbol("CHECKBOX_GROUP_CTX");
-
-	export interface CheckboxGroupContext {
-		value: string[];
-		name?: string;
-		disabled?: boolean;
-		invalid?: boolean;
-		toggleValue: (value: string) => void;
-	}
-</script>
-
-<script lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import { twMerge } from "tailwind-merge";
-	import type { Snippet } from "svelte";
-	import Check from "phosphor-svelte/lib/Check";
-	import Minus from "phosphor-svelte/lib/Minus";
-	import { setContext } from "svelte";
-	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
-	const checkboxGroup = tv({
+	export const checkboxGroup = tv({
 		base: "flex",
 		variants: {
 			orientation: {
@@ -32,14 +14,24 @@
 		},
 	});
 
-	type Variants = VariantProps<typeof checkboxGroup>;
+	export type CheckboxGroupVariants = VariantProps<typeof checkboxGroup>;
+</script>
+
+<script lang="ts">
+	import { Checkbox } from "@ark-ui/svelte/checkbox";
+	import { twMerge } from "tailwind-merge";
+	import type { Snippet } from "svelte";
 
 	interface Props {
+		/**
+		 * Content to render inside the group.
+		 */
+		children?: Snippet;
 		/**
 		 * The layout orientation of the group.
 		 * @default "vertical"
 		 */
-		orientation?: Variants["orientation"];
+		orientation?: CheckboxGroupVariants["orientation"];
 		/**
 		 * The label displayed above the group.
 		 */
@@ -53,17 +45,7 @@
 		 */
 		defaultValue?: string[];
 		/**
-		 * All possible values for select-all functionality.
-		 * When provided with selectAllLabel, enables an indeterminate parent checkbox.
-		 */
-		allValues?: string[];
-		/**
-		 * Label for the select-all checkbox.
-		 * When provided with allValues, displays a parent checkbox that controls all children.
-		 */
-		selectAllLabel?: string;
-		/**
-		 * The name of the input fields in the checkbox group (Useful for form submission).
+		 * The name of the input fields in the checkbox group (useful for form submission).
 		 */
 		name?: string;
 		/**
@@ -79,11 +61,6 @@
 		 */
 		invalid?: boolean;
 		/**
-		 * The colour palette for the select-all checkbox.
-		 * @default "indigo"
-		 */
-		colour?: ColourName;
-		/**
 		 * Callback invoked when the value changes.
 		 */
 		onValueChange?: (value: string[]) => void;
@@ -91,132 +68,47 @@
 		 * Additional CSS classes to apply.
 		 */
 		class?: string;
-		/**
-		 * Content to render inside the group.
-		 */
-		children?: Snippet;
+		[key: string]: any;
 	}
 
 	let {
+		children,
 		orientation = "vertical",
 		label,
 		value = $bindable([]),
 		defaultValue,
-		allValues,
-		selectAllLabel,
 		name,
 		disabled,
 		readOnly,
 		invalid,
-		colour = "indigo",
 		onValueChange,
 		class: className,
-		children,
-		...rest
+		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(getColourStyle(colour || "indigo"));
+	const classes = $derived(checkboxGroup({ orientation }));
 
-	// Initialize value with defaultValue if provided
-	if (defaultValue && value.length === 0) {
-		value = [...defaultValue];
-	}
-
-	const allChecked = $derived(
-		allValues && value && value.length === allValues.length,
-	);
-	const isIndeterminate = $derived(
-		allValues &&
-			value &&
-			value.length > 0 &&
-			value.length < allValues.length,
-	);
-
-	function toggleValue(checkboxValue: string) {
-		if (readOnly || disabled) return;
-
-		const newValue = value.includes(checkboxValue)
-			? value.filter((v) => v !== checkboxValue)
-			: [...value, checkboxValue];
-
-		value = newValue;
-		onValueChange?.(newValue);
-	}
-
-	setContext<CheckboxGroupContext>(CHECKBOX_GROUP_CTX, {
-		get value() {
-			return value;
-		},
-		get name() {
-			return name;
-		},
-		get disabled() {
-			return disabled;
-		},
-		get invalid() {
-			return invalid;
-		},
-		toggleValue,
-	});
-
-	function handleSelectAll() {
-		if (readOnly || disabled || !allValues) return;
-		const newValue = allChecked ? [] : [...allValues];
+	function handleValueChange(newValue: string[]) {
 		value = newValue;
 		onValueChange?.(newValue);
 	}
 </script>
 
-{#if selectAllLabel && allValues}
-	<div class="flex flex-col gap-y-2 gap-x-2" style={colourVars}>
-		<div
-			role="button"
-			tabindex="0"
-			class="align-top items-center gap-y-2.5 gap-x-2.5 inline-flex relative"
-			onclick={handleSelectAll}
-			onkeydown={(e) => {
-				if (e.key === " " || e.key === "Enter") {
-					e.preventDefault();
-					handleSelectAll();
-				}
-			}}
-		>
-			<div
-				class="shrink-0 justify-center items-center w-4 h-4 inline-flex p-0.5 rounded border focus-visible:outline-offset-2 focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-(--c-solid) {isIndeterminate ||
-				allChecked
-					? 'text-white bg-(--c-solid) border-(--c-solid)'
-					: 'text-white border-border-default'}"
-				aria-hidden="true"
-			>
-				{#if isIndeterminate}
-					<Minus class="size-3" weight="bold" aria-hidden="true" />
-				{:else if allChecked}
-					<Check class="size-3" weight="bold" aria-hidden="true" />
-				{/if}
-			</div>
-			<span class="select-none text-sm font-medium leading-5">
-				{selectAllLabel}
-			</span>
-		</div>
-		<div
-			class={twMerge(checkboxGroup({ orientation }), "ps-6", className)}
-			{...rest}
-		>
-			{#if label}
-				<span class="mb-2 text-sm font-medium leading-5">
-					{label}
-				</span>
-			{/if}
-			{@render children?.()}
-		</div>
-	</div>
-{:else}
-	<div class={twMerge(checkboxGroup({ orientation }), className)} {...rest}>
-		{#if label}
-			<span class="mb-2 text-sm font-medium leading-5">
-				{label}
-			</span>
-		{/if}
-		{@render children?.()}
-	</div>
-{/if}
+<Checkbox.Group
+	{value}
+	{defaultValue}
+	{name}
+	{disabled}
+	{readOnly}
+	{invalid}
+	onValueChange={handleValueChange}
+	class={twMerge(classes, className)}
+	{...restProps}
+>
+	{#if label}
+		<span class="mb-2 text-sm font-medium leading-5">
+			{label}
+		</span>
+	{/if}
+	{@render children?.()}
+</Checkbox.Group>
