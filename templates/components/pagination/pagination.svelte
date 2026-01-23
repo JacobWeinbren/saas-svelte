@@ -104,17 +104,17 @@
 				current: true,
 				class: "shadow text-(--c-contrast) bg-(--c-solid) border-transparent",
 			},
-			// Solid non-current: with hover
+			// Solid non-current: emphasized border, hover to bg-muted
 			{
 				variant: "solid",
 				current: false,
-				class: "border-[0.5px] border-border-default hover:bg-bg-subtle",
+				class: "border-[0.5px] border-solid border-border-emphasized hover:bg-bg-muted",
 			},
-			// Solid current: styled, no hover change
+			// Solid current: solid bg, no border, with hover effect
 			{
 				variant: "solid",
 				current: true,
-				class: "shadow text-(--c-contrast) bg-(--c-solid)",
+				class: "border-0 shadow text-(--c-contrast) bg-(--c-solid) hover:bg-(--c-solid)/90",
 			},
 		],
 		defaultVariants: {
