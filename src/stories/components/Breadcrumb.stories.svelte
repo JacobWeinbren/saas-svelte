@@ -17,7 +17,12 @@
 	import { VStack, HStack } from "$saas/layout/stack";
 	import House from "phosphor-svelte/lib/House";
 	import TShirt from "phosphor-svelte/lib/TShirt";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		breadcrumbSizes,
+		breadcrumbVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Breadcrumb",
@@ -25,12 +30,12 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["plain", "underline"],
+				options: breadcrumbVariants,
 				table: { defaultValue: { summary: "plain" } },
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: breadcrumbSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			separator: {
@@ -56,9 +61,6 @@
 			separator: "/",
 		},
 	});
-
-	const breadcrumbSizes = ["sm", "md", "lg"] as const;
-	const breadcrumbVariants = ["plain", "underline"] as const;
 </script>
 
 {#snippet basicStory(args: any)}

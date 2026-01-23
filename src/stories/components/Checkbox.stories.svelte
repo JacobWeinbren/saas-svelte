@@ -14,13 +14,11 @@
 	import Minus from "phosphor-svelte/lib/Minus";
 	import {
 		colours,
-		sizes,
 		checkboxVariants,
+		checkboxSizes,
 		commonArgTypes,
 		getControls,
 	} from "../utils";
-
-	const checkboxSizes = ["sm", "md", "lg"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
@@ -32,7 +30,7 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: sizes.filter((s) => ["sm", "md", "lg"].includes(s)),
+				options: checkboxSizes,
 			},
 			variant: {
 				...commonArgTypes.variant,

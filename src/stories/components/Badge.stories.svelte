@@ -5,10 +5,12 @@
 	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Badge } from "$saas/components/badge";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const badgeVariants = ["subtle", "solid", "outline", "surface"] as const;
-	const badgeSizes = ["xs", "sm", "md", "lg"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		badgeVariants,
+		badgeSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Badge",

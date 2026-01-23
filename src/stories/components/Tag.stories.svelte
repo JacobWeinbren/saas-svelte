@@ -3,12 +3,15 @@
 	import { Tag } from "$saas/components/tag";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, colours, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		colours,
+		getControls,
+		tagVariants,
+		tagSizes,
+	} from "../utils";
 	import Plus from "phosphor-svelte/lib/Plus";
 	import Check from "phosphor-svelte/lib/Check";
-
-	const tagVariants = ["subtle", "solid", "outline", "surface"] as const;
-	const tagSizes = ["sm", "md", "lg", "xl"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Tag",

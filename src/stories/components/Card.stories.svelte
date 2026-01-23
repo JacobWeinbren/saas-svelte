@@ -16,7 +16,12 @@
 	import X from "phosphor-svelte/lib/X";
 	import Check from "phosphor-svelte/lib/Check";
 
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		cardVariants,
+		cardSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Card",
@@ -24,12 +29,12 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["subtle", "outline", "elevated"],
+				options: cardVariants,
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: cardSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			children: commonArgTypes.children,
@@ -43,9 +48,6 @@
 			size: "md",
 		},
 	});
-
-	const cardVariants = ["subtle", "outline", "elevated"] as const;
-	const cardSizes = ["sm", "md", "lg"] as const;
 </script>
 
 <script lang="ts">

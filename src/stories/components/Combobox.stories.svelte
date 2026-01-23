@@ -8,7 +8,13 @@
 	import { Popover } from "$saas/components/popover";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import Code from "phosphor-svelte/lib/Code";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		comboboxSizes,
+		comboboxVariants,
+		comboboxColours,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Combobox",
@@ -16,13 +22,13 @@
 		argTypes: {
 			size: {
 				control: "select",
-				options: ["xs", "sm", "md", "lg"],
+				options: comboboxSizes,
 				description: "The size of the combobox.",
 				table: { defaultValue: { summary: "md" } },
 			},
 			variant: {
 				control: "select",
-				options: ["outline", "subtle", "flushed"],
+				options: comboboxVariants,
 				description: "The visual style of the input.",
 				table: { defaultValue: { summary: "outline" } },
 			},
@@ -124,17 +130,6 @@
 		{ label: "Ember", value: "ember", href: "https://emberjs.com" },
 		{ label: "Next.js", value: "nextjs", href: "https://nextjs.org" },
 	];
-
-	const comboboxSizes = ["xs", "sm", "md", "lg"] as const;
-	const comboboxVariants = ["outline", "subtle", "flushed"] as const;
-	const comboboxColours = [
-		"gray",
-		"red",
-		"orange",
-		"green",
-		"blue",
-		"purple",
-	] as const;
 </script>
 
 <script lang="ts">

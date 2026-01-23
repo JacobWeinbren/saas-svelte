@@ -10,7 +10,12 @@
 	import List from "phosphor-svelte/lib/List";
 	import X from "phosphor-svelte/lib/X";
 	import { createMobileNav } from "$saas/utils/mobile-nav.svelte";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import {
+		colours,
+		commonArgTypes,
+		getControls,
+		navbarVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Navbar",
@@ -18,7 +23,7 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["default", "glass", "solid"],
+				options: navbarVariants,
 				table: { defaultValue: { summary: "default" } },
 			},
 			position: {
@@ -57,8 +62,6 @@
 			colour: "accent",
 		},
 	});
-
-	const navbarVariants = ["default", "glass", "solid"] as const;
 </script>
 
 {#snippet logoSvg(color?: string)}

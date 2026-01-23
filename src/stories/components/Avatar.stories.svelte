@@ -3,7 +3,12 @@
 	import { Stack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Avatar, AvatarGroup } from "$saas/components/avatar";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		avatarSizes,
+		avatarShapes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Avatar",
@@ -16,11 +21,11 @@
 			colour: commonArgTypes.colour,
 			size: {
 				...commonArgTypes.size,
-				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"],
+				options: avatarSizes,
 			},
 			shape: {
 				control: "select",
-				options: ["full", "square", "rounded"],
+				options: avatarShapes,
 				description: "The shape of the avatar.",
 				table: { defaultValue: { summary: "full" } },
 			},
@@ -67,8 +72,6 @@
 		},
 	});
 
-	const avatarSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
-	const avatarShapes = ["square", "rounded", "full"] as const;
 </script>
 
 {#snippet basicStory(args: any)}

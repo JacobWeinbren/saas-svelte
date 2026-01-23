@@ -10,7 +10,12 @@
 	import Globe from "phosphor-svelte/lib/Globe";
 	import Lock from "phosphor-svelte/lib/Lock";
 
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		checkboxCardVariants,
+		checkboxCardSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox Card",
@@ -18,12 +23,12 @@
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
-				options: ["subtle", "surface", "outline"],
+				options: checkboxCardVariants,
 				table: { defaultValue: { summary: "outline" } },
 			},
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: checkboxCardSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			colour: commonArgTypes.colour,
@@ -55,9 +60,6 @@
 			checked: false,
 		},
 	});
-
-	const checkboxCardVariants = ["subtle", "surface", "outline"] as const;
-	const checkboxCardSizes = ["sm", "md", "lg"] as const;
 
 	const items = [
 		{ value: "next", title: "Next.js", description: "Best for apps" },

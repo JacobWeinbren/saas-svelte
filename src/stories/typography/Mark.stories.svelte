@@ -3,9 +3,7 @@
 	import { Mark } from "$saas/typography/mark";
 	import { Text } from "$saas/typography/text";
 	import { DataList } from "$saas/components/data-list";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const markVariants = ["subtle", "solid", "text", "plain"] as const;
+	import { commonArgTypes, getControls, markVariants } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Mark",

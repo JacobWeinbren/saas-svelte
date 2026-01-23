@@ -7,7 +7,7 @@
 	import { Badge } from "$saas/components/badge";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls } from "../utils";
+	import { commonArgTypes, getControls, floatPlacements } from "../utils";
 
 	const placeholder = "relative size-20 bg-bg-subtle dark:bg-bg-emphasized";
 
@@ -29,18 +29,6 @@
 		children?: any;
 		class?: any;
 	};
-
-	const floatPlacements = [
-		"bottom-end",
-		"bottom-start",
-		"top-end",
-		"top-start",
-		"bottom-center",
-		"top-center",
-		"middle-center",
-		"middle-end",
-		"middle-start",
-	] as const;
 
 	const { Story } = defineMeta({
 		title: "layout/Float",

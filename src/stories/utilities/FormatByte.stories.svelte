@@ -4,6 +4,7 @@
 	import { LocaleProvider } from "$saas/utilities/locale-provider";
 	import { Text } from "$saas/typography/text";
 	import { Stack, HStack } from "$saas/layout/stack";
+	import { getControls } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "utilities/Format Byte",
@@ -30,6 +31,9 @@
 				description:
 					"The locale to use for formatting. If not provided, uses the locale from LocaleProvider context.",
 			},
+		},
+		parameters: {
+			controls: getControls(["value", "unit", "unitDisplay", "locale"]),
 		},
 		args: {
 			value: 1450.45,

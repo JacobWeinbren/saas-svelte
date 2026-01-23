@@ -3,10 +3,13 @@
 	import { Code } from "$saas/typography/code";
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { colours, commonArgTypes, getControls } from "../utils";
-
-	const codeVariants = ["solid", "outline", "subtle", "surface"] as const;
-	const codeSizes = ["xs", "sm", "md", "lg"] as const;
+	import {
+		colours,
+		commonArgTypes,
+		getControls,
+		codeVariants,
+		codeSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Code",

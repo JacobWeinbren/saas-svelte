@@ -6,9 +6,12 @@
 	import { Input } from "$saas/components/input";
 	import { Stack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const passwordInputSizes = ["xs", "sm", "md", "lg"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		passwordInputSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Password Input",

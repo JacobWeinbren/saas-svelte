@@ -9,7 +9,13 @@
 	import MagnifyingGlass from "phosphor-svelte/lib/MagnifyingGlass";
 	import File from "phosphor-svelte/lib/File";
 	import Users from "phosphor-svelte/lib/Users";
-	import { commonArgTypes, getControls, sizes, colours } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		emptyStateSizes,
+		emptyStateAlignOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Empty State",
@@ -17,12 +23,12 @@
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md", "lg"],
+				options: emptyStateSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			align: {
 				control: "select",
-				options: ["centre", "start", "end"],
+				options: emptyStateAlignOptions,
 				description: "The alignment of the empty state content.",
 				table: { defaultValue: { summary: "centre" } },
 			},
@@ -59,9 +65,6 @@
 			description: "Explore our products and add items to your cart",
 		},
 	});
-
-	const emptyStateSizes = ["sm", "md", "lg"] as const;
-	const emptyStateAlignOptions = ["centre", "start", "end"] as const;
 </script>
 
 {#snippet basicStory(args: any)}

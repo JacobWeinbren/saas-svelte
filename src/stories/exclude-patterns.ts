@@ -202,3 +202,7 @@ export const personaTertiaryLabelPattern = makePattern(['class', 'children']);
 export const pinInputPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'placeholder', 'value', 'defaultValue', 'onValueChange', 'onValueComplete', 'onValueInvalid', 'count', 'type', 'otp', 'mask', 'attached', 'autoFocus', 'blurOnComplete', 'selectOnFocus', 'name', 'required', 'readOnly', 'class']);
 
 export const progressCirclePattern = makePattern(['value', 'min', 'max', 'size', 'colour', 'showValue', 'thickness', 'rounded', 'label', 'class']);
+
+export const formatBytePattern = makePattern(['value', 'unit', 'unitDisplay', 'locale']);
+export const formatNumberPattern = makePattern(['value', 'style', 'currency', 'unit', 'minimumFractionDigits', 'maximumFractionDigits', 'notation', 'compactDisplay', 'locale']);
+export const localeProviderPattern = makePattern(['locale', 'children']);

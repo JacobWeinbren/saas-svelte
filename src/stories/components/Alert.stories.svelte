@@ -6,7 +6,7 @@
 	import {
 		commonArgTypes,
 		getControls,
-		variants,
+		alertVariants,
 		alertStatuses,
 	} from "../utils";
 
@@ -22,9 +22,7 @@
 			},
 			variant: {
 				...commonArgTypes.variant,
-				options: variants.filter((v) =>
-					["subtle", "solid", "surface", "outline"].includes(v),
-				),
+				options: alertVariants,
 				table: { defaultValue: { summary: "subtle" } },
 			},
 			colour: commonArgTypes.colour,

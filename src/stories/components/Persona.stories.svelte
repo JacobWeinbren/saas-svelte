@@ -3,7 +3,13 @@
 	import { Stack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Persona } from "$saas/components/persona";
-	import { commonArgTypes, getControls } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		personaSizes,
+		avatarShapes,
+		presenceOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Persona",
@@ -11,7 +17,7 @@
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
-				options: ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"],
+				options: personaSizes,
 			},
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
@@ -23,16 +29,6 @@
 			size: "md",
 		},
 	});
-
-	const personaSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
-	const avatarShapes = ["square", "rounded", "full"] as const;
-	const presenceStatuses = [
-		"online",
-		"offline",
-		"busy",
-		"dnd",
-		"away",
-	] as const;
 </script>
 
 {#snippet basicStory(args: any)}

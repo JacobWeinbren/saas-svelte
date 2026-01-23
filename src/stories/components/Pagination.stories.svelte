@@ -3,10 +3,13 @@
 	import { Pagination } from "$saas/components/pagination";
 	import { Stack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const paginationSizes = ["xs", "sm", "md", "lg"] as const;
-	const paginationVariants = ["ghost", "outline", "solid"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		paginationSizes,
+		paginationVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Pagination",

@@ -10,9 +10,8 @@
 		getControls,
 		colours,
 		inputVariants,
+		pinInputSizes,
 	} from "../utils";
-
-	const pinInputSizes = ["xs", "sm", "md", "lg"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Pin Input",

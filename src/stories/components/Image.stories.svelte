@@ -3,7 +3,11 @@
 	import { Image } from "$saas/components/image";
 	import { Stack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { getControls } from "../utils";
+	import {
+		getControls,
+		imageRoundedOptions,
+		imageFitOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Image",
@@ -34,13 +38,13 @@
 			},
 			rounded: {
 				control: "select",
-				options: ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+				options: imageRoundedOptions,
 				description: "The border radius of the image.",
 				table: { defaultValue: { summary: "none" } },
 			},
 			fit: {
 				control: "select",
-				options: ["cover", "contain", "fill", "none", "scale-down"],
+				options: imageFitOptions,
 				description: "The object-fit property of the image.",
 				table: { defaultValue: { summary: "cover" } },
 			},
@@ -68,24 +72,6 @@
 			fit: "cover",
 		},
 	});
-
-	const imageRoundedOptions = [
-		"none",
-		"sm",
-		"md",
-		"lg",
-		"xl",
-		"2xl",
-		"3xl",
-		"full",
-	] as const;
-	const imageFitOptions = [
-		"cover",
-		"contain",
-		"fill",
-		"none",
-		"scale-down",
-	] as const;
 </script>
 
 {#snippet basicStory(args: any)}

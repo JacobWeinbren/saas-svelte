@@ -4,9 +4,12 @@
 	import { Field } from "$saas/components/field";
 	import { Stack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const numberInputSizes = ["xs", "sm", "md", "lg"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		numberInputSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Number Input",

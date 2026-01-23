@@ -26,7 +26,7 @@
 	import MagnifyingGlass from "phosphor-svelte/lib/MagnifyingGlass";
 	import Translate from "phosphor-svelte/lib/Translate";
 	import ShareNetwork from "phosphor-svelte/lib/ShareNetwork";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import { colours, commonArgTypes, getControls, menuSizes } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Menu",
@@ -34,7 +34,7 @@
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
-				options: ["sm", "md"],
+				options: menuSizes,
 				table: { defaultValue: { summary: "md" } },
 			},
 			colour: {
@@ -74,8 +74,6 @@
 			colour: "indigo",
 		},
 	});
-
-	const menuSizes = ["sm", "md"] as const;
 </script>
 
 {#snippet basicStory(args: any)}

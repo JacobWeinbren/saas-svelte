@@ -7,9 +7,12 @@
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
 	import CreditCard from "phosphor-svelte/lib/CreditCard";
-	import { commonArgTypes, getControls, variants } from "../utils";
-
-	const accordionSizes = ["sm", "md", "lg"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		variants,
+		accordionSizes,
+	} from "../utils";
 
 	function createItems(prefix: string) {
 		return [

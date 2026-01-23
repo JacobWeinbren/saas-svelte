@@ -5,10 +5,12 @@
 	import { Field } from "$saas/components/field";
 	import { Button } from "$saas/components/button";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const nativeSelectSizes = ["xs", "sm", "md", "lg", "xl"] as const;
-	const nativeSelectVariants = ["outline", "subtle", "plain"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		nativeSelectSizes,
+		nativeSelectVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Select (Native)",

@@ -3,9 +3,12 @@
 	import { Kbd } from "$saas/components/kbd";
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
-	import { sizes, commonArgTypes, getControls } from "../utils";
-
-	const kbdVariants = ["raised", "outline", "subtle", "plain"] as const;
+	import {
+		sizes,
+		commonArgTypes,
+		getControls,
+		kbdVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Kbd",

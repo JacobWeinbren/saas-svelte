@@ -2,15 +2,12 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Text } from "$saas/typography/text";
 	import { DataList } from "$saas/components/data-list";
-	import { commonArgTypes, getControls, textSizes } from "../utils";
-
-	const textWeights = [
-		"light",
-		"normal",
-		"medium",
-		"semibold",
-		"bold",
-	] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		textSizes,
+		textWeights,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Text",

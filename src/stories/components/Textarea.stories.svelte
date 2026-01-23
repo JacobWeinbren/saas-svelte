@@ -6,15 +6,13 @@
 	import { Button } from "$saas/components/button";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { inputVariants, commonArgTypes, getControls } from "../utils";
-
-	const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
-	const textareaResizeOptions = [
-		"none",
-		"vertical",
-		"horizontal",
-		"both",
-	] as const;
+	import {
+		inputVariants,
+		commonArgTypes,
+		getControls,
+		textareaSizes,
+		textareaResizeOptions,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Textarea",

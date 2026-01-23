@@ -3,7 +3,12 @@
 	import { Spinner } from "$saas/components/spinner";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { colours, commonArgTypes, getControls } from "../utils";
+	import {
+		colours,
+		commonArgTypes,
+		getControls,
+		spinnerSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Spinner",
@@ -11,7 +16,7 @@
 		argTypes: {
 			size: {
 				control: "select",
-				options: ["xs", "sm", "md", "lg", "xl"],
+				options: spinnerSizes,
 				description: "The size of the spinner.",
 				table: { defaultValue: { summary: "md" } },
 			},
@@ -53,8 +58,6 @@
 			colour: "gray",
 		},
 	});
-
-	const spinnerSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 </script>
 
 {#snippet basicStory(args: any)}

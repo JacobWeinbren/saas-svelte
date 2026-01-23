@@ -6,18 +6,13 @@
 	import { DataList } from "$saas/components/data-list";
 	import Star from "phosphor-svelte/lib/Star";
 	import Heart from "phosphor-svelte/lib/Heart";
-	import User from "phosphor-svelte/lib/User";
-	import Gear from "phosphor-svelte/lib/Gear";
-	import { commonArgTypes, getControls, sizes, colours } from "../utils";
-
-	const iconWeights = [
-		"thin",
-		"light",
-		"regular",
-		"bold",
-		"fill",
-		"duotone",
-	] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		sizes,
+		colours,
+		iconWeights,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Icon",

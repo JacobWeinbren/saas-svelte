@@ -8,7 +8,7 @@
 	import { Text } from "$saas/typography/text";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Box } from "$saas/layout/box";
-	import { getControls } from "../utils";
+	import { getControls, popoverSizes } from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Popover",
@@ -16,7 +16,7 @@
 		argTypes: {
 			size: {
 				control: "select",
-				options: ["xs", "sm", "md", "lg"],
+				options: popoverSizes,
 				description: "The size of the popover.",
 				table: { defaultValue: { summary: "md" } },
 			},
@@ -72,8 +72,6 @@
 			size: "md",
 		},
 	});
-
-	const popoverSizes = ["xs", "sm", "md", "lg"] as const;
 </script>
 
 <script lang="ts">

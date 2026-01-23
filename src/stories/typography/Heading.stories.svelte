@@ -6,23 +6,12 @@
 	import { Button } from "$saas/components/button";
 	import { Stack } from "$saas/layout/stack";
 	import ArrowRight from "phosphor-svelte/lib/ArrowRight";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const headingSizes = [
-		"xs",
-		"sm",
-		"md",
-		"lg",
-		"xl",
-		"2xl",
-		"3xl",
-		"4xl",
-		"5xl",
-		"6xl",
-		"7xl",
-	] as const;
-
-	const headingWeights = ["normal", "medium", "semibold", "bold"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		textSizes,
+		headingWeights,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "typography/Heading",
@@ -34,7 +23,7 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: headingSizes,
+				options: textSizes,
 			},
 			weight: {
 				control: "select",
@@ -66,7 +55,7 @@
 
 {#snippet sizesStory()}
 	<Stack>
-		{#each headingSizes as size}
+		{#each textSizes as size}
 			<Heading {size}>The quick brown fox jumps over the lazy dog</Heading
 			>
 		{/each}
@@ -75,7 +64,7 @@
 
 {#snippet multiLineStory()}
 	<Stack>
-		{#each headingSizes as size}
+		{#each textSizes as size}
 			<Heading {size}>
 				The quick brown fox
 				<br />

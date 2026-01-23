@@ -8,9 +8,12 @@
 	} from "$saas/components/data-list";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, orientations } from "../utils";
-
-	const dataListSizes = ["sm", "md", "lg"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		orientations,
+		dataListSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Data List",
