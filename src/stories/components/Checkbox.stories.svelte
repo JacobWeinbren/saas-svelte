@@ -14,6 +14,8 @@
 		getControls,
 	} from "../utils";
 
+	const checkboxSizes = ["sm", "md", "lg"] as const;
+
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
 		component: Checkbox,
@@ -121,7 +123,7 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" gap={12} class="flex-1">
-		{#each ["sm", "md", "lg"] as size}
+		{#each checkboxSizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Checkbox {size} checked label="Checkbox" />
