@@ -51,8 +51,8 @@
 	export { Stack, HStack, VStack, Divider, DecorativeBox };
 </script>
 
-{#snippet basicStory()}
-	<Stack>
+{#snippet basicStory(args: any)}
+	<Stack {...args}>
 		<DecorativeBox class="h-20" />
 		<DecorativeBox class="h-20" />
 		<DecorativeBox class="h-20" />

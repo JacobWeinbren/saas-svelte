@@ -64,9 +64,7 @@
 	</Editable.Root>
 {/snippet}
 
-<Story name="Basic" template={basicStory} />
-
-<Story name="Controlled">
+{#snippet controlledStory()}
 	<Editable.Root
 		value={name}
 		onValueChange={(e) => (name = e.value)}
@@ -77,9 +75,9 @@
 			<Editable.Input />
 		</Editable.Area>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="With Double Click">
+{#snippet withDoubleClickStory()}
 	<Editable.Root
 		defaultValue="Double click to edit"
 		activationMode="dblclick"
@@ -89,36 +87,36 @@
 			<Editable.Input />
 		</Editable.Area>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="Disabled">
+{#snippet disabledStory()}
 	<Editable.Root disabled defaultValue="Click to edit">
 		<Editable.Area>
 			<Editable.Preview />
 			<Editable.Input />
 		</Editable.Area>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="Invalid">
+{#snippet invalidStory()}
 	<Editable.Root invalid defaultValue="Click to edit">
 		<Editable.Area>
 			<Editable.Preview />
 			<Editable.Input />
 		</Editable.Area>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="Textarea">
+{#snippet textareaStory()}
 	<Editable.Root defaultValue="Click to edit" autoResize class="w-full">
 		<Editable.Area>
 			<Editable.Preview class="min-h-14 items-start" />
 			<Editable.Textarea class="min-h-14" />
 		</Editable.Area>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="With Controls">
+{#snippet withControlsStory()}
 	<Editable.Root defaultValue="Click to edit">
 		<Editable.Area>
 			<Editable.Preview />
@@ -140,9 +138,9 @@
 			</Editable.SubmitTrigger>
 		</Editable.Control>
 	</Editable.Root>
-</Story>
+{/snippet}
 
-<Story name="Colours">
+{#snippet coloursStory()}
 	<VStack gap={4}>
 		{#each colours as colour}
 			<HStack gap={4} align="center">
@@ -160,4 +158,20 @@
 			</HStack>
 		{/each}
 	</VStack>
-</Story>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="Controlled" template={controlledStory} />
+
+<Story name="With Double Click" template={withDoubleClickStory} />
+
+<Story name="Disabled" template={disabledStory} />
+
+<Story name="Invalid" template={invalidStory} />
+
+<Story name="Textarea" template={textareaStory} />
+
+<Story name="With Controls" template={withControlsStory} />
+
+<Story name="Colours" template={coloursStory} />

@@ -42,9 +42,9 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<div class="flex justify-center">
-		<Group>
+		<Group {...args}>
 			<DecorativeBox class="h-20 w-40!">1</DecorativeBox>
 			<DecorativeBox class="h-20 w-40!">2</DecorativeBox>
 		</Group>

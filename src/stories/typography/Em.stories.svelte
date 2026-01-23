@@ -17,9 +17,9 @@
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
 	<Text>
-		The <Em>design system</Em> is a collection of UI elements
+		The <Em {...args}>design system</Em> is a collection of UI elements
 	</Text>
 {/snippet}
 

@@ -29,8 +29,8 @@
 	});
 </script>
 
-{#snippet basicStory()}
-	<Box class="bg-(--colors-red-solid) w-full p-4 text-fg-inverted"
+{#snippet basicStory(args: any)}
+	<Box {...args} class="bg-(--colors-red-solid) w-full p-4 text-fg-inverted"
 		>This is the Box</Box
 	>
 {/snippet}

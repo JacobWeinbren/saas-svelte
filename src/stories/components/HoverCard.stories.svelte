@@ -89,7 +89,7 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="Controlled">
+{#snippet controlledStory()}
 	<HoverCard.Root size="sm" bind:open={controlledOpen}>
 		Follow
 		<HoverCard.Trigger>
@@ -113,9 +113,9 @@
 			</HStack>
 		</HoverCard.Content>
 	</HoverCard.Root>
-</Story>
+{/snippet}
 
-<Story name="Delays">
+{#snippet delaysStory()}
 	<HoverCard.Root size="sm" openDelay={1000} closeDelay={100}>
 		Follow
 		<HoverCard.Trigger>
@@ -139,9 +139,9 @@
 			</HStack>
 		</HoverCard.Content>
 	</HoverCard.Root>
-</Story>
+{/snippet}
 
-<Story name="Placement">
+{#snippet placementStory()}
 	<HoverCard.Root size="sm" positioning={{ placement: "top" }}>
 		Follow
 		<HoverCard.Trigger>
@@ -165,4 +165,10 @@
 			</HStack>
 		</HoverCard.Content>
 	</HoverCard.Root>
-</Story>
+{/snippet}
+
+<Story name="Controlled" template={controlledStory} />
+
+<Story name="Delays" template={delaysStory} />
+
+<Story name="Placement" template={placementStory} />

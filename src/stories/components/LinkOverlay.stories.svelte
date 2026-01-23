@@ -25,8 +25,8 @@
 	});
 </script>
 
-<Story name="Basic">
-	<LinkBox>
+{#snippet basicStory(args: any)}
+	<LinkBox {...args}>
 		<VStack gap={2}>
 			<Heading as="h4" size="lg">Wanna try it out?</Heading>
 			<Text class="text-fg-muted">
@@ -37,9 +37,9 @@
 			</LinkOverlay>
 		</VStack>
 	</LinkBox>
-</Story>
+{/snippet}
 
-<Story name="Article">
+{#snippet articleStory()}
 	<LinkBox
 		as="article"
 		class="max-w-sm p-5 border border-border-default rounded-md"
@@ -63,9 +63,9 @@
 			Inner Link
 		</Link>
 	</LinkBox>
-</Story>
+{/snippet}
 
-<Story name="Card">
+{#snippet cardStory()}
 	<LinkBox
 		class="max-w-sm p-6 border border-border-default rounded-lg bg-bg-subtle"
 	>
@@ -87,4 +87,10 @@
 			</Text>
 		</VStack>
 	</LinkBox>
-</Story>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="Article" template={articleStory} />
+
+<Story name="Card" template={cardStory} />
