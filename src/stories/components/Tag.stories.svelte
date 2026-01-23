@@ -113,16 +113,16 @@
 
 {#snippet avatarStory()}
 	<HStack gap={2} align="center">
-		<Tag size="sm" startAvatar={{ src: "https://i.pravatar.cc/300?u=1", name: "Emily" }}>
+		<Tag size="sm" startAvatar={{ src: "https://api.dicebear.com/9.x/shapes/svg?seed=emily", name: "Emily" }}>
 			Emily (sm)
 		</Tag>
-		<Tag size="md" startAvatar={{ src: "https://i.pravatar.cc/300?u=1", name: "Emily" }}>
+		<Tag size="md" startAvatar={{ src: "https://api.dicebear.com/9.x/shapes/svg?seed=emily", name: "Emily" }}>
 			Emily (md)
 		</Tag>
-		<Tag size="lg" startAvatar={{ src: "https://i.pravatar.cc/300?u=1", name: "Emily" }}>
+		<Tag size="lg" startAvatar={{ src: "https://api.dicebear.com/9.x/shapes/svg?seed=emily", name: "Emily" }}>
 			Emily (lg)
 		</Tag>
-		<Tag size="xl" startAvatar={{ src: "https://i.pravatar.cc/300?u=1", name: "Emily" }}>
+		<Tag size="xl" startAvatar={{ src: "https://api.dicebear.com/9.x/shapes/svg?seed=emily", name: "Emily" }}>
 			Emily (xl)
 		</Tag>
 	</HStack>

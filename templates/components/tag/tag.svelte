@@ -113,7 +113,22 @@
 				sm: "w-3.5 h-3.5",
 				md: "w-4 h-4",
 				lg: "w-5 h-5",
-				xl: "w-5 h-5",
+				xl: "w-6 h-6",
+			},
+		},
+		defaultVariants: {
+			size: "md",
+		},
+	});
+
+	export const tagAvatar = tv({
+		base: ["shrink-0", "justify-center", "items-center", "inline-flex"],
+		variants: {
+			size: {
+				sm: "w-3.5 h-3.5 -ml-0.5",
+				md: "w-4 h-4 -ml-1",
+				lg: "w-5 h-5 -ml-1.5",
+				xl: "w-6 h-6 -ml-2",
 			},
 		},
 		defaultVariants: {
@@ -210,13 +225,6 @@
 		...restProps
 	}: Props = $props();
 
-	const avatarMargin = $derived({
-		sm: "-ml-0.5",
-		md: "-ml-1",
-		lg: "-ml-1.5",
-		xl: "-ml-2",
-	}[size || "md"]);
-
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
 	const maxWidthStyle = $derived(maxWidth ? `max-width: ${maxWidth}` : "");
 	const finalStyle = $derived(
@@ -227,6 +235,7 @@
 	const labelClass = $derived(tagLabel());
 	const closeClass = $derived(tagCloseTrigger({ size }));
 	const elementClass = $derived(tagElement({ size }));
+	const avatarClass = $derived(tagAvatar({ size }));
 
 	function handleClose(event: MouseEvent) {
 		event.stopPropagation();
@@ -236,12 +245,13 @@
 
 <span class={finalClass} style={finalStyle} {...restProps}>
 	{#if startAvatar}
-		<Avatar
-			src={startAvatar.src}
-			name={startAvatar.name}
-			size="full"
-			class={avatarMargin}
-		/>
+		<span class={avatarClass}>
+			<Avatar
+				src={startAvatar.src}
+				name={startAvatar.name}
+				size="full"
+			/>
+		</span>
 	{:else if startIcon}
 		<span class={elementClass}>
 			<Icon as={startIcon} class="w-4/5 h-4/5" aria-hidden="true" />
