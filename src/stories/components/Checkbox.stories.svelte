@@ -121,7 +121,7 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" gap={12} class="flex-1">
-		{#each ["sm", "md", "lg"] as const as size}
+		{#each ["sm", "md", "lg"] as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Checkbox {size} checked label="Checkbox" />
