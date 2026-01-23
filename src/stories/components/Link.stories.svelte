@@ -69,6 +69,18 @@
 	</Link>
 {/snippet}
 
+{#snippet coloursStory()}
+	<VStack gap={4}>
+		{#each colours as colour}
+			<div class="flex items-center gap-4">
+				<span class="w-16 text-xs text-fg-muted">{colour}</span>
+				<Link href="#" variant="underline" {colour}>Link ({colour})</Link>
+				<Link href="#" variant="plain" {colour}>Plain</Link>
+			</div>
+		{/each}
+	</VStack>
+{/snippet}
+
 <Story name="Basic" template={basicStory} />
 
 <Story name="Variants" template={variantsStory} />
@@ -76,3 +88,5 @@
 <Story name="Within Text" template={withinTextStory} />
 
 <Story name="External" template={externalStory} />
+
+<Story name="Colours" template={coloursStory} />

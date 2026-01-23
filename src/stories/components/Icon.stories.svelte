@@ -8,7 +8,7 @@
 	import Heart from "phosphor-svelte/lib/Heart";
 	import User from "phosphor-svelte/lib/User";
 	import Gear from "phosphor-svelte/lib/Gear";
-	import { commonArgTypes, getControls, sizes } from "../utils";
+	import { commonArgTypes, getControls, sizes, colours } from "../utils";
 
 	const iconWeights = [
 		"thin",
@@ -124,10 +124,13 @@
 {/snippet}
 
 {#snippet coloursStory(args: any)}
-	<HStack gap={4}>
-		<Icon as={Heart} colour="rose" size={args.size} />
-		<Icon as={User} colour="blue" size={args.size} />
-		<Icon as={Gear} colour="gray" size={args.size} />
+	<HStack gap={4} class="flex-wrap">
+		{#each colours as colour}
+			<VStack gap={2} class="items-center">
+				<Text size="xs">{colour}</Text>
+				<Icon as={Heart} {colour} weight="fill" size={args.size} />
+			</VStack>
+		{/each}
 	</HStack>
 {/snippet}
 

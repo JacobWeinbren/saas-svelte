@@ -380,7 +380,7 @@
 
 {#snippet colourPalettesStory()}
 	<VStack gap={4} class="w-full">
-		{#each ["accent", "blue", "green", "red", "purple"] as colour}
+		{#each colours as colour}
 			<Box class="w-full rounded-l2 overflow-hidden">
 				<Navbar.Root
 					variant="solid"

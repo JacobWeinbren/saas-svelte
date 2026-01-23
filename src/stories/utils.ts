@@ -236,6 +236,7 @@ export {
     linkOverlayPattern,
     numberInputPattern,
     paginationPattern,
+    passwordInputPattern,
 } from "./exclude-patterns";
 
 

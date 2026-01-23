@@ -130,7 +130,7 @@
 
 {#snippet coloursStory()}
 	<Stack gap={4} class="w-full">
-		{#each ["gray", "blue", "green", "red", "orange", "purple"] as colour}
+		{#each colours as colour}
 			<div class="border border-border-default rounded-md">
 				<EmptyState
 					icon={ShoppingCart}

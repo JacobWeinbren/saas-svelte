@@ -360,6 +360,24 @@
 	</div>
 {/snippet}
 
+{#snippet coloursStory()}
+	<HStack align="start" gap={4} class="flex-wrap">
+		{#each colours as colour}
+			<VStack gap={2} class="items-center">
+				<Text size="xs">{colour}</Text>
+				<MenuRoot {colour}>
+					<MenuButton>Open</MenuButton>
+					<MenuContent>
+						<MenuItem value="item-1">Item 1</MenuItem>
+						<MenuItem value="item-2">Item 2</MenuItem>
+						<MenuItem value="item-3">Item 3</MenuItem>
+					</MenuContent>
+				</MenuRoot>
+			</VStack>
+		{/each}
+	</HStack>
+{/snippet}
+
 <Story name="Basic" template={basicStory} />
 
 <Story name="Sizes" template={sizesStory} />
@@ -383,3 +401,5 @@
 <Story name="Placement" template={placementStory} />
 
 <Story name="Mixed Layout" template={mixedLayoutStory} />
+
+<Story name="Colours" template={coloursStory} />

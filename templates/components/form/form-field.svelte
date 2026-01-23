@@ -7,6 +7,7 @@
 	import { NativeSelect } from "../native-select";
 	import { Checkbox } from "../checkbox";
 	import { NumberInput } from "../number-input";
+	import { PasswordInput } from "../password-input";
 	import type { FormApi } from "./use-form.svelte";
 	import type { FieldType, FieldOption } from "./types";
 	import { FORM_CTX } from "./types";
@@ -112,6 +113,15 @@
 			{step}
 			invalid={!!error}
 			onValueChange={(details) => onChange(details.valueAsNumber)}
+		/>
+	{:else if type === "password"}
+		<PasswordInput
+			value={value as string}
+			{placeholder}
+			{disabled}
+			invalid={!!error}
+			oninput={onInput}
+			onblur={onBlur}
 		/>
 	{:else}
 		<Input
