@@ -35,7 +35,7 @@
 			},
 		},
 		defaultVariants: {
-			variant: "plain",
+			variant: "underline",
 		},
 	});
 
@@ -61,7 +61,7 @@
 	}
 
 	let {
-		variant = "plain",
+		variant = "underline",
 		colour = "gray",
 		class: className,
 		children,

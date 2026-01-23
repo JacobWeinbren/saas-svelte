@@ -65,7 +65,7 @@
 	import type { HTMLInputAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
 	import { getContext } from "svelte";
-	import type { Writable } from "svelte/store";
+	import { FIELD_CTX, type FieldContext } from "$saas/components/field/types";
 
 	interface Props extends Omit<HTMLInputAttributes, "size" | "class"> {
 		/**
@@ -119,15 +119,7 @@
 		...restProps
 	}: Props = $props();
 
-	const fieldContext = getContext<
-		Writable<{
-			id: string;
-			disabled: boolean;
-			invalid: boolean;
-			required: boolean;
-			readOnly: boolean;
-		}>
-	>("field");
+	const fieldContext = getContext<FieldContext>(FIELD_CTX);
 
 	const fieldState = $derived($fieldContext ?? {});
 

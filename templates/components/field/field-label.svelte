@@ -38,7 +38,7 @@
 		"leading-sm",
 		"flex",
 		"antialiased",
-		isDisabled && "opacity-50",
+		isDisabled && "text-fg-muted",
 		className,
 	]
 		.filter(Boolean)

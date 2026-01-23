@@ -351,7 +351,7 @@
 						</Navbar.ItemGroup>
 						<Navbar.ItemGroup justify="end">
 							<Navbar.Item>
-								<Text size="xs">{colour}</Text>
+								<Text size="xs" class="text-(--c-contrast)">{colour}</Text>
 							</Navbar.Item>
 						</Navbar.ItemGroup>
 					</Navbar.Content>
