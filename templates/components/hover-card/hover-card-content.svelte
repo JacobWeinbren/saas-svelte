@@ -19,13 +19,6 @@
 	let { children, class: className, ...rest }: Props = $props();
 
 	const ctx = getContext<HoverCardContext>(HOVER_CARD_CTX);
-
-	function handleKeyDown(event: KeyboardEvent) {
-		if (event.key === "Escape") {
-			event.preventDefault();
-			ctx?.setOpen(false);
-		}
-	}
 </script>
 
 {#if ctx?.portalled !== false}
@@ -33,7 +26,6 @@
 		<HoverCard.Positioner class={ctx?.styles?.positioner()}>
 			<HoverCard.Content
 				class={ctx?.styles?.content({ class: className })}
-				onkeydown={handleKeyDown}
 				role="tooltip"
 				{...rest}
 			>
@@ -45,7 +37,6 @@
 	<HoverCard.Positioner class={ctx?.styles?.positioner()}>
 		<HoverCard.Content
 			class={ctx?.styles?.content({ class: className })}
-			onkeydown={handleKeyDown}
 			role="tooltip"
 			{...rest}
 		>
