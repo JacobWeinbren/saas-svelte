@@ -67,7 +67,9 @@
 
 {#snippet lazyMountedStory()}
 	<Collapsible unmountOnExit>
-		<CollapsibleTrigger>Toggle Collapse (Unmount on exit)</CollapsibleTrigger>
+		<CollapsibleTrigger
+			>Toggle Collapse (Unmount on exit)</CollapsibleTrigger
+		>
 		<CollapsibleContent>
 			<CardRoot class="p-2 px-4 text-sm">
 				If you inspect the DOM, you'll notice that the content is

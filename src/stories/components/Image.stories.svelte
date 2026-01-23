@@ -29,7 +29,8 @@
 			},
 			aspectRatio: {
 				control: "text",
-				description: "The aspect ratio of the image (e.g., 16/9, 4/3, 1).",
+				description:
+					"The aspect ratio of the image (e.g., 16/9, 4/3, 1).",
 			},
 			rounded: {
 				control: "select",
@@ -78,7 +79,13 @@
 		"3xl",
 		"full",
 	] as const;
-	const imageFitOptions = ["cover", "contain", "fill", "none", "scale-down"] as const;
+	const imageFitOptions = [
+		"cover",
+		"contain",
+		"fill",
+		"none",
+		"scale-down",
+	] as const;
 </script>
 
 {#snippet basicStory(args: any)}

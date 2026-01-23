@@ -286,8 +286,8 @@ body {
 		ease-in;
 	--animate-drawer-in-bottom: drawer-slide-in-bottom var(--durations-moderate)
 		cubic-bezier(0.32, 0.72, 0, 1);
-	--animate-drawer-out-bottom: drawer-slide-out-bottom var(--durations-moderate)
-		ease-in;
+	--animate-drawer-out-bottom: drawer-slide-out-bottom
+		var(--durations-moderate) ease-in;
 
 	/* Toast animations - slide + fade */
 	@keyframes toast-slide-in-bottom {

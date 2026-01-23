@@ -125,7 +125,10 @@
 						<Navbar.Item class="hidden md:flex">
 							<InputGroup class="w-40">
 								<InputElement placement="left">
-									<MagnifyingGlass class="w-3.5 h-3.5" aria-hidden="true" />
+									<MagnifyingGlass
+										class="w-3.5 h-3.5"
+										aria-hidden="true"
+									/>
 								</InputElement>
 								<Input
 									size="sm"
@@ -204,12 +207,20 @@
 						<Sidebar.GroupContent>
 							<Sidebar.NavItem>
 								<Sidebar.NavButton active>
-									<House weight="regular" class="w-4 h-4" aria-hidden="true" /> Home
+									<House
+										weight="regular"
+										class="w-4 h-4"
+										aria-hidden="true"
+									/> Home
 								</Sidebar.NavButton>
 							</Sidebar.NavItem>
 							<Sidebar.NavItem>
 								<Sidebar.NavButton>
-									<Users weight="regular" class="w-4 h-4" aria-hidden="true" /> Contacts
+									<Users
+										weight="regular"
+										class="w-4 h-4"
+										aria-hidden="true"
+									/> Contacts
 								</Sidebar.NavButton>
 							</Sidebar.NavItem>
 						</Sidebar.GroupContent>

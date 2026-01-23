@@ -117,7 +117,10 @@
 	<HStack gap={10} align="center">
 		{#each popoverSizes as size}
 			<Popover.Root {size}>
-				<Popover.Trigger triggerText="Size: {size}" triggerSize={size} />
+				<Popover.Trigger
+					triggerText="Size: {size}"
+					triggerSize={size}
+				/>
 				<Popover.Content>
 					<Popover.Arrow />
 					<Popover.Body>
@@ -196,8 +199,14 @@
 					Masashi Kishimoto.
 				</Text>
 
-				<Popover.Root portalled={false} positioning={{ placement: "bottom" }}>
-					<Popover.Trigger triggerText="Open Nested Popover" triggerSize="xs" />
+				<Popover.Root
+					portalled={false}
+					positioning={{ placement: "bottom" }}
+				>
+					<Popover.Trigger
+						triggerText="Open Nested Popover"
+						triggerSize="xs"
+					/>
 					<Popover.Content>
 						<Popover.Arrow />
 						<Popover.Body>Some nested popover content</Popover.Body>

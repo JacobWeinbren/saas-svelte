@@ -40,7 +40,10 @@
 </Story>
 
 <Story name="Article">
-	<LinkBox as="article" class="max-w-sm p-5 border border-border-default rounded-md">
+	<LinkBox
+		as="article"
+		class="max-w-sm p-5 border border-border-default rounded-md"
+	>
 		<Text as="span" size="sm" class="text-fg-muted">
 			<time datetime="2021-01-15">13 days ago</time>
 		</Text>
@@ -48,19 +51,29 @@
 			<LinkOverlay href="#">Svelte 5 Workshop</LinkOverlay>
 		</Heading>
 		<Text class="text-fg-muted mb-3">
-			Catch up on what's been cooking at Svelte and explore some of the popular
-			community resources.
+			Catch up on what's been cooking at Svelte and explore some of the
+			popular community resources.
 		</Text>
-		<Link href="#inner-link" variant="underline" colour="teal" class="relative z-1">
+		<Link
+			href="#inner-link"
+			variant="underline"
+			colour="teal"
+			class="relative z-1"
+		>
 			Inner Link
 		</Link>
 	</LinkBox>
 </Story>
 
 <Story name="Card">
-	<LinkBox class="max-w-sm p-6 border border-border-default rounded-lg bg-bg-subtle">
+	<LinkBox
+		class="max-w-sm p-6 border border-border-default rounded-lg bg-bg-subtle"
+	>
 		<VStack gap={3} class="items-start">
-			<Text size="xs" class="text-fg-muted uppercase tracking-wide font-medium">
+			<Text
+				size="xs"
+				class="text-fg-muted uppercase tracking-wide font-medium"
+			>
 				Tutorial
 			</Text>
 			<Heading size="md">
@@ -69,8 +82,8 @@
 				</LinkOverlay>
 			</Heading>
 			<Text size="sm" class="text-fg-muted">
-				Learn how to build modern web applications with SvelteKit, the official
-				application framework for Svelte.
+				Learn how to build modern web applications with SvelteKit, the
+				official application framework for Svelte.
 			</Text>
 		</VStack>
 	</LinkBox>

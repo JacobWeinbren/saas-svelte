@@ -25,7 +25,13 @@
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["variant", "colour", "href", "children", "class"]),
+			controls: getControls([
+				"variant",
+				"colour",
+				"href",
+				"children",
+				"class",
+			]),
 		},
 		args: {
 			variant: "plain",
@@ -48,8 +54,10 @@
 
 {#snippet withinTextStory()}
 	<p>
-		Visit the <Link href="https://chakra-ui.com" colour="teal" variant="underline"
-			>Chakra UI</Link
+		Visit the <Link
+			href="https://chakra-ui.com"
+			colour="teal"
+			variant="underline">Chakra UI</Link
 		> website
 	</p>
 {/snippet}

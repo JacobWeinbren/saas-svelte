@@ -74,7 +74,10 @@
 </Story>
 
 <Story name="With Double Click">
-	<Editable.Root defaultValue="Double click to edit" activationMode="dblclick">
+	<Editable.Root
+		defaultValue="Double click to edit"
+		activationMode="dblclick"
+	>
 		<Editable.Area>
 			<Editable.Preview />
 			<Editable.Input />
@@ -117,7 +120,11 @@
 		</Editable.Area>
 		<Editable.Control>
 			<Editable.EditTrigger icon aria-label="Edit">
-				<PencilSimple class="size-3.5" weight="bold" aria-hidden="true" />
+				<PencilSimple
+					class="size-3.5"
+					weight="bold"
+					aria-hidden="true"
+				/>
 			</Editable.EditTrigger>
 			<Editable.CancelTrigger icon aria-label="Cancel">
 				<X class="size-3.5" weight="bold" aria-hidden="true" />
@@ -134,7 +141,11 @@
 		{#each colours as colour}
 			<HStack gap={4} align="center">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Editable.Root defaultValue="Click to edit" {colour} class="w-full">
+				<Editable.Root
+					defaultValue="Click to edit"
+					{colour}
+					class="w-full"
+				>
 					<Editable.Area>
 						<Editable.Preview />
 						<Editable.Input />

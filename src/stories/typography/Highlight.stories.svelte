@@ -32,7 +32,8 @@
 			colour: commonArgTypes.colour,
 			markClass: {
 				control: "text",
-				description: "Additional CSS classes to apply to the highlighted text",
+				description:
+					"Additional CSS classes to apply to the highlighted text",
 			},
 			class: commonArgTypes.class,
 		},

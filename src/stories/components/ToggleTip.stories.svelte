@@ -61,10 +61,30 @@
 {#snippet sizesStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
-			<ToggleTip content="Extra small toggle tip" size="xs" triggerText="XS" triggerSize="xs" />
-			<ToggleTip content="Small toggle tip" size="sm" triggerText="SM" triggerSize="sm" />
-			<ToggleTip content="Medium toggle tip" size="md" triggerText="MD" triggerSize="md" />
-			<ToggleTip content="Large toggle tip" size="lg" triggerText="LG" triggerSize="lg" />
+			<ToggleTip
+				content="Extra small toggle tip"
+				size="xs"
+				triggerText="XS"
+				triggerSize="xs"
+			/>
+			<ToggleTip
+				content="Small toggle tip"
+				size="sm"
+				triggerText="SM"
+				triggerSize="sm"
+			/>
+			<ToggleTip
+				content="Medium toggle tip"
+				size="md"
+				triggerText="MD"
+				triggerSize="md"
+			/>
+			<ToggleTip
+				content="Large toggle tip"
+				size="lg"
+				triggerText="LG"
+				triggerSize="lg"
+			/>
 		</HStack>
 	</div>
 {/snippet}
@@ -72,10 +92,30 @@
 {#snippet positioningStory()}
 	<div class="flex items-center justify-center p-8">
 		<HStack gap={4}>
-			<ToggleTip content="Top placement" placement="top" triggerText="Top" triggerVariant="outline" />
-			<ToggleTip content="Right placement" placement="right" triggerText="Right" triggerVariant="outline" />
-			<ToggleTip content="Bottom placement" placement="bottom" triggerText="Bottom" triggerVariant="outline" />
-			<ToggleTip content="Left placement" placement="left" triggerText="Left" triggerVariant="outline" />
+			<ToggleTip
+				content="Top placement"
+				placement="top"
+				triggerText="Top"
+				triggerVariant="outline"
+			/>
+			<ToggleTip
+				content="Right placement"
+				placement="right"
+				triggerText="Right"
+				triggerVariant="outline"
+			/>
+			<ToggleTip
+				content="Bottom placement"
+				placement="bottom"
+				triggerText="Bottom"
+				triggerVariant="outline"
+			/>
+			<ToggleTip
+				content="Left placement"
+				placement="left"
+				triggerText="Left"
+				triggerVariant="outline"
+			/>
 		</HStack>
 	</div>
 {/snippet}

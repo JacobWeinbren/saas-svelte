@@ -9,7 +9,12 @@
 	import { inputVariants, commonArgTypes, getControls } from "../utils";
 
 	const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
-	const textareaResizeOptions = ["none", "vertical", "horizontal", "both"] as const;
+	const textareaResizeOptions = [
+		"none",
+		"vertical",
+		"horizontal",
+		"both",
+	] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Textarea",

@@ -234,6 +234,7 @@ export {
     imagePattern,
     linkBoxPattern,
     linkOverlayPattern,
+    numberInputPattern,
 } from "./exclude-patterns";
 
 

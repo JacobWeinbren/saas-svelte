@@ -43,8 +43,8 @@
 				<DataList.ItemLabel>{variant}</DataList.ItemLabel>
 				<DataList.ItemValue>
 					<Text>
-						The <Mark {variant} colour="indigo">design system</Mark> is a collection of UI
-						elements
+						The <Mark {variant} colour="indigo">design system</Mark>
+						is a collection of UI elements
 					</Text>
 				</DataList.ItemValue>
 			</DataList.Item>

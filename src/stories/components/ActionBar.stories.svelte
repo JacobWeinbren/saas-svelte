@@ -126,7 +126,9 @@
 {#snippet interactiveStory()}
 	<div>
 		<VStack gap={3}>
-			<Text size="sm" class="text-fg-muted">Selected: {selectedCount} items</Text>
+			<Text size="sm" class="text-fg-muted"
+				>Selected: {selectedCount} items</Text
+			>
 			<HStack gap={2} class="flex-wrap">
 				{#each Array(5) as _, i}
 					<Checkbox
@@ -144,7 +146,9 @@
 			open={selectedCount > 0}
 			onOpenChange={(e) => !e.open && (selectedCount = 0)}
 		>
-			<ActionBarSelectionTrigger>{selectedCount} selected</ActionBarSelectionTrigger>
+			<ActionBarSelectionTrigger
+				>{selectedCount} selected</ActionBarSelectionTrigger
+			>
 			<ActionBarSeparator />
 			<Button variant="outline" size="sm">
 				<Icon as={Trash} size="sm" />

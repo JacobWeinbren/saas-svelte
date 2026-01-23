@@ -85,7 +85,9 @@
 				</p>
 			</Drawer.Body>
 			<Drawer.Footer>
-				<Drawer.ActionTrigger variant="ghost">Cancel</Drawer.ActionTrigger>
+				<Drawer.ActionTrigger variant="ghost"
+					>Cancel</Drawer.ActionTrigger
+				>
 				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
@@ -110,7 +112,9 @@
 				</p>
 			</Drawer.Body>
 			<Drawer.Footer>
-				<Drawer.ActionTrigger variant="ghost">Cancel</Drawer.ActionTrigger>
+				<Drawer.ActionTrigger variant="ghost"
+					>Cancel</Drawer.ActionTrigger
+				>
 				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
@@ -166,7 +170,9 @@
 				</p>
 			</Drawer.Body>
 			<Drawer.Footer>
-				<Drawer.ActionTrigger variant="ghost">Cancel</Drawer.ActionTrigger>
+				<Drawer.ActionTrigger variant="ghost"
+					>Cancel</Drawer.ActionTrigger
+				>
 				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>
@@ -236,7 +242,9 @@
 				</Stack>
 			</Drawer.Body>
 			<Drawer.Footer>
-				<Drawer.ActionTrigger variant="ghost">Cancel</Drawer.ActionTrigger>
+				<Drawer.ActionTrigger variant="ghost"
+					>Cancel</Drawer.ActionTrigger
+				>
 				<Button variant="glass" colour="indigo" class={focusClass}
 					>Save</Button
 				>

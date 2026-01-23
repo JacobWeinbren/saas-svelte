@@ -20,7 +20,8 @@
 			align: {
 				control: "select",
 				options: ["start", "center", "end"],
-				description: "The alignment of list item content with indicators.",
+				description:
+					"The alignment of list item content with indicators.",
 				table: { defaultValue: { summary: "start" } },
 			},
 			as: {
@@ -41,17 +42,29 @@
 
 {#snippet basicStory(args: any)}
 	<List.Root {...args}>
-		<List.Item>Lorem ipsum dolor sit amet, consectetur adipisicing elit</List.Item>
-		<List.Item>Assumenda, quia temporibus eveniet a libero incidunt suscipit</List.Item>
-		<List.Item>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</List.Item>
+		<List.Item
+			>Lorem ipsum dolor sit amet, consectetur adipisicing elit</List.Item
+		>
+		<List.Item
+			>Assumenda, quia temporibus eveniet a libero incidunt suscipit</List.Item
+		>
+		<List.Item
+			>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</List.Item
+		>
 	</List.Root>
 {/snippet}
 
 {#snippet orderedStory(args: any)}
 	<List.Root {...args} as="ol">
-		<List.Item>Lorem ipsum dolor sit amet, consectetur adipisicing elit</List.Item>
-		<List.Item>Assumenda, quia temporibus eveniet a libero incidunt suscipit</List.Item>
-		<List.Item>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</List.Item>
+		<List.Item
+			>Lorem ipsum dolor sit amet, consectetur adipisicing elit</List.Item
+		>
+		<List.Item
+			>Assumenda, quia temporibus eveniet a libero incidunt suscipit</List.Item
+		>
+		<List.Item
+			>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</List.Item
+		>
 	</List.Root>
 {/snippet}
 
@@ -61,19 +74,28 @@
 			<List.Indicator colour="green">
 				<CheckCircle class="h-full w-full" aria-hidden="true" />
 			</List.Indicator>
-			<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. This is a longer text that wraps to multiple lines to demonstrate alignment.</span>
+			<span
+				>Lorem ipsum dolor sit amet, consectetur adipisicing elit. This
+				is a longer text that wraps to multiple lines to demonstrate
+				alignment.</span
+			>
 		</List.Item>
 		<List.Item>
 			<List.Indicator colour="green">
 				<CheckCircle class="h-full w-full" aria-hidden="true" />
 			</List.Indicator>
-			<span>Assumenda, quia temporibus eveniet a libero incidunt suscipit. Another multi-line example to show how icons align.</span>
+			<span
+				>Assumenda, quia temporibus eveniet a libero incidunt suscipit.
+				Another multi-line example to show how icons align.</span
+			>
 		</List.Item>
 		<List.Item>
 			<List.Indicator colour="green">
 				<CircleDashed class="h-full w-full" aria-hidden="true" />
 			</List.Indicator>
-			<span>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</span>
+			<span
+				>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</span
+			>
 		</List.Item>
 	</List.Root>
 {/snippet}
@@ -98,6 +120,10 @@
 
 <Story name="Ordered" template={orderedStory} args={{ as: "ol" }} />
 
-<Story name="With Icon" template={withIconStory} args={{ variant: "plain", align: "start" }} />
+<Story
+	name="With Icon"
+	template={withIconStory}
+	args={{ variant: "plain", align: "start" }}
+/>
 
 <Story name="Nested" template={nestedStory} />

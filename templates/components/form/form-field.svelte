@@ -6,6 +6,7 @@
 	import { Textarea } from "../textarea";
 	import { NativeSelect } from "../native-select";
 	import { Checkbox } from "../checkbox";
+	import { NumberInput } from "../number-input";
 	import type { FormApi } from "./use-form.svelte";
 	import type { FieldType, FieldOption } from "./types";
 	import { FORM_CTX } from "./types";
@@ -19,6 +20,9 @@
 		required?: boolean;
 		disabled?: boolean;
 		options?: FieldOption[];
+		min?: number;
+		max?: number;
+		step?: number;
 		class?: string;
 		children?: Snippet<
 			[{ value: unknown; error: string | undefined; onChange: (value: unknown) => void; onBlur: () => void }]
@@ -34,6 +38,9 @@
 		required = false,
 		disabled = false,
 		options = [],
+		min,
+		max,
+		step,
 		class: className,
 		children,
 	}: Props = $props();
@@ -94,6 +101,18 @@
 		>
 			{label}
 		</Checkbox>
+	{:else if type === "number-input"}
+		<NumberInput
+			value={value != null ? String(value) : undefined}
+			{placeholder}
+			{disabled}
+			{required}
+			{min}
+			{max}
+			{step}
+			invalid={!!error}
+			onValueChange={(details) => onChange(details.valueAsNumber)}
+		/>
 	{:else}
 		<Input
 			{type}

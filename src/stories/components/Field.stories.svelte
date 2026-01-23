@@ -45,7 +45,11 @@
 {#snippet basicStory(args: any)}
 	<Field.Root {...args}>
 		<Field.Label>Email</Field.Label>
-		<Input placeholder="me@example.com" disabled={args.disabled} invalid={args.invalid} />
+		<Input
+			placeholder="me@example.com"
+			disabled={args.disabled}
+			invalid={args.invalid}
+		/>
 	</Field.Root>
 {/snippet}
 

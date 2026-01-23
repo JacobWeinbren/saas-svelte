@@ -4,7 +4,13 @@
 	import { DataList } from "$saas/components/data-list";
 	import { commonArgTypes, getControls, textSizes } from "../utils";
 
-	const textWeights = ["light", "normal", "medium", "semibold", "bold"] as const;
+	const textWeights = [
+		"light",
+		"normal",
+		"medium",
+		"semibold",
+		"bold",
+	] as const;
 
 	const { Story } = defineMeta({
 		title: "typography/Text",
@@ -77,7 +83,8 @@
 			<DataList.Item>
 				<DataList.ItemLabel>{w}</DataList.ItemLabel>
 				<DataList.ItemValue>
-					<Text weight={w}>Sphinx of black quartz, judge my vow.</Text>
+					<Text weight={w}>Sphinx of black quartz, judge my vow.</Text
+					>
 				</DataList.ItemValue>
 			</DataList.Item>
 		{/each}
@@ -95,10 +102,10 @@
 {#snippet lineClampStory()}
 	<div class="flex max-w-[300px]">
 		<Text lineClamp="2">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-			veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-			commodo consequat.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+			aliquip ex ea commodo consequat.
 		</Text>
 	</div>
 {/snippet}

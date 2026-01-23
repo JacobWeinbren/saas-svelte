@@ -38,11 +38,15 @@
 	<LocaleProvider {...args}>
 		<Stack gap={2}>
 			<LocaleDisplay />
-			<Text size="sm" class="text-fg-muted">Number formatting (locale affects separators):</Text>
+			<Text size="sm" class="text-fg-muted"
+				>Number formatting (locale affects separators):</Text
+			>
 			<Text size="lg">
 				<FormatNumber value={1234567.89} />
 			</Text>
-			<Text size="sm" class="text-fg-muted">Date: {new Date().toLocaleDateString(args.locale)}</Text>
+			<Text size="sm" class="text-fg-muted"
+				>Date: {new Date().toLocaleDateString(args.locale)}</Text
+			>
 		</Stack>
 	</LocaleProvider>
 {/snippet}

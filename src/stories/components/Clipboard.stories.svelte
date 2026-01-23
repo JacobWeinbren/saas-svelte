@@ -19,7 +19,8 @@
 			},
 			timeout: {
 				control: "number",
-				description: "The timeout for showing the 'copied' state (in ms).",
+				description:
+					"The timeout for showing the 'copied' state (in ms).",
 				table: { defaultValue: { summary: "3000" } },
 			},
 			class: commonArgTypes.class,
@@ -53,11 +54,16 @@
 {/snippet}
 
 {#snippet inputStory()}
-	<Clipboard value="https://saas-ui.dev/docs/components/clipboard" class="max-w-xs">
+	<Clipboard
+		value="https://saas-ui.dev/docs/components/clipboard"
+		class="max-w-xs"
+	>
 		<ClipboardPrimitive.Control class="relative flex items-center w-full">
 			<ClipboardInput class="pr-10" />
 			<div class="absolute right-1 flex items-center justify-center">
-				<ClipboardIconButton class="border-none shadow-none bg-transparent hover:bg-bg-subtle -mr-2" />
+				<ClipboardIconButton
+					class="border-none shadow-none bg-transparent hover:bg-bg-subtle -mr-2"
+				/>
 			</div>
 		</ClipboardPrimitive.Control>
 	</Clipboard>

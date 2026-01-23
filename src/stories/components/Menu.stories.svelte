@@ -188,7 +188,9 @@
 			<MenuContent>
 				<MenuItem value="new-txt">New Text File</MenuItem>
 				<MenuItem value="new-file">New File...</MenuItem>
-				<MenuRoot positioning={{ placement: "right-start", gutter: -4 }}>
+				<MenuRoot
+					positioning={{ placement: "right-start", gutter: -4 }}
+				>
 					<MenuTriggerItem value="open-recent"
 						>Open Recent</MenuTriggerItem
 					>
@@ -262,8 +264,12 @@
 				<Icon as={Funnel} size="sm" /> Status
 			</MenuButton>
 			<MenuContent>
-				<MenuCheckboxItem checked={false} value="open">Open</MenuCheckboxItem>
-				<MenuCheckboxItem checked={true} value="closed">Closed</MenuCheckboxItem>
+				<MenuCheckboxItem checked={false} value="open"
+					>Open</MenuCheckboxItem
+				>
+				<MenuCheckboxItem checked={true} value="closed"
+					>Closed</MenuCheckboxItem
+				>
 			</MenuContent>
 		</MenuRoot>
 	</div>
