@@ -60,7 +60,7 @@
 		],
 		variants: {
 			size: {
-				xs: "gap-y-1 gap-x-1 min-w-6 h-6 text-xs leading-4 px-2 rounded-[.2rem]",
+				xs: "gap-y-1 gap-x-1 min-w-6 h-6 text-xs leading-4 px-2 rounded-xs",
 				sm: "gap-y-2 gap-x-2 min-w-7 h-7 text-[.8125rem] leading-[1.1375rem] px-2.5",
 				md: "gap-y-2 gap-x-2 min-w-8 h-8 text-[.8125rem] leading-[1.1375rem] px-3",
 				lg: "gap-y-3 gap-x-3 min-w-10 h-10 text-sm leading-[1.26rem] px-[1.125rem] rounded-md",
@@ -75,7 +75,7 @@
 				false: "",
 			},
 			attached: {
-				true: "-mr-px focus-visible:z-[1] rounded-none first:rounded-l last:rounded-r",
+				true: "-mr-px focus-visible:z-1 rounded-none first:rounded-l last:rounded-r",
 				false: "",
 			},
 		},
@@ -129,7 +129,7 @@
 		base: ["appearance-auto"],
 		variants: {
 			attached: {
-				true: "-mr-px focus-visible:z-[1]",
+				true: "-mr-px focus-visible:z-1",
 				false: "",
 			},
 		},
@@ -159,14 +159,15 @@
 		],
 		variants: {
 			size: {
-				xs: "gap-y-1 gap-x-1 min-w-6 h-6 text-xs leading-4 rounded-[.2rem]",
+				xs: "gap-y-1 gap-x-1 min-w-6 h-6 text-xs leading-4 rounded-xs",
 				sm: "gap-y-2 gap-x-2 min-w-7 h-7 text-[.8125rem] leading-[1.1375rem]",
 				md: "gap-y-2 gap-x-2 min-w-8 h-8 text-[.8125rem] leading-[1.1375rem]",
 				lg: "gap-y-3 gap-x-3 min-w-10 h-10 text-sm leading-[1.26rem] px-[1.125rem] rounded-md",
 			},
 			variant: {
 				ghost: "",
-				outline: "border-[0.5px] border-border-default hover:bg-bg-subtle",
+				outline:
+					"border-[0.5px] border-border-default hover:bg-bg-subtle",
 				solid: "border-[0.5px] border-border-default hover:bg-bg-subtle",
 			},
 		},
@@ -177,7 +178,7 @@
 	});
 
 	export const paginationPageText = tv({
-		base: ["break-words", "font-medium", "text-fg-default"],
+		base: ["wrap-break-word", "font-medium", "text-fg-default"],
 		variants: {
 			size: {
 				xs: "text-xs",
@@ -315,22 +316,35 @@
 
 	// Convert getHref to getPageUrl format for Ark UI
 	const getPageUrl = $derived(
-		getHref ? (details: { page: number }) => getHref(details.page) : undefined,
+		getHref
+			? (details: { page: number }) => getHref(details.page)
+			: undefined,
 	);
 
 	const colourVars = $derived(getColourStyle(colour));
 	const styles = $derived([colourVars, style].filter(Boolean).join("; "));
 
 	const controlClasses = $derived(
-		paginationControl({ size, attached, compact: compact || pageTextFormat === "long" }),
+		paginationControl({
+			size,
+			attached,
+			compact: compact || pageTextFormat === "long",
+		}),
 	);
 
 	const getItemClasses = (isCurrent: boolean) =>
-		paginationItem({ size, variant, current: isCurrent, attached }) as string;
+		paginationItem({
+			size,
+			variant,
+			current: isCurrent,
+			attached,
+		}) as string;
 
 	const triggerClasses = $derived(paginationTrigger({ attached }) as string);
 
-	const ellipsisClasses = $derived(paginationEllipsis({ size, variant }) as string);
+	const ellipsisClasses = $derived(
+		paginationEllipsis({ size, variant }) as string,
+	);
 
 	const pageTextClasses = $derived(
 		paginationPageText({ size, flex: pageTextFormat === "long" }) as string,
@@ -386,13 +400,20 @@
 						{#if pageItem.type === "page"}
 							<Pagination.Item
 								{...pageItem}
-								class={getItemClasses(ctx.page === pageItem.value)}
+								class={getItemClasses(
+									ctx.page === pageItem.value,
+								)}
 							>
 								{pageItem.value}
 							</Pagination.Item>
 						{:else}
-							{@const ellipsisIndex = pages.slice(0, idx).filter((p) => p.type === "ellipsis").length}
-							<Pagination.Ellipsis index={ellipsisIndex} class={ellipsisClasses}>
+							{@const ellipsisIndex = pages
+								.slice(0, idx)
+								.filter((p) => p.type === "ellipsis").length}
+							<Pagination.Ellipsis
+								index={ellipsisIndex}
+								class={ellipsisClasses}
+							>
 								<svg
 									viewBox="0 0 24 24"
 									class="{ellipsisIconSize} fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]"
