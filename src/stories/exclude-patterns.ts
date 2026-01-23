@@ -25,6 +25,10 @@ export const radioItemPattern = makePattern(['value', 'label', 'disabled', 'inva
 export const radioCardRootPattern = makePattern(['value', 'defaultValue', 'size', 'align', 'colour', 'orientation', 'disabled', 'invalid', 'readOnly', 'name', 'onValueChange', 'class', 'children']);
 export const radioCardItemPattern = makePattern(['value', 'label', 'description', 'icon', 'addon', 'disabled', 'class', 'children']);
 
+export const segmentGroupRootPattern = makePattern(['value', 'defaultValue', 'size', 'colour', 'orientation', 'disabled', 'readOnly', 'name', 'onValueChange', 'class', 'children']);
+export const segmentGroupItemPattern = makePattern(['value', 'label', 'icon', 'disabled', 'class', 'children']);
+export const segmentGroupIndicatorPattern = makePattern(['class']);
+
 export const dialogRootPattern = makePattern(['open', 'size', 'placement', 'scrollBehavior', 'motionPreset', 'role', 'initialFocusEl', 'finalFocusEl', 'restoreFocus', 'lazyMount', 'unmountOnExit', 'class', 'children']);
 
 export const drawerRootPattern = makePattern(['open', 'size', 'placement', 'attached', 'role', 'initialFocusEl', 'finalFocusEl', 'restoreFocus', 'lazyMount', 'unmountOnExit', 'class', 'children']);

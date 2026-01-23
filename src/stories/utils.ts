@@ -104,6 +104,7 @@ export const personaSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as cons
 export const presenceOptions = ["online", "offline", "busy", "dnd", "away"] as const;
 export const pinInputSizes = ["xs", "sm", "md", "lg"] as const;
 export const popoverSizes = ["xs", "sm", "md", "lg"] as const;
+export const segmentGroupSizes = ["xs", "sm", "md", "lg"] as const;
 export const spinnerSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export const tagVariants = ["subtle", "solid", "outline", "surface"] as const;
 export const tagSizes = ["sm", "md", "lg", "xl"] as const;
@@ -227,6 +228,9 @@ export {
     radioItemPattern,
     radioCardRootPattern,
     radioCardItemPattern,
+    segmentGroupRootPattern,
+    segmentGroupItemPattern,
+    segmentGroupIndicatorPattern,
     dialogRootPattern,
     drawerRootPattern,
     iconPattern,

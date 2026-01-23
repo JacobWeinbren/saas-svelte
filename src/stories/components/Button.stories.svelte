@@ -147,14 +147,14 @@
 
 <Story name="Basic" template={basicStory} />
 
-<Story name="With Icon" template={iconsStory} />
-
-<Story name="Loading" template={loadingStory} />
-
 <Story name="Sizes" template={sizesStory} />
 
 <Story name="Variants" template={buttonVariantsStory} />
 
+<Story name="With Icon" template={iconsStory} />
+
 <Story name="Colours" template={coloursStory} />
+
+<Story name="Loading" template={loadingStory} />
 
 <Story name="Group" template={groupStory} />

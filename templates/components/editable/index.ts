@@ -1,51 +1,3 @@
-/**
- * Editable component for inline text editing.
- *
- * @description
- * The Editable component allows users to edit text inline without navigating
- * to a separate form. It's ideal for renaming items, editing titles, or any
- * scenario where quick inline editing improves UX.
- *
- * @example
- * Basic usage:
- * ```svelte
- * <script>
- *   import { Editable } from "$saas/components/editable";
- * </script>
- *
- * <Editable.Root defaultValue="Click to edit">
- *   <Editable.Area>
- *     <Editable.Preview />
- *     <Editable.Input />
- *   </Editable.Area>
- * </Editable.Root>
- * ```
- *
- * @example
- * With controls:
- * ```svelte
- * <Editable.Root defaultValue="Click to edit">
- *   <Editable.Area>
- *     <Editable.Preview />
- *     <Editable.Input />
- *   </Editable.Area>
- *   <Editable.Control>
- *     <Editable.EditTrigger icon aria-label="Edit">
- *       <PencilSimple />
- *     </Editable.EditTrigger>
- *     <Editable.CancelTrigger icon aria-label="Cancel">
- *       <X />
- *     </Editable.CancelTrigger>
- *     <Editable.SubmitTrigger icon aria-label="Submit">
- *       <Check />
- *     </Editable.SubmitTrigger>
- *   </Editable.Control>
- * </Editable.Root>
- * ```
- *
- * @module
- */
-
 import Root from "./editable-root.svelte";
 import Area from "./editable-area.svelte";
 import Preview from "./editable-preview.svelte";
@@ -68,30 +20,17 @@ export const EditableSubmitTrigger = SubmitTrigger;
 export const EditableCancelTrigger = CancelTrigger;
 export const EditableLabel = Label;
 
-/**
- * Compound component for inline text editing.
- *
- * @example
- * ```svelte
- * <Editable.Root defaultValue="Click to edit">
- *   <Editable.Area>
- *     <Editable.Preview />
- *     <Editable.Input />
- *   </Editable.Area>
- * </Editable.Root>
- * ```
- */
 export const Editable = {
-	Root,
-	Area,
-	Preview,
-	Input,
-	Textarea,
-	Control,
-	EditTrigger,
-	SubmitTrigger,
-	CancelTrigger,
-	Label,
+    Root,
+    Area,
+    Preview,
+    Input,
+    Textarea,
+    Control,
+    EditTrigger,
+    SubmitTrigger,
+    CancelTrigger,
+    Label,
 };
 
 export { editableRoot, type EditableRootVariants } from "./editable-root.svelte";
