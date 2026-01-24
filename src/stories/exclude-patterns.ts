@@ -264,3 +264,11 @@ export const sliderLabelPattern = makePattern(['class', 'children']);
 export const sliderValueTextPattern = makePattern(['class', 'children']);
 export const sliderMarkerGroupPattern = makePattern(['class', 'children']);
 export const sliderMarkerPattern = makePattern(['value', 'showDot', 'class', 'children']);
+
+export const statRootPattern = makePattern(['class', 'children']);
+export const statLabelPattern = makePattern(['class', 'children']);
+export const statValueTextPattern = makePattern(['value', 'formatOptions', 'class', 'children']);
+export const statValueUnitPattern = makePattern(['class', 'children']);
+export const statHelpTextPattern = makePattern(['class', 'children']);
+export const statUpTrendPattern = makePattern(['variant', 'colour', 'class', 'children']);
+export const statDownTrendPattern = makePattern(['variant', 'colour', 'class', 'children']);

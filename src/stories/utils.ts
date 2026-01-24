@@ -417,6 +417,13 @@ export {
     sliderValueTextPattern,
     sliderMarkerGroupPattern,
     sliderMarkerPattern,
+    statRootPattern,
+    statLabelPattern,
+    statValueTextPattern,
+    statValueUnitPattern,
+    statHelpTextPattern,
+    statUpTrendPattern,
+    statDownTrendPattern,
 } from "./exclude-patterns";
 
 

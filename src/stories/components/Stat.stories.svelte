@@ -1,0 +1,137 @@
+<script module lang="ts">
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import { Stat } from "$saas/components/stat";
+	import { Stack, HStack, VStack } from "$saas/layout/stack";
+	import { Text } from "$saas/typography/text";
+	import { Progress } from "$saas/components/progress";
+	import { Icon } from "$saas/components/icon";
+	import { commonArgTypes, getControls, colours } from "../utils";
+
+	const { Story } = defineMeta({
+		title: "components/Stat",
+		component: Stat.Root,
+		argTypes: {
+			class: commonArgTypes.class,
+		},
+		parameters: {
+			controls: getControls(["class"]),
+		},
+	});
+</script>
+
+<script lang="ts">
+	import CurrencyDollar from "phosphor-svelte/lib/CurrencyDollar";
+</script>
+
+{#snippet basicStory()}
+	<Stat.Root>
+		<Stat.Label>Unique visitors</Stat.Label>
+		<Stat.ValueText>192.1k</Stat.ValueText>
+	</Stat.Root>
+{/snippet}
+
+{#snippet formatOptionsStory()}
+	<Stat.Root>
+		<Stat.Label>Revenue</Stat.Label>
+		<Stat.ValueText value={935.4} formatOptions={{ style: "currency", currency: "USD" }} />
+	</Stat.Root>
+{/snippet}
+
+{#snippet indicatorStory()}
+	<Stat.Root>
+		<Stat.Label>Unique visitors</Stat.Label>
+		<Stat.ValueText>192.1k</Stat.ValueText>
+		<Stat.DownTrend variant="plain">1.9%</Stat.DownTrend>
+	</Stat.Root>
+{/snippet}
+
+{#snippet valueUnitStory()}
+	<Stat.Root>
+		<Stat.Label>Time to complete</Stat.Label>
+		<Stat.ValueText class="items-baseline">
+			3 <Stat.ValueUnit>hr</Stat.ValueUnit>
+			20 <Stat.ValueUnit>min</Stat.ValueUnit>
+		</Stat.ValueText>
+	</Stat.Root>
+{/snippet}
+
+{#snippet progressBarStory()}
+	<Stat.Root class="max-w-60">
+		<Stat.Label>This week</Stat.Label>
+		<Stat.ValueText
+			value={1340}
+			formatOptions={{
+				currency: "USD",
+				style: "currency",
+				maximumFractionDigits: 0,
+			}}
+		/>
+		<Stat.HelpText class="mb-2">+12% from last week</Stat.HelpText>
+		<Progress.Root value={50}>
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+		</Progress.Root>
+	</Stat.Root>
+{/snippet}
+
+{#snippet iconStory()}
+	<Stat.Root class="max-w-60 border border-border-default p-4 rounded-md">
+		<HStack class="justify-between">
+			<Stat.Label>Sales</Stat.Label>
+			<Icon as={CurrencyDollar} size="sm" class="text-fg-muted" />
+		</HStack>
+		<Stat.ValueText>$4.24k</Stat.ValueText>
+	</Stat.Root>
+{/snippet}
+
+{#snippet trendStory()}
+	<Stat.Root>
+		<Stat.Label>Unique</Stat.Label>
+		<HStack class="items-center gap-2">
+			<Stat.ValueText value={8456.4} formatOptions={{ style: "currency", currency: "USD" }} />
+			<Stat.UpTrend>12%</Stat.UpTrend>
+		</HStack>
+		<Stat.HelpText>since last month</Stat.HelpText>
+	</Stat.Root>
+{/snippet}
+
+{#snippet coloursStory()}
+	<VStack gap={4}>
+		{#each colours as colour}
+			<HStack gap={4} class="items-center">
+				<Text size="xs" class="w-16">{colour}</Text>
+				<Stat.Root>
+					<Stat.Label>Revenue</Stat.Label>
+					<HStack class="items-center gap-2">
+						<Stat.ValueText>$8,456</Stat.ValueText>
+						<Stat.UpTrend {colour}>12%</Stat.UpTrend>
+					</HStack>
+				</Stat.Root>
+				<Stat.Root>
+					<Stat.Label>Visitors</Stat.Label>
+					<HStack class="items-center gap-2">
+						<Stat.ValueText>192.1k</Stat.ValueText>
+						<Stat.DownTrend {colour}>1.9%</Stat.DownTrend>
+					</HStack>
+				</Stat.Root>
+			</HStack>
+		{/each}
+	</VStack>
+{/snippet}
+
+<Story name="Basic" template={basicStory} />
+
+<Story name="FormatOptions" template={formatOptionsStory} />
+
+<Story name="Indicator" template={indicatorStory} />
+
+<Story name="ValueUnit" template={valueUnitStory} />
+
+<Story name="ProgressBar" template={progressBarStory} />
+
+<Story name="Icon" template={iconStory} />
+
+<Story name="Trend" template={trendStory} />
+
+<Story name="Colours" template={coloursStory} />
