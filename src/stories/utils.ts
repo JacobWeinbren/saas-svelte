@@ -405,6 +405,9 @@ export {
     nativeSelectPattern,
     textareaPattern,
     separatorPattern,
+    skeletonPattern,
+    skeletonCirclePattern,
+    skeletonTextPattern,
 } from "./exclude-patterns";
 
 

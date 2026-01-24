@@ -395,6 +395,16 @@ body {
 	}
 
 	--animate-circular-progress: circular-progress 1.5s linear infinite;
+
+	/* Skeleton animations */
+	@keyframes skeleton-shine {
+		from {
+			background-position: 200% 0;
+		}
+		to {
+			background-position: -200% 0;
+		}
+	}
 }
 
 :root {

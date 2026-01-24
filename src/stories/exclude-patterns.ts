@@ -250,3 +250,7 @@ export const nativeSelectPattern = makePattern(['variant', 'size', 'colour', 'in
 export const textareaPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'placeholder', 'resize', 'class']);
 
 export const separatorPattern = makePattern(['orientation', 'variant', 'size', 'colour', 'class']);
+
+export const skeletonPattern = makePattern(['loading', 'variant', 'height', 'width', 'class', 'children']);
+export const skeletonCirclePattern = makePattern(['variant', 'size', 'class']);
+export const skeletonTextPattern = makePattern(['variant', 'noOfLines', 'gap', 'class']);
