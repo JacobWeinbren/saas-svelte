@@ -425,6 +425,13 @@ export {
     statUpTrendPattern,
     statDownTrendPattern,
     statusPattern,
+    stepsRootPattern,
+    stepsListPattern,
+    stepsItemPattern,
+    stepsContentPattern,
+    stepsCompletedContentPattern,
+    stepsPrevTriggerPattern,
+    stepsNextTriggerPattern,
 } from "./exclude-patterns";
 
 

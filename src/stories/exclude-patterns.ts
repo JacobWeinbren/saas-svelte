@@ -274,3 +274,11 @@ export const statUpTrendPattern = makePattern(['variant', 'colour', 'class', 'ch
 export const statDownTrendPattern = makePattern(['variant', 'colour', 'class', 'children']);
 
 export const statusPattern = makePattern(['value', 'size', 'colour', 'class', 'children']);
+
+export const stepsRootPattern = makePattern(['count', 'defaultStep', 'step', 'size', 'orientation', 'colour', 'linear', 'onStepChange', 'onStepComplete', 'class', 'children']);
+export const stepsListPattern = makePattern(['class', 'children']);
+export const stepsItemPattern = makePattern(['index', 'title', 'description', 'icon', 'class', 'children']);
+export const stepsContentPattern = makePattern(['index', 'class', 'children']);
+export const stepsCompletedContentPattern = makePattern(['class', 'children']);
+export const stepsPrevTriggerPattern = makePattern(['class', 'children']);
+export const stepsNextTriggerPattern = makePattern(['class', 'children']);

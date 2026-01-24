@@ -1,0 +1,100 @@
+<script lang="ts">
+	import { Steps } from "@ark-ui/svelte/steps";
+	import { getContext, type Snippet, type Component } from "svelte";
+	import { twMerge } from "tailwind-merge";
+	import { STEPS_CTX, type StepsContext } from "./steps-root.svelte";
+	import StepsTrigger from "./steps-trigger.svelte";
+	import StepsSeparator from "./steps-separator.svelte";
+	import Check from "phosphor-svelte/lib/Check";
+	import { Icon } from "$saas/components/icon";
+
+	interface Props {
+		/**
+		 * The index of this step (0-indexed).
+		 */
+		index: number;
+		/**
+		 * The title of this step.
+		 */
+		title?: string;
+		/**
+		 * The description of this step.
+		 */
+		description?: string;
+		/**
+		 * Custom icon component to display instead of number.
+		 */
+		icon?: Component<any>;
+		/**
+		 * Custom content for the step item.
+		 */
+		children?: Snippet;
+		/**
+		 * Additional CSS classes.
+		 */
+		class?: string;
+		[key: string]: any;
+	}
+
+	let {
+		index,
+		title,
+		description,
+		icon,
+		children,
+		class: className,
+		...restProps
+	}: Props = $props();
+
+	const ctx = getContext<StepsContext>(STEPS_CTX);
+	const finalClass = $derived(
+		twMerge(ctx?.styles?.item(), className as string),
+	);
+</script>
+
+<Steps.Item {index} class={finalClass} {...restProps}>
+	{#if children}
+		{@render children()}
+	{:else}
+		<Steps.ItemContext>
+			{#snippet render(itemCtx)}
+				{@const state = itemCtx()}
+				{@const isOutline = ctx?.variant === "outline"}
+				<StepsTrigger {index}>
+					<Steps.Indicator
+						class={twMerge(
+							ctx?.styles?.indicator(),
+							// Outline variant base: no border, muted bg
+							isOutline && "border-0 bg-bg-muted text-fg-muted",
+							isOutline && state.current && "text-fg-default",
+							isOutline && state.completed && "bg-bg-emphasized text-fg-default",
+							// Solid variant base: has border
+							!isOutline && "border-2 border-border-default bg-bg-default text-fg-muted",
+							!isOutline && state.current && "border-(--c-solid) bg-bg-muted text-fg-default",
+							!isOutline && state.completed && "bg-(--c-solid) border-0 text-(--c-contrast)",
+						)}
+					>
+						{#if state.completed}
+							<Icon as={Check} size="sm" />
+						{:else if icon}
+							<Icon as={icon} size="sm" />
+						{:else}
+							{index + 1}
+						{/if}
+					</Steps.Indicator>
+					{#if title || description}
+						<div class="flex flex-col">
+							{#if title}
+								<div class={ctx?.styles?.title()}>{title}</div>
+							{/if}
+							{#if description}
+								<div class={ctx?.styles?.description()}>{description}</div>
+							{/if}
+						</div>
+					{/if}
+				</StepsTrigger>
+				<StepsSeparator {index} last={state.last} completed={state.completed} />
+			{/snippet}
+		</Steps.ItemContext>
+	{/if}
+</Steps.Item>
