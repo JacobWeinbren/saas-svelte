@@ -226,3 +226,19 @@ export const progressCirclePattern = makePattern(['value', 'min', 'max', 'size',
 export const formatBytePattern = makePattern(['value', 'unit', 'unitDisplay', 'locale']);
 export const formatNumberPattern = makePattern(['value', 'style', 'currency', 'unit', 'minimumFractionDigits', 'maximumFractionDigits', 'notation', 'compactDisplay', 'locale']);
 export const localeProviderPattern = makePattern(['locale', 'children']);
+
+export const collapsiblePattern = makePattern(['id', 'defaultOpen', 'open', 'disabled', 'lazyMount', 'unmountOnExit', 'onOpenChange', 'onExitComplete', 'class', 'children']);
+export const collapsibleTriggerPattern = makePattern(['class', 'children']);
+export const collapsibleContentPattern = makePattern(['class', 'children']);
+
+export const clipboardPattern = makePattern(['id', 'value', 'timeout', 'class', 'children']);
+
+export const closeButtonPattern = makePattern(['variant', 'size', 'colour', 'aria-label', 'class', 'children']);
+
+export const spinnerPattern = makePattern(['size', 'colour', 'label', 'animationDuration', 'borderWidth', 'trackColour', 'class']);
+
+export const linkPattern = makePattern(['variant', 'colour', 'class', 'children']);
+
+export const nativeSelectPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'value', 'class', 'children']);
+
+export const textareaPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'placeholder', 'resize', 'class']);

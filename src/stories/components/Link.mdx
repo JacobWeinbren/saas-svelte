@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as LinkStories from "./Link.stories.svelte";
 import { Link } from "$saas/components/link";
+import { linkPattern } from "../exclude-patterns";
 
 <Meta of={LinkStories} />
 
@@ -42,4 +43,4 @@ Add an external link icon to the Link component.
 
 ## Props
 
-<ArgTypes of={Link} />
+<ArgTypes of={Link} exclude={linkPattern} />

@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as ClipboardStories from "./Clipboard.stories.svelte";
 import { Clipboard } from "$saas/components/clipboard";
-import { toastPattern } from "../utils";
+import { clipboardPattern } from "../exclude-patterns";
 
 <Meta of={ClipboardStories} />
 
@@ -60,4 +60,4 @@ Configure how long the "copied" state is shown using the `timeout` prop (in mill
 
 ## Props
 
-<ArgTypes of={Clipboard} exclude={toastPattern} />
+<ArgTypes of={Clipboard} exclude={clipboardPattern} />

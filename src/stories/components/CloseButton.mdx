@@ -1,7 +1,7 @@
 import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as CloseButtonStories from "./CloseButton.stories.svelte";
 import { CloseButton } from "$saas/components/close-button";
-import { toastPattern } from "../utils";
+import { closeButtonPattern } from "../exclude-patterns";
 
 <Meta of={CloseButtonStories} />
 
@@ -43,4 +43,4 @@ Use the `children` prop to change the icon of the close button.
 
 ## Props
 
-<ArgTypes of={CloseButton} exclude={toastPattern} />
+<ArgTypes of={CloseButton} exclude={closeButtonPattern} />

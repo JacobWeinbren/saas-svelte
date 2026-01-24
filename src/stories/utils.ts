@@ -387,6 +387,15 @@ export {
     selectLabelPattern,
     selectClearTriggerPattern,
     selectIndicatorPattern,
+    collapsiblePattern,
+    collapsibleTriggerPattern,
+    collapsibleContentPattern,
+    clipboardPattern,
+    closeButtonPattern,
+    spinnerPattern,
+    linkPattern,
+    nativeSelectPattern,
+    textareaPattern,
 } from "./exclude-patterns";
 
 

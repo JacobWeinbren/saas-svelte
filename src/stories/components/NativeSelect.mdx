@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as NativeSelectStories from "./NativeSelect.stories.svelte";
 import { NativeSelect } from "$saas/components/native-select";
-import { inputPattern } from "../utils";
+import { nativeSelectPattern } from "../exclude-patterns";
 
 <Meta of={NativeSelectStories} />
 
@@ -46,4 +46,4 @@ Here is an example of how to use the NativeSelect component with form validation
 
 ## Props
 
-<ArgTypes of={NativeSelect} exclude={inputPattern} />
+<ArgTypes of={NativeSelect} exclude={nativeSelectPattern} />

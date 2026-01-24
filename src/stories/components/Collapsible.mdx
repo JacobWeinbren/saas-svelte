@@ -1,7 +1,7 @@
 import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as CollapsibleStories from "./Collapsible.stories.svelte";
 import { Collapsible } from "$saas/components/collapsible";
-import { toastPattern } from "../utils";
+import { collapsiblePattern } from "../exclude-patterns";
 
 <Meta of={CollapsibleStories} />
 
@@ -36,4 +36,4 @@ Use the `unmountOnExit` prop to make the content unmount when collapsed.
 
 ## Props
 
-<ArgTypes of={Collapsible} exclude={toastPattern} />
+<ArgTypes of={Collapsible} exclude={collapsiblePattern} />
