@@ -60,7 +60,11 @@
 	let loading = $state(true);
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
+	<Skeleton height="1.25rem" width="200px" {...args} />
+{/snippet}
+
+{#snippet compositeStory()}
 	<Group gap={5} class="items-center">
 		<SkeletonCircle size="12" />
 		<Stack gap={2} class="flex-1">
@@ -140,6 +144,8 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
+<Story name="Composite" template={compositeStory} />
 
 <Story name="Feed" template={feedStory} />
 

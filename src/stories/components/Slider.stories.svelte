@@ -81,8 +81,8 @@
 	let changeEndValue = $state([50]);
 </script>
 
-{#snippet basicStory()}
-	<Slider.Root defaultValue={[40]} class="w-[200px]">
+{#snippet basicStory(args: any)}
+	<Slider.Root defaultValue={[40]} class="w-[200px]" {...args}>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range />

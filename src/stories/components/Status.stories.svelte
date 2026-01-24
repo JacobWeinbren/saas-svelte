@@ -36,10 +36,18 @@
 		parameters: {
 			controls: getControls(["value", "size", "colour", "class"]),
 		},
+		args: {
+			value: "info",
+			size: "md",
+		},
 	});
 </script>
 
-{#snippet basicStory()}
+{#snippet basicStory(args: any)}
+	<Status {...args}>Status</Status>
+{/snippet}
+
+{#snippet valuesStory()}
 	<HStack gap={6}>
 		<Status value="error" />
 		<Status value="info" />
@@ -81,6 +89,8 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
+<Story name="Values" template={valuesStory} />
 
 <Story name="Label" template={labelStory} />
 

@@ -23,8 +23,8 @@
 	import CurrencyDollar from "phosphor-svelte/lib/CurrencyDollar";
 </script>
 
-{#snippet basicStory()}
-	<Stat.Root>
+{#snippet basicStory(args: any)}
+	<Stat.Root {...args}>
 		<Stat.Label>Unique visitors</Stat.Label>
 		<Stat.ValueText>192.1k</Stat.ValueText>
 	</Stat.Root>
