@@ -404,6 +404,7 @@ export {
     linkPattern,
     nativeSelectPattern,
     textareaPattern,
+    separatorPattern,
 } from "./exclude-patterns";
 
 

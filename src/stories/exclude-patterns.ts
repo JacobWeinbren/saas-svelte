@@ -248,3 +248,5 @@ export const linkPattern = makePattern(['variant', 'colour', 'class', 'children'
 export const nativeSelectPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'value', 'class', 'children']);
 
 export const textareaPattern = makePattern(['variant', 'size', 'colour', 'invalid', 'disabled', 'placeholder', 'resize', 'class']);
+
+export const separatorPattern = makePattern(['orientation', 'variant', 'size', 'colour', 'class']);
