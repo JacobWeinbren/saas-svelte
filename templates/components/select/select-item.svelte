@@ -36,9 +36,7 @@
 	style={`${ctx?.colourStyle || ''}${rest.style ? `; ${rest.style}` : ''}`}
 	{...rest}
 >
-	<Select.ItemText class={ctx?.styles?.itemText()}>
-		{@render children()}
-	</Select.ItemText>
+	{@render children()}
 	{#if showIndicator}
 		<Select.ItemIndicator class={ctx?.styles?.itemIndicator()}>
 			<Check weight="bold" aria-hidden="true" />

@@ -5,7 +5,7 @@
 	import { SELECT_CTX, type SelectContext } from "./select-root.svelte";
 	import { HStack } from "$saas/layout/stack";
 
-	interface Props extends SelectValueTextProps {
+	interface Props extends Omit<SelectValueTextProps, "prefix" | "children"> {
 		/**
 		 * Custom render snippet for the selected value.
 		 * Receives the selected items array.

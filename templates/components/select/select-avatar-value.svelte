@@ -64,23 +64,21 @@
 	{...rest}
 >
 	{#if firstItem}
-		<span class="inline-flex items-center gap-2">
-			{#if avatarSrc}
-				<img
-					src={avatarSrc}
-					alt={displayName}
-					class="rounded-full object-cover"
-					style="width: {avatarSize}px; height: {avatarSize}px;"
-				/>
-			{:else}
-				<span
-					class="rounded-full bg-bg-muted text-fg-muted flex items-center justify-center text-xs font-medium"
-					style="width: {avatarSize}px; height: {avatarSize}px;"
-				>
-					{getInitials(displayName)}
-				</span>
-			{/if}
-			{displayName}
-		</span>
+		{#if avatarSrc}
+			<img
+				src={avatarSrc}
+				alt={displayName}
+				class="rounded-full object-cover shrink-0"
+				style="width: {avatarSize}px; height: {avatarSize}px;"
+			/>
+		{:else}
+			<span
+				class="rounded-full bg-bg-muted text-fg-muted flex items-center justify-center text-xs font-medium shrink-0"
+				style="width: {avatarSize}px; height: {avatarSize}px;"
+			>
+				{getInitials(displayName)}
+			</span>
+		{/if}
+		<span class="truncate">{displayName}</span>
 	{/if}
 </Select.ValueText>
