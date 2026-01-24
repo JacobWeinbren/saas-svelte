@@ -1,10 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		Checkbox,
-		CheckboxRoot,
-		CheckboxGroup,
-	} from "$saas/components/checkbox";
+	import { Checkbox } from "$saas/components/checkbox";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
@@ -21,7 +17,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Checkbox",
-		component: CheckboxRoot,
+		component: Checkbox.Root,
 		argTypes: {
 			checked: {
 				control: "boolean",

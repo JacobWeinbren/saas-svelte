@@ -89,6 +89,7 @@
 			numberInput: 10,
 			textarea: "",
 			select: "",
+			checkbox: false,
 			radio: "svelte",
 		},
 		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
@@ -129,6 +130,11 @@
 				label="Select"
 				placeholder="Choose..."
 				options={selectOptions}
+			/>
+			<FormField
+				name="checkbox"
+				type="checkbox"
+				label="I agree to the terms"
 			/>
 			<FormField
 				name="radio"

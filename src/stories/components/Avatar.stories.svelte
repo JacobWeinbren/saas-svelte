@@ -2,7 +2,7 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Stack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { Avatar, AvatarGroup } from "$saas/components/avatar";
+	import { Avatar } from "$saas/components/avatar";
 	import {
 		commonArgTypes,
 		getControls,
@@ -142,7 +142,7 @@
 {/snippet}
 
 {#snippet groupStory()}
-	<AvatarGroup size="lg">
+	<Avatar.Group size="lg">
 		<Avatar
 			name="David Wilson"
 			src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
@@ -156,12 +156,12 @@
 			src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 		/>
 		<Avatar fallback="+3" variant="solid" />
-	</AvatarGroup>
+	</Avatar.Group>
 {/snippet}
 
 {#snippet stackingStory()}
 	<Stack gap={8}>
-		<AvatarGroup size="lg" stacking="last-on-top">
+		<Avatar.Group size="lg" stacking="last-on-top">
 			<Avatar
 				name="David Wilson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
@@ -175,9 +175,9 @@
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
 			<Avatar fallback="+3" />
-		</AvatarGroup>
+		</Avatar.Group>
 
-		<AvatarGroup size="lg" stacking="first-on-top">
+		<Avatar.Group size="lg" stacking="first-on-top">
 			<Avatar
 				name="David Wilson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
@@ -191,9 +191,9 @@
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
 			<Avatar fallback="+3" />
-		</AvatarGroup>
+		</Avatar.Group>
 
-		<AvatarGroup size="lg" spaceX="1" borderless>
+		<Avatar.Group size="lg" spaceX="1" borderless>
 			<Avatar
 				name="David Wilson"
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
@@ -207,7 +207,7 @@
 				src="https://api.dicebear.com/9.x/shapes/svg?seed=sarah"
 			/>
 			<Avatar fallback="+3" />
-		</AvatarGroup>
+		</Avatar.Group>
 	</Stack>
 {/snippet}
 

@@ -36,6 +36,29 @@ body {
 }
 
 @theme {
+	--text-2xs: var(--font-sizes-2xs);
+	--text-xs: var(--font-sizes-xs);
+	--text-sm: var(--font-sizes-sm);
+	--text-md: var(--font-sizes-md);
+	--text-lg: var(--font-sizes-lg);
+	--text-xl: var(--font-sizes-xl);
+	--text-2xl: var(--font-sizes-2xl);
+	--text-3xl: var(--font-sizes-3xl);
+	--text-4xl: var(--font-sizes-4xl);
+	--text-5xl: var(--font-sizes-5xl);
+	--text-6xl: var(--font-sizes-6xl);
+	--text-7xl: var(--font-sizes-7xl);
+	--text-8xl: var(--font-sizes-8xl);
+	--text-9xl: var(--font-sizes-9xl);
+
+	--leading-2xs: var(--line-heights-2xs);
+	--leading-xs: var(--line-heights-xs);
+	--leading-sm: var(--line-heights-sm);
+	--leading-md: var(--line-heights-md);
+	--leading-lg: var(--line-heights-lg);
+	--leading-xl: var(--line-heights-xl);
+	--leading-2xl: var(--line-heights-2xl);
+
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
 

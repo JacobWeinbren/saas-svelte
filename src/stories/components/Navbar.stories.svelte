@@ -540,7 +540,7 @@
 />
 
 <Story
-	name="Colour Palettes"
+	name="Colours"
 	template={colourPalettesStory}
 	parameters={{ docs: { story: { inline: true } } }}
 />

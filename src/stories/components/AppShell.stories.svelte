@@ -3,12 +3,7 @@
 	import { AppShell } from "$saas/components/app-shell";
 	import { Navbar } from "$saas/components/navbar";
 	import { Sidebar } from "$saas/components/sidebar";
-	import {
-		MenuRoot,
-		MenuButton,
-		MenuContent,
-		MenuItem,
-	} from "$saas/components/menu";
+	import { Menu } from "$saas/components/menu";
 	import { Avatar } from "$saas/components/avatar";
 	import { Text } from "$saas/typography/text";
 	import { Heading } from "$saas/typography/heading";
@@ -22,7 +17,7 @@
 	import MagnifyingGlass from "phosphor-svelte/lib/MagnifyingGlass";
 	import List from "phosphor-svelte/lib/List";
 	import X from "phosphor-svelte/lib/X";
-	import { Input, InputGroup, InputElement } from "$saas/components/input";
+	import { Input } from "$saas/components/input";
 	import { createMobileNav } from "$saas/utils/mobile-nav.svelte";
 
 	import { commonArgTypes, getControls } from "../utils";
@@ -123,19 +118,19 @@
 					<div class="flex-1"></div>
 					<Navbar.ItemGroup>
 						<Navbar.Item class="hidden md:flex">
-							<InputGroup class="w-40">
-								<InputElement placement="left">
+							<Input.Group class="w-40">
+								<Input.Element placement="left">
 									<MagnifyingGlass
 										class="w-3.5 h-3.5"
 										aria-hidden="true"
 									/>
-								</InputElement>
+								</Input.Element>
 								<Input
 									size="sm"
 									placeholder="Search"
 									class="pl-8"
 								/>
-							</InputGroup>
+							</Input.Group>
 						</Navbar.Item>
 						<Navbar.Item class="flex md:hidden">
 							<Button
@@ -189,18 +184,18 @@
 				<Sidebar.Header>
 					{@render logoIconSvg()}
 					<div class="flex-1"></div>
-					<MenuRoot>
-						<MenuButton
+					<Menu.Root>
+						<Menu.Button
 							variant="ghost"
 							size="xs"
 							aria-label="User menu"
 						>
 							<Avatar size="xs" colour="gray" />
-						</MenuButton>
-						<MenuContent>
-							<MenuItem value="signout">Sign out</MenuItem>
-						</MenuContent>
-					</MenuRoot>
+						</Menu.Button>
+						<Menu.Content>
+							<Menu.Item value="signout">Sign out</Menu.Item>
+						</Menu.Content>
+					</Menu.Root>
 				</Sidebar.Header>
 				<Sidebar.Body>
 					<Sidebar.Group>

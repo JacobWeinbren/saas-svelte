@@ -67,16 +67,16 @@ Use the `resize` prop to control the resize behavior of the textarea.
 
 ### Autoresize
 
-Use the `TextareaAutoresize` component to make the textarea automatically expand as the user types. You can control the minimum and maximum number of rows with the `minRows` and `maxRows` props.
+Use the `Textarea.Autoresize` component to make the textarea automatically expand as the user types. You can control the minimum and maximum number of rows with the `minRows` and `maxRows` props.
 
 <Canvas of={TextareaStories.Autoresize} />
 
 ```tsx
 <script>
-	import { TextareaAutoresize } from "$saas/components/textarea";
+	import { Textarea } from "$saas/components/textarea";
 </script>
 
-<TextareaAutoresize
+<Textarea.Autoresize
 	placeholder="Start typing..."
 	minRows="{1}"
 	maxRows="{40}"

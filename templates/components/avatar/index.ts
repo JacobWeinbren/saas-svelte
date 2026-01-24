@@ -1,4 +1,6 @@
-export { default as Avatar } from "./avatar.svelte";
+import Root from "./avatar.svelte";
+import Group from "./avatar-group.svelte";
+
 export { default as AvatarGroup } from "./avatar-group.svelte";
 
 export { avatar, type AvatarVariants } from "./avatar.svelte";
@@ -13,3 +15,8 @@ export type {
 	AvatarImageProps,
 	AvatarFallbackProps,
 } from "@ark-ui/svelte/avatar";
+
+export const Avatar = Object.assign(Root, {
+	Root,
+	Group,
+});

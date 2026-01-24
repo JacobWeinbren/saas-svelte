@@ -1,10 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as CheckboxStories from "./Checkbox.stories.svelte";
-import {
-	Checkbox,
-	CheckboxRoot,
-	CheckboxGroup,
-} from "$saas/components/checkbox";
+import { Checkbox } from "$saas/components/checkbox";
 import { checkboxPattern, checkboxGroupPattern } from "../utils";
 
 <Meta of={CheckboxStories} />
@@ -114,8 +110,8 @@ Render an anchor tag as the checkbox label using the composition API.
 
 **Checkbox.Root**
 
-<ArgTypes of={CheckboxRoot} exclude={checkboxPattern} />
+<ArgTypes of={Checkbox.Root} exclude={checkboxPattern} />
 
 **Checkbox.Group**
 
-<ArgTypes of={CheckboxGroup} exclude={checkboxGroupPattern} />
+<ArgTypes of={Checkbox.Group} exclude={checkboxGroupPattern} />

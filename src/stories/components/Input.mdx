@@ -25,17 +25,17 @@ import {
 
 ```tsx
 <script>
-	import { Input, InputGroup, InputElement, InputAddon } from "$saas/input";
+	import { Input } from "$saas/input";
 </script>
 
 <input placeholder="Basic input" />
 
-<InputGroup>
-	<InputElement placement="left">
+<Input.Group>
+	<Input.Element placement="left">
 		<Icon />
-	</InputElement>
+	</Input.Element>
 	<input class="pl-10" placeholder="With Icon" />
-</InputGroup>
+</Input.Group>
 ```
 
 ## Examples
@@ -54,19 +54,19 @@ Use the size prop to change the size of the input. Available sizes are xs, sm, m
 
 ### Left Element
 
-Pair the input with the `InputElement` component to add an element to the left of the input.
+Pair the input with the `Input.Element` component to add an element to the left of the input.
 
 <Canvas of={InputStories.LeftElement} />
 
 ### Left and Right Element
 
-Use `InputElement` with `placement="left"` and `placement="right"` to add elements on both sides.
+Use `Input.Element` with `placement="left"` and `placement="right"` to add elements on both sides.
 
 <Canvas of={InputStories.LeftAndRightElement} />
 
 ### With Addons
 
-Use `InputAddon` with the `Group` component to attach fixed labels to the start or end of an input.
+Use `Input.Addon` with the `Input.Group` component to attach fixed labels to the start or end of an input.
 
 <Canvas of={InputStories.WithAddons} />
 
@@ -94,14 +94,14 @@ Use the `placeholder` pseudo-element and `text-inherit` to colour the placeholde
 
 <ArgTypes of={Input} exclude={inputPattern} />
 
-### InputGroup
+### Input.Group
 
 <ArgTypes of={InputGroup} exclude={inputGroupPattern} />
 
-### InputElement
+### Input.Element
 
 <ArgTypes of={InputElement} exclude={inputElementPattern} />
 
-### InputAddon
+### Input.Addon
 
 <ArgTypes of={InputAddon} exclude={/^(?!(size|class|children)$).*$/} />

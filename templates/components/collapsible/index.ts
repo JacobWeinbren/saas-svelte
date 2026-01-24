@@ -16,14 +16,14 @@ export {
 	type CollapsibleIndicatorProps,
 } from "@ark-ui/svelte/collapsible";
 
-export const Collapsible = Root;
+export const CollapsibleRoot = Root;
 export const CollapsibleTrigger = Trigger;
 export const CollapsibleContent = Content;
 export const CollapsibleIndicator = Indicator;
 
-export const CollapsibleParts = {
+export const Collapsible = Object.assign(Root, {
 	Root,
 	Trigger,
 	Content,
 	Indicator,
-};
+});

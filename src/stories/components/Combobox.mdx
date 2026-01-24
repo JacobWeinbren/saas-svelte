@@ -1,15 +1,6 @@
 import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as ComboboxStories from "./Combobox.stories.svelte";
-import {
-	Combobox,
-	ComboboxRoot,
-	ComboboxControl,
-	ComboboxInput,
-	ComboboxContent,
-	ComboboxItem,
-	ComboboxItemText,
-	ComboboxItemIndicator,
-} from "$saas/components/combobox";
+import { Combobox } from "$saas/components/combobox";
 import {
 	comboboxPattern,
 	comboboxRootPattern,
@@ -195,7 +186,7 @@ For more control over the combobox structure and behavior, use `ComboboxRoot` wi
 
 ```tsx
 <script>
-	import { ComboboxRoot, ComboboxControl, ComboboxInput, ComboboxContent, ComboboxItem, ComboboxItemText, createListCollection } from "$saas/components/combobox";
+	import { Combobox, createListCollection } from "$saas/components/combobox";
 
 	const items = [
 		{ label: "React", value: "react" },
@@ -208,18 +199,18 @@ For more control over the combobox structure and behavior, use `ComboboxRoot` wi
 	const collection = $derived(createListCollection({ items: filteredItems }));
 </script>
 
-<ComboboxRoot {collection} onInputValueChange={(e) => (inputValue = e.inputValue)}>
-	<ComboboxControl>
-		<ComboboxInput placeholder="Search..." />
-	</ComboboxControl>
-	<ComboboxContent>
+<Combobox.Root {collection} onInputValueChange={(e) => (inputValue = e.inputValue)}>
+	<Combobox.Control>
+		<Combobox.Input placeholder="Search..." />
+	</Combobox.Control>
+	<Combobox.Content>
 		{#each collection.items as item}
-			<ComboboxItem {item}>
-				<ComboboxItemText>{item.label}</ComboboxItemText>
-			</ComboboxItem>
+			<Combobox.Item {item}>
+				<Combobox.ItemText>{item.label}</Combobox.ItemText>
+			</Combobox.Item>
 		{/each}
-	</ComboboxContent>
-</ComboboxRoot>
+	</Combobox.Content>
+</Combobox.Root>
 ```
 
 ## Props
@@ -228,30 +219,30 @@ For more control over the combobox structure and behavior, use `ComboboxRoot` wi
 
 <ArgTypes of={Combobox} exclude={comboboxPattern} />
 
-### ComboboxRoot
+### Combobox.Root
 
-<ArgTypes of={ComboboxRoot} exclude={comboboxRootPattern} />
+<ArgTypes of={Combobox.Root} exclude={comboboxRootPattern} />
 
-### ComboboxControl
+### Combobox.Control
 
-<ArgTypes of={ComboboxControl} exclude={comboboxControlPattern} />
+<ArgTypes of={Combobox.Control} exclude={comboboxControlPattern} />
 
-### ComboboxInput
+### Combobox.Input
 
-<ArgTypes of={ComboboxInput} exclude={comboboxInputPattern} />
+<ArgTypes of={Combobox.Input} exclude={comboboxInputPattern} />
 
-### ComboboxContent
+### Combobox.Content
 
-<ArgTypes of={ComboboxContent} exclude={comboboxContentPattern} />
+<ArgTypes of={Combobox.Content} exclude={comboboxContentPattern} />
 
-### ComboboxItem
+### Combobox.Item
 
-<ArgTypes of={ComboboxItem} exclude={comboboxItemPattern} />
+<ArgTypes of={Combobox.Item} exclude={comboboxItemPattern} />
 
-### ComboboxItemText
+### Combobox.ItemText
 
-<ArgTypes of={ComboboxItemText} exclude={comboboxItemTextPattern} />
+<ArgTypes of={Combobox.ItemText} exclude={comboboxItemTextPattern} />
 
-### ComboboxItemIndicator
+### Combobox.ItemIndicator
 
-<ArgTypes of={ComboboxItemIndicator} exclude={comboboxItemIndicatorPattern} />
+<ArgTypes of={Combobox.ItemIndicator} exclude={comboboxItemIndicatorPattern} />

@@ -4,12 +4,7 @@
 	import { Button } from "$saas/components/button";
 	import { Input } from "$saas/components/input";
 	import { Stack, VStack, HStack } from "$saas/layout/stack";
-	import {
-		DataListRoot,
-		DataListItem,
-		DataListItemLabel,
-		DataListItemValue,
-	} from "$saas/components/data-list";
+	import { DataList } from "$saas/components/data-list";
 	import { Badge } from "$saas/components/badge";
 	import { Avatar } from "$saas/components/avatar";
 	import { Textarea } from "$saas/components/textarea";
@@ -293,16 +288,16 @@
 					<Dialog.CloseButton />
 				</Dialog.Header>
 				<Dialog.Body class="pb-8">
-					<DataListRoot orientation="horizontal">
-						<DataListItem>
-							<DataListItemLabel>Status</DataListItemLabel>
-							<DataListItemValue>
+					<DataList.Root orientation="horizontal">
+						<DataList.Item>
+							<DataList.ItemLabel>Status</DataList.ItemLabel>
+							<DataList.ItemValue>
 								<Badge colour="green">Completed</Badge>
-							</DataListItemValue>
-						</DataListItem>
-						<DataListItem>
-							<DataListItemLabel>Assigned to</DataListItemLabel>
-							<DataListItemValue>
+							</DataList.ItemValue>
+						</DataList.Item>
+						<DataList.Item>
+							<DataList.ItemLabel>Assigned to</DataList.ItemLabel>
+							<DataList.ItemValue>
 								<HStack>
 									<Avatar
 										size="xs"
@@ -311,15 +306,15 @@
 									/>
 									Eelco Wiersma
 								</HStack>
-							</DataListItemValue>
-						</DataListItem>
-						<DataListItem>
-							<DataListItemLabel>Due date</DataListItemLabel>
-							<DataListItemValue
-								>12th August 2024</DataListItemValue
+							</DataList.ItemValue>
+						</DataList.Item>
+						<DataList.Item>
+							<DataList.ItemLabel>Due date</DataList.ItemLabel>
+							<DataList.ItemValue
+								>12th August 2024</DataList.ItemValue
 							>
-						</DataListItem>
-					</DataListRoot>
+						</DataList.Item>
+					</DataList.Root>
 
 					<Textarea placeholder="Add a note" class="mt-8" />
 				</Dialog.Body>

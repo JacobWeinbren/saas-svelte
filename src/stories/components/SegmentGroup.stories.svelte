@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { SegmentGroup, SegmentGroupRoot } from "$saas/components/segment-group";
+	import { SegmentGroup } from "$saas/components/segment-group";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Heading } from "$saas/typography/heading";
@@ -21,7 +21,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Segment Group",
-		component: SegmentGroupRoot,
+		component: SegmentGroup.Root,
 		argTypes: {
 			value: {
 				control: "text",

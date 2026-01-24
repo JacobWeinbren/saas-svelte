@@ -27,7 +27,6 @@ export {
 	type ListCollection,
 } from "@ark-ui/svelte/combobox";
 
-export const Combobox = PreComposed;
 export const ComboboxRoot = Root;
 export const ComboboxLabel = Label;
 export const ComboboxControl = Control;
@@ -43,7 +42,7 @@ export const ComboboxItemGroup = ItemGroup;
 export const ComboboxItemGroupLabel = ItemGroupLabel;
 export const ComboboxEmpty = Empty;
 
-export const ComboboxParts = {
+export const Combobox = Object.assign(PreComposed, {
 	Root,
 	Label,
 	Control,
@@ -58,4 +57,4 @@ export const ComboboxParts = {
 	ItemGroup,
 	ItemGroupLabel,
 	Empty,
-};
+});

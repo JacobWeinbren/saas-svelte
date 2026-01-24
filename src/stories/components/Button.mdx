@@ -22,16 +22,14 @@ import { buttonPattern } from "../utils";
 ```tsx
 <script>
 	import { Button } from "$saas/components/button";
-	import { buttonPattern } from "../utils";
-	import { ButtonGroup } from "$saas/components/button";
 </script>
 
 <button>Click me!</button>
 
-<ButtonGroup>
+<Button.Group>
 	<button>Button 1</button>
 	<button>Button 2</button>
-</ButtonGroup>
+</Button.Group>
 ```
 
 ## Examples
@@ -68,7 +66,7 @@ Use the `loading` and `loadingText` props to show a loading spinner.
 
 ### Button Group
 
-Use the ButtonGroup component to group buttons together.
+Use the `Button.Group` component to group buttons together.
 
 <Canvas of={ButtonStories.Group} />
 

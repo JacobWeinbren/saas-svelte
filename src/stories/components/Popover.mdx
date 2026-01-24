@@ -1,17 +1,6 @@
 import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as PopoverStories from "./Popover.stories.svelte";
-import {
-	PopoverRoot,
-	PopoverTrigger,
-	PopoverContent,
-	PopoverArrow,
-	PopoverHeader,
-	PopoverBody,
-	PopoverFooter,
-	PopoverTitle,
-	PopoverDescription,
-	PopoverCloseTrigger,
-} from "$saas/components/popover";
+import { Popover } from "$saas/components/popover";
 import {
 	popoverRootPattern,
 	popoverTriggerPattern,
@@ -39,18 +28,7 @@ import {
 
 ```tsx
 <script>
-	import {
-		Popover,
-		PopoverRoot,
-		PopoverTrigger,
-		PopoverContent,
-		PopoverArrow,
-		PopoverHeader,
-		PopoverBody,
-		PopoverFooter,
-		PopoverTitle,
-		PopoverCloseTrigger,
-	} from "$saas/components/popover";
+	import { Popover } from "$saas/components/popover";
 </script>
 
 <Popover.Root>
@@ -133,42 +111,42 @@ Use `Popover.Header` and `Popover.Footer` for structured content with title and 
 
 ## Props
 
-### PopoverRoot
+### Popover.Root
 
-<ArgTypes of={PopoverRoot} exclude={popoverRootPattern} />
+<ArgTypes of={Popover.Root} exclude={popoverRootPattern} />
 
-### PopoverTrigger
+### Popover.Trigger
 
-<ArgTypes of={PopoverTrigger} exclude={popoverTriggerPattern} />
+<ArgTypes of={Popover.Trigger} exclude={popoverTriggerPattern} />
 
-### PopoverContent
+### Popover.Content
 
-<ArgTypes of={PopoverContent} exclude={popoverContentPattern} />
+<ArgTypes of={Popover.Content} exclude={popoverContentPattern} />
 
-### PopoverArrow
+### Popover.Arrow
 
-<ArgTypes of={PopoverArrow} exclude={popoverArrowPattern} />
+<ArgTypes of={Popover.Arrow} exclude={popoverArrowPattern} />
 
-### PopoverHeader
+### Popover.Header
 
-<ArgTypes of={PopoverHeader} exclude={popoverHeaderPattern} />
+<ArgTypes of={Popover.Header} exclude={popoverHeaderPattern} />
 
-### PopoverBody
+### Popover.Body
 
-<ArgTypes of={PopoverBody} exclude={popoverBodyPattern} />
+<ArgTypes of={Popover.Body} exclude={popoverBodyPattern} />
 
-### PopoverFooter
+### Popover.Footer
 
-<ArgTypes of={PopoverFooter} exclude={popoverFooterPattern} />
+<ArgTypes of={Popover.Footer} exclude={popoverFooterPattern} />
 
-### PopoverTitle
+### Popover.Title
 
-<ArgTypes of={PopoverTitle} exclude={popoverTitlePattern} />
+<ArgTypes of={Popover.Title} exclude={popoverTitlePattern} />
 
-### PopoverDescription
+### Popover.Description
 
-<ArgTypes of={PopoverDescription} exclude={popoverDescriptionPattern} />
+<ArgTypes of={Popover.Description} exclude={popoverDescriptionPattern} />
 
-### PopoverCloseTrigger
+### Popover.CloseTrigger
 
-<ArgTypes of={PopoverCloseTrigger} exclude={popoverCloseTriggerPattern} />
+<ArgTypes of={Popover.CloseTrigger} exclude={popoverCloseTriggerPattern} />

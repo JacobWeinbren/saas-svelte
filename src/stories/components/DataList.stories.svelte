@@ -1,11 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		DataListRoot,
-		DataListItem,
-		DataListItemLabel,
-		DataListItemValue,
-	} from "$saas/components/data-list";
+	import { DataList } from "$saas/components/data-list";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import {
@@ -17,7 +12,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Data List",
-		component: DataListRoot,
+		component: DataList.Root,
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
@@ -53,7 +48,7 @@
 		},
 	});
 
-	export { DataListRoot, DataListItem, DataListItemLabel, DataListItemValue };
+	export { DataList };
 
 	const stats = [
 		{ label: "New Users", value: "234" },
@@ -71,14 +66,14 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<DataListRoot {...args}>
+	<DataList.Root {...args}>
 		{#each stats as item}
-			<DataListItem>
-				<DataListItemLabel>{item.label}</DataListItemLabel>
-				<DataListItemValue>{item.value}</DataListItemValue>
-			</DataListItem>
+			<DataList.Item>
+				<DataList.ItemLabel>{item.label}</DataList.ItemLabel>
+				<DataList.ItemValue>{item.value}</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</DataListRoot>
+	</DataList.Root>
 {/snippet}
 
 {#snippet sizesStory()}
@@ -86,48 +81,48 @@
 		{#each dataListSizes as size}
 			<HStack gap={4} class="items-center">
 				<Text size="xs" class="min-w-[3ch]">{size}</Text>
-				<DataListRoot {size}>
-					<DataListItem>
-						<DataListItemLabel>Name</DataListItemLabel>
-						<DataListItemValue>John Doe</DataListItemValue>
-					</DataListItem>
-				</DataListRoot>
+				<DataList.Root {size}>
+					<DataList.Item>
+						<DataList.ItemLabel>Name</DataList.ItemLabel>
+						<DataList.ItemValue>John Doe</DataList.ItemValue>
+					</DataList.Item>
+				</DataList.Root>
 			</HStack>
 		{/each}
 	</VStack>
 {/snippet}
 
 {#snippet orientationStory()}
-	<DataListRoot orientation="horizontal">
+	<DataList.Root orientation="horizontal">
 		{#each stats as item}
-			<DataListItem>
-				<DataListItemLabel>{item.label}</DataListItemLabel>
-				<DataListItemValue>{item.value}</DataListItemValue>
-			</DataListItem>
+			<DataList.Item>
+				<DataList.ItemLabel>{item.label}</DataList.ItemLabel>
+				<DataList.ItemValue>{item.value}</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</DataListRoot>
+	</DataList.Root>
 {/snippet}
 
 {#snippet verticalStory()}
-	<DataListRoot orientation="vertical">
+	<DataList.Root orientation="vertical">
 		{#each stats.slice(0, 2) as item}
-			<DataListItem>
-				<DataListItemLabel>{item.label}</DataListItemLabel>
-				<DataListItemValue>{item.value}</DataListItemValue>
-			</DataListItem>
+			<DataList.Item>
+				<DataList.ItemLabel>{item.label}</DataList.ItemLabel>
+				<DataList.ItemValue>{item.value}</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</DataListRoot>
+	</DataList.Root>
 {/snippet}
 
 {#snippet dividerStory()}
-	<DataListRoot orientation="horizontal" divider class="max-w-md">
+	<DataList.Root orientation="horizontal" divider class="max-w-md">
 		{#each items as item (item.label)}
-			<DataListItem>
-				<DataListItemLabel>{item.label}</DataListItemLabel>
-				<DataListItemValue>{item.value}</DataListItemValue>
-			</DataListItem>
+			<DataList.Item>
+				<DataList.ItemLabel>{item.label}</DataList.ItemLabel>
+				<DataList.ItemValue>{item.value}</DataList.ItemValue>
+			</DataList.Item>
 		{/each}
-	</DataListRoot>
+	</DataList.Root>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

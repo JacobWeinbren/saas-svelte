@@ -17,12 +17,12 @@ import { avatarPattern, avatarGroupPattern } from "../utils";
 
 ```tsx
 <script>
-	import { Avatar, AvatarGroup } from "$saas/components/avatar";
+	import { Avatar } from "$saas/components/avatar";
 </script>
 
-<AvatarGroup>
+<Avatar.Group>
 	<Avatar />
-</AvatarGroup>
+</Avatar.Group>
 ```
 
 ## Examples
@@ -59,7 +59,7 @@ Use the Group component to group multiple avatars together.
 
 ### Stacking
 
-When using the AvatarGroup component, you can use the `stacking` prop to change the stacking order of the avatars.
+When using the `Avatar.Group` component, you can use the `stacking` prop to change the stacking order of the avatars.
 
 <Canvas of={AvatarStories.Stacking} />
 
@@ -69,6 +69,6 @@ When using the AvatarGroup component, you can use the `stacking` prop to change 
 
 <ArgTypes of={Avatar} exclude={avatarPattern} />
 
-### AvatarGroup
+### Avatar.Group
 
 <ArgTypes of={AvatarGroup} exclude={avatarGroupPattern} />

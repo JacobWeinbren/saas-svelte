@@ -1,18 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		BreadcrumbRoot,
-		BreadcrumbLink,
-		BreadcrumbCurrentLink,
-		BreadcrumbEllipsis,
-		BreadcrumbMenu,
-	} from "$saas/components/breadcrumb";
-	import {
-		MenuRoot,
-		MenuButton,
-		MenuContent,
-		MenuItem,
-	} from "$saas/components/menu";
+	import { Breadcrumb } from "$saas/components/breadcrumb";
+	import { Menu } from "$saas/components/menu";
 	import { Text } from "$saas/typography/text";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import House from "phosphor-svelte/lib/House";
@@ -27,7 +16,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Breadcrumb",
-		component: BreadcrumbRoot,
+		component: Breadcrumb.Root,
 		argTypes: {
 			variant: {
 				...commonArgTypes.variant,
@@ -65,11 +54,11 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<BreadcrumbRoot {...args}>
-		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-		<BreadcrumbLink href="#">Components</BreadcrumbLink>
-		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-	</BreadcrumbRoot>
+	<Breadcrumb.Root {...args}>
+		<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+		<Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+		<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+	</Breadcrumb.Root>
 {/snippet}
 
 {#snippet sizesStory()}
@@ -77,11 +66,11 @@
 		{#each breadcrumbSizes as size}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-8">{size}</Text>
-				<BreadcrumbRoot {size} ariaLabel="Breadcrumb {size}">
-					<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-					<BreadcrumbLink href="#">Components</BreadcrumbLink>
-					<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-				</BreadcrumbRoot>
+				<Breadcrumb.Root {size} ariaLabel="Breadcrumb {size}">
+					<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+					<Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+					<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+				</Breadcrumb.Root>
 			</HStack>
 		{/each}
 	</VStack>
@@ -92,63 +81,63 @@
 		{#each breadcrumbVariants as variant}
 			<HStack align="center" gap={4}>
 				<Text size="xs" class="w-20">{variant}</Text>
-				<BreadcrumbRoot {variant} ariaLabel="Breadcrumb {variant}">
-					<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-					<BreadcrumbLink href="#">Components</BreadcrumbLink>
-					<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-				</BreadcrumbRoot>
+				<Breadcrumb.Root {variant} ariaLabel="Breadcrumb {variant}">
+					<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+					<Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+					<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+				</Breadcrumb.Root>
 			</HStack>
 		{/each}
 	</VStack>
 {/snippet}
 
 {#snippet separatorStory()}
-	<BreadcrumbRoot separator={CaretRight}>
-		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-		<BreadcrumbLink href="#">Components</BreadcrumbLink>
-		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-	</BreadcrumbRoot>
+	<Breadcrumb.Root separator={CaretRight}>
+		<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+		<Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+		<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+	</Breadcrumb.Root>
 {/snippet}
 
 {#snippet withIconStory()}
-	<BreadcrumbRoot ariaLabel="Breadcrumb with icons">
-		<BreadcrumbLink href="#">
+	<Breadcrumb.Root ariaLabel="Breadcrumb with icons">
+		<Breadcrumb.Link href="#">
 			<House class="h-3.5" weight="regular" aria-hidden="true" />
 			Home
-		</BreadcrumbLink>
-		<BreadcrumbLink href="#">
+		</Breadcrumb.Link>
+		<Breadcrumb.Link href="#">
 			<TShirt class="h-3.5" weight="regular" aria-hidden="true" />
 			Men Wear
-		</BreadcrumbLink>
-		<BreadcrumbCurrentLink>Trousers</BreadcrumbCurrentLink>
-	</BreadcrumbRoot>
+		</Breadcrumb.Link>
+		<Breadcrumb.CurrentLink>Trousers</Breadcrumb.CurrentLink>
+	</Breadcrumb.Root>
 {/snippet}
 
 {#snippet ellipsisStory()}
-	<BreadcrumbRoot>
-		<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-		<BreadcrumbLink href="#">Components</BreadcrumbLink>
-		<BreadcrumbEllipsis />
-		<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-	</BreadcrumbRoot>
+	<Breadcrumb.Root>
+		<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+		<Breadcrumb.Link href="#">Components</Breadcrumb.Link>
+		<Breadcrumb.Ellipsis />
+		<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+	</Breadcrumb.Root>
 {/snippet}
 
 {#snippet withMenuStory()}
 	<div class="p-1">
-		<BreadcrumbRoot separatorGap={4} ariaLabel="Breadcrumb with menu">
-			<BreadcrumbLink href="#">Docs</BreadcrumbLink>
-			<BreadcrumbMenu>
-				<MenuRoot size="sm">
-					<MenuButton variant="breadcrumb">Components</MenuButton>
-					<MenuContent>
-						<MenuItem value="theme">Theme</MenuItem>
-						<MenuItem value="props">Props</MenuItem>
-						<MenuItem value="custom">Customization</MenuItem>
-					</MenuContent>
-				</MenuRoot>
-			</BreadcrumbMenu>
-			<BreadcrumbCurrentLink>Props</BreadcrumbCurrentLink>
-		</BreadcrumbRoot>
+		<Breadcrumb.Root separatorGap={4} ariaLabel="Breadcrumb with menu">
+			<Breadcrumb.Link href="#">Docs</Breadcrumb.Link>
+			<Breadcrumb.Menu>
+				<Menu.Root size="sm">
+					<Menu.Button variant="breadcrumb">Components</Menu.Button>
+					<Menu.Content>
+						<Menu.Item value="theme">Theme</Menu.Item>
+						<Menu.Item value="props">Props</Menu.Item>
+						<Menu.Item value="custom">Customization</Menu.Item>
+					</Menu.Content>
+				</Menu.Root>
+			</Breadcrumb.Menu>
+			<Breadcrumb.CurrentLink>Props</Breadcrumb.CurrentLink>
+		</Breadcrumb.Root>
 	</div>
 {/snippet}
 

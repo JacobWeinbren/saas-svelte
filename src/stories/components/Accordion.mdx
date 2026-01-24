@@ -6,12 +6,7 @@ import {
 	Controls,
 } from "@storybook/addon-docs/blocks";
 import * as AccordionStories from "./Accordion.stories.svelte";
-import {
-	AccordionRoot,
-	AccordionItem,
-	AccordionItemTrigger,
-	AccordionItemContent,
-} from "$saas/components/accordion";
+import { Accordion } from "$saas/components/accordion";
 import {
 	accordionRootPattern,
 	accordionItemPattern,
@@ -115,18 +110,18 @@ Pass `disabled` on specific items in your data array to prevent them from being 
 
 ### Props
 
-**AccordionRoot**
+**Accordion.Root**
 
-<ArgTypes of={AccordionRoot} exclude={accordionRootPattern} />
+<ArgTypes of={Accordion.Root} exclude={accordionRootPattern} />
 
-**AccordionItem**
+**Accordion.Item**
 
-<ArgTypes of={AccordionItem} exclude={accordionItemPattern} />
+<ArgTypes of={Accordion.Item} exclude={accordionItemPattern} />
 
-**AccordionItemTrigger**
+**Accordion.ItemTrigger**
 
-<ArgTypes of={AccordionItemTrigger} exclude={accordionItemTriggerPattern} />
+<ArgTypes of={Accordion.ItemTrigger} exclude={accordionItemTriggerPattern} />
 
-**AccordionItemContent**
+**Accordion.ItemContent**
 
-<ArgTypes of={AccordionItemContent} exclude={accordionItemContentPattern} />
+<ArgTypes of={Accordion.ItemContent} exclude={accordionItemContentPattern} />

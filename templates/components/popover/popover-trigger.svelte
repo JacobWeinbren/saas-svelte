@@ -9,7 +9,7 @@
 		 * The trigger element. Receives trigger props that must be spread onto an interactive element.
 		 * Optional when using triggerText or triggerIcon.
 		 */
-		children?: Snippet<[() => Record<string, any>]>;
+		children?: Snippet<[{ props: () => Record<string, any> }]>;
 		/**
 		 * Simple text to display on the trigger button.
 		 */
@@ -56,7 +56,7 @@
 <Popover.Trigger class={className} {...rest}>
 	{#snippet asChild(props)}
 		{#if children}
-			{@render children(props)}
+			{@render children({ props })}
 		{:else if hasSimpleTrigger}
 			<Button
 				variant={triggerVariant}

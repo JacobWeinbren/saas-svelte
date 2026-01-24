@@ -1,11 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		Input,
-		InputAddon,
-		InputGroup,
-		InputElement,
-	} from "$saas/components/input";
+	import { Input } from "$saas/components/input";
 	import { Group } from "$saas/layout/group";
 	import { Stack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
@@ -87,49 +82,49 @@
 
 {#snippet leftElementStory()}
 	<HStack gap={4} class="w-full">
-		<InputGroup class="flex-1">
-			<InputElement placement="left">
+		<Input.Group class="flex-1">
+			<Input.Element placement="left">
 				<User class="size-3.5" aria-hidden="true" />
-			</InputElement>
+			</Input.Element>
 			<Input placeholder="Username" class="pl-8" />
-		</InputGroup>
+		</Input.Group>
 
-		<InputGroup class="flex-1">
-			<InputElement placement="left">https://</InputElement>
+		<Input.Group class="flex-1">
+			<Input.Element placement="left">https://</Input.Element>
 			<Input placeholder="yoursite.com" class="pl-16" />
-		</InputGroup>
+		</Input.Group>
 	</HStack>
 {/snippet}
 
 {#snippet leftAndRightElementStory()}
 	<HStack gap={4} class="w-full">
-		<InputGroup class="flex-1">
-			<InputElement placement="left">
+		<Input.Group class="flex-1">
+			<Input.Element placement="left">
 				<MagnifyingGlass class="size-3.5" aria-hidden="true" />
-			</InputElement>
+			</Input.Element>
 			<Input placeholder="Search contacts" class="px-8" />
-			<InputElement placement="right" class="pointer-events-auto">
+			<Input.Element placement="right" class="pointer-events-auto">
 				<Kbd>⌘K</Kbd>
-			</InputElement>
-		</InputGroup>
+			</Input.Element>
+		</Input.Group>
 
-		<InputGroup class="flex-1">
-			<InputElement placement="left">https://</InputElement>
+		<Input.Group class="flex-1">
+			<Input.Element placement="left">https://</Input.Element>
 			<Input placeholder="yoursite.com" class="pl-16" />
-		</InputGroup>
+		</Input.Group>
 	</HStack>
 {/snippet}
 
 {#snippet withAddonsStory()}
 	<Stack gap={4} class="max-w-sm">
 		<Group attached>
-			<InputAddon>https://</InputAddon>
+			<Input.Addon>https://</Input.Addon>
 			<Input placeholder="website.com" class="-ml-px focus-visible:z-1" />
 		</Group>
 
 		<Group attached>
 			<Input placeholder="jdoe" class="-mr-px focus-visible:z-1" />
-			<InputAddon>@gmail.com</InputAddon>
+			<Input.Addon>@gmail.com</Input.Addon>
 		</Group>
 	</Stack>
 {/snippet}

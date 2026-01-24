@@ -3,12 +3,7 @@
 	import { Sidebar } from "$saas/components/sidebar";
 	import { Button } from "$saas/components/button";
 	import { Box } from "$saas/layout/box";
-	import {
-		MenuRoot,
-		MenuButton,
-		MenuContent,
-		MenuItem,
-	} from "$saas/components/menu";
+	import { Menu } from "$saas/components/menu";
 	import { Avatar } from "$saas/components/avatar";
 	import House from "phosphor-svelte/lib/House";
 	import Users from "phosphor-svelte/lib/Users";
@@ -52,18 +47,18 @@
 			<Sidebar.Header>
 				{@render logoSvg()}
 				<div class="flex-1"></div>
-				<MenuRoot>
-					<MenuButton
+				<Menu.Root>
+					<Menu.Button
 						variant="ghost"
 						size="xs"
 						aria-label="User menu"
 					>
 						<Avatar size="xs" colour="gray" />
-					</MenuButton>
-					<MenuContent>
-						<MenuItem value="signout">Sign out</MenuItem>
-					</MenuContent>
-				</MenuRoot>
+					</Menu.Button>
+					<Menu.Content>
+						<Menu.Item value="signout">Sign out</Menu.Item>
+					</Menu.Content>
+				</Menu.Root>
 			</Sidebar.Header>
 			<Sidebar.Body>
 				<Sidebar.Group>

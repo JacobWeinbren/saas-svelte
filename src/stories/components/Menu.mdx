@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as MenuStories from "./Menu.stories.svelte";
-import { MenuRoot, MenuItem } from "$saas/components/menu";
+import { Menu } from "$saas/components/menu";
 import { menuPattern, menuItemPattern } from "../utils";
 
 <Meta of={MenuStories} />
@@ -17,20 +17,15 @@ import { menuPattern, menuItemPattern } from "../utils";
 
 ```tsx
 <script>
-	import {
-		MenuRoot,
-		MenuButton,
-		MenuContent,
-		MenuItem
-	} from "$saas/components/menu";
+	import { Menu } from "$saas/components/menu";
 </script>
 
-<MenuRoot>
-	<MenuButton />
-	<MenuContent>
-		<MenuItem value="item" />
-	</MenuContent>
-</MenuRoot>
+<Menu.Root>
+	<Menu.Button />
+	<Menu.Content>
+		<Menu.Item value="item" />
+	</Menu.Content>
+</Menu.Root>
 ```
 
 ## Examples
@@ -97,10 +92,10 @@ Use the `positioning.placement` prop to control the placement of the menu.
 
 ## Props
 
-### MenuRoot
+### Menu.Root
 
-<ArgTypes of={MenuRoot} exclude={menuPattern} />
+<ArgTypes of={Menu.Root} exclude={menuPattern} />
 
-### MenuItem
+### Menu.Item
 
-<ArgTypes of={MenuItem} exclude={menuPattern} />
+<ArgTypes of={Menu.Item} exclude={menuPattern} />

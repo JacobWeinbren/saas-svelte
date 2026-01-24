@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as DataListStories from "./DataList.stories.svelte";
-import { DataListRoot } from "$saas/components/data-list";
+import { DataList } from "$saas/components/data-list";
 import { dataListRootPattern } from "../utils";
 
 <Meta of={DataListStories} />
@@ -15,22 +15,17 @@ Used to display a list of similar data items.
 
 ```tsx
 <script>
-	import {
-		DataListRoot,
-		DataListItem,
-		DataListItemLabel,
-		DataListItemValue,
-	} from "$saas/components/data-list";
+	import { DataList } from "$saas/components/data-list";
 </script>
 ```
 
 ```tsx
-<DataListRoot>
-	<DataListItem>
-		<DataListItemLabel>Label</DataListItemLabel>
-		<DataListItemValue>Value</DataListItemValue>
-	</DataListItem>
-</DataListRoot>
+<DataList.Root>
+	<DataList.Item>
+		<DataList.ItemLabel>Label</DataList.ItemLabel>
+		<DataList.ItemValue>Value</DataList.ItemValue>
+	</DataList.Item>
+</DataList.Root>
 ```
 
 ## Examples
@@ -61,6 +56,6 @@ Use the `divider` prop to add separators between items.
 
 ## Props
 
-### DataListRoot
+### DataList.Root
 
-<ArgTypes of={DataListRoot} exclude={dataListRootPattern} />
+<ArgTypes of={DataList.Root} exclude={dataListRootPattern} />

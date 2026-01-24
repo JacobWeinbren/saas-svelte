@@ -100,9 +100,9 @@ export const cardTitlePattern = makePattern(['class', 'children']);
 export const cardDescriptionPattern = makePattern(['class', 'children']);
 
 export const formPattern = makePattern(['form', 'class', 'children']);
-export const formFieldPattern = makePattern(['name', 'label', 'type', 'placeholder', 'description', 'options', 'class']);
+export const formFieldPattern = makePattern(['name', 'label', 'type', 'placeholder', 'helperText', 'required', 'disabled', 'options', 'min', 'max', 'step', 'class', 'children']);
 export const submitButtonPattern = makePattern(['disableIfUntouched', 'disableIfInvalid', 'variant', 'size', 'colour', 'class', 'children']);
-export const displayIfPattern = makePattern(['field', 'value', 'children']);
+export const displayIfPattern = makePattern(['name', 'condition', 'fallback', 'children']);
 
 export const checkboxCardRootPattern = makePattern(['checked', 'value', 'variant', 'size', 'colour', 'disabled', 'onCheckedChange', 'class', 'children']);
 export const checkboxCardControlPattern = makePattern(['align', 'class', 'children']);
@@ -120,6 +120,16 @@ export const comboboxContentPattern = makePattern(['class', 'children']);
 export const comboboxItemPattern = makePattern(['item', 'class', 'children']);
 export const comboboxItemTextPattern = makePattern(['class', 'children']);
 export const comboboxItemIndicatorPattern = makePattern(['class', 'children']);
+
+export const selectRootPattern = makePattern(['collection', 'size', 'variant', 'colour', 'disabled', 'multiple', 'closeOnSelect', 'loopFocus', 'value', 'defaultValue', 'onValueChange', 'positioning', 'class', 'children']);
+export const selectTriggerPattern = makePattern(['clearable', 'class', 'children']);
+export const selectValuePattern = makePattern(['placeholder', 'class', 'children']);
+export const selectContentPattern = makePattern(['portal', 'class', 'children']);
+export const selectItemPattern = makePattern(['item', 'showIndicator', 'class', 'children']);
+export const selectItemGroupPattern = makePattern(['label', 'class', 'children']);
+export const selectLabelPattern = makePattern(['class', 'children']);
+export const selectClearTriggerPattern = makePattern(['class', 'children']);
+export const selectIndicatorPattern = makePattern(['class', 'children']);
 
 export const popoverRootPattern = makePattern(['size', 'open', 'onOpenChange', 'autoFocus', 'closeOnEscape', 'closeOnInteractOutside', 'modal', 'portalled', 'lazyMount', 'unmountOnExit', 'positioning', 'initialFocusEl', 'class', 'children']);
 export const popoverTriggerPattern = makePattern(['class', 'children']);

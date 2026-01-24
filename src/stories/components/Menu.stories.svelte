@@ -1,20 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		MenuRoot,
-		MenuButton,
-		MenuContent,
-		MenuItem,
-		MenuItemLink,
-		MenuItemCommand,
-		MenuItemGroup,
-		MenuSeparator,
-		MenuTriggerItem,
-		MenuContextTrigger,
-		MenuCheckboxItem,
-		MenuRadioItemGroup,
-		MenuRadioItem,
-	} from "$saas/components/menu";
+	import { Menu } from "$saas/components/menu";
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Icon } from "$saas/components/icon";
@@ -30,7 +16,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Menu",
-		component: MenuRoot,
+		component: Menu.Root,
 		argTypes: {
 			size: {
 				...commonArgTypes.size,
@@ -78,16 +64,16 @@
 
 {#snippet basicStory(args: any)}
 	<div>
-		<MenuRoot {...args}>
-			<MenuButton>Open</MenuButton>
-			<MenuContent>
-				<MenuItem value="new-txt">New Text File</MenuItem>
-				<MenuItem value="new-file">New File...</MenuItem>
-				<MenuItem value="new-win">New Window</MenuItem>
-				<MenuItem value="open-file">Open File...</MenuItem>
-				<MenuItem value="export">Export</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+		<Menu.Root {...args}>
+			<Menu.Button>Open</Menu.Button>
+			<Menu.Content>
+				<Menu.Item value="new-txt">New Text File</Menu.Item>
+				<Menu.Item value="new-file">New File...</Menu.Item>
+				<Menu.Item value="new-win">New Window</Menu.Item>
+				<Menu.Item value="open-file">Open File...</Menu.Item>
+				<Menu.Item value="export">Export</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
@@ -97,16 +83,16 @@
 			{#each menuSizes as size}
 				<VStack gap={2} class="items-center">
 					<Text size="xs">{size}</Text>
-					<MenuRoot {size}>
-						<MenuButton>Open</MenuButton>
-						<MenuContent>
-							<MenuItem value="new-txt">New Text File</MenuItem>
-							<MenuItem value="new-file">New File...</MenuItem>
-							<MenuItem value="new-win">New Window</MenuItem>
-							<MenuItem value="open-file">Open File...</MenuItem>
-							<MenuItem value="export">Export</MenuItem>
-						</MenuContent>
-					</MenuRoot>
+					<Menu.Root {size}>
+						<Menu.Button>Open</Menu.Button>
+						<Menu.Content>
+							<Menu.Item value="new-txt">New Text File</Menu.Item>
+							<Menu.Item value="new-file">New File...</Menu.Item>
+							<Menu.Item value="new-win">New Window</Menu.Item>
+							<Menu.Item value="open-file">Open File...</Menu.Item>
+							<Menu.Item value="export">Export</Menu.Item>
+						</Menu.Content>
+					</Menu.Root>
 				</VStack>
 			{/each}
 		</HStack>
@@ -115,246 +101,246 @@
 
 {#snippet commandStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Open</MenuButton>
-			<MenuContent>
-				<MenuItem value="new-txt">
-					New Text File <MenuItemCommand>⌘E</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="new-file">
-					New File... <MenuItemCommand>⌘N</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="new-win">
-					New Window <MenuItemCommand>⌘⇧N</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="open-file">
-					Open File... <MenuItemCommand>⌘O</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="export">
-					Export <MenuItemCommand>⌘S</MenuItemCommand>
-				</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+		<Menu.Root>
+			<Menu.Button>Open</Menu.Button>
+			<Menu.Content>
+				<Menu.Item value="new-txt">
+					New Text File <Menu.ItemCommand>⌘E</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="new-file">
+					New File... <Menu.ItemCommand>⌘N</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="new-win">
+					New Window <Menu.ItemCommand>⌘⇧N</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="open-file">
+					Open File... <Menu.ItemCommand>⌘O</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="export">
+					Export <Menu.ItemCommand>⌘S</Menu.ItemCommand>
+				</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet contextMenuStory()}
 	<div>
-		<MenuRoot>
-			<MenuContextTrigger>
+		<Menu.Root>
+			<Menu.ContextTrigger>
 				<div
 					class="flex items-center justify-center w-64 h-32 border-2 border-dashed border-border-default rounded-(--radii-l2) text-fg-muted select-none"
 				>
 					Right click here
 				</div>
-			</MenuContextTrigger>
-			<MenuContent>
-				<MenuItem value="new-txt">New Text File</MenuItem>
-				<MenuItem value="new-file">New File...</MenuItem>
-				<MenuItem value="new-win">New Window</MenuItem>
-				<MenuItem value="open-file">Open File...</MenuItem>
-				<MenuItem value="export">Export</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+			</Menu.ContextTrigger>
+			<Menu.Content>
+				<Menu.Item value="new-txt">New Text File</Menu.Item>
+				<Menu.Item value="new-file">New File...</Menu.Item>
+				<Menu.Item value="new-win">New Window</Menu.Item>
+				<Menu.Item value="open-file">Open File...</Menu.Item>
+				<Menu.Item value="export">Export</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet groupStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Edit</MenuButton>
-			<MenuContent>
-				<MenuItemGroup title="Styles">
-					<MenuItem value="bold">Bold</MenuItem>
-					<MenuItem value="underline">Underline</MenuItem>
-				</MenuItemGroup>
-				<MenuSeparator />
-				<MenuItemGroup title="Align">
-					<MenuItem value="left">Left</MenuItem>
-					<MenuItem value="middle">Middle</MenuItem>
-					<MenuItem value="right">Right</MenuItem>
-				</MenuItemGroup>
-			</MenuContent>
-		</MenuRoot>
+		<Menu.Root>
+			<Menu.Button>Edit</Menu.Button>
+			<Menu.Content>
+				<Menu.ItemGroup title="Styles">
+					<Menu.Item value="bold">Bold</Menu.Item>
+					<Menu.Item value="underline">Underline</Menu.Item>
+				</Menu.ItemGroup>
+				<Menu.Separator />
+				<Menu.ItemGroup title="Align">
+					<Menu.Item value="left">Left</Menu.Item>
+					<Menu.Item value="middle">Middle</Menu.Item>
+					<Menu.Item value="right">Right</Menu.Item>
+				</Menu.ItemGroup>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet submenuStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Open</MenuButton>
-			<MenuContent>
-				<MenuItem value="new-txt">New Text File</MenuItem>
-				<MenuItem value="new-file">New File...</MenuItem>
-				<MenuRoot
+		<Menu.Root>
+			<Menu.Button>Open</Menu.Button>
+			<Menu.Content>
+				<Menu.Item value="new-txt">New Text File</Menu.Item>
+				<Menu.Item value="new-file">New File...</Menu.Item>
+				<Menu.Root
 					positioning={{ placement: "right-start", gutter: -4 }}
 				>
-					<MenuTriggerItem value="open-recent"
-						>Open Recent</MenuTriggerItem
+					<Menu.TriggerItem value="open-recent"
+						>Open Recent</Menu.TriggerItem
 					>
-					<MenuContent>
-						<MenuItem value="panda">Panda</MenuItem>
-						<MenuItem value="ark">Ark UI</MenuItem>
-						<MenuItem value="chakra">Chakra v3</MenuItem>
-					</MenuContent>
-				</MenuRoot>
-				<MenuItem value="open-file">Open File...</MenuItem>
-				<MenuItem value="export">Export</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+					<Menu.Content>
+						<Menu.Item value="panda">Panda</Menu.Item>
+						<Menu.Item value="ark">Ark UI</Menu.Item>
+						<Menu.Item value="chakra">Chakra v3</Menu.Item>
+					</Menu.Content>
+				</Menu.Root>
+				<Menu.Item value="open-file">Open File...</Menu.Item>
+				<Menu.Item value="export">Export</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet linksStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Select Anime</MenuButton>
-			<MenuContent>
-				<MenuItemLink
+		<Menu.Root>
+			<Menu.Button>Select Anime</Menu.Button>
+			<Menu.Content>
+				<Menu.ItemLink
 					value="naruto"
 					href="https://www.crunchyroll.com/naruto"
 					target="_blank"
 					rel="noreferrer"
 				>
 					Naruto
-				</MenuItemLink>
-				<MenuItemLink
+				</Menu.ItemLink>
+				<Menu.ItemLink
 					value="one-piece"
 					href="https://www.crunchyroll.com/one-piece"
 					target="_blank"
 					rel="noreferrer"
 				>
 					One Piece
-				</MenuItemLink>
-				<MenuItemLink
+				</Menu.ItemLink>
+				<Menu.ItemLink
 					value="attack-on-titan"
 					href="https://www.crunchyroll.com/attack-on-titan"
 					target="_blank"
 					rel="noreferrer"
 				>
 					Attack on Titan
-				</MenuItemLink>
-			</MenuContent>
-		</MenuRoot>
+				</Menu.ItemLink>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet radioStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>
+		<Menu.Root>
+			<Menu.Button>
 				<Icon as={SortAscending} size="sm" /> Sort
-			</MenuButton>
-			<MenuContent>
-				<MenuRadioItemGroup value="asc">
-					<MenuRadioItem value="asc">Ascending</MenuRadioItem>
-					<MenuRadioItem value="desc">Descending</MenuRadioItem>
-				</MenuRadioItemGroup>
-			</MenuContent>
-		</MenuRoot>
+			</Menu.Button>
+			<Menu.Content>
+				<Menu.RadioItemGroup value="asc">
+					<Menu.RadioItem value="asc">Ascending</Menu.RadioItem>
+					<Menu.RadioItem value="desc">Descending</Menu.RadioItem>
+				</Menu.RadioItemGroup>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet checkboxStory()}
 	<div>
-		<MenuRoot closeOnSelect={false}>
-			<MenuButton>
+		<Menu.Root closeOnSelect={false}>
+			<Menu.Button>
 				<Icon as={Funnel} size="sm" /> Status
-			</MenuButton>
-			<MenuContent>
-				<MenuCheckboxItem checked={false} value="open"
-					>Open</MenuCheckboxItem
+			</Menu.Button>
+			<Menu.Content>
+				<Menu.CheckboxItem checked={false} value="open"
+					>Open</Menu.CheckboxItem
 				>
-				<MenuCheckboxItem checked={true} value="closed"
-					>Closed</MenuCheckboxItem
+				<Menu.CheckboxItem checked={true} value="closed"
+					>Closed</Menu.CheckboxItem
 				>
-			</MenuContent>
-		</MenuRoot>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet iconAndCommandStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Edit</MenuButton>
-			<MenuContent>
-				<MenuItem value="cut" valueText="cut">
+		<Menu.Root>
+			<Menu.Button>Edit</Menu.Button>
+			<Menu.Content>
+				<Menu.Item value="cut" valueText="cut">
 					<Icon as={Scissors} size="xs" />
 					<span class="flex-1">Cut</span>
-					<MenuItemCommand>⌘X</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="copy" valueText="copy">
+					<Menu.ItemCommand>⌘X</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="copy" valueText="copy">
 					<Icon as={Copy} size="xs" />
 					<span class="flex-1">Copy</span>
-					<MenuItemCommand>⌘C</MenuItemCommand>
-				</MenuItem>
-				<MenuItem value="paste" valueText="paste">
+					<Menu.ItemCommand>⌘C</Menu.ItemCommand>
+				</Menu.Item>
+				<Menu.Item value="paste" valueText="paste">
 					<Icon as={ClipboardText} size="xs" />
 					<span class="flex-1">Paste</span>
-					<MenuItemCommand>⌘V</MenuItemCommand>
-				</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+					<Menu.ItemCommand>⌘V</Menu.ItemCommand>
+				</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet placementStory()}
 	<div>
-		<MenuRoot positioning={{ placement: "right-start" }}>
-			<MenuButton>Open</MenuButton>
-			<MenuContent>
-				<MenuItem value="new-txt">New Text File</MenuItem>
-				<MenuItem value="new-file">New File...</MenuItem>
-				<MenuItem value="new-win">New Window</MenuItem>
-				<MenuItem value="open-file">Open File...</MenuItem>
-				<MenuItem value="export">Export</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+		<Menu.Root positioning={{ placement: "right-start" }}>
+			<Menu.Button>Open</Menu.Button>
+			<Menu.Content>
+				<Menu.Item value="new-txt">New Text File</Menu.Item>
+				<Menu.Item value="new-file">New File...</Menu.Item>
+				<Menu.Item value="new-win">New Window</Menu.Item>
+				<Menu.Item value="open-file">Open File...</Menu.Item>
+				<Menu.Item value="export">Export</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
 {#snippet mixedLayoutStory()}
 	<div>
-		<MenuRoot>
-			<MenuButton>Open</MenuButton>
-			<MenuContent>
+		<Menu.Root>
+			<Menu.Button>Open</Menu.Button>
+			<Menu.Content>
 				<div class="flex grow gap-0">
-					<MenuItem
+					<Menu.Item
 						value="cut"
 						class="w-14 gap-1 flex-col justify-center"
 					>
 						<Icon as={Scissors} size="xs" />
 						Cut
-					</MenuItem>
-					<MenuItem
+					</Menu.Item>
+					<Menu.Item
 						value="copy"
 						class="w-14 gap-1 flex-col justify-center"
 					>
 						<Icon as={Copy} size="xs" />
 						Copy
-					</MenuItem>
-					<MenuItem
+					</Menu.Item>
+					<Menu.Item
 						value="paste"
 						class="w-14 gap-1 flex-col justify-center"
 					>
 						<Icon as={ClipboardText} size="xs" />
 						Paste
-					</MenuItem>
+					</Menu.Item>
 				</div>
-				<MenuItem value="look-up">
+				<Menu.Item value="look-up">
 					<span class="flex-1">Look Up</span>
 					<Icon as={MagnifyingGlass} size="xs" />
-				</MenuItem>
-				<MenuItem value="translate">
+				</Menu.Item>
+				<Menu.Item value="translate">
 					<span class="flex-1">Translate</span>
 					<Icon as={Translate} size="xs" />
-				</MenuItem>
-				<MenuItem value="share">
+				</Menu.Item>
+				<Menu.Item value="share">
 					<span class="flex-1">Share</span>
 					<Icon as={ShareNetwork} size="xs" />
-				</MenuItem>
-			</MenuContent>
-		</MenuRoot>
+				</Menu.Item>
+			</Menu.Content>
+		</Menu.Root>
 	</div>
 {/snippet}
 
@@ -363,14 +349,14 @@
 		{#each colours as colour}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{colour}</Text>
-				<MenuRoot {colour}>
-					<MenuButton>Open</MenuButton>
-					<MenuContent>
-						<MenuItem value="item-1">Item 1</MenuItem>
-						<MenuItem value="item-2">Item 2</MenuItem>
-						<MenuItem value="item-3">Item 3</MenuItem>
-					</MenuContent>
-				</MenuRoot>
+				<Menu.Root {colour}>
+					<Menu.Button>Open</Menu.Button>
+					<Menu.Content>
+						<Menu.Item value="item-1">Item 1</Menu.Item>
+						<Menu.Item value="item-2">Item 2</Menu.Item>
+						<Menu.Item value="item-3">Item 3</Menu.Item>
+					</Menu.Content>
+				</Menu.Root>
 			</VStack>
 		{/each}
 	</HStack>

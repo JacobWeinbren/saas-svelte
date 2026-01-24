@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { HoverCard, HoverCardRoot } from "$saas/components/hover-card";
+	import { HoverCard } from "$saas/components/hover-card";
 	import { Avatar } from "$saas/components/avatar";
 	import { Text } from "$saas/typography/text";
 	import { Link } from "$saas/components/link";
@@ -9,7 +9,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Hover Card",
-		component: HoverCardRoot,
+		component: HoverCard.Root,
 		argTypes: {
 			size: {
 				...commonArgTypes.size,

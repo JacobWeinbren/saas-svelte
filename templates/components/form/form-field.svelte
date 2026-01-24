@@ -93,16 +93,14 @@
 			{/each}
 		</NativeSelect>
 	{:else if type === "checkbox"}
-		<Checkbox
+		<Checkbox.Root
 			checked={value as boolean}
 			{disabled}
 			{required}
 			invalid={!!error}
-			onchange={(e) => onChange((e.target as HTMLInputElement).checked)}
-			onblur={onBlur}
-		>
+			onCheckedChange={(details) => onChange(details.checked)}
 			{label}
-		</Checkbox>
+		/>
 	{:else if type === "radio"}
 		<Radio.Group
 			value={value as string}

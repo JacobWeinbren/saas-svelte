@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Textarea, TextareaAutoresize } from "$saas/components/textarea";
+	import { Textarea } from "$saas/components/textarea";
 	import { Field } from "$saas/components/field";
 	import { Input } from "$saas/components/input";
 	import { Button } from "$saas/components/button";
@@ -144,7 +144,7 @@
 {/snippet}
 
 {#snippet autoresizeStory()}
-	<TextareaAutoresize
+	<Textarea.Autoresize
 		placeholder="Start typing..."
 		minRows={1}
 		maxRows={40}

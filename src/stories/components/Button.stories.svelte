@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Button, ButtonGroup } from "$saas/components/button";
+	import { Button } from "$saas/components/button";
 	import { Icon } from "$saas/components/icon";
 	import { Text } from "$saas/typography/text";
 	import { HStack, VStack } from "$saas/layout/stack";
@@ -137,12 +137,12 @@
 {/snippet}
 
 {#snippet groupStory()}
-	<ButtonGroup>
+	<Button.Group>
 		<Button variant="outline" size="sm">Button</Button>
 		<Button variant="outline" size="sm" icon aria-label="More options">
 			<Icon as={CaretDown} aria-hidden="true" />
 		</Button>
-	</ButtonGroup>
+	</Button.Group>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

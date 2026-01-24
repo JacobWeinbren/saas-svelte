@@ -6,6 +6,7 @@
 	import { VStack, HStack } from "$saas/layout/stack";
 	import { Badge } from "$saas/components/badge";
 	import {
+		colours,
 		commonArgTypes,
 		getControls,
 		badgeVariants,
@@ -86,12 +87,16 @@
 {/snippet}
 
 {#snippet coloursStory()}
-	<HStack gap={2}>
-		<Badge>Default</Badge>
-		<Badge colour="green">Success</Badge>
-		<Badge colour="red">Removed</Badge>
-		<Badge colour="purple">New</Badge>
-	</HStack>
+	<VStack gap={2}>
+		{#each colours as colour}
+			<HStack gap={4} align="center">
+				<Text size="xs" class="w-16">{colour}</Text>
+				<Badge {colour}>Badge</Badge>
+				<Badge {colour} variant="solid">Solid</Badge>
+				<Badge {colour} variant="outline">Outline</Badge>
+			</HStack>
+		{/each}
+	</VStack>
 {/snippet}
 
 <Story name="Basic" template={basicStory} />

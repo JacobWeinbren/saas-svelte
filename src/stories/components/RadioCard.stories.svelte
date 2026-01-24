@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { RadioCard, RadioCardRoot } from "$saas/components/radio-card";
+	import { RadioCard } from "$saas/components/radio-card";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import ArrowRight from "phosphor-svelte/lib/ArrowRight";
@@ -19,7 +19,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Radio Card",
-		component: RadioCardRoot,
+		component: RadioCard.Root,
 		argTypes: {
 			value: {
 				control: "text",

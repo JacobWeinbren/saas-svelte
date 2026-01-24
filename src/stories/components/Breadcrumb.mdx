@@ -27,18 +27,14 @@ The Breadcrumb component uses a compound component pattern with a Root, Link, Cu
 
 ```tsx
 <script>
-	import {
-		BreadcrumbRoot,
-		BreadcrumbLink,
-		BreadcrumbCurrentLink
-	} from "$saas/components/breadcrumb";
+	import { Breadcrumb } from "$saas/components/breadcrumb";
 </script>
 
-<BreadcrumbRoot separator="/">
-	<BreadcrumbLink href="#">Workspace</BreadcrumbLink>
-	<BreadcrumbLink href="#">Projects</BreadcrumbLink>
-	<BreadcrumbCurrentLink>Settings</BreadcrumbCurrentLink>
-</BreadcrumbRoot>
+<Breadcrumb.Root separator="/">
+	<Breadcrumb.Link href="#">Workspace</Breadcrumb.Link>
+	<Breadcrumb.Link href="#">Projects</Breadcrumb.Link>
+	<Breadcrumb.CurrentLink>Settings</Breadcrumb.CurrentLink>
+</Breadcrumb.Root>
 ```
 
 ## Examples
@@ -69,7 +65,7 @@ Add icons to breadcrumb links for better visual context.
 
 ### With Ellipsis
 
-Use the `BreadcrumbEllipsis` component to indicate truncated breadcrumb paths.
+Use the `Breadcrumb.Ellipsis` component to indicate truncated breadcrumb paths.
 
 <Canvas of={BreadcrumbStories.WithEllipsis} />
 
@@ -81,22 +77,18 @@ Compose the breadcrumb with the Menu component to create a dropdown navigation w
 
 ## Routing Library
 
-Use the standard `href` prop on `BreadcrumbLink` for navigation. For SvelteKit, you can use the standard anchor behaviour.
+Use the standard `href` prop on `Breadcrumb.Link` for navigation. For SvelteKit, you can use the standard anchor behaviour.
 
 ```tsx
 <script>
-	import {
-		BreadcrumbRoot,
-		BreadcrumbLink,
-		BreadcrumbCurrentLink
-	} from "$saas/components/breadcrumb";
+	import { Breadcrumb } from "$saas/components/breadcrumb";
 </script>
 
-<BreadcrumbRoot>
-	<BreadcrumbLink href="/docs">Docs</BreadcrumbLink>
-	<BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
-	<BreadcrumbCurrentLink>Breadcrumb</BreadcrumbCurrentLink>
-</BreadcrumbRoot>
+<Breadcrumb.Root>
+	<Breadcrumb.Link href="/docs">Docs</Breadcrumb.Link>
+	<Breadcrumb.Link href="/docs/components">Components</Breadcrumb.Link>
+	<Breadcrumb.CurrentLink>Breadcrumb</Breadcrumb.CurrentLink>
+</Breadcrumb.Root>
 ```
 
 ## Props

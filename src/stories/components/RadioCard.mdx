@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as RadioCardStories from "./RadioCard.stories.svelte";
-import { RadioCard, RadioCardRoot, RadioCardItem } from "$saas/components/radio-card";
+import { RadioCard } from "$saas/components/radio-card";
 import { radioCardRootPattern, radioCardItemPattern } from "../utils";
 
 <Meta of={RadioCardStories} />
@@ -116,8 +116,8 @@ Use the `disabled` prop to disable the entire radio card group.
 
 **RadioCard.Root**
 
-<ArgTypes of={RadioCardRoot} exclude={radioCardRootPattern} />
+<ArgTypes of={RadioCard.Root} exclude={radioCardRootPattern} />
 
 **RadioCard.Item**
 
-<ArgTypes of={RadioCardItem} exclude={radioCardItemPattern} />
+<ArgTypes of={RadioCard.Item} exclude={radioCardItemPattern} />

@@ -1,12 +1,7 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import {
-		Collapsible,
-		CollapsibleTrigger,
-		CollapsibleContent,
-		CollapsibleIndicator,
-	} from "$saas/components/collapsible";
-	import { CardRoot } from "$saas/components/card";
+	import { Collapsible } from "$saas/components/collapsible";
+	import { Card } from "$saas/components/card";
 	import { commonArgTypes, getControls } from "../utils";
 
 	const { Story } = defineMeta({
@@ -53,30 +48,30 @@
 
 {#snippet basicStory(args: any)}
 	<Collapsible {...args}>
-		<CollapsibleTrigger>Toggle Collapsible</CollapsibleTrigger>
-		<CollapsibleContent>
-			<CardRoot class="p-2 px-4 text-sm">
+		<Collapsible.Trigger>Toggle Collapsible</Collapsible.Trigger>
+		<Collapsible.Content>
+			<Card.Root class="p-2 px-4 text-sm">
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum has been the industry's standard dummy
 				text ever since the 1500s, when an unknown printer took a galley
 				of type and scrambled it to make a type specimen book.
-			</CardRoot>
-		</CollapsibleContent>
+			</Card.Root>
+		</Collapsible.Content>
 	</Collapsible>
 {/snippet}
 
 {#snippet lazyMountedStory()}
 	<Collapsible unmountOnExit>
-		<CollapsibleTrigger
-			>Toggle Collapse (Unmount on exit)</CollapsibleTrigger
+		<Collapsible.Trigger
+			>Toggle Collapse (Unmount on exit)</Collapsible.Trigger
 		>
-		<CollapsibleContent>
-			<CardRoot class="p-2 px-4 text-sm">
+		<Collapsible.Content>
+			<Card.Root class="p-2 px-4 text-sm">
 				If you inspect the DOM, you'll notice that the content is
 				unmounted when collapsed. This is useful for performance reasons
 				when you have a lot of collapsible content.
-			</CardRoot>
-		</CollapsibleContent>
+			</Card.Root>
+		</Collapsible.Content>
 	</Collapsible>
 {/snippet}
 

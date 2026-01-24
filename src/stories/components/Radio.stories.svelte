@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Radio, RadioGroup } from "$saas/components/radio";
+	import { Radio } from "$saas/components/radio";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import {
@@ -13,7 +13,7 @@
 
 	const { Story } = defineMeta({
 		title: "components/Radio",
-		component: RadioGroup,
+		component: Radio.Group,
 		argTypes: {
 			value: {
 				control: "text",

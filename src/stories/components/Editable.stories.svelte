@@ -1,6 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Editable, EditableRoot } from "$saas/components/editable";
+	import { Editable } from "$saas/components/editable";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import PencilSimple from "phosphor-svelte/lib/PencilSimple";

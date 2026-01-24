@@ -93,6 +93,8 @@ export const emptyStateSizes = ["sm", "md", "lg"] as const;
 export const emptyStateAlignOptions = ["centre", "start", "end"] as const;
 export const kbdVariants = ["raised", "outline", "subtle", "plain"] as const;
 export const menuSizes = ["sm", "md"] as const;
+export const selectSizes = ["xs", "sm", "md", "lg"] as const;
+export const selectVariants = ["outline", "subtle"] as const;
 export const nativeSelectSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export const nativeSelectVariants = ["outline", "subtle", "plain"] as const;
 export const navbarVariants = ["default", "glass", "solid"] as const;
@@ -376,6 +378,15 @@ export {
     formatBytePattern,
     formatNumberPattern,
     localeProviderPattern,
+    selectRootPattern,
+    selectTriggerPattern,
+    selectValuePattern,
+    selectContentPattern,
+    selectItemPattern,
+    selectItemGroupPattern,
+    selectLabelPattern,
+    selectClearTriggerPattern,
+    selectIndicatorPattern,
 } from "./exclude-patterns";
 
 

@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas, ArgTypes } from "@storybook/addon-docs/blocks";
 import * as RadioStories from "./Radio.stories.svelte";
-import { Radio, RadioGroup, RadioItem } from "$saas/components/radio";
+import { Radio } from "$saas/components/radio";
 import { radioGroupPattern, radioItemPattern } from "../utils";
 
 <Meta of={RadioStories} />
@@ -104,8 +104,8 @@ Use the composition API for full control over the radio button structure.
 
 **Radio.Group**
 
-<ArgTypes of={RadioGroup} exclude={radioGroupPattern} />
+<ArgTypes of={Radio.Group} exclude={radioGroupPattern} />
 
 **Radio.Item**
 
-<ArgTypes of={RadioItem} exclude={radioItemPattern} />
+<ArgTypes of={Radio.Item} exclude={radioItemPattern} />

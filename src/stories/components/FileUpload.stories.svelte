@@ -7,7 +7,7 @@
 	import { Stack } from "$saas/layout/stack";
 	import { Icon } from "$saas/components/icon";
 	import { CloseButton } from "$saas/components/close-button";
-	import { InputGroup, InputElement } from "$saas/components/input";
+	import { Input } from "$saas/components/input";
 	import UploadSimple from "phosphor-svelte/lib/UploadSimple";
 	import Camera from "phosphor-svelte/lib/Camera";
 	import FileArrowUp from "phosphor-svelte/lib/FileArrowUp";
@@ -120,17 +120,17 @@
 {#snippet clearableStory()}
 	<FileUpload.Root class="gap-1 max-w-72">
 		<FileUpload.Label>Upload file</FileUpload.Label>
-		<InputGroup>
-			<InputElement placement="left">
+		<Input.Group>
+			<Input.Element placement="left">
 				<Icon as={FileArrowUp} size="sm" />
-			</InputElement>
+			</Input.Element>
 			<FileUpload.Input class="ps-9 pe-9" />
-			<InputElement placement="right" class="pointer-events-auto">
+			<Input.Element placement="right" class="pointer-events-auto">
 				<FileUpload.ClearTrigger>
 					<CloseButton size="xs" variant="ghost" class="me-1" />
 				</FileUpload.ClearTrigger>
-			</InputElement>
-		</InputGroup>
+			</Input.Element>
+		</Input.Group>
 	</FileUpload.Root>
 {/snippet}
 
