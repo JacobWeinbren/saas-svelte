@@ -408,6 +408,15 @@ export {
     skeletonPattern,
     skeletonCirclePattern,
     skeletonTextPattern,
+    sliderRootPattern,
+    sliderControlPattern,
+    sliderTrackPattern,
+    sliderRangePattern,
+    sliderThumbPattern,
+    sliderLabelPattern,
+    sliderValueTextPattern,
+    sliderMarkerGroupPattern,
+    sliderMarkerPattern,
 } from "./exclude-patterns";
 
 

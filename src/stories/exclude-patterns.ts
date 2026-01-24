@@ -254,3 +254,13 @@ export const separatorPattern = makePattern(['orientation', 'variant', 'size', '
 export const skeletonPattern = makePattern(['loading', 'variant', 'height', 'width', 'class', 'children']);
 export const skeletonCirclePattern = makePattern(['variant', 'size', 'class']);
 export const skeletonTextPattern = makePattern(['variant', 'noOfLines', 'gap', 'class']);
+
+export const sliderRootPattern = makePattern(['size', 'variant', 'orientation', 'colour', 'disabled', 'value', 'defaultValue', 'min', 'max', 'step', 'name', 'onValueChange', 'onValueChangeEnd', 'class', 'children']);
+export const sliderControlPattern = makePattern(['class', 'children']);
+export const sliderTrackPattern = makePattern(['class', 'children']);
+export const sliderRangePattern = makePattern(['class']);
+export const sliderThumbPattern = makePattern(['index', 'name', 'class', 'children']);
+export const sliderLabelPattern = makePattern(['class', 'children']);
+export const sliderValueTextPattern = makePattern(['class', 'children']);
+export const sliderMarkerGroupPattern = makePattern(['class', 'children']);
+export const sliderMarkerPattern = makePattern(['value', 'showDot', 'class', 'children']);
