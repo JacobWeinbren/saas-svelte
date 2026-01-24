@@ -272,3 +272,5 @@ export const statValueUnitPattern = makePattern(['class', 'children']);
 export const statHelpTextPattern = makePattern(['class', 'children']);
 export const statUpTrendPattern = makePattern(['variant', 'colour', 'class', 'children']);
 export const statDownTrendPattern = makePattern(['variant', 'colour', 'class', 'children']);
+
+export const statusPattern = makePattern(['value', 'size', 'colour', 'class', 'children']);

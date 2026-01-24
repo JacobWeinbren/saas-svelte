@@ -424,6 +424,7 @@ export {
     statHelpTextPattern,
     statUpTrendPattern,
     statDownTrendPattern,
+    statusPattern,
 } from "./exclude-patterns";
 
 
