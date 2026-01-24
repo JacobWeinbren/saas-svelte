@@ -5,6 +5,9 @@
 	import { Text } from "$saas/typography/text";
 	import { commonArgTypes, getControls, colours } from "../utils";
 
+	const statusSizes = ["sm", "md", "lg"] as const;
+	const statusValues = ["error", "info", "warning", "success"] as const;
+
 	const { Story } = defineMeta({
 		title: "components/Status",
 		component: Status,
@@ -67,7 +70,7 @@
 
 {#snippet sizesStory()}
 	<VStack gap={2} align="start">
-		{#each ["sm", "md", "lg"] as size}
+		{#each statusSizes as size}
 			<HStack gap={10} class="px-4">
 				<Status {size} class="w-24" value="warning">In Review</Status>
 				<Status {size} class="w-24" value="error">Error</Status>

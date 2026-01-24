@@ -11,7 +11,7 @@
 		slots: {
 			root: "relative w-full text-fg-default leading-normal antialiased",
 			track: "relative overflow-hidden",
-			range: "h-full transition-[width] duration-[var(--durations-slow)] ease-out",
+			range: "h-full transition-[width] duration-(--durations-slow) ease-out",
 			label: "font-medium inline-flex",
 			valueText: "text-fg-muted font-medium tabular-nums leading-none",
 		},

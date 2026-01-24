@@ -22,7 +22,7 @@
 	const stripeClasses = $derived(() => {
 		if (!ctx.striped) return "";
 		const baseStripe =
-			"[background-image:linear-gradient(45deg,rgba(255,255,255,0.3)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0.3)_75%,transparent_75%,transparent)] [background-size:1rem_1rem]";
+			"bg-[linear-gradient(45deg,rgba(255,255,255,0.3)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0.3)_75%,transparent_75%,transparent)] bg-size-[1rem_1rem]";
 		const animatedStripe = ctx.animated
 			? "animate-[bg-position_1s_linear_infinite]"
 			: "";
