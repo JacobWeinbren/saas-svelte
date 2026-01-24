@@ -133,8 +133,13 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Percentage" template={percentageStory} />
+
 <Story name="Currency" template={currencyStory} />
+
 <Story name="Locale" template={localeStory} />
+
 <Story name="Unit" template={unitStory} />
+
 <Story name="Compact Notation" template={compactStory} />

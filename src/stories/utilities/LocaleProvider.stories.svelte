@@ -91,4 +91,5 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Setting Locale" template={settingLocaleStory} />

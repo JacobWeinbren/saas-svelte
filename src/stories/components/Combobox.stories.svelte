@@ -524,116 +524,49 @@
 	/>
 {/snippet}
 
-<Story
-	name="Basic"
-	template={basicStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Sizes"
-	template={sizesStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Variants"
-	template={variantsStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Multiple"
-	template={multipleStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Async Loading"
-	template={asyncLoadingStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Highlight Match"
-	template={highlightMatchStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Open On Click"
-	template={openOnClickStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Field"
-	template={fieldStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Disabled"
-	template={disabledStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Disabled Item"
-	template={disabledItemStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Input Group"
-	template={inputGroupStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Invalid"
-	template={invalidStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Controlled Value"
-	template={controlledValueStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Controlled Open"
-	template={controlledOpenStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Allow Custom Value"
-	template={allowCustomValueStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Custom Objects"
-	template={customObjectsStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Min Characters"
-	template={minCharactersStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Limit"
-	template={limitStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Virtualised"
-	template={virtualisedStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Colours"
-	template={coloursStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Custom Filter"
-	template={customFilterStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Links"
-	template={linksStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Basic" template={basicStory} />
+
+<Story name="Sizes" template={sizesStory} />
+
+<Story name="Variants" template={variantsStory} />
+
+<Story name="Multiple" template={multipleStory} />
+
+<Story name="Async Loading" template={asyncLoadingStory} />
+
+<Story name="Highlight Match" template={highlightMatchStory} />
+
+<Story name="Open On Click" template={openOnClickStory} />
+
+<Story name="Field" template={fieldStory} />
+
+<Story name="Disabled" template={disabledStory} />
+
+<Story name="Disabled Item" template={disabledItemStory} />
+
+<Story name="Input Group" template={inputGroupStory} />
+
+<Story name="Invalid" template={invalidStory} />
+
+<Story name="Controlled Value" template={controlledValueStory} />
+
+<Story name="Controlled Open" template={controlledOpenStory} />
+
+<Story name="Allow Custom Value" template={allowCustomValueStory} />
+
+<Story name="Custom Objects" template={customObjectsStory} />
+
+<Story name="Min Characters" template={minCharactersStory} />
+
+<Story name="Limit" template={limitStory} />
+
+<Story name="Virtualised" template={virtualisedStory} />
+
+<Story name="Colours" template={coloursStory} />
+
+<Story name="Custom Filter" template={customFilterStory} />
+
+<Story name="Links" template={linksStory} />
 
 {#snippet inPopoverStory()}
 	<Popover.Root>
@@ -653,8 +586,4 @@
 	</Popover.Root>
 {/snippet}
 
-<Story
-	name="In Popover"
-	template={inPopoverStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="In Popover" template={inPopoverStory} />

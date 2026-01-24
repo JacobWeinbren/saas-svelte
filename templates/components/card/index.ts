@@ -5,7 +5,7 @@ import Footer from "./card-footer.svelte";
 import Title from "./card-title.svelte";
 import Description from "./card-description.svelte";
 
-export { type CardVariants } from "./card-root.svelte";
+export { cardRoot, type CardVariants } from "./card-root.svelte";
 
 export const CardRoot = Root;
 export const CardHeader = Header;

@@ -138,6 +138,9 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Placements" template={placementsStory} />
+
 <Story name="Offsets" template={offsetsStory} />
+
 <Story name="With Avatar" template={avatarStory} />

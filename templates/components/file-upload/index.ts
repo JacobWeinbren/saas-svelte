@@ -6,6 +6,12 @@ import Label from "./file-upload-label.svelte";
 import Input from "./file-upload-input.svelte";
 import ClearTrigger from "./file-upload-clear-trigger.svelte";
 
+export { fileUploadRoot } from "./file-upload-root.svelte";
+export { fileUploadDropzone } from "./file-upload-dropzone.svelte";
+export { fileUploadList } from "./file-upload-list.svelte";
+export { fileUploadLabel } from "./file-upload-label.svelte";
+export { fileUploadInput, fileUploadInputPlaceholder } from "./file-upload-input.svelte";
+
 export const FileUploadRoot = Root;
 export const FileUploadTrigger = Trigger;
 export const FileUploadDropzone = Dropzone;

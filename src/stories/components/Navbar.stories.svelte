@@ -497,56 +497,20 @@
 	</Box>
 {/snippet}
 
-<Story
-	name="Basic"
-	template={basicStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Basic" template={basicStory} />
 
-<Story
-	name="Bordered"
-	template={borderedStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Bordered" template={borderedStory} />
 
-<Story
-	name="Glass Variant"
-	template={glassStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Glass Variant" template={glassStory} />
 
-<Story
-	name="Solid Variant"
-	template={solidStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Solid Variant" template={solidStory} />
 
-<Story
-	name="Variants"
-	template={variantsStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Variants" template={variantsStory} />
 
-<Story
-	name="Sticky"
-	template={stickyStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Sticky" template={stickyStory} />
 
-<Story
-	name="Hide on Scroll"
-	template={hideOnScrollStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Hide on Scroll" template={hideOnScrollStory} />
 
-<Story
-	name="Colours"
-	template={colourPalettesStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Colours" template={colourPalettesStory} />
 
-<Story
-	name="Mobile Navigation"
-	template={mobileNavStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Mobile Navigation" template={mobileNavStory} />

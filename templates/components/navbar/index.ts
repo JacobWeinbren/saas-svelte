@@ -5,7 +5,7 @@ import ItemGroup from "./navbar-item-group.svelte";
 import Item from "./navbar-item.svelte";
 import Link from "./navbar-link.svelte";
 
-export { type NavbarVariants, type NavbarContext } from "./navbar-root.svelte";
+export { navbar, type NavbarVariants, type NavbarContext } from "./navbar-root.svelte";
 
 export const NavbarRoot = Root;
 export const NavbarContent = Content;

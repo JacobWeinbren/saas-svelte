@@ -13,6 +13,23 @@ import Item from "./sidebar-item.svelte";
 import Link from "./sidebar-link.svelte";
 import Toggle from "./sidebar-toggle.svelte";
 
+export { SIDEBAR_CTX, sidebar, type SidebarContext } from "./sidebar-root.svelte";
+
+export const SidebarRoot = Root;
+export const SidebarHeader = Header;
+export const SidebarBody = Body;
+export const SidebarFooter = Footer;
+export const SidebarGroup = Group;
+export const SidebarGroupHeader = GroupHeader;
+export const SidebarGroupTitle = GroupTitle;
+export const SidebarGroupLabel = GroupLabel;
+export const SidebarGroupContent = GroupContent;
+export const SidebarNavItem = NavItem;
+export const SidebarNavButton = NavButton;
+export const SidebarItem = Item;
+export const SidebarLink = Link;
+export const SidebarToggle = Toggle;
+
 export const Sidebar = {
 	Root,
 	Header,
@@ -29,6 +46,3 @@ export const Sidebar = {
 	Link,
 	Toggle,
 };
-
-export { SIDEBAR_CTX, sidebar } from "./sidebar-root.svelte";
-export type { SidebarContext } from "./sidebar-root.svelte";

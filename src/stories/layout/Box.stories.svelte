@@ -93,9 +93,15 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Shorthand" template={shorthandStory} />
+
 <Story name="Border" template={borderStory} />
+
 <Story name="As Prop" template={asPropStory} />
+
 <Story name="Shadow" template={shadowStory} />
+
 <Story name="Composition" template={compositionStory} />
+
 <Story name="Nested" template={nestedStory} />

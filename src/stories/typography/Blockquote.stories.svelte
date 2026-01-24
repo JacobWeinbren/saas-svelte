@@ -170,8 +170,13 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="With Cite" template={withCiteStory} />
+
 <Story name="Colors" template={coloursStory} />
+
 <Story name="Variants" template={variantsStory} />
+
 <Story name="Icon" template={iconStory} />
+
 <Story name="Custom Icon" template={customIconStory} />

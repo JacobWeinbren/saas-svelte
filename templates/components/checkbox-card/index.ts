@@ -6,7 +6,7 @@ import Description from "./checkbox-card-description.svelte";
 import Addon from "./checkbox-card-addon.svelte";
 import Indicator from "./checkbox-card-indicator.svelte";
 
-export { type CheckboxCardVariants } from "./checkbox-card-root.svelte";
+export { checkboxCardRoot, type CheckboxCardVariants } from "./checkbox-card-root.svelte";
 
 export const CheckboxCardRoot = Root;
 export const CheckboxCardControl = Control;

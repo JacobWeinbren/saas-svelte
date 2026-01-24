@@ -88,8 +88,4 @@
 	</Box>
 {/snippet}
 
-<Story
-	name="Basic"
-	template={basicStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Basic" template={basicStory} />

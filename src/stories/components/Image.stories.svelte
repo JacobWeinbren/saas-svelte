@@ -143,8 +143,13 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Height" template={heightStory} />
+
 <Story name="Circular" template={circularStory} />
+
 <Story name="Aspect Ratio" template={aspectRatioStory} />
+
 <Story name="Object Fit" template={fitStory} />
+
 <Story name="Rounded" template={roundedStory} />

@@ -109,7 +109,11 @@
 {/snippet}
 
 <Story name="Basic" template={basicStory} />
+
 <Story name="Sizes" template={sizesStory} />
+
 <Story name="Format Bits" template={bitsStory} />
+
 <Story name="Locale" template={localeStory} />
+
 <Story name="Unit Display" template={unitDisplayStory} />

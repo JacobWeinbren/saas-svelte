@@ -1,10 +1,7 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { Snippet, Component } from "svelte";
-	import { type ColourName, getColourStyle } from "$saas/utils/colours";
-	import { Icon } from "$saas/components/icon";
 
-	const emptyState = tv({
+	export const emptyState = tv({
 		slots: {
 			root: "flex w-full h-full px-8 py-12 antialiased",
 			content: "flex flex-col text-sm leading-5",
@@ -58,6 +55,14 @@
 			align: "centre",
 		},
 	});
+
+	export type EmptyStateVariants = VariantProps<typeof emptyState>;
+</script>
+
+<script lang="ts">
+	import type { Snippet, Component } from "svelte";
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
+	import { Icon } from "$saas/components/icon";
 
 	type EmptyStateVariants = VariantProps<typeof emptyState>;
 

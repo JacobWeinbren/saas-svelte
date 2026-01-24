@@ -234,14 +234,6 @@
 	</AppShell>
 {/snippet}
 
-<Story
-	name="Navbar Layout"
-	template={navbarLayoutStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Navbar Layout" template={navbarLayoutStory} />
 
-<Story
-	name="Sidebar Layout"
-	template={sidebarLayoutStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Sidebar Layout" template={sidebarLayoutStory} />

@@ -296,58 +296,24 @@
 	</Popover.Root>
 {/snippet}
 
-<Story
-	name="Basic"
-	template={basicStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Controlled"
-	template={controlledStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Sizes"
-	template={sizesStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="LazyMounted"
-	template={lazyMountedStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Placement"
-	template={placementStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Offset"
-	template={offsetStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="SameWidth"
-	template={sameWidthStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Nested"
-	template={nestedStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="InitialFocus"
-	template={initialFocusStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="Form"
-	template={formStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
-<Story
-	name="WithHeaderFooter"
-	template={withHeaderFooterStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Basic" template={basicStory} />
+
+<Story name="Controlled" template={controlledStory} />
+
+<Story name="Sizes" template={sizesStory} />
+
+<Story name="LazyMounted" template={lazyMountedStory} />
+
+<Story name="Placement" template={placementStory} />
+
+<Story name="Offset" template={offsetStory} />
+
+<Story name="SameWidth" template={sameWidthStory} />
+
+<Story name="Nested" template={nestedStory} />
+
+<Story name="InitialFocus" template={initialFocusStory} />
+
+<Story name="Form" template={formStory} />
+
+<Story name="WithHeaderFooter" template={withHeaderFooterStory} />

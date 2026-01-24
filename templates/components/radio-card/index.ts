@@ -11,3 +11,5 @@ export const RadioCard = {
 };
 
 export { RadioCardRoot, RadioCardLabel, RadioCardItem, RadioCardItemAddon };
+
+export { radioCard, type RadioCardVariants } from "./radio-card-root.svelte";

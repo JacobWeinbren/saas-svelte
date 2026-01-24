@@ -64,7 +64,6 @@
 	<Spinner {...args} />
 {/snippet}
 
-<!-- Sizes -->
 {#snippet sizesStory()}
 	<HStack align="start" gap={4} class="flex-wrap">
 		{#each spinnerSizes as size}
@@ -76,7 +75,6 @@
 	</HStack>
 {/snippet}
 
-<!-- Colours -->
 {#snippet coloursStory()}
 	<VStack gap={4}>
 		{#each colours as colour}
@@ -90,7 +88,6 @@
 	</VStack>
 {/snippet}
 
-<!-- Track Colour -->
 {#snippet trackColourStory()}
 	<HStack gap={4}>
 		<Spinner colour="red" trackColour="gray" />
@@ -99,7 +96,6 @@
 	</HStack>
 {/snippet}
 
-<!-- Custom Speed -->
 {#snippet customSpeedStory()}
 	<HStack align="start" gap={4} class="flex-wrap">
 		<VStack gap={2} class="items-center">
@@ -121,7 +117,6 @@
 	</HStack>
 {/snippet}
 
-<!-- Thickness -->
 {#snippet thicknessStory()}
 	<HStack align="start" gap={4} class="flex-wrap">
 		<VStack gap={2} class="items-center">
@@ -143,7 +138,6 @@
 	</HStack>
 {/snippet}
 
-<!-- With Label -->
 {#snippet withLabelStory()}
 	<VStack gap={2} class="items-center">
 		<Spinner colour="teal" />
@@ -151,45 +145,16 @@
 	</VStack>
 {/snippet}
 
-<!-- Stories in order matching Saas UI docs -->
-<Story
-	name="Basic"
-	template={basicStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Basic" template={basicStory} />
 
-<Story
-	name="Sizes"
-	template={sizesStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Sizes" template={sizesStory} />
 
-<Story
-	name="Colours"
-	template={coloursStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Colours" template={coloursStory} />
 
-<Story
-	name="Track Colour"
-	template={trackColourStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Track Colour" template={trackColourStory} />
 
-<Story
-	name="Custom Speed"
-	template={customSpeedStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Custom Speed" template={customSpeedStory} />
 
-<Story
-	name="Thickness"
-	template={thicknessStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="Thickness" template={thicknessStory} />
 
-<Story
-	name="With Label"
-	template={withLabelStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="With Label" template={withLabelStory} />

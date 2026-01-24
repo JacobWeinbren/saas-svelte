@@ -1,8 +1,7 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { HTMLAttributes } from "svelte/elements";
 
-	const heading = tv({
+	export const heading = tv({
 		base: "wrap-break-word antialiased text-fg-default",
 		variants: {
 			size: {
@@ -35,6 +34,12 @@
 			weight: "semibold",
 		},
 	});
+
+	export type HeadingVariants = VariantProps<typeof heading>;
+</script>
+
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
 
 	type HeadingVariants = VariantProps<typeof heading>;
 

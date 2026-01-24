@@ -1,1 +1,1 @@
-export { default as Image } from "./image.svelte";
+export { default as Image, image, type ImageVariants } from "./image.svelte";

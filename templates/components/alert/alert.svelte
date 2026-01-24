@@ -1,15 +1,7 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import Info from "phosphor-svelte/lib/Info";
-	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
-	import Warning from "phosphor-svelte/lib/Warning";
-	import XCircle from "phosphor-svelte/lib/XCircle";
-	import type { Snippet, Component } from "svelte";
 
-	import { type ColourName, getColourStyle } from "$saas/utils/colours";
-	import { Icon } from "$saas/components/icon";
-
-	const alert = tv({
+	export const alert = tv({
 		slots: {
 			root: "relative w-full flex items-start p-4 rounded-md text-sm leading-5 antialiased gap-3",
 			iconWrapper:
@@ -42,6 +34,19 @@
 			variant: "subtle",
 		},
 	});
+
+	export type AlertVariants = VariantProps<typeof alert>;
+</script>
+
+<script lang="ts">
+	import Info from "phosphor-svelte/lib/Info";
+	import CheckCircle from "phosphor-svelte/lib/CheckCircle";
+	import Warning from "phosphor-svelte/lib/Warning";
+	import XCircle from "phosphor-svelte/lib/XCircle";
+	import type { Snippet, Component } from "svelte";
+
+	import { type ColourName, getColourStyle } from "$saas/utils/colours";
+	import { Icon } from "$saas/components/icon";
 
 	type AlertVariants = VariantProps<typeof alert>;
 	type Status = "info" | "success" | "warning" | "error" | "neutral";

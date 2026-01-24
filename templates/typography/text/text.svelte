@@ -1,9 +1,7 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { HTMLAttributes } from "svelte/elements";
-	import type { ClassNameValue } from "tailwind-merge";
 
-	const text = tv({
+	export const text = tv({
 		base: "wrap-break-word antialiased text-fg-default",
 		variants: {
 			size: {
@@ -48,6 +46,13 @@
 			weight: "normal",
 		},
 	});
+
+	export type TextVariants = VariantProps<typeof text>;
+</script>
+
+<script lang="ts">
+	import type { HTMLAttributes } from "svelte/elements";
+	import type { ClassNameValue } from "tailwind-merge";
 
 	type TextVariants = VariantProps<typeof text>;
 

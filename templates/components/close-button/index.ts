@@ -1,2 +1,1 @@
-export { default as CloseButton } from "./close-button.svelte";
-export { type CloseButtonVariants } from "./close-button.svelte";
+export { default as CloseButton, closeButton, type CloseButtonVariants } from "./close-button.svelte";

@@ -1,1 +1,1 @@
-export { default as PasswordInput } from "./password-input.svelte";
+export { default as PasswordInput, passwordInput, type PasswordInputVariants } from "./password-input.svelte";

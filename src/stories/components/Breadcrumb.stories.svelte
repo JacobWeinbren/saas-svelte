@@ -153,8 +153,4 @@
 
 <Story name="With Ellipsis" template={ellipsisStory} />
 
-<Story
-	name="With Menu"
-	template={withMenuStory}
-	parameters={{ docs: { story: { inline: true } } }}
-/>
+<Story name="With Menu" template={withMenuStory} />

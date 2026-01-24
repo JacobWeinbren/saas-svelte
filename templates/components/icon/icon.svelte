@@ -1,11 +1,7 @@
-<script lang="ts">
+<script module lang="ts">
 	import { tv, type VariantProps } from "tailwind-variants";
-	import type { Component, Snippet } from "svelte";
-	import type { SVGAttributes } from "svelte/elements";
-	import { type ColourName } from "$saas/utils/colours";
-	import tailwindColors from "tailwindcss/colors";
 
-	const iconStyles = tv({
+	export const icon = tv({
 		base: [
 			"shrink-0",
 			"inline-block",
@@ -28,7 +24,16 @@
 		},
 	});
 
-	type IconVariants = VariantProps<typeof iconStyles>;
+	export type IconVariants = VariantProps<typeof icon>;
+</script>
+
+<script lang="ts">
+	import type { Component, Snippet } from "svelte";
+	import type { SVGAttributes } from "svelte/elements";
+	import { type ColourName } from "$saas/utils/colours";
+	import tailwindColors from "tailwindcss/colors";
+
+	type IconVariants = VariantProps<typeof icon>;
 
 	interface Props extends SVGAttributes<SVGElement> {
 		/**
@@ -97,7 +102,7 @@
 			.filter(Boolean)
 			.join("; "),
 	);
-	const computedClasses = $derived(iconStyles({ size, class: className as string }));
+	const computedClasses = $derived(icon({ size, class: className as string }));
 </script>
 
 {#if IconComponent}

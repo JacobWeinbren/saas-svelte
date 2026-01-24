@@ -1,1 +1,1 @@
-export { default as Heading } from "./heading.svelte";
+export { default as Heading, heading, type HeadingVariants } from "./heading.svelte";
