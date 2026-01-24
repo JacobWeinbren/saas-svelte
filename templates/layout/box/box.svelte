@@ -21,11 +21,7 @@
 		[key: string]: unknown;
 	}
 
-	let {
-		as = "div",
-		children,
-		...restProps
-	}: Props = $props();
+	let { as = "div", children, ...restProps }: Props = $props();
 </script>
 
 <svelte:element this={as} {...restProps}>

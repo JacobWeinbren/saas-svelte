@@ -89,7 +89,8 @@
 							<Menu.Item value="new-txt">New Text File</Menu.Item>
 							<Menu.Item value="new-file">New File...</Menu.Item>
 							<Menu.Item value="new-win">New Window</Menu.Item>
-							<Menu.Item value="open-file">Open File...</Menu.Item>
+							<Menu.Item value="open-file">Open File...</Menu.Item
+							>
 							<Menu.Item value="export">Export</Menu.Item>
 						</Menu.Content>
 					</Menu.Root>

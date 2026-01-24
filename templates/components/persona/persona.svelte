@@ -90,8 +90,12 @@
 		children: Snippet;
 	}
 
-	let { size = "md", class: className, children, ...restProps }: Props =
-		$props();
+	let {
+		size = "md",
+		class: className,
+		children,
+		...restProps
+	}: Props = $props();
 
 	setContext<PersonaContext>(PERSONA_CTX, {
 		get size() {

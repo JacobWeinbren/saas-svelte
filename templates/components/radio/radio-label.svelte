@@ -19,7 +19,10 @@
 </script>
 
 <RadioGroup.Label
-	class={twMerge("select-none text-sm font-medium leading-5 antialiased", className)}
+	class={twMerge(
+		"select-none text-sm font-medium leading-5 antialiased",
+		className,
+	)}
 	{...restProps}
 >
 	{@render children()}

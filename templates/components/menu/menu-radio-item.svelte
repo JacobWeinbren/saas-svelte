@@ -24,7 +24,13 @@
 		startElement?: Snippet;
 	}
 
-	let { children, class: className, showIndicator = true, startElement, ...rest }: Props = $props();
+	let {
+		children,
+		class: className,
+		showIndicator = true,
+		startElement,
+		...rest
+	}: Props = $props();
 
 	const ctx = getContext<MenuContext>(MENU_CTX);
 </script>

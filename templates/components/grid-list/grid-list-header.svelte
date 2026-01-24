@@ -30,11 +30,7 @@
 		class?: string;
 	}
 
-	let {
-		children,
-		class: className,
-		...restProps
-	}: Props = $props();
+	let { children, class: className, ...restProps }: Props = $props();
 </script>
 
 <div role="row">

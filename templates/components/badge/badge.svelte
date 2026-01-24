@@ -18,7 +18,8 @@
 			variant: {
 				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "bg-(--c-solid) text-(--c-contrast)",
-				outline: "text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+				outline:
+					"text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 				surface:
 					"bg-(--c-muted)/20 text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 			},

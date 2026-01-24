@@ -84,7 +84,9 @@
 		...restProps
 	}: Props = $props();
 
-	const classes = $derived(twMerge(skeletonCircle({ variant, size }), className));
+	const classes = $derived(
+		twMerge(skeletonCircle({ variant, size }), className),
+	);
 
 	// Shine gradient needs inline style as tailwind-merge strips the gradient class
 	const shineStyle = $derived(

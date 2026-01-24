@@ -15,10 +15,10 @@ export const NavbarItem = Item;
 export const NavbarLink = Link;
 
 export const Navbar = {
-	Root,
-	Content,
-	Brand,
-	ItemGroup,
-	Item,
-	Link,
+    Root,
+    Content,
+    Brand,
+    ItemGroup,
+    Item,
+    Link,
 };

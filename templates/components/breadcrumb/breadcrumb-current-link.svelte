@@ -2,7 +2,10 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import { BREADCRUMB_CTX, type BreadcrumbContext } from "./breadcrumb-root.svelte";
+	import {
+		BREADCRUMB_CTX,
+		type BreadcrumbContext,
+	} from "./breadcrumb-root.svelte";
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		/**
@@ -27,7 +30,12 @@
 </script>
 
 <li class={styles?.item()}>
-	<span role="link" aria-current="page" class={currentClasses()} {...restProps}>
+	<span
+		role="link"
+		aria-current="page"
+		class={currentClasses()}
+		{...restProps}
+	>
 		{@render children()}
 	</span>
 </li>

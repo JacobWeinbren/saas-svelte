@@ -17,7 +17,12 @@
 		colour?: ColourName;
 	}
 
-	let { children, class: className, colour = "gray", ...rest }: Props = $props();
+	let {
+		children,
+		class: className,
+		colour = "gray",
+		...rest
+	}: Props = $props();
 
 	const colourVars = $derived(getColourStyle(colour));
 </script>
@@ -26,7 +31,10 @@
 	{#snippet asChild(props)}
 		<button
 			type="button"
-			class={button({ variant: "ghost", className: `mb-2 ${className || ""}` })}
+			class={button({
+				variant: "ghost",
+				className: `mb-2 ${className || ""}`,
+			})}
 			style={colourVars}
 			{...props()}
 		>

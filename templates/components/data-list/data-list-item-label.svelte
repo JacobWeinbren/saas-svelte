@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
-	import { DATA_LIST_CTX, type DataListContext } from "./data-list-root.svelte";
+	import {
+		DATA_LIST_CTX,
+		type DataListContext,
+	} from "./data-list-root.svelte";
 
 	interface Props {
 		/**

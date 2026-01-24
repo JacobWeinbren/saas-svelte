@@ -24,7 +24,10 @@
 </script>
 
 <script lang="ts">
-	import { FileUpload as ArkFileUpload, useFileUploadContext } from "@ark-ui/svelte/file-upload";
+	import {
+		FileUpload as ArkFileUpload,
+		useFileUploadContext,
+	} from "@ark-ui/svelte/file-upload";
 	import X from "phosphor-svelte/lib/X";
 	import File from "phosphor-svelte/lib/File";
 	import { Icon } from "$saas/components/icon";
@@ -46,12 +49,17 @@
 		class?: string;
 	}
 
-	let { showSize = false, clearable = false, class: className }: Props = $props();
+	let {
+		showSize = false,
+		clearable = false,
+		class: className,
+	}: Props = $props();
 
 	const fileUpload = useFileUploadContext();
 	const acceptedFiles = $derived(fileUpload().acceptedFiles);
 
-	const { root, item, itemInfo, itemName, itemSize, itemDelete } = fileUploadList();
+	const { root, item, itemInfo, itemName, itemSize, itemDelete } =
+		fileUploadList();
 
 	function formatFileSize(bytes: number): string {
 		if (bytes === 0) return "0 B";

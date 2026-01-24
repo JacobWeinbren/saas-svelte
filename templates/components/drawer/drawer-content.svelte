@@ -27,8 +27,13 @@
 		[key: string]: any;
 	}
 
-	let { children, class: className, offset, rounded, ...rest }: Props =
-		$props();
+	let {
+		children,
+		class: className,
+		offset,
+		rounded,
+		...rest
+	}: Props = $props();
 
 	type DrawerContext = {
 		size: "xs" | "sm" | "md" | "lg" | "xl" | "full";
@@ -143,12 +148,10 @@
 	// Map placement to animation classes
 	const getAnimationClasses = (placement: string) => {
 		const animations: Record<string, string> = {
-			start:
-				"data-[state=open]:animate-drawer-in-left data-[state=closed]:animate-drawer-out-left",
+			start: "data-[state=open]:animate-drawer-in-left data-[state=closed]:animate-drawer-out-left",
 			end: "data-[state=open]:animate-drawer-in-right data-[state=closed]:animate-drawer-out-right",
 			top: "data-[state=open]:animate-drawer-in-top data-[state=closed]:animate-drawer-out-top",
-			bottom:
-				"data-[state=open]:animate-drawer-in-bottom data-[state=closed]:animate-drawer-out-bottom",
+			bottom: "data-[state=open]:animate-drawer-in-bottom data-[state=closed]:animate-drawer-out-bottom",
 		};
 		return animations[placement] || animations.end;
 	};

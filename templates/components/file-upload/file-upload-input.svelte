@@ -23,7 +23,10 @@
 </script>
 
 <script lang="ts">
-	import { FileUpload as ArkFileUpload, useFileUploadContext } from "@ark-ui/svelte/file-upload";
+	import {
+		FileUpload as ArkFileUpload,
+		useFileUploadContext,
+	} from "@ark-ui/svelte/file-upload";
 	import type { FileUploadTriggerProps } from "@ark-ui/svelte/file-upload";
 
 	interface Props extends Omit<FileUploadTriggerProps, "children"> {
@@ -38,14 +41,18 @@
 		class?: string;
 	}
 
-	let { placeholder = "Select file(s)", class: className, ...rest }: Props = $props();
+	let {
+		placeholder = "Select file(s)",
+		class: className,
+		...rest
+	}: Props = $props();
 
 	const fileUpload = useFileUploadContext();
 	const acceptedFiles = $derived(fileUpload().acceptedFiles);
 	const displayText = $derived(
 		acceptedFiles.length > 0
 			? acceptedFiles.map((f) => f.name).join(", ")
-			: null
+			: null,
 	);
 </script>
 

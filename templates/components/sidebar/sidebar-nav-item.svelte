@@ -15,7 +15,9 @@
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
 	const finalClass = $derived(
-		["text-[.8125rem] leading-[1.1375rem] relative py-px", className].filter(Boolean).join(" ")
+		["text-[.8125rem] leading-[1.1375rem] relative py-px", className]
+			.filter(Boolean)
+			.join(" "),
 	);
 </script>
 

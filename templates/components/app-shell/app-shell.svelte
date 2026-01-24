@@ -62,10 +62,16 @@
 	}: Props = $props();
 
 	const styles = $derived(appShell());
-	const finalStyle = $derived([`height: ${height}`, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[`height: ${height}`, style].filter(Boolean).join("; "),
+	);
 </script>
 
-<div class={styles.root({ class: className })} style={finalStyle} {...restProps}>
+<div
+	class={styles.root({ class: className })}
+	style={finalStyle}
+	{...restProps}
+>
 	{#if header}
 		{@render header()}
 	{/if}

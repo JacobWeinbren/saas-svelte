@@ -9,9 +9,7 @@
 
 	export const menu = tv({
 		slots: {
-			positioner: [
-				"z-dropdown",
-			],
+			positioner: ["z-dropdown"],
 			content: [
 				"flex",
 				"flex-col",
@@ -67,15 +65,8 @@
 				"w-4",
 				"h-4",
 			],
-			separator: [
-				"my-1",
-				"border-b",
-				"border-border-default",
-			],
-			itemGroup: [
-				"flex",
-				"flex-col",
-			],
+			separator: ["my-1", "border-b", "border-border-default"],
+			itemGroup: ["flex", "flex-col"],
 			itemGroupLabel: [
 				"flex",
 				"items-center",
@@ -118,7 +109,8 @@
 					content: "",
 					item: "min-h-6 h-6 px-1.5 gap-x-1 gap-y-1 text-xs leading-4",
 					itemCommand: "text-2xs leading-3 pl-3",
-					triggerItem: "min-h-6 h-6 px-1.5 gap-x-1 gap-y-1 text-xs leading-4",
+					triggerItem:
+						"min-h-6 h-6 px-1.5 gap-x-1 gap-y-1 text-xs leading-4",
 					itemGroupLabel: "min-h-6 px-1.5 text-xs leading-4",
 				},
 				md: {},

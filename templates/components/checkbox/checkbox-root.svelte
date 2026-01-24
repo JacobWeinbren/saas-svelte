@@ -194,9 +194,7 @@
 	}
 
 	// Only pass checked prop if explicitly set (not inside a group)
-	const checkedProps = $derived(
-		checked !== undefined ? { checked } : {},
-	);
+	const checkedProps = $derived(checked !== undefined ? { checked } : {});
 
 	// Get control classes with data-state based styling
 	function getControlClasses() {
@@ -245,7 +243,11 @@
 		>
 			<Checkbox.Indicator class={classes.indicator()}>
 				{#if icon}
-					<svelte:component this={icon} class="w-full h-full" weight="bold" />
+					<svelte:component
+						this={icon}
+						class="w-full h-full"
+						weight="bold"
+					/>
 				{:else}
 					<Check class="w-full h-full" weight="bold" />
 				{/if}

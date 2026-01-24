@@ -66,7 +66,11 @@
 
 <div
 	role="gridcell"
-	class={gridListCell({ flex, shrink, class: `${widthClass} ${className ?? ""}`.trim() })}
+	class={gridListCell({
+		flex,
+		shrink,
+		class: `${widthClass} ${className ?? ""}`.trim(),
+	})}
 	{...restProps}
 >
 	{@render children()}

@@ -138,7 +138,9 @@
 
 	const hasSimpleTrigger = $derived(triggerText || triggerIcon);
 	// When using simple trigger props, children become the content
-	const effectiveContent = $derived(content ?? (hasSimpleTrigger ? children : undefined));
+	const effectiveContent = $derived(
+		content ?? (hasSimpleTrigger ? children : undefined),
+	);
 
 	const finalPositioning = $derived(
 		positioning ?? { placement, gutter: 8, strategy: "absolute" as const },
@@ -203,7 +205,9 @@
 	<Portal>
 		<ArkPopover.Positioner class={styles.positioner()}>
 			<ArkPopover.Content
-				class={styles.content({ class: `${sizeClass} ${className || ""}` })}
+				class={styles.content({
+					class: `${sizeClass} ${className || ""}`,
+				})}
 			>
 				{#if typeof effectiveContent === "string"}
 					{effectiveContent}

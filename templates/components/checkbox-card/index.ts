@@ -17,11 +17,11 @@ export const CheckboxCardAddon = Addon;
 export const CheckboxCardIndicator = Indicator;
 
 export const CheckboxCard = {
-	Root,
-	Control,
-	Content,
-	Label,
-	Description,
-	Addon,
-	Indicator,
+    Root,
+    Control,
+    Content,
+    Label,
+    Description,
+    Addon,
+    Indicator,
 };

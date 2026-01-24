@@ -2,11 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const icon = tv({
-		base: [
-			"shrink-0",
-			"inline-block",
-			"antialiased",
-		],
+		base: ["shrink-0", "inline-block", "antialiased"],
 		variants: {
 			size: {
 				xs: "w-3 h-3",
@@ -102,7 +98,9 @@
 			.filter(Boolean)
 			.join("; "),
 	);
-	const computedClasses = $derived(icon({ size, class: className as string }));
+	const computedClasses = $derived(
+		icon({ size, class: className as string }),
+	);
 </script>
 
 {#if IconComponent}

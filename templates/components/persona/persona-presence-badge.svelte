@@ -64,7 +64,9 @@
 	const personaContext = getContext<PersonaContext>(PERSONA_CTX);
 	const size = $derived(personaContext?.size ?? "md");
 
-	const styles = $derived(presenceBadge({ size, presence, class: className }));
+	const styles = $derived(
+		presenceBadge({ size, presence, class: className }),
+	);
 </script>
 
 <span class={styles} role="img" aria-label={`Status: ${presence}`}></span>

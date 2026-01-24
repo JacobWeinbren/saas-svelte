@@ -107,7 +107,10 @@
 >
 	{#each lines as _, index}
 		<div
-			class={twMerge(lineClasses, index === noOfLines - 1 && "max-w-[80%]")}
+			class={twMerge(
+				lineClasses,
+				index === noOfLines - 1 && "max-w-[80%]",
+			)}
 			style={shineStyle}
 		></div>
 	{/each}

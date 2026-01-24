@@ -22,7 +22,10 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<Progress.ValueText class={twMerge(styles.valueText(), className)} {...restProps}>
+<Progress.ValueText
+	class={twMerge(styles.valueText(), className)}
+	{...restProps}
+>
 	{#if children}
 		{@render children()}
 	{/if}

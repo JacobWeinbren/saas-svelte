@@ -41,7 +41,10 @@
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { getContext } from "svelte";
-	import { GRID_LIST_CTX, type GridListContext } from "./grid-list-root.svelte";
+	import {
+		GRID_LIST_CTX,
+		type GridListContext,
+	} from "./grid-list-root.svelte";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -54,11 +57,7 @@
 		class?: string;
 	}
 
-	let {
-		children,
-		class: className,
-		...restProps
-	}: Props = $props();
+	let { children, class: className, ...restProps }: Props = $props();
 
 	const context = getContext<GridListContext>(GRID_LIST_CTX);
 	const interactive = $derived(context?.interactive ?? false);

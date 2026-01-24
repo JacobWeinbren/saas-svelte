@@ -85,7 +85,12 @@
 	const editable = useEditableContext();
 	const inputProps = $derived(editable().getInputProps());
 	const mergedProps = $derived(
-		mergeProps(inputProps, { rows, class: finalClass, style: finalStyle, ...restProps })
+		mergeProps(inputProps, {
+			rows,
+			class: finalClass,
+			style: finalStyle,
+			...restProps,
+		}),
 	);
 </script>
 

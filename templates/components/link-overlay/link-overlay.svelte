@@ -100,8 +100,12 @@
 	}: Props = $props();
 
 	// Only apply colour styles when variant has text styling
-	const shouldApplyColour = $derived(variant === "underline" || variant === "plain");
-	const colourVars = $derived(shouldApplyColour ? getColourStyle(colour || "gray") : "");
+	const shouldApplyColour = $derived(
+		variant === "underline" || variant === "plain",
+	);
+	const colourVars = $derived(
+		shouldApplyColour ? getColourStyle(colour || "gray") : "",
+	);
 	const finalClass = $derived(linkOverlay({ variant, class: className }));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>

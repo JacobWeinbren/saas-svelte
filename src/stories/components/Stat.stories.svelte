@@ -33,7 +33,10 @@
 {#snippet formatOptionsStory()}
 	<Stat.Root>
 		<Stat.Label>Revenue</Stat.Label>
-		<Stat.ValueText value={935.4} formatOptions={{ style: "currency", currency: "USD" }} />
+		<Stat.ValueText
+			value={935.4}
+			formatOptions={{ style: "currency", currency: "USD" }}
+		/>
 	</Stat.Root>
 {/snippet}
 
@@ -89,7 +92,10 @@
 	<Stat.Root>
 		<Stat.Label>Unique</Stat.Label>
 		<HStack class="items-center gap-2">
-			<Stat.ValueText value={8456.4} formatOptions={{ style: "currency", currency: "USD" }} />
+			<Stat.ValueText
+				value={8456.4}
+				formatOptions={{ style: "currency", currency: "USD" }}
+			/>
 			<Stat.UpTrend>12%</Stat.UpTrend>
 		</HStack>
 		<Stat.HelpText>since last month</Stat.HelpText>

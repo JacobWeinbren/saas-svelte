@@ -27,7 +27,9 @@
 	}: Props = $props();
 
 	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 </script>
 
 <Dialog.CloseTrigger

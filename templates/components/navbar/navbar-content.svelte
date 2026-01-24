@@ -16,7 +16,11 @@
 	let { maxW, children, class: className, ...rest }: Props = $props();
 
 	const ctx = getContext<NavbarContext>(NAVBAR_CTX);
-	const finalClass = $derived(ctx?.styles?.content({ class: [maxW, className].filter(Boolean).join(" ") || undefined }));
+	const finalClass = $derived(
+		ctx?.styles?.content({
+			class: [maxW, className].filter(Boolean).join(" ") || undefined,
+		}),
+	);
 </script>
 
 <div class={finalClass} {...rest}>

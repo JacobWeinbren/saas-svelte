@@ -81,7 +81,9 @@
 		// Use requestAnimationFrame to ensure the initial style is applied first
 		requestAnimationFrame(() => {
 			requestAnimationFrame(() => {
-				enteringToasts = new Set([...enteringToasts].filter((i) => i !== id));
+				enteringToasts = new Set(
+					[...enteringToasts].filter((i) => i !== id),
+				);
 			});
 		});
 
@@ -96,7 +98,10 @@
 	// Toasts are ordered oldest first, newest last
 	// Newest toast (last in array) is at the bottom (baseBottom)
 	// Older toasts are stacked above
-	function getBottomOffset(toasts: ToastData[], currentIndex: number): number {
+	function getBottomOffset(
+		toasts: ToastData[],
+		currentIndex: number,
+	): number {
 		let offset = 0;
 		// Sum heights of all toasts AFTER this one (newer toasts = below this one)
 		for (let i = currentIndex + 1; i < toasts.length; i++) {

@@ -166,7 +166,9 @@
 	// Calculate the dash offset based on value
 	const isIndeterminate = $derived(value === null);
 	const normalizedValue = $derived(
-		value === null ? 0 : Math.min(Math.max((value - min) / (max - min), 0), 1),
+		value === null
+			? 0
+			: Math.min(Math.max((value - min) / (max - min), 0), 1),
 	);
 	const strokeDashoffset = $derived(
 		circumference - normalizedValue * circumference,

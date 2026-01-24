@@ -8,7 +8,11 @@
 		base: ["antialiased", "text-sm"],
 		variants: {
 			variant: {
-				marker: ["list-inside", "[&_::marker]:text-fg-muted", "[&_::marker]:tabular-nums"],
+				marker: [
+					"list-inside",
+					"[&_::marker]:text-fg-muted",
+					"[&_::marker]:tabular-nums",
+				],
 				plain: ["flex", "flex-col", "list-none"],
 			},
 			align: {
@@ -39,7 +43,8 @@
 	import { setContext } from "svelte";
 	import { twMerge } from "tailwind-merge";
 
-	interface Props extends HTMLAttributes<HTMLUListElement | HTMLOListElement> {
+	interface Props
+		extends HTMLAttributes<HTMLUListElement | HTMLOListElement> {
 		/**
 		 * The content to render inside the list.
 		 */
@@ -85,10 +90,16 @@
 
 	// For marker variant, apply the appropriate list style based on element type
 	const listStyleClass = $derived(
-		variant === "marker" ? (as === "ol" ? "list-decimal" : "list-disc") : ""
+		variant === "marker"
+			? as === "ol"
+				? "list-decimal"
+				: "list-disc"
+			: "",
 	);
 
-	const finalClass = $derived(twMerge(listRoot({ variant, align }), listStyleClass, className));
+	const finalClass = $derived(
+		twMerge(listRoot({ variant, align }), listStyleClass, className),
+	);
 </script>
 
 {#if as === "ol"}

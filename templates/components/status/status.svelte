@@ -7,7 +7,7 @@
 	const status = tv({
 		slots: {
 			root: ["items-center", "gap-2", "inline-flex"],
-			indicator: ["shrink-0", "rounded-full", "[forced-color-adjust:none]"],
+			indicator: ["shrink-0", "rounded-full", "forced-color-adjust-none"],
 		},
 		variants: {
 			/**
@@ -90,7 +90,9 @@
 		...restProps
 	}: Props = $props();
 
-	const styles = $derived(status({ size, value: colour ? undefined : value }));
+	const styles = $derived(
+		status({ size, value: colour ? undefined : value }),
+	);
 	const colourStyle = $derived(colour ? getColourStyle(colour) : undefined);
 </script>
 

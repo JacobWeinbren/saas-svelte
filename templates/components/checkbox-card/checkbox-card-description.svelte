@@ -4,11 +4,7 @@
 	import { tv } from "tailwind-variants";
 
 	const checkboxCardDescription = tv({
-		base: [
-			"opacity-[0.64]",
-			"text-sm",
-			"leading-sm",
-		],
+		base: ["opacity-[0.64]", "text-sm", "leading-sm"],
 	});
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {

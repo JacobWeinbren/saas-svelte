@@ -24,7 +24,7 @@
 <HoverCard.Trigger
 	as="span"
 	class="inline rounded outline-none {className}"
-	style={style}
+	{style}
 	{...rest}
 >
 	{@render children()}

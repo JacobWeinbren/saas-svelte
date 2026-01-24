@@ -3,7 +3,11 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import { Avatar, type AvatarVariants } from "$saas/components/avatar";
 	import type { ColourName } from "$saas/utils/colours";
-	import { persona, PERSONA_CTX, type PersonaContext } from "./persona.svelte";
+	import {
+		persona,
+		PERSONA_CTX,
+		type PersonaContext,
+	} from "./persona.svelte";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**

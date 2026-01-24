@@ -4,11 +4,7 @@
 	import { tv } from "tailwind-variants";
 
 	const cardDescription = tv({
-		base: [
-			"break-words",
-			"text-fg-muted",
-			"text-sm",
-		],
+		base: ["break-words", "text-fg-muted", "text-sm"],
 	});
 
 	interface Props extends HTMLAttributes<HTMLParagraphElement> {

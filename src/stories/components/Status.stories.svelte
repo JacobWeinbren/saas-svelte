@@ -12,7 +12,8 @@
 			value: {
 				control: "select",
 				options: ["error", "info", "warning", "success"],
-				description: "The status value determining the indicator colour.",
+				description:
+					"The status value determining the indicator colour.",
 				table: {
 					defaultValue: { summary: "info" },
 				},

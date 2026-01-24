@@ -38,7 +38,11 @@
 		},
 		compoundVariants: [
 			// Horizontal sizes
-			{ orientation: "horizontal", size: "xs", class: "border-t-[0.5px]" },
+			{
+				orientation: "horizontal",
+				size: "xs",
+				class: "border-t-[0.5px]",
+			},
 			{ orientation: "horizontal", size: "sm", class: "border-t" },
 			{ orientation: "horizontal", size: "md", class: "border-t-2" },
 			{ orientation: "horizontal", size: "lg", class: "border-t-[3px]" },

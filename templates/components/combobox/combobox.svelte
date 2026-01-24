@@ -40,7 +40,10 @@
 		/** The selected value(s). */
 		value?: string[];
 		/** Callback when the value changes. */
-		onValueChange?: (details: { value: string[]; items: CollectionItem[] }) => void;
+		onValueChange?: (details: {
+			value: string[];
+			items: CollectionItem[];
+		}) => void;
 		/** Whether to allow multiple selections. @default false */
 		multiple?: boolean;
 		/** Whether to open on click. @default false */
@@ -134,14 +137,19 @@
 	const effectiveSelectionBehavior = $derived(
 		multiple || allowCustomValue ? "clear" : selectionBehavior,
 	);
-	const effectiveInputBehavior = $derived(allowCustomValue ? "none" : inputBehavior);
+	const effectiveInputBehavior = $derived(
+		allowCustomValue ? "none" : inputBehavior,
+	);
 
 	const filteredItems = $derived.by(() => {
 		let result = disableFilter
 			? items
 			: items.filter((item) => {
-					const itemLabel = typeof item === "string" ? item : item.label;
-					return itemLabel.toLowerCase().includes(inputValue.toLowerCase());
+					const itemLabel =
+						typeof item === "string" ? item : item.label;
+					return itemLabel
+						.toLowerCase()
+						.includes(inputValue.toLowerCase());
 				});
 		return limit && limit > 0 ? result.slice(0, limit) : result;
 	});
@@ -154,15 +162,27 @@
 		});
 	});
 
-	const showCreateOption = $derived(allowCustomValue && inputValue.trim() && !customValueExists);
+	const showCreateOption = $derived(
+		allowCustomValue && inputValue.trim() && !customValueExists,
+	);
 
-	const collection = $derived(createListCollection({ items: filteredItems, isItemDisabled }));
+	const collection = $derived(
+		createListCollection({ items: filteredItems, isItemDisabled }),
+	);
 
 	const ctx: ComboboxContext = {
-		get size() { return size ?? "md"; },
-		get variant() { return variant ?? "outline"; },
-		get styles() { return combobox({ size, variant, invalid }); },
-		get colourStyle() { return getColourStyle(colour); },
+		get size() {
+			return size ?? "md";
+		},
+		get variant() {
+			return variant ?? "outline";
+		},
+		get styles() {
+			return combobox({ size, variant, invalid });
+		},
+		get colourStyle() {
+			return getColourStyle(colour);
+		},
 	};
 
 	setContext(COMBOBOX_CTX, ctx);
@@ -172,7 +192,10 @@
 		onInputValueChange?.(details);
 	}
 
-	function handleValueChange(details: { value: string[]; items: CollectionItem[] }) {
+	function handleValueChange(details: {
+		value: string[];
+		items: CollectionItem[];
+	}) {
 		value = details.value;
 		onValueChange?.(details);
 	}
@@ -183,12 +206,15 @@
 	}
 
 	function shouldOpen(details: { inputValue: string }): boolean {
-		return minCharacters > 0 ? details.inputValue.length >= minCharacters : true;
+		return minCharacters > 0
+			? details.inputValue.length >= minCharacters
+			: true;
 	}
 
 	// Virtualization
 	let scrollElement: HTMLDivElement | null = $state(null);
-	let virtualItems: Array<{ index: number; start: number; size: number }> = $state([]);
+	let virtualItems: Array<{ index: number; start: number; size: number }> =
+		$state([]);
 	let totalSize = $state(0);
 
 	$effect(() => {
@@ -219,12 +245,20 @@
 	// Helper to get item properties
 	function getItemProps(item: CollectionItem) {
 		const itemLabel = typeof item === "string" ? item : item.label;
-		const itemDescription = itemDescriptionKey && typeof item === "object" ? (item as Record<string, unknown>)[itemDescriptionKey] : null;
-		const itemPrefix = itemPrefixKey && typeof item === "object" ? (item as Record<string, unknown>)[itemPrefixKey] : null;
-		const itemHref = typeof item === "object" ? (item as Record<string, unknown>).href as string | undefined : undefined;
+		const itemDescription =
+			itemDescriptionKey && typeof item === "object"
+				? (item as Record<string, unknown>)[itemDescriptionKey]
+				: null;
+		const itemPrefix =
+			itemPrefixKey && typeof item === "object"
+				? (item as Record<string, unknown>)[itemPrefixKey]
+				: null;
+		const itemHref =
+			typeof item === "object"
+				? ((item as Record<string, unknown>).href as string | undefined)
+				: undefined;
 		return { itemLabel, itemDescription, itemPrefix, itemHref };
 	}
-
 </script>
 
 <Combobox.Root
@@ -260,7 +294,9 @@
 		{/if}
 		<Combobox.Input
 			{placeholder}
-			class="{ctx.styles.input()} {startIcon || startElement ? 'pl-8' : ''}"
+			class="{ctx.styles.input()} {startIcon || startElement
+				? 'pl-8'
+				: ''}"
 			style={ctx.colourStyle}
 		/>
 		<div class={ctx.styles.indicatorGroup()}>
@@ -275,7 +311,10 @@
 
 	<Portal>
 		<Combobox.Positioner class={ctx.styles.positioner()}>
-			<Combobox.Content class={ctx.styles.content()} style={ctx.colourStyle}>
+			<Combobox.Content
+				class={ctx.styles.content()}
+				style={ctx.colourStyle}
+			>
 				{#if loading}
 					{#if loadingContent}
 						{@render loadingContent()}
@@ -285,78 +324,134 @@
 				{:else if collection.items.length === 0 && !showCreateOption}
 					<div class={ctx.styles.empty()}>{emptyText}</div>
 				{:else if virtualised}
-					<div bind:this={scrollElement} class="overflow-y-auto max-h-xs">
-						<div style="height: {totalSize}px; width: 100%; position: relative;">
+					<div
+						bind:this={scrollElement}
+						class="overflow-y-auto max-h-xs"
+					>
+						<div
+							style="height: {totalSize}px; width: 100%; position: relative;"
+						>
 							{#each virtualItems as virtualItem (virtualItem.index)}
-								{@const item = collection.items[virtualItem.index]}
+								{@const item =
+									collection.items[virtualItem.index]}
 								{#if item}
-								{@const { itemLabel, itemDescription, itemPrefix, itemHref } = getItemProps(item)}
-								{@const virtualStyle = `position: absolute; top: 0; left: 0; width: 100%; height: ${virtualItem.size}px; transform: translateY(${virtualItem.start}px); ${ctx.colourStyle}`}
-								{#if itemHref}
-									<Combobox.Item {item}>
-										{#snippet asChild(props)}
-											<a
-												{...props()}
-												href={itemHref}
-												class={ctx.styles.item()}
-												style={virtualStyle}
-												onclick={(e) => {
-													e.preventDefault();
-													window.open(itemHref, "_blank", "noopener,noreferrer");
-												}}
-											>
-												{#if itemSnippet}
-													{@render itemSnippet(item)}
-												{:else}
-													<Combobox.ItemText class={ctx.styles.itemText()}>
-														{#if itemPrefix}<span class={ctx.styles.itemPrefix()}>{itemPrefix}</span>{/if}
-														{#if highlightMatch && inputValue}
-															<Highlight query={inputValue} text={itemLabel} ignoreCase colour="yellow" />
-														{:else}
-															{itemLabel}
-														{/if}
-														{#if itemDescription}
-															<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
-														{/if}
-													</Combobox.ItemText>
-													<ArrowSquareOut class="size-4 ml-auto text-fg-muted" aria-hidden="true" />
-												{/if}
-											</a>
-										{/snippet}
-									</Combobox.Item>
-								{:else}
-									<Combobox.Item
-										{item}
-										class={ctx.styles.item()}
-										style={virtualStyle}
-									>
-										{#if itemSnippet}
-											{@render itemSnippet(item)}
-										{:else}
-											<Combobox.ItemText class={ctx.styles.itemText()}>
-												{#if itemPrefix}<span class={ctx.styles.itemPrefix()}>{itemPrefix}</span>{/if}
-												{#if highlightMatch && inputValue}
-													<Highlight query={inputValue} text={itemLabel} ignoreCase colour="yellow" />
-												{:else}
-													{itemLabel}
-												{/if}
-												{#if itemDescription}
-													<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
-												{/if}
-											</Combobox.ItemText>
-											<Combobox.ItemIndicator class={ctx.styles.itemIndicator()}>
-												<Check weight="bold" aria-hidden="true" />
-											</Combobox.ItemIndicator>
-										{/if}
-									</Combobox.Item>
-								{/if}
+									{@const {
+										itemLabel,
+										itemDescription,
+										itemPrefix,
+										itemHref,
+									} = getItemProps(item)}
+									{@const virtualStyle = `position: absolute; top: 0; left: 0; width: 100%; height: ${virtualItem.size}px; transform: translateY(${virtualItem.start}px); ${ctx.colourStyle}`}
+									{#if itemHref}
+										<Combobox.Item {item}>
+											{#snippet asChild(props)}
+												<a
+													{...props()}
+													href={itemHref}
+													class={ctx.styles.item()}
+													style={virtualStyle}
+													onclick={(e) => {
+														e.preventDefault();
+														window.open(
+															itemHref,
+															"_blank",
+															"noopener,noreferrer",
+														);
+													}}
+												>
+													{#if itemSnippet}
+														{@render itemSnippet(
+															item,
+														)}
+													{:else}
+														<Combobox.ItemText
+															class={ctx.styles.itemText()}
+														>
+															{#if itemPrefix}<span
+																	class={ctx.styles.itemPrefix()}
+																	>{itemPrefix}</span
+																>{/if}
+															{#if highlightMatch && inputValue}
+																<Highlight
+																	query={inputValue}
+																	text={itemLabel}
+																	ignoreCase
+																	colour="yellow"
+																/>
+															{:else}
+																{itemLabel}
+															{/if}
+															{#if itemDescription}
+																<span
+																	class={ctx.styles.itemDescription()}
+																	>{itemDescription}</span
+																>
+															{/if}
+														</Combobox.ItemText>
+														<ArrowSquareOut
+															class="size-4 ml-auto text-fg-muted"
+															aria-hidden="true"
+														/>
+													{/if}
+												</a>
+											{/snippet}
+										</Combobox.Item>
+									{:else}
+										<Combobox.Item
+											{item}
+											class={ctx.styles.item()}
+											style={virtualStyle}
+										>
+											{#if itemSnippet}
+												{@render itemSnippet(item)}
+											{:else}
+												<Combobox.ItemText
+													class={ctx.styles.itemText()}
+												>
+													{#if itemPrefix}<span
+															class={ctx.styles.itemPrefix()}
+															>{itemPrefix}</span
+														>{/if}
+													{#if highlightMatch && inputValue}
+														<Highlight
+															query={inputValue}
+															text={itemLabel}
+															ignoreCase
+															colour="yellow"
+														/>
+													{:else}
+														{itemLabel}
+													{/if}
+													{#if itemDescription}
+														<span
+															class={ctx.styles.itemDescription()}
+															>{itemDescription}</span
+														>
+													{/if}
+												</Combobox.ItemText>
+												<Combobox.ItemIndicator
+													class={ctx.styles.itemIndicator()}
+												>
+													<Check
+														weight="bold"
+														aria-hidden="true"
+													/>
+												</Combobox.ItemIndicator>
+											{/if}
+										</Combobox.Item>
+									{/if}
 								{/if}
 							{/each}
 						</div>
 					</div>
 				{:else}
 					{#each collection.items as item (typeof item === "string" ? item : item.value)}
-						{@const { itemLabel, itemDescription, itemPrefix, itemHref } = getItemProps(item)}
+						{@const {
+							itemLabel,
+							itemDescription,
+							itemPrefix,
+							itemHref,
+						} = getItemProps(item)}
 						{#if itemHref}
 							<Combobox.Item {item}>
 								{#snippet asChild(props)}
@@ -367,46 +462,88 @@
 										style={ctx.colourStyle}
 										onclick={(e) => {
 											e.preventDefault();
-											window.open(itemHref, "_blank", "noopener,noreferrer");
+											window.open(
+												itemHref,
+												"_blank",
+												"noopener,noreferrer",
+											);
 										}}
 									>
 										{#if itemSnippet}
 											{@render itemSnippet(item)}
 										{:else}
-											<Combobox.ItemText class={ctx.styles.itemText()}>
-												{#if itemPrefix}<span class={ctx.styles.itemPrefix()}>{itemPrefix}</span>{/if}
+											<Combobox.ItemText
+												class={ctx.styles.itemText()}
+											>
+												{#if itemPrefix}<span
+														class={ctx.styles.itemPrefix()}
+														>{itemPrefix}</span
+													>{/if}
 												{#if highlightMatch && inputValue}
-													<Highlight query={inputValue} text={itemLabel} ignoreCase colour="yellow" />
+													<Highlight
+														query={inputValue}
+														text={itemLabel}
+														ignoreCase
+														colour="yellow"
+													/>
 												{:else}
 													{itemLabel}
 												{/if}
 												{#if itemDescription}
-													<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
+													<span
+														class={ctx.styles.itemDescription()}
+														>{itemDescription}</span
+													>
 												{/if}
 											</Combobox.ItemText>
-											<ArrowSquareOut class="size-4 ml-auto text-fg-muted" aria-hidden="true" />
+											<ArrowSquareOut
+												class="size-4 ml-auto text-fg-muted"
+												aria-hidden="true"
+											/>
 										{/if}
 									</a>
 								{/snippet}
 							</Combobox.Item>
 						{:else}
-							<Combobox.Item {item} class={ctx.styles.item()} style={ctx.colourStyle}>
+							<Combobox.Item
+								{item}
+								class={ctx.styles.item()}
+								style={ctx.colourStyle}
+							>
 								{#if itemSnippet}
 									{@render itemSnippet(item)}
 								{:else}
-									<Combobox.ItemText class={ctx.styles.itemText()}>
-										{#if itemPrefix}<span class={ctx.styles.itemPrefix()}>{itemPrefix}</span>{/if}
+									<Combobox.ItemText
+										class={ctx.styles.itemText()}
+									>
+										{#if itemPrefix}<span
+												class={ctx.styles.itemPrefix()}
+												>{itemPrefix}</span
+											>{/if}
 										{#if highlightMatch && inputValue}
-											<Highlight query={inputValue} text={itemLabel} ignoreCase colour="yellow" />
+											<Highlight
+												query={inputValue}
+												text={itemLabel}
+												ignoreCase
+												colour="yellow"
+											/>
 										{:else}
 											{itemLabel}
 										{/if}
 										{#if itemDescription}
-											<span class={ctx.styles.itemDescription()}>{itemDescription}</span>
+											<span
+												class={ctx.styles.itemDescription()}
+												>{itemDescription}</span
+											>
 										{/if}
 									</Combobox.ItemText>
-									<Combobox.ItemIndicator class={ctx.styles.itemIndicator()}>
-										<Check weight="bold" aria-hidden="true" />
+									<Combobox.ItemIndicator
+										class={ctx.styles.itemIndicator()}
+									>
+										<Check
+											weight="bold"
+											aria-hidden="true"
+										/>
 									</Combobox.ItemIndicator>
 								{/if}
 							</Combobox.Item>
@@ -414,7 +551,10 @@
 					{/each}
 					{#if showCreateOption}
 						<Combobox.Item
-							item={{ label: `Create "${inputValue}"`, value: inputValue }}
+							item={{
+								label: `Create "${inputValue}"`,
+								value: inputValue,
+							}}
 							class={ctx.styles.item()}
 							style={ctx.colourStyle}
 						>
@@ -430,19 +570,29 @@
 </Combobox.Root>
 
 <style>
-	:global([data-scope="combobox"][data-part="content"][data-placement^="bottom"]) {
+	:global(
+		[data-scope="combobox"][data-part="content"][data-placement^="bottom"]
+	) {
 		animation: var(--animate-submenu-bottom);
 	}
-	:global([data-scope="combobox"][data-part="content"][data-placement^="top"]) {
+	:global(
+		[data-scope="combobox"][data-part="content"][data-placement^="top"]
+	) {
 		animation: var(--animate-submenu-top);
 	}
-	:global([data-scope="combobox"][data-part="content"][data-placement^="left"]) {
+	:global(
+		[data-scope="combobox"][data-part="content"][data-placement^="left"]
+	) {
 		animation: var(--animate-submenu-left);
 	}
-	:global([data-scope="combobox"][data-part="content"][data-placement^="right"]) {
+	:global(
+		[data-scope="combobox"][data-part="content"][data-placement^="right"]
+	) {
 		animation: var(--animate-submenu-right);
 	}
-	:global([data-scope="combobox"][data-part="content"]:not([data-placement])) {
+	:global(
+		[data-scope="combobox"][data-part="content"]:not([data-placement])
+	) {
 		animation: var(--animate-submenu-bottom);
 	}
 </style>

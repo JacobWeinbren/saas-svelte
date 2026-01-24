@@ -24,13 +24,24 @@
 		[key: string]: any;
 	}
 
-	let { index, children, class: className, name, ...restProps }: Props = $props();
+	let {
+		index,
+		children,
+		class: className,
+		name,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<SliderContext>(SLIDER_CTX);
 	const styles = $derived(ctx.styles);
 </script>
 
-<Slider.Thumb {index} {name} class={twMerge(styles.thumb(), className)} {...restProps}>
+<Slider.Thumb
+	{index}
+	{name}
+	class={twMerge(styles.thumb(), className)}
+	{...restProps}
+>
 	<Slider.HiddenInput />
 	{#if children}
 		{@render children()}

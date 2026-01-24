@@ -58,28 +58,34 @@
 		return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 	}
 
-	function highlightText(inputText: string, queries: string | string[]): Array<{ text: string; match: boolean }> {
-		if (!inputText || typeof inputText !== 'string') return [];
+	function highlightText(
+		inputText: string,
+		queries: string | string[],
+	): Array<{ text: string; match: boolean }> {
+		if (!inputText || typeof inputText !== "string") return [];
 
 		const queryArray = Array.isArray(queries) ? queries : [queries];
-		if (queryArray.length === 0 || queryArray.every(q => !q)) {
+		if (queryArray.length === 0 || queryArray.every((q) => !q)) {
 			return [{ text: inputText, match: false }];
 		}
 
 		const pattern = queryArray
-			.filter(q => q)
+			.filter((q) => q)
 			.map(escapeRegExp)
 			.join("|");
 
 		const flags = ignoreCase ? "gi" : "g";
-		const regex = new RegExp(`(${pattern})`, matchAll ? flags : flags.replace("g", ""));
+		const regex = new RegExp(
+			`(${pattern})`,
+			matchAll ? flags : flags.replace("g", ""),
+		);
 
 		const parts = inputText.split(regex);
 		const result: Array<{ text: string; match: boolean }> = [];
 
 		for (let i = 0; i < parts.length; i++) {
 			if (parts[i]) {
-				const isMatch = queryArray.some(q => {
+				const isMatch = queryArray.some((q) => {
 					if (ignoreCase) {
 						return q.toLowerCase() === parts[i].toLowerCase();
 					}
@@ -99,5 +105,6 @@
 	>{#each parts as { text: partText, match }}{#if match}<Mark
 				{variant}
 				{colour}
-				class={markClass}>{partText}</Mark>{:else}{partText}{/if}{/each}</Text
+				class={markClass}>{partText}</Mark
+			>{:else}{partText}{/if}{/each}</Text
 >

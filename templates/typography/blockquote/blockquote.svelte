@@ -128,9 +128,7 @@
 	</blockquote>
 
 	{#if cite}
-		<figcaption
-			class="text-sm leading-sm text-fg-muted"
-		>
+		<figcaption class="text-sm leading-sm text-fg-muted">
 			{#if showDash}<span class="me-1">—</span>{/if}<cite>{cite}</cite>
 		</figcaption>
 	{/if}

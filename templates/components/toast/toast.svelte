@@ -109,7 +109,12 @@
 	});
 
 	export type ToastVariants = VariantProps<typeof toast>;
-	export type ToastStatus = "info" | "success" | "warning" | "error" | "loading";
+	export type ToastStatus =
+		| "info"
+		| "success"
+		| "warning"
+		| "error"
+		| "loading";
 </script>
 
 <script lang="ts">
@@ -197,11 +202,7 @@
 	const styles = $derived(toast({ status }));
 </script>
 
-<div
-	class={styles.root({ class: className })}
-	role="status"
-	aria-live="polite"
->
+<div class={styles.root({ class: className })} role="status" aria-live="polite">
 	{#if children}
 		{@render children()}
 	{:else if isSingleLine}

@@ -15,7 +15,9 @@
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
 	const finalClass = $derived(
-		["flex items-center px-2.5 py-1.5", className].filter(Boolean).join(" ")
+		["flex items-center px-2.5 py-1.5", className]
+			.filter(Boolean)
+			.join(" "),
 	);
 </script>
 

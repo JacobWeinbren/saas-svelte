@@ -7,34 +7,34 @@ import PersonaSecondaryLabel from "./persona-secondary-label.svelte";
 import PersonaTertiaryLabel from "./persona-tertiary-label.svelte";
 
 export {
-	PersonaRoot,
-	PersonaAvatar,
-	PersonaPresenceBadge,
-	PersonaDetails,
-	PersonaLabel,
-	PersonaSecondaryLabel,
-	PersonaTertiaryLabel,
+    PersonaRoot,
+    PersonaAvatar,
+    PersonaPresenceBadge,
+    PersonaDetails,
+    PersonaLabel,
+    PersonaSecondaryLabel,
+    PersonaTertiaryLabel,
 };
 
 export {
-	persona,
-	PERSONA_CTX,
-	type PersonaContext,
-	type PersonaVariants,
+    persona,
+    PERSONA_CTX,
+    type PersonaContext,
+    type PersonaVariants,
 } from "./persona.svelte";
 
 export {
-	presenceBadge,
-	type PresenceBadgeVariants,
-	type PresenceStatus,
+    presenceBadge,
+    type PresenceBadgeVariants,
+    type PresenceStatus,
 } from "./persona-presence-badge.svelte";
 
 export const Persona = {
-	Root: PersonaRoot,
-	Avatar: PersonaAvatar,
-	PresenceBadge: PersonaPresenceBadge,
-	Details: PersonaDetails,
-	Label: PersonaLabel,
-	SecondaryLabel: PersonaSecondaryLabel,
-	TertiaryLabel: PersonaTertiaryLabel,
+    Root: PersonaRoot,
+    Avatar: PersonaAvatar,
+    PresenceBadge: PersonaPresenceBadge,
+    Details: PersonaDetails,
+    Label: PersonaLabel,
+    SecondaryLabel: PersonaSecondaryLabel,
+    TertiaryLabel: PersonaTertiaryLabel,
 } as const;

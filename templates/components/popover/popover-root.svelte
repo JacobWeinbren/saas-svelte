@@ -53,13 +53,7 @@
 				"pb-0",
 				"text-fg-default",
 			],
-			body: [
-				"flex-1",
-				"p-5",
-				"text-fg-default",
-				"text-sm",
-				"leading-sm",
-			],
+			body: ["flex-1", "p-5", "text-fg-default", "text-sm", "leading-sm"],
 			footer: [
 				"flex",
 				"items-center",
@@ -69,17 +63,8 @@
 				"pt-0",
 				"pb-5",
 			],
-			title: [
-				"text-sm",
-				"leading-sm",
-				"font-medium",
-				"text-fg-default",
-			],
-			description: [
-				"text-sm",
-				"leading-sm",
-				"text-fg-muted",
-			],
+			title: ["text-sm", "leading-sm", "font-medium", "text-fg-default"],
+			description: ["text-sm", "leading-sm", "text-fg-muted"],
 			closeTrigger: [
 				"absolute",
 				"top-2",

@@ -21,7 +21,10 @@
 	const ctx = getContext<SelectContext>(SELECT_CTX);
 </script>
 
-<Select.Indicator class={ctx?.styles?.indicator({ class: className })} {...rest}>
+<Select.Indicator
+	class={ctx?.styles?.indicator({ class: className })}
+	{...rest}
+>
 	{#if children}
 		{@render children()}
 	{:else}

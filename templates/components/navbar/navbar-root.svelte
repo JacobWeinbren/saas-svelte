@@ -39,12 +39,7 @@
 				"items-center",
 				"flex",
 			],
-			itemGroup: [
-				"justify-start",
-				"items-center",
-				"h-full",
-				"flex",
-			],
+			itemGroup: ["justify-start", "items-center", "h-full", "flex"],
 			item: [],
 			link: [
 				"text-current",
@@ -154,32 +149,48 @@
 	let lastScrollY = 0;
 
 	const styles = $derived(navbar({ variant, position, bordered }));
-	const colourStyle = $derived(variant === "solid" ? getColourStyle(colour) : "");
-	const hideTransform = $derived(shouldHideOnScroll && isHidden ? "transform: translateY(-100%);" : "");
-	const finalStyle = $derived([colourStyle, hideTransform, style].filter(Boolean).join(" "));
+	const colourStyle = $derived(
+		variant === "solid" ? getColourStyle(colour) : "",
+	);
+	const hideTransform = $derived(
+		shouldHideOnScroll && isHidden ? "transform: translateY(-100%);" : "",
+	);
+	const finalStyle = $derived(
+		[colourStyle, hideTransform, style].filter(Boolean).join(" "),
+	);
 
 	setContext<NavbarContext>(NAVBAR_CTX, {
-		get variant() { return variant ?? "default"; },
-		get styles() { return styles; },
-		get colourStyle() { return colourStyle; },
+		get variant() {
+			return variant ?? "default";
+		},
+		get styles() {
+			return styles;
+		},
+		get colourStyle() {
+			return colourStyle;
+		},
 	});
 
 	// Scroll detection using runed's reactive approach
 	$effect(() => {
 		if (!shouldHideOnScroll || typeof window === "undefined") return;
 
-		const getScrollParent = (el: HTMLElement | null): HTMLElement | Window => {
+		const getScrollParent = (
+			el: HTMLElement | null,
+		): HTMLElement | Window => {
 			let parent = el?.parentElement;
 			while (parent) {
 				const { overflowY } = getComputedStyle(parent);
-				if (overflowY === "auto" || overflowY === "scroll") return parent;
+				if (overflowY === "auto" || overflowY === "scroll")
+					return parent;
 				parent = parent.parentElement;
 			}
 			return window;
 		};
 
 		const target = parentRef ?? getScrollParent(navElement);
-		const getScrollY = () => target instanceof Window ? target.scrollY : target.scrollTop;
+		const getScrollY = () =>
+			target instanceof Window ? target.scrollY : target.scrollTop;
 
 		const onScroll = () => {
 			const scrollY = getScrollY();
@@ -192,6 +203,12 @@
 	});
 </script>
 
-<nav bind:this={navElement} class={styles.root({ class: className })} style={finalStyle} aria-label={ariaLabel} {...rest}>
+<nav
+	bind:this={navElement}
+	class={styles.root({ class: className })}
+	style={finalStyle}
+	aria-label={ariaLabel}
+	{...rest}
+>
 	{@render children?.()}
 </nav>

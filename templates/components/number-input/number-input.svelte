@@ -111,7 +111,8 @@
 			},
 			position: {
 				increment: "rounded-se-[calc(.2rem+1px)]",
-				decrement: "rounded-ee-[calc(.2rem+1px)] border-t border-t-border-default border-b-0",
+				decrement:
+					"rounded-ee-[calc(.2rem+1px)] border-t border-t-border-default border-b-0",
 			},
 		},
 		defaultVariants: {
@@ -164,7 +165,10 @@
 		/**
 		 * Callback when the value changes.
 		 */
-		onValueChange?: (details: { value: string; valueAsNumber: number }) => void;
+		onValueChange?: (details: {
+			value: string;
+			valueAsNumber: number;
+		}) => void;
 		/**
 		 * The minimum value allowed.
 		 */
@@ -283,7 +287,9 @@
 	const isReadOnly = $derived(readOnly || fieldState.readOnly || false);
 	const inputId = $derived(id || fieldState.id);
 
-	const rootClasses = $derived(numberInputRoot({ class: className }) as string);
+	const rootClasses = $derived(
+		numberInputRoot({ class: className }) as string,
+	);
 
 	const inputClasses = $derived(
 		numberInputInput({
@@ -356,12 +362,18 @@
 	</NumberInput.Control>
 	<div class={triggerGroupClasses} role="group" aria-disabled={isDisabled}>
 		<NumberInput.IncrementTrigger class={incrementClasses}>
-			<svg viewBox="0 0 24 24" class="{iconSize} fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]">
+			<svg
+				viewBox="0 0 24 24"
+				class="{iconSize} fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]"
+			>
 				<path d="m18 15-6-6-6 6"></path>
 			</svg>
 		</NumberInput.IncrementTrigger>
 		<NumberInput.DecrementTrigger class={decrementClasses}>
-			<svg viewBox="0 0 24 24" class="{iconSize} fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]">
+			<svg
+				viewBox="0 0 24 24"
+				class="{iconSize} fill-none stroke-current stroke-2 [stroke-linecap:round] [stroke-linejoin:round]"
+			>
 				<path d="m6 9 6 6 6-6"></path>
 			</svg>
 		</NumberInput.DecrementTrigger>

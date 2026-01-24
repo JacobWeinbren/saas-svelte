@@ -24,10 +24,7 @@
 					"hover:border-border-emphasized",
 					"hover:focus-visible:border-(--c-focus-ring)",
 				],
-				subtle: [
-					"bg-bg-subtle",
-					"border-transparent",
-				],
+				subtle: ["bg-bg-subtle", "border-transparent"],
 				flushed: [
 					"rounded-none",
 					"border-t-0",

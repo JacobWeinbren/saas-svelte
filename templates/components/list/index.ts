@@ -3,9 +3,9 @@ import ListItem from "./list-item.svelte";
 import ListIndicator from "./list-indicator.svelte";
 
 export const List = {
-	Root: ListRoot,
-	Item: ListItem,
-	Indicator: ListIndicator,
+    Root: ListRoot,
+    Item: ListItem,
+    Indicator: ListIndicator,
 };
 
 export { ListRoot, ListItem, ListIndicator };

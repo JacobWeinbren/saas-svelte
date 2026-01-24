@@ -14,7 +14,7 @@
 		/**
 		 * The content to display in the info tip.
 		 */
-		children: string | Snippet;
+		content: string | Snippet;
 		/**
 		 * Additional CSS classes to apply.
 		 */
@@ -37,7 +37,7 @@
 
 	let {
 		id,
-		children,
+		content,
 		class: className,
 		size = "xs",
 		positioning = { placement: "top", gutter: 8 },
@@ -47,14 +47,14 @@
 </script>
 
 <ToggleTip
-	content={children}
+	{content}
 	{size}
 	{id}
 	{positioning}
 	class={className}
 	{...rest}
 >
-	{#snippet children(props)}
+	{#snippet trigger(props)}
 		<button
 			type="button"
 			aria-label={ariaLabel}

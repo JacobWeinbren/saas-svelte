@@ -24,9 +24,6 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<div
-	class={twMerge(styles.addon(), className)}
-	{...restProps}
->
+<div class={twMerge(styles.addon(), className)} {...restProps}>
 	{@render children()}
 </div>

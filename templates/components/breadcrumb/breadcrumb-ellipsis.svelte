@@ -2,7 +2,10 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import { BREADCRUMB_CTX, type BreadcrumbContext } from "./breadcrumb-root.svelte";
+	import {
+		BREADCRUMB_CTX,
+		type BreadcrumbContext,
+	} from "./breadcrumb-root.svelte";
 	import DotsThree from "phosphor-svelte/lib/DotsThree";
 
 	interface Props extends HTMLAttributes<HTMLLIElement> {

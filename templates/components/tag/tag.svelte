@@ -25,7 +25,8 @@
 			variant: {
 				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "bg-(--c-solid) text-(--c-contrast)",
-				outline: "text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+				outline:
+					"text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 				surface:
 					"bg-(--c-muted)/20 text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
 			},
@@ -246,11 +247,7 @@
 <span class={finalClass} style={finalStyle} {...restProps}>
 	{#if startAvatar}
 		<span class={avatarClass}>
-			<Avatar
-				src={startAvatar.src}
-				name={startAvatar.name}
-				size="full"
-			/>
+			<Avatar src={startAvatar.src} name={startAvatar.name} size="full" />
 		</span>
 	{:else if startIcon}
 		<span class={elementClass}>
@@ -266,7 +263,12 @@
 	</span>
 	{#if endIcon}
 		<span class={elementClass}>
-			<Icon as={endIcon} class="w-full h-full" weight="bold" aria-hidden="true" />
+			<Icon
+				as={endIcon}
+				class="w-full h-full"
+				weight="bold"
+				aria-hidden="true"
+			/>
 		</span>
 	{:else if endElement}
 		<span class={elementClass}>

@@ -237,6 +237,6 @@
 		{/if}
 	</ArkAvatar.Fallback>
 	{#if src}
-		<ArkAvatar.Image src={src} alt={name || "Avatar"} class={image()} />
+		<ArkAvatar.Image {src} alt={name || "Avatar"} class={image()} />
 	{/if}
 </ArkAvatar.Root>

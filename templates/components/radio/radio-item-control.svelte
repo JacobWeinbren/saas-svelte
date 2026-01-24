@@ -20,11 +20,7 @@
 		[key: string]: any;
 	}
 
-	let {
-		children,
-		class: className,
-		...restProps
-	}: Props = $props();
+	let { children, class: className, ...restProps }: Props = $props();
 
 	const ctx = getContext<RadioGroupContext>(RADIO_GROUP_CTX);
 	const styles = $derived(ctx.styles);

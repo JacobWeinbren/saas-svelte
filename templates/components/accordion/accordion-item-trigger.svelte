@@ -3,7 +3,10 @@
 	import CaretRight from "phosphor-svelte/lib/CaretRight";
 	import { getContext, type Snippet } from "svelte";
 	import { twMerge } from "tailwind-merge";
-	import { ACCORDION_CTX, type AccordionContext } from "./accordion-root.svelte";
+	import {
+		ACCORDION_CTX,
+		type AccordionContext,
+	} from "./accordion-root.svelte";
 
 	interface Props {
 		/**

@@ -37,6 +37,16 @@
 	);
 </script>
 
+<Progress.Range
+	class={twMerge(
+		styles.range(),
+		stripeClasses(),
+		indeterminateClasses,
+		className,
+	)}
+	{...restProps}
+/>
+
 <style>
 	/* Global keyframes for Tailwind arbitrary animation values */
 	:global {
@@ -59,13 +69,3 @@
 		}
 	}
 </style>
-
-<Progress.Range
-	class={twMerge(
-		styles.range(),
-		stripeClasses(),
-		indeterminateClasses,
-		className,
-	)}
-	{...restProps}
-/>

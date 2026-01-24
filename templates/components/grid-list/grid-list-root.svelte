@@ -5,11 +5,7 @@
 	 * Tailwind Variants styles for the GridList root component.
 	 */
 	export const gridListRoot = tv({
-		base: [
-			"text-sm leading-5",
-			"relative py-1",
-			"antialiased",
-		],
+		base: ["text-sm leading-5", "relative py-1", "antialiased"],
 	});
 
 	export const GRID_LIST_CTX = Symbol("GRID_LIST_CTX");

@@ -4,12 +4,7 @@
 	import { tv } from "tailwind-variants";
 
 	const dialogTitle = tv({
-		base: [
-			"text-base",
-			"font-semibold",
-			"leading-6",
-			"antialiased",
-		],
+		base: ["text-base", "font-semibold", "leading-6", "antialiased"],
 	});
 
 	interface Props {

@@ -16,7 +16,8 @@
 			variant: {
 				solid: "bg-(--c-solid) text-(--c-contrast)",
 				subtle: "bg-(--c-muted) text-(--c-fg)",
-				outline: "border border-(--c-subtle) text-(--c-fg) bg-transparent",
+				outline:
+					"border border-(--c-subtle) text-(--c-fg) bg-transparent",
 				plain: "text-(--c-fg) bg-transparent",
 			},
 		},
@@ -62,7 +63,9 @@
 	}: Props = $props();
 
 	const colourVars = $derived(getColourStyle(colour));
-	const finalClass = $derived(circle({ size, variant, class: className as string }));
+	const finalClass = $derived(
+		circle({ size, variant, class: className as string }),
+	);
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 </script>
 

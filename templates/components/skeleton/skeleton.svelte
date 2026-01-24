@@ -6,12 +6,7 @@
 	 * Used to render a placeholder while content is loading.
 	 */
 	export const skeleton = tv({
-		base: [
-			"rounded-md",
-			"shrink-0",
-			"before:invisible",
-			"after:invisible",
-		],
+		base: ["rounded-md", "shrink-0", "before:invisible", "after:invisible"],
 		variants: {
 			/**
 			 * The animation variant.
@@ -33,11 +28,7 @@
 			 * @default true
 			 */
 			loading: {
-				true: [
-					"cursor-default",
-					"pointer-events-none",
-					"select-none",
-				],
+				true: ["cursor-default", "pointer-events-none", "select-none"],
 				false: "",
 			},
 		},
@@ -111,7 +102,9 @@
 
 <div
 	class={classes}
-	style="{shineStyle}{loading && height ? `height: ${height};` : ''}{loading && width ? `width: ${width};` : ''}"
+	style="{shineStyle}{loading && height
+		? `height: ${height};`
+		: ''}{loading && width ? `width: ${width};` : ''}"
 	aria-hidden={loading}
 	{...restProps}
 >

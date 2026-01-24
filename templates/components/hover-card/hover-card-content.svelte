@@ -2,7 +2,10 @@
 	import { HoverCard } from "@ark-ui/svelte/hover-card";
 	import { Portal } from "@ark-ui/svelte/portal";
 	import { getContext, type Snippet } from "svelte";
-	import { HOVER_CARD_CTX, type HoverCardContext } from "./hover-card-root.svelte";
+	import {
+		HOVER_CARD_CTX,
+		type HoverCardContext,
+	} from "./hover-card-root.svelte";
 
 	interface Props {
 		/**

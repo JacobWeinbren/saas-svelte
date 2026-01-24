@@ -25,9 +25,6 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<RadioGroup.Label
-	class={twMerge(styles.label(), className)}
-	{...restProps}
->
+<RadioGroup.Label class={twMerge(styles.label(), className)} {...restProps}>
 	{@render children()}
 </RadioGroup.Label>

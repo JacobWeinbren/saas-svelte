@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import { BREADCRUMB_CTX, type BreadcrumbContext } from "./breadcrumb-root.svelte";
+	import {
+		BREADCRUMB_CTX,
+		type BreadcrumbContext,
+	} from "./breadcrumb-root.svelte";
 
 	interface Props {
 		/**

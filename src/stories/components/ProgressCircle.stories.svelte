@@ -97,7 +97,12 @@
 		{#each sizes as size (size)}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
-				<ProgressCircle size={size as Size} value={30} colour="indigo" rounded />
+				<ProgressCircle
+					size={size as Size}
+					value={30}
+					colour="indigo"
+					rounded
+				/>
 			</VStack>
 		{/each}
 	</HStack>
@@ -119,7 +124,12 @@
 {#snippet valueTextStory()}
 	<HStack gap={8} class="items-center">
 		{#each ["md", "lg", "xl"] as size (size)}
-			<ProgressCircle size={size as Size} value={65} colour="teal" showValue />
+			<ProgressCircle
+				size={size as Size}
+				value={65}
+				colour="teal"
+				showValue
+			/>
 		{/each}
 	</HStack>
 {/snippet}

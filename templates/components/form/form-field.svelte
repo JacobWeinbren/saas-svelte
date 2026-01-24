@@ -1,7 +1,12 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import { FieldRoot, FieldLabel, FieldHelperText, FieldErrorText } from "../field";
+	import {
+		FieldRoot,
+		FieldLabel,
+		FieldHelperText,
+		FieldErrorText,
+	} from "../field";
 	import { Input } from "../input";
 	import { Textarea } from "../textarea";
 	import { NativeSelect } from "../native-select";
@@ -27,7 +32,14 @@
 		step?: number;
 		class?: string;
 		children?: Snippet<
-			[{ value: unknown; error: string | undefined; onChange: (value: unknown) => void; onBlur: () => void }]
+			[
+				{
+					value: unknown;
+					error: string | undefined;
+					onChange: (value: unknown) => void;
+					onBlur: () => void;
+				},
+			]
 		>;
 	}
 
@@ -63,7 +75,10 @@
 
 <FieldRoot invalid={!!error} {required} {disabled} class={className}>
 	{#if label && type !== "checkbox" && type !== "radio"}
-		<FieldLabel>{label}{#if required}<span class="text-fg-error">*</span>{/if}</FieldLabel>
+		<FieldLabel
+			>{label}{#if required}<span class="text-fg-error">*</span
+				>{/if}</FieldLabel
+		>
 	{/if}
 
 	{#if children}
@@ -87,9 +102,12 @@
 			onchange={(e) => onChange((e.target as HTMLSelectElement).value)}
 			onblur={onBlur}
 		>
-			{#if placeholder}<option value="" disabled>{placeholder}</option>{/if}
+			{#if placeholder}<option value="" disabled>{placeholder}</option
+				>{/if}
 			{#each options as opt}
-				<option value={opt.value} disabled={opt.disabled}>{opt.label}</option>
+				<option value={opt.value} disabled={opt.disabled}
+					>{opt.label}</option
+				>
 			{/each}
 		</NativeSelect>
 	{:else if type === "checkbox"}
@@ -109,10 +127,17 @@
 			onValueChange={(details) => onChange(details.value)}
 		>
 			{#if label}
-				<Radio.Label>{label}{#if required}<span class="text-fg-error">*</span>{/if}</Radio.Label>
+				<Radio.Label
+					>{label}{#if required}<span class="text-fg-error">*</span
+						>{/if}</Radio.Label
+				>
 			{/if}
 			{#each options as opt}
-				<Radio.Item value={opt.value} label={opt.label} disabled={opt.disabled} />
+				<Radio.Item
+					value={opt.value}
+					label={opt.label}
+					disabled={opt.disabled}
+				/>
 			{/each}
 		</Radio.Group>
 	{:else if type === "number-input"}

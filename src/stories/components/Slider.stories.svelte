@@ -129,7 +129,12 @@
 		{#each colours as colour}
 			<HStack gap={4} class="items-center">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Slider.Root defaultValue={[40]} {colour} variant="outline" class="w-[160px]">
+				<Slider.Root
+					defaultValue={[40]}
+					{colour}
+					variant="outline"
+					class="w-[160px]"
+				>
 					<Slider.Control>
 						<Slider.Track>
 							<Slider.Range />
@@ -137,7 +142,12 @@
 						<Slider.Thumb index={0} />
 					</Slider.Control>
 				</Slider.Root>
-				<Slider.Root defaultValue={[40]} {colour} variant="solid" class="w-[160px]">
+				<Slider.Root
+					defaultValue={[40]}
+					{colour}
+					variant="solid"
+					class="w-[160px]"
+				>
 					<Slider.Control>
 						<Slider.Track>
 							<Slider.Range />
@@ -189,7 +199,12 @@
 	<Stack gap={4}>
 		{#each sliderSizes as size}
 			<Stack gap={2} class="items-start">
-				<Slider.Root defaultValue={[40]} {size} colour="pink" class="w-[200px]">
+				<Slider.Root
+					defaultValue={[40]}
+					{size}
+					colour="pink"
+					class="w-[200px]"
+				>
 					<Slider.Control>
 						<Slider.Track>
 							<Slider.Range />
@@ -234,7 +249,9 @@
 				<Slider.Thumb index={0} />
 			</Slider.Control>
 		</Slider.Root>
-		<Text size="sm" class="text-fg-muted">Current value: {controlledValue[0]}</Text>
+		<Text size="sm" class="text-fg-muted"
+			>Current value: {controlledValue[0]}</Text
+		>
 	</Stack>
 {/snippet}
 
@@ -266,7 +283,9 @@
 		</Slider.Root>
 		<Stack gap={1}>
 			<Code size="sm">onChange: <strong>{changeValue[0]}</strong></Code>
-			<Code size="sm">onChangeEnd: <strong>{changeEndValue[0]}</strong></Code>
+			<Code size="sm"
+				>onChangeEnd: <strong>{changeEndValue[0]}</strong></Code
+			>
 		</Stack>
 	</Stack>
 {/snippet}

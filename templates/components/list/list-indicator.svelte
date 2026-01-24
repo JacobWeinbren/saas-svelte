@@ -69,8 +69,12 @@
 	}: Props = $props();
 
 	// Use the 500 shade - same value in both light and dark mode
-	const colourStyle = $derived(colour ? `color: var(--color-${colour}-500)` : "");
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const colourStyle = $derived(
+		colour ? `color: var(--color-${colour}-500)` : "",
+	);
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 	const finalClass = $derived(twMerge(listIndicator({ size }), className));
 </script>
 

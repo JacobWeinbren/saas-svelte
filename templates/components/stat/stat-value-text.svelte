@@ -23,7 +23,13 @@
 		[key: string]: any;
 	}
 
-	let { children, class: className, value, formatOptions, ...restProps }: Props = $props();
+	let {
+		children,
+		class: className,
+		value,
+		formatOptions,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<StatContext>(STAT_CTX);
 	const styles = $derived(ctx.styles);

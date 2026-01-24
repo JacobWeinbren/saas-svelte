@@ -14,7 +14,9 @@
 	let { children, class: className, ...restProps }: Props = $props();
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
-	const finalClass = $derived(ctx?.styles?.groupContent({ class: className }));
+	const finalClass = $derived(
+		ctx?.styles?.groupContent({ class: className as string }),
+	);
 </script>
 
 <div class={finalClass} {...restProps}>

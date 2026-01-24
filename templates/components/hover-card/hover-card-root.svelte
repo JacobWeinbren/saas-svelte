@@ -8,12 +8,7 @@
 	 */
 	export const hoverCard = tv({
 		slots: {
-			positioner: [
-				"absolute",
-				"isolate",
-				"min-w-max",
-				"z-popover",
-			],
+			positioner: ["absolute", "isolate", "min-w-max", "z-popover"],
 			content: [
 				"flex",
 				"flex-col",

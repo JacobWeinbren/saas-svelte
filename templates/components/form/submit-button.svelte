@@ -30,7 +30,8 @@
 
 	const form = getContext<FormApi>(FORM_CTX);
 	const disabled = $derived(
-		(disableIfUntouched && !form.isDirty) || (disableIfInvalid && !form.isValid),
+		(disableIfUntouched && !form.isDirty) ||
+			(disableIfInvalid && !form.isValid),
 	);
 </script>
 

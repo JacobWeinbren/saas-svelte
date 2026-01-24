@@ -4,11 +4,7 @@
 	import { tv } from "tailwind-variants";
 
 	const cardTitle = tv({
-		base: [
-			"break-words",
-			"text-sm",
-			"font-semibold",
-		],
+		base: ["break-words", "text-sm", "font-semibold"],
 	});
 
 	interface Props extends HTMLAttributes<HTMLHeadingElement> {

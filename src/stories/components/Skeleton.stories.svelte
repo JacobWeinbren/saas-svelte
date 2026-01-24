@@ -1,6 +1,10 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import { Skeleton, SkeletonCircle, SkeletonText } from "$saas/components/skeleton";
+	import {
+		Skeleton,
+		SkeletonCircle,
+		SkeletonText,
+	} from "$saas/components/skeleton";
 	import { Stack } from "$saas/layout/stack";
 	import { Group } from "$saas/layout/group";
 	import { Text } from "$saas/typography/text";
@@ -107,7 +111,7 @@
 
 {#snippet contentLoadingStory()}
 	<Stack gap={4} class="items-start">
-		<Skeleton loading={loading}>
+		<Skeleton {loading}>
 			<Text>Saas UI is cool</Text>
 		</Skeleton>
 		<Button size="sm" onclick={() => (loading = !loading)}>Toggle</Button>
@@ -126,7 +130,9 @@
 	<Stack gap={6}>
 		{#each [1, 2, 3, 4] as noOfLines}
 			<Stack gap={2}>
-				<Text size="xs" class="text-fg-muted">{noOfLines} line{noOfLines > 1 ? 's' : ''}</Text>
+				<Text size="xs" class="text-fg-muted"
+					>{noOfLines} line{noOfLines > 1 ? "s" : ""}</Text
+				>
 				<SkeletonText {noOfLines} gap={2} />
 			</Stack>
 		{/each}

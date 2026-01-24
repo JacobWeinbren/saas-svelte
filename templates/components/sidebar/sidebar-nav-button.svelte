@@ -2,7 +2,11 @@
 	import { getContext } from "svelte";
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { SIDEBAR_CTX, type SidebarContext, sidebar } from "./sidebar-root.svelte";
+	import {
+		SIDEBAR_CTX,
+		type SidebarContext,
+		sidebar,
+	} from "./sidebar-root.svelte";
 
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
@@ -16,13 +20,20 @@
 		children?: Snippet;
 	}
 
-	let { active = false, children, class: className, ...restProps }: Props = $props();
+	let {
+		active = false,
+		children,
+		class: className,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
 	const styles = $derived(ctx?.styles ?? sidebar());
 	const activeClass = "bg-bg-subtle text-fg-default";
 	const finalClass = $derived(
-		[styles.item(), active && activeClass, className].filter(Boolean).join(" ")
+		[styles.item(), active && activeClass, className]
+			.filter(Boolean)
+			.join(" "),
 	);
 </script>
 

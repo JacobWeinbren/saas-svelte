@@ -40,19 +40,19 @@ export const badgeVariants = ["subtle", "solid", "outline", "surface"] as const;
 export const badgeSizes = ["xs", "sm", "md", "lg"] as const;
 export const alertVariants = ["subtle", "solid", "surface", "outline"] as const;
 export const iconWeights = [
-	"thin",
-	"light",
-	"regular",
-	"bold",
-	"fill",
-	"duotone",
+    "thin",
+    "light",
+    "regular",
+    "bold",
+    "fill",
+    "duotone",
 ] as const;
 export const textWeights = [
-	"light",
-	"normal",
-	"medium",
-	"semibold",
-	"bold",
+    "light",
+    "normal",
+    "medium",
+    "semibold",
+    "bold",
 ] as const;
 export const alertStatuses = [
     "info",
@@ -118,15 +118,15 @@ export const textareaResizeOptions = ["none", "vertical", "horizontal", "both"] 
 export const imageRoundedOptions = ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"] as const;
 export const imageFitOptions = ["contain", "cover", "fill", "none", "scale-down"] as const;
 export const floatPlacements = [
-	"top-start",
-	"top-center",
-	"top-end",
-	"bottom-start",
-	"bottom-center",
-	"bottom-end",
-	"middle-start",
-	"middle-center",
-	"middle-end",
+    "top-start",
+    "top-center",
+    "top-end",
+    "bottom-start",
+    "bottom-center",
+    "bottom-end",
+    "middle-start",
+    "middle-center",
+    "middle-end",
 ] as const;
 
 // Typography (additional)

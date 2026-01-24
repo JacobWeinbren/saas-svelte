@@ -18,13 +18,8 @@
 		],
 		variants: {
 			variant: {
-				outline: [
-					"border-border-default",
-				],
-				subtle: [
-					"bg-bg-subtle",
-					"border-transparent",
-				],
+				outline: ["border-border-default"],
+				subtle: ["bg-bg-subtle", "border-transparent"],
 				plain: [
 					"rounded",
 					"text-fg-default",

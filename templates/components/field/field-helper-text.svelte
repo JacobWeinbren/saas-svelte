@@ -18,13 +18,7 @@
 
 <span
 	id={helperId}
-	class={[
-		"text-fg-muted",
-		"text-xs",
-		"leading-4",
-		"antialiased",
-		className,
-	]
+	class={["text-fg-muted", "text-xs", "leading-4", "antialiased", className]
 		.filter(Boolean)
 		.join(" ")}
 	{...restProps}

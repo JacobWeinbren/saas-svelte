@@ -16,11 +16,19 @@
 		dismiss: (id: string) => void;
 		remove: (id: string) => void;
 		dismissAll: () => void;
-		subscribe: (callback: (event: "dismiss", id: string) => void) => () => void;
+		subscribe: (
+			callback: (event: "dismiss", id: string) => void,
+		) => () => void;
 	}
 
 	export interface CreateToasterOptions {
-		placement?: "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end";
+		placement?:
+			| "top"
+			| "top-start"
+			| "top-end"
+			| "bottom"
+			| "bottom-start"
+			| "bottom-end";
 		duration?: number;
 		gap?: number;
 		overlap?: boolean;
@@ -28,7 +36,9 @@
 
 	let toastCounter = 0;
 
-	export function createToaster(options: CreateToasterOptions = {}): ToasterStore {
+	export function createToaster(
+		options: CreateToasterOptions = {},
+	): ToasterStore {
 		const { duration: defaultDuration = 5000 } = options;
 
 		let toasts = $state<ToastData[]>([]);
@@ -76,7 +86,9 @@
 			}
 		}
 
-		function subscribe(callback: (event: "dismiss", id: string) => void): () => void {
+		function subscribe(
+			callback: (event: "dismiss", id: string) => void,
+		): () => void {
 			listeners.add(callback);
 			return () => listeners.delete(callback);
 		}

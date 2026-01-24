@@ -20,12 +20,21 @@
 		[key: string]: any;
 	}
 
-	let { children, indeterminate = false, class: className, ...restProps }: Props = $props();
+	let {
+		children,
+		indeterminate = false,
+		class: className,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<CheckboxContext>(CHECKBOX_CTX);
 	const styles = $derived(ctx.styles);
 </script>
 
-<Checkbox.Indicator {indeterminate} class={twMerge(styles.indicator(), className)} {...restProps}>
+<Checkbox.Indicator
+	{indeterminate}
+	class={twMerge(styles.indicator(), className)}
+	{...restProps}
+>
 	{@render children()}
 </Checkbox.Indicator>

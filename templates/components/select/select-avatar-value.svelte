@@ -46,7 +46,9 @@
 	const selectedItems = $derived(selectApi().selectedItems);
 	const firstItem = $derived(selectedItems?.[0]);
 	const avatarSrc = $derived(firstItem?.[avatarKey]);
-	const displayName = $derived(firstItem?.[nameKey] || firstItem?.label || "");
+	const displayName = $derived(
+		firstItem?.[nameKey] || firstItem?.label || "",
+	);
 
 	function getInitials(name: string): string {
 		return name

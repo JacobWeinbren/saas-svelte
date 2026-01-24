@@ -51,10 +51,12 @@
 		end: "items-end",
 	};
 	const alignClass = $derived(
-		variant === "plain" ? alignmentClasses[align] ?? "items-start" : ""
+		variant === "plain" ? (alignmentClasses[align] ?? "items-start") : "",
 	);
 
-	const finalClass = $derived(twMerge(listItem({ variant }), alignClass, className));
+	const finalClass = $derived(
+		twMerge(listItem({ variant }), alignClass, className),
+	);
 </script>
 
 <li class={finalClass} {...restProps}>

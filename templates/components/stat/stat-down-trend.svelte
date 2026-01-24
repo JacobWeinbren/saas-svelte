@@ -26,14 +26,22 @@
 		[key: string]: any;
 	}
 
-	let { children, class: className, variant = "subtle", colour = "red", ...restProps }: Props = $props();
+	let {
+		children,
+		class: className,
+		variant = "subtle",
+		colour = "red",
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<StatContext>(STAT_CTX);
 	const styles = $derived(ctx.styles);
 	const colourStyle = $derived(getColourStyle(colour));
 
 	const variantClasses = $derived(
-		variant === "subtle" ? "bg-(--c-muted) text-(--c-fg) px-1.5" : "text-(--c-fg) px-0",
+		variant === "subtle"
+			? "bg-(--c-muted) text-(--c-fg) px-1.5"
+			: "text-(--c-fg) px-0",
 	);
 </script>
 

@@ -156,11 +156,7 @@
 {/snippet}
 
 {#snippet customIconStory()}
-	<Blockquote
-		cite="Uzumaki Naruto"
-		colour="blue"
-		icon={Quotes}
-	>
+	<Blockquote cite="Uzumaki Naruto" colour="blue" icon={Quotes}>
 		<Text>
 			If anyone thinks he is something when he is nothing, he deceives
 			himself. Each one should test his own actions. Then he can take

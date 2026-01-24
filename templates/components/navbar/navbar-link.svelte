@@ -13,12 +13,22 @@
 		class?: string;
 	}
 
-	let { active = false, children, class: className, ...rest }: Props = $props();
+	let {
+		active = false,
+		children,
+		class: className,
+		...rest
+	}: Props = $props();
 
 	const ctx = getContext<NavbarContext>(NAVBAR_CTX);
 	const finalClass = $derived(ctx?.styles?.link({ class: className }));
 </script>
 
-<a class={finalClass} data-active={active ? "" : undefined} aria-current={active ? "page" : undefined} {...rest}>
+<a
+	class={finalClass}
+	data-active={active ? "" : undefined}
+	aria-current={active ? "page" : undefined}
+	{...rest}
+>
 	{@render children?.()}
 </a>

@@ -5,6 +5,7 @@
 
 	export interface SidebarContext {
 		styles: ReturnType<typeof sidebar>;
+		collapsed?: boolean;
 	}
 
 	/**
@@ -23,7 +24,12 @@
 			],
 			header: ["flex items-center", "pr-3 py-2 pl-4", "shrink-0"],
 			body: ["flex flex-col flex-1", "gap-4", "overflow-y-auto", "p-3"],
-			footer: ["flex items-center", "px-3 py-2", "shrink-0", "border-t border-border-muted"],
+			footer: [
+				"flex items-center",
+				"px-3 py-2",
+				"shrink-0",
+				"border-t border-border-muted",
+			],
 			group: ["relative"],
 			groupLabel: [
 				"text-xs font-medium",
@@ -62,7 +68,13 @@
 				"focus-visible:outline-1 focus-visible:outline-solid focus-visible:outline-accent-solid",
 			],
 		},
-		variants: {},
+		variants: {
+			active: {
+				true: {
+					item: "bg-bg-subtle text-fg-default",
+				},
+			},
+		},
 	});
 </script>
 
@@ -88,7 +100,7 @@
 		},
 	});
 
-	const finalClass = $derived(styles.root({ class: className }));
+	const finalClass = $derived(styles.root({ class: className as string }));
 </script>
 
 <aside class={finalClass} {...restProps}>

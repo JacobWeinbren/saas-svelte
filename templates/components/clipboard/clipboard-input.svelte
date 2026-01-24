@@ -14,7 +14,13 @@
 		class?: string;
 	}
 
-	let { "aria-label": ariaLabel = "Clipboard value", class: className }: Props = $props();
+	let {
+		"aria-label": ariaLabel = "Clipboard value",
+		class: className,
+	}: Props = $props();
 </script>
 
-<ArkClipboard.Input class={clipboardInput({ class: className })} aria-label={ariaLabel} />
+<ArkClipboard.Input
+	class={clipboardInput({ class: className })}
+	aria-label={ariaLabel}
+/>

@@ -10,11 +10,12 @@
 	export const slider = tv({
 		slots: {
 			root: "isolate touch-none flex relative leading-normal antialiased",
-			control: "items-center w-full inline-flex touch-none select-none relative",
+			control:
+				"items-center w-full inline-flex touch-none select-none relative",
 			track: "flex-1 overflow-hidden rounded-full relative",
 			range: "w-[inherit] h-[inherit] absolute bg-(--c-solid)",
 			thumb: [
-				"z-[2]",
+				"z-2",
 				"outline-0",
 				"justify-center",
 				"items-center",
@@ -32,7 +33,8 @@
 			],
 			label: "font-medium select-none",
 			valueText: "text-fg-muted tabular-nums",
-			markerGroup: "z-[1] [position:absolute!important] overflow-visible select-none pointer-events-none h-0",
+			markerGroup:
+				"z-1 [position:absolute!important] overflow-visible select-none pointer-events-none h-0",
 			marker: "flex-col items-center gap-1.5 text-xs flex pointer-events-none absolute [translate:-50%_0%]",
 			markerDot: "rounded-full",
 		},
@@ -103,7 +105,7 @@
 					root: "flex-row h-full",
 					control: "flex-col h-full w-auto",
 					track: "h-full w-2",
-					markerGroup: "top-0 bottom-0 [inset-inline:auto]",
+					markerGroup: "top-0 bottom-0 inset-x-auto",
 				},
 			},
 			/**

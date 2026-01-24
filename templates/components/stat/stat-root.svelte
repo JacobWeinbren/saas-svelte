@@ -5,7 +5,14 @@
 
 	export const stat = tv({
 		slots: {
-			root: ["flex", "flex-col", "flex-1", "gap-y-0", "gap-x-0", "relative"],
+			root: [
+				"flex",
+				"flex-col",
+				"flex-1",
+				"gap-y-0",
+				"gap-x-0",
+				"relative",
+			],
 			label: ["text-fg-muted", "select-none", "text-sm", "leading-sm"],
 			valueText: [
 				"tracking-tight",
@@ -17,7 +24,13 @@
 				"text-xl",
 				"leading-2xl",
 			],
-			valueUnit: ["text-fg-muted", "font-normal", "tracking-normal", "text-xs", "leading-xs"],
+			valueUnit: [
+				"text-fg-muted",
+				"font-normal",
+				"tracking-normal",
+				"text-xs",
+				"leading-xs",
+			],
 			helpText: ["text-fg-muted", "text-xs", "leading-xs"],
 			trend: [
 				"tabular-nums",
@@ -33,7 +46,12 @@
 				"text-xs",
 				"leading-xs",
 			],
-			trendIcon: ["justify-center", "items-center", "inline-flex", "mr-1"],
+			trendIcon: [
+				"justify-center",
+				"items-center",
+				"inline-flex",
+				"mr-1",
+			],
 		},
 	});
 

@@ -24,7 +24,10 @@
 	const ctx = getContext<SelectContext>(SELECT_CTX);
 </script>
 
-<Select.ItemGroup class={ctx?.styles?.itemGroup({ class: className })} {...rest}>
+<Select.ItemGroup
+	class={ctx?.styles?.itemGroup({ class: className })}
+	{...rest}
+>
 	{#if label}
 		<Select.ItemGroupLabel class={ctx?.styles?.itemGroupLabel()}>
 			{label}

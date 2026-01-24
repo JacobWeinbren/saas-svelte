@@ -35,7 +35,10 @@
 	let { children, class: className, ...rest }: Props = $props();
 </script>
 
-<ArkFileUpload.Dropzone class={fileUploadDropzone({ class: className })} {...rest}>
+<ArkFileUpload.Dropzone
+	class={fileUploadDropzone({ class: className })}
+	{...rest}
+>
 	{#if children}
 		{@render children()}
 	{/if}

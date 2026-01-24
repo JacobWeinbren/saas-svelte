@@ -15,11 +15,32 @@
 		class?: string;
 	}
 
-	let { gap, justify = "start", children, class: className, ...rest }: Props = $props();
+	let {
+		gap,
+		justify = "start",
+		children,
+		class: className,
+		...rest
+	}: Props = $props();
 
 	const ctx = getContext<NavbarContext>(NAVBAR_CTX);
-	const justifyMap = { start: "justify-start", end: "justify-end", center: "justify-center", between: "justify-between" } as const;
-	const finalClass = $derived(ctx?.styles?.itemGroup({ class: [justifyMap[justify], gap !== undefined ? `gap-${gap}` : "", className].filter(Boolean).join(" ") }));
+	const justifyMap = {
+		start: "justify-start",
+		end: "justify-end",
+		center: "justify-center",
+		between: "justify-between",
+	} as const;
+	const finalClass = $derived(
+		ctx?.styles?.itemGroup({
+			class: [
+				justifyMap[justify],
+				gap !== undefined ? `gap-${gap}` : "",
+				className,
+			]
+				.filter(Boolean)
+				.join(" "),
+		}),
+	);
 </script>
 
 <ul class={finalClass} {...rest}>

@@ -71,10 +71,7 @@
 				"-mr-2",
 				"text-gray-fg",
 			],
-			icon: [
-				"shrink-0",
-				"block",
-			],
+			icon: ["shrink-0", "block"],
 		},
 		variants: {
 			size: {
@@ -133,7 +130,8 @@
 	import Eye from "phosphor-svelte/lib/Eye";
 	import EyeSlash from "phosphor-svelte/lib/EyeSlash";
 
-	interface Props extends Omit<HTMLInputAttributes, "size" | "class" | "type"> {
+	interface Props
+		extends Omit<HTMLInputAttributes, "size" | "class" | "type"> {
 		/**
 		 * The size of the password input.
 		 * @default "md"
@@ -220,7 +218,9 @@
 	let internalVisible = $state(defaultVisible);
 
 	// Determine actual visibility (controlled vs uncontrolled)
-	const isVisible = $derived(visible !== undefined ? visible : internalVisible);
+	const isVisible = $derived(
+		visible !== undefined ? visible : internalVisible,
+	);
 
 	function toggleVisibility() {
 		const newVisible = !isVisible;
@@ -241,7 +241,9 @@
 		}),
 	);
 
-	const inputStyles = $derived([colourVars, style].filter(Boolean).join("; "));
+	const inputStyles = $derived(
+		[colourVars, style].filter(Boolean).join("; "),
+	);
 </script>
 
 <div class={styles.root({ class: rootClass as string })}>

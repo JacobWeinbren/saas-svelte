@@ -25,13 +25,8 @@
 					"border-x",
 					"border-bg-muted",
 				],
-				outline: [
-					"border",
-					"border-border-default",
-				],
-				subtle: [
-					"bg-bg-subtle",
-				],
+				outline: ["border", "border-border-default"],
+				subtle: ["bg-bg-subtle"],
 				plain: [],
 			},
 			size: {

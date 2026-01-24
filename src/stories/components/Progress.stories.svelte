@@ -4,7 +4,7 @@
 	import { Stack } from "$saas/layout/stack";
 	import { Group } from "$saas/layout/group";
 	import { Text } from "$saas/typography/text";
-		import { commonArgTypes, getControls, colours, sizes } from "../utils";
+	import { commonArgTypes, getControls, colours, sizes } from "../utils";
 
 	const progressSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 	const progressVariants = ["outline", "subtle"] as const;

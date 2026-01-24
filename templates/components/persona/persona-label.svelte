@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { getContext, type Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { persona, PERSONA_CTX, type PersonaContext } from "./persona.svelte";
+	import {
+		persona,
+		PERSONA_CTX,
+		type PersonaContext,
+	} from "./persona.svelte";
 
 	interface Props extends HTMLAttributes<HTMLSpanElement> {
 		/**

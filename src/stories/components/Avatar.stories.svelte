@@ -72,7 +72,6 @@
 			src: "https://api.dicebear.com/9.x/shapes/svg?seed=jacob",
 		},
 	});
-
 </script>
 
 {#snippet basicStory(args: any)}

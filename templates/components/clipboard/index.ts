@@ -7,11 +7,11 @@ export { clipboardButton, clipboardInput } from "./clipboard.svelte";
 
 // Re-export Ark UI primitives for advanced usage
 export {
-	Clipboard as ClipboardPrimitive,
-	type ClipboardRootProps,
-	type ClipboardControlProps,
-	type ClipboardIndicatorProps,
-	type ClipboardInputProps,
-	type ClipboardLabelProps,
-	type ClipboardTriggerProps,
+    Clipboard as ClipboardPrimitive,
+    type ClipboardRootProps,
+    type ClipboardControlProps,
+    type ClipboardIndicatorProps,
+    type ClipboardInputProps,
+    type ClipboardLabelProps,
+    type ClipboardTriggerProps,
 } from "@ark-ui/svelte/clipboard";

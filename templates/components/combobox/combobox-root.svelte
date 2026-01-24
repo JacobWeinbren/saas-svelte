@@ -94,7 +94,8 @@
 				"data-disabled:cursor-not-allowed",
 			],
 			itemText: "flex-1 truncate",
-			itemIndicator: "flex items-center justify-center w-4 h-4 ml-auto text-(--c-fg)",
+			itemIndicator:
+				"flex items-center justify-center w-4 h-4 ml-auto text-(--c-fg)",
 			itemGroup: "flex flex-col",
 			itemGroupLabel: [
 				"flex items-center",
@@ -112,10 +113,7 @@
 				"text-fg-muted",
 				"pointer-events-none",
 			],
-			itemDescription: [
-				"text-fg-muted",
-				"ml-2",
-			],
+			itemDescription: ["text-fg-muted", "ml-2"],
 			itemPrefix: "mr-2",
 		},
 		variants: {
@@ -123,7 +121,8 @@
 				xs: {
 					input: "min-h-6 text-xs leading-4 px-2",
 					indicatorGroup: "px-2",
-					trigger: "gap-y-1 gap-x-1 text-xs leading-4 [&_svg]:w-3.5 [&_svg]:h-3.5",
+					trigger:
+						"gap-y-1 gap-x-1 text-xs leading-4 [&_svg]:w-3.5 [&_svg]:h-3.5",
 					clearTrigger: "[&_svg]:w-3.5 [&_svg]:h-3.5",
 					content: "rounded-md p-0.5",
 					item: "py-1 px-1.5 gap-y-1.5 gap-x-1.5 text-xs leading-4 rounded-sm",
@@ -133,7 +132,8 @@
 				sm: {
 					input: "min-h-7 text-sm leading-5 px-2.5",
 					indicatorGroup: "px-2.5",
-					trigger: "gap-y-1 gap-x-1 text-xs leading-4 [&_svg]:w-4 [&_svg]:h-4",
+					trigger:
+						"gap-y-1 gap-x-1 text-xs leading-4 [&_svg]:w-4 [&_svg]:h-4",
 					clearTrigger: "[&_svg]:w-4 [&_svg]:h-4",
 					content: "rounded-lg p-1",
 					item: "py-1.5 px-2 gap-y-2 gap-x-2 text-sm leading-sm rounded",
@@ -143,7 +143,8 @@
 				md: {
 					input: "min-h-8 text-sm leading-5 px-3",
 					indicatorGroup: "px-3",
-					trigger: "gap-y-2 gap-x-2 text-sm leading-5 [&_svg]:w-4 [&_svg]:h-4",
+					trigger:
+						"gap-y-2 gap-x-2 text-sm leading-5 [&_svg]:w-4 [&_svg]:h-4",
 					clearTrigger: "[&_svg]:w-4 [&_svg]:h-4",
 					content: "rounded-lg p-1",
 					item: "py-1.5 px-2 gap-y-2 gap-x-2 text-sm leading-sm rounded",
@@ -153,7 +154,8 @@
 				lg: {
 					input: "min-h-10 text-sm leading-5 px-4",
 					indicatorGroup: "px-4",
-					trigger: "gap-y-2 gap-x-2 text-sm leading-5 py-3 [&_svg]:w-5 [&_svg]:h-5",
+					trigger:
+						"gap-y-2 gap-x-2 text-sm leading-5 py-3 [&_svg]:w-5 [&_svg]:h-5",
 					clearTrigger: "[&_svg]:w-5 [&_svg]:h-5",
 					content: "rounded-lg p-1",
 					item: "py-2 px-3 gap-y-2 gap-x-2 text-sm leading-sm rounded",

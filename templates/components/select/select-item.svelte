@@ -33,7 +33,7 @@
 
 <Select.Item
 	class={ctx?.styles?.item({ class: className })}
-	style={`${ctx?.colourStyle || ''}${rest.style ? `; ${rest.style}` : ''}`}
+	style={`${ctx?.colourStyle || ""}${rest.style ? `; ${rest.style}` : ""}`}
 	{...rest}
 >
 	{@render children()}

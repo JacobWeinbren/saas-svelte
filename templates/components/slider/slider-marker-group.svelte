@@ -22,7 +22,10 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<Slider.MarkerGroup class={twMerge(styles.markerGroup(), className)} {...restProps}>
+<Slider.MarkerGroup
+	class={twMerge(styles.markerGroup(), className)}
+	{...restProps}
+>
 	{#if children}
 		{@render children()}
 	{/if}

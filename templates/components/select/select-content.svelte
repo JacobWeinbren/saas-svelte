@@ -21,7 +21,12 @@
 		[key: string]: any;
 	}
 
-	let { children, class: className, portal = true, ...rest }: Props = $props();
+	let {
+		children,
+		class: className,
+		portal = true,
+		...rest
+	}: Props = $props();
 
 	const ctx = getContext<SelectContext>(SELECT_CTX);
 	const selectApi = useSelectContext();
@@ -32,57 +37,6 @@
 		}
 	}
 </script>
-
-<style>
-	/* Apply slide + fade animations based on placement and state */
-	:global(
-			[data-scope="select"][data-part="content"][data-state="open"][data-placement^="top"]
-		) {
-		animation:
-			slide-from-bottom var(--durations-fast) ease-out,
-			fade-in var(--durations-fast) ease-out;
-	}
-	:global(
-			[data-scope="select"][data-part="content"][data-state="closed"][data-placement^="top"]
-		) {
-		animation:
-			slide-to-bottom var(--durations-fast) ease-in,
-			fade-out var(--durations-fast) ease-in;
-	}
-	:global(
-			[data-scope="select"][data-part="content"][data-state="open"][data-placement^="bottom"]
-		) {
-		animation:
-			slide-from-top var(--durations-fast) ease-out,
-			fade-in var(--durations-fast) ease-out;
-	}
-	:global(
-			[data-scope="select"][data-part="content"][data-state="closed"][data-placement^="bottom"]
-		) {
-		animation:
-			slide-to-top var(--durations-fast) ease-in,
-			fade-out var(--durations-fast) ease-in;
-	}
-	/* Fallback for content without placement */
-	:global(
-			[data-scope="select"][data-part="content"][data-state="open"]:not(
-					[data-placement]
-				)
-		) {
-		animation:
-			slide-from-top var(--durations-fast) ease-out,
-			fade-in var(--durations-fast) ease-out;
-	}
-	:global(
-			[data-scope="select"][data-part="content"][data-state="closed"]:not(
-					[data-placement]
-				)
-		) {
-		animation:
-			slide-to-top var(--durations-fast) ease-in,
-			fade-out var(--durations-fast) ease-in;
-	}
-</style>
 
 {#snippet selectContent()}
 	<Select.Positioner class={ctx?.styles?.positioner()}>
@@ -104,3 +58,54 @@
 {:else}
 	{@render selectContent()}
 {/if}
+
+<style>
+	/* Apply slide + fade animations based on placement and state */
+	:global(
+		[data-scope="select"][data-part="content"][data-state="open"][data-placement^="top"]
+	) {
+		animation:
+			slide-from-bottom var(--durations-fast) ease-out,
+			fade-in var(--durations-fast) ease-out;
+	}
+	:global(
+		[data-scope="select"][data-part="content"][data-state="closed"][data-placement^="top"]
+	) {
+		animation:
+			slide-to-bottom var(--durations-fast) ease-in,
+			fade-out var(--durations-fast) ease-in;
+	}
+	:global(
+		[data-scope="select"][data-part="content"][data-state="open"][data-placement^="bottom"]
+	) {
+		animation:
+			slide-from-top var(--durations-fast) ease-out,
+			fade-in var(--durations-fast) ease-out;
+	}
+	:global(
+		[data-scope="select"][data-part="content"][data-state="closed"][data-placement^="bottom"]
+	) {
+		animation:
+			slide-to-top var(--durations-fast) ease-in,
+			fade-out var(--durations-fast) ease-in;
+	}
+	/* Fallback for content without placement */
+	:global(
+		[data-scope="select"][data-part="content"][data-state="open"]:not(
+				[data-placement]
+			)
+	) {
+		animation:
+			slide-from-top var(--durations-fast) ease-out,
+			fade-in var(--durations-fast) ease-out;
+	}
+	:global(
+		[data-scope="select"][data-part="content"][data-state="closed"]:not(
+				[data-placement]
+			)
+	) {
+		animation:
+			slide-to-top var(--durations-fast) ease-in,
+			fade-out var(--durations-fast) ease-in;
+	}
+</style>

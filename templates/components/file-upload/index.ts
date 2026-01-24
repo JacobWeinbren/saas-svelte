@@ -21,11 +21,11 @@ export const FileUploadInput = Input;
 export const FileUploadClearTrigger = ClearTrigger;
 
 export const FileUpload = {
-	Root,
-	Trigger,
-	Dropzone,
-	List,
-	Label,
-	Input,
-	ClearTrigger,
+    Root,
+    Trigger,
+    Dropzone,
+    List,
+    Label,
+    Input,
+    ClearTrigger,
 };

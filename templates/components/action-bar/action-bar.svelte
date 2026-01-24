@@ -107,7 +107,7 @@
 
 	function handleAnimationEnd(event: AnimationEvent) {
 		// Only handle the out animation
-		if (!open && event.animationName.includes('action-bar-out')) {
+		if (!open && event.animationName.includes("action-bar-out")) {
 			visible = false;
 		}
 	}

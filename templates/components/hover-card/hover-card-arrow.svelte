@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { HoverCard } from "@ark-ui/svelte/hover-card";
 	import { getContext } from "svelte";
-	import { HOVER_CARD_CTX, type HoverCardContext } from "./hover-card-root.svelte";
+	import {
+		HOVER_CARD_CTX,
+		type HoverCardContext,
+	} from "./hover-card-root.svelte";
 
 	interface Props {
 		/**

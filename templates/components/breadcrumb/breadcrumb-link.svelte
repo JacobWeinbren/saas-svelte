@@ -1,8 +1,14 @@
 <script lang="ts">
-	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from "svelte/elements";
+	import type {
+		HTMLAnchorAttributes,
+		HTMLButtonAttributes,
+	} from "svelte/elements";
 	import type { Snippet } from "svelte";
 	import { getContext } from "svelte";
-	import { BREADCRUMB_CTX, type BreadcrumbContext } from "./breadcrumb-root.svelte";
+	import {
+		BREADCRUMB_CTX,
+		type BreadcrumbContext,
+	} from "./breadcrumb-root.svelte";
 
 	type BaseProps = {
 		/**
@@ -59,7 +65,7 @@
 			baseClasses.push(
 				"text-fg-muted",
 				"no-underline",
-				"hover:text-fg-default"
+				"hover:text-fg-default",
 			);
 		} else {
 			// Underline variant: default (white) text with underline
@@ -67,7 +73,7 @@
 				"underline",
 				"text-fg-default",
 				"underline-offset-[0.2em]",
-				"decoration-border-muted"
+				"decoration-border-muted",
 			);
 		}
 
@@ -92,7 +98,10 @@
 		{#if typeof context?.separator === "string"}
 			{context.separator}
 		{:else if context?.separator}
-			<svelte:component this={context.separator} class="fill-current stroke-current w-3.5 h-3.5" />
+			<svelte:component
+				this={context.separator}
+				class="fill-current stroke-current w-3.5 h-3.5"
+			/>
 		{:else}
 			/
 		{/if}

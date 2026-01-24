@@ -4,7 +4,12 @@
 	import type { FormApi } from "./use-form.svelte";
 	import { FORM_CTX } from "./types";
 
-	interface Props { name: string; condition: (value: unknown) => boolean; children: Snippet; fallback?: Snippet; }
+	interface Props {
+		name: string;
+		condition: (value: unknown) => boolean;
+		children: Snippet;
+		fallback?: Snippet;
+	}
 
 	let { name, condition, children, fallback }: Props = $props();
 	const form = getContext<FormApi>(FORM_CTX);

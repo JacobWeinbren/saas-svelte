@@ -54,15 +54,10 @@
 				],
 
 				// GHOST: Accent text, background on hover
-				ghost: [
-					"text-(--c-fg)",
-					"hover:bg-(--c-subtle)",
-				],
+				ghost: ["text-(--c-fg)", "hover:bg-(--c-subtle)"],
 
 				// PLAIN: Accent text only
-				plain: [
-					"text-(--c-fg)",
-				],
+				plain: ["text-(--c-fg)"],
 			},
 			size: {
 				xs: "h-6 min-w-6 gap-y-1 gap-x-1 text-xs leading-4 px-2 [&_svg]:size-2",
@@ -178,7 +173,10 @@
 	);
 
 	// Original spinner sizes: xs=size-2.5, sm=size-3, md=size-3.5, lg=size-4, xl=size-5
-	const spinnerClassMap: Record<NonNullable<ButtonVariants["size"]>, string> = {
+	const spinnerClassMap: Record<
+		NonNullable<ButtonVariants["size"]>,
+		string
+	> = {
 		xs: "size-2.5!",
 		sm: "size-3!",
 		md: "size-3.5!",
@@ -201,7 +199,7 @@
 				class="absolute inset-0 flex items-center justify-center"
 				aria-hidden="true"
 			>
-				<Spinner colour={colour} class={spinnerClass} />
+				<Spinner {colour} class={spinnerClass} />
 			</div>
 			<span class="sr-only">
 				{@render children?.()}
@@ -209,7 +207,7 @@
 		</span>
 	{:else if loading && loadingText}
 		<span class="contents">
-			<Spinner colour={colour} class={spinnerClass} />
+			<Spinner {colour} class={spinnerClass} />
 			{loadingText}
 		</span>
 	{:else}

@@ -98,7 +98,9 @@
 
 	// When trigger is provided, children become the content
 	const effectiveTrigger = $derived(trigger ?? children);
-	const effectiveContent = $derived(content ?? (trigger ? children : undefined));
+	const effectiveContent = $derived(
+		content ?? (trigger ? children : undefined),
+	);
 
 	const styles = $derived(
 		popoverContentStyles({

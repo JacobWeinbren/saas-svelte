@@ -44,8 +44,12 @@
 		class?: string;
 	}
 
-	let { align = "start", children, class: className, ...restProps }: Props =
-		$props();
+	let {
+		align = "start",
+		children,
+		class: className,
+		...restProps
+	}: Props = $props();
 
 	const ctx = getContext<{ size: CheckboxCardVariants["size"] }>(
 		CHECKBOX_CARD_CTX,

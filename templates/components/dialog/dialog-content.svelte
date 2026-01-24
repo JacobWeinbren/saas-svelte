@@ -134,7 +134,7 @@
 				}),
 				ctx.motionPreset === "slide-in-bottom"
 					? "data-[state=open]:animate-dialog-slide-in data-[state=closed]:animate-dialog-slide-out"
-					: "data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out"
+					: "data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out",
 			)}
 			data-motion-preset={ctx.motionPreset}
 			{...rest}
