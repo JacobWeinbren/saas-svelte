@@ -43,7 +43,7 @@ export const stackPattern = makePattern(['direction', 'align', 'justify', 'class
 
 export const textPattern = makePattern(['as', 'size', 'weight', 'variant', 'truncate', 'lineClamp', 'class', 'children']);
 
-export const tooltipPattern = makePattern(['content', 'showArrow', 'variant', 'interactive', 'openDelay', 'closeDelay', 'positioning', 'disabled', 'class', 'children']);
+export const tooltipPattern = makePattern(['content', 'showArrow', 'variant', 'interactive', 'openDelay', 'closeDelay', 'closeOnPointerDown', 'positioning', 'disabled', 'class', 'children']);
 
 export const fieldPattern = makePattern(['disabled', 'invalid', 'required', 'readOnly', 'id', 'class', 'children']);
 export const fieldLabelPattern = makePattern(['for', 'class', 'children']);

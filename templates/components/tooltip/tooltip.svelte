@@ -21,6 +21,11 @@
 		 */
 		id?: string;
 		/**
+		 * Whether to close the tooltip when the trigger is clicked.
+		 * @default true
+		 */
+		closeOnPointerDown?: boolean;
+		/**
 		 * The text content of the tooltip.
 		 * Can be a string, snippet, or use children when trigger prop is provided.
 		 */
@@ -82,6 +87,7 @@
 		closeDelay = 100,
 		positioning = { placement: "bottom", strategy: "fixed" },
 		interactive = false,
+		closeOnPointerDown = true,
 		...rest
 	}: Props = $props();
 
@@ -112,6 +118,7 @@
 	{closeDelay}
 	{positioning}
 	{interactive}
+	{closeOnPointerDown}
 	{...rest}
 >
 	<ArkTooltip.Trigger>
