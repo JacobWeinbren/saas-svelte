@@ -108,6 +108,9 @@ export const pinInputSizes = ["xs", "sm", "md", "lg"] as const;
 export const popoverSizes = ["xs", "sm", "md", "lg"] as const;
 export const segmentGroupSizes = ["xs", "sm", "md", "lg"] as const;
 export const spinnerSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export const progressSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export const progressVariants = ["outline", "subtle"] as const;
+export const progressShapes = ["square", "rounded", "full"] as const;
 export const tagVariants = ["subtle", "solid", "outline", "surface"] as const;
 export const tagSizes = ["sm", "md", "lg", "xl"] as const;
 export const textareaSizes = ["xs", "sm", "md", "lg", "xl"] as const;
@@ -375,6 +378,11 @@ export {
     personaTertiaryLabelPattern,
     pinInputPattern,
     progressCirclePattern,
+    progressRootPattern,
+    progressTrackPattern,
+    progressRangePattern,
+    progressLabelPattern,
+    progressValueTextPattern,
     formatBytePattern,
     formatNumberPattern,
     localeProviderPattern,

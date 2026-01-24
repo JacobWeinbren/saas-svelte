@@ -223,6 +223,12 @@ export const pinInputPattern = makePattern(['variant', 'size', 'colour', 'invali
 
 export const progressCirclePattern = makePattern(['value', 'min', 'max', 'size', 'colour', 'showValue', 'thickness', 'rounded', 'label', 'class']);
 
+export const progressRootPattern = makePattern(['value', 'min', 'max', 'size', 'variant', 'shape', 'colour', 'striped', 'animated', 'class', 'children']);
+export const progressTrackPattern = makePattern(['class', 'children']);
+export const progressRangePattern = makePattern(['class']);
+export const progressLabelPattern = makePattern(['class', 'children']);
+export const progressValueTextPattern = makePattern(['class', 'children']);
+
 export const formatBytePattern = makePattern(['value', 'unit', 'unitDisplay', 'locale']);
 export const formatNumberPattern = makePattern(['value', 'style', 'currency', 'unit', 'minimumFractionDigits', 'maximumFractionDigits', 'notation', 'compactDisplay', 'locale']);
 export const localeProviderPattern = makePattern(['locale', 'children']);

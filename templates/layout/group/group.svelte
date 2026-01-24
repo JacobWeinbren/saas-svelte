@@ -54,6 +54,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { Snippet } from "svelte";
+	import { twMerge } from "tailwind-merge";
 
 	interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "class"> {
 		/**
@@ -79,6 +80,11 @@
 		 * @default "horizontal"
 		 */
 		orientation?: GroupVariants["orientation"];
+		/**
+		 * The gap between items (uses Tailwind spacing scale).
+		 * Only applies when `attached` is false.
+		 */
+		gap?: number;
 	}
 
 	let {
@@ -87,14 +93,20 @@
 		attached = false,
 		grow = false,
 		orientation = "horizontal",
+		gap,
 		...restProps
 	}: Props = $props();
 
 	const classes = $derived(
-		group({ attached, grow, orientation, class: className }) as string,
+		twMerge(group({ attached, grow, orientation }), className) as string,
+	);
+
+	// Calculate gap style - only apply when not attached and gap is provided
+	const gapStyle = $derived(
+		!attached && gap !== undefined ? `${gap * 0.25}rem` : undefined,
 	);
 </script>
 
-<div class={classes} {...restProps}>
+<div class={classes} style:gap={gapStyle} {...restProps}>
 	{@render children?.()}
 </div>
