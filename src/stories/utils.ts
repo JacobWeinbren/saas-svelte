@@ -432,6 +432,17 @@ export {
     stepsCompletedContentPattern,
     stepsPrevTriggerPattern,
     stepsNextTriggerPattern,
+    tableRootPattern,
+    tableHeaderPattern,
+    tableBodyPattern,
+    tableFooterPattern,
+    tableRowPattern,
+    tableColumnHeaderPattern,
+    tableCellPattern,
+    tableCaptionPattern,
+    tableScrollAreaPattern,
+    tableColumnGroupPattern,
+    tableColumnPattern,
 } from "./exclude-patterns";
 
 

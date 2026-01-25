@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet, Component } from "svelte";
+	import type { Snippet } from "svelte";
 	import { Switch } from "@ark-ui/svelte/switch";
 	import { tv, type VariantProps } from "tailwind-variants";
 	import { twMerge } from "tailwind-merge";
@@ -10,8 +10,7 @@
 			root: "items-center gap-2.5 inline-flex relative align-middle",
 			control:
 				"shrink-0 justify-start gap-2 inline-flex relative rounded-full disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150",
-			thumb:
-				"shrink-0 justify-center items-center flex rounded-[inherit] transition-all duration-150",
+			thumb: "shrink-0 justify-center items-center flex rounded-[inherit] transition-all duration-150",
 			label: "select-none font-medium leading-none",
 		},
 		variants: {
@@ -47,7 +46,7 @@
 			 */
 			variant: {
 				solid: {
-					thumb: "shadow [scale:0.8] bg-white",
+					thumb: "shadow scale-[0.8] bg-white",
 				},
 				raised: {
 					control: "shadow-inner",
@@ -62,7 +61,7 @@
 				size: "xs",
 				class: {
 					control: "h-1.5",
-					thumb: "top-[-0.1875rem]",
+					thumb: "-top-0.75",
 				},
 			},
 			{
@@ -78,7 +77,7 @@
 				size: "md",
 				class: {
 					control: "h-2.5",
-					thumb: "top-[-0.3125rem]",
+					thumb: "-top-1.25",
 				},
 			},
 			{
@@ -99,13 +98,13 @@
 	type SwitchVariants = VariantProps<typeof switchRecipe>;
 
 	interface ThumbLabel {
-		on?: Snippet | Component;
-		off?: Snippet | Component;
+		on?: Snippet;
+		off?: Snippet;
 	}
 
 	interface TrackLabel {
-		on?: Snippet | Component;
-		off?: Snippet | Component;
+		on?: Snippet;
+		off?: Snippet;
 	}
 
 	interface Props {
@@ -250,7 +249,9 @@
 		{#if trackLabel}
 			<span
 				class="select-none shrink-0 content-center justify-center text-sm font-medium transition-all duration-100 grid absolute"
-				style="width: {translateDistance}; height: {translateDistance}; inset-inline-start: {checked ? '2px' : `calc(${translateDistance} - 2px)`};"
+				style="width: {translateDistance}; height: {translateDistance}; inset-inline-start: {checked
+					? '2px'
+					: `calc(${translateDistance} - 2px)`};"
 			>
 				{#if checked && trackLabel.on}
 					{#if typeof trackLabel.on === "function"}
@@ -265,9 +266,7 @@
 		{/if}
 	</Switch.Control>
 	{#if children}
-		<Switch.Label
-			class={twMerge(styles.label(), disabled && "opacity-50")}
-		>
+		<Switch.Label class={twMerge(styles.label(), disabled && "opacity-50")}>
 			{@render children()}
 		</Switch.Label>
 	{/if}

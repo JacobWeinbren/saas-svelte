@@ -282,3 +282,15 @@ export const stepsContentPattern = makePattern(['index', 'class', 'children']);
 export const stepsCompletedContentPattern = makePattern(['class', 'children']);
 export const stepsPrevTriggerPattern = makePattern(['class', 'children']);
 export const stepsNextTriggerPattern = makePattern(['class', 'children']);
+
+export const tableRootPattern = makePattern(['size', 'variant', 'interactive', 'stickyHeader', 'striped', 'showColumnBorder', 'class', 'children']);
+export const tableHeaderPattern = makePattern(['class', 'children']);
+export const tableBodyPattern = makePattern(['class', 'children']);
+export const tableFooterPattern = makePattern(['class', 'children']);
+export const tableRowPattern = makePattern(['class', 'children']);
+export const tableColumnHeaderPattern = makePattern(['textAlign', 'minW', 'w', 'class', 'children']);
+export const tableCellPattern = makePattern(['textAlign', 'class', 'children']);
+export const tableCaptionPattern = makePattern(['placement', 'class', 'children']);
+export const tableScrollAreaPattern = makePattern(['maxW', 'height', 'borderWidth', 'rounded', 'class', 'children']);
+export const tableColumnGroupPattern = makePattern(['class', 'children']);
+export const tableColumnPattern = makePattern(['htmlWidth', 'class']);
