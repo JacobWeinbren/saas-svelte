@@ -294,3 +294,17 @@ export const tableCaptionPattern = makePattern(['placement', 'class', 'children'
 export const tableScrollAreaPattern = makePattern(['maxW', 'height', 'borderWidth', 'rounded', 'class', 'children']);
 export const tableColumnGroupPattern = makePattern(['class', 'children']);
 export const tableColumnPattern = makePattern(['htmlWidth', 'class']);
+
+export const tabsRootPattern = makePattern(['size', 'variant', 'fitted', 'justify', 'colour', 'defaultValue', 'value', 'activationMode', 'lazyMount', 'unmountOnExit', 'orientation', 'loopFocus', 'onValueChange', 'class', 'children']);
+export const tabsListPattern = makePattern(['class', 'children']);
+export const tabsTriggerPattern = makePattern(['value', 'disabled', 'class', 'children']);
+export const tabsContentPattern = makePattern(['value', 'class', 'children']);
+export const tabsIndicatorPattern = makePattern(['class']);
+export const tabsContentGroupPattern = makePattern(['class', 'children']);
+
+export const timelineRootPattern = makePattern(['size', 'variant', 'colour', 'class', 'children']);
+export const timelineItemPattern = makePattern(['class', 'children']);
+export const timelineConnectorPattern = makePattern(['class', 'children']);
+export const timelineContentPattern = makePattern(['flex', 'alignItems', 'width', 'class', 'children']);
+export const timelineTitlePattern = makePattern(['whiteSpace', 'class', 'children']);
+export const timelineDescriptionPattern = makePattern(['class', 'children']);

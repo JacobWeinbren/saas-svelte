@@ -443,6 +443,18 @@ export {
     tableScrollAreaPattern,
     tableColumnGroupPattern,
     tableColumnPattern,
+    tabsRootPattern,
+    tabsListPattern,
+    tabsTriggerPattern,
+    tabsContentPattern,
+    tabsIndicatorPattern,
+    tabsContentGroupPattern,
+    timelineRootPattern,
+    timelineItemPattern,
+    timelineConnectorPattern,
+    timelineContentPattern,
+    timelineTitlePattern,
+    timelineDescriptionPattern,
 } from "./exclude-patterns";
 
 
