@@ -390,6 +390,7 @@
 		<Table.Body>
 			{#each items as item (item.id)}
 				<Table.Row
+					class={selection.includes(item.name) ? "bg-bg-subtle" : ""}
 					data-selected={selection.includes(item.name)
 						? ""
 						: undefined}
