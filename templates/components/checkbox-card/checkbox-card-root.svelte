@@ -147,7 +147,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(getColourStyle(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	// Context state with getters for reactivity
 	const contextState = $state({

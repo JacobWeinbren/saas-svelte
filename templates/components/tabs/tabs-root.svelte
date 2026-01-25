@@ -228,8 +228,10 @@
 	}: Props = $props();
 
 	const classes = $derived(tabs({ size, variant, fitted, justify }));
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const colourStyle = $derived(getColourStyle(colour));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	setContext<TabsContext>(TABS_CTX, {
 		get styles() {

@@ -7,6 +7,7 @@
 		colours,
 		radioVariants,
 		radioSizes,
+		orientations,
 		commonArgTypes,
 		getControls,
 	} from "../utils";
@@ -35,7 +36,7 @@
 			},
 			orientation: {
 				control: "select",
-				options: ["horizontal", "vertical"],
+				options: orientations,
 				description: "Layout orientation of the radio group.",
 				table: { defaultValue: { summary: "vertical" } },
 			},

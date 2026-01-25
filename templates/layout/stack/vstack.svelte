@@ -14,5 +14,5 @@
 </script>
 
 <Stack {direction} {align} class={className} {...restProps}>
-	{@render children()}
+	{@render children?.()}
 </Stack>

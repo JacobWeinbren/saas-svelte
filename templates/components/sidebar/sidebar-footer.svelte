@@ -14,7 +14,9 @@
 	let { children, class: className, ...restProps }: Props = $props();
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
-	const finalClass = $derived(ctx?.styles?.footer({ class: className as string }));
+	const finalClass = $derived(
+		ctx?.styles?.footer({ class: className as string }),
+	);
 </script>
 
 <footer class={finalClass} {...restProps}>

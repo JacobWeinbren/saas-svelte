@@ -13,6 +13,7 @@
 		colours,
 		radioCardSizes,
 		radioCardAligns,
+		orientations,
 		commonArgTypes,
 		getControls,
 	} from "../utils";
@@ -42,7 +43,7 @@
 			},
 			orientation: {
 				control: "select",
-				options: ["horizontal", "vertical"],
+				options: orientations,
 				description: "Layout orientation of the items container.",
 				table: { defaultValue: { summary: "horizontal" } },
 			},

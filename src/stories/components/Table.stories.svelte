@@ -12,10 +12,12 @@
 	} from "$saas/components/action-bar";
 	import { Button } from "$saas/components/button";
 	import { Kbd } from "$saas/components/kbd";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const tableSizes = ["sm", "md", "lg"] as const;
-	const tableVariants = ["line", "outline"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		tableSizes,
+		tableVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Table",
@@ -23,7 +25,7 @@
 		argTypes: {
 			size: {
 				control: "select",
-				options: ["sm", "md", "lg"],
+				options: tableSizes,
 				description: "The size of the table.",
 				table: {
 					defaultValue: { summary: "md" },
@@ -31,7 +33,7 @@
 			},
 			variant: {
 				control: "select",
-				options: ["line", "outline"],
+				options: tableVariants,
 				description: "The visual variant of the table.",
 				table: {
 					defaultValue: { summary: "line" },

@@ -43,6 +43,7 @@
 		icon,
 		children,
 		class: className,
+		"aria-label": ariaLabel,
 		...restProps
 	}: Props = $props();
 
@@ -60,18 +61,25 @@
 			{#snippet render(itemCtx)}
 				{@const state = itemCtx()}
 				{@const isSubtle = ctx?.variant === "subtle"}
-				<StepsTrigger {index}>
+				<StepsTrigger {index} aria-label={ariaLabel ?? title}>
 					<Steps.Indicator
 						class={twMerge(
 							ctx?.styles?.indicator(),
 							// Subtle variant base: no border, muted bg
 							isSubtle && "border-0 bg-bg-muted text-fg-muted",
 							isSubtle && state.current && "text-fg-default",
-							isSubtle && state.completed && "bg-bg-emphasized text-fg-default",
+							isSubtle &&
+								state.completed &&
+								"bg-bg-emphasized text-fg-default",
 							// Solid variant base: has border
-							!isSubtle && "border-2 border-border-default bg-bg-default text-fg-muted",
-							!isSubtle && state.current && "border-(--c-solid) bg-bg-muted text-fg-default",
-							!isSubtle && state.completed && "bg-(--c-solid) border-0 text-(--c-contrast)",
+							!isSubtle &&
+								"border-2 border-border-default bg-bg-default text-fg-muted",
+							!isSubtle &&
+								state.current &&
+								"border-(--c-solid) bg-bg-muted text-fg-default",
+							!isSubtle &&
+								state.completed &&
+								"bg-(--c-solid) border-0 text-(--c-contrast)",
 						)}
 					>
 						{#if state.completed}
@@ -88,12 +96,18 @@
 								<div class={ctx?.styles?.title()}>{title}</div>
 							{/if}
 							{#if description}
-								<div class={ctx?.styles?.description()}>{description}</div>
+								<div class={ctx?.styles?.description()}>
+									{description}
+								</div>
 							{/if}
 						</div>
 					{/if}
 				</StepsTrigger>
-				<StepsSeparator {index} last={state.last} completed={state.completed} />
+				<StepsSeparator
+					{index}
+					last={state.last}
+					completed={state.completed}
+				/>
 			{/snippet}
 		</Steps.ItemContext>
 	{/if}

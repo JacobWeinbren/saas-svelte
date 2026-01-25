@@ -5,7 +5,7 @@
 
 	export const checkbox = tv({
 		slots: {
-			root: "align-top items-center gap-x-2.5 inline-flex relative group",
+			root: "align-top items-center gap-x-2.5 inline-flex relative group antialiased",
 			control: [
 				"shrink-0",
 				"justify-center",
@@ -172,7 +172,7 @@
 	}: Props = $props();
 
 	const classes = $derived(checkbox({ size, variant, disabled, invalid }));
-	const colourVars = $derived(getColourStyle(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	setContext<CheckboxContext>(CHECKBOX_CTX, {
 		get styles() {

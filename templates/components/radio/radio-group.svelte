@@ -5,7 +5,7 @@
 
 	export const radioGroup = tv({
 		slots: {
-			root: "relative flex flex-col gap-y-1.5",
+			root: "relative flex flex-col gap-y-1.5 antialiased",
 			item: "align-top items-center gap-x-2.5 inline-flex relative group",
 			control: [
 				"shrink-0",
@@ -136,7 +136,7 @@
 		/**
 		 * Callback invoked when the value changes.
 		 */
-		onValueChange?: (details: { value: string }) => void;
+		onValueChange?: (details: { value: string | null }) => void;
 		[key: string]: any;
 	}
 
@@ -160,7 +160,7 @@
 	const classes = $derived(
 		radioGroup({ size, variant, orientation, disabled, invalid }),
 	);
-	const colourVars = $derived(getColourStyle(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	setContext<RadioGroupContext>(RADIO_GROUP_CTX, {
 		get styles() {
@@ -177,8 +177,8 @@
 		},
 	});
 
-	function handleValueChange(details: { value: string }) {
-		value = details.value;
+	function handleValueChange(details: { value: string | null }) {
+		value = details.value ?? undefined;
 		onValueChange?.(details);
 	}
 </script>

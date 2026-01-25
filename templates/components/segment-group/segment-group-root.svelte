@@ -188,7 +188,7 @@
 	}: Props = $props();
 
 	const classes = $derived(segmentGroup({ size, disabled }));
-	const colourVars = $derived(getColourStyle(colour || "gray"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	setContext<SegmentGroupContext>(SEGMENT_GROUP_CTX, {
 		get styles() {

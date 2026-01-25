@@ -21,6 +21,7 @@
 				"bg-bg-panel",
 				"transition-all duration-200 ease-[cubic-bezier(.34,1.24,0.64,1)]",
 				"w-60",
+				"antialiased",
 			],
 			header: ["flex items-center", "pr-3 py-2 pl-4", "shrink-0"],
 			body: ["flex flex-col flex-1", "gap-4", "overflow-y-auto", "p-3"],

@@ -37,7 +37,7 @@
 			? "text-center"
 			: textAlign === "end"
 				? "text-end"
-				: "text-start"
+				: "text-start",
 	);
 </script>
 

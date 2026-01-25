@@ -107,8 +107,6 @@
 		type AvatarGroupContext,
 	} from "./avatar-group.svelte";
 
-	type AvatarVariants = VariantProps<typeof avatar>;
-
 	interface Props extends Omit<AvatarRootProps, "class" | "style"> {
 		/**
 		 * The image source of the avatar.
@@ -193,7 +191,7 @@
 			.toUpperCase(),
 	);
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const finalStyle = $derived(
 		[colourStyle, style].filter(Boolean).join("; "),
 	);

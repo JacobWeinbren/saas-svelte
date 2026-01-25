@@ -68,6 +68,7 @@
 				],
 			},
 			size: {
+				"2xs": "min-w-5 h-5 gap-y-0.5 gap-x-0.5 text-xs leading-4",
 				xs: "min-w-6 h-6 gap-y-1 gap-x-1 text-xs leading-4",
 				sm: "min-w-7 h-7 gap-y-2 gap-x-2 text-sm leading-5",
 				md: "min-w-8 h-8 gap-y-2 gap-x-2 text-sm leading-5",
@@ -128,7 +129,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const finalStyle = $derived(
 		[colourStyle, style].filter(Boolean).join("; "),
 	);
@@ -142,6 +143,7 @@
 	);
 
 	const iconSizeClass = {
+		"2xs": "w-3 h-3",
 		xs: "w-3.5 h-3.5",
 		sm: "w-4 h-4",
 		md: "w-4 h-4",

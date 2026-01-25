@@ -239,6 +239,10 @@
 		 * The id of the pin input.
 		 */
 		id?: string;
+		/**
+		 * Accessible label for the pin input group.
+		 */
+		"aria-label"?: string;
 	}
 
 	let {
@@ -267,6 +271,7 @@
 		class: className,
 		style,
 		id,
+		"aria-label": ariaLabel,
 	}: Props = $props();
 
 	const fieldContext = getContext<FieldContext>(FIELD_CTX);
@@ -323,6 +328,7 @@
 	disabled={isDisabled}
 	readOnly={isReadOnly}
 	invalid={isInvalid}
+	aria-label={ariaLabel}
 >
 	<PinInput.HiddenInput id={inputId} required={isRequired} />
 	<PinInput.Control class={controlClasses}>

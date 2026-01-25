@@ -122,7 +122,7 @@
 		return value;
 	}
 
-	const computedStyle = $derived(() => {
+	const computedStyle = $derived.by(() => {
 		const styles: string[] = [];
 
 		const w = toCss(width);
@@ -143,7 +143,7 @@
 	{src}
 	{alt}
 	class={classes}
-	style={computedStyle()}
+	style={computedStyle}
 	{onload}
 	{onerror}
 	{...rest}

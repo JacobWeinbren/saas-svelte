@@ -21,6 +21,6 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<span class={twMerge(styles.helpText(), className)} {...restProps}>
+<dd class={twMerge(styles.helpText(), className)} {...restProps}>
 	{@render children()}
-</span>
+</dd>

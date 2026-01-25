@@ -4,11 +4,14 @@
 	import { Stack } from "$saas/layout/stack";
 	import { Group } from "$saas/layout/group";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const separatorSizes = ["xs", "sm", "md", "lg"] as const;
-	const separatorVariants = ["solid", "dashed", "dotted"] as const;
-	const separatorOrientations = ["horizontal", "vertical"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		separatorSizes,
+		separatorVariants,
+		separatorOrientations,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Separator",

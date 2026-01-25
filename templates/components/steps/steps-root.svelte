@@ -9,7 +9,7 @@
 	 */
 	export const steps = tv({
 		slots: {
-			root: "flex w-full",
+			root: "flex w-full antialiased",
 			list: "flex justify-between items-center",
 			item: "flex flex-1 shrink-0 basis-0 items-center relative",
 			trigger:

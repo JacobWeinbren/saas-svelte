@@ -26,6 +26,10 @@
 	const styles = $derived(ctx.styles);
 </script>
 
-<Tabs.Content {value} class={twMerge(styles.content(), className)} {...restProps}>
+<Tabs.Content
+	{value}
+	class={twMerge(styles.content(), className)}
+	{...restProps}
+>
 	{@render children()}
 </Tabs.Content>

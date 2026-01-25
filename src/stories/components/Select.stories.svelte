@@ -282,7 +282,7 @@
 	<div class="w-80">
 		<Field.Root invalid>
 			<Select.Root collection={frameworks} size="sm">
-				<Field.Label>Select framework</Field.Label>
+				<Select.Label>Select framework</Select.Label>
 				<Select.Trigger>
 					<Select.Value placeholder="Select movie" />
 				</Select.Trigger>
@@ -402,7 +402,7 @@
 					size="sm"
 					positioning={{ sameWidth: true, placement: "bottom" }}
 				>
-					<Select.Trigger>
+					<Select.Trigger aria-label="Select framework">
 						<Select.Value placeholder="Select" />
 					</Select.Trigger>
 					<Select.Content portal={false} class="w-full">
@@ -424,7 +424,7 @@
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{colour}</Text>
 				<Select.Root collection={frameworks} {colour} class="w-40">
-					<Select.Trigger>
+					<Select.Trigger aria-label="Select framework">
 						<Select.Value placeholder="Select" />
 					</Select.Trigger>
 					<Select.Content>

@@ -45,7 +45,7 @@
 	const styles = $derived(context?.styles);
 	const variant = $derived(context?.variant ?? "plain");
 
-	const linkClasses = $derived(() => {
+	const linkClasses = $derived.by(() => {
 		const baseClasses = [
 			"outline-0",
 			"items-center",
@@ -83,11 +83,11 @@
 
 <li class={styles?.item()}>
 	{#if as === "button"}
-		<button class={linkClasses()} {...restProps}>
+		<button class={linkClasses} {...restProps}>
 			{@render children()}
 		</button>
 	{:else}
-		<a class={linkClasses()} {...restProps}>
+		<a class={linkClasses} {...restProps}>
 			{@render children()}
 		</a>
 	{/if}

@@ -20,7 +20,11 @@
 	const ctx = getContext<TimelineContext>(TIMELINE_CTX);
 </script>
 
-<div class={twMerge(ctx?.styles.connector(), className)} {...restProps}>
+<div
+	class={twMerge(ctx?.styles.connector(), className)}
+	aria-hidden="true"
+	{...restProps}
+>
 	{#if children}
 		{@render children()}
 	{/if}

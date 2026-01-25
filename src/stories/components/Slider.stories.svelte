@@ -3,10 +3,13 @@
 	import { Slider } from "$saas/components/slider";
 	import { Stack, HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const sliderSizes = ["sm", "md", "lg"] as const;
-	const sliderVariants = ["outline", "solid"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		sliderSizes,
+		sliderVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Slider",
@@ -82,7 +85,7 @@
 </script>
 
 {#snippet basicStory(args: any)}
-	<Slider.Root defaultValue={[40]} class="w-[200px]" {...args}>
+	<Slider.Root defaultValue={[40]} class="w-[200px]" aria-label="Slider" {...args}>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range />
@@ -134,6 +137,7 @@
 					{colour}
 					variant="outline"
 					class="w-[160px]"
+					aria-label="Slider {colour} outline"
 				>
 					<Slider.Control>
 						<Slider.Track>
@@ -147,6 +151,7 @@
 					{colour}
 					variant="solid"
 					class="w-[160px]"
+					aria-label="Slider {colour} solid"
 				>
 					<Slider.Control>
 						<Slider.Track>
@@ -173,7 +178,7 @@
 {/snippet}
 
 {#snippet rangeStory()}
-	<Slider.Root defaultValue={[30, 60]} class="w-[200px]">
+	<Slider.Root defaultValue={[30, 60]} class="w-[200px]" aria-label="Range slider">
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range />
@@ -185,7 +190,7 @@
 {/snippet}
 
 {#snippet disabledStory()}
-	<Slider.Root defaultValue={[40]} disabled class="w-[200px]">
+	<Slider.Root defaultValue={[40]} disabled class="w-[200px]" aria-label="Disabled slider">
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range />
@@ -204,6 +209,7 @@
 					{size}
 					colour="pink"
 					class="w-[200px]"
+					aria-label="Slider {size}"
 				>
 					<Slider.Control>
 						<Slider.Track>
@@ -224,7 +230,7 @@
 {/snippet}
 
 {#snippet verticalStory()}
-	<Slider.Root defaultValue={[40]} orientation="vertical" class="h-[200px]">
+	<Slider.Root defaultValue={[40]} orientation="vertical" class="h-[200px]" aria-label="Vertical slider">
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range />
@@ -273,6 +279,7 @@
 			value={changeValue}
 			onValueChange={(details) => (changeValue = details.value)}
 			onValueChangeEnd={(details) => (changeEndValue = details.value)}
+			aria-label="Slider"
 		>
 			<Slider.Control>
 				<Slider.Track>

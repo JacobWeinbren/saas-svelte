@@ -5,7 +5,7 @@
 
 	export const radioCard = tv({
 		slots: {
-			root: "isolate relative flex flex-col gap-y-1.5 gap-x-1.5",
+			root: "isolate relative flex flex-col gap-y-1.5 gap-x-1.5 antialiased",
 			label: "text-sm font-medium leading-5 inline-flex disabled:opacity-50",
 			itemsContainer: "flex items-stretch gap-2",
 			item: [
@@ -196,7 +196,7 @@
 	const classes = $derived(
 		radioCard({ size, align, orientation, disabled, invalid }),
 	);
-	const colourVars = $derived(getColourStyle(colour || "indigo"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	setContext<RadioCardContext>(RADIO_CARD_CTX, {
 		get styles() {

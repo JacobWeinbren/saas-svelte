@@ -10,6 +10,7 @@
 			"bg-bg-panel",
 			"flex-col flex relative",
 			"rounded-lg",
+			"antialiased",
 		],
 		variants: {
 			variant: {

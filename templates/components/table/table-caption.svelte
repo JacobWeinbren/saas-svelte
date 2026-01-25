@@ -28,7 +28,7 @@
 	class={twMerge(
 		ctx?.styles.caption(),
 		placement === "top" && "caption-top mb-4 mt-0",
-		className
+		className,
 	)}
 >
 	{#if children}

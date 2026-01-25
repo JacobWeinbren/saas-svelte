@@ -14,7 +14,7 @@
 
 	export const breadcrumb = tv({
 		slots: {
-			root: "[word-break:break-word] text-fg-muted items-center flex font-normal",
+			root: "[word-break:break-word] text-fg-muted items-center flex font-normal antialiased",
 			item: "items-center inline-flex",
 			separator: "text-fg-muted opacity-80",
 			ellipsis: "justify-center items-center inline-flex",

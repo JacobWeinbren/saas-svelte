@@ -34,7 +34,7 @@
 	const ctx = getContext<StatContext>(STAT_CTX);
 	const styles = $derived(ctx.styles);
 
-	const formattedValue = $derived(() => {
+	const formattedValue = $derived.by(() => {
 		if (value !== undefined && formatOptions) {
 			return new Intl.NumberFormat("en-US", formatOptions).format(value);
 		}
@@ -44,7 +44,7 @@
 
 <dd class={twMerge(styles.valueText(), className)} {...restProps}>
 	{#if value !== undefined}
-		{formattedValue()}
+		{formattedValue}
 	{/if}
 	{#if children}
 		{@render children()}

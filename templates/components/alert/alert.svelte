@@ -48,7 +48,6 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import { Icon } from "$saas/components/icon";
 
-	type AlertVariants = VariantProps<typeof alert>;
 	type Status = "info" | "success" | "warning" | "error" | "neutral";
 
 	interface Props {

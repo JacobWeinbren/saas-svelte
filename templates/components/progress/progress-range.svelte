@@ -19,7 +19,7 @@
 	const isIndeterminate = $derived(ctx.value === null);
 
 	// Calculate stripe classes - use explicit property syntax to avoid tailwind-merge conflict with bg-(--c-solid)
-	const stripeClasses = $derived(() => {
+	const stripeClasses = $derived.by(() => {
 		if (!ctx.striped) return "";
 		const baseStripe =
 			"bg-[linear-gradient(45deg,rgba(255,255,255,0.3)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0.3)_75%,transparent_75%,transparent)] bg-size-[1rem_1rem]";
@@ -40,7 +40,7 @@
 <Progress.Range
 	class={twMerge(
 		styles.range(),
-		stripeClasses(),
+		stripeClasses,
 		indeterminateClasses,
 		className,
 	)}

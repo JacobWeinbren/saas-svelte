@@ -50,7 +50,7 @@
 		...rest
 	}: Props = $props();
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const finalStyle = $derived(
 		[colourStyle, style].filter(Boolean).join("; "),
 	);

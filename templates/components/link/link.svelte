@@ -69,7 +69,7 @@
 		...rest
 	}: Props = $props();
 
-	const colourVars = $derived(getColourStyle(colour || "gray"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	const finalClass = $derived(link({ variant, class: className as string }));
 

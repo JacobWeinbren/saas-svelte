@@ -45,18 +45,21 @@
 			borderWidth && `border-width: ${borderWidth}`,
 		]
 			.filter(Boolean)
-			.join("; ")
+			.join("; "),
 	);
 </script>
 
 <div
 	class={twMerge(
-		"block whitespace-nowrap overflow-x-auto overflow-y-auto",
+		"block whitespace-nowrap overflow-x-auto overflow-y-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",
 		borderWidth && "border border-border-default",
 		rounded && `rounded-${rounded}`,
-		className
+		className,
 	)}
 	style={style || undefined}
+	tabindex="0"
+	role="region"
+	aria-label="Scrollable table"
 >
 	{#if children}
 		{@render children()}

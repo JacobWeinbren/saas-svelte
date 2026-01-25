@@ -10,10 +10,12 @@
 	import { Text } from "$saas/typography/text";
 	import { Badge } from "$saas/components/badge";
 	import { Button } from "$saas/components/button";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const skeletonVariants = ["pulse", "shine", "none"] as const;
-	const skeletonCircleSizes = ["6", "8", "10", "12", "14", "16"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		skeletonVariants,
+		skeletonCircleSizes,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Skeleton",

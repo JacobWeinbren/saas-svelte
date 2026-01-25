@@ -4,14 +4,17 @@
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
 	import { Icon } from "$saas/components/icon";
-	import { commonArgTypes, getControls, colours } from "../utils";
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		switchSizes,
+		switchVariants,
+	} from "../utils";
 	import Check from "phosphor-svelte/lib/Check";
 	import X from "phosphor-svelte/lib/X";
 	import Sun from "phosphor-svelte/lib/Sun";
 	import Moon from "phosphor-svelte/lib/Moon";
-
-	const switchSizes = ["xs", "sm", "md", "lg"] as const;
-	const switchVariants = ["solid", "raised"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Switch",
@@ -19,7 +22,7 @@
 		argTypes: {
 			size: {
 				control: "select",
-				options: ["xs", "sm", "md", "lg"],
+				options: switchSizes,
 				description: "The size of the switch.",
 				table: {
 					defaultValue: { summary: "md" },
@@ -27,7 +30,7 @@
 			},
 			variant: {
 				control: "select",
-				options: ["solid", "raised"],
+				options: switchVariants,
 				description: "The visual variant of the switch.",
 				table: {
 					defaultValue: { summary: "solid" },
@@ -97,8 +100,17 @@
 			<HStack gap={6} class="items-center">
 				<Text size="xs" class="min-w-[8ch]">{colour}</Text>
 				{#each switchVariants as variant}
-					<Switch {colour} {variant} />
-					<Switch {colour} {variant} checked />
+					<Switch
+						{colour}
+						{variant}
+						aria-label="{colour} {variant} off"
+					/>
+					<Switch
+						{colour}
+						{variant}
+						checked
+						aria-label="{colour} {variant} on"
+					/>
 				{/each}
 			</HStack>
 		{/each}
@@ -112,25 +124,29 @@
 	</HStack>
 {/snippet}
 
+{#snippet checkIcon()}
+	<Icon as={Check} class="h-3.5" />
+{/snippet}
+
+{#snippet xIcon()}
+	<Icon as={X} class="h-3.5" />
+{/snippet}
+
 {#snippet thumbLabelStory()}
-	{#snippet checkIcon()}
-		<Icon as={Check} class="h-3.5" />
-	{/snippet}
-	{#snippet xIcon()}
-		<Icon as={X} class="h-3.5" />
-	{/snippet}
 	<Switch size="lg" thumbLabel={{ on: checkIcon, off: xIcon }}>
 		Switch me
 	</Switch>
 {/snippet}
 
+{#snippet sunIcon()}
+	<Icon as={Sun} weight="fill" class="h-3.5 text-yellow-400" />
+{/snippet}
+
+{#snippet moonIcon()}
+	<Icon as={Moon} weight="fill" class="h-3.5 text-fg-muted" />
+{/snippet}
+
 {#snippet trackLabelStory()}
-	{#snippet sunIcon()}
-		<Icon as={Sun} weight="fill" class="h-3.5 text-yellow-400" />
-	{/snippet}
-	{#snippet moonIcon()}
-		<Icon as={Moon} weight="fill" class="h-3.5 text-fg-muted" />
-	{/snippet}
 	<Switch size="lg" colour="blue" trackLabel={{ on: sunIcon, off: moonIcon }}>
 		Dark mode
 	</Switch>

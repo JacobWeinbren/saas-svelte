@@ -25,7 +25,7 @@
 	const ctx = getContext<RadioGroupContext>(RADIO_GROUP_CTX);
 	const styles = $derived(ctx.styles);
 	const variant = $derived(ctx.variant);
-	const colourVars = $derived(getColourStyle(ctx.colour || "indigo"));
+	const colourVars = $derived(getColourStyle(ctx.colour));
 
 	/**
 	 * Returns the control styling classes based on variant.

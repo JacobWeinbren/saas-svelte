@@ -39,7 +39,7 @@
 	{#if info}
 		<Tooltip content={info}>
 			<Button variant="ghost" size="xs" icon aria-label="Info">
-				<Info />
+				<Info aria-hidden="true" />
 			</Button>
 		</Tooltip>
 	{/if}

@@ -54,8 +54,6 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { ClassNameValue } from "tailwind-merge";
 
-	type TextVariants = VariantProps<typeof text>;
-
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
 		 * The HTML element to render.

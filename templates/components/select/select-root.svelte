@@ -15,7 +15,7 @@
 				"select-none",
 				"font-medium",
 				"text-fg-default",
-				"data-disabled:opacity-50",
+				"data-disabled:text-fg-muted",
 				"data-disabled:cursor-not-allowed",
 			],
 			control: ["relative", "w-full"],

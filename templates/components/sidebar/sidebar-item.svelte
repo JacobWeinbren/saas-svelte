@@ -35,7 +35,9 @@
 
 	const ctx = getContext<SidebarContext>(SIDEBAR_CTX);
 	const styles = $derived(ctx?.styles ?? sidebar());
-	const finalClass = $derived(styles.item({ active, class: className as string }));
+	const finalClass = $derived(
+		styles.item({ active, class: className as string }),
+	);
 	const iconClass = $derived(styles.itemIcon());
 	const labelClass = $derived(styles.itemLabel());
 </script>

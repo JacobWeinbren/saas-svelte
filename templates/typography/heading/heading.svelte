@@ -41,8 +41,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 
-	type HeadingVariants = VariantProps<typeof heading>;
-
 	interface Props extends Omit<HTMLAttributes<HTMLElement>, "class"> {
 		/**
 		 * The HTML element to render.

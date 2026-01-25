@@ -6,7 +6,13 @@
 	 */
 	export const appShell = tv({
 		slots: {
-			root: ["flex", "flex-col", "w-full", "overflow-hidden"],
+			root: [
+				"flex",
+				"flex-col",
+				"w-full",
+				"overflow-hidden",
+				"antialiased",
+			],
 			main: ["flex", "flex-1", "min-h-0"],
 			content: ["flex", "flex-col", "flex-1", "min-w-0"],
 		},

@@ -46,14 +46,7 @@
 	}: Props = $props();
 </script>
 
-<ToggleTip
-	{content}
-	{size}
-	{id}
-	{positioning}
-	class={className}
-	{...rest}
->
+<ToggleTip {content} {size} {id} {positioning} class={className} {...rest}>
 	{#snippet trigger(props)}
 		<button
 			type="button"

@@ -69,7 +69,7 @@
 		{#if avatarSrc}
 			<img
 				src={avatarSrc}
-				alt={displayName}
+				alt=""
 				class="rounded-full object-cover shrink-0"
 				style="width: {avatarSize}px; height: {avatarSize}px;"
 			/>

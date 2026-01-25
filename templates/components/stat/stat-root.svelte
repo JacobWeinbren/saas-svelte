@@ -12,6 +12,7 @@
 				"gap-y-0",
 				"gap-x-0",
 				"relative",
+				"antialiased",
 			],
 			label: ["text-fg-muted", "select-none", "text-sm", "leading-sm"],
 			valueText: [

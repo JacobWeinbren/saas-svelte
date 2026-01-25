@@ -15,6 +15,6 @@
 	let { children, class: className }: Props = $props();
 </script>
 
-<span class="sr-only {className}">
+<span class={["sr-only", className].filter(Boolean).join(" ")}>
 	{@render children()}
 </span>

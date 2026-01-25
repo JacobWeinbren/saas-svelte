@@ -60,7 +60,7 @@
 
 	const ctx = getContext<RadioCardContext>(RADIO_CARD_CTX);
 	const styles = $derived(ctx.styles);
-	const colourVars = $derived(getColourStyle(ctx.colour || "indigo"));
+	const colourVars = $derived(getColourStyle(ctx.colour));
 
 	const isDisabled = $derived(disabled || ctx.disabled);
 

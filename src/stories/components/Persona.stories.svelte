@@ -83,7 +83,7 @@
 
 {#snippet presenceStory()}
 	<Stack gap={4}>
-		{#each presenceStatuses as presence}
+		{#each presenceOptions as presence}
 			<Persona.Root size="lg">
 				<Persona.Avatar
 					name="David Wilson"

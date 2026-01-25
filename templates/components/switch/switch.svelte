@@ -7,7 +7,7 @@
 
 	const switchRecipe = tv({
 		slots: {
-			root: "items-center gap-2.5 inline-flex relative align-middle",
+			root: "items-center gap-2.5 inline-flex relative align-middle antialiased",
 			control:
 				"shrink-0 justify-start gap-2 inline-flex relative rounded-full disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150",
 			thumb: "shrink-0 justify-center items-center flex rounded-[inherit] transition-all duration-150",

@@ -23,19 +23,14 @@
 	const context = getContext<BreadcrumbContext>(BREADCRUMB_CTX);
 	const styles = $derived(context?.styles);
 
-	const currentClasses = $derived(() => {
+	const currentClasses = $derived.by(() => {
 		// Current link is always default color (stands out from muted links)
 		return ["text-fg-default", className].filter(Boolean).join(" ");
 	});
 </script>
 
 <li class={styles?.item()}>
-	<span
-		role="link"
-		aria-current="page"
-		class={currentClasses()}
-		{...restProps}
-	>
+	<span role="link" aria-current="page" class={currentClasses} {...restProps}>
 		{@render children()}
 	</span>
 </li>

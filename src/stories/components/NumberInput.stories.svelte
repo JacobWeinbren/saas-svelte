@@ -126,7 +126,7 @@
 {#snippet invalidStory()}
 	<Field.Root invalid class="w-52">
 		<Field.Label>Enter Number</Field.Label>
-		<NumberInput defaultValue="10" />
+		<NumberInput defaultValue="10" aria-label="Enter Number" />
 		<Field.ErrorText>The entry is invalid</Field.ErrorText>
 	</Field.Root>
 {/snippet}
@@ -134,7 +134,7 @@
 {#snippet withFieldStory()}
 	<Field.Root class="w-52">
 		<Field.Label>Enter Number</Field.Label>
-		<NumberInput />
+		<NumberInput aria-label="Enter Number" />
 		<Field.HelperText>Enter a number between 1 and 10</Field.HelperText>
 	</Field.Root>
 {/snippet}

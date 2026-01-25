@@ -44,7 +44,7 @@
 			? "flex-col gap-2 flex"
 			: hasFlex
 				? "flex-col gap-2 flex pb-6"
-				: ctx?.styles.content() ?? "flex-col gap-2 w-full flex pb-6",
+				: (ctx?.styles.content() ?? "flex-col gap-2 w-full flex pb-6"),
 	);
 	const flexClass = $derived(hasFlex ? "flex-1" : "");
 	const alignClass = $derived(

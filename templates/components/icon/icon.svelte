@@ -29,8 +29,6 @@
 	import { type ColourName } from "$saas/utils/colours";
 	import tailwindColors from "tailwindcss/colors";
 
-	type IconVariants = VariantProps<typeof icon>;
-
 	interface Props extends SVGAttributes<SVGElement> {
 		/**
 		 * The icon component to render (e.g., a Phosphor icon).

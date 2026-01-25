@@ -1,14 +1,17 @@
 <script module lang="ts">
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import { Steps } from "$saas/components/steps";
-	import { Button } from "$saas/components/button";
 	import { Stack, VStack, HStack } from "$saas/layout/stack";
 	import { Group } from "$saas/layout/group";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const stepsSizes = ["sm", "md", "lg"] as const;
-	const stepsVariants = ["subtle", "solid"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		orientations,
+		stepsSizes,
+		stepsVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Steps",
@@ -38,7 +41,7 @@
 			},
 			orientation: {
 				control: "select",
-				options: ["horizontal", "vertical"],
+				options: orientations,
 				description: "The orientation of the steps.",
 				table: { defaultValue: { summary: "horizontal" } },
 			},
@@ -99,12 +102,8 @@
 		<Steps.CompletedContent>All steps are complete!</Steps.CompletedContent>
 
 		<Group>
-			<Steps.PrevTrigger>
-				<Button variant="outline" size="sm">Prev</Button>
-			</Steps.PrevTrigger>
-			<Steps.NextTrigger>
-				<Button variant="outline" size="sm">Next</Button>
-			</Steps.NextTrigger>
+			<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+			<Steps.NextTrigger>Next</Steps.NextTrigger>
 		</Group>
 	</Steps.Root>
 {/snippet}
@@ -127,12 +126,8 @@
 				>
 
 				<Group>
-					<Steps.PrevTrigger>
-						<Button variant="outline" size="sm">Prev</Button>
-					</Steps.PrevTrigger>
-					<Steps.NextTrigger>
-						<Button variant="outline" size="sm">Next</Button>
-					</Steps.NextTrigger>
+					<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+					<Steps.NextTrigger>Next</Steps.NextTrigger>
 				</Group>
 			</Steps.Root>
 		{/each}
@@ -178,12 +173,8 @@
 			>
 
 			<Group>
-				<Steps.PrevTrigger>
-					<Button variant="outline" size="sm">Prev</Button>
-				</Steps.PrevTrigger>
-				<Steps.NextTrigger>
-					<Button variant="outline" size="sm">Next</Button>
-				</Steps.NextTrigger>
+				<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+				<Steps.NextTrigger>Next</Steps.NextTrigger>
 			</Group>
 		</Stack>
 	</Steps.Root>
@@ -211,12 +202,8 @@
 				>
 
 				<Group>
-					<Steps.PrevTrigger>
-						<Button variant="outline" size="sm">Prev</Button>
-					</Steps.PrevTrigger>
-					<Steps.NextTrigger>
-						<Button variant="outline" size="sm">Next</Button>
-					</Steps.NextTrigger>
+					<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+					<Steps.NextTrigger>Next</Steps.NextTrigger>
 				</Group>
 			</Steps.Root>
 		{/each}
@@ -226,9 +213,9 @@
 {#snippet iconStory()}
 	<Steps.Root defaultStep={1} count={3}>
 		<Steps.List>
-			<Steps.Item index={0} icon={User} />
-			<Steps.Item index={1} icon={Wallet} />
-			<Steps.Item index={2} icon={CalendarBlank} />
+			<Steps.Item index={0} icon={User} aria-label="Contact Details" />
+			<Steps.Item index={1} icon={Wallet} aria-label="Payment" />
+			<Steps.Item index={2} icon={CalendarBlank} aria-label="Appointment" />
 		</Steps.List>
 
 		<Steps.Content index={0}>Contact Details</Steps.Content>
@@ -237,12 +224,8 @@
 		<Steps.CompletedContent>All steps are complete!</Steps.CompletedContent>
 
 		<Group>
-			<Steps.PrevTrigger>
-				<Button variant="outline" size="sm">Prev</Button>
-			</Steps.PrevTrigger>
-			<Steps.NextTrigger>
-				<Button variant="outline" size="sm">Next</Button>
-			</Steps.NextTrigger>
+			<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+			<Steps.NextTrigger>Next</Steps.NextTrigger>
 		</Group>
 	</Steps.Root>
 {/snippet}
@@ -261,12 +244,8 @@
 		<Steps.CompletedContent>All steps are complete!</Steps.CompletedContent>
 
 		<Group>
-			<Steps.PrevTrigger>
-				<Button variant="outline" size="sm">Prev</Button>
-			</Steps.PrevTrigger>
-			<Steps.NextTrigger>
-				<Button variant="outline" size="sm">Next</Button>
-			</Steps.NextTrigger>
+			<Steps.PrevTrigger>Prev</Steps.PrevTrigger>
+			<Steps.NextTrigger>Next</Steps.NextTrigger>
 		</Group>
 	</Steps.Root>
 {/snippet}

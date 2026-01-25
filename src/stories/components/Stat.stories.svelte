@@ -59,46 +59,46 @@
 {/snippet}
 
 {#snippet progressBarStory()}
-	<Stat.Root class="max-w-60">
-		<Stat.Label>This week</Stat.Label>
-		<Stat.ValueText
-			value={1340}
-			formatOptions={{
-				currency: "USD",
-				style: "currency",
-				maximumFractionDigits: 0,
-			}}
-		/>
-		<Stat.HelpText class="mb-2">+12% from last week</Stat.HelpText>
+	<VStack gap={2} class="max-w-60">
+		<Stat.Root>
+			<Stat.Label>This week</Stat.Label>
+			<Stat.ValueText
+				value={1340}
+				formatOptions={{
+					currency: "USD",
+					style: "currency",
+					maximumFractionDigits: 0,
+				}}
+			/>
+			<Stat.HelpText>+12% from last week</Stat.HelpText>
+		</Stat.Root>
 		<Progress.Root value={50}>
 			<Progress.Track>
 				<Progress.Range />
 			</Progress.Track>
 		</Progress.Root>
-	</Stat.Root>
+	</VStack>
 {/snippet}
 
 {#snippet iconStory()}
 	<Stat.Root class="max-w-60 border border-border-default p-4 rounded-md">
-		<HStack class="justify-between">
-			<Stat.Label>Sales</Stat.Label>
-			<Icon as={CurrencyDollar} size="sm" class="text-fg-muted" />
-		</HStack>
+		<Stat.Label class="flex justify-between w-full">
+			Sales
+			<Icon as={CurrencyDollar} size="sm" class="text-fg-muted" aria-hidden="true" />
+		</Stat.Label>
 		<Stat.ValueText>$4.24k</Stat.ValueText>
 	</Stat.Root>
 {/snippet}
 
 {#snippet trendStory()}
-	<Stat.Root>
-		<Stat.Label>Unique</Stat.Label>
-		<HStack class="items-center gap-2">
-			<Stat.ValueText
-				value={8456.4}
-				formatOptions={{ style: "currency", currency: "USD" }}
-			/>
-			<Stat.UpTrend>12%</Stat.UpTrend>
-		</HStack>
-		<Stat.HelpText>since last month</Stat.HelpText>
+	<Stat.Root class="flex-row flex-wrap items-center gap-x-2">
+		<Stat.Label class="w-full">Unique</Stat.Label>
+		<Stat.ValueText
+			value={8456.4}
+			formatOptions={{ style: "currency", currency: "USD" }}
+		/>
+		<Stat.UpTrend>12%</Stat.UpTrend>
+		<Stat.HelpText class="w-full">since last month</Stat.HelpText>
 	</Stat.Root>
 {/snippet}
 
@@ -107,19 +107,15 @@
 		{#each colours as colour}
 			<HStack gap={4} class="items-center">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Stat.Root>
-					<Stat.Label>Revenue</Stat.Label>
-					<HStack class="items-center gap-2">
-						<Stat.ValueText>$8,456</Stat.ValueText>
-						<Stat.UpTrend {colour}>12%</Stat.UpTrend>
-					</HStack>
+				<Stat.Root class="flex-row flex-wrap items-center gap-x-2">
+					<Stat.Label class="w-full">Revenue</Stat.Label>
+					<Stat.ValueText>$8,456</Stat.ValueText>
+					<Stat.UpTrend {colour}>12%</Stat.UpTrend>
 				</Stat.Root>
-				<Stat.Root>
-					<Stat.Label>Visitors</Stat.Label>
-					<HStack class="items-center gap-2">
-						<Stat.ValueText>192.1k</Stat.ValueText>
-						<Stat.DownTrend {colour}>1.9%</Stat.DownTrend>
-					</HStack>
+				<Stat.Root class="flex-row flex-wrap items-center gap-x-2">
+					<Stat.Label class="w-full">Visitors</Stat.Label>
+					<Stat.ValueText>192.1k</Stat.ValueText>
+					<Stat.DownTrend {colour}>1.9%</Stat.DownTrend>
 				</Stat.Root>
 			</HStack>
 		{/each}

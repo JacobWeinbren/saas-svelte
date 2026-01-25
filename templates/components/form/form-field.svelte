@@ -14,6 +14,9 @@
 	import { Radio } from "../radio";
 	import { NumberInput } from "../number-input";
 	import { PasswordInput } from "../password-input";
+	import { Switch } from "../switch";
+	import { Slider } from "../slider";
+	import { PinInput } from "../pin-input";
 	import type { FormApi } from "./use-form.svelte";
 	import type { FieldType, FieldOption } from "./types";
 	import { FORM_CTX } from "./types";
@@ -30,6 +33,8 @@
 		min?: number;
 		max?: number;
 		step?: number;
+		/** Number of inputs for pin-input type @default 4 */
+		count?: number;
 		class?: string;
 		children?: Snippet<
 			[
@@ -55,6 +60,7 @@
 		min,
 		max,
 		step,
+		count = 4,
 		class: className,
 		children,
 	}: Props = $props();
@@ -74,7 +80,7 @@
 </script>
 
 <FieldRoot invalid={!!error} {required} {disabled} class={className}>
-	{#if label && type !== "checkbox" && type !== "radio"}
+	{#if label && type !== "checkbox" && type !== "radio" && type !== "switch"}
 		<FieldLabel
 			>{label}{#if required}<span class="text-fg-error">*</span
 				>{/if}</FieldLabel
@@ -161,6 +167,41 @@
 			invalid={!!error}
 			oninput={onInput}
 			onblur={onBlur}
+		/>
+	{:else if type === "switch"}
+		<Switch
+			checked={value as boolean}
+			{disabled}
+			invalid={!!error}
+			onCheckedChange={(details) => onChange(details.checked)}
+		>
+			{#if label}{label}{#if required}<span class="text-fg-error">*</span>{/if}{/if}
+		</Switch>
+	{:else if type === "slider"}
+		<Slider.Root
+			value={Array.isArray(value) ? (value as number[]) : [value as number]}
+			{disabled}
+			{min}
+			{max}
+			{step}
+			aria-label={label}
+			onValueChange={(details) => onChange(details.value.length === 1 ? details.value[0] : details.value)}
+		>
+			<Slider.Control>
+				<Slider.Track>
+					<Slider.Range />
+				</Slider.Track>
+				<Slider.Thumb index={0} />
+			</Slider.Control>
+		</Slider.Root>
+	{:else if type === "pin-input"}
+		<PinInput
+			value={value as string[]}
+			{disabled}
+			{count}
+			invalid={!!error}
+			aria-label={label}
+			onValueChange={(details) => onChange(details.value)}
 		/>
 	{:else}
 		<Input

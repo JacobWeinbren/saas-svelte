@@ -50,7 +50,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourVars = $derived(getColourStyle(colour || "gray"));
+	const colourVars = $derived(getColourStyle(colour));
 
 	const finalClass = $derived(
 		mark({

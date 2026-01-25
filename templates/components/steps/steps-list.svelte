@@ -24,8 +24,26 @@
 	);
 </script>
 
-<Steps.List class={finalClass} {...restProps}>
-	{#if children}
-		{@render children()}
-	{/if}
-</Steps.List>
+{#snippet customList(getProps: () => Record<string, any>)}
+	{@const allProps = getProps()}
+	{@const {
+		"aria-orientation": _orientation,
+		"aria-owns": _owns,
+		role: _role,
+		class: propClass,
+		...cleanProps
+	} = allProps}
+	<ol
+		{...cleanProps}
+		class={twMerge(propClass, finalClass)}
+		role="group"
+		aria-label="Steps"
+		{...restProps}
+	>
+		{#if children}
+			{@render children()}
+		{/if}
+	</ol>
+{/snippet}
+
+<Steps.List asChild={customList} />

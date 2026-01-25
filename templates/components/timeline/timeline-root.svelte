@@ -122,8 +122,10 @@
 	}: Props = $props();
 
 	const classes = $derived(timeline({ size, variant }));
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
-	const finalStyle = $derived([colourStyle, style].filter(Boolean).join("; "));
+	const colourStyle = $derived(getColourStyle(colour));
+	const finalStyle = $derived(
+		[colourStyle, style].filter(Boolean).join("; "),
+	);
 
 	setContext<TimelineContext>(TIMELINE_CTX, {
 		get styles() {

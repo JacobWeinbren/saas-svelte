@@ -104,7 +104,7 @@
 		variant === "underline" || variant === "plain",
 	);
 	const colourVars = $derived(
-		shouldApplyColour ? getColourStyle(colour || "gray") : "",
+		shouldApplyColour ? getColourStyle(colour) : "",
 	);
 	const finalClass = $derived(linkOverlay({ variant, class: className }));
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));

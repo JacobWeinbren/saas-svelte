@@ -3,10 +3,13 @@
 	import { Status } from "$saas/components/status";
 	import { HStack, VStack } from "$saas/layout/stack";
 	import { Text } from "$saas/typography/text";
-	import { commonArgTypes, getControls, colours } from "../utils";
-
-	const statusSizes = ["sm", "md", "lg"] as const;
-	const statusValues = ["error", "info", "warning", "success"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		colours,
+		statusSizes,
+		statusValues,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "components/Status",
@@ -14,7 +17,7 @@
 		argTypes: {
 			value: {
 				control: "select",
-				options: ["error", "info", "warning", "success"],
+				options: statusValues,
 				description:
 					"The status value determining the indicator colour.",
 				table: {
@@ -23,7 +26,7 @@
 			},
 			size: {
 				control: "select",
-				options: ["sm", "md", "lg"],
+				options: statusSizes,
 				description: "The size of the status indicator.",
 				table: {
 					defaultValue: { summary: "md" },

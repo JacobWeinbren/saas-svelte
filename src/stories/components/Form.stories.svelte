@@ -91,6 +91,9 @@
 			select: "",
 			checkbox: false,
 			radio: "svelte",
+			switch: false,
+			slider: 50,
+			pinInput: ["", "", "", ""],
 		},
 		onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
 	})}
@@ -141,6 +144,25 @@
 				type="radio"
 				label="Framework"
 				options={radioOptions}
+			/>
+			<FormField
+				name="switch"
+				type="switch"
+				label="Enable notifications"
+			/>
+			<FormField
+				name="slider"
+				type="slider"
+				label="Volume"
+				min={0}
+				max={100}
+				step={1}
+			/>
+			<FormField
+				name="pinInput"
+				type="pin-input"
+				label="Verification Code"
+				count={4}
 			/>
 			<SubmitButton>Submit</SubmitButton>
 		</VStack>

@@ -71,8 +71,6 @@
 	import type { HTMLAttributes } from "svelte/elements";
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 
-	type ProgressCircleVariants = VariantProps<typeof progressCircle>;
-
 	interface Props extends HTMLAttributes<HTMLDivElement> {
 		/**
 		 * The current value of the progress (0-100).

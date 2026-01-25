@@ -45,12 +45,12 @@
 	);
 </script>
 
-<span
+<dd
 	class={twMerge(styles.trend(), variantClasses, className)}
 	style={colourStyle}
 	{...restProps}
 >
-	<span class={styles.trendIcon()}>
+	<span class={styles.trendIcon()} aria-hidden="true">
 		<svg
 			viewBox="0 0 24 24"
 			class="w-[1em] h-[1em] fill-none stroke-current stroke-[3px] [stroke-linecap:round] [stroke-linejoin:round]"
@@ -60,4 +60,4 @@
 		</svg>
 	</span>
 	{@render children()}
-</span>
+</dd>

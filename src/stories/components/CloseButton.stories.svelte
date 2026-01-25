@@ -51,11 +51,9 @@
 
 {#snippet sizesStory()}
 	<HStack gap={4} class="flex-wrap items-center">
-		<CloseButton size="xs" variant="outline" />
-		<CloseButton size="sm" variant="outline" />
-		<CloseButton size="md" variant="outline" />
-		<CloseButton size="lg" variant="outline" />
-		<CloseButton size="xl" variant="outline" />
+		{#each closeButtonSizes as size}
+			<CloseButton {size} variant="outline" />
+		{/each}
 	</HStack>
 {/snippet}
 

@@ -8,10 +8,12 @@
 	import Boat from "phosphor-svelte/lib/Boat";
 	import Check from "phosphor-svelte/lib/Check";
 	import Package from "phosphor-svelte/lib/Package";
-	import { commonArgTypes, getControls } from "../utils";
-
-	const timelineSizes = ["sm", "md", "lg", "xl"] as const;
-	const timelineVariants = ["subtle", "solid", "outline", "plain"] as const;
+	import {
+		commonArgTypes,
+		getControls,
+		timelineSizes,
+		timelineVariants,
+	} from "../utils";
 
 	const { Story } = defineMeta({
 		title: "Components/Timeline",
@@ -88,7 +90,9 @@
 			</Timeline.Connector>
 			<Timeline.Content>
 				<Timeline.Title>Order Delivered</Timeline.Title>
-				<Timeline.Description>20th May 2021, 10:30am</Timeline.Description>
+				<Timeline.Description
+					>20th May 2021, 10:30am</Timeline.Description
+				>
 			</Timeline.Content>
 		</Timeline.Item>
 	</Timeline.Root>
@@ -124,9 +128,13 @@
 							<Timeline.Title>
 								<span class="font-medium">sage</span>
 								changed status from
-								<Badge size="sm" variant="subtle">In progress</Badge>
+								<Badge size="sm" variant="subtle"
+									>In progress</Badge
+								>
 								to
-								<Badge size="sm" variant="subtle" colour="teal">Completed</Badge>
+								<Badge size="sm" variant="subtle" colour="teal"
+									>Completed</Badge
+								>
 							</Timeline.Title>
 						</Timeline.Content>
 					</Timeline.Item>
@@ -140,7 +148,8 @@
 	<VStack gap={16}>
 		{#each timelineVariants as variant}
 			<VStack gap={2}>
-				<Text size="xs" class="text-fg-muted capitalize">{variant}</Text>
+				<Text size="xs" class="text-fg-muted capitalize">{variant}</Text
+				>
 				<Timeline.Root {variant}>
 					<Timeline.Item>
 						<Timeline.Connector>
@@ -166,9 +175,13 @@
 							<Timeline.Title>
 								<span class="font-medium">sage</span>
 								changed status from
-								<Badge size="sm" variant="subtle">In progress</Badge>
+								<Badge size="sm" variant="subtle"
+									>In progress</Badge
+								>
 								to
-								<Badge size="sm" variant="subtle" colour="teal">Completed</Badge>
+								<Badge size="sm" variant="subtle" colour="teal"
+									>Completed</Badge
+								>
 							</Timeline.Title>
 						</Timeline.Content>
 					</Timeline.Item>
@@ -186,24 +199,30 @@
 				<Timeline.Root {size}>
 					<Timeline.Item>
 						<Timeline.Content width="auto">
-							<Timeline.Title whiteSpace="nowrap">Nov 1994</Timeline.Title>
+							<Timeline.Title whiteSpace="nowrap"
+								>Nov 1994</Timeline.Title
+							>
 						</Timeline.Content>
 						<Timeline.Connector>1</Timeline.Connector>
 						<Timeline.Content>
 							<Timeline.Title>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit.
 							</Timeline.Title>
 						</Timeline.Content>
 					</Timeline.Item>
 
 					<Timeline.Item>
 						<Timeline.Content width="auto">
-							<Timeline.Title whiteSpace="nowrap">Nov 2010</Timeline.Title>
+							<Timeline.Title whiteSpace="nowrap"
+								>Nov 2010</Timeline.Title
+							>
 						</Timeline.Content>
 						<Timeline.Connector>2</Timeline.Connector>
 						<Timeline.Content>
 							<Timeline.Title>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit.
 							</Timeline.Title>
 						</Timeline.Content>
 					</Timeline.Item>
@@ -224,14 +243,18 @@
 			</Timeline.Connector>
 			<Timeline.Content flex={1}>
 				<Timeline.Title>Founded Company</Timeline.Title>
-				<Timeline.Description>Started with a team of 3 people</Timeline.Description>
+				<Timeline.Description
+					>Started with a team of 3 people</Timeline.Description
+				>
 			</Timeline.Content>
 		</Timeline.Item>
 
 		<Timeline.Item>
 			<Timeline.Content flex={1} alignItems="flex-end">
 				<Timeline.Title>Series A Funding</Timeline.Title>
-				<Timeline.Description>Raised $5M from investors</Timeline.Description>
+				<Timeline.Description
+					>Raised $5M from investors</Timeline.Description
+				>
 			</Timeline.Content>
 			<Timeline.Connector>
 				<Check />
@@ -250,14 +273,18 @@
 			</Timeline.Connector>
 			<Timeline.Content flex={1}>
 				<Timeline.Title>100k Users</Timeline.Title>
-				<Timeline.Description>Reached major milestone</Timeline.Description>
+				<Timeline.Description
+					>Reached major milestone</Timeline.Description
+				>
 			</Timeline.Content>
 		</Timeline.Item>
 
 		<Timeline.Item>
 			<Timeline.Content flex={1} alignItems="flex-end">
 				<Timeline.Title>Global Expansion</Timeline.Title>
-				<Timeline.Description>Opened offices in 5 countries</Timeline.Description>
+				<Timeline.Description
+					>Opened offices in 5 countries</Timeline.Description
+				>
 			</Timeline.Content>
 			<Timeline.Connector>
 				<Package />

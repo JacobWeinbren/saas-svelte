@@ -64,8 +64,6 @@
 	import { type ColourName, getColourStyle } from "$saas/utils/colours";
 	import { Icon } from "$saas/components/icon";
 
-	type EmptyStateVariants = VariantProps<typeof emptyState>;
-
 	interface Props {
 		/**
 		 * Additional CSS classes to apply to the empty state container.
@@ -143,7 +141,7 @@
 <div class={root({ class: className })} style={finalStyle} {...restProps}>
 	<div class={content()}>
 		{#if icon}
-			<div class={iconWrapper()} style="color: var(--c-solid)">
+			<div class="{iconWrapper()} text-(--c-solid)">
 				<Icon as={icon} size="2xl" />
 			</div>
 		{/if}

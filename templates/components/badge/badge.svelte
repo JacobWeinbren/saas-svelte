@@ -13,6 +13,7 @@
 			"font-medium",
 			"inline-flex",
 			"rounded-full",
+			"antialiased",
 		],
 		variants: {
 			variant: {
@@ -42,8 +43,6 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 	import { getColourStyle } from "$saas/utils/colours";
-
-	type BadgeVariants = VariantProps<typeof badge>;
 
 	interface Props extends Omit<HTMLAttributes<HTMLSpanElement>, "color"> {
 		/**
@@ -81,7 +80,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const finalStyle = $derived(
 		[colourStyle, style].filter(Boolean).join("; "),
 	);

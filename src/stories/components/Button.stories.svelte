@@ -10,7 +10,7 @@
 	import CaretDown from "phosphor-svelte/lib/CaretDown";
 	import {
 		colours,
-		sizes,
+		buttonSizes,
 		buttonVariants,
 		commonArgTypes,
 		getControls,
@@ -26,7 +26,7 @@
 			},
 			size: {
 				...commonArgTypes.size,
-				options: sizes,
+				options: buttonSizes,
 			},
 			colour: {
 				...commonArgTypes.colour,
@@ -71,7 +71,7 @@
 
 {#snippet sizesStory()}
 	<HStack align="start" gap={4} class="flex-wrap">
-		{#each sizes as size}
+		{#each buttonSizes as size}
 			<VStack gap={2} class="items-center">
 				<Text size="xs">{size}</Text>
 				<Button {size}>Button ({size})</Button>
@@ -107,7 +107,7 @@
 	<br />
 
 	<VStack align="start" gap={4}>
-		{#each sizes as size}
+		{#each buttonSizes as size}
 			<Button colour="rose" variant="solid" {size} icon aria-label="Like">
 				<Icon as={Heart} aria-hidden="true" />
 			</Button>

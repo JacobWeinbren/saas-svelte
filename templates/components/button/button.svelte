@@ -6,7 +6,7 @@
 
 	export const button = tv({
 		base: [
-			"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate",
+			"appearance-none select-none whitespace-nowrap align-middle cursor-pointer isolate antialiased",
 			"outline-0 shrink-0 justify-center items-center",
 			"font-medium inline-flex relative",
 			"rounded",
@@ -60,6 +60,7 @@
 				plain: ["text-(--c-fg)"],
 			},
 			size: {
+				"2xs": "h-5 min-w-5 gap-y-0.5 gap-x-0.5 text-xs leading-4 px-1.5 [&_svg]:size-2",
 				xs: "h-6 min-w-6 gap-y-1 gap-x-1 text-xs leading-4 px-2 [&_svg]:size-2",
 				sm: "h-7 min-w-7 gap-y-2 gap-x-2 text-sm leading-5 px-2.5 [&_svg]:size-3",
 				md: "h-8 min-w-8 gap-y-2 gap-x-2 text-sm leading-5 px-3 [&_svg]:size-3.5",
@@ -69,6 +70,11 @@
 			icon: { true: "px-0" },
 		},
 		compoundVariants: [
+			{
+				size: "2xs",
+				icon: true,
+				class: "w-5 [&_svg]:size-2.5",
+			},
 			{
 				size: "xs",
 				icon: true,
@@ -108,8 +114,6 @@
 <script lang="ts">
 	import { getColourStyle } from "$saas/utils/colours";
 	import { Spinner } from "$saas/components/spinner";
-
-	type ButtonVariants = VariantProps<typeof button>;
 
 	interface Props extends HTMLButtonAttributes {
 		/**
@@ -158,7 +162,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const finalStyle = $derived(
 		[colourStyle, style].filter(Boolean).join("; "),
 	);
@@ -177,6 +181,7 @@
 		NonNullable<ButtonVariants["size"]>,
 		string
 	> = {
+		"2xs": "size-2!",
 		xs: "size-2.5!",
 		sm: "size-3!",
 		md: "size-3.5!",

@@ -47,13 +47,13 @@
 			? "text-center"
 			: textAlign === "end"
 				? "text-end"
-				: "text-start"
+				: "text-start",
 	);
 
 	const style = $derived(
 		[minW && `min-width: ${minW}`, w && `width: ${w}`]
 			.filter(Boolean)
-			.join("; ")
+			.join("; "),
 	);
 </script>
 

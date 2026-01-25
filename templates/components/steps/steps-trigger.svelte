@@ -28,8 +28,25 @@
 	);
 </script>
 
-<Steps.Trigger class={finalClass} {...restProps}>
-	{#if children}
-		{@render children()}
-	{/if}
-</Steps.Trigger>
+{#snippet customTrigger(getProps: () => Record<string, any>)}
+	{@const allProps = getProps()}
+	{@const {
+		"aria-selected": _selected,
+		"aria-controls": _controls,
+		role: _role,
+		class: propClass,
+		...cleanProps
+	} = allProps}
+	<button
+		{...cleanProps}
+		class={twMerge(propClass, finalClass)}
+		type="button"
+		{...restProps}
+	>
+		{#if children}
+			{@render children()}
+		{/if}
+	</button>
+{/snippet}
+
+<Steps.Trigger asChild={customTrigger} />

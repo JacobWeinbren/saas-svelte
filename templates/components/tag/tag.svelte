@@ -147,8 +147,6 @@
 	import { Icon } from "$saas/components/icon";
 	import { Avatar } from "$saas/components/avatar";
 
-	type TagVariants = VariantProps<typeof tag>;
-
 	interface Props extends Omit<HTMLAttributes<HTMLSpanElement>, "color"> {
 		/**
 		 * The tag content.
@@ -226,7 +224,7 @@
 		...restProps
 	}: Props = $props();
 
-	const colourStyle = $derived(getColourStyle(colour || "gray"));
+	const colourStyle = $derived(getColourStyle(colour));
 	const maxWidthStyle = $derived(maxWidth ? `max-width: ${maxWidth}` : "");
 	const finalStyle = $derived(
 		[colourStyle, maxWidthStyle, style].filter(Boolean).join("; "),

@@ -332,7 +332,7 @@
 <NumberInput.Root
 	class={rootClasses}
 	style={styles}
-	{id}
+	id={inputId}
 	{value}
 	{defaultValue}
 	{onValueChange}
@@ -353,7 +353,6 @@
 >
 	<NumberInput.Control class={numberInputControl()}>
 		<NumberInput.Input
-			id={inputId}
 			class={inputClasses}
 			{placeholder}
 			required={isRequired}

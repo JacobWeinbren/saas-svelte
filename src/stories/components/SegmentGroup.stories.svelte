@@ -15,6 +15,7 @@
 	import {
 		colours,
 		segmentGroupSizes,
+		orientations,
 		commonArgTypes,
 		getControls,
 	} from "../utils";
@@ -38,7 +39,7 @@
 			},
 			orientation: {
 				control: "select",
-				options: ["horizontal", "vertical"],
+				options: orientations,
 				description: "Layout orientation of the segment group.",
 				table: { defaultValue: { summary: "horizontal" } },
 			},
@@ -169,8 +170,8 @@
 	<SegmentGroup.Root defaultValue="table">
 		<SegmentGroup.Indicator />
 		{#each views as item}
-			<SegmentGroup.Item value={item.value}>
-				<Icon as={item.icon} size="sm" />
+			<SegmentGroup.Item value={item.value} aria-label={item.label}>
+				<Icon as={item.icon} size="sm" aria-hidden="true" />
 			</SegmentGroup.Item>
 		{/each}
 	</SegmentGroup.Root>

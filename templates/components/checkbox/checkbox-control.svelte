@@ -31,7 +31,7 @@
 	const ctx = getContext<CheckboxContext>(CHECKBOX_CTX);
 	const styles = $derived(ctx.styles);
 	const variant = $derived(ctx.variant);
-	const colourVars = $derived(getColourStyle(ctx.colour || "indigo"));
+	const colourVars = $derived(getColourStyle(ctx.colour));
 
 	function getControlClasses(isChecked: boolean | "indeterminate") {
 		const base = styles.control();
