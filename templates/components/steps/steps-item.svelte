@@ -59,19 +59,19 @@
 		<Steps.ItemContext>
 			{#snippet render(itemCtx)}
 				{@const state = itemCtx()}
-				{@const isOutline = ctx?.variant === "outline"}
+				{@const isSubtle = ctx?.variant === "subtle"}
 				<StepsTrigger {index}>
 					<Steps.Indicator
 						class={twMerge(
 							ctx?.styles?.indicator(),
-							// Outline variant base: no border, muted bg
-							isOutline && "border-0 bg-bg-muted text-fg-muted",
-							isOutline && state.current && "text-fg-default",
-							isOutline && state.completed && "bg-bg-emphasized text-fg-default",
+							// Subtle variant base: no border, muted bg
+							isSubtle && "border-0 bg-bg-muted text-fg-muted",
+							isSubtle && state.current && "text-fg-default",
+							isSubtle && state.completed && "bg-bg-emphasized text-fg-default",
 							// Solid variant base: has border
-							!isOutline && "border-2 border-border-default bg-bg-default text-fg-muted",
-							!isOutline && state.current && "border-(--c-solid) bg-bg-muted text-fg-default",
-							!isOutline && state.completed && "bg-(--c-solid) border-0 text-(--c-contrast)",
+							!isSubtle && "border-2 border-border-default bg-bg-default text-fg-muted",
+							!isSubtle && state.current && "border-(--c-solid) bg-bg-muted text-fg-default",
+							!isSubtle && state.completed && "bg-(--c-solid) border-0 text-(--c-contrast)",
 						)}
 					>
 						{#if state.completed}

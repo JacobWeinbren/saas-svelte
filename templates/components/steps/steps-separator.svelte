@@ -34,17 +34,17 @@
 
 	const ctx = getContext<StepsContext>(STEPS_CTX);
 	const baseClass = $derived(ctx?.styles?.separator());
-	const isOutline = $derived(ctx?.variant === "outline");
+	const isSubtle = $derived(ctx?.variant === "subtle");
 </script>
 
 <Steps.Separator
 	class={twMerge(
 		baseClass,
 		"bg-border-default",
-		// Outline variant: completed separator gets emphasized bg
-		isOutline && completed && "bg-bg-emphasized",
+		// Subtle variant: completed separator gets emphasized bg
+		isSubtle && completed && "bg-bg-emphasized",
 		// Solid variant: completed separator gets accent solid color
-		!isOutline && completed && "bg-(--c-solid)",
+		!isSubtle && completed && "bg-(--c-solid)",
 		last && "hidden",
 		className as string,
 	)}

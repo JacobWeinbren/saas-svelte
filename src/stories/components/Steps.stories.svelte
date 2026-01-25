@@ -8,7 +8,7 @@
 	import { commonArgTypes, getControls, colours } from "../utils";
 
 	const stepsSizes = ["sm", "md", "lg"] as const;
-	const stepsVariants = ["outline", "solid"] as const;
+	const stepsVariants = ["subtle", "solid"] as const;
 
 	const { Story } = defineMeta({
 		title: "components/Steps",
@@ -34,7 +34,7 @@
 				control: "select",
 				options: stepsVariants,
 				description: "The visual variant of the steps.",
-				table: { defaultValue: { summary: "outline" } },
+				table: { defaultValue: { summary: "solid" } },
 			},
 			orientation: {
 				control: "select",
@@ -191,9 +191,9 @@
 
 {#snippet variantsStory()}
 	<VStack gap={16}>
-		{#each ["outline", "solid"] as variant (variant)}
+		{#each ["subtle", "solid"] as variant (variant)}
 			<Steps.Root
-				variant={variant as "outline" | "solid"}
+				variant={variant as "subtle" | "solid"}
 				defaultStep={1}
 				count={3}
 			>

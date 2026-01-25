@@ -55,7 +55,7 @@
 			 * @default "solid"
 			 */
 			variant: {
-				outline: {
+				subtle: {
 					indicator: "",
 				},
 				solid: {
@@ -121,7 +121,7 @@
 		styles: ReturnType<typeof steps>;
 		colour: string;
 		orientation: "horizontal" | "vertical";
-		variant: "outline" | "solid";
+		variant: "subtle" | "solid";
 	}
 </script>
 
