@@ -12,7 +12,8 @@
 	}
 
 	let { name, condition, children, fallback }: Props = $props();
-	const form = getContext<FormApi>(FORM_CTX);
+	const formContext = getContext<{ api: FormApi }>(FORM_CTX);
+	const form = $derived(formContext.api);
 	const show = $derived(condition(form.getValue(name)));
 </script>
 
