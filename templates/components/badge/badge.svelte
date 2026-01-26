@@ -20,9 +20,9 @@
 				subtle: "bg-(--c-muted) text-(--c-fg)",
 				solid: "bg-(--c-solid) text-(--c-contrast)",
 				outline:
-					"text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					"text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-border)]",
 				surface:
-					"bg-(--c-muted)/20 text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-subtle)]",
+					"bg-(--c-muted) text-(--c-fg) shadow-[inset_0_0_0_1px_var(--c-border)]",
 			},
 			size: {
 				xs: "min-h-4 text-xs leading-3 px-1",

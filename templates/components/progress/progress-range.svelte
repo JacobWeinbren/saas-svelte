@@ -24,7 +24,7 @@
 		const baseStripe =
 			"bg-[linear-gradient(45deg,rgba(255,255,255,0.3)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.3)_50%,rgba(255,255,255,0.3)_75%,transparent_75%,transparent)] bg-size-[1rem_1rem]";
 		const animatedStripe = ctx.animated
-			? "animate-[bg-position_1s_linear_infinite]"
+			? "animate-[progress-stripe_1s_linear_infinite]"
 			: "";
 		return `${baseStripe} ${animatedStripe}`;
 	});
@@ -32,7 +32,7 @@
 	// Indeterminate animation classes - smooth left position animation
 	const indeterminateClasses = $derived(
 		isIndeterminate
-			? "animate-[position_1s_ease_infinite] absolute top-0 min-w-1/2 will-change-[left]"
+			? "animate-[progress-indeterminate_1s_ease_infinite] absolute top-0 min-w-1/2 will-change-[left]"
 			: "",
 	);
 </script>
@@ -50,7 +50,7 @@
 <style>
 	/* Global keyframes for Tailwind arbitrary animation values */
 	:global {
-		@keyframes bg-position {
+		@keyframes progress-stripe {
 			from {
 				background-position: 1rem 0;
 			}
@@ -59,7 +59,7 @@
 			}
 		}
 
-		@keyframes position {
+		@keyframes progress-indeterminate {
 			0% {
 				left: -50%;
 			}

@@ -130,6 +130,7 @@
 				<Button variant="glass" {colour}>Glass</Button>
 				<Button variant="solid" {colour}>Solid</Button>
 				<Button variant="subtle" {colour}>Subtle</Button>
+				<Button variant="surface" {colour}>Surface</Button>
 				<Button variant="outline" {colour}>Outline</Button>
 			</HStack>
 		{/each}

@@ -56,7 +56,7 @@
 
 				// OUTLINE: Accent text with thin border
 				outline: [
-					"border-[0.5px] text-(--c-fg) border-(--c-emphasized)",
+					"border-[0.5px] text-(--c-fg) border-(--c-border)",
 					"hover:bg-(--c-muted)",
 				],
 

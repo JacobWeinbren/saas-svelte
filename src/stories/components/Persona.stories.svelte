@@ -7,6 +7,7 @@
 		commonArgTypes,
 		getControls,
 		personaSizes,
+		personaVariants,
 		avatarShapes,
 		presenceOptions,
 	} from "../utils";
@@ -19,14 +20,38 @@
 				...commonArgTypes.size,
 				options: personaSizes,
 			},
+			variant: {
+				control: "select",
+				options: personaVariants,
+				description: "The variant of the presence indicator.",
+				table: { defaultValue: { summary: "badge" } },
+			},
+			presence: {
+				control: "select",
+				options: presenceOptions,
+				description: "The presence status.",
+			},
+			outOfOffice: {
+				control: "boolean",
+				description: "Whether the person is out of office.",
+				table: { defaultValue: { summary: "false" } },
+			},
 			children: commonArgTypes.children,
 			class: commonArgTypes.class,
 		},
 		parameters: {
-			controls: getControls(["size", "children", "class"]),
+			controls: getControls([
+				"size",
+				"variant",
+				"presence",
+				"outOfOffice",
+				"children",
+				"class",
+			]),
 		},
 		args: {
 			size: "md",
+			variant: "badge",
 		},
 	});
 </script>
@@ -84,12 +109,12 @@
 {#snippet presenceStory()}
 	<Stack gap={4}>
 		{#each presenceOptions as presence}
-			<Persona.Root size="lg">
+			<Persona.Root size="lg" {presence}>
 				<Persona.Avatar
 					name="David Wilson"
 					src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
 				>
-					<Persona.PresenceBadge {presence} />
+					<Persona.PresenceBadge />
 				</Persona.Avatar>
 				<Persona.Details>
 					<Persona.Label>David Wilson</Persona.Label>
@@ -101,12 +126,12 @@
 {/snippet}
 
 {#snippet outOfOfficeStory()}
-	<Persona.Root size="lg">
+	<Persona.Root size="lg" outOfOffice presence="away">
 		<Persona.Avatar
 			name="David Wilson"
 			src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
 		>
-			<Persona.PresenceBadge presence="away" />
+			<Persona.PresenceBadge />
 		</Persona.Avatar>
 		<Persona.Details>
 			<Persona.Label>David Wilson</Persona.Label>
@@ -114,6 +139,25 @@
 			<Persona.TertiaryLabel>On a road trip</Persona.TertiaryLabel>
 		</Persona.Details>
 	</Persona.Root>
+{/snippet}
+
+{#snippet presenceRingStory()}
+	<Stack gap={4}>
+		{#each presenceOptions as presence}
+			<Persona.Root size="lg" variant="ring" {presence}>
+				<Persona.Avatar
+					name="David Wilson"
+					src="https://api.dicebear.com/9.x/shapes/svg?seed=jacob"
+				>
+					<Persona.PresenceBadge />
+				</Persona.Avatar>
+				<Persona.Details>
+					<Persona.Label>David Wilson</Persona.Label>
+					<Persona.SecondaryLabel>{presence}</Persona.SecondaryLabel>
+				</Persona.Details>
+			</Persona.Root>
+		{/each}
+	</Stack>
 {/snippet}
 
 {#snippet ringStory()}
@@ -205,6 +249,7 @@
 <Story name="Sizes" template={sizesStory} />
 <Story name="Shapes" template={shapesStory} />
 <Story name="Presence" template={presenceStory} />
+<Story name="Presence Ring" template={presenceRingStory} />
 <Story name="Out of Office" template={outOfOfficeStory} />
 <Story name="With Ring" template={ringStory} />
 <Story name="Avatar Only" template={avatarOnlyStory} />

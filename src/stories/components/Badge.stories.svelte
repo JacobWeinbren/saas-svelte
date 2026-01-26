@@ -91,9 +91,10 @@
 		{#each colours as colour}
 			<HStack gap={4} align="center">
 				<Text size="xs" class="w-16">{colour}</Text>
-				<Badge {colour}>Badge</Badge>
-				<Badge {colour} variant="solid">Solid</Badge>
 				<Badge {colour} variant="outline">Outline</Badge>
+				<Badge {colour} variant="solid">Solid</Badge>
+				<Badge {colour} variant="subtle">Subtle</Badge>
+				<Badge {colour} variant="surface">Surface</Badge>
 			</HStack>
 		{/each}
 	</VStack>

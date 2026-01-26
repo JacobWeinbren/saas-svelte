@@ -2,39 +2,104 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const presenceBadge = tv({
-		base: [
-			"absolute",
-			"bottom-0",
-			"right-0",
-			"translate-x-[12%]",
-			"translate-y-[12%]",
-			"rounded-full",
-			"border-2",
-			"border-bg-default",
-			"flex",
-			"items-center",
-			"justify-center",
-		],
+		base: ["flex", "items-center", "justify-center"],
 		variants: {
+			variant: {
+				badge: [
+					"absolute",
+					"bottom-0",
+					"right-0",
+					"translate-x-[12%]",
+					"translate-y-[12%]",
+					"rounded-full",
+					"border-[0.10em]",
+					"border-bg-default",
+				],
+				ring: [
+					"absolute",
+					"inset-0",
+					"rounded-full",
+					"outline-2",
+					"outline-offset-2",
+					"outline",
+				],
+			},
 			size: {
-				"2xs": "w-1.5 h-1.5",
-				xs: "w-2 h-2",
-				sm: "w-2.5 h-2.5",
-				md: "w-3 h-3",
-				lg: "w-3.5 h-3.5",
-				xl: "w-4 h-4",
-				"2xl": "w-5 h-5",
+				"2xs": "",
+				xs: "",
+				sm: "",
+				md: "",
+				lg: "",
+				xl: "",
+				"2xl": "",
 			},
 			presence: {
-				online: "bg-green-solid",
-				offline: "bg-gray-solid",
-				busy: "bg-red-solid",
-				dnd: "bg-red-solid",
-				away: "bg-yellow-solid",
+				online: "",
+				offline: "",
+				busy: "",
+				dnd: "",
+				away: "",
+			},
+		},
+		compoundVariants: [
+			// Badge variant sizes
+			{ variant: "badge", size: "2xs", class: "w-1.5 h-1.5" },
+			{ variant: "badge", size: "xs", class: "w-2 h-2" },
+			{ variant: "badge", size: "sm", class: "w-2.5 h-2.5" },
+			{ variant: "badge", size: "md", class: "w-3 h-3" },
+			{ variant: "badge", size: "lg", class: "w-3.5 h-3.5" },
+			{ variant: "badge", size: "xl", class: "w-4 h-4" },
+			{ variant: "badge", size: "2xl", class: "w-5 h-5" },
+			// Badge variant presence colors (background)
+			{ variant: "badge", presence: "online", class: "bg-green-solid" },
+			{ variant: "badge", presence: "offline", class: "bg-gray-solid" },
+			{ variant: "badge", presence: "busy", class: "bg-red-solid" },
+			{ variant: "badge", presence: "dnd", class: "bg-red-solid" },
+			{ variant: "badge", presence: "away", class: "bg-yellow-solid" },
+			// Ring variant presence colors (outline)
+			{
+				variant: "ring",
+				presence: "online",
+				class: "outline-green-solid",
+			},
+			{
+				variant: "ring",
+				presence: "offline",
+				class: "outline-gray-solid",
+			},
+			{ variant: "ring", presence: "busy", class: "outline-red-solid" },
+			{ variant: "ring", presence: "dnd", class: "outline-red-solid" },
+			{
+				variant: "ring",
+				presence: "away",
+				class: "outline-yellow-solid",
+			},
+		],
+		defaultVariants: {
+			variant: "badge",
+			size: "md",
+			presence: "online",
+		},
+	});
+
+	export const presenceBadgeOutOfOffice = tv({
+		base: [
+			"bg-bg-default",
+			"border-[0.12em]",
+			"outline-[0.12em]",
+			"outline-bg-default",
+			"outline",
+		],
+		variants: {
+			presence: {
+				online: "border-green-solid",
+				offline: "border-gray-solid",
+				busy: "border-red-solid",
+				dnd: "border-red-solid",
+				away: "border-yellow-solid",
 			},
 		},
 		defaultVariants: {
-			size: "md",
 			presence: "online",
 		},
 	});
@@ -50,7 +115,7 @@
 	interface Props {
 		/**
 		 * The presence status to display.
-		 * @default "online"
+		 * Defaults to context presence or "online".
 		 */
 		presence?: PresenceStatus;
 		/**
@@ -59,14 +124,27 @@
 		class?: string;
 	}
 
-	let { presence = "online", class: className }: Props = $props();
+	let { presence: propPresence, class: className }: Props = $props();
 
 	const personaContext = getContext<PersonaContext>(PERSONA_CTX);
 	const size = $derived(personaContext?.size ?? "md");
-
-	const styles = $derived(
-		presenceBadge({ size, presence, class: className }),
+	const variant = $derived(personaContext?.variant ?? "badge");
+	const outOfOffice = $derived(personaContext?.outOfOffice ?? false);
+	const presence = $derived(
+		propPresence ?? personaContext?.presence ?? "online",
 	);
+
+	const baseStyles = $derived(
+		presenceBadge({ variant, size, presence, class: className }),
+	);
+
+	const outOfOfficeStyles = $derived(
+		outOfOffice && variant === "badge"
+			? presenceBadgeOutOfOffice({ presence })
+			: "",
+	);
+
+	const styles = $derived(`${baseStyles} ${outOfOfficeStyles}`.trim());
 </script>
 
 <span class={styles} role="img" aria-label={`Status: ${presence}`}></span>

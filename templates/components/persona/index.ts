@@ -21,10 +21,12 @@ export {
     PERSONA_CTX,
     type PersonaContext,
     type PersonaVariants,
+    type PersonaPresence,
 } from "./persona.svelte";
 
 export {
     presenceBadge,
+    presenceBadgeOutOfOffice,
     type PresenceBadgeVariants,
     type PresenceStatus,
 } from "./persona-presence-badge.svelte";

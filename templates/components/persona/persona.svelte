@@ -62,11 +62,15 @@
 	});
 
 	export type PersonaVariants = VariantProps<typeof persona>;
+	export type PersonaPresence = "online" | "busy" | "dnd" | "away" | "offline";
 
 	export const PERSONA_CTX = Symbol("PERSONA_CTX");
 
 	export interface PersonaContext {
 		size?: PersonaVariants["size"];
+		variant?: "badge" | "ring";
+		presence?: PersonaPresence;
+		outOfOffice?: boolean;
 	}
 </script>
 
@@ -81,6 +85,20 @@
 		 */
 		size?: PersonaVariants["size"];
 		/**
+		 * The variant of the presence indicator.
+		 * @default "badge"
+		 */
+		variant?: "badge" | "ring";
+		/**
+		 * The presence status.
+		 */
+		presence?: PersonaPresence;
+		/**
+		 * Whether the person is out of office.
+		 * @default false
+		 */
+		outOfOffice?: boolean;
+		/**
 		 * Additional CSS classes.
 		 */
 		class?: string;
@@ -92,6 +110,9 @@
 
 	let {
 		size = "md",
+		variant = "badge",
+		presence,
+		outOfOffice = false,
 		class: className,
 		children,
 		...restProps
@@ -101,11 +122,25 @@
 		get size() {
 			return size;
 		},
+		get variant() {
+			return variant;
+		},
+		get presence() {
+			return presence;
+		},
+		get outOfOffice() {
+			return outOfOffice;
+		},
 	});
 
 	const styles = $derived(persona({ size }));
 </script>
 
-<div class={styles.root({ class: className })} {...restProps}>
+<div
+	class={styles.root({ class: className })}
+	data-out-of-office={outOfOffice || undefined}
+	data-presence={presence || undefined}
+	{...restProps}
+>
 	{@render children()}
 </div>

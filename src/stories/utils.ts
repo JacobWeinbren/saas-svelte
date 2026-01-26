@@ -104,6 +104,7 @@ export const paginationSizes = ["xs", "sm", "md", "lg"] as const;
 export const paginationVariants = ["ghost", "outline", "solid"] as const;
 export const passwordInputSizes = ["xs", "sm", "md", "lg"] as const;
 export const personaSizes = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"] as const;
+export const personaVariants = ["badge", "ring"] as const;
 export const presenceOptions = ["online", "offline", "busy", "dnd", "away"] as const;
 export const pinInputSizes = ["xs", "sm", "md", "lg"] as const;
 export const popoverSizes = ["xs", "sm", "md", "lg"] as const;

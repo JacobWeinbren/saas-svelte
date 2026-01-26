@@ -21,7 +21,7 @@
 					"overflow-x-clip overflow-y-clip",
 					"text-(--c-contrast) bg-(--c-solid)",
 					"shadow-[inset_0_1px_0_#fff3,0_2px_4px_#0000004d,inset_0_0_1px_var(--colors-gray-300)/5%]",
-					"[text-shadow:0_1px_2px_#0000004d]",
+					"[text-shadow:0_1px_2px_rgba(0,0,0,0.1)]",
 					// Gradient overlay pseudo-element
 					"after:content-[''] after:absolute after:inset-0 after:opacity-20 after:pointer-events-none",
 					"after:bg-[linear-gradient(#fff_40%,#0003)]",
@@ -43,13 +43,13 @@
 
 				// SURFACE: Accent text with border and subtle background
 				surface: [
-					"shadow-sm border text-(--c-fg) bg-(--c-muted)/20 border-(--c-emphasized)/90",
-					"hover:bg-(--c-muted) hover:border-(--c-emphasized)",
+					"shadow-sm border text-(--c-fg) bg-(--c-muted)/20 border-(--c-border)/90",
+					"hover:bg-(--c-muted) hover:border-(--c-border)",
 				],
 
 				// OUTLINE: Accent text with thin border
 				outline: [
-					"border-[0.5px] text-(--c-fg) border-(--c-emphasized)",
+					"border-[0.5px] text-(--c-fg) border-(--c-border)",
 					"hover:bg-(--c-muted)",
 				],
 

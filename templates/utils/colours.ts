@@ -45,7 +45,7 @@ export function getColourStyle(colourName: string): string {
     if (cached) return cached;
 
     // Build the style string
-    const style = `--c-contrast: var(--colors-${colourName}-contrast); --c-fg: var(--colors-${colourName}-fg); --c-muted: var(--colors-${colourName}-muted); --c-subtle: var(--colors-${colourName}-subtle); --c-emphasized: var(--colors-${colourName}-emphasized); --c-solid: var(--colors-${colourName}-solid); --c-focus-ring: var(--colors-${colourName}-focus-ring)`;
+    const style = `--c-contrast: var(--colors-${colourName}-contrast); --c-fg: var(--colors-${colourName}-fg); --c-muted: var(--colors-${colourName}-muted); --c-subtle: var(--colors-${colourName}-subtle); --c-emphasized: var(--colors-${colourName}-emphasized); --c-solid: var(--colors-${colourName}-solid); --c-focus-ring: var(--colors-${colourName}-focus-ring); --c-border: var(--colors-${colourName}-border)`;
 
     // Cache for future use
     colourStyleCache.set(colourName, style);

@@ -106,7 +106,7 @@
 	const classes = $derived(
 		twMerge(
 			separator({ orientation, variant, size }),
-			colour && "border-(--c-emphasized)",
+			colour && "border-(--c-border)",
 			className,
 		),
 	);

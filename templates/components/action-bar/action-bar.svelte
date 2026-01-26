@@ -106,8 +106,8 @@
 	});
 
 	function handleAnimationEnd(event: AnimationEvent) {
-		// Only handle the out animation
-		if (!open && event.animationName.includes("action-bar-out")) {
+		// Only handle the out animation (using composed fade-out + slide-to-bottom-full)
+		if (!open && event.animationName === "fade-out") {
 			visible = false;
 		}
 	}

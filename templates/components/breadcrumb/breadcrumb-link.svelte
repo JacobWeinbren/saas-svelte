@@ -68,12 +68,13 @@
 				"hover:text-fg-default",
 			);
 		} else {
-			// Underline variant: default (white) text with underline
+			// Underline variant: default text with underline, hover increases contrast
 			baseClasses.push(
 				"underline",
 				"text-fg-default",
 				"underline-offset-[0.2em]",
-				"decoration-border-muted",
+				"decoration-fg-default/20",
+				"hover:decoration-fg-default",
 			);
 		}
 
@@ -98,10 +99,8 @@
 		{#if typeof context?.separator === "string"}
 			{context.separator}
 		{:else if context?.separator}
-			<svelte:component
-				this={context.separator}
-				class="fill-current stroke-current w-3.5 h-3.5"
-			/>
+			{@const Separator = context.separator}
+			<Separator class="fill-current stroke-current w-3.5 h-3.5" />
 		{:else}
 			/
 		{/if}
