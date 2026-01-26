@@ -49,6 +49,7 @@
 	);
 </script>
 
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <div
 	class={twMerge(
 		"block whitespace-nowrap overflow-x-auto overflow-y-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-ring-focus",

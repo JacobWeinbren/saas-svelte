@@ -243,11 +243,8 @@
 		>
 			<Checkbox.Indicator class={classes.indicator()}>
 				{#if icon}
-					<svelte:component
-						this={icon}
-						class="w-full h-full"
-						weight="bold"
-					/>
+					{@const Icon = icon}
+					<Icon class="w-full h-full" weight="bold" />
 				{:else}
 					<Check class="w-full h-full" weight="bold" />
 				{/if}

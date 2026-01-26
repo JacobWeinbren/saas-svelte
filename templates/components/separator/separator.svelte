@@ -120,4 +120,4 @@
 	class={classes}
 	style={colourStyle}
 	{...restProps}
-/>
+></span>
