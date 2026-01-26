@@ -79,7 +79,10 @@
 		...restProps
 	}: Props = $props();
 
-	let contextState = $state({ variant, align });
+	let contextState = $state<ListContext>({
+		variant: "marker",
+		align: "start",
+	});
 
 	$effect(() => {
 		contextState.variant = variant;

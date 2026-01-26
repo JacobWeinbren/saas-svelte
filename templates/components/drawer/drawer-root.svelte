@@ -81,10 +81,14 @@
 	}: Props = $props();
 
 	// Reactive context state
-	let contextState = $state({
-		size,
-		placement,
-		attached,
+	let contextState = $state<{
+		size: "xs" | "sm" | "md" | "lg" | "xl" | "full";
+		placement: "start" | "end" | "top" | "bottom";
+		attached: boolean;
+	}>({
+		size: "sm",
+		placement: "end",
+		attached: false,
 	});
 
 	$effect(() => {

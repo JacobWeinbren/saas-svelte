@@ -25,8 +25,8 @@
 	};
 
 	let contextState = $state<LocaleContext>({
-		locale,
-		dir: getDir(locale),
+		locale: "en",
+		dir: "ltr",
 	});
 
 	// Update context when locale changes

@@ -97,7 +97,7 @@
 	const styles = actionBar();
 
 	// Track visibility separately to allow exit animation to complete
-	let visible = $state(open);
+	let visible = $state(false);
 
 	$effect(() => {
 		if (open) {

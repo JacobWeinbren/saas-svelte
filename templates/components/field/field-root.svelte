@@ -52,11 +52,11 @@
 
 	// Create context for child components
 	const fieldContext = writable<FieldContextValue>({
-		id,
-		disabled,
-		invalid,
-		required,
-		readOnly,
+		id: "",
+		disabled: false,
+		invalid: false,
+		required: false,
+		readOnly: false,
 	});
 
 	$effect(() => {

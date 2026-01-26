@@ -75,7 +75,10 @@
 	const finalClass = $derived(cardRoot({ variant, size, class: className }));
 
 	// Set context for child components
-	let contextState = $state({ size, variant });
+	let contextState = $state<{ size: CardVariants["size"]; variant: CardVariants["variant"] }>({
+		size: "md",
+		variant: "outline",
+	});
 
 	$effect(() => {
 		contextState.size = size;

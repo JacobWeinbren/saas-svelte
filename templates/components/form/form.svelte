@@ -13,7 +13,9 @@
 
 	let { form, children, class: className, ...restProps }: Props = $props();
 
-	setContext(FORM_CTX, form);
+	$effect(() => {
+		setContext(FORM_CTX, form);
+	});
 </script>
 
 <form class={className} onsubmit={form.handleSubmit} novalidate {...restProps}>

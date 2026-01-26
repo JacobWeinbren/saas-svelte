@@ -181,7 +181,17 @@
 	const finalStyle = $derived([colourVars, style].filter(Boolean).join("; "));
 	const finalClass = $derived(twMerge(editableRoot({ size }), className));
 
-	let contextState = $state({ size, colour, invalid, disabled });
+	let contextState = $state<{
+		size: EditableRootVariants["size"];
+		colour: ColourName;
+		invalid: boolean;
+		disabled: boolean;
+	}>({
+		size: "md",
+		colour: "gray",
+		invalid: false,
+		disabled: false,
+	});
 
 	$effect(() => {
 		contextState.size = size;

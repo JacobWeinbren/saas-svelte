@@ -43,7 +43,7 @@
 		...restProps
 	}: Props = $props();
 
-	let contextState = $state({ interactive });
+	let contextState = $state<GridListContext>({ interactive: false });
 
 	$effect(() => {
 		contextState.interactive = interactive;

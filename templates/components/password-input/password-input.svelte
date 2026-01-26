@@ -215,7 +215,14 @@
 	const id = $derived(restProps.id || fieldState.id);
 
 	// Internal visibility state
-	let internalVisible = $state(defaultVisible);
+	let internalVisible = $state(false);
+
+	// Sync with defaultVisible prop on mount
+	$effect(() => {
+		if (defaultVisible) {
+			internalVisible = defaultVisible;
+		}
+	});
 
 	// Determine actual visibility (controlled vs uncontrolled)
 	const isVisible = $derived(

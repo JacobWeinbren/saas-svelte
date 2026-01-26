@@ -87,11 +87,16 @@
 	}: Props = $props();
 
 	// Reactive context state
-	let contextState = $state({
-		size,
-		placement,
-		scrollBehavior,
-		motionPreset,
+	let contextState = $state<{
+		size: "xs" | "sm" | "md" | "lg" | "xl" | "cover" | "full";
+		placement: "center" | "top" | "bottom";
+		scrollBehavior: "inside" | "outside";
+		motionPreset: "scale" | "slide-in-bottom" | "none";
+	}>({
+		size: "md",
+		placement: "center",
+		scrollBehavior: "outside",
+		motionPreset: "scale",
 	});
 
 	$effect(() => {
