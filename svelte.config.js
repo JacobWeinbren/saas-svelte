@@ -7,6 +7,9 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter(),
+		files: {
+			lib: "templates",
+		},
 		alias: {
 			$saas: path.resolve("./templates"),
 			"$saas/*": path.resolve("./templates/*"),

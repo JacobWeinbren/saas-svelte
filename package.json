@@ -2,22 +2,79 @@
     "name": "saas-svelte",
     "version": "1.0.0",
     "description": "A Svelte implementation of the open-source SaaS Design System",
+    "license": "MIT",
     "type": "module",
+    "svelte": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
+        "./components": {
+            "types": "./dist/components/index.d.ts",
+            "svelte": "./dist/components/index.js",
+            "default": "./dist/components/index.js"
+        },
+        "./components/*": {
+            "types": "./dist/components/*/index.d.ts",
+            "svelte": "./dist/components/*/index.js",
+            "default": "./dist/components/*/index.js"
+        },
+        "./layout": {
+            "types": "./dist/layout/index.d.ts",
+            "svelte": "./dist/layout/index.js",
+            "default": "./dist/layout/index.js"
+        },
+        "./layout/*": {
+            "types": "./dist/layout/*/index.d.ts",
+            "svelte": "./dist/layout/*/index.js",
+            "default": "./dist/layout/*/index.js"
+        },
+        "./typography": {
+            "types": "./dist/typography/index.d.ts",
+            "svelte": "./dist/typography/index.js",
+            "default": "./dist/typography/index.js"
+        },
+        "./typography/*": {
+            "types": "./dist/typography/*/index.d.ts",
+            "svelte": "./dist/typography/*/index.js",
+            "default": "./dist/typography/*/index.js"
+        },
+        "./utilities": {
+            "types": "./dist/utilities/index.d.ts",
+            "svelte": "./dist/utilities/index.js",
+            "default": "./dist/utilities/index.js"
+        },
+        "./utilities/*": {
+            "types": "./dist/utilities/*/index.d.ts",
+            "svelte": "./dist/utilities/*/index.js",
+            "default": "./dist/utilities/*/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!dist/**/*.test.*",
+        "!dist/**/*.spec.*"
+    ],
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
+        "build:package": "svelte-kit sync && svelte-package -o dist",
         "preview": "vite preview",
         "check": "svelte-kit sync && tsc --noEmit",
         "check:watch": "svelte-kit sync && tsc --noEmit --watch",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
+    "peerDependencies": {
+        "svelte": "^5.0.0"
+    },
     "dependencies": {
         "@ark-ui/svelte": "^5.15.0",
         "@fontsource-variable/inter": "^5.2.8",
         "@saas-ui/tailwind-preset": "^0.0.2-next.0",
-        "@sveltejs/adapter-auto": "^3.3.1",
-        "@tailwindcss/vite": "^4.0.0-alpha.15",
         "@tanstack/svelte-virtual": "^3.13.18",
         "clsx": "^2.1.1",
         "phosphor-svelte": "^3.0.1",
@@ -36,6 +93,7 @@
         "@storybook/svelte": "^10.1.11",
         "@storybook/sveltekit": "^10.1.11",
         "@sveltejs/kit": "^2.8.0",
+        "@sveltejs/package": "^2.5.7",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
         "@vitest/browser-playwright": "^4.0.17",
         "@vitest/coverage-v8": "^4.0.17",
