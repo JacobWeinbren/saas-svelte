@@ -13,8 +13,12 @@
 
 	let { form, children, class: className, ...restProps }: Props = $props();
 
-	$effect(() => {
-		setContext(FORM_CTX, form);
+	// Note: setContext must be called synchronously. The form object reference
+	// is stable - its internal methods access reactive state.
+	setContext(FORM_CTX, {
+		get api() {
+			return form;
+		},
 	});
 </script>
 

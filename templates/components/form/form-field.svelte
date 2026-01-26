@@ -65,7 +65,8 @@
 		children,
 	}: Props = $props();
 
-	const form = getContext<FormApi>(FORM_CTX);
+	const formContext = getContext<{ api: FormApi }>(FORM_CTX);
+	const form = $derived(formContext.api);
 	const value = $derived(form.getValue(name));
 	const error = $derived(form.getError(name));
 
