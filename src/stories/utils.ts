@@ -285,6 +285,7 @@ export {
     floatPattern,
     circlePattern,
     boxPattern,
+    aspectRatioPattern,
     headingPattern,
     emPattern,
     markPattern,

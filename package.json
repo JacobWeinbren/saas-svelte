@@ -4,64 +4,9 @@
     "description": "A Svelte implementation of the open-source SaaS Design System",
     "license": "MIT",
     "type": "module",
-    "svelte": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "svelte": "./dist/index.js",
-            "default": "./dist/index.js"
-        },
-        "./components": {
-            "types": "./dist/components/index.d.ts",
-            "svelte": "./dist/components/index.js",
-            "default": "./dist/components/index.js"
-        },
-        "./components/*": {
-            "types": "./dist/components/*/index.d.ts",
-            "svelte": "./dist/components/*/index.js",
-            "default": "./dist/components/*/index.js"
-        },
-        "./layout": {
-            "types": "./dist/layout/index.d.ts",
-            "svelte": "./dist/layout/index.js",
-            "default": "./dist/layout/index.js"
-        },
-        "./layout/*": {
-            "types": "./dist/layout/*/index.d.ts",
-            "svelte": "./dist/layout/*/index.js",
-            "default": "./dist/layout/*/index.js"
-        },
-        "./typography": {
-            "types": "./dist/typography/index.d.ts",
-            "svelte": "./dist/typography/index.js",
-            "default": "./dist/typography/index.js"
-        },
-        "./typography/*": {
-            "types": "./dist/typography/*/index.d.ts",
-            "svelte": "./dist/typography/*/index.js",
-            "default": "./dist/typography/*/index.js"
-        },
-        "./utilities": {
-            "types": "./dist/utilities/index.d.ts",
-            "svelte": "./dist/utilities/index.js",
-            "default": "./dist/utilities/index.js"
-        },
-        "./utilities/*": {
-            "types": "./dist/utilities/*/index.d.ts",
-            "svelte": "./dist/utilities/*/index.js",
-            "default": "./dist/utilities/*/index.js"
-        }
-    },
-    "files": [
-        "dist",
-        "!dist/**/*.test.*",
-        "!dist/**/*.spec.*"
-    ],
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
-        "build:package": "svelte-kit sync && svelte-package -o dist",
         "preview": "vite preview",
         "check": "svelte-kit sync && tsc --noEmit",
         "check:watch": "svelte-kit sync && tsc --noEmit --watch",
@@ -100,7 +45,6 @@
         "@storybook/sveltekit": "^10.2.0",
         "@sveltejs/adapter-auto": "^7.0.0",
         "@sveltejs/kit": "^2.50.1",
-        "@sveltejs/package": "^2.5.7",
         "@sveltejs/vite-plugin-svelte": "^6.2.4",
         "@tailwindcss/vite": "^4.1.18",
         "@vitest/browser-playwright": "^4.0.18",
