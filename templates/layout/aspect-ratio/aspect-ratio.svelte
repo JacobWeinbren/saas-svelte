@@ -28,7 +28,7 @@
 </script>
 
 <div
-	class={twMerge("relative overflow-hidden", className)}
+	class={twMerge("relative overflow-hidden flex items-center justify-center", className)}
 	style="aspect-ratio: {ratio};"
 	{...restProps}
 >
