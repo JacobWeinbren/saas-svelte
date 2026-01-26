@@ -83,11 +83,9 @@ body {
 	--leading-xl: var(--line-heights-xl);
 	--leading-2xl: var(--line-heights-2xl);
 
-	/* Fade animations */
 	--animate-fade-in: fade-in var(--durations-moderate) ease-out forwards;
 	--animate-fade-out: fade-out var(--durations-moderate) ease-in forwards;
 
-	/* Dialog animations - fade + scale (composed) */
 	--animate-dialog-in:
 		fade-in var(--durations-moderate) ease-out,
 		scale-in var(--durations-moderate) ease-out;
@@ -95,7 +93,6 @@ body {
 		fade-out var(--durations-moderate) ease-in,
 		scale-out var(--durations-moderate) ease-in;
 
-	/* Dialog slide animations - fade + slide (composed) */
 	--animate-dialog-slide-in:
 		fade-in var(--durations-moderate) ease-out,
 		slide-from-bottom var(--durations-slow) cubic-bezier(0.16, 1, 0.3, 1);
@@ -103,17 +100,14 @@ body {
 		fade-out var(--durations-moderate) ease-in,
 		slide-to-bottom var(--durations-moderate) ease-in;
 
-	/* Accordion animations - using theme's expand/collapse */
 	--animate-accordion-down: expand-height var(--durations-moderate) ease-out;
 	--animate-accordion-up: collapse-height var(--durations-moderate) ease-out;
 
-	/* Collapsible animations - fade + expand (composed) */
 	--animate-collapsible-down:
 		fade-in 200ms ease-out, expand-height 200ms ease-out;
 	--animate-collapsible-up:
 		fade-out 200ms ease-out, collapse-height 200ms ease-out;
 
-	/* Menu animations - fade + slide (composed) */
 	--animate-menu-in: fade-in var(--durations-fast) ease-out;
 	--animate-submenu-right:
 		fade-in var(--durations-fast) ease-out,
@@ -128,7 +122,6 @@ body {
 		fade-in var(--durations-fast) ease-out,
 		slide-from-top var(--durations-fast) ease-out;
 
-	/* Drawer animations - fade + slide-full (composed) */
 	--animate-drawer-in-left:
 		fade-in var(--durations-moderate) cubic-bezier(0.32, 0.72, 0, 1),
 		slide-from-left-full var(--durations-moderate)
@@ -158,7 +151,6 @@ body {
 		fade-out var(--durations-moderate) ease-in,
 		slide-to-bottom-full var(--durations-moderate) ease-in;
 
-	/* Action bar animations - fade + slide-full (composed) */
 	--animate-action-bar-in:
 		fade-in var(--durations-moderate) cubic-bezier(0.32, 0.72, 0, 1)
 			forwards,
@@ -168,7 +160,6 @@ body {
 		fade-out var(--durations-moderate) ease-in forwards,
 		slide-to-bottom-full var(--durations-moderate) ease-in forwards;
 
-	/* Skeleton - custom (unique to this project) */
 	@keyframes skeleton-shine {
 		from {
 			background-position: 200% 0;
