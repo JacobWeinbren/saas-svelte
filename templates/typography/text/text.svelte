@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from "tailwind-variants";
 
 	export const text = tv({
-		base: "wrap-break-word antialiased text-fg-default",
+		base: "wrap-break-word antialiased",
 		variants: {
 			size: {
 				xs: "text-xs leading-xs",

@@ -72,6 +72,15 @@ export const circlePattern = makePattern(['size', 'variant', 'colour', 'class', 
 export const boxPattern = makePattern(['as', 'class', 'children']);
 export const aspectRatioPattern = makePattern(['ratio', 'class', 'children']);
 
+export const gridPattern = makePattern(['columns', 'rows', 'gap', 'gapX', 'gapY', 'inline', 'class', 'children']);
+export const gridItemPattern = makePattern(['colSpan', 'rowSpan', 'colStart', 'colEnd', 'rowStart', 'rowEnd', 'class', 'children']);
+
+export const bleedPattern = makePattern(['inline', 'block', 'inlineStart', 'inlineEnd', 'blockStart', 'blockEnd', 'class', 'children']);
+
+export const centrePattern = makePattern(['inline', 'class', 'children']);
+export const squarePattern = makePattern(['size', 'class', 'children']);
+export const absoluteCentrePattern = makePattern(['axis', 'class', 'children']);
+
 export const headingPattern = makePattern(['as', 'size', 'weight', 'fontWeight', 'class', 'children']);
 export const emPattern = makePattern(['class', 'children']);
 export const markPattern = makePattern(['variant', 'colour', 'class', 'children']);
@@ -309,3 +318,7 @@ export const timelineConnectorPattern = makePattern(['class', 'children']);
 export const timelineContentPattern = makePattern(['flex', 'alignItems', 'width', 'class', 'children']);
 export const timelineTitlePattern = makePattern(['whiteSpace', 'class', 'children']);
 export const timelineDescriptionPattern = makePattern(['class', 'children']);
+
+export const containerPattern = makePattern(['maxW', 'fluid', 'centerContent', 'class', 'children']);
+
+export const flexPattern = makePattern(['direction', 'align', 'justify', 'wrap', 'basis', 'grow', 'shrink', 'gap', 'inline', 'class', 'children']);

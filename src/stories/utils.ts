@@ -181,6 +181,13 @@ export const stackDirections = ["row", "column", "row-reverse", "col-reverse"] a
 export const stackAlignOptions = ["start", "center", "end", "stretch", "baseline"] as const;
 export const stackJustifyOptions = ["start", "center", "end", "between", "around"] as const;
 
+// Layout component options
+export const containerSizes = ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "8xl", "full"] as const;
+export const flexDirections = ["row", "column", "row-reverse", "column-reverse"] as const;
+export const flexAlignOptions = ["start", "center", "end", "stretch", "baseline"] as const;
+export const flexJustifyOptions = ["start", "center", "end", "between", "around", "evenly"] as const;
+export const flexWrapOptions = ["wrap", "nowrap", "wrap-reverse"] as const;
+
 // Additional component options
 export const avatarVariants = ["solid", "subtle", "outline"] as const;
 export const kbdSizes = ["sm", "md", "lg"] as const;
@@ -286,6 +293,12 @@ export {
     circlePattern,
     boxPattern,
     aspectRatioPattern,
+    gridPattern,
+    gridItemPattern,
+    bleedPattern,
+    centrePattern,
+    squarePattern,
+    absoluteCentrePattern,
     headingPattern,
     emPattern,
     markPattern,
@@ -477,6 +490,8 @@ export {
     timelineContentPattern,
     timelineTitlePattern,
     timelineDescriptionPattern,
+    containerPattern,
+    flexPattern,
 } from "./exclude-patterns";
 
 
